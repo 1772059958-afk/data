@@ -1,0 +1,80 @@
+{
+  "split": "dev",
+  "source_run_id": "gold_dev_full",
+  "source_report": "reports/gold.gold_dev_full.json",
+  "merged_from": [
+    {
+      "run_id": "gold_dev_full_retry",
+      "newly_resolved": []
+    }
+  ],
+  "built_utc": "2026-10-15T15:07:02Z",
+  "rule": "an instance is kept only if the reference (gold) patch resolves it",
+  "why": "A gold-patch failure is an image defect, not a method result. Keeping such instances would cap every arm's resolved rate and skew the per-repository averages, because the broken images cluster by repository.",
+  "counts": {
+    "full": 23,
+    "kept": 15,
+    "excluded": 8
+  },
+  "exclusion_categories": {
+    "numpy_2_removed_alias": 5,
+    "test_fixture_missing_attribute": 2,
+    "build_dependency_fetch_failed": 1
+  },
+  "excluded": {
+    "pvlib__pvlib-python-1072": {
+      "repo": "pvlib",
+      "category": "numpy_2_removed_alias",
+      "detail": "The image ships NumPy 2.x, but the repository at this commit still uses aliases that 2.0 deleted (np.Inf, np.NaN, ...). The code cannot even be imported, so no patch can pass.",
+      "evidence": "E   AttributeError: `np.Inf` was removed in the NumPy 2.0 release. Use `np.inf` instead."
+    },
+    "pvlib__pvlib-python-1154": {
+      "repo": "pvlib",
+      "category": "numpy_2_removed_alias",
+      "detail": "The image ships NumPy 2.x, but the repository at this commit still uses aliases that 2.0 deleted (np.Inf, np.NaN, ...). The code cannot even be imported, so no patch can pass.",
+      "evidence": "E   AttributeError: `np.Inf` was removed in the NumPy 2.0 release. Use `np.inf` instead."
+    },
+    "pvlib__pvlib-python-1606": {
+      "repo": "pvlib",
+      "category": "numpy_2_removed_alias",
+      "detail": "The image ships NumPy 2.x, but the repository at this commit still uses aliases that 2.0 deleted (np.Inf, np.NaN, ...). The code cannot even be imported, so no patch can pass.",
+      "evidence": "E   AttributeError: `np.Inf` was removed in the NumPy 2.0 release. Use `np.inf` instead."
+    },
+    "pvlib__pvlib-python-1707": {
+      "repo": "pvlib",
+      "category": "numpy_2_removed_alias",
+      "detail": "The image ships NumPy 2.x, but the repository at this commit still uses aliases that 2.0 deleted (np.Inf, np.NaN, ...). The code cannot even be imported, so no patch can pass.",
+      "evidence": "E   AttributeError: `np.Inf` was removed in the NumPy 2.0 release. Use `np.inf` instead."
+    },
+    "pvlib__pvlib-python-1854": {
+      "repo": "pvlib",
+      "category": "numpy_2_removed_alias",
+      "detail": "The image ships NumPy 2.x, but the repository at this commit still uses aliases that 2.0 deleted (np.Inf, np.NaN, ...). The code cannot even be imported, so no patch can pass.",
+      "evidence": "E   AttributeError: `np.Inf` was removed in the NumPy 2.0 release. Use `np.inf` instead."
+    },
+    "pydicom__pydicom-1139": {
+      "repo": "pydicom",
+      "category": "test_fixture_missing_attribute",
+      "detail": "A test fixture did not set up a value the test then reads -- test-tooling drift inside the image, unrelated to the patch.",
+      "evidence": "E       AttributeError: 'TestBadValueRead' object has no attribute 'tag'"
+    },
+    "pydicom__pydicom-1413": {
+      "repo": "pydicom",
+      "category": "test_fixture_missing_attribute",
+      "detail": "A test fixture did not set up a value the test then reads -- test-tooling drift inside the image, unrelated to the patch.",
+      "evidence": "E       AttributeError: 'TestBadValueRead' object has no attribute 'tag'"
+    },
+    "pyvista__pyvista-4315": {
+      "repo": "pyvista",
+      "category": "build_dependency_fetch_failed",
+      "detail": "The test run builds the package in place and has to fetch build dependencies at test time. That fetch failed, so the tests never ran.",
+      "evidence": "pip._vendor.urllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host='files.pythonhosted.org', port=443): Read timed out."
+    }
+  },
+  "repositories_lost_entirely": [
+    "pvlib",
+    "pyvista"
+  ],
+  "instance_list": "data/frozen/instances_dev_gold_ok.txt",
+  "instance_list_sha256": "e45073cce1e5fe29dc5d0149e1caecc58f8c41d2134a78968d87ad494d34afa2"
+}

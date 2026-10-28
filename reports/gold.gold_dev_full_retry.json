@@ -1,0 +1,61 @@
+{
+    "total_instances": 8,
+    "submitted_instances": 8,
+    "completed_instances": 8,
+    "resolved_instances": 0,
+    "unresolved_instances": 8,
+    "infra_failure_instances": 0,
+    "ambiguous_failure_instances": 0,
+    "empty_patch_instances": 0,
+    "error_instances": 0,
+    "completed_ids": [
+        "pvlib__pvlib-python-1072",
+        "pvlib__pvlib-python-1154",
+        "pvlib__pvlib-python-1606",
+        "pvlib__pvlib-python-1707",
+        "pvlib__pvlib-python-1854",
+        "pydicom__pydicom-1139",
+        "pydicom__pydicom-1413",
+        "pyvista__pyvista-4315"
+    ],
+    "incomplete_ids": [],
+    "empty_patch_ids": [],
+    "submitted_ids": [
+        "pvlib__pvlib-python-1072",
+        "pvlib__pvlib-python-1154",
+        "pvlib__pvlib-python-1606",
+        "pvlib__pvlib-python-1707",
+        "pvlib__pvlib-python-1854",
+        "pydicom__pydicom-1139",
+        "pydicom__pydicom-1413",
+        "pyvista__pyvista-4315"
+    ],
+    "resolved_ids": [],
+    "unresolved_ids": [
+        "pvlib__pvlib-python-1072",
+        "pvlib__pvlib-python-1154",
+        "pvlib__pvlib-python-1606",
+        "pvlib__pvlib-python-1707",
+        "pvlib__pvlib-python-1854",
+        "pydicom__pydicom-1139",
+        "pydicom__pydicom-1413",
+        "pyvista__pyvista-4315"
+    ],
+    "infra_failure_ids": [],
+    "ambiguous_failure_ids": [],
+    "failure_reasons": {},
+    "error_ids": [],
+    "schema_version": 2,
+    "unstopped_instances": 0,
+    "unstopped_containers": [],
+    "unremoved_images": [
+        "swebench/sweb.eval.x86_64.pvlib_1776_pvlib-python-1072:latest",
+        "swebench/sweb.eval.x86_64.pvlib_1776_pvlib-python-1154:latest",
+        "swebench/sweb.eval.x86_64.pvlib_1776_pvlib-python-1606:latest",
+        "swebench/sweb.eval.x86_64.pvlib_1776_pvlib-python-1707:latest",
+        "swebench/sweb.eval.x86_64.pvlib_1776_pvlib-python-1854:latest",
+        "swebench/sweb.eval.x86_64.pydicom_1776_pydicom-1139:latest",
+        "swebench/sweb.eval.x86_64.pydicom_1776_pydicom-1413:latest",
+        "swebench/sweb.eval.x86_64.pyvista_1776_pyvista-4315:latest"
+    ]
+}

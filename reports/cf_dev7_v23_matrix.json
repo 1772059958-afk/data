@@ -1,0 +1,1227 @@
+{
+  "tag": "cf_dev7_v23",
+  "built_utc": "2026-10-23T04:45:01Z",
+  "what": "paired-branch counterfactual smoke run: shared prefix, fixed continuation, interactive escalation, standalone interactive. A connectivity check for the five-arm machinery, NOT an effect result.",
+  "caveats": [
+    "n is tiny: no ordering, no significance, no 'one arm is better' claim",
+    "routing thresholds are placeholders at 0.5",
+    "arm E switch probability is a placeholder at 0.5",
+    "repeats = 1"
+  ],
+  "model_config": {
+    "model": "deepseek-flash",
+    "thinking": true,
+    "effort": "low",
+    "max_tokens": 16384
+  },
+  "budget": {
+    "tier": "demo",
+    "tier_ceiling": {
+      "token": 200000,
+      "model_call": 12,
+      "tool_call": 20,
+      "wallclock_seconds": 600.0
+    },
+    "amendment": "config small tier is 32000 tokens, but one prefix measured 47009 tokens, so the budget rule fired on every instance and A/C/D/E all stopped. The demo tier is the amendment.",
+    "prefix_candidates": 2,
+    "interactive_model_calls": 6,
+    "interactive_tool_calls": 10,
+    "per_instance_cny": 2.0,
+    "total_cny": 6.0
+  },
+  "config": {
+    "version": "frozen_v1",
+    "hash": "710008a8dd826ff434da38f0a32f6686aa2573818bb98f59d416c09755e4e0f0"
+  },
+  "spent_cny": 0.865986,
+  "guard": {
+    "ceiling_cny": 6.0,
+    "spent_cny": 0.865986,
+    "remaining_cny": 5.134014,
+    "calls": 115,
+    "tokens": 1032249,
+    "approved": false
+  },
+  "predictions_file": "reports/cf_dev7_v23.jsonl",
+  "prediction_rows_per_arm": {
+    "A": 7,
+    "B": 7,
+    "C": 7,
+    "D": 7,
+    "E": 7,
+    "ESC": 7
+  },
+  "decisions": {
+    "marshmallow-code__marshmallow-1343": {
+      "A": "stop",
+      "C": "stop",
+      "D": "stop",
+      "E": "stop"
+    },
+    "marshmallow-code__marshmallow-1359": {
+      "A": "stop",
+      "C": "stop",
+      "D": "stop",
+      "E": "stop"
+    },
+    "pylint-dev__astroid-1196": {
+      "A": "fixed",
+      "C": "interactive",
+      "D": "interactive",
+      "E": "fixed"
+    },
+    "pylint-dev__astroid-1866": {
+      "A": "fixed",
+      "C": "interactive",
+      "D": "interactive",
+      "E": "interactive"
+    },
+    "pylint-dev__astroid-1978": {
+      "A": "fixed",
+      "C": "interactive",
+      "D": "interactive",
+      "E": "interactive"
+    },
+    "sqlfluff__sqlfluff-1625": {
+      "A": "fixed",
+      "C": "interactive",
+      "D": "interactive",
+      "E": "fixed"
+    },
+    "sqlfluff__sqlfluff-2419": {
+      "A": "stop",
+      "C": "stop",
+      "D": "stop",
+      "E": "stop"
+    }
+  },
+  "instances": [
+    {
+      "instance_id": "marshmallow-code__marshmallow-1343",
+      "features": {
+        "n_candidates": 2,
+        "n_applicable": 2,
+        "n_public_pass": 2,
+        "u_loc": 1.0,
+        "u_dup": 0.0,
+        "behavioural_signal": "behavioural",
+        "lacks_behavioural_signal": 0,
+        "localization_missing": false,
+        "context_files": [
+          "src/marshmallow/schema.py",
+          "src/marshmallow/fields.py"
+        ],
+        "remaining_token": 164968
+      },
+      "quadrant": null,
+      "escalation_necessary": false,
+      "prefix": {
+        "candidate_index": 0,
+        "cost_cny": 0.037467,
+        "calls": 3,
+        "tokens": 35032
+      },
+      "fixed": {
+        "cost_cny": 0.0,
+        "calls": 0,
+        "resolved": null,
+        "diff_lines": 10
+      },
+      "interactive": {
+        "cost_cny": 0.062876,
+        "calls": 7,
+        "resolved": null,
+        "ended_by": "model_call_budget+forced_final",
+        "diff_lines": 30
+      },
+      "standalone": {
+        "cost_cny": 0.013145,
+        "calls": 7,
+        "resolved": null,
+        "diff_lines": 11
+      },
+      "notes": [
+        "arm A stopped instead of continuing: freeze_when_public_candidate_passes"
+      ],
+      "prefix_trace": [
+        {
+          "step": "localize",
+          "calls": 1,
+          "cost_cny": 0.002681,
+          "files": [
+            "src/marshmallow/schema.py"
+          ],
+          "symbols": [
+            "_do_load",
+            "_invoke_field_validators"
+          ],
+          "finish_reason": "stop"
+        },
+        {
+          "step": "candidate_0",
+          "calls": 1,
+          "cost_cny": 0.032709,
+          "diff_lines": 2,
+          "validation": "pass",
+          "applies_cleanly": true,
+          "hunk_headers_repaired": 1,
+          "finish_reason": "stop",
+          "output_tokens": 3956,
+          "reasoning_tokens": 3821,
+          "reply_head": "```diff --- a/src/marshmallow/schema.py +++ b/src/marshmallow/schema.py @@ -863,6 +863,8 @@ class BaseSchema(base.SchemaABC):      def _invoke_field_validators(self, unmarshal, data, many): +        i",
+          "targets_outside_context": [],
+          "failure_classes": []
+        },
+        {
+          "step": "candidate_1",
+          "calls": 1,
+          "cost_cny": 0.037467,
+          "diff_lines": 2,
+          "validation": "pass",
+          "applies_cleanly": true,
+          "hunk_headers_repaired": 0,
+          "finish_reason": "stop",
+          "output_tokens": 1081,
+          "reasoning_tokens": 954,
+          "reply_head": "```diff --- a/src/marshmallow/schema.py +++ b/src/marshmallow/schema.py @@ -889,6 +889,8 @@ class BaseSchema(base.SchemaABC):          return data        def _invoke_field_validators(self, unmarshal, ",
+          "targets_outside_context": [],
+          "failure_classes": []
+        }
+      ],
+      "router_rules": [
+        {
+          "rule": "freeze_when_public_candidate_passes",
+          "route": "stop",
+          "reason": "early_stop_public_pass",
+          "fires": true,
+          "detail": "public validation passed on candidate#0; frozen candidate#0",
+          "calibrated": true
+        },
+        {
+          "rule": "stop_on_env_failure_after_one_recovery",
+          "route": "stop",
+          "reason": "stop_env_failure",
+          "fires": false,
+          "detail": "",
+          "calibrated": true
+        },
+        {
+          "rule": "stop_when_budget_insufficient",
+          "route": "stop",
+          "reason": "stop_budget_insufficient",
+          "fires": false,
+          "detail": "",
+          "calibrated": true
+        },
+        {
+          "rule": "interactive_on_wide_localization_disagreement",
+          "route": "interactive",
+          "reason": "interactive_on_wide_localization_disagreement",
+          "fires": true,
+          "detail": "u_loc=1.000 > 0.500 over 2 localisation passes",
+          "calibrated": true
+        },
+        {
+          "rule": "interactive_on_high_duplicate_rate",
+          "route": "interactive",
+          "reason": "interactive_on_high_duplicate_rate",
+          "fires": false,
+          "detail": "",
+          "calibrated": true
+        },
+        {
+          "rule": "interactive_on_out_of_scope_stack_evidence",
+          "route": "interactive",
+          "reason": "interactive_on_out_of_scope_stack_evidence",
+          "fires": false,
+          "detail": "",
+          "calibrated": true
+        },
+        {
+          "rule": "interactive_when_no_behavioural_signal",
+          "route": "interactive",
+          "reason": "interactive_when_no_behavioural_signal",
+          "fires": false,
+          "detail": "",
+          "calibrated": true
+        },
+        {
+          "rule": "fixed_continuation_otherwise",
+          "route": "fixed",
+          "reason": "fixed_continuation_otherwise",
+          "fires": true,
+          "detail": "no interactive trigger fired; continue the fixed workflow",
+          "calibrated": true
+        }
+      ]
+    },
+    {
+      "instance_id": "marshmallow-code__marshmallow-1359",
+      "features": {
+        "n_candidates": 2,
+        "n_applicable": 1,
+        "n_public_pass": 1,
+        "u_loc": 1.0,
+        "u_dup": 0.0,
+        "behavioural_signal": "behavioural",
+        "lacks_behavioural_signal": 0,
+        "localization_missing": false,
+        "context_files": [
+          "src/marshmallow/fields.py"
+        ],
+        "remaining_token": 150057
+      },
+      "quadrant": null,
+      "escalation_necessary": false,
+      "prefix": {
+        "candidate_index": 0,
+        "cost_cny": 0.094583,
+        "calls": 3,
+        "tokens": 49943
+      },
+      "fixed": {
+        "cost_cny": 0.0,
+        "calls": 0,
+        "resolved": null,
+        "diff_lines": 20
+      },
+      "interactive": {
+        "cost_cny": 0.011666,
+        "calls": 4,
+        "resolved": null,
+        "ended_by": "finish_tool",
+        "diff_lines": 11
+      },
+      "standalone": {
+        "cost_cny": 0.006862,
+        "calls": 6,
+        "resolved": null,
+        "diff_lines": 15
+      },
+      "notes": [
+        "arm A stopped instead of continuing: freeze_when_public_candidate_passes"
+      ],
+      "prefix_trace": [
+        {
+          "step": "localize",
+          "calls": 1,
+          "cost_cny": 0.00616,
+          "files": [
+            "src/marshmallow/fields.py"
+          ],
+          "symbols": [
+            "DateTime",
+            "_bind_to_schema"
+          ],
+          "finish_reason": "stop"
+        },
+        {
+          "step": "candidate_0",
+          "calls": 1,
+          "cost_cny": 0.028549,
+          "diff_lines": 11,
+          "validation": "pass",
+          "applies_cleanly": true,
+          "hunk_headers_repaired": 0,
+          "finish_reason": "stop",
+          "output_tokens": 1936,
+          "reasoning_tokens": 1737,
+          "reply_head": "```diff --- a/src/marshmallow/fields.py +++ b/src/marshmallow/fields.py @@ -1113,11 +1113,12 @@ class DateTime(Field):        def _bind_to_schema(self, field_name, schema):          super()._bind_to_s",
+          "targets_outside_context": [],
+          "failure_classes": []
+        },
+        {
+          "step": "candidate_1",
+          "calls": 1,
+          "cost_cny": 0.094583,
+          "diff_lines": 0,
+          "validation": "not_run",
+          "applies_cleanly": false,
+          "hunk_headers_repaired": 0,
+          "finish_reason": "length",
+          "output_tokens": 16384,
+          "reasoning_tokens": 16384,
+          "reply_head": "",
+          "targets_outside_context": [],
+          "failure_classes": []
+        }
+      ],
+      "router_rules": [
+        {
+          "rule": "freeze_when_public_candidate_passes",
+          "route": "stop",
+          "reason": "early_stop_public_pass",
+          "fires": true,
+          "detail": "public validation passed on candidate#0; frozen candidate#0",
+          "calibrated": true
+        },
+        {
+          "rule": "stop_on_env_failure_after_one_recovery",
+          "route": "stop",
+          "reason": "stop_env_failure",
+          "fires": false,
+          "detail": "",
+          "calibrated": true
+        },
+        {
+          "rule": "stop_when_budget_insufficient",
+          "route": "stop",
+          "reason": "stop_budget_insufficient",
+          "fires": false,
+          "detail": "",
+          "calibrated": true
+        },
+        {
+          "rule": "interactive_on_wide_localization_disagreement",
+          "route": "interactive",
+          "reason": "interactive_on_wide_localization_disagreement",
+          "fires": true,
+          "detail": "u_loc=1.000 > 0.500 over 2 localisation passes",
+          "calibrated": true
+        },
+        {
+          "rule": "interactive_on_high_duplicate_rate",
+          "route": "interactive",
+          "reason": "interactive_on_high_duplicate_rate",
+          "fires": false,
+          "detail": "",
+          "calibrated": true
+        },
+        {
+          "rule": "interactive_on_out_of_scope_stack_evidence",
+          "route": "interactive",
+          "reason": "interactive_on_out_of_scope_stack_evidence",
+          "fires": false,
+          "detail": "",
+          "calibrated": true
+        },
+        {
+          "rule": "interactive_when_no_behavioural_signal",
+          "route": "interactive",
+          "reason": "interactive_when_no_behavioural_signal",
+          "fires": false,
+          "detail": "",
+          "calibrated": true
+        },
+        {
+          "rule": "fixed_continuation_otherwise",
+          "route": "fixed",
+          "reason": "fixed_continuation_otherwise",
+          "fires": true,
+          "detail": "no interactive trigger fired; continue the fixed workflow",
+          "calibrated": true
+        }
+      ]
+    },
+    {
+      "instance_id": "pylint-dev__astroid-1196",
+      "features": {
+        "n_candidates": 2,
+        "n_applicable": 0,
+        "n_public_pass": 0,
+        "u_loc": 0.6666666666666667,
+        "u_dup": 0.0,
+        "behavioural_signal": "none",
+        "lacks_behavioural_signal": 1,
+        "localization_missing": false,
+        "context_files": [
+          "astroid/nodes/node_classes.py"
+        ],
+        "remaining_token": 152333
+      },
+      "quadrant": null,
+      "escalation_necessary": false,
+      "prefix": {
+        "candidate_index": null,
+        "cost_cny": 0.08176,
+        "calls": 3,
+        "tokens": 47667
+      },
+      "fixed": {
+        "cost_cny": 0.032981,
+        "calls": 1,
+        "resolved": null,
+        "diff_lines": 0
+      },
+      "interactive": {
+        "cost_cny": 0.013201,
+        "calls": 6,
+        "resolved": null,
+        "ended_by": "model_call_budget",
+        "diff_lines": 20
+      },
+      "standalone": {
+        "cost_cny": 0.017977,
+        "calls": 7,
+        "resolved": null,
+        "diff_lines": 18
+      },
+      "notes": [],
+      "prefix_trace": [
+        {
+          "step": "localize",
+          "calls": 1,
+          "cost_cny": 0.003327,
+          "files": [
+            "astroid/nodes/node_classes.py"
+          ],
+          "symbols": [
+            "Dict.getitem"
+          ],
+          "finish_reason": "stop"
+        },
+        {
+          "step": "candidate_0",
+          "calls": 1,
+          "cost_cny": 0.05256,
+          "diff_lines": 23,
+          "validation": "not_run",
+          "applies_cleanly": false,
+          "hunk_headers_repaired": 1,
+          "finish_reason": "stop",
+          "output_tokens": 8508,
+          "reasoning_tokens": 8258,
+          "reply_head": "```diff --- a/astroid/nodes/node_classes.py +++ b/astroid/nodes/node_classes.py @@ -2254,2 +2254,23 @@ -                return value.getitem(index, context) +                # We can't infer the value",
+          "targets_outside_context": [],
+          "failure_classes": []
+        },
+        {
+          "step": "candidate_1",
+          "calls": 1,
+          "cost_cny": 0.08176,
+          "diff_lines": 18,
+          "validation": "not_run",
+          "applies_cleanly": false,
+          "hunk_headers_repaired": 0,
+          "finish_reason": "stop",
+          "output_tokens": 7162,
+          "reasoning_tokens": 6907,
+          "reply_head": "```diff --- a/astroid/nodes/node_classes.py +++ b/astroid/nodes/node_classes.py @@ -2249,9 +2249,25 @@ class Dict(NodeNG, Instance):          for key, value in self.items:              if isinstance(k",
+          "targets_outside_context": [],
+          "failure_classes": []
+        }
+      ],
+      "router_rules": [
+        {
+          "rule": "freeze_when_public_candidate_passes",
+          "route": "stop",
+          "reason": "early_stop_public_pass",
+          "fires": false,
+          "detail": "",
+          "calibrated": true
+        },
+        {
+          "rule": "stop_on_env_failure_after_one_recovery",
+          "route": "stop",
+          "reason": "stop_env_failure",
+          "fires": false,
+          "detail": "",
+          "calibrated": true
+        },
+        {
+          "rule": "stop_when_budget_insufficient",
+          "route": "stop",
+          "reason": "stop_budget_insufficient",
+          "fires": false,
+          "detail": "",
+          "calibrated": true
+        },
+        {
+          "rule": "interactive_on_wide_localization_disagreement",
+          "route": "interactive",
+          "reason": "interactive_on_wide_localization_disagreement",
+          "fires": true,
+          "detail": "u_loc=0.667 > 0.500 over 2 localisation passes",
+          "calibrated": true
+        },
+        {
+          "rule": "interactive_on_high_duplicate_rate",
+          "route": "interactive",
+          "reason": "interactive_on_high_duplicate_rate",
+          "fires": false,
+          "detail": "",
+          "calibrated": true
+        },
+        {
+          "rule": "interactive_on_out_of_scope_stack_evidence",
+          "route": "interactive",
+          "reason": "interactive_on_out_of_scope_stack_evidence",
+          "fires": false,
+          "detail": "",
+          "calibrated": true
+        },
+        {
+          "rule": "interactive_when_no_behavioural_signal",
+          "route": "interactive",
+          "reason": "interactive_when_no_behavioural_signal",
+          "fires": true,
+          "detail": "no usable behavioural signal (none); checks_run=0",
+          "calibrated": true
+        },
+        {
+          "rule": "fixed_continuation_otherwise",
+          "route": "fixed",
+          "reason": "fixed_continuation_otherwise",
+          "fires": true,
+          "detail": "no interactive trigger fired; continue the fixed workflow",
+          "calibrated": true
+        }
+      ]
+    },
+    {
+      "instance_id": "pylint-dev__astroid-1866",
+      "features": {
+        "n_candidates": 2,
+        "n_applicable": 2,
+        "n_public_pass": 0,
+        "u_loc": 1.0,
+        "u_dup": 0.0,
+        "behavioural_signal": "none",
+        "lacks_behavioural_signal": 1,
+        "localization_missing": false,
+        "context_files": [
+          "astroid/brain/brain_builtin_inference.py",
+          "astroid/nodes/node_ng.py"
+        ],
+        "remaining_token": 161919
+      },
+      "quadrant": null,
+      "escalation_necessary": false,
+      "prefix": {
+        "candidate_index": 1,
+        "cost_cny": 0.044791,
+        "calls": 3,
+        "tokens": 38081
+      },
+      "fixed": {
+        "cost_cny": 0.026516,
+        "calls": 1,
+        "resolved": null,
+        "diff_lines": 9
+      },
+      "interactive": {
+        "cost_cny": 0.016617,
+        "calls": 6,
+        "resolved": null,
+        "ended_by": "model_call_budget",
+        "diff_lines": 14
+      },
+      "standalone": {
+        "cost_cny": 0.005391,
+        "calls": 6,
+        "resolved": null,
+        "diff_lines": 13
+      },
+      "notes": [],
+      "prefix_trace": [
+        {
+          "step": "localize",
+          "calls": 1,
+          "cost_cny": 0.001652,
+          "files": [
+            "astroid/brain/brain_builtin_inference.py"
+          ],
+          "symbols": [
+            "_infer_str_format_call"
+          ],
+          "finish_reason": "stop"
+        },
+        {
+          "step": "candidate_0",
+          "calls": 1,
+          "cost_cny": 0.021791,
+          "diff_lines": 4,
+          "validation": "not_applicable",
+          "applies_cleanly": true,
+          "hunk_headers_repaired": 0,
+          "finish_reason": "stop",
+          "output_tokens": 1294,
+          "reasoning_tokens": 1146,
+          "reply_head": "```diff --- a/astroid/brain/brain_builtin_inference.py +++ b/astroid/brain/brain_builtin_inference.py @@ -953,8 +953,8 @@        try:          formatted_string = format_template.format(*pos_values, **",
+          "targets_outside_context": [],
+          "failure_classes": []
+        },
+        {
+          "step": "candidate_1",
+          "calls": 1,
+          "cost_cny": 0.044791,
+          "diff_lines": 2,
+          "validation": "not_applicable",
+          "applies_cleanly": true,
+          "hunk_headers_repaired": 1,
+          "finish_reason": "stop",
+          "output_tokens": 5640,
+          "reasoning_tokens": 5521,
+          "reply_head": "```diff --- a/astroid/brain/brain_builtin_inference.py +++ b/astroid/brain/brain_builtin_inference.py @@ -953,7 +953,7 @@      try:          formatted_string = format_template.format(*pos_values, **ke",
+          "targets_outside_context": [],
+          "failure_classes": []
+        }
+      ],
+      "router_rules": [
+        {
+          "rule": "freeze_when_public_candidate_passes",
+          "route": "stop",
+          "reason": "early_stop_public_pass",
+          "fires": false,
+          "detail": "",
+          "calibrated": true
+        },
+        {
+          "rule": "stop_on_env_failure_after_one_recovery",
+          "route": "stop",
+          "reason": "stop_env_failure",
+          "fires": false,
+          "detail": "",
+          "calibrated": true
+        },
+        {
+          "rule": "stop_when_budget_insufficient",
+          "route": "stop",
+          "reason": "stop_budget_insufficient",
+          "fires": false,
+          "detail": "",
+          "calibrated": true
+        },
+        {
+          "rule": "interactive_on_wide_localization_disagreement",
+          "route": "interactive",
+          "reason": "interactive_on_wide_localization_disagreement",
+          "fires": true,
+          "detail": "u_loc=1.000 > 0.500 over 2 localisation passes",
+          "calibrated": true
+        },
+        {
+          "rule": "interactive_on_high_duplicate_rate",
+          "route": "interactive",
+          "reason": "interactive_on_high_duplicate_rate",
+          "fires": false,
+          "detail": "",
+          "calibrated": true
+        },
+        {
+          "rule": "interactive_on_out_of_scope_stack_evidence",
+          "route": "interactive",
+          "reason": "interactive_on_out_of_scope_stack_evidence",
+          "fires": false,
+          "detail": "",
+          "calibrated": true
+        },
+        {
+          "rule": "interactive_when_no_behavioural_signal",
+          "route": "interactive",
+          "reason": "interactive_when_no_behavioural_signal",
+          "fires": true,
+          "detail": "no usable behavioural signal (none); checks_run=0",
+          "calibrated": true
+        },
+        {
+          "rule": "fixed_continuation_otherwise",
+          "route": "fixed",
+          "reason": "fixed_continuation_otherwise",
+          "fires": true,
+          "detail": "no interactive trigger fired; continue the fixed workflow",
+          "calibrated": true
+        }
+      ]
+    },
+    {
+      "instance_id": "pylint-dev__astroid-1978",
+      "features": {
+        "n_candidates": 2,
+        "n_applicable": 2,
+        "n_public_pass": 0,
+        "u_loc": 0.0,
+        "u_dup": 0.0,
+        "behavioural_signal": "none",
+        "lacks_behavioural_signal": 1,
+        "localization_missing": false,
+        "context_files": [
+          "astroid/raw_building.py"
+        ],
+        "remaining_token": 182184
+      },
+      "quadrant": null,
+      "escalation_necessary": false,
+      "prefix": {
+        "candidate_index": 0,
+        "cost_cny": 0.03117,
+        "calls": 3,
+        "tokens": 17816
+      },
+      "fixed": {
+        "cost_cny": 0.001937,
+        "calls": 1,
+        "resolved": null,
+        "diff_lines": 16
+      },
+      "interactive": {
+        "cost_cny": 0.075045,
+        "calls": 7,
+        "resolved": null,
+        "ended_by": "model_call_budget+forced_final",
+        "diff_lines": 26
+      },
+      "standalone": {
+        "cost_cny": 0.00627,
+        "calls": 6,
+        "resolved": null,
+        "diff_lines": 13
+      },
+      "notes": [],
+      "prefix_trace": [
+        {
+          "step": "localize",
+          "calls": 1,
+          "cost_cny": 0.007281,
+          "files": [
+            "astroid/raw_building.py"
+          ],
+          "symbols": [
+            "_build_from_module"
+          ],
+          "finish_reason": "stop"
+        },
+        {
+          "step": "candidate_0",
+          "calls": 1,
+          "cost_cny": 0.018561,
+          "diff_lines": 4,
+          "validation": "not_applicable",
+          "applies_cleanly": true,
+          "hunk_headers_repaired": 0,
+          "finish_reason": "stop",
+          "output_tokens": 1451,
+          "reasoning_tokens": 1291,
+          "reply_head": "```diff --- a/astroid/raw_building.py +++ b/astroid/raw_building.py @@ -467,10 +467,12 @@          if real_name != self._module.__name__:              # check if it sounds valid and then add an import",
+          "targets_outside_context": [],
+          "failure_classes": []
+        },
+        {
+          "step": "candidate_1",
+          "calls": 1,
+          "cost_cny": 0.03117,
+          "diff_lines": 4,
+          "validation": "not_applicable",
+          "applies_cleanly": true,
+          "hunk_headers_repaired": 0,
+          "finish_reason": "stop",
+          "output_tokens": 3062,
+          "reasoning_tokens": 2926,
+          "reply_head": "```diff --- a/astroid/raw_building.py +++ b/astroid/raw_building.py @@ -465,7 +465,9 @@ class InspectBuilder:              # check if it sounds valid and then add an import node, else use a           ",
+          "targets_outside_context": [],
+          "failure_classes": []
+        }
+      ],
+      "router_rules": [
+        {
+          "rule": "freeze_when_public_candidate_passes",
+          "route": "stop",
+          "reason": "early_stop_public_pass",
+          "fires": false,
+          "detail": "",
+          "calibrated": true
+        },
+        {
+          "rule": "stop_on_env_failure_after_one_recovery",
+          "route": "stop",
+          "reason": "stop_env_failure",
+          "fires": false,
+          "detail": "",
+          "calibrated": true
+        },
+        {
+          "rule": "stop_when_budget_insufficient",
+          "route": "stop",
+          "reason": "stop_budget_insufficient",
+          "fires": false,
+          "detail": "",
+          "calibrated": true
+        },
+        {
+          "rule": "interactive_on_wide_localization_disagreement",
+          "route": "interactive",
+          "reason": "interactive_on_wide_localization_disagreement",
+          "fires": false,
+          "detail": "",
+          "calibrated": true
+        },
+        {
+          "rule": "interactive_on_high_duplicate_rate",
+          "route": "interactive",
+          "reason": "interactive_on_high_duplicate_rate",
+          "fires": false,
+          "detail": "",
+          "calibrated": true
+        },
+        {
+          "rule": "interactive_on_out_of_scope_stack_evidence",
+          "route": "interactive",
+          "reason": "interactive_on_out_of_scope_stack_evidence",
+          "fires": false,
+          "detail": "",
+          "calibrated": true
+        },
+        {
+          "rule": "interactive_when_no_behavioural_signal",
+          "route": "interactive",
+          "reason": "interactive_when_no_behavioural_signal",
+          "fires": true,
+          "detail": "no usable behavioural signal (none); checks_run=0",
+          "calibrated": true
+        },
+        {
+          "rule": "fixed_continuation_otherwise",
+          "route": "fixed",
+          "reason": "fixed_continuation_otherwise",
+          "fires": true,
+          "detail": "no interactive trigger fired; continue the fixed workflow",
+          "calibrated": true
+        }
+      ]
+    },
+    {
+      "instance_id": "sqlfluff__sqlfluff-1625",
+      "features": {
+        "n_candidates": 2,
+        "n_applicable": 2,
+        "n_public_pass": 0,
+        "u_loc": 1.0,
+        "u_dup": 0.0,
+        "behavioural_signal": "behavioural",
+        "lacks_behavioural_signal": 0,
+        "localization_missing": false,
+        "context_files": [
+          "src/sqlfluff/rules/L031.py"
+        ],
+        "remaining_token": 171719
+      },
+      "quadrant": null,
+      "escalation_necessary": false,
+      "prefix": {
+        "candidate_index": 0,
+        "cost_cny": 0.09682,
+        "calls": 3,
+        "tokens": 28281
+      },
+      "fixed": {
+        "cost_cny": 0.047492,
+        "calls": 1,
+        "resolved": null,
+        "diff_lines": 17
+      },
+      "interactive": {
+        "cost_cny": 0.0594,
+        "calls": 7,
+        "resolved": null,
+        "ended_by": "model_call_budget+forced_final",
+        "diff_lines": 14
+      },
+      "standalone": {
+        "cost_cny": 0.010297,
+        "calls": 7,
+        "resolved": null,
+        "diff_lines": 19
+      },
+      "notes": [],
+      "prefix_trace": [
+        {
+          "step": "localize",
+          "calls": 1,
+          "cost_cny": 0.024969,
+          "files": [
+            "src/sqlfluff/rules/L031.py"
+          ],
+          "symbols": [
+            "Rule_L031"
+          ],
+          "finish_reason": "stop"
+        },
+        {
+          "step": "candidate_0",
+          "calls": 1,
+          "cost_cny": 0.062015,
+          "diff_lines": 4,
+          "validation": "fail",
+          "applies_cleanly": true,
+          "hunk_headers_repaired": 0,
+          "finish_reason": "stop",
+          "output_tokens": 8735,
+          "reasoning_tokens": 8563,
+          "reply_head": "```diff --- a/src/sqlfluff/rules/L031.py +++ b/src/sqlfluff/rules/L031.py @@ -149,10 +149,14 @@      def _lint_aliases_in_join(          self, base_table, from_expression_elements, column_reference_se",
+          "targets_outside_context": [],
+          "failure_classes": [
+            "behaviour_assertion"
+          ]
+        },
+        {
+          "step": "candidate_1",
+          "calls": 1,
+          "cost_cny": 0.09682,
+          "diff_lines": 5,
+          "validation": "fail",
+          "applies_cleanly": true,
+          "hunk_headers_repaired": 1,
+          "finish_reason": "stop",
+          "output_tokens": 8638,
+          "reasoning_tokens": 8461,
+          "reply_head": "```diff --- a/src/sqlfluff/rules/L031.py +++ b/src/sqlfluff/rules/L031.py @@ -86,9 +86,13 @@              for clause in from_clause_and_after:                  for from_expression_element in clause.re",
+          "targets_outside_context": [],
+          "failure_classes": [
+            "behaviour_assertion"
+          ]
+        }
+      ],
+      "router_rules": [
+        {
+          "rule": "freeze_when_public_candidate_passes",
+          "route": "stop",
+          "reason": "early_stop_public_pass",
+          "fires": false,
+          "detail": "",
+          "calibrated": true
+        },
+        {
+          "rule": "stop_on_env_failure_after_one_recovery",
+          "route": "stop",
+          "reason": "stop_env_failure",
+          "fires": false,
+          "detail": "",
+          "calibrated": true
+        },
+        {
+          "rule": "stop_when_budget_insufficient",
+          "route": "stop",
+          "reason": "stop_budget_insufficient",
+          "fires": false,
+          "detail": "",
+          "calibrated": true
+        },
+        {
+          "rule": "interactive_on_wide_localization_disagreement",
+          "route": "interactive",
+          "reason": "interactive_on_wide_localization_disagreement",
+          "fires": true,
+          "detail": "u_loc=1.000 > 0.500 over 2 localisation passes",
+          "calibrated": true
+        },
+        {
+          "rule": "interactive_on_high_duplicate_rate",
+          "route": "interactive",
+          "reason": "interactive_on_high_duplicate_rate",
+          "fires": false,
+          "detail": "",
+          "calibrated": true
+        },
+        {
+          "rule": "interactive_on_out_of_scope_stack_evidence",
+          "route": "interactive",
+          "reason": "interactive_on_out_of_scope_stack_evidence",
+          "fires": false,
+          "detail": "",
+          "calibrated": true
+        },
+        {
+          "rule": "interactive_when_no_behavioural_signal",
+          "route": "interactive",
+          "reason": "interactive_when_no_behavioural_signal",
+          "fires": false,
+          "detail": "",
+          "calibrated": true
+        },
+        {
+          "rule": "fixed_continuation_otherwise",
+          "route": "fixed",
+          "reason": "fixed_continuation_otherwise",
+          "fires": true,
+          "detail": "no interactive trigger fired; continue the fixed workflow",
+          "calibrated": true
+        }
+      ]
+    },
+    {
+      "instance_id": "sqlfluff__sqlfluff-2419",
+      "features": {
+        "n_candidates": 2,
+        "n_applicable": 2,
+        "n_public_pass": 2,
+        "u_loc": 1.0,
+        "u_dup": 0.0,
+        "behavioural_signal": "behavioural",
+        "lacks_behavioural_signal": 0,
+        "localization_missing": false,
+        "context_files": [
+          "src/sqlfluff/rules/L060.py"
+        ],
+        "remaining_token": 192175
+      },
+      "quadrant": null,
+      "escalation_necessary": false,
+      "prefix": {
+        "candidate_index": 0,
+        "cost_cny": 0.023483,
+        "calls": 3,
+        "tokens": 7825
+      },
+      "fixed": {
+        "cost_cny": 0.0,
+        "calls": 0,
+        "resolved": null,
+        "diff_lines": 12
+      },
+      "interactive": {
+        "cost_cny": 0.039571,
+        "calls": 7,
+        "resolved": null,
+        "ended_by": "model_call_budget",
+        "diff_lines": 0
+      },
+      "standalone": {
+        "cost_cny": 0.008673,
+        "calls": 7,
+        "resolved": null,
+        "diff_lines": 22
+      },
+      "notes": [
+        "arm A stopped instead of continuing: freeze_when_public_candidate_passes"
+      ],
+      "prefix_trace": [
+        {
+          "step": "localize",
+          "calls": 1,
+          "cost_cny": 0.002308,
+          "files": [
+            "src/sqlfluff/rules/L060.py"
+          ],
+          "symbols": [
+            "Rule_L060",
+            "_eval"
+          ],
+          "finish_reason": "stop"
+        },
+        {
+          "step": "candidate_0",
+          "calls": 1,
+          "cost_cny": 0.014598,
+          "diff_lines": 6,
+          "validation": "pass",
+          "applies_cleanly": true,
+          "hunk_headers_repaired": 0,
+          "finish_reason": "stop",
+          "output_tokens": 2853,
+          "reasoning_tokens": 2744,
+          "reply_head": "```diff --- a/src/sqlfluff/rules/L060.py +++ b/src/sqlfluff/rules/L060.py @@ -59,4 +59,8 @@ class Rule_L060(BaseRule):              ],          )   -        return LintResult(context.segment, [fix]) +",
+          "targets_outside_context": [],
+          "failure_classes": []
+        },
+        {
+          "step": "candidate_1",
+          "calls": 1,
+          "cost_cny": 0.023483,
+          "diff_lines": 6,
+          "validation": "pass",
+          "applies_cleanly": true,
+          "hunk_headers_repaired": 1,
+          "finish_reason": "stop",
+          "output_tokens": 2183,
+          "reasoning_tokens": 2072,
+          "reply_head": "```diff --- a/src/sqlfluff/rules/L060.py +++ b/src/sqlfluff/rules/L060.py @@ -59,4 +59,7 @@ class Rule_L060(BaseRule):              ],          )   -        return LintResult(context.segment, [fix]) +",
+          "targets_outside_context": [],
+          "failure_classes": []
+        }
+      ],
+      "router_rules": [
+        {
+          "rule": "freeze_when_public_candidate_passes",
+          "route": "stop",
+          "reason": "early_stop_public_pass",
+          "fires": true,
+          "detail": "public validation passed on candidate#0; frozen candidate#0",
+          "calibrated": true
+        },
+        {
+          "rule": "stop_on_env_failure_after_one_recovery",
+          "route": "stop",
+          "reason": "stop_env_failure",
+          "fires": false,
+          "detail": "",
+          "calibrated": true
+        },
+        {
+          "rule": "stop_when_budget_insufficient",
+          "route": "stop",
+          "reason": "stop_budget_insufficient",
+          "fires": false,
+          "detail": "",
+          "calibrated": true
+        },
+        {
+          "rule": "interactive_on_wide_localization_disagreement",
+          "route": "interactive",
+          "reason": "interactive_on_wide_localization_disagreement",
+          "fires": true,
+          "detail": "u_loc=1.000 > 0.500 over 2 localisation passes",
+          "calibrated": true
+        },
+        {
+          "rule": "interactive_on_high_duplicate_rate",
+          "route": "interactive",
+          "reason": "interactive_on_high_duplicate_rate",
+          "fires": false,
+          "detail": "",
+          "calibrated": true
+        },
+        {
+          "rule": "interactive_on_out_of_scope_stack_evidence",
+          "route": "interactive",
+          "reason": "interactive_on_out_of_scope_stack_evidence",
+          "fires": false,
+          "detail": "",
+          "calibrated": true
+        },
+        {
+          "rule": "interactive_when_no_behavioural_signal",
+          "route": "interactive",
+          "reason": "interactive_when_no_behavioural_signal",
+          "fires": false,
+          "detail": "",
+          "calibrated": true
+        },
+        {
+          "rule": "fixed_continuation_otherwise",
+          "route": "fixed",
+          "reason": "fixed_continuation_otherwise",
+          "fires": true,
+          "detail": "no interactive trigger fired; continue the fixed workflow",
+          "calibrated": true
+        }
+      ]
+    }
+  ],
+  "quadrants_before_scoring": {
+    "counts": {
+      "Q1_double_success": 0,
+      "Q2_fixed_only": 0,
+      "Q3_interactive_only": 0,
+      "Q4_double_failure": 0
+    },
+    "meanings": {
+      "Q1_double_success": "both branches solve it: escalating wastes the interactive budget",
+      "Q2_fixed_only": "only the fixed branch solves it: escalating makes the answer worse",
+      "Q3_interactive_only": "only interaction solves it: this is what the router must find",
+      "Q4_double_failure": "neither solves it: escalating is futile"
+    },
+    "scored": 0,
+    "unscored": [
+      "marshmallow-code__marshmallow-1343",
+      "marshmallow-code__marshmallow-1359",
+      "pylint-dev__astroid-1196",
+      "pylint-dev__astroid-1866",
+      "pylint-dev__astroid-1978",
+      "sqlfluff__sqlfluff-1625",
+      "sqlfluff__sqlfluff-2419"
+    ],
+    "escalation_necessary_share": null,
+    "wasted_share": null
+  },
+  "failures": []
+}

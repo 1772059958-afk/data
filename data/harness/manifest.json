@@ -1,0 +1,70 @@
+{
+  "purpose": "Input for swebench.harness.run_evaluation (schema v2: carries image / eval_script / log_parser / eval_type).",
+  "dataset": "SWE-bench/SWE-bench_Lite",
+  "endpoint": "https://hf-mirror.com",
+  "upstream_revision": "b0dde1093fe417d83b7184254edf8199c1f0dff5",
+  "fetched_utc": "2026-10-15T13:40:00Z",
+  "why_two_copies": "data/raw/*.parquet froze the instance text at the princeton-nlp namespace and is the record of provenance. That copy has no `image` column, which harness >= 4.x requires. The files here are the same 23/300 instance ids from the SWE-bench namespace, fetched to satisfy the harness. Instance id sets were compared and are identical.",
+  "splits": {
+    "dev": {
+      "local_file": "data/harness/dev.parquet",
+      "source_url": "https://hf-mirror.com/api/datasets/SWE-bench/SWE-bench_Lite/parquet/default/dev/0.parquet",
+      "sha256": "B90BCBFACA1B5F65155500124A977876C264A4003AB384ACA4DFC39A54BEF89F",
+      "bytes": 217277,
+      "n_instances": 23,
+      "columns": [
+        "base_commit",
+        "created_at",
+        "difficulty",
+        "environment_setup_commit",
+        "eval_type",
+        "image",
+        "instance_id",
+        "log_parser",
+        "repo",
+        "version",
+        "patch",
+        "test_patch",
+        "eval_script",
+        "problem_statement",
+        "hints_text",
+        "FAIL_TO_PASS",
+        "PASS_TO_PASS"
+      ],
+      "instance_ids_match_data_raw": true
+    },
+    "test": {
+      "local_file": "data/harness/test.parquet",
+      "source_url": "https://hf-mirror.com/api/datasets/SWE-bench/SWE-bench_Lite/parquet/default/test/0.parquet",
+      "sha256": "438E281D80587AA7BE470896CE410557002FDE02D2CEEE3E099331D308F62DD3",
+      "bytes": 2702170,
+      "n_instances": 300,
+      "columns": [
+        "base_commit",
+        "created_at",
+        "difficulty",
+        "environment_setup_commit",
+        "eval_type",
+        "image",
+        "instance_id",
+        "log_parser",
+        "repo",
+        "version",
+        "patch",
+        "test_patch",
+        "eval_script",
+        "problem_statement",
+        "hints_text",
+        "FAIL_TO_PASS",
+        "PASS_TO_PASS"
+      ],
+      "instance_ids_match_data_raw": true
+    }
+  },
+  "eval_yaml": {
+    "local_file": "data/harness/eval.yaml",
+    "source_url": "https://hf-mirror.com/datasets/SWE-bench/SWE-bench_Lite/raw/main/eval.yaml",
+    "sha256": "320968B3F72325AE76852D6EE3F334F1DF7601E73E8FB15627D418B14BE9E4D5"
+  },
+  "image_naming_rule": "swebench/sweb.eval.x86_64.<instance_id with '__' -> '_1776_'>:latest"
+}

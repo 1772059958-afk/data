@@ -1,0 +1,220 @@
+{
+  "tag": "cf_dev4",
+  "source_reports": [
+    "A <- cf_dev4-A.cf_dev4.json",
+    "B <- cf_dev4-B.cf_dev4.json",
+    "C <- cf_dev4-C.cf_dev4.json",
+    "D <- cf_dev4-D.cf_dev4.json",
+    "E <- cf_dev4-E.cf_dev4.json",
+    "ESC <- cf_dev4-ESC.cf_dev4.json"
+  ],
+  "scored_instances": 4,
+  "unscored_instances": [],
+  "quadrants": {
+    "counts": {
+      "Q1_double_success": 0,
+      "Q2_fixed_only": 1,
+      "Q3_interactive_only": 1,
+      "Q4_double_failure": 2
+    },
+    "meanings": {
+      "Q1_double_success": "both branches solve it: escalating wastes the interactive budget",
+      "Q2_fixed_only": "only the fixed branch solves it: escalating makes the answer worse",
+      "Q3_interactive_only": "only interaction solves it: this is what the router must find",
+      "Q4_double_failure": "neither solves it: escalating is futile"
+    },
+    "scored": 4,
+    "unscored": [],
+    "escalation_necessary_share": 0.25,
+    "wasted_share": 0.75
+  },
+  "features": [
+    {
+      "feature": "u_loc",
+      "direction": "higher escalates",
+      "n": 4,
+      "n_positive": 1,
+      "auc": 0.3333
+    },
+    {
+      "feature": "u_dup",
+      "direction": "higher escalates",
+      "n": 4,
+      "n_positive": 1,
+      "auc": 0.5
+    },
+    {
+      "feature": "lacks_behavioural_signal",
+      "direction": "higher escalates",
+      "n": 4,
+      "n_positive": 1,
+      "auc": 0.6667
+    },
+    {
+      "feature": "n_public_pass",
+      "direction": "lower escalates",
+      "n": 4,
+      "n_positive": 1,
+      "auc": 0.6667
+    },
+    {
+      "feature": "n_applicable",
+      "direction": "lower escalates",
+      "n": 4,
+      "n_positive": 1,
+      "auc": 1.0
+    }
+  ],
+  "policies": [
+    {
+      "policy": "A_fixed_only",
+      "resolved": 1,
+      "total": 4,
+      "resolved_rate": 0.25,
+      "cost_cny": 0.924499,
+      "cost_per_resolved_cny": 0.9245,
+      "escalations": 0,
+      "escalation_share": 0.0
+    },
+    {
+      "policy": "C_escalate_all",
+      "resolved": 1,
+      "total": 4,
+      "resolved_rate": 0.25,
+      "cost_cny": 0.863415,
+      "cost_per_resolved_cny": 0.8634,
+      "escalations": 4,
+      "escalation_share": 1.0
+    },
+    {
+      "policy": "oracle",
+      "resolved": 2,
+      "total": 4,
+      "resolved_rate": 0.5,
+      "cost_cny": 0.842839,
+      "cost_per_resolved_cny": 0.4214,
+      "escalations": 1,
+      "escalation_share": 0.25
+    },
+    {
+      "policy": "D_actual",
+      "resolved": 2,
+      "total": 4,
+      "resolved_rate": 0.5,
+      "cost_cny": 0.831695,
+      "cost_per_resolved_cny": 0.4158,
+      "escalations": 3,
+      "escalation_share": 0.75
+    },
+    {
+      "policy": "E_actual",
+      "resolved": 1,
+      "total": 4,
+      "resolved_rate": 0.25,
+      "cost_cny": 0.956988,
+      "cost_per_resolved_cny": 0.957,
+      "escalations": 1,
+      "escalation_share": 0.25
+    }
+  ],
+  "oracle_gap_closure": {
+    "fixed_resolved": 1,
+    "router_resolved": 2,
+    "oracle_resolved": 2,
+    "headroom": 1,
+    "gained": 1,
+    "gap_closure": 1.0,
+    "fixed_cost_cny": 0.924499,
+    "router_cost_cny": 0.831695,
+    "oracle_cost_cny": 0.842839,
+    "note": "gap_closure is undefined when the oracle cannot beat the fixed branch, because there is no headroom to close"
+  },
+  "arm_equivalence": {
+    "C": {
+      "identical_to_C": true,
+      "escalations": 3
+    },
+    "D": {
+      "identical_to_C": true,
+      "escalations": 3
+    },
+    "E": {
+      "identical_to_C": false,
+      "escalations": 1
+    }
+  },
+  "per_instance": [
+    {
+      "instance_id": "marshmallow-code__marshmallow-1343",
+      "fixed_resolved": true,
+      "interactive_resolved": false,
+      "standalone_resolved": false,
+      "quadrant": "Q2_fixed_only",
+      "u_loc": 1.0,
+      "u_dup": 0.0,
+      "n_public_pass": 2,
+      "signal": "behavioural",
+      "prefix_cost_cny": 0.105,
+      "decisions": {
+        "A": "stop",
+        "C": "stop",
+        "D": "stop",
+        "E": "stop"
+      }
+    },
+    {
+      "instance_id": "pylint-dev__astroid-1196",
+      "fixed_resolved": false,
+      "interactive_resolved": true,
+      "standalone_resolved": false,
+      "quadrant": "Q3_interactive_only",
+      "u_loc": 0.6666666666666667,
+      "u_dup": 0.0,
+      "n_public_pass": 0,
+      "signal": "none",
+      "prefix_cost_cny": 0.2789,
+      "decisions": {
+        "A": "fixed",
+        "C": "interactive",
+        "D": "interactive",
+        "E": "fixed"
+      }
+    },
+    {
+      "instance_id": "pylint-dev__astroid-1978",
+      "fixed_resolved": false,
+      "interactive_resolved": false,
+      "standalone_resolved": false,
+      "quadrant": "Q4_double_failure",
+      "u_loc": 0.0,
+      "u_dup": 0.0,
+      "n_public_pass": 0,
+      "signal": "none",
+      "prefix_cost_cny": 0.0684,
+      "decisions": {
+        "A": "fixed",
+        "C": "interactive",
+        "D": "interactive",
+        "E": "interactive"
+      }
+    },
+    {
+      "instance_id": "sqlfluff__sqlfluff-1625",
+      "fixed_resolved": false,
+      "interactive_resolved": false,
+      "standalone_resolved": false,
+      "quadrant": "Q4_double_failure",
+      "u_loc": 1.0,
+      "u_dup": 0.0,
+      "n_public_pass": 0,
+      "signal": "none",
+      "prefix_cost_cny": 0.1888,
+      "decisions": {
+        "A": "fixed",
+        "C": "interactive",
+        "D": "interactive",
+        "E": "fixed"
+      }
+    }
+  ]
+}

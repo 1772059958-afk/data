@@ -1,0 +1,41 @@
+{
+    "total_instances": 3,
+    "submitted_instances": 3,
+    "completed_instances": 2,
+    "resolved_instances": 2,
+    "unresolved_instances": 0,
+    "infra_failure_instances": 0,
+    "ambiguous_failure_instances": 0,
+    "empty_patch_instances": 1,
+    "error_instances": 0,
+    "completed_ids": [
+        "marshmallow-code__marshmallow-1359",
+        "pydicom__pydicom-1256"
+    ],
+    "incomplete_ids": [],
+    "empty_patch_ids": [
+        "marshmallow-code__marshmallow-1343"
+    ],
+    "submitted_ids": [
+        "marshmallow-code__marshmallow-1343",
+        "marshmallow-code__marshmallow-1359",
+        "pydicom__pydicom-1256"
+    ],
+    "resolved_ids": [
+        "marshmallow-code__marshmallow-1359",
+        "pydicom__pydicom-1256"
+    ],
+    "unresolved_ids": [],
+    "infra_failure_ids": [],
+    "ambiguous_failure_ids": [],
+    "failure_reasons": {},
+    "error_ids": [],
+    "schema_version": 2,
+    "unstopped_instances": 0,
+    "unstopped_containers": [],
+    "unremoved_images": [
+        "swebench/sweb.eval.x86_64.marshmallow-code_1776_marshmallow-1343:latest",
+        "swebench/sweb.eval.x86_64.marshmallow-code_1776_marshmallow-1359:latest",
+        "swebench/sweb.eval.x86_64.pydicom_1776_pydicom-1256:latest"
+    ]
+}

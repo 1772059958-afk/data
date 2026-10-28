@@ -1,0 +1,4 @@
+{"instance_id": "marshmallow-code__marshmallow-1343", "model_name_or_path": "cf_dev4-B", "model_patch": ""}
+{"instance_id": "pylint-dev__astroid-1196", "model_name_or_path": "cf_dev4-B", "model_patch": ""}
+{"instance_id": "pylint-dev__astroid-1978", "model_name_or_path": "cf_dev4-B", "model_patch": "--- a/astroid/raw_building.py\n+++ b/astroid/raw_building.py\n@@ -467,7 +467,9 @@ class InspectBuilder:\n             # check if it sounds valid and then add an import node, else use a\n             # dummy node\n             try:\n-                getattr(sys.modules[modname], name)\n+                with warnings.catch_warnings():\n+                    warnings.simplefilter(\"ignore\")\n+                    getattr(sys.modules[modname], name)\n             except (KeyError, AttributeError):\n                 attach_dummy_node(node, name, member)\n             else:\n"}
+{"instance_id": "sqlfluff__sqlfluff-1625", "model_name_or_path": "cf_dev4-B", "model_patch": ""}

@@ -1,0 +1,209 @@
+{
+  "tag": "baseline_dev15_retry",
+  "built_utc": "2026-10-16T02:36:02Z",
+  "what": "single-shot fixed-flow baseline: one prompt per instance, patch taken from the model's reply. Not Agentless.",
+  "model_config": {
+    "model": "deepseek-flash",
+    "thinking": true,
+    "effort": "low",
+    "max_tokens": 32768
+  },
+  "ceiling_cny_per_instance": 2.0,
+  "ceiling_cny_total": 8.0,
+  "spent_cny_total": 1.513461,
+  "guard": {
+    "ceiling_cny": 8.0,
+    "spent_cny": 1.513461,
+    "remaining_cny": 6.486539,
+    "calls": 11,
+    "tokens": 334338,
+    "approved": false
+  },
+  "predictions_file": "reports/baseline_dev15_retry.jsonl",
+  "instances": [
+    {
+      "instance_id": "pydicom__pydicom-901",
+      "context_files": [],
+      "patch_lines": 36,
+      "patch_empty": false,
+      "hunk_headers_repaired": 2,
+      "cost_cny": 0.10845,
+      "prompt_tokens": 808,
+      "output_tokens": 13511,
+      "reasoning_tokens": 13196,
+      "latency_seconds": 67.11,
+      "served_model": "deepseek-flash",
+      "finish_reason": "stop"
+    },
+    {
+      "instance_id": "pylint-dev__astroid-1196",
+      "context_files": [
+        "astroid/nodes/node_classes.py"
+      ],
+      "patch_lines": 24,
+      "patch_empty": false,
+      "hunk_headers_repaired": 1,
+      "cost_cny": 0.099874,
+      "prompt_tokens": 30102,
+      "output_tokens": 12297,
+      "reasoning_tokens": 12074,
+      "latency_seconds": 59.33,
+      "served_model": "deepseek-flash",
+      "finish_reason": "stop"
+    },
+    {
+      "instance_id": "pylint-dev__astroid-1268",
+      "context_files": [
+        "astroid/nodes/node_ng.py",
+        "astroid/nodes/as_string.py",
+        "tests/unittest_nodes.py"
+      ],
+      "patch_lines": 12,
+      "patch_empty": false,
+      "hunk_headers_repaired": 0,
+      "cost_cny": 0.007004,
+      "prompt_tokens": 28994,
+      "output_tokens": 683,
+      "reasoning_tokens": 578,
+      "latency_seconds": 4.81,
+      "served_model": "deepseek-flash",
+      "finish_reason": "stop"
+    },
+    {
+      "instance_id": "pylint-dev__astroid-1333",
+      "context_files": [
+        "astroid/brain/__init__.py",
+        "tests/unittest_modutils.py"
+      ],
+      "patch_lines": 0,
+      "patch_empty": true,
+      "hunk_headers_repaired": 0,
+      "cost_cny": 0.262742,
+      "prompt_tokens": 5442,
+      "output_tokens": 32768,
+      "reasoning_tokens": 32768,
+      "latency_seconds": 162.98,
+      "served_model": "deepseek-flash",
+      "finish_reason": "length"
+    },
+    {
+      "instance_id": "pylint-dev__astroid-1866",
+      "context_files": [
+        "astroid/nodes/scoped_nodes/scoped_nodes.py",
+        "astroid/nodes/node_ng.py"
+      ],
+      "patch_lines": 7,
+      "patch_empty": false,
+      "hunk_headers_repaired": 0,
+      "cost_cny": 0.113551,
+      "prompt_tokens": 28725,
+      "output_tokens": 14006,
+      "reasoning_tokens": 13910,
+      "latency_seconds": 69.09,
+      "served_model": "deepseek-flash",
+      "finish_reason": "stop"
+    },
+    {
+      "instance_id": "pylint-dev__astroid-1978",
+      "context_files": [
+        "astroid/raw_building.py",
+        "tests/unittest_raw_building.py"
+      ],
+      "patch_lines": 13,
+      "patch_empty": false,
+      "hunk_headers_repaired": 0,
+      "cost_cny": 0.005571,
+      "prompt_tokens": 7358,
+      "output_tokens": 613,
+      "reasoning_tokens": 477,
+      "latency_seconds": 3.51,
+      "served_model": "deepseek-flash",
+      "finish_reason": "stop"
+    },
+    {
+      "instance_id": "sqlfluff__sqlfluff-1517",
+      "context_files": [
+        "src/sqlfluff/cli/commands.py",
+        "src/sqlfluff/core/linter/linter.py",
+        "src/sqlfluff/core/parser/parser.py",
+        "src/sqlfluff/core/parser/segments/base.py",
+        "src/sqlfluff/core/parser/helpers.py",
+        "test/dialects/ansi_test.py"
+      ],
+      "patch_lines": 0,
+      "patch_empty": true,
+      "hunk_headers_repaired": 0,
+      "cost_cny": 0.26365,
+      "prompt_tokens": 28350,
+      "output_tokens": 32768,
+      "reasoning_tokens": 32768,
+      "latency_seconds": 176.84,
+      "served_model": "deepseek-flash",
+      "finish_reason": "length"
+    },
+    {
+      "instance_id": "sqlfluff__sqlfluff-1625",
+      "context_files": [
+        "test/cli/commands_test.py"
+      ],
+      "patch_lines": 12,
+      "patch_empty": false,
+      "hunk_headers_repaired": 0,
+      "cost_cny": 0.206174,
+      "prompt_tokens": 6676,
+      "output_tokens": 25702,
+      "reasoning_tokens": 25579,
+      "latency_seconds": 127.43,
+      "served_model": "deepseek-flash",
+      "finish_reason": "stop"
+    },
+    {
+      "instance_id": "sqlfluff__sqlfluff-1733",
+      "context_files": [],
+      "patch_lines": 15,
+      "patch_empty": false,
+      "hunk_headers_repaired": 0,
+      "cost_cny": 0.168099,
+      "prompt_tokens": 1205,
+      "output_tokens": 20962,
+      "reasoning_tokens": 20783,
+      "latency_seconds": 115.47,
+      "served_model": "deepseek-flash",
+      "finish_reason": "stop"
+    },
+    {
+      "instance_id": "sqlfluff__sqlfluff-1763",
+      "context_files": [
+        "test/core/linter_test.py"
+      ],
+      "patch_lines": 24,
+      "patch_empty": false,
+      "hunk_headers_repaired": 1,
+      "cost_cny": 0.164678,
+      "prompt_tokens": 8218,
+      "output_tokens": 20506,
+      "reasoning_tokens": 20278,
+      "latency_seconds": 104.63,
+      "served_model": "deepseek-flash",
+      "finish_reason": "stop"
+    },
+    {
+      "instance_id": "sqlfluff__sqlfluff-2419",
+      "context_files": [],
+      "patch_lines": 6,
+      "patch_empty": false,
+      "hunk_headers_repaired": 0,
+      "cost_cny": 0.113668,
+      "prompt_tokens": 497,
+      "output_tokens": 14147,
+      "reasoning_tokens": 14022,
+      "latency_seconds": 77.3,
+      "served_model": "deepseek-flash",
+      "finish_reason": "stop"
+    }
+  ],
+  "skipped": {
+    "context_failures": [],
+    "call_failures": []
+  }
+}

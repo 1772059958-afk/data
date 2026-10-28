@@ -1,0 +1,116 @@
+{
+  "tag": "baseline_dev",
+  "built_utc": "2026-10-16T01:15:39Z",
+  "model_config": {
+    "model": "deepseek-flash",
+    "thinking": true,
+    "effort": "low",
+    "max_tokens": 16384
+  },
+  "what": "single-shot fixed-flow baseline (one prompt per instance, patch taken from the reply). Not Agentless.",
+  "attempts": [
+    {
+      "report": "reports/baseline_dev_run.json",
+      "model_config": {
+        "model": "deepseek-flash",
+        "thinking": true,
+        "effort": "low",
+        "max_tokens": 4096
+      },
+      "spent_cny": 0.174566,
+      "instances": [
+        {
+          "instance_id": "marshmallow-code__marshmallow-1343",
+          "finish_reason": "length",
+          "output_tokens": 4096,
+          "reasoning_tokens": 4096,
+          "patch_lines": 0,
+          "patch_empty": true,
+          "cost_cny": 0.084938
+        },
+        {
+          "instance_id": "marshmallow-code__marshmallow-1359",
+          "finish_reason": "stop",
+          "output_tokens": 1142,
+          "reasoning_tokens": 1022,
+          "patch_lines": 10,
+          "patch_empty": false,
+          "cost_cny": 0.067244
+        },
+        {
+          "instance_id": "pydicom__pydicom-1256",
+          "finish_reason": "stop",
+          "output_tokens": 931,
+          "reasoning_tokens": 824,
+          "patch_lines": 13,
+          "patch_empty": false,
+          "cost_cny": 0.022384
+        }
+      ]
+    },
+    {
+      "report": "reports/baseline_dev_retry_run.json",
+      "model_config": {
+        "model": "deepseek-flash",
+        "thinking": true,
+        "effort": "low",
+        "max_tokens": 16384
+      },
+      "spent_cny": 0.10822,
+      "instances": [
+        {
+          "instance_id": "marshmallow-code__marshmallow-1343",
+          "finish_reason": "stop",
+          "output_tokens": 13341,
+          "reasoning_tokens": 13209,
+          "patch_lines": 11,
+          "patch_empty": false,
+          "cost_cny": 0.10822
+        }
+      ]
+    }
+  ],
+  "instances": [
+    {
+      "instance_id": "marshmallow-code__marshmallow-1343",
+      "cost_cny": 0.10822,
+      "patch_empty": false,
+      "patch_lines": 11,
+      "finish_reason": "stop",
+      "output_tokens": 13341,
+      "reasoning_tokens": 13209,
+      "verdict": "resolved",
+      "verdict_source": "reports/deepseek-flash.baseline_dev_retry.json"
+    },
+    {
+      "instance_id": "marshmallow-code__marshmallow-1359",
+      "cost_cny": 0.067244,
+      "patch_empty": false,
+      "patch_lines": 10,
+      "finish_reason": "stop",
+      "output_tokens": 1142,
+      "reasoning_tokens": 1022,
+      "verdict": "resolved",
+      "verdict_source": "reports/deepseek-flash.baseline_dev.json"
+    },
+    {
+      "instance_id": "pydicom__pydicom-1256",
+      "cost_cny": 0.022384,
+      "patch_empty": false,
+      "patch_lines": 13,
+      "finish_reason": "stop",
+      "output_tokens": 931,
+      "reasoning_tokens": 824,
+      "verdict": "resolved",
+      "verdict_source": "reports/deepseek-flash.baseline_dev.json"
+    }
+  ],
+  "totals": {
+    "instances": 3,
+    "resolved": 3,
+    "resolved_rate": 1.0,
+    "spent_cny": 0.282786,
+    "tokens": 108202,
+    "cost_per_instance_cny": 0.094262
+  }
+}

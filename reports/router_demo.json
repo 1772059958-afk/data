@@ -1,0 +1,721 @@
+{
+  "arm_comparison_on_one_state": {
+    "A fixed workflow": {
+      "detail": "arm A: fixed workflow continues within budget",
+      "reason": "fixed_continuation_otherwise",
+      "route": "fixed",
+      "rule": "fixed_continuation_otherwise"
+    },
+    "C simple cascade": {
+      "detail": "arm C: every continuable failure enters the interactive branch",
+      "reason": "cascade_all_eligible_failures",
+      "route": "interactive",
+      "rule": "cascade_all_eligible_failures"
+    },
+    "D adaptive (this rule set)": {
+      "detail": "no interactive trigger fired; continue the fixed workflow",
+      "reason": "fixed_continuation_otherwise",
+      "route": "fixed",
+      "rule": "fixed_continuation_otherwise"
+    },
+    "E random p=0.30 (seed 0)": {
+      "detail": "arm E: draw 0.844 >= p=0.300, fixed",
+      "reason": "random_routing_stay",
+      "route": "fixed",
+      "rule": "random_routing"
+    }
+  },
+  "config_hash": "710008a8dd826ff434da38f0a32f6686aa2573818bb98f59d416c09755e4e0f0",
+  "config_version": "frozen_v1",
+  "routing_stats": {
+    "by_reason": {
+      "early_stop_public_pass": 1,
+      "fixed_continuation_otherwise": 1,
+      "interactive_on_high_duplicate_rate": 1,
+      "interactive_on_out_of_scope_stack_evidence": 1,
+      "interactive_on_wide_localization_disagreement": 1,
+      "interactive_when_no_behavioural_signal": 1,
+      "stop_budget_insufficient": 1,
+      "stop_env_failure": 1
+    },
+    "by_route": {
+      "fixed": 1,
+      "interactive": 4,
+      "stop": 3
+    },
+    "interactive_share": 0.5,
+    "total": 8,
+    "warnings": []
+  },
+  "run_record": {
+    "base_commit": "0f3b3b0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f",
+    "config_hash": "4a7840c876741440bece78db3ec11ad263adac79fbd271d5f2da0754cfadf707",
+    "container_id": "swebench/sweb.eval.x86_64.django_1776_django-11099:latest",
+    "elapsed_seconds": 100.0,
+    "evaluation_status": "not_run",
+    "input_tokens": 6400,
+    "instance_id": "django__django-11099",
+    "model_calls": 3,
+    "model_version": "demo-model-placeholder",
+    "notes": "token split not supplied; total booked as input",
+    "output_tokens": 0,
+    "patch_hash": "8f9601f4c4a6568069d5a92d030690780334740159435e052148ca0213823819",
+    "prefix_budget": {
+      "model_call": 12,
+      "token": 32000,
+      "tool_call": 20,
+      "wallclock_seconds": 600
+    },
+    "public_validation": {
+      "detail": "candidate#0 files=1 lines=4",
+      "status": "pass"
+    },
+    "repo": "django/django",
+    "route": "stop",
+    "route_reason": "early_stop_public_pass",
+    "run_id": "django__django-11099__s0__r1__20261015T143220Z",
+    "seed": 0,
+    "termination_reason": "early_stop_public_pass",
+    "tool_calls": 5
+  },
+  "run_record_valid": true,
+  "scenarios": [
+    {
+      "all_rules": [
+        {
+          "calibrated": true,
+          "detail": "public validation passed on candidate#1; frozen candidate#1",
+          "fires": true,
+          "reason": "early_stop_public_pass",
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes"
+        },
+        {
+          "calibrated": true,
+          "detail": "",
+          "fires": false,
+          "reason": "stop_env_failure",
+          "route": "stop",
+          "rule": "stop_on_env_failure_after_one_recovery"
+        },
+        {
+          "calibrated": true,
+          "detail": "",
+          "fires": false,
+          "reason": "stop_budget_insufficient",
+          "route": "stop",
+          "rule": "stop_when_budget_insufficient"
+        },
+        {
+          "calibrated": true,
+          "detail": "",
+          "fires": false,
+          "reason": "interactive_on_wide_localization_disagreement",
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement"
+        },
+        {
+          "calibrated": true,
+          "detail": "",
+          "fires": false,
+          "reason": "interactive_on_high_duplicate_rate",
+          "route": "interactive",
+          "rule": "interactive_on_high_duplicate_rate"
+        },
+        {
+          "calibrated": true,
+          "detail": "",
+          "fires": false,
+          "reason": "interactive_on_out_of_scope_stack_evidence",
+          "route": "interactive",
+          "rule": "interactive_on_out_of_scope_stack_evidence"
+        },
+        {
+          "calibrated": true,
+          "detail": "",
+          "fires": false,
+          "reason": "interactive_when_no_behavioural_signal",
+          "route": "interactive",
+          "rule": "interactive_when_no_behavioural_signal"
+        },
+        {
+          "calibrated": true,
+          "detail": "no interactive trigger fired; continue the fixed workflow",
+          "fires": true,
+          "reason": "fixed_continuation_otherwise",
+          "route": "fixed",
+          "rule": "fixed_continuation_otherwise"
+        }
+      ],
+      "detail": "public validation passed on candidate#1; frozen candidate#1",
+      "expected": {
+        "reason": "early_stop_public_pass",
+        "route": "stop"
+      },
+      "matched": true,
+      "reason": "early_stop_public_pass",
+      "route": "stop",
+      "rule": "freeze_when_public_candidate_passes",
+      "signal": "prefix: public validation passed",
+      "state": "public candidate already passes"
+    },
+    {
+      "all_rules": [
+        {
+          "calibrated": true,
+          "detail": "",
+          "fires": false,
+          "reason": "early_stop_public_pass",
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes"
+        },
+        {
+          "calibrated": true,
+          "detail": "environment failure survived 1 deterministic recovery attempt(s): Could not find a version that satisfies the requirement django==4.2",
+          "fires": true,
+          "reason": "stop_env_failure",
+          "route": "stop",
+          "rule": "stop_on_env_failure_after_one_recovery"
+        },
+        {
+          "calibrated": true,
+          "detail": "",
+          "fires": false,
+          "reason": "stop_budget_insufficient",
+          "route": "stop",
+          "rule": "stop_when_budget_insufficient"
+        },
+        {
+          "calibrated": true,
+          "detail": "",
+          "fires": false,
+          "reason": "interactive_on_wide_localization_disagreement",
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement"
+        },
+        {
+          "calibrated": true,
+          "detail": "",
+          "fires": false,
+          "reason": "interactive_on_high_duplicate_rate",
+          "route": "interactive",
+          "rule": "interactive_on_high_duplicate_rate"
+        },
+        {
+          "calibrated": true,
+          "detail": "",
+          "fires": false,
+          "reason": "interactive_on_out_of_scope_stack_evidence",
+          "route": "interactive",
+          "rule": "interactive_on_out_of_scope_stack_evidence"
+        },
+        {
+          "calibrated": true,
+          "detail": "",
+          "fires": false,
+          "reason": "interactive_when_no_behavioural_signal",
+          "route": "interactive",
+          "rule": "interactive_when_no_behavioural_signal"
+        },
+        {
+          "calibrated": true,
+          "detail": "no interactive trigger fired; continue the fixed workflow",
+          "fires": true,
+          "reason": "fixed_continuation_otherwise",
+          "route": "fixed",
+          "rule": "fixed_continuation_otherwise"
+        }
+      ],
+      "detail": "environment failure survived 1 deterministic recovery attempt(s): Could not find a version that satisfies the requirement django==4.2",
+      "expected": {
+        "reason": "stop_env_failure",
+        "route": "stop"
+      },
+      "matched": true,
+      "reason": "stop_env_failure",
+      "route": "stop",
+      "rule": "stop_on_env_failure_after_one_recovery",
+      "signal": "failure: env_setup, 1 recovery attempt",
+      "state": "environment failure survived one recovery"
+    },
+    {
+      "all_rules": [
+        {
+          "calibrated": true,
+          "detail": "",
+          "fires": false,
+          "reason": "early_stop_public_pass",
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes"
+        },
+        {
+          "calibrated": true,
+          "detail": "",
+          "fires": false,
+          "reason": "stop_env_failure",
+          "route": "stop",
+          "rule": "stop_on_env_failure_after_one_recovery"
+        },
+        {
+          "calibrated": true,
+          "detail": "remaining {'token': 500, 'model_call': 1, 'tool_call': 1, 'wallclock_seconds': 40} cannot fund one more step; short on token",
+          "fires": true,
+          "reason": "stop_budget_insufficient",
+          "route": "stop",
+          "rule": "stop_when_budget_insufficient"
+        },
+        {
+          "calibrated": true,
+          "detail": "",
+          "fires": false,
+          "reason": "interactive_on_wide_localization_disagreement",
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement"
+        },
+        {
+          "calibrated": true,
+          "detail": "",
+          "fires": false,
+          "reason": "interactive_on_high_duplicate_rate",
+          "route": "interactive",
+          "rule": "interactive_on_high_duplicate_rate"
+        },
+        {
+          "calibrated": true,
+          "detail": "",
+          "fires": false,
+          "reason": "interactive_on_out_of_scope_stack_evidence",
+          "route": "interactive",
+          "rule": "interactive_on_out_of_scope_stack_evidence"
+        },
+        {
+          "calibrated": true,
+          "detail": "",
+          "fires": false,
+          "reason": "interactive_when_no_behavioural_signal",
+          "route": "interactive",
+          "rule": "interactive_when_no_behavioural_signal"
+        },
+        {
+          "calibrated": true,
+          "detail": "no interactive trigger fired; continue the fixed workflow",
+          "fires": true,
+          "reason": "fixed_continuation_otherwise",
+          "route": "fixed",
+          "rule": "fixed_continuation_otherwise"
+        }
+      ],
+      "detail": "remaining {'token': 500, 'model_call': 1, 'tool_call': 1, 'wallclock_seconds': 40} cannot fund one more step; short on token",
+      "expected": {
+        "reason": "stop_budget_insufficient",
+        "route": "stop"
+      },
+      "matched": true,
+      "reason": "stop_budget_insufficient",
+      "route": "stop",
+      "rule": "stop_when_budget_insufficient",
+      "signal": "budget: 500 tokens left, floor is 2048",
+      "state": "budget too small for another step"
+    },
+    {
+      "all_rules": [
+        {
+          "calibrated": true,
+          "detail": "",
+          "fires": false,
+          "reason": "early_stop_public_pass",
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes"
+        },
+        {
+          "calibrated": true,
+          "detail": "",
+          "fires": false,
+          "reason": "stop_env_failure",
+          "route": "stop",
+          "rule": "stop_on_env_failure_after_one_recovery"
+        },
+        {
+          "calibrated": true,
+          "detail": "",
+          "fires": false,
+          "reason": "stop_budget_insufficient",
+          "route": "stop",
+          "rule": "stop_when_budget_insufficient"
+        },
+        {
+          "calibrated": true,
+          "detail": "u_loc=1.000 > 0.500 over 2 localisation passes",
+          "fires": true,
+          "reason": "interactive_on_wide_localization_disagreement",
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement"
+        },
+        {
+          "calibrated": true,
+          "detail": "",
+          "fires": false,
+          "reason": "interactive_on_high_duplicate_rate",
+          "route": "interactive",
+          "rule": "interactive_on_high_duplicate_rate"
+        },
+        {
+          "calibrated": true,
+          "detail": "",
+          "fires": false,
+          "reason": "interactive_on_out_of_scope_stack_evidence",
+          "route": "interactive",
+          "rule": "interactive_on_out_of_scope_stack_evidence"
+        },
+        {
+          "calibrated": true,
+          "detail": "",
+          "fires": false,
+          "reason": "interactive_when_no_behavioural_signal",
+          "route": "interactive",
+          "rule": "interactive_when_no_behavioural_signal"
+        },
+        {
+          "calibrated": true,
+          "detail": "no interactive trigger fired; continue the fixed workflow",
+          "fires": true,
+          "reason": "fixed_continuation_otherwise",
+          "route": "fixed",
+          "rule": "fixed_continuation_otherwise"
+        }
+      ],
+      "detail": "u_loc=1.000 > 0.500 over 2 localisation passes",
+      "expected": {
+        "reason": "interactive_on_wide_localization_disagreement",
+        "route": "interactive"
+      },
+      "matched": true,
+      "reason": "interactive_on_wide_localization_disagreement",
+      "route": "interactive",
+      "rule": "interactive_on_wide_localization_disagreement",
+      "signal": "u_loc = 1.000 over 2 passes",
+      "state": "localisation passes disagree"
+    },
+    {
+      "all_rules": [
+        {
+          "calibrated": true,
+          "detail": "",
+          "fires": false,
+          "reason": "early_stop_public_pass",
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes"
+        },
+        {
+          "calibrated": true,
+          "detail": "",
+          "fires": false,
+          "reason": "stop_env_failure",
+          "route": "stop",
+          "rule": "stop_on_env_failure_after_one_recovery"
+        },
+        {
+          "calibrated": true,
+          "detail": "",
+          "fires": false,
+          "reason": "stop_budget_insufficient",
+          "route": "stop",
+          "rule": "stop_when_budget_insufficient"
+        },
+        {
+          "calibrated": true,
+          "detail": "",
+          "fires": false,
+          "reason": "interactive_on_wide_localization_disagreement",
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement"
+        },
+        {
+          "calibrated": true,
+          "detail": "u_dup=0.600 > 0.500 over 5 candidates",
+          "fires": true,
+          "reason": "interactive_on_high_duplicate_rate",
+          "route": "interactive",
+          "rule": "interactive_on_high_duplicate_rate"
+        },
+        {
+          "calibrated": true,
+          "detail": "",
+          "fires": false,
+          "reason": "interactive_on_out_of_scope_stack_evidence",
+          "route": "interactive",
+          "rule": "interactive_on_out_of_scope_stack_evidence"
+        },
+        {
+          "calibrated": true,
+          "detail": "",
+          "fires": false,
+          "reason": "interactive_when_no_behavioural_signal",
+          "route": "interactive",
+          "rule": "interactive_when_no_behavioural_signal"
+        },
+        {
+          "calibrated": true,
+          "detail": "no interactive trigger fired; continue the fixed workflow",
+          "fires": true,
+          "reason": "fixed_continuation_otherwise",
+          "route": "fixed",
+          "rule": "fixed_continuation_otherwise"
+        }
+      ],
+      "detail": "u_dup=0.600 > 0.500 over 5 candidates",
+      "expected": {
+        "reason": "interactive_on_high_duplicate_rate",
+        "route": "interactive"
+      },
+      "matched": true,
+      "reason": "interactive_on_high_duplicate_rate",
+      "route": "interactive",
+      "rule": "interactive_on_high_duplicate_rate",
+      "signal": "u_dup = 0.600 over 5 candidates",
+      "state": "candidates repeat themselves"
+    },
+    {
+      "all_rules": [
+        {
+          "calibrated": true,
+          "detail": "",
+          "fires": false,
+          "reason": "early_stop_public_pass",
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes"
+        },
+        {
+          "calibrated": true,
+          "detail": "",
+          "fires": false,
+          "reason": "stop_env_failure",
+          "route": "stop",
+          "rule": "stop_on_env_failure_after_one_recovery"
+        },
+        {
+          "calibrated": true,
+          "detail": "",
+          "fires": false,
+          "reason": "stop_budget_insufficient",
+          "route": "stop",
+          "rule": "stop_when_budget_insufficient"
+        },
+        {
+          "calibrated": true,
+          "detail": "",
+          "fires": false,
+          "reason": "interactive_on_wide_localization_disagreement",
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement"
+        },
+        {
+          "calibrated": true,
+          "detail": "",
+          "fires": false,
+          "reason": "interactive_on_high_duplicate_rate",
+          "route": "interactive",
+          "rule": "interactive_on_high_duplicate_rate"
+        },
+        {
+          "calibrated": true,
+          "detail": "stack points outside the inspected context: pkg/normalise.py",
+          "fires": true,
+          "reason": "interactive_on_out_of_scope_stack_evidence",
+          "route": "interactive",
+          "rule": "interactive_on_out_of_scope_stack_evidence"
+        },
+        {
+          "calibrated": true,
+          "detail": "",
+          "fires": false,
+          "reason": "interactive_when_no_behavioural_signal",
+          "route": "interactive",
+          "rule": "interactive_when_no_behavioural_signal"
+        },
+        {
+          "calibrated": true,
+          "detail": "no interactive trigger fired; continue the fixed workflow",
+          "fires": true,
+          "reason": "fixed_continuation_otherwise",
+          "route": "fixed",
+          "rule": "fixed_continuation_otherwise"
+        }
+      ],
+      "detail": "stack points outside the inspected context: pkg/normalise.py",
+      "expected": {
+        "reason": "interactive_on_out_of_scope_stack_evidence",
+        "route": "interactive"
+      },
+      "matched": true,
+      "reason": "interactive_on_out_of_scope_stack_evidence",
+      "route": "interactive",
+      "rule": "interactive_on_out_of_scope_stack_evidence",
+      "signal": "frames: pkg/parse.py, pkg/normalise.py (unread)",
+      "state": "stack points outside the inspected context"
+    },
+    {
+      "all_rules": [
+        {
+          "calibrated": true,
+          "detail": "",
+          "fires": false,
+          "reason": "early_stop_public_pass",
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes"
+        },
+        {
+          "calibrated": true,
+          "detail": "",
+          "fires": false,
+          "reason": "stop_env_failure",
+          "route": "stop",
+          "rule": "stop_on_env_failure_after_one_recovery"
+        },
+        {
+          "calibrated": true,
+          "detail": "",
+          "fires": false,
+          "reason": "stop_budget_insufficient",
+          "route": "stop",
+          "rule": "stop_when_budget_insufficient"
+        },
+        {
+          "calibrated": true,
+          "detail": "",
+          "fires": false,
+          "reason": "interactive_on_wide_localization_disagreement",
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement"
+        },
+        {
+          "calibrated": true,
+          "detail": "",
+          "fires": false,
+          "reason": "interactive_on_high_duplicate_rate",
+          "route": "interactive",
+          "rule": "interactive_on_high_duplicate_rate"
+        },
+        {
+          "calibrated": true,
+          "detail": "",
+          "fires": false,
+          "reason": "interactive_on_out_of_scope_stack_evidence",
+          "route": "interactive",
+          "rule": "interactive_on_out_of_scope_stack_evidence"
+        },
+        {
+          "calibrated": true,
+          "detail": "no usable behavioural signal (none); checks_run=0",
+          "fires": true,
+          "reason": "interactive_when_no_behavioural_signal",
+          "route": "interactive",
+          "rule": "interactive_when_no_behavioural_signal"
+        },
+        {
+          "calibrated": true,
+          "detail": "no interactive trigger fired; continue the fixed workflow",
+          "fires": true,
+          "reason": "fixed_continuation_otherwise",
+          "route": "fixed",
+          "rule": "fixed_continuation_otherwise"
+        }
+      ],
+      "detail": "no usable behavioural signal (none); checks_run=0",
+      "expected": {
+        "reason": "interactive_when_no_behavioural_signal",
+        "route": "interactive"
+      },
+      "matched": true,
+      "reason": "interactive_when_no_behavioural_signal",
+      "route": "interactive",
+      "rule": "interactive_when_no_behavioural_signal",
+      "signal": "signal: none, checks_run = 0",
+      "state": "nothing runnable to check behaviour with"
+    },
+    {
+      "all_rules": [
+        {
+          "calibrated": true,
+          "detail": "",
+          "fires": false,
+          "reason": "early_stop_public_pass",
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes"
+        },
+        {
+          "calibrated": true,
+          "detail": "",
+          "fires": false,
+          "reason": "stop_env_failure",
+          "route": "stop",
+          "rule": "stop_on_env_failure_after_one_recovery"
+        },
+        {
+          "calibrated": true,
+          "detail": "",
+          "fires": false,
+          "reason": "stop_budget_insufficient",
+          "route": "stop",
+          "rule": "stop_when_budget_insufficient"
+        },
+        {
+          "calibrated": true,
+          "detail": "",
+          "fires": false,
+          "reason": "interactive_on_wide_localization_disagreement",
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement"
+        },
+        {
+          "calibrated": true,
+          "detail": "",
+          "fires": false,
+          "reason": "interactive_on_high_duplicate_rate",
+          "route": "interactive",
+          "rule": "interactive_on_high_duplicate_rate"
+        },
+        {
+          "calibrated": true,
+          "detail": "",
+          "fires": false,
+          "reason": "interactive_on_out_of_scope_stack_evidence",
+          "route": "interactive",
+          "rule": "interactive_on_out_of_scope_stack_evidence"
+        },
+        {
+          "calibrated": true,
+          "detail": "",
+          "fires": false,
+          "reason": "interactive_when_no_behavioural_signal",
+          "route": "interactive",
+          "rule": "interactive_when_no_behavioural_signal"
+        },
+        {
+          "calibrated": true,
+          "detail": "no interactive trigger fired; continue the fixed workflow",
+          "fires": true,
+          "reason": "fixed_continuation_otherwise",
+          "route": "fixed",
+          "rule": "fixed_continuation_otherwise"
+        }
+      ],
+      "detail": "no interactive trigger fired; continue the fixed workflow",
+      "expected": {
+        "reason": "fixed_continuation_otherwise",
+        "route": "fixed"
+      },
+      "matched": true,
+      "reason": "fixed_continuation_otherwise",
+      "route": "fixed",
+      "rule": "fixed_continuation_otherwise",
+      "signal": "narrow localisation, distinct candidates, signal present",
+      "state": "no interactive trigger fires"
+    }
+  ],
+  "thresholds_note": "the shipped config is uncalibrated; the demo passes values explicitly",
+  "thresholds_used": {
+    "duplicate_rate": 0.5,
+    "localization_disagreement": 0.5
+  }
+}

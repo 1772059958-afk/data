@@ -1,0 +1,84 @@
+{
+    "total_instances": 23,
+    "submitted_instances": 4,
+    "completed_instances": 2,
+    "resolved_instances": 1,
+    "unresolved_instances": 1,
+    "infra_failure_instances": 0,
+    "ambiguous_failure_instances": 0,
+    "empty_patch_instances": 2,
+    "error_instances": 0,
+    "completed_ids": [
+        "marshmallow-code__marshmallow-1343",
+        "sqlfluff__sqlfluff-1625"
+    ],
+    "incomplete_ids": [
+        "marshmallow-code__marshmallow-1359",
+        "pvlib__pvlib-python-1072",
+        "pvlib__pvlib-python-1154",
+        "pvlib__pvlib-python-1606",
+        "pvlib__pvlib-python-1707",
+        "pvlib__pvlib-python-1854",
+        "pydicom__pydicom-1139",
+        "pydicom__pydicom-1256",
+        "pydicom__pydicom-1413",
+        "pydicom__pydicom-1694",
+        "pydicom__pydicom-901",
+        "pylint-dev__astroid-1268",
+        "pylint-dev__astroid-1333",
+        "pylint-dev__astroid-1866",
+        "pyvista__pyvista-4315",
+        "sqlfluff__sqlfluff-1517",
+        "sqlfluff__sqlfluff-1733",
+        "sqlfluff__sqlfluff-1763",
+        "sqlfluff__sqlfluff-2419"
+    ],
+    "empty_patch_ids": [
+        "pylint-dev__astroid-1196",
+        "pylint-dev__astroid-1978"
+    ],
+    "submitted_ids": [
+        "marshmallow-code__marshmallow-1343",
+        "pylint-dev__astroid-1196",
+        "pylint-dev__astroid-1978",
+        "sqlfluff__sqlfluff-1625"
+    ],
+    "resolved_ids": [
+        "marshmallow-code__marshmallow-1343"
+    ],
+    "unresolved_ids": [
+        "sqlfluff__sqlfluff-1625"
+    ],
+    "infra_failure_ids": [],
+    "ambiguous_failure_ids": [],
+    "failure_reasons": {},
+    "error_ids": [],
+    "schema_version": 2,
+    "unstopped_instances": 0,
+    "unstopped_containers": [],
+    "unremoved_images": [
+        "swebench/sweb.eval.x86_64.marshmallow-code_1776_marshmallow-1343:latest",
+        "swebench/sweb.eval.x86_64.marshmallow-code_1776_marshmallow-1359:latest",
+        "swebench/sweb.eval.x86_64.pvlib_1776_pvlib-python-1072:latest",
+        "swebench/sweb.eval.x86_64.pvlib_1776_pvlib-python-1154:latest",
+        "swebench/sweb.eval.x86_64.pvlib_1776_pvlib-python-1606:latest",
+        "swebench/sweb.eval.x86_64.pvlib_1776_pvlib-python-1707:latest",
+        "swebench/sweb.eval.x86_64.pvlib_1776_pvlib-python-1854:latest",
+        "swebench/sweb.eval.x86_64.pydicom_1776_pydicom-1139:latest",
+        "swebench/sweb.eval.x86_64.pydicom_1776_pydicom-1256:latest",
+        "swebench/sweb.eval.x86_64.pydicom_1776_pydicom-1413:latest",
+        "swebench/sweb.eval.x86_64.pydicom_1776_pydicom-1694:latest",
+        "swebench/sweb.eval.x86_64.pydicom_1776_pydicom-901:latest",
+        "swebench/sweb.eval.x86_64.pylint-dev_1776_astroid-1196:latest",
+        "swebench/sweb.eval.x86_64.pylint-dev_1776_astroid-1268:latest",
+        "swebench/sweb.eval.x86_64.pylint-dev_1776_astroid-1333:latest",
+        "swebench/sweb.eval.x86_64.pylint-dev_1776_astroid-1866:latest",
+        "swebench/sweb.eval.x86_64.pylint-dev_1776_astroid-1978:latest",
+        "swebench/sweb.eval.x86_64.pyvista_1776_pyvista-4315:latest",
+        "swebench/sweb.eval.x86_64.sqlfluff_1776_sqlfluff-1517:latest",
+        "swebench/sweb.eval.x86_64.sqlfluff_1776_sqlfluff-1625:latest",
+        "swebench/sweb.eval.x86_64.sqlfluff_1776_sqlfluff-1733:latest",
+        "swebench/sweb.eval.x86_64.sqlfluff_1776_sqlfluff-1763:latest",
+        "swebench/sweb.eval.x86_64.sqlfluff_1776_sqlfluff-2419:latest"
+    ]
+}

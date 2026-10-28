@@ -1,0 +1,43 @@
+{
+  "tag": "baseline_dev_retry",
+  "built_utc": "2026-10-16T01:15:01Z",
+  "what": "single-shot fixed-flow baseline: one prompt per instance, patch taken from the model's reply. Not Agentless.",
+  "model_config": {
+    "model": "deepseek-flash",
+    "thinking": true,
+    "effort": "low",
+    "max_tokens": 16384
+  },
+  "ceiling_cny_per_instance": 2.0,
+  "ceiling_cny_total": 2.0,
+  "spent_cny_total": 0.10822,
+  "guard": {
+    "ceiling_cny": 2.0,
+    "spent_cny": 0.10822,
+    "remaining_cny": 1.89178,
+    "calls": 1,
+    "tokens": 39426,
+    "approved": false
+  },
+  "predictions_file": "reports/baseline_dev_retry.jsonl",
+  "instances": [
+    {
+      "instance_id": "marshmallow-code__marshmallow-1343",
+      "context_files": [
+        "src/marshmallow/schema.py",
+        "src/marshmallow/marshalling.py",
+        "src/marshmallow/fields.py",
+        "tests/test_marshalling.py"
+      ],
+      "patch_lines": 11,
+      "patch_empty": false,
+      "cost_cny": 0.10822,
+      "prompt_tokens": 26085,
+      "output_tokens": 13341,
+      "reasoning_tokens": 13209,
+      "latency_seconds": 62.27,
+      "served_model": "deepseek-flash",
+      "finish_reason": "stop"
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "dataset": "princeton-nlp/SWE-bench_Lite",
+  "endpoint": "https://hf-mirror.com",
+  "revision": "6ec7bb89b9342f664a54a6e0a6ea6501d3437cc2",
+  "frozen_utc": "2026-10-15T11:18:12Z",
+  "note": "instance lists are sorted; digest = sha256 of ids joined by newline",
+  "harness_dataset": {
+    "local_manifest": "data/harness/manifest.json",
+    "namespace": "SWE-bench/SWE-bench_Lite",
+    "upstream_revision": "b0dde1093fe417d83b7184254edf8199c1f0dff5",
+    "reason": "data/raw has the princeton-nlp schema (12 cols, no image field); swebench harness >= 4.x needs image/eval_script/log_parser/eval_type. Same 23/300 instance ids verified equal."
+  },
+  "splits": {
+    "dev": {
+      "repo_path": "data/dev-00000-of-00001.parquet",
+      "local_file": "data/raw/dev.parquet",
+      "served_from": "https://us.aws.cdn.hf.co/xet-bridge-us/65f9e0e992911b173703716f/b6d76cf44e9caf58aa9474fc9cac8d1cb6c9e24f83a98fd682ce35a75e2428e3",
+      "resolve_xet_object": "65f9e0e992911b173703716f/b6d76cf44e9caf58aa9474fc9cac8d1cb6c9e24f83a98fd682ce35a75e2428e3",
+      "sha256": "8312f321838051849d2fa7c6ca071244733a3e90bb517ff6ca8186f722199b5c",
+      "n_instances": 23,
+      "n_columns": 12,
+      "columns": [
+        "repo",
+        "instance_id",
+        "base_commit",
+        "patch",
+        "test_patch",
+        "problem_statement",
+        "hints_text",
+        "created_at",
+        "version",
+        "FAIL_TO_PASS",
+        "PASS_TO_PASS",
+        "environment_setup_commit"
+      ],
+      "instance_list": "data/frozen/instances_dev.txt",
+      "instance_list_sha256": "33d6cfc6e8431e45b7e23d8c6852877f295b501cbd06aea8c911e511679888f1"
+    },
+    "test": {
+      "repo_path": "data/test-00000-of-00001.parquet",
+      "local_file": "data/raw/test.parquet",
+      "served_from": "https://us.aws.cdn.hf.co/xet-bridge-us/65f9e0e992911b173703716f/6a5ba207db88d823c56fa5e6901e0cd0ca627e7905d78fa155f39d4b8901a829",
+      "resolve_xet_object": "65f9e0e992911b173703716f/6a5ba207db88d823c56fa5e6901e0cd0ca627e7905d78fa155f39d4b8901a829",
+      "sha256": "7a21f37b8bc179c7db5beeb14e88ac538ba283455c776e6b2535bbfb6e3551b4",
+      "n_instances": 300,
+      "n_columns": 12,
+      "columns": [
+        "repo",
+        "instance_id",
+        "base_commit",
+        "patch",
+        "test_patch",
+        "problem_statement",
+        "hints_text",
+        "created_at",
+        "version",
+        "FAIL_TO_PASS",
+        "PASS_TO_PASS",
+        "environment_setup_commit"
+      ],
+      "instance_list": "data/frozen/instances_test.txt",
+      "instance_list_sha256": "3cc742abe707ad233b5a1664f339376890c467a29f3bf33afb36314308d647db"
+    }
+  }
+}

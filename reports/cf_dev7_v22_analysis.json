@@ -1,0 +1,358 @@
+{
+  "tag": "cf_dev7_v22",
+  "source_reports": [
+    "A <- cf_dev7_v22-A.cf_dev7_v22.json",
+    "B <- cf_dev7_v22-B.cf_dev7_v22.json",
+    "C <- cf_dev7_v22-C.cf_dev7_v22.json",
+    "D <- cf_dev7_v22-D.cf_dev7_v22.json",
+    "E <- cf_dev7_v22-E.cf_dev7_v22.json",
+    "ESC <- cf_dev7_v22-ESC.cf_dev7_v22.json"
+  ],
+  "scored_instances": 7,
+  "unscored_instances": [],
+  "quadrants": {
+    "counts": {
+      "Q1_double_success": 0,
+      "Q2_fixed_only": 3,
+      "Q3_interactive_only": 1,
+      "Q4_double_failure": 3
+    },
+    "meanings": {
+      "Q1_double_success": "both branches solve it: escalating wastes the interactive budget",
+      "Q2_fixed_only": "only the fixed branch solves it: escalating makes the answer worse",
+      "Q3_interactive_only": "only interaction solves it: this is what the router must find",
+      "Q4_double_failure": "neither solves it: escalating is futile"
+    },
+    "scored": 7,
+    "unscored": [],
+    "escalation_necessary_share": 0.1429,
+    "wasted_share": 0.8571
+  },
+  "features": [
+    {
+      "feature": "u_loc",
+      "direction": "higher escalates",
+      "n": 7,
+      "n_positive": 1,
+      "auc": 0.1667
+    },
+    {
+      "feature": "u_dup",
+      "direction": "higher escalates",
+      "n": 7,
+      "n_positive": 1,
+      "auc": 1.0
+    },
+    {
+      "feature": "lacks_behavioural_signal",
+      "direction": "higher escalates",
+      "n": 7,
+      "n_positive": 1,
+      "auc": 0.6667
+    },
+    {
+      "feature": "n_public_pass",
+      "direction": "lower escalates",
+      "n": 7,
+      "n_positive": 1,
+      "auc": 0.6667
+    },
+    {
+      "feature": "n_applicable",
+      "direction": "lower escalates",
+      "n": 7,
+      "n_positive": 1,
+      "auc": 1.0
+    }
+  ],
+  "policies": [
+    {
+      "policy": "A_fixed_only",
+      "resolved": 3,
+      "total": 7,
+      "resolved_rate": 0.4286,
+      "cost_cny": 1.023798,
+      "cost_per_resolved_cny": 0.3413,
+      "escalations": 0,
+      "escalation_share": 0.0
+    },
+    {
+      "policy": "C_escalate_all",
+      "resolved": 1,
+      "total": 7,
+      "resolved_rate": 0.1429,
+      "cost_cny": 0.949901,
+      "cost_per_resolved_cny": 0.9499,
+      "escalations": 7,
+      "escalation_share": 1.0
+    },
+    {
+      "policy": "oracle",
+      "resolved": 4,
+      "total": 7,
+      "resolved_rate": 0.5714,
+      "cost_cny": 0.957893,
+      "cost_per_resolved_cny": 0.2395,
+      "escalations": 1,
+      "escalation_share": 0.1429
+    },
+    {
+      "policy": "D_actual",
+      "resolved": 3,
+      "total": 7,
+      "resolved_rate": 0.4286,
+      "cost_cny": 0.842823,
+      "cost_per_resolved_cny": 0.2809,
+      "escalations": 5,
+      "escalation_share": 0.7143
+    },
+    {
+      "policy": "E_actual",
+      "resolved": 3,
+      "total": 7,
+      "resolved_rate": 0.4286,
+      "cost_cny": 0.963576,
+      "cost_per_resolved_cny": 0.3212,
+      "escalations": 2,
+      "escalation_share": 0.2857
+    }
+  ],
+  "oracle_gap_closure": {
+    "fixed_resolved": 3,
+    "router_resolved": 3,
+    "oracle_resolved": 4,
+    "headroom": 1,
+    "gained": 0,
+    "gap_closure": 0.0,
+    "fixed_cost_cny": 1.023798,
+    "router_cost_cny": 0.842823,
+    "oracle_cost_cny": 0.957893,
+    "note": "gap_closure is undefined when the oracle cannot beat the fixed branch, because there is no headroom to close"
+  },
+  "arm_equivalence": {
+    "C": {
+      "identical_to_C": true,
+      "escalations": 5
+    },
+    "D": {
+      "identical_to_C": true,
+      "escalations": 5
+    },
+    "E": {
+      "identical_to_C": false,
+      "escalations": 2
+    }
+  },
+  "rule_firings": {
+    "deciding_rule_counts": {
+      "freeze_when_public_candidate_passes": 2,
+      "interactive_on_wide_localization_disagreement": 4,
+      "interactive_when_no_behavioural_signal": 1
+    },
+    "would_fire_counts": {
+      "freeze_when_public_candidate_passes": 2,
+      "interactive_on_wide_localization_disagreement": 6,
+      "fixed_continuation_otherwise": 7,
+      "interactive_when_no_behavioural_signal": 5
+    },
+    "per_instance": [
+      {
+        "instance_id": "marshmallow-code__marshmallow-1343",
+        "deciding_rule": "freeze_when_public_candidate_passes",
+        "route": "stop",
+        "all_firing": [
+          "freeze_when_public_candidate_passes",
+          "interactive_on_wide_localization_disagreement",
+          "fixed_continuation_otherwise"
+        ]
+      },
+      {
+        "instance_id": "marshmallow-code__marshmallow-1359",
+        "deciding_rule": "freeze_when_public_candidate_passes",
+        "route": "stop",
+        "all_firing": [
+          "freeze_when_public_candidate_passes",
+          "interactive_on_wide_localization_disagreement",
+          "fixed_continuation_otherwise"
+        ]
+      },
+      {
+        "instance_id": "pylint-dev__astroid-1196",
+        "deciding_rule": "interactive_on_wide_localization_disagreement",
+        "route": "interactive",
+        "all_firing": [
+          "interactive_on_wide_localization_disagreement",
+          "interactive_when_no_behavioural_signal",
+          "fixed_continuation_otherwise"
+        ]
+      },
+      {
+        "instance_id": "pylint-dev__astroid-1866",
+        "deciding_rule": "interactive_on_wide_localization_disagreement",
+        "route": "interactive",
+        "all_firing": [
+          "interactive_on_wide_localization_disagreement",
+          "interactive_when_no_behavioural_signal",
+          "fixed_continuation_otherwise"
+        ]
+      },
+      {
+        "instance_id": "pylint-dev__astroid-1978",
+        "deciding_rule": "interactive_when_no_behavioural_signal",
+        "route": "interactive",
+        "all_firing": [
+          "interactive_when_no_behavioural_signal",
+          "fixed_continuation_otherwise"
+        ]
+      },
+      {
+        "instance_id": "sqlfluff__sqlfluff-1625",
+        "deciding_rule": "interactive_on_wide_localization_disagreement",
+        "route": "interactive",
+        "all_firing": [
+          "interactive_on_wide_localization_disagreement",
+          "interactive_when_no_behavioural_signal",
+          "fixed_continuation_otherwise"
+        ]
+      },
+      {
+        "instance_id": "sqlfluff__sqlfluff-2419",
+        "deciding_rule": "interactive_on_wide_localization_disagreement",
+        "route": "interactive",
+        "all_firing": [
+          "interactive_on_wide_localization_disagreement",
+          "interactive_when_no_behavioural_signal",
+          "fixed_continuation_otherwise"
+        ]
+      }
+    ]
+  },
+  "per_instance": [
+    {
+      "instance_id": "marshmallow-code__marshmallow-1343",
+      "fixed_resolved": true,
+      "interactive_resolved": false,
+      "standalone_resolved": false,
+      "quadrant": "Q2_fixed_only",
+      "u_loc": 1.0,
+      "u_dup": 0.0,
+      "n_public_pass": 1,
+      "signal": "behavioural",
+      "prefix_cost_cny": 0.0864,
+      "decisions": {
+        "A": "stop",
+        "C": "stop",
+        "D": "stop",
+        "E": "stop"
+      }
+    },
+    {
+      "instance_id": "marshmallow-code__marshmallow-1359",
+      "fixed_resolved": true,
+      "interactive_resolved": false,
+      "standalone_resolved": false,
+      "quadrant": "Q2_fixed_only",
+      "u_loc": 1.0,
+      "u_dup": 0.0,
+      "n_public_pass": 2,
+      "signal": "behavioural",
+      "prefix_cost_cny": 0.0693,
+      "decisions": {
+        "A": "stop",
+        "C": "stop",
+        "D": "stop",
+        "E": "stop"
+      }
+    },
+    {
+      "instance_id": "pylint-dev__astroid-1196",
+      "fixed_resolved": false,
+      "interactive_resolved": true,
+      "standalone_resolved": false,
+      "quadrant": "Q3_interactive_only",
+      "u_loc": 0.6666666666666667,
+      "u_dup": 0.5,
+      "n_public_pass": 0,
+      "signal": "none",
+      "prefix_cost_cny": 0.1994,
+      "decisions": {
+        "A": "fixed",
+        "C": "interactive",
+        "D": "interactive",
+        "E": "fixed"
+      }
+    },
+    {
+      "instance_id": "pylint-dev__astroid-1866",
+      "fixed_resolved": false,
+      "interactive_resolved": false,
+      "standalone_resolved": false,
+      "quadrant": "Q4_double_failure",
+      "u_loc": 1.0,
+      "u_dup": 0.0,
+      "n_public_pass": 0,
+      "signal": "none",
+      "prefix_cost_cny": 0.1099,
+      "decisions": {
+        "A": "fixed",
+        "C": "interactive",
+        "D": "interactive",
+        "E": "interactive"
+      }
+    },
+    {
+      "instance_id": "pylint-dev__astroid-1978",
+      "fixed_resolved": false,
+      "interactive_resolved": false,
+      "standalone_resolved": false,
+      "quadrant": "Q4_double_failure",
+      "u_loc": 0.0,
+      "u_dup": 0.0,
+      "n_public_pass": 0,
+      "signal": "none",
+      "prefix_cost_cny": 0.1001,
+      "decisions": {
+        "A": "fixed",
+        "C": "interactive",
+        "D": "interactive",
+        "E": "interactive"
+      }
+    },
+    {
+      "instance_id": "sqlfluff__sqlfluff-1625",
+      "fixed_resolved": false,
+      "interactive_resolved": false,
+      "standalone_resolved": false,
+      "quadrant": "Q4_double_failure",
+      "u_loc": 1.0,
+      "u_dup": 0.0,
+      "n_public_pass": 0,
+      "signal": "none",
+      "prefix_cost_cny": 0.1238,
+      "decisions": {
+        "A": "fixed",
+        "C": "interactive",
+        "D": "interactive",
+        "E": "fixed"
+      }
+    },
+    {
+      "instance_id": "sqlfluff__sqlfluff-2419",
+      "fixed_resolved": true,
+      "interactive_resolved": false,
+      "standalone_resolved": true,
+      "quadrant": "Q2_fixed_only",
+      "u_loc": 1.0,
+      "u_dup": 0.0,
+      "n_public_pass": 0,
+      "signal": "none",
+      "prefix_cost_cny": 0.0087,
+      "decisions": {
+        "A": "fixed",
+        "C": "interactive",
+        "D": "interactive",
+        "E": "fixed"
+      }
+    }
+  ]
+}

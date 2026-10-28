@@ -1,0 +1,4 @@
+# Host-side requirements. Instance dependencies run inside the evaluation
+# containers, so nothing here needs to match the repositories under test.
+pyarrow>=21
+swebench>=5.0.2

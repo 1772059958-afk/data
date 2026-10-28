@@ -1,0 +1,175 @@
+{
+  "tag": "cf_smoke5",
+  "built_utc": "2026-10-23T03:19:53Z",
+  "what": "paired-branch counterfactual smoke run: shared prefix, fixed continuation, interactive escalation, standalone interactive. A connectivity check for the five-arm machinery, NOT an effect result.",
+  "caveats": [
+    "n is tiny: no ordering, no significance, no 'one arm is better' claim",
+    "routing thresholds are placeholders at 0.5",
+    "arm E switch probability is a placeholder at 0.5",
+    "repeats = 1"
+  ],
+  "model_config": {
+    "model": "deepseek-flash",
+    "thinking": true,
+    "effort": "low",
+    "max_tokens": 16384
+  },
+  "budget": {
+    "tier": "demo",
+    "tier_ceiling": {
+      "token": 200000,
+      "model_call": 12,
+      "tool_call": 20,
+      "wallclock_seconds": 600.0
+    },
+    "amendment": "config small tier is 32000 tokens, but one prefix measured 47009 tokens, so the budget rule fired on every instance and A/C/D/E all stopped. The demo tier is the amendment.",
+    "prefix_candidates": 2,
+    "interactive_model_calls": 6,
+    "interactive_tool_calls": 10,
+    "per_instance_cny": 2.2,
+    "total_cny": 2.0
+  },
+  "config": {
+    "version": "frozen_v1",
+    "hash": "710008a8dd826ff434da38f0a32f6686aa2573818bb98f59d416c09755e4e0f0"
+  },
+  "spent_cny": 0.203816,
+  "guard": {
+    "ceiling_cny": 2.0,
+    "spent_cny": 0.203816,
+    "remaining_cny": 1.796184,
+    "calls": 9,
+    "tokens": 160299,
+    "approved": false
+  },
+  "predictions_file": "reports/cf_smoke5.jsonl",
+  "prediction_rows_per_arm": {
+    "A": 1,
+    "B": 0,
+    "C": 1,
+    "D": 1,
+    "E": 1,
+    "ESC": 1
+  },
+  "decisions": {
+    "marshmallow-code__marshmallow-1343": {
+      "A": "stop",
+      "C": "stop",
+      "D": "stop",
+      "E": "stop"
+    }
+  },
+  "instances": [
+    {
+      "instance_id": "marshmallow-code__marshmallow-1343",
+      "features": {
+        "n_candidates": 2,
+        "n_applicable": 1,
+        "n_public_pass": 1,
+        "u_loc": 1.0,
+        "u_dup": 0.0,
+        "behavioural_signal": "behavioural",
+        "localization_missing": false,
+        "context_files": [
+          "src/marshmallow/schema.py",
+          "src/marshmallow/fields.py"
+        ],
+        "remaining_token": 153964
+      },
+      "quadrant": null,
+      "escalation_necessary": false,
+      "prefix": {
+        "candidate_index": 1,
+        "cost_cny": 0.136183,
+        "calls": 3,
+        "tokens": 46036
+      },
+      "fixed": {
+        "cost_cny": 0.0,
+        "calls": 0,
+        "resolved": null,
+        "diff_lines": 11
+      },
+      "interactive": {
+        "cost_cny": 0.067633,
+        "calls": 6,
+        "resolved": null,
+        "ended_by": "model_call_budget",
+        "diff_lines": 41
+      },
+      "standalone": {
+        "cost_cny": 0.0,
+        "calls": 0,
+        "resolved": null,
+        "diff_lines": 0
+      },
+      "notes": [
+        "arm A stopped instead of continuing: freeze_when_public_candidate_passes"
+      ],
+      "prefix_trace": [
+        {
+          "step": "localize",
+          "calls": 1,
+          "cost_cny": 0.003147,
+          "files": [
+            "src/marshmallow/schema.py"
+          ],
+          "symbols": [
+            "_do_load",
+            "_invoke_field_validators"
+          ],
+          "finish_reason": "stop"
+        },
+        {
+          "step": "candidate_0",
+          "calls": 1,
+          "cost_cny": 0.048461,
+          "diff_lines": 30,
+          "validation": "not_run",
+          "applies_cleanly": false,
+          "hunk_headers_repaired": 1,
+          "finish_reason": "stop",
+          "output_tokens": 5538,
+          "reasoning_tokens": 5120,
+          "reply_head": "```diff --- a/src/marshmallow/schema.py +++ b/src/marshmallow/schema.py @@ -668,24 +668,25 @@ class BaseSchema(base.SchemaABC):                      index_errors=self.opts.index_errors,               ",
+          "targets_outside_context": []
+        },
+        {
+          "step": "candidate_1",
+          "calls": 1,
+          "cost_cny": 0.136183,
+          "diff_lines": 3,
+          "validation": "pass",
+          "applies_cleanly": true,
+          "hunk_headers_repaired": 1,
+          "finish_reason": "stop",
+          "output_tokens": 10832,
+          "reasoning_tokens": 10700,
+          "reply_head": "```diff --- a/src/marshmallow/schema.py +++ b/src/marshmallow/schema.py @@ -671,7 +671,8 @@ class BaseSchema(base.SchemaABC):              except ValidationError as error:                  result = er",
+          "targets_outside_context": []
+        }
+      ]
+    }
+  ],
+  "quadrants_before_scoring": {
+    "counts": {
+      "Q1_double_success": 0,
+      "Q2_fixed_only": 0,
+      "Q3_interactive_only": 0,
+      "Q4_double_failure": 0
+    },
+    "meanings": {
+      "Q1_double_success": "both branches solve it: escalating wastes the interactive budget",
+      "Q2_fixed_only": "only the fixed branch solves it: escalating makes the answer worse",
+      "Q3_interactive_only": "only interaction solves it: this is what the router must find",
+      "Q4_double_failure": "neither solves it: escalating is futile"
+    },
+    "scored": 0,
+    "unscored": [
+      "marshmallow-code__marshmallow-1343"
+    ],
+    "escalation_necessary_share": null,
+    "wasted_share": null
+  },
+  "failures": []
+}

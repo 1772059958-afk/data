@@ -1,0 +1,125 @@
+{
+  "tag": "cf_smoke1",
+  "built_utc": "2026-10-23T03:07:22Z",
+  "what": "paired-branch counterfactual smoke run: shared prefix, fixed continuation, interactive escalation, standalone interactive. A connectivity check for the five-arm machinery, NOT an effect result.",
+  "caveats": [
+    "n is tiny: no ordering, no significance, no 'one arm is better' claim",
+    "routing thresholds are placeholders at 0.5",
+    "arm E switch probability is a placeholder at 0.5",
+    "repeats = 1"
+  ],
+  "model_config": {
+    "model": "deepseek-flash",
+    "thinking": true,
+    "effort": "low",
+    "max_tokens": 8192
+  },
+  "budget": {
+    "tier": "demo",
+    "prefix_candidates": 2,
+    "interactive_model_calls": 4,
+    "interactive_tool_calls": 6,
+    "per_instance_cny": 2.2,
+    "total_cny": 2.0
+  },
+  "config": {
+    "version": "frozen_v1",
+    "hash": "710008a8dd826ff434da38f0a32f6686aa2573818bb98f59d416c09755e4e0f0"
+  },
+  "spent_cny": 0.152348,
+  "guard": {
+    "ceiling_cny": 2.0,
+    "spent_cny": 0.152348,
+    "remaining_cny": 1.847652,
+    "calls": 6,
+    "tokens": 55118,
+    "approved": false
+  },
+  "predictions_file": "reports/cf_smoke1.jsonl",
+  "prediction_rows_per_arm": {
+    "A": 1,
+    "B": 0,
+    "C": 1,
+    "D": 1,
+    "E": 1,
+    "ESC": 1
+  },
+  "decisions": {
+    "marshmallow-code__marshmallow-1343": {
+      "A": "stop",
+      "C": "stop",
+      "D": "stop",
+      "E": "stop"
+    }
+  },
+  "instances": [
+    {
+      "instance_id": "marshmallow-code__marshmallow-1343",
+      "features": {
+        "n_candidates": 2,
+        "n_applicable": 0,
+        "n_public_pass": 0,
+        "u_loc": 1.0,
+        "u_dup": 0.5,
+        "behavioural_signal": "none",
+        "localization_missing": false,
+        "context_files": [
+          "src/marshmallow/fields.py",
+          "src/marshmallow/marshalling.py"
+        ],
+        "remaining_token": 0
+      },
+      "quadrant": null,
+      "escalation_necessary": false,
+      "prefix": {
+        "candidate_index": null,
+        "cost_cny": 0.141378,
+        "calls": 3,
+        "tokens": 47009
+      },
+      "fixed": {
+        "cost_cny": 0.0,
+        "calls": 0,
+        "resolved": null,
+        "diff_lines": 0
+      },
+      "interactive": {
+        "cost_cny": 0.01097,
+        "calls": 3,
+        "resolved": null,
+        "ended_by": "tool_budget",
+        "diff_lines": 0
+      },
+      "standalone": {
+        "cost_cny": 0.0,
+        "calls": 0,
+        "resolved": null,
+        "diff_lines": 0
+      },
+      "notes": [
+        "arm A stopped instead of continuing: stop_when_budget_insufficient"
+      ]
+    }
+  ],
+  "quadrants_before_scoring": {
+    "counts": {
+      "Q1_double_success": 0,
+      "Q2_fixed_only": 0,
+      "Q3_interactive_only": 0,
+      "Q4_double_failure": 0
+    },
+    "meanings": {
+      "Q1_double_success": "both branches solve it: escalating wastes the interactive budget",
+      "Q2_fixed_only": "only the fixed branch solves it: escalating makes the answer worse",
+      "Q3_interactive_only": "only interaction solves it: this is what the router must find",
+      "Q4_double_failure": "neither solves it: escalating is futile"
+    },
+    "scored": 0,
+    "unscored": [
+      "marshmallow-code__marshmallow-1343"
+    ],
+    "escalation_necessary_share": null,
+    "wasted_share": null
+  },
+  "failures": []
+}

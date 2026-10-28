@@ -1,0 +1,278 @@
+{
+  "tag": "baseline_dev15_retry",
+  "built_utc": "2026-10-16T02:37:18Z",
+  "model_config": {
+    "model": "deepseek-flash",
+    "thinking": true,
+    "effort": "low",
+    "max_tokens": 32768
+  },
+  "what": "single-shot fixed-flow baseline (one prompt per instance, patch taken from the reply). Not Agentless.",
+  "failure_modes": {
+    "not_scored": [
+      "pydicom__pydicom-901",
+      "sqlfluff__sqlfluff-1733",
+      "sqlfluff__sqlfluff-1763"
+    ],
+    "resolved": [
+      "pylint-dev__astroid-1196",
+      "pylint-dev__astroid-1866"
+    ],
+    "unresolved": [
+      "pylint-dev__astroid-1268",
+      "pylint-dev__astroid-1978",
+      "sqlfluff__sqlfluff-1625",
+      "sqlfluff__sqlfluff-2419"
+    ],
+    "empty_patch": [
+      "pylint-dev__astroid-1333",
+      "sqlfluff__sqlfluff-1517"
+    ]
+  },
+  "attempts": [
+    {
+      "report": "reports/baseline_dev15_retry_run.json",
+      "model_config": {
+        "model": "deepseek-flash",
+        "thinking": true,
+        "effort": "low",
+        "max_tokens": 32768
+      },
+      "spent_cny": 1.513461,
+      "instances": [
+        {
+          "instance_id": "pydicom__pydicom-901",
+          "finish_reason": "stop",
+          "output_tokens": 13511,
+          "reasoning_tokens": 13196,
+          "patch_lines": 36,
+          "patch_empty": false,
+          "cost_cny": 0.10845
+        },
+        {
+          "instance_id": "pylint-dev__astroid-1196",
+          "finish_reason": "stop",
+          "output_tokens": 12297,
+          "reasoning_tokens": 12074,
+          "patch_lines": 24,
+          "patch_empty": false,
+          "cost_cny": 0.099874
+        },
+        {
+          "instance_id": "pylint-dev__astroid-1268",
+          "finish_reason": "stop",
+          "output_tokens": 683,
+          "reasoning_tokens": 578,
+          "patch_lines": 12,
+          "patch_empty": false,
+          "cost_cny": 0.007004
+        },
+        {
+          "instance_id": "pylint-dev__astroid-1333",
+          "finish_reason": "length",
+          "output_tokens": 32768,
+          "reasoning_tokens": 32768,
+          "patch_lines": 0,
+          "patch_empty": true,
+          "cost_cny": 0.262742
+        },
+        {
+          "instance_id": "pylint-dev__astroid-1866",
+          "finish_reason": "stop",
+          "output_tokens": 14006,
+          "reasoning_tokens": 13910,
+          "patch_lines": 7,
+          "patch_empty": false,
+          "cost_cny": 0.113551
+        },
+        {
+          "instance_id": "pylint-dev__astroid-1978",
+          "finish_reason": "stop",
+          "output_tokens": 613,
+          "reasoning_tokens": 477,
+          "patch_lines": 13,
+          "patch_empty": false,
+          "cost_cny": 0.005571
+        },
+        {
+          "instance_id": "sqlfluff__sqlfluff-1517",
+          "finish_reason": "length",
+          "output_tokens": 32768,
+          "reasoning_tokens": 32768,
+          "patch_lines": 0,
+          "patch_empty": true,
+          "cost_cny": 0.26365
+        },
+        {
+          "instance_id": "sqlfluff__sqlfluff-1625",
+          "finish_reason": "stop",
+          "output_tokens": 25702,
+          "reasoning_tokens": 25579,
+          "patch_lines": 12,
+          "patch_empty": false,
+          "cost_cny": 0.206174
+        },
+        {
+          "instance_id": "sqlfluff__sqlfluff-1733",
+          "finish_reason": "stop",
+          "output_tokens": 20962,
+          "reasoning_tokens": 20783,
+          "patch_lines": 15,
+          "patch_empty": false,
+          "cost_cny": 0.168099
+        },
+        {
+          "instance_id": "sqlfluff__sqlfluff-1763",
+          "finish_reason": "stop",
+          "output_tokens": 20506,
+          "reasoning_tokens": 20278,
+          "patch_lines": 24,
+          "patch_empty": false,
+          "cost_cny": 0.164678
+        },
+        {
+          "instance_id": "sqlfluff__sqlfluff-2419",
+          "finish_reason": "stop",
+          "output_tokens": 14147,
+          "reasoning_tokens": 14022,
+          "patch_lines": 6,
+          "patch_empty": false,
+          "cost_cny": 0.113668
+        }
+      ]
+    }
+  ],
+  "instances": [
+    {
+      "instance_id": "pydicom__pydicom-901",
+      "cost_cny": 0.10845,
+      "patch_empty": false,
+      "patch_lines": 36,
+      "finish_reason": "stop",
+      "output_tokens": 13511,
+      "reasoning_tokens": 13196,
+      "verdict": "not_scored",
+      "verdict_source": null
+    },
+    {
+      "instance_id": "pylint-dev__astroid-1196",
+      "cost_cny": 0.099874,
+      "patch_empty": false,
+      "patch_lines": 24,
+      "finish_reason": "stop",
+      "output_tokens": 12297,
+      "reasoning_tokens": 12074,
+      "verdict": "resolved",
+      "verdict_source": "reports/deepseek-flash.baseline_dev15_retry.json"
+    },
+    {
+      "instance_id": "pylint-dev__astroid-1268",
+      "cost_cny": 0.007004,
+      "patch_empty": false,
+      "patch_lines": 12,
+      "finish_reason": "stop",
+      "output_tokens": 683,
+      "reasoning_tokens": 578,
+      "verdict": "unresolved",
+      "verdict_source": "reports/deepseek-flash.baseline_dev15_retry.json"
+    },
+    {
+      "instance_id": "pylint-dev__astroid-1333",
+      "cost_cny": 0.262742,
+      "patch_empty": true,
+      "patch_lines": 0,
+      "finish_reason": "length",
+      "output_tokens": 32768,
+      "reasoning_tokens": 32768,
+      "verdict": "empty_patch",
+      "verdict_source": "reports/deepseek-flash.baseline_dev15_retry.json"
+    },
+    {
+      "instance_id": "pylint-dev__astroid-1866",
+      "cost_cny": 0.113551,
+      "patch_empty": false,
+      "patch_lines": 7,
+      "finish_reason": "stop",
+      "output_tokens": 14006,
+      "reasoning_tokens": 13910,
+      "verdict": "resolved",
+      "verdict_source": "reports/deepseek-flash.baseline_dev15_retry.json"
+    },
+    {
+      "instance_id": "pylint-dev__astroid-1978",
+      "cost_cny": 0.005571,
+      "patch_empty": false,
+      "patch_lines": 13,
+      "finish_reason": "stop",
+      "output_tokens": 613,
+      "reasoning_tokens": 477,
+      "verdict": "unresolved",
+      "verdict_source": "reports/deepseek-flash.baseline_dev15_retry.json"
+    },
+    {
+      "instance_id": "sqlfluff__sqlfluff-1517",
+      "cost_cny": 0.26365,
+      "patch_empty": true,
+      "patch_lines": 0,
+      "finish_reason": "length",
+      "output_tokens": 32768,
+      "reasoning_tokens": 32768,
+      "verdict": "empty_patch",
+      "verdict_source": "reports/deepseek-flash.baseline_dev15_retry.json"
+    },
+    {
+      "instance_id": "sqlfluff__sqlfluff-1625",
+      "cost_cny": 0.206174,
+      "patch_empty": false,
+      "patch_lines": 12,
+      "finish_reason": "stop",
+      "output_tokens": 25702,
+      "reasoning_tokens": 25579,
+      "verdict": "unresolved",
+      "verdict_source": "reports/deepseek-flash.baseline_dev15_retry.json"
+    },
+    {
+      "instance_id": "sqlfluff__sqlfluff-1733",
+      "cost_cny": 0.168099,
+      "patch_empty": false,
+      "patch_lines": 15,
+      "finish_reason": "stop",
+      "output_tokens": 20962,
+      "reasoning_tokens": 20783,
+      "verdict": "not_scored",
+      "verdict_source": null
+    },
+    {
+      "instance_id": "sqlfluff__sqlfluff-1763",
+      "cost_cny": 0.164678,
+      "patch_empty": false,
+      "patch_lines": 24,
+      "finish_reason": "stop",
+      "output_tokens": 20506,
+      "reasoning_tokens": 20278,
+      "verdict": "not_scored",
+      "verdict_source": null
+    },
+    {
+      "instance_id": "sqlfluff__sqlfluff-2419",
+      "cost_cny": 0.113668,
+      "patch_empty": false,
+      "patch_lines": 6,
+      "finish_reason": "stop",
+      "output_tokens": 14147,
+      "reasoning_tokens": 14022,
+      "verdict": "unresolved",
+      "verdict_source": "reports/deepseek-flash.baseline_dev15_retry.json"
+    }
+  ],
+  "totals": {
+    "instances": 11,
+    "resolved": 2,
+    "resolved_rate": 0.1818,
+    "spent_cny": 1.513461,
+    "tokens": 334338,
+    "cost_per_instance_cny": 0.137587,
+    "median_cost_cny": 0.113668,
+    "cost_per_resolved_cny": 0.75673
+  }
+}

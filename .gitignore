@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+
+# 密钥：绝不入库（.env 里是 DEEPSEEK_API_KEY）
+.env
+
+# 机器专属的大文件与临时产物
+# vendor/ 是 692 MB 的 WSL/Ubuntu 安装包，不是实验数据
+vendor/
+# logs/ 是 196 MB 官方 harness 容器日志，摘要已在 reports/
+logs/
+# work/ 是调试用的临时脚本，可复现的版本已整理进 scripts/
+work/
+# runs/ 是运行桩，正式记录在 reports/
+runs/
+*.log
+
+# 半截下载
+data/raw/*.part
+
+# 注意：reports/ 不在这里，它是实验证据，必须入库。

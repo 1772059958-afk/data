@@ -1,0 +1,76 @@
+{
+  "tag": "baseline_dev",
+  "built_utc": "2026-10-16T01:13:16Z",
+  "what": "single-shot fixed-flow baseline: one prompt per instance, patch taken from the model's reply. Not Agentless.",
+  "model_config": {
+    "model": "deepseek-flash",
+    "thinking": true,
+    "effort": "low",
+    "max_tokens": 4096
+  },
+  "ceiling_cny_per_instance": 2.0,
+  "ceiling_cny_total": 6.0,
+  "spent_cny_total": 0.174566,
+  "guard": {
+    "ceiling_cny": 6.0,
+    "spent_cny": 0.174566,
+    "remaining_cny": 5.825434,
+    "calls": 3,
+    "tokens": 68776,
+    "approved": false
+  },
+  "predictions_file": "reports/baseline_dev.jsonl",
+  "instances": [
+    {
+      "instance_id": "marshmallow-code__marshmallow-1343",
+      "context_files": [
+        "src/marshmallow/schema.py",
+        "src/marshmallow/marshalling.py",
+        "src/marshmallow/fields.py",
+        "tests/test_marshalling.py"
+      ],
+      "patch_lines": 0,
+      "patch_empty": true,
+      "cost_cny": 0.084938,
+      "prompt_tokens": 26085,
+      "output_tokens": 4096,
+      "reasoning_tokens": 4096,
+      "latency_seconds": 23.35,
+      "served_model": "deepseek-flash",
+      "finish_reason": "length"
+    },
+    {
+      "instance_id": "marshmallow-code__marshmallow-1359",
+      "context_files": [
+        "src/marshmallow/schema.py",
+        "src/marshmallow/fields.py",
+        "tests/test_fields.py"
+      ],
+      "patch_lines": 10,
+      "patch_empty": false,
+      "cost_cny": 0.067244,
+      "prompt_tokens": 29054,
+      "output_tokens": 1142,
+      "reasoning_tokens": 1022,
+      "latency_seconds": 7.33,
+      "served_model": "deepseek-flash",
+      "finish_reason": "stop"
+    },
+    {
+      "instance_id": "pydicom__pydicom-1256",
+      "context_files": [
+        "pydicom/jsonrep.py",
+        "pydicom/tests/test_json.py"
+      ],
+      "patch_lines": 13,
+      "patch_empty": false,
+      "cost_cny": 0.022384,
+      "prompt_tokens": 7468,
+      "output_tokens": 931,
+      "reasoning_tokens": 824,
+      "latency_seconds": 5.47,
+      "served_model": "deepseek-flash",
+      "finish_reason": "stop"
+    }
+  ]
+}
