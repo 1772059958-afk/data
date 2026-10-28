@@ -17,7 +17,7 @@ import os
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 REPO = os.path.dirname(HERE)
-OUT = os.path.join(os.path.dirname(REPO), "outputs", "机制总览.svg")
+OUT = os.path.join(REPO, "docs", "deliverables", "mechanism_overview.svg")
 
 FONT = "Arial, 'Microsoft YaHei', 'Segoe UI', sans-serif"
 

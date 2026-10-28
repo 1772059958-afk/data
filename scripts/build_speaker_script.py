@@ -15,7 +15,7 @@ from docx.shared import Pt, RGBColor
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 REPO = os.path.dirname(HERE)
-OUT = os.path.join(os.path.dirname(REPO), "outputs", "第7周进展汇报_讲稿.docx")
+OUT = os.path.join(REPO, "docs", "deliverables", "第7周进展汇报_讲稿.docx")
 
 FONT = "微软雅黑"
 INK = RGBColor(0x20, 0x20, 0x20)

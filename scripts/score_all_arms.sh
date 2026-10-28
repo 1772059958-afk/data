@@ -2,8 +2,10 @@
 # Score each arm separately. The harness handles one model per invocation in
 # practice, so a multi-model file leaves all but the first unscored.
 set -u
-V=/opt/swe-env/bin/python
-REPO=/mnt/c/Users/MECH/Documents/Codex/2026-10-15/z/swe-repair
+V=${VENV_DIR:-/opt/swe-env}/bin/python
+# 从脚本位置推导仓库根，不要写死机器路径
+HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+REPO="$(dirname "$HERE")"
 TAG=${1:-cf_dev4}
 cd "$REPO" || exit 1
 

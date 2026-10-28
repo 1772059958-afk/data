@@ -1,4 +1,9 @@
 # Host-side requirements. Instance dependencies run inside the evaluation
 # containers, so nothing here needs to match the repositories under test.
+#
+# `requests` is what llm.py uses to reach the model API. It is imported lazily,
+# so a missing install only shows up as 15 failing client tests rather than an
+# import error at startup.
 pyarrow>=21
 swebench>=5.0.2
+requests>=2.31

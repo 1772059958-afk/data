@@ -38,6 +38,15 @@ def main(argv: list[str]) -> int:
     )
     total = passed = 0
     failures: list[tuple[str, str, str]] = []
+    # A missing requests does not break the import; it only makes the 15 client
+    # tests fail deep inside a fake call, which reads like a code bug. Say it up
+    # front instead.
+    try:
+        import requests  # noqa: F401
+    except ImportError:
+        print("warning: `requests` is not installed, so the model-client tests "
+              "will fail with 'No module named requests'.\n"
+              "         fix it with: pip install -r requirements.txt\n")
     for path in paths:
         label = os.path.basename(path)
         try:

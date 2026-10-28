@@ -4,6 +4,10 @@
 #   bash scripts/check_store.sh [seconds]
 set -uo pipefail
 
+# 从脚本位置推导仓库根，不要写死机器路径
+HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+REPO="$(dirname "$HERE")"
+
 SECS="${1:-60}"
 
 echo "docker root : $(docker info --format '{{.DockerRootDir}}')"
@@ -38,4 +42,4 @@ done
 echo
 echo "prepull running: $(ps -eo cmd | grep -c '[p]repull_images')"
 echo "last prepull lines:"
-tail -3 /mnt/c/Users/MECH/Documents/Codex/2026-10-15/z/swe-repair/logs/prepull_test.log 2>/dev/null | sed 's/^/  /'
+tail -3 "$REPO/logs/prepull_test.log" 2>/dev/null | sed 's/^/  /'

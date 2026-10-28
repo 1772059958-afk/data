@@ -164,7 +164,7 @@ say "done"
 cat <<EOF
     Next, still inside Ubuntu:
 
-        bash /mnt/c/Users/MECH/Documents/Codex/2026-10-15/z/swe-repair/scripts/check_env_wsl.sh
+        bash $(cd "$(dirname "$0")" && pwd)/check_env_wsl.sh
 
     That script checks the container runtime, the harness environment and the
     frozen dataset in one pass, and then prints the single command that runs the

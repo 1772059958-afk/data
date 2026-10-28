@@ -20,14 +20,14 @@ from pptx.enum.text import PP_ALIGN
 from pptx.util import Inches, Pt
 from pptx.oxml.ns import qn
 
-TEMPLATE = (
-    r"C:\Users\MECH\Documents\xwechat_files\wxid_9wqlky8i1jy022_9e12\temp\RWTemp"
-    r"\2026-10\ad8519e29fbc3a4505ad561a2d67df9c"
-    r"\开题ppt-25371218陈堉锋、24371078张曹远臻-混合架构程序修复.pptx"
-)
+# 模板（组里那份开题 PPT）不在本仓库里：它带着本地路径与学号，不适合入库。
+# 需要重建 deck 时用环境变量指向它，例如：
+#   $env:DECK_TEMPLATE = "D:\path\to\开题ppt.pptx"
+TEMPLATE = os.environ.get("DECK_TEMPLATE", "")
+
 HERE = os.path.dirname(os.path.abspath(__file__))
 REPO = os.path.dirname(HERE)
-OUT_DIR = os.path.join(os.path.dirname(REPO), "outputs")
+OUT_DIR = os.path.join(REPO, "docs", "deliverables")
 OUT = os.path.join(OUT_DIR, "第7周进展汇报_自适应混合架构.pptx")
 SCHEMATIC = os.path.join(OUT_DIR, "mechanism_overview.png")
 
@@ -188,6 +188,14 @@ def drop_slides(prs) -> None:
 
 
 def build() -> None:
+    if not TEMPLATE:
+        raise SystemExit(
+            "没有指定 PPT 模板。模板是组里那份开题 PPT，不随仓库分发。\n"
+            "先设置环境变量再运行：\n"
+            '  $env:DECK_TEMPLATE = "D:\\path\\to\\开题ppt.pptx"'
+        )
+    if not os.path.exists(TEMPLATE):
+        raise SystemExit(f"DECK_TEMPLATE 指向的文件不存在：{TEMPLATE}")
     prs = Presentation(TEMPLATE)
     drop_slides(prs)
 
