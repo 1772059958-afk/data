@@ -26,6 +26,7 @@ import json
 import os
 import random
 import time
+from types import SimpleNamespace
 from typing import Any, Iterable, Mapping, Sequence
 
 from . import pricing
@@ -119,6 +120,8 @@ class ModelConfig:
             )
         if self.max_tokens <= 0:
             raise ModelConfigError("max_tokens must be positive")
+        if self.max_retries < 0 or self.timeout_seconds <= 0:
+            raise ModelConfigError('retry count must be nonnegative and timeout positive')
 
         if self.thinking:
             # The provider accepts these and ignores them, which is worse than
@@ -195,6 +198,8 @@ class CallRecord:
     started_at: str
     cost_cny: float
     price_tier: str
+    usage_reported: bool = True
+    billing: str = "estimated_from_usage"
 
     @property
     def input_tokens(self) -> int:
@@ -291,6 +296,7 @@ class DeepSeekClient:
         guard: SpendGuard | None = None,
         session: Any = None,
         sleeper: Any = time.sleep,
+        allow_live: bool = False,
     ) -> None:
         self.config = config or ModelConfig()
         self._api_key = api_key or load_api_key()
@@ -299,6 +305,8 @@ class DeepSeekClient:
         self._guard = guard
         self._sleeper = sleeper
         if session is None:
+            if not allow_live:
+                raise RuntimeError('Live model access is disabled; explicit paid-run authorization is required')
             import requests
 
             session = requests.Session()
@@ -314,9 +322,7 @@ class DeepSeekClient:
 
     __str__ = __repr__
 
-    def _post(self, body: dict[str, Any]) -> tuple[int, dict[str, Any]]:
-        import requests
-
+    def _post(self, body: dict[str, Any], timeout: float | None = None) -> tuple[int, dict[str, Any]]:
         url = self.config.base_url.rstrip("/") + "/chat/completions"
         headers = {
             "Authorization": f"Bearer {self._api_key}",
@@ -326,7 +332,7 @@ class DeepSeekClient:
             url,
             headers=headers,
             data=json.dumps(body),
-            timeout=self.config.timeout_seconds,
+            timeout=self.config.timeout_seconds if timeout is None else min(timeout, self.config.timeout_seconds),
         )
         try:
             payload = response.json()
@@ -340,28 +346,41 @@ class DeepSeekClient:
         *,
         tools: Sequence[Mapping[str, Any]] | None = None,
         tool_choice: str | Mapping[str, Any] | None = None,
+        attempt_hook: Any = None,
+        prompt_tokens_estimate: int | None = None,
     ) -> ChatResult:
-        if self._guard is not None:
-            # Worst-case check before anything leaves the machine.
-            self._guard.check_before(
-                self.config.model, max_output_tokens=self.config.max_tokens
-            )
-
         body = self.config.request_body(messages, tools, tool_choice)
         started = time.time()
         attempts = 0
         last_error: Exception | None = None
 
         while attempts <= self.config.max_retries:
+            if self._guard is not None:
+                self._guard.check_before(self.config.model, max_output_tokens=self.config.max_tokens,
+                                         prompt_tokens=prompt_tokens_estimate)
+            timeout = attempt_hook('before') if attempt_hook else None
             attempts += 1
+            attempt_started = time.time()
             try:
-                status, payload = self._post(body)
+                status, payload = self._post(body, timeout)
             except Exception as exc:  # transport-level failure
                 last_error = exc
                 status, payload = TRANSPORT_ERROR_STATUS, {}
 
             if status == 200:
                 break
+            try:
+                if self._guard is not None:
+                    prompt_reserved = (self._guard.policy.assumed_prompt_tokens if prompt_tokens_estimate is None
+                                       else prompt_tokens_estimate)
+                    self._guard.book(SimpleNamespace(
+                        cost_cny=self._guard.worst_case_cny(self.config.model,
+                            prompt_tokens=prompt_reserved, max_output_tokens=self.config.max_tokens),
+                        prompt_tokens=prompt_reserved, output_tokens=self.config.max_tokens,
+                        billing='unknown'))
+            finally:
+                if attempt_hook:
+                    attempt_hook('failed')
 
             retryable = status == TRANSPORT_ERROR_STATUS or status in RETRY_STATUSES
             if not retryable or attempts > self.config.max_retries:
@@ -373,14 +392,43 @@ class DeepSeekClient:
             # Exponential backoff with jitter, to avoid synchronised retries
             # when several workers hit the rate limit together.
             delay = min(2 ** (attempts - 1), 30) * (0.5 + random.random())
+            if attempt_hook:
+                delay = min(delay, max(0.0, attempt_hook('remaining')))
             self._sleeper(delay)
         else:  # pragma: no cover - loop always breaks or raises
             raise RuntimeError("model call failed after retries")
 
         latency = time.time() - started
-        result = self._to_result(payload, latency, attempts, started)
-        if self._guard is not None:
-            self._guard.book(result.record)
+        try:
+            result = self._to_result(payload, latency, attempts, attempt_started)
+        except Exception:
+            try:
+                if self._guard is not None:
+                    prompt_reserved = (self._guard.policy.assumed_prompt_tokens if prompt_tokens_estimate is None
+                                       else prompt_tokens_estimate)
+                    self._guard.book(SimpleNamespace(
+                        cost_cny=self._guard.worst_case_cny(self.config.model, prompt_tokens=prompt_reserved,
+                                                          max_output_tokens=self.config.max_tokens),
+                        prompt_tokens=prompt_reserved, output_tokens=self.config.max_tokens, billing='unknown'))
+            finally:
+                if attempt_hook:
+                    attempt_hook('failed')
+            raise
+        if not result.record.usage_reported and prompt_tokens_estimate is not None:
+            # A successful response without usage is not a free request. Keep
+            # the answer, but mark and reserve a conservative resource bound.
+            when = dt.datetime.fromtimestamp(attempt_started, pricing.BEIJING)
+            result.record = dataclasses.replace(result.record,
+                prompt_tokens=prompt_tokens_estimate, cache_hit_tokens=0,
+                cache_miss_tokens=prompt_tokens_estimate, output_tokens=self.config.max_tokens,
+                billing='unknown', cost_cny=pricing.estimate_cost(self.config.model,
+                    cache_miss_tokens=prompt_tokens_estimate, output_tokens=self.config.max_tokens, when=when))
+        try:
+            if self._guard is not None:
+                self._guard.book(result.record)
+        finally:
+            if attempt_hook:
+                attempt_hook('success', result.record)
         return result
 
     def _to_result(
@@ -434,6 +482,7 @@ class DeepSeekClient:
             started_at=when.isoformat(),
             cost_cny=cost,
             price_tier=pricing.tier_for(when),
+            usage_reported=all(k in usage for k in ('prompt_tokens', 'completion_tokens')),
         )
 
         tool_calls = list(message.get("tool_calls") or [])
