@@ -18,12 +18,13 @@ Only cell 3 justifies escalating. Everything in this module exists to measure
 how much of the pool is cell 3, whether the prefix features can find it, and how
 much of the achievable gain a rule captures. "Achievable" is defined by an
 oracle that reads the quadrant table directly, which is why the gap closure
-metric is bounded and interpretable rather than a vague improvement.
+metric exposes both gains and negative results. Unknown verdicts stay unknown.
 """
 
 from __future__ import annotations
 
 from dataclasses import dataclass, field
+import math
 from typing import Any, Callable, Iterable, Mapping, Sequence
 
 Q1 = "Q1_double_success"
@@ -76,6 +77,10 @@ class InstanceOutcome:
     standalone_calls: int = 0
     standalone_resolved: bool | None = None
 
+    prefix_resolved: bool | None = None
+    routes: dict[str, str] = field(default_factory=dict)
+    arm_statuses: dict[str, str] = field(default_factory=dict)
+    paired_eligible: bool = True
     notes: list[str] = field(default_factory=list)
     #: Per-step prefix diagnostics (finish_reason, output tokens, whether the
     #: diff applied). Kept because "the patch was empty" has several causes and
@@ -88,7 +93,7 @@ class InstanceOutcome:
 
     @property
     def quadrant(self) -> str | None:
-        if self.fixed_resolved is None or self.interactive_resolved is None:
+        if not self.paired_eligible or self.fixed_resolved is None or self.interactive_resolved is None:
             return None
         return quadrant(self.fixed_resolved, self.interactive_resolved)
 
@@ -159,6 +164,8 @@ def auc(scores: Sequence[float], labels: Sequence[bool]) -> float | None:
     defined then -- reporting 0.5 there would look like "no signal" when in fact
     the sample cannot say anything.
     """
+    if len(scores) != len(labels) or any(not math.isfinite(s) for s in scores):
+        raise ValueError('AUC requires equally sized finite scores and labels')
     pairs = list(zip(scores, labels))
     positives = [s for s, y in pairs if y]
     negatives = [s for s, y in pairs if not y]
@@ -178,7 +185,7 @@ def feature_report(outcomes: Sequence[InstanceOutcome]) -> list[dict[str, Any]]:
     """AUC of each single feature against "escalation was necessary"."""
     usable = [
         o for o in outcomes
-        if o.fixed_resolved is not None and o.interactive_resolved is not None
+        if o.paired_eligible and o.fixed_resolved is not None and o.interactive_resolved is not None
     ]
     labels = [o.escalation_necessary for o in usable]
     rows: list[dict[str, Any]] = []
@@ -218,21 +225,27 @@ class PolicyScore:
     total: int = 0
     cost_cny: float = 0.0
     escalations: int = 0
+    not_scored: int = 0
+    stops: int = 0
+    status_counts: dict[str, int] = field(default_factory=dict)
 
     @property
-    def resolved_rate(self) -> float:
-        return self.resolved / self.total if self.total else 0.0
+    def resolved_rate(self) -> float | None:
+        return self.resolved / self.total if self.total and not self.not_scored else None
 
     @property
     def cost_per_resolved(self) -> float | None:
-        return self.cost_cny / self.resolved if self.resolved else None
+        return self.cost_cny / self.resolved if self.resolved and not self.not_scored else None
 
     def to_dict(self) -> dict[str, Any]:
         return {
             "policy": self.name,
             "resolved": self.resolved,
             "total": self.total,
-            "resolved_rate": round(self.resolved_rate, 4),
+            "resolved_rate": None if self.resolved_rate is None else round(self.resolved_rate, 4),
+            "resolved_rate_lower_bound": round(self.resolved / self.total, 4) if self.total else None,
+            "not_scored": self.not_scored, "stops": self.stops,
+            "status_counts": dict(self.status_counts),
             "cost_cny": round(self.cost_cny, 6),
             "cost_per_resolved_cny": (
                 None if self.cost_per_resolved is None
@@ -258,29 +271,29 @@ def score_policy(
     """
     score = PolicyScore(name=name)
     for outcome in outcomes:
-        if outcome.fixed_resolved is None:
-            continue  # never scored, so it cannot be counted either way
         score.total += 1
         wants_interactive = escalate(outcome)
+        if not isinstance(wants_interactive, bool):
+            raise ValueError('diagnostic policy must explicitly return a boolean escalation decision')
         score.cost_cny += outcome.prefix_cost_cny
         if wants_interactive:
-            if outcome.interactive_resolved is None:
-                score.total -= 1
-                score.cost_cny -= outcome.prefix_cost_cny
-                continue
             score.escalations += 1
             score.cost_cny += outcome.interactive_cost_cny
-            score.resolved += 1 if outcome.interactive_resolved else 0
+            ok = outcome.interactive_resolved
         else:
             score.cost_cny += outcome.fixed_cost_cny
-            score.resolved += 1 if outcome.fixed_resolved else 0
+            ok = outcome.fixed_resolved
+        status = 'not_scored' if ok is None else ('resolved' if ok else 'unresolved')
+        score.status_counts[status] = score.status_counts.get(status, 0) + 1
+        score.not_scored += int(ok is None)
+        score.resolved += int(ok is True)
     return score
 
 
 def oracle_gap_closure(
     fixed: PolicyScore, router: PolicyScore, oracle: PolicyScore
 ) -> dict[str, Any]:
-    """How much of the achievable gain the router captures, in [0, 1].
+    """How much of the achievable gain the router captures; losses stay negative.
 
     The oracle escalates on exactly the instances where it pays and stays
     everywhere else, so ``oracle.resolved`` is the ceiling for any policy that
@@ -289,9 +302,12 @@ def oracle_gap_closure(
     clamped, because it is the most interesting outcome there is.
     """
 
+    if len({fixed.total, router.total, oracle.total}) != 1:
+        raise ValueError('oracle comparison requires an identical designated denominator')
+    complete = not any(s.not_scored for s in (fixed, router, oracle))
     headroom = oracle.resolved - fixed.resolved
     gained = router.resolved - fixed.resolved
-    closure = None if headroom <= 0 else gained / headroom
+    closure = None if headroom <= 0 or not complete else gained / headroom
     return {
         "fixed_resolved": fixed.resolved,
         "router_resolved": router.resolved,
@@ -299,6 +315,7 @@ def oracle_gap_closure(
         "headroom": headroom,
         "gained": gained,
         "gap_closure": None if closure is None else round(closure, 4),
+        "complete": complete,
         "fixed_cost_cny": round(fixed.cost_cny, 6),
         "router_cost_cny": round(router.cost_cny, 6),
         "oracle_cost_cny": round(oracle.cost_cny, 6),
@@ -334,9 +351,68 @@ def build_policies() -> dict[str, Decision]:
     """The reference policies every routing rule is compared against."""
     return {
         "A_fixed_only": lambda o: False,
-        "C_escalate_all": lambda o: True,
+        "forced_ESC_diagnostic_only": lambda o: True,
         "oracle": lambda o: bool(o.interactive_resolved and not o.fixed_resolved),
         "never_escalate_if_ready": lambda o: not (
             (o.features.get("n_public_pass") or 0) > 0
         ),
     }
+
+
+# Harness statuses, independent of generation status. Absence is NEVER a failure.
+VERDICT_FIELDS = {
+    'resolved_ids': 'resolved', 'unresolved_ids': 'unresolved',
+    'empty_patch_ids': 'empty_patch', 'error_ids': 'error',
+    'infra_failure_ids': 'infra_error', 'ambiguous_failure_ids': 'ambiguous_error',
+}
+SCORED_STATUSES = frozenset(VERDICT_FIELDS.values())
+BEHAVIOURAL_STATUSES = frozenset(('resolved', 'unresolved', 'empty_patch'))
+
+
+def verdict_status(report: Mapping[str, Any] | None, instance_id: str) -> str:
+    if report is None:
+        return 'not_scored'
+    found = {status for field, status in VERDICT_FIELDS.items()
+             if instance_id in set(report.get(field) or [])}
+    if len(found) > 1:
+        raise ValueError(f'conflicting harness verdicts for {instance_id}: {sorted(found)}')
+    return next(iter(found), 'not_scored')
+
+
+def resolved_value(status: str) -> bool | None:
+    # Infrastructure and other errors remain separate from behavioural labels.
+    return (status == 'resolved') if status in BEHAVIOURAL_STATUSES else None
+
+
+def score_actual_policy(name: str, outcomes: Sequence[InstanceOutcome], arm: str) -> PolicyScore:
+    """Read each actual frozen route, including STOP without continuation cost."""
+    score = PolicyScore(name=name)
+    for outcome in outcomes:
+        score.total += 1
+        route = outcome.routes.get(arm)
+        if arm == 'B':
+            score.cost_cny += outcome.standalone_cost_cny
+            fallback = outcome.standalone_resolved
+        else:
+            score.cost_cny += outcome.prefix_cost_cny
+            if route == 'interactive':
+                score.escalations += 1
+                score.cost_cny += outcome.interactive_cost_cny
+                fallback = outcome.interactive_resolved
+            elif route == 'fixed':
+                score.cost_cny += outcome.fixed_cost_cny
+                fallback = outcome.fixed_resolved
+            elif route == 'stop':
+                score.stops += 1
+                fallback = outcome.prefix_resolved
+            else:
+                fallback = None
+        status = outcome.arm_statuses.get(arm)
+        if status is None:
+            status = 'not_scored' if fallback is None else ('resolved' if fallback else 'unresolved')
+        if status not in SCORED_STATUSES and status != 'not_scored':
+            raise ValueError(f'unknown evaluation status {status}')
+        score.not_scored += int(status == 'not_scored')
+        score.resolved += int(status == 'resolved')
+        score.status_counts[status] = score.status_counts.get(status, 0) + 1
+    return score
