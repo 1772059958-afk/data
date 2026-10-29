@@ -10,6 +10,38 @@ from __future__ import annotations
 
 import posixpath
 import re
+from pathlib import PurePosixPath
+
+
+def safe_repo_path(path: str) -> str:
+    raw = str(path).replace('\\', '/')
+    p = PurePosixPath(raw)
+    if (not raw or p.is_absolute() or '..' in p.parts or ':' in raw
+            or '.git' in p.parts or '\x00' in raw or '\n' in raw):
+        raise ValueError('path must stay inside the repository')
+    return str(p)
+
+
+def patch_scope_valid(diff: str) -> bool:
+    """Frozen initial scope: Python source, no tests, repository metadata or binaries."""
+    paths = []
+    for line in diff.splitlines():
+        if line.startswith(('--- a/', '+++ b/')):
+            paths.append(line[6:].split('\t')[0])
+        elif line.startswith(('--- ', '+++ ')) and line[4:] != '/dev/null':
+            return False
+    if not paths:
+        return False
+    try:
+        for raw in paths:
+            path = safe_repo_path(raw)
+            parts = path.split('/')
+            if (not path.endswith('.py') or any(x in ('test', 'tests') for x in parts)
+                    or parts[-1].startswith('test_') or parts[-1].endswith('_test.py')):
+                return False
+    except ValueError:
+        return False
+    return parse_ok(diff)
 
 _DIFF_HEADER = re.compile(r"^diff --git (?:\"?a/)?(\S+?)\"? (?:\"?b/)?(\S+?)\"?\s*$")
 _MINUS_FILE = re.compile(r"^--- (?:a/)?(.+?)(?:\t.*)?$")

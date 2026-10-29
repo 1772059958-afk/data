@@ -265,6 +265,8 @@ class Candidate:
     files_touched: tuple[str, ...] = ()
     diff_lines: int = 0
     origin: str = "prefix"
+    syntax: str = "not_run"
+    scope_valid: bool = True
 
     def __post_init__(self) -> None:
         if self.validation not in VALIDATION_STATUSES:
@@ -284,6 +286,8 @@ class Candidate:
         applies_cleanly: bool | None = None,
         validation: str = "not_run",
         origin: str = "prefix",
+        syntax: str = "not_run",
+        scope_valid: bool = True,
     ) -> "Candidate":
         from .patchutil import count_diff_lines, files_touched
 
@@ -295,6 +299,8 @@ class Candidate:
             files_touched=files_touched(diff),
             diff_lines=count_diff_lines(diff),
             origin=origin,
+            syntax=syntax,
+            scope_valid=scope_valid,
         )
 
     def to_dict(self) -> dict[str, Any]:
@@ -310,6 +316,8 @@ class Candidate:
             "files_touched": list(self.files_touched),
             "diff_lines": self.diff_lines,
             "origin": self.origin,
+            "syntax": self.syntax,
+            "scope_valid": self.scope_valid,
         }
 
 
@@ -340,10 +348,11 @@ class PatchHistory:
         return duplicates / total
 
     def has_public_pass(self) -> bool:
-        return any(c.validation == "pass" for c in self.candidates)
+        return any(c.validation == "pass" for c in self.applicable())
 
     def applicable(self) -> list[Candidate]:
-        return [c for c in self.candidates if c.applies_cleanly is not False]
+        return [c for c in self.candidates if c.applies_cleanly is True
+                and c.syntax != "fail" and c.scope_valid and c.diff.strip()]
 
     def best_candidate(self) -> Candidate | None:
         """Deterministic selection order frozen in the config (section 4.4).
@@ -393,6 +402,8 @@ class PatchHistory:
                     files_touched=tuple(item.get("files_touched", ())),
                     diff_lines=int(item.get("diff_lines", 0)),
                     origin=str(item.get("origin", "prefix")),
+                    syntax=str(item.get("syntax", "not_run")),
+                    scope_valid=bool(item.get("scope_valid", True)),
                 )
             )
         return history
@@ -492,6 +503,8 @@ class FailureLog:
     def environment_failure(self) -> FailureRecord | None:
         """Most recent environment failure, whether or not it was retried."""
         for record in reversed(self.records):
+            if record.stage == 'env' and record.exit_code == 0:
+                return None  # explicit successful deterministic recovery
             if record.is_environment:
                 return record
         return None
