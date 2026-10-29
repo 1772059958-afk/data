@@ -1,17 +1,9 @@
-"""The signal chain that decides whether arm D can ever differ from arm C.
+"""Behavioural evidence and conservative routing under the opening proposal.
 
-Arm C escalates on every continuable failure; arm D follows the frozen rule
-order. D can therefore only choose "fixed" if rules 4-7 all decline, and rule 7
-declines only when ``behavioural_signal()`` is ``"behavioural"``. That makes the
-following a regression test rather than a curiosity: if the prefix stops
-recording classified failures, ``behavioural_signal()`` silently falls back to
-``"non_behavioural"``, rule 7 becomes a catch-all, and D collapses into C with no
-error anywhere.
-
-The last test here records the *opposite* problem: rule 6 fires as soon as the
-latest failure's traceback mentions a repository file the run never read, and a
-pytest traceback almost always names the test file. So connecting the signal
-chain is necessary but not sufficient for the two arms to diverge.
+A failure assertion provides a usable signal; its absence now selects fixed
+continuation. Test-file traceback frames alone do not establish a previously
+unseen source dependency. Those are explicit contract changes from the
+archived pilot router, rather than requirements for D to beat C.
 """
 
 from __future__ import annotations
@@ -48,9 +40,9 @@ DIFF = (
 
 
 def _config() -> RouterConfig:
-    """The real frozen rule order, with placeholder thresholds."""
+    """The proposal-aligned rule order, with explicit offline test thresholds."""
     return RouterConfig.from_file(
-        os.path.join(REPO, "configs", "frozen_v1.json")
+        os.path.join(REPO, "configs", "proposal_v1.json")
     ).with_thresholds(
         localization_disagreement=0.5, duplicate_rate=0.5
     )
@@ -118,13 +110,13 @@ def test_signal_is_behavioural_only_when_a_classified_failure_exists():
 
 def test_rule_seven_declines_once_the_signal_is_behavioural():
     rules = {r["rule"]: r for r in _rules(_state(with_failure=True))}
-    assert rules["interactive_when_no_behavioural_signal"]["fires"] is False
+    assert rules["fixed_when_evidence_insufficient"]["fires"] is False
 
 
 def test_rule_seven_takes_over_when_the_signal_is_missing():
     """This is the failure mode that made D identical to C in the first run."""
     rules = {r["rule"]: r for r in _rules(_state(with_failure=False))}
-    assert rules["interactive_when_no_behavioural_signal"]["fires"] is True
+    assert rules["fixed_when_evidence_insufficient"]["fires"] is True
 
 
 def test_d_and_c_diverge_when_the_traceback_stays_inside_the_context():
@@ -134,17 +126,13 @@ def test_d_and_c_diverge_when_the_traceback_stays_inside_the_context():
     assert route_for_arm("D", state, cfg, allow_uncalibrated=True).route == "fixed"
 
 
-def test_rule_six_pre_empts_when_the_traceback_names_an_unread_file():
-    """Known limitation: pytest tracebacks name the test file, which is unread.
-
-    Documented here so that "D still equals C" is read as this rule firing, not
-    as the signal chain being broken again.
-    """
+def test_test_file_frame_does_not_establish_unseen_source_evidence():
+    """An unread public test is not itself evidence of an unseen source dependency."""
     cfg = _config()
     state = _state(with_failure=True, frame_path=TEST_FILE)
     rules = {r["rule"]: r for r in _rules(state)}
-    assert rules["interactive_on_out_of_scope_stack_evidence"]["fires"] is True
-    assert route_for_arm("D", state, cfg, allow_uncalibrated=True).route == "interactive"
+    assert rules["interactive_on_out_of_scope_stack_evidence"]["fires"] is False
+    assert route_for_arm("D", state, cfg, allow_uncalibrated=True).route == "fixed"
 
 
 def _rules(state: RepairState):
