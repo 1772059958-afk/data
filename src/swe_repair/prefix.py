@@ -27,11 +27,14 @@ import os
 import re
 import subprocess
 import time
+import shlex
+from dataclasses import replace
 from dataclasses import dataclass, field
 from typing import Any, Iterable, Mapping, Sequence
 
+from .execution import ResourceLimit
 from .llm import ChatResult, DeepSeekClient, ModelConfig
-from .patchutil import count_diff_lines, files_touched, repair_hunk_headers
+from .patchutil import count_diff_lines, files_touched, repair_hunk_headers, patch_scope_valid, safe_repo_path
 from .state import (
     Candidate,
     ContextView,
@@ -80,7 +83,7 @@ class Container:
         subprocess.run(["docker", "rm", "-f", self.name], capture_output=True, text=True)
         proc = subprocess.run(
             [
-                "docker", "run", "-d", "--name", self.name,
+                "docker", "run", "-d", "--network", "none", "--name", self.name,
                 "--entrypoint", "/bin/bash", self.image, "-lc", "sleep infinity",
             ],
             capture_output=True, text=True, errors="replace",
@@ -94,15 +97,16 @@ class Container:
     def bash(self, script: str, timeout: int = 300) -> tuple[int, str]:
         """Run a shell script inside the container. Exit code is returned, not raised."""
         proc = subprocess.run(
-            ["docker", "exec", self.name, "bash", "-lc", script],
-            capture_output=True, text=True, errors="replace", timeout=timeout,
+            ["docker", "exec", self.name, "bash", "-lc",
+             f"timeout --signal=KILL {float(timeout)}s bash -lc {shlex.quote(script)}"],
+            capture_output=True, text=True, errors="replace", timeout=timeout + 5,
         )
         return proc.returncode, (proc.stdout or "") + (proc.stderr or "")
 
     def write_file(self, path: str, text: str) -> None:
         """Push text into the container without depending on shell quoting."""
         blob = base64.b64encode(text.encode("utf-8")).decode("ascii")
-        code, out = self.bash(f"printf '%s' '{blob}' | base64 -d > {path}")
+        code, out = self.bash(f"printf '%s' '{blob}' | base64 -d > {shlex.quote(path)}")
         if code != 0:
             raise RuntimeError(f"could not write {path}: {out[:300]}")
 
@@ -137,6 +141,13 @@ class Container:
     def head(self) -> str:
         code, out = self.bash(f"cd {self.workdir} && git rev-parse HEAD")
         return _strip_rc(out).strip().splitlines()[0] if code == 0 else ""
+
+    def image_digest(self) -> str:
+        proc = subprocess.run(['docker', 'image', 'inspect', '--format', '{{.Id}}', self.image],
+                              capture_output=True, text=True, timeout=30)
+        if proc.returncode:
+            raise RuntimeError('image identity unavailable')
+        return proc.stdout.strip()
 
 
 def _trailing_rc(text: str) -> int:
@@ -207,7 +218,7 @@ def parse_localization(text: str) -> tuple[frozenset[str], frozenset[str]]:
     except ValueError:
         return frozenset(), frozenset()
     files = {
-        str(p).strip().lstrip("./")
+        safe_repo_path(p.strip())
         for p in (payload.get("files") or [])
         if isinstance(p, str) and p.strip()
     }
@@ -217,7 +228,7 @@ def parse_localization(text: str) -> tuple[frozenset[str], frozenset[str]]:
 
 def resolve_paths(container: Container, wanted: Iterable[str]) -> list[str]:
     """Map report-style path tails onto real paths in the checkout."""
-    tails = [t for t in wanted if t]
+    tails = [safe_repo_path(t) for t in wanted if t]
     if not tails:
         return []
     script = ["cd /testbed", "while IFS= read -r tail; do", '  [ -z "$tail" ] && continue']
@@ -250,7 +261,8 @@ def read_files(container: Container, paths: Sequence[str]) -> dict[str, str]:
     for path in paths:
         if budget <= 0:
             break
-        code, out = container.bash(f"cd /testbed && cat -- '{path}'")
+        path = safe_repo_path(path)
+        code, out = container.bash(f"cd /testbed && cat -- {shlex.quote(path)}")
         if code != 0:
             continue
         body = _strip_rc(out)
@@ -340,7 +352,7 @@ def syntax_check(container: Container, touched: Iterable[str]) -> tuple[str, str
     files = [f for f in touched if f.endswith(".py")]
     if not files:
         return "not_applicable", "no python file touched"
-    quoted = " ".join(f"'{f}'" for f in files)
+    quoted = " ".join(shlex.quote(safe_repo_path(f)) for f in files)
     code, out = container.bash(
         f"cd /testbed && python -m py_compile {quoted} 2>&1; echo \"__rc=$?\""
     )
@@ -388,7 +400,7 @@ def public_test_files(
         )
         script.append("done")
     if needles:
-        args = " ".join(f"-e '{n}'" for n in needles)
+        args = " ".join(f"-e {shlex.quote(n)}" for n in needles)
         script.append("if [ -d tests ] || [ -d test ]; then")
         script.append(
             f"  grep -rlF {args} --include='test_*.py' --include='*_test.py' "
@@ -420,7 +432,7 @@ def run_public_tests(
     """
     if not files:
         return "not_applicable", "no repository test file next to the touched modules", ""
-    quoted = " ".join(f"'{f}'" for f in files)
+    quoted = " ".join(shlex.quote(safe_repo_path(f)) for f in files)
     code, out = container.bash(
         f"cd /testbed && timeout {PYTEST_TIMEOUT} python -m pytest {quoted} -q "
         "--no-header -p no:cacheprovider 2>&1; echo \"__rc=$?\"",
@@ -464,13 +476,20 @@ class ValidationResult:
     #: "a check ran and told us the patch is behaviourally wrong" from "nothing
     #: was learned", and the router's rule 7 then escalates unconditionally.
     failures: tuple[FailureRecord, ...] = ()
+    raw_output: str = ""
+    test_command: str = ""
 
 
 def validate_candidate(
     container: Container, candidate: Candidate, symbols: Sequence[str] = ()
 ) -> ValidationResult:
     """Apply, compile, run public tests, then revert."""
-    applies, _ = container.apply(candidate.diff)
+    if not patch_scope_valid(candidate.diff):
+        return ValidationResult(candidate=replace(candidate, applies_cleanly=False, scope_valid=False),
+                                failures=(FailureRecord.from_output('scope_check', 1, stage='apply_patch',
+                                          stdout='invalid patch or forbidden modification scope'),))
+    container.revert()
+    applies, detail = container.apply(candidate.diff)
     if not applies:
         return ValidationResult(
             candidate=Candidate.build(
@@ -478,7 +497,8 @@ def validate_candidate(
                 applies_cleanly=False,
                 validation="not_run",
                 origin=candidate.origin,
-            )
+            ),
+            failures=(FailureRecord.from_output('git apply', 1, stage='apply_patch', stdout=detail),)
         )
     try:
         touched = files_touched(candidate.diff)
@@ -487,7 +507,7 @@ def validate_candidate(
             return ValidationResult(
                 candidate=Candidate.build(
                     candidate.index, candidate.diff,
-                    applies_cleanly=True, validation="fail", origin=candidate.origin,
+                    applies_cleanly=True, validation="fail", origin=candidate.origin, syntax='fail',
                 ),
                 syntax="fail",
                 failures=(FailureRecord.from_output(
@@ -498,20 +518,23 @@ def validate_candidate(
         targets = public_test_files(container, touched, symbols)
         status, _detail, raw = run_public_tests(container, targets)
         records: tuple[FailureRecord, ...] = ()
-        if status == "fail":
+        if status in ("fail", "not_run") and raw:
             records = (FailureRecord.from_output(
                 f"python -m pytest {' '.join(targets)}", 1,
-                stage="test", stdout=raw, repo_root="/testbed",
+                stage='env' if status == 'not_run' and 'No module named' in raw and 'pytest' in raw else 'test',
+                stdout=raw, repo_root="/testbed",
             ),)
         return ValidationResult(
             candidate=Candidate.build(
                 candidate.index, candidate.diff,
-                applies_cleanly=True, validation=status, origin=candidate.origin,
+                applies_cleanly=True, validation=status, origin=candidate.origin, syntax=syntax,
             ),
             checks_run=1 if status in ("pass", "fail") else 0,
             test_files=tuple(targets),
             syntax=syntax,
             failures=records,
+            raw_output=raw,
+            test_command=f"python -m pytest {' '.join(targets)}",
         )
     finally:
         container.revert()
@@ -547,7 +570,7 @@ class PrefixResult:
             "n_candidates": len(self.state.patches.candidates),
             "n_applicable": len(applicable),
             "n_public_pass": sum(
-                1 for c in self.state.patches.candidates if c.validation == "pass"
+                1 for c in applicable if c.validation == "pass"
             ),
             "u_loc": self.state.u_loc,
             "u_dup": self.state.u_dup,
@@ -591,6 +614,8 @@ def run_prefix(
     cost = 0.0
     tokens = 0
     trace: list[dict[str, Any]] = []
+    listing, bodies, context = [], {}, ''
+    checks_run, test_files = 0, []
     try:
         state = _replace(state, base_commit=box.head())
         listing = _index(box)
@@ -610,9 +635,11 @@ def run_prefix(
             "finish_reason": result.record.finish_reason,
         })
 
-        state.localization.add(LocalizationPass("lexical", lexical))
+        lexical_resolved = frozenset(resolve_paths(box, sorted(lexical)))
+        model_resolved = frozenset(resolve_paths(box, sorted(model_files)))
+        state.localization.add(LocalizationPass("lexical", lexical_resolved))
         state.localization.add(
-            LocalizationPass("model", model_files, symbols)
+            LocalizationPass("model", model_resolved, symbols)
         )
 
         # Model-localised files come first. Ordering matters because the read
@@ -620,8 +647,8 @@ def run_prefix(
         # actually wanted to edit fell outside the cut, and it then wrote a diff
         # for a file whose contents it had never been shown. Those diffs cannot
         # apply, and the failure looks like a bad fix rather than a bad context.
-        wanted = list(model_files)
-        for tail in sorted(lexical):
+        wanted = sorted(model_resolved)
+        for tail in sorted(lexical_resolved):
             if tail not in wanted:
                 wanted.append(tail)
         paths = resolve_paths(box, wanted)
@@ -666,6 +693,8 @@ def run_prefix(
                     failure_classes.append(record.error_class)
             history.add(candidate)
             state.patches = history
+            state.context = ContextView(indexed_paths=frozenset(listing), read_files=frozenset(bodies),
+                                        registered_test_commands=tuple(test_files), checks_run=checks_run)
             trace.append({
                 "step": f"candidate_{attempt}", "calls": 1,
                 "cost_cny": round(cost, 6),
@@ -684,6 +713,8 @@ def run_prefix(
                     path for path in candidate.files_touched if path not in bodies
                 ],
                 "failure_classes": failure_classes,
+                "raw_reply": reply.message,
+                "raw_validation_output": validation.raw_output if candidate.diff.strip() else '',
             })
 
         state.patches = history
@@ -706,6 +737,14 @@ def run_prefix(
             tokens=tokens,
             trace=trace,
         )
+    except ResourceLimit as exc:
+        trace.append({'step': 'prefix_stop', 'reason': str(exc)})
+        return PrefixResult(state, state.task.base_commit, tuple(bodies), tuple(listing),
+                            context_text=context, calls=calls, cost_cny=cost, tokens=tokens, trace=trace)
+    except Exception as exc:
+        trace.append({'step': 'prefix_error', 'reason': f'{type(exc).__name__}: {exc}'})
+        return PrefixResult(state, state.task.base_commit, tuple(bodies), tuple(listing),
+                            context_text=context, calls=calls, cost_cny=cost, tokens=tokens, trace=trace)
     finally:
         if own_container:
             box.close()
