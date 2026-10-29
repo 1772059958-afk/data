@@ -19,17 +19,19 @@ from __future__ import annotations
 import json
 import re
 import time
+import shlex
 from dataclasses import dataclass, field
 from typing import Any, Callable, Mapping, Sequence
 
 from .llm import DeepSeekClient, parse_tool_arguments, tool_message
-from .patchutil import repair_hunk_headers
+from .patchutil import repair_hunk_headers, safe_repo_path, patch_scope_valid
 from .prefix import (
     Container,
     extract_patch,
     image_for,
     public_test_files,
     run_public_tests,
+    validate_candidate,
 )
 
 STATES = ("analyse", "edit", "validate", "finish")
@@ -58,7 +60,7 @@ Repository root: /testbed. You have six tools and a fixed budget. Work like this
 4. finish   - call finish when the patch is your best answer.
 
 Rules:
-- One tool call per turn. Keep reading targeted: whole-file reads waste budget.
+- One tool call per turn. Every apply_patch/finish diff is a COMPLETE candidate against the clean base, not an incremental edit. Never modify tests. Keep reading targeted: whole-file reads waste budget.
 - A patch that does not apply costs you a turn and teaches nothing, so read the
   exact lines before editing.
 - Do not add tests. The repository's own tests decide whether you are right.
@@ -175,6 +177,7 @@ class InteractiveResult:
     final_state: str = "analyse"
     finalized_by_forced_call: bool = False
     trace: list[dict[str, Any]] = field(default_factory=list)
+    transcript: list[dict[str, Any]] = field(default_factory=list)
 
 
 @dataclass
@@ -184,6 +187,7 @@ class InteractionBudget:
     model_calls: int = 10
     tool_calls: int = 14
     wallclock_seconds: float = 420.0
+    stagnation_patience: int = STAGNATION_PATIENCE
 
 
 def _clip(text: str, limit: int) -> str:
@@ -198,6 +202,11 @@ def _run_shell(box: Container, command: str, timeout: int = 180) -> str:
 
 def execute_tool(box: Container, name: str, args: Mapping[str, Any]) -> tuple[str, bool]:
     """Run one tool. Returns (observation, made_progress)."""
+    if name in ("read_region", "run_test"):
+        try:
+            args = dict(args, path=safe_repo_path(str(args.get("path") or "")))
+        except ValueError as exc:
+            return str(exc), False
     if name == "search_symbol":
         needle = str(args.get("name") or "").strip()
         if not needle:
@@ -205,7 +214,7 @@ def execute_tool(box: Container, name: str, args: Mapping[str, Any]) -> tuple[st
         hits = int(args.get("max_hits") or 20)
         out = _run_shell(
             box,
-            f"cd /testbed && grep -rn --include='*.py' -F '{needle}' . 2>/dev/null "
+            f"cd /testbed && grep -rn --include='*.py' -F {shlex.quote(needle)} . 2>/dev/null "
             f"| head -{max(1, min(hits, 40))}",
         )
         return out or f"no occurrence of {needle!r}", bool(out)
@@ -219,7 +228,7 @@ def execute_tool(box: Container, name: str, args: Mapping[str, Any]) -> tuple[st
         if end - start > 400:
             end = start + 400
         out = _run_shell(
-            box, f"cd /testbed && sed -n '{start},{end}p' -- '{path}'"
+            box, f"cd /testbed && test \"$(realpath -- {shlex.quote(path)})\" != /testbed && case $(realpath -- {shlex.quote(path)}) in /testbed/*) sed -n '{max(1,start)},{max(1,end)}p' -- {shlex.quote(path)};; *) exit 1;; esac"
         )
         return f"{path}:{start}-{end}\n{out}" if out else f"{path}: no such range", bool(out)
 
@@ -227,7 +236,7 @@ def execute_tool(box: Container, name: str, args: Mapping[str, Any]) -> tuple[st
         needle = str(args.get("name") or "").strip()
         out = _run_shell(
             box,
-            f"cd /testbed && grep -rn --include='*.py' -w -F '{needle}' . 2>/dev/null | head -30",
+            f"cd /testbed && grep -rn --include='*.py' -w -F {shlex.quote(needle)} . 2>/dev/null | head -30",
         )
         return out or f"no reference to {needle!r}", bool(out)
 
@@ -242,6 +251,8 @@ def execute_tool(box: Container, name: str, args: Mapping[str, Any]) -> tuple[st
         if fixes:
             args["diff"] = repaired
             diff = repaired
+        if not patch_scope_valid(diff):
+            return "forbidden patch scope", False
         box.revert()
         ok, detail = box.apply(diff)
         if ok:
@@ -253,9 +264,10 @@ def execute_tool(box: Container, name: str, args: Mapping[str, Any]) -> tuple[st
         path = str(args.get("path") or "").strip().lstrip("./")
         if not path:
             return "run_test needs a path", False
-        targets = [path] if path.endswith(".py") else public_test_files(box, [path])
-        status, detail, _raw = run_public_tests(box, targets)
-        return f"{status}: {detail}", status in ("pass", "fail")
+        is_test = path.rsplit("/", 1)[-1].startswith("test_") or path.endswith("_test.py")
+        targets = [path] if is_test else public_test_files(box, [path])
+        status, detail, raw = run_public_tests(box, targets)
+        return f"{status}: {detail}\n{_clip(raw, 3500)}", status in ("pass", "fail")
 
     return f"unknown tool {name!r}", False
 
@@ -302,174 +314,132 @@ def force_final_patch(client: Any, messages: Sequence[Mapping[str, Any]]) -> tup
 
 
 def run_interactive(
-    problem: str,
-    *,
-    client: DeepSeekClient,
-    budget: InteractionBudget | None = None,
-    container: Container | None = None,
-    instance_id: str = "interactive",
+    problem: str, *, client: DeepSeekClient, budget: InteractionBudget | None = None,
+    container: Container | None = None, instance_id: str = "interactive",
     seed_messages: Sequence[Mapping[str, Any]] | None = None,
-    on_call: Callable[[Any], None] | None = None,
+    on_call: Callable[[Any], None] | None = None, state=None, clock=time.monotonic,
 ) -> InteractiveResult:
-    """Drive one bounded interactive session.
-
-    ``seed_messages`` lets the escalation branch start from the prefix's
-    analysis instead of from nothing; the B arm passes none.
-    """
+    """Complete candidates, common selection, one tool/turn, final call INSIDE limit."""
+    from .state import RepairState, TaskManifest, Candidate
+    from .execution import ResourceLimit
     budget = budget or InteractionBudget()
     own = container is None
-    box = container or Container(image_for(instance_id), f"cf-int-{_slug(instance_id)}")
+    box = container or Container(image_for(instance_id), f"int-{_slug(instance_id)}")
     if own:
         box.start()
+    state = state or RepairState(TaskManifest(instance_id, 'unknown', 'unknown', 'interactive', ''))
+    messages = list(seed_messages or [{"role": "system", "content": SYSTEM},
+                                     {"role": "user", "content": problem}])
+    messages.append({"role": "user", "content":
+                     f"Limits including final submission: {budget.model_calls} model calls, {budget.tool_calls} tools. "
+                     "Supply complete patches against the clean base. Prior valid candidates are retained."})
+    result = InteractiveResult(final_diff='')
+    started = clock()
+    runtime = getattr(client, 'runtime', None)
+    if runtime is not None:
+        runtime.deadline = min(runtime.deadline or float('inf'), runtime.clock() + budget.wallclock_seconds)
+    seen, stagnation = set(), 0
 
-    messages: list[dict[str, Any]] = list(seed_messages or [])
-    if not messages:
-        listing = _run_shell(box, "cd /testbed && ls", timeout=60)
-        messages = [
-            {"role": "system", "content": SYSTEM},
-            {
-                "role": "user",
-                "content": (
-                    f"# Bug report\n\n{problem.strip()}\n\n"
-                    f"# Top-level entries\n\n{listing}\n\nBegin with an analysis step."
-                ),
-            },
-        ]
+    def request(*, final=False):
+        result.calls += 1  # Failed requests consume a call too.
+        if final:
+            reply = client.chat(messages + [{'role': 'user', 'content': FORCE_FINAL_PROMPT}])
+        else:
+            reply = client.chat(messages, tools=tool_specs(), tool_choice='auto')
+        result.cost_cny += reply.record.cost_cny
+        result.tokens += reply.record.prompt_tokens + reply.record.output_tokens
+        result.finish_reason = reply.record.finish_reason
+        if on_call:
+            on_call(reply.record)
+        messages.append(reply.as_history_entry())
+        return reply
 
-    # State the concrete limits in the conversation. A prompt that says "bounded"
-    # without numbers gets spent on exploration, which is exactly what the first
-    # two smoke runs did.
-    messages.append({
-        "role": "user",
-        "content": (
-            f"Budget for this session: {budget.model_calls} model calls and "
-            f"{budget.tool_calls} tool calls. Spend at most 2 tool calls on "
-            "analysis, then apply_patch, then finish."
-        ),
-    })
-
-    result = InteractiveResult(final_diff="")
-    applied_diff = ""
-    seen: dict[str, int] = {}
-    stagnation = 0
-    started = time.time()
-    tools = tool_specs()
+    def submit(diff):
+        if not diff.strip():
+            return 'empty candidate', False
+        repaired, _ = repair_hunk_headers(diff)
+        idx = max((c.index for c in state.patches.candidates), default=-1) + 1
+        validated = validate_candidate(box, Candidate.build(idx, repaired, origin='interactive'),
+                                       tuple(state.localization.symbols_union()))
+        state.patches.add(validated.candidate)
+        for failure in validated.failures:
+            state.failures.add(failure)
+        detail = validated.raw_output or '; '.join(f.message_head for f in validated.failures)
+        best = state.patches.best_candidate()
+        result.final_diff = best.diff if best else ''
+        return f'applies={validated.candidate.applies_cleanly}, syntax={validated.syntax}, public={validated.candidate.validation}\n{detail}', bool(best and best.validation == 'pass')
 
     try:
-        while True:
-            if result.calls >= budget.model_calls:
-                result.ended_by = "model_call_budget"
+        # Keep the last allowed call for a no-tools submission, never add one.
+        while result.calls < max(0, budget.model_calls - 1):
+            if clock() - started >= budget.wallclock_seconds:
+                result.ended_by = 'wallclock'
                 break
             if result.tool_calls >= budget.tool_calls:
-                result.ended_by = "tool_budget"
+                result.ended_by = 'tool_budget'
                 break
-            if time.time() - started > budget.wallclock_seconds:
-                result.ended_by = "wallclock"
-                break
-
-            try:
-                # The tools must be on every request: without them the model has
-                # no way to act and the session degrades into plain chat.
-                reply = client.chat(messages, tools=tools, tool_choice="auto")
-            except Exception as exc:
-                result.ended_by = f"error: {type(exc).__name__}: {exc}"
-                break
-            result.calls += 1
-            result.cost_cny = round(result.cost_cny + reply.record.cost_cny, 6)
-            result.tokens += reply.record.prompt_tokens + reply.record.output_tokens
-            result.finish_reason = reply.record.finish_reason
-            if on_call is not None:
-                on_call(reply.record)
-
-            calls = reply.tool_calls
-            if not calls:
-                # A reply with no tool call but a usable diff is still a finish.
-                stray = extract_patch(reply.text)
-                if stray.strip():
-                    repaired, _ = repair_hunk_headers(stray)
-                    result.final_diff = repaired
-                    result.ended_by = "patch_in_text"
+            reply = request()
+            if not reply.tool_calls:
+                patch = extract_patch(reply.text)
+                if patch:
+                    observation, passed = submit(patch)
+                    result.trace.append({'tool': 'patch_in_text', 'observation': observation})
+                    result.ended_by = 'patch_in_text'
                     break
                 stagnation += 1
-                messages.append(reply.as_history_entry())
-                messages.append({
-                    "role": "user",
-                    "content": "Use a tool. If you are done, call finish.",
-                })
-                if stagnation >= STAGNATION_PATIENCE:
-                    result.ended_by = "stagnation"
+                messages.append({'role': 'user', 'content': 'Use one tool, or submit a complete diff.'})
+            else:
+                for offset, call in enumerate(reply.tool_calls):
+                    if offset or result.tool_calls >= budget.tool_calls:
+                        messages.append(tool_message(call, 'Not executed: one tool per turn and strict tool limit.'))
+                        continue
+                    result.tool_calls += 1
+                    name = (call.get('function') or {}).get('name', '')
+                    args = parse_tool_arguments(call)
+                    result.final_state = TOOL_STATE.get(name, result.final_state)
+                    if name in ('apply_patch', 'finish'):
+                        observation, passed = submit(str(args.get('diff') or ''))
+                        progressed = bool(str(args.get('diff') or '').strip())
+                        if name == 'finish' or passed:
+                            result.ended_by = 'public_pass' if passed else 'finish_tool'
+                            result.final_state = 'finish'
+                        elif (state.patches.candidates[-1].applies_cleanly and state.patches.candidates[-1].scope_valid
+                              and state.patches.candidates[-1].syntax != 'fail'):
+                            box.apply(state.patches.candidates[-1].diff)
+                    else:
+                        observation, progressed = execute_tool(box, name, args)
+                    key = json.dumps([name, args, observation], sort_keys=True)
+                    repeated = key in seen
+                    seen.add(key)
+                    stagnation = 0 if progressed and not repeated else stagnation + 1
+                    messages.append(tool_message(call, _clip(observation, 3500)))
+                    result.trace.append({'turn': result.calls, 'tool': name, 'state': result.final_state,
+                                         'progressed': progressed, 'repeated': repeated,
+                                         'observation': _clip(observation, 3500)})
+                if result.ended_by:
                     break
-                continue
-
-            messages.append(reply.as_history_entry())
-            finished = False
-            for call in calls:
-                name = (call.get("function") or {}).get("name", "")
-                args = parse_tool_arguments(call)
-                result.tool_calls += 1
-                result.final_state = TOOL_STATE.get(name, result.final_state)
-
-                if name == "finish":
-                    given = str(args.get("diff") or "")
-                    if given.strip():
-                        given, _ = repair_hunk_headers(given)
-                    result.final_diff = given or applied_diff
-                    result.ended_by = "finish_tool"
-                    result.final_state = "finish"
-                    messages.append(tool_message(call, "session closed"))
-                    finished = True
-                    break
-
-                observation, progressed = execute_tool(box, name, args)
-                if name == "apply_patch" and progressed:
-                    applied_diff = str(args.get("diff") or "")
-
-                key = f"{name}:{json.dumps(args, sort_keys=True, ensure_ascii=False)[:400]}"
-                repeated = seen.get(key, 0) > 0
-                seen[key] = seen.get(key, 0) + 1
-                stagnation = 0 if (progressed and not repeated) else stagnation + 1
-
-                result.trace.append({
-                    "turn": result.calls,
-                    "tool": name,
-                    "state": result.final_state,
-                    "progressed": progressed,
-                    "repeated": repeated,
-                    "observation_chars": len(observation),
-                })
-                messages.append(tool_message(call, _clip(observation, 2400)))
-
-            if finished:
+            if budget.stagnation_patience > 0 and stagnation >= budget.stagnation_patience:
+                result.ended_by = 'stagnation'
                 break
-            if stagnation >= STAGNATION_PATIENCE:
-                result.ended_by = "stagnation"
-                break
-
-        if not result.final_diff and applied_diff:
-            result.final_diff = applied_diff
-        # One reserved call: if the session is about to return nothing, make it
-        # hand over what it knows. This is the difference between "escalation
-        # lost the instance" and "escalation produced a weaker patch".
-        if not result.final_diff.strip():
-            forced, record = force_final_patch(client, messages)
-            if record is not None:
-                result.calls += 1
-                result.cost_cny = round(result.cost_cny + float(record.cost_cny), 6)
-                result.tokens += int(record.prompt_tokens) + int(record.output_tokens)
-            result.finalized_by_forced_call = bool(forced.strip())
-            result.trace.append({
-                "turn": result.calls,
-                "tool": "forced_final",
-                "state": "finish" if forced.strip() else result.final_state,
-                "progressed": bool(forced.strip()),
-                "repeated": False,
-                "observation_chars": len(forced),
-            })
-            if forced.strip():
-                result.final_diff = forced
-                result.ended_by = f"{result.ended_by}+forced_final"
-        return result
+        if not result.ended_by:
+            result.ended_by = 'model_call_budget'
+        if (not state.patches.has_public_pass() and result.ended_by not in ('finish_tool', 'patch_in_text', 'wallclock')
+                and result.calls < budget.model_calls and clock() - started < budget.wallclock_seconds):
+            reply = request(final=True)
+            patch = extract_patch(reply.text)
+            if patch:
+                observation, passed = submit(patch)
+                result.finalized_by_forced_call = True
+                result.trace.append({'tool': 'reserved_final', 'observation': observation})
+    except Exception as exc:
+        result.ended_by = f'{type(exc).__name__}: {exc}'
     finally:
-        box.revert()
-        if own:
-            box.close()
+        best = state.patches.best_candidate()
+        result.final_diff = best.diff if best else ''
+        result.transcript = messages
+        try:
+            box.revert()
+        finally:
+            if own:
+                box.close()
+    return result
