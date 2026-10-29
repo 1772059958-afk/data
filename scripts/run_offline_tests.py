@@ -15,6 +15,8 @@ import importlib.util
 import os
 import sys
 import traceback
+import tempfile
+import socket
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 REPO = os.path.dirname(HERE)
@@ -38,15 +40,17 @@ def main(argv: list[str]) -> int:
     )
     total = passed = 0
     failures: list[tuple[str, str, str]] = []
-    # A missing requests does not break the import; it only makes the 15 client
-    # tests fail deep inside a fake call, which reads like a code bug. Say it up
-    # front instead.
-    try:
-        import requests  # noqa: F401
-    except ImportError:
-        print("warning: `requests` is not installed, so the model-client tests "
-              "will fail with 'No module named requests'.\n"
-              "         fix it with: pip install -r requirements.txt\n")
+    # No real socket can leave the process. Fake injected transports do not
+    # require requests, Docker, a model key, or any network service.
+    temp_root = os.path.join(REPO, 'work', 'offline_tmp')
+    os.makedirs(temp_root, exist_ok=True)
+    tempfile.tempdir = temp_root
+    def deny_network(*args, **kwargs):
+        raise RuntimeError('network disabled by offline test runner')
+    socket.socket.connect = deny_network
+    socket.socket.connect_ex = deny_network
+    socket.create_connection = deny_network
+    socket.getaddrinfo = deny_network
     for path in paths:
         label = os.path.basename(path)
         try:
