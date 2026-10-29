@@ -1,25 +1,30 @@
 #!/usr/bin/env bash
-# Score each arm separately. The harness handles one model per invocation in
-# practice, so a multi-model file leaves all but the first unscored.
-set -u
-V=${VENV_DIR:-/opt/swe-env}/bin/python
-# 从脚本位置推导仓库根，不要写死机器路径
+# Offline scoring only; never calls a model. Explicit new run directory required.
+set -euo pipefail
 HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO="$(dirname "$HERE")"
-TAG=${1:-cf_dev4}
-cd "$REPO" || exit 1
-
-for arm in A B C D E ESC; do
-  preds="reports/${TAG}_${arm}.jsonl"
-  [ -f "$preds" ] || { echo "skip $arm (no file)"; continue; }
-  echo "== scoring $arm =="
+V="${VENV_DIR:-/opt/swe-env}/bin/python"
+RUN_DIR="${1:?usage: score_all_arms.sh runs/TAG}"
+cd "$REPO"
+mapfile -t META < <("$V" - "$RUN_DIR/matrix.json" <<'PY'
+import json,sys
+m=json.load(open(sys.argv[1],encoding='utf-8'))
+print(m['split'])
+print(m['tag'])
+print(' '.join(m['designated_instances']))
+PY
+)
+SPLIT="${META[0]}"
+TAG="${META[1]}"
+read -r -a IDS <<< "${META[2]}"
+mkdir -p "$RUN_DIR/scoring"
+found=0
+for preds in "$RUN_DIR"/predictions_*.jsonl; do
+  [ -f "$preds" ] || continue
+  found=1
   "$V" -m swebench.harness.run_evaluation \
-    --dataset_name data/harness \
-    --split dev \
-    --predictions_path "$preds" \
-    --run_id "$TAG" \
-    --max_workers 3 \
-    --report_dir reports 2>&1 | grep -E "Instances (submitted|completed|resolved|unresolved|with empty)|Report written" || true
+    --dataset_name data/harness --split "$SPLIT" \
+    --predictions_path "$preds" --instance_ids "${IDS[@]}" \
+    --run_id "$TAG" --max_workers 3 --report_dir "$RUN_DIR/scoring"
 done
-echo "== reports =="
-ls -1 reports/ | grep -E "^${TAG}-" || true
+[ "$found" = 1 ] || { echo 'No predictions files in run directory' >&2; exit 2; }
