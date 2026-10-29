@@ -14,8 +14,10 @@ vendor/
 logs/
 # work/ 是调试用的临时脚本，可复现的版本已整理进 scripts/
 work/
-# runs/ 是运行桩，正式记录在 reports/
-runs/
+# runs/ 是开题对齐后的新结果；配置、矩阵、预测、快照与分析应保留。
+# 大体积逐事件原始日志可单独备份，但不要忽略整个新实验目录。
+runs/**/events.jsonl
+runs/**/*.tmp
 *.log
 
 # 半截下载

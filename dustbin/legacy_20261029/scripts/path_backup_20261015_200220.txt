@@ -1,0 +1,1 @@
+﻿C:\Program Files\Zulu\zulu-8\bin;C:\Program Files\Zulu\zulu-8\jre\bin;D:\oo pre\Git\cmd

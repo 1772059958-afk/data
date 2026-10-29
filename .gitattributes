@@ -1,0 +1,7 @@
+# Preserve historical evidence byte-for-byte across Windows/Linux checkouts.
+data/** text eol=crlf
+data/**/*.parquet -text
+reports/** text eol=crlf
+dustbin/** -text
+# Executable shell scripts must retain LF and a usable shebang.
+scripts/*.sh text eol=lf
