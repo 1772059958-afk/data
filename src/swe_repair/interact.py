@@ -24,6 +24,7 @@ from dataclasses import dataclass, field
 from typing import Any, Callable, Mapping, Sequence
 
 from .llm import DeepSeekClient, parse_tool_arguments, tool_message
+from .feedback import error_evidence, failure_feedback, read_failure_log, LOG_REF, ToolFeedback
 from .patchutil import repair_hunk_headers, safe_repo_path, patch_scope_valid
 from .prefix import (
     Container,
@@ -52,6 +53,11 @@ SYSTEM = """You are repairing a bug in a real Python repository. You are in a bo
 interactive session.
 
 Repository root: /testbed. You have six tools and a fixed budget. Work like this:
+
+Error feedback selects key exceptions, assertions and frames with original line
+numbers. For full captured output, call read_region with its log:<sha256> path,
+1-based start/end lines and optional offset within the first line. Follow the
+returned cursor to read more. Only this branch's public generation logs exist.
 
 1. analyse  - search_symbol / read_region / find_references to find the cause.
 2. edit     - apply_patch with a unified diff, paths relative to /testbed with
@@ -94,13 +100,14 @@ def tool_specs() -> list[dict[str, Any]]:
             "type": "function",
             "function": {
                 "name": "read_region",
-                "description": "Read a line range of one file.",
+                "description": "Read source lines or a captured public log:<sha256>; follow the returned cursor for more log text.",
                 "parameters": {
                     "type": "object",
                     "properties": {
-                        "path": {"type": "string", "description": "path relative to /testbed"},
+                        "path": {"type": "string", "description": "path relative to /testbed, or an issued log:<sha256> reference"},
                         "start": {"type": "integer", "description": "1-based first line"},
                         "end": {"type": "integer", "description": "1-based last line"},
+                        "offset": {"type": "integer", "description": "log only: character offset in the first line, default 0"},
                     },
                     "required": ["path", "start", "end"],
                 },
@@ -200,13 +207,58 @@ def _run_shell(box: Container, command: str, timeout: int = 180) -> str:
     return _clip(out, 4000)
 
 
-def execute_tool(box: Container, name: str, args: Mapping[str, Any]) -> tuple[str, bool]:
-    """Run one tool. Returns (observation, made_progress)."""
-    if name in ("read_region", "run_test"):
+def validate_tool_arguments(name: str, args: Any) -> tuple[dict[str, Any] | None, str]:
+    """Validate the declared tool schema before coercion or shell execution."""
+    specs = {tool['function']['name']: tool['function']['parameters'] for tool in tool_specs()}
+    if name not in specs:
+        return None, f'unknown tool {name!r}'
+    if not isinstance(args, Mapping):
+        return None, f'Invalid arguments for {name}: expected an object'
+    spec = specs[name]
+    for key in spec.get('required', ()):
+        if key not in args:
+            return None, f'Invalid arguments for {name}: missing {key}'
+    checked = dict(args)
+    for key, value in checked.items():
+        prop = spec['properties'].get(key)
+        if prop is None:
+            return None, f'Invalid arguments for {name}: unknown field {key}'
+        if prop['type'] == 'string' and not isinstance(value, str):
+            return None, f'Invalid arguments for {name}: {key} must be a string'
+        if prop['type'] == 'integer' and (not isinstance(value, int) or isinstance(value, bool)):
+            return None, f'Invalid arguments for {name}: {key} must be an integer'
+    if name in ('search_symbol', 'find_references') and not checked['name'].strip():
+        return None, f'Invalid arguments for {name}: name must be non-empty'
+    if name == 'search_symbol' and not 1 <= checked.get('max_hits', 20) <= 40:
+        return None, 'Invalid arguments for search_symbol: max_hits must be within 1-40'
+    if name == 'read_region' and (checked['start'] < 1 or checked['end'] < 1):
+        return None, 'Invalid arguments for read_region: line numbers must be positive'
+    if name == 'read_region' and 'offset' in checked:
+        if checked['offset'] < 0 or not checked['path'].startswith('log:'):
+            return None, 'Invalid arguments for read_region: offset requires a log reference and must be nonnegative'
+    if name == 'read_region' and checked['path'].startswith('log:'):
+        if not LOG_REF.fullmatch(checked['path']) or checked['end'] < checked['start']:
+            return None, 'Invalid arguments for read_region: invalid log reference or range'
+        return checked, ''
+    if name in ('read_region', 'run_test'):
         try:
-            args = dict(args, path=safe_repo_path(str(args.get("path") or "")))
+            checked['path'] = safe_repo_path(checked['path'].strip())
+            if checked['path'] == '.':
+                raise ValueError('a file path is required')
         except ValueError as exc:
-            return str(exc), False
+            return None, f'Invalid arguments for {name}: {exc}'
+    if name == 'apply_patch' and not checked['diff'].strip():
+        return None, 'Invalid arguments for apply_patch: diff must be non-empty'
+    return checked, ''
+
+
+def execute_tool(box: Container, name: str, args: Mapping[str, Any]) -> tuple[str, bool] | ToolFeedback:
+    """Run one tool. Returns (observation, made_progress)."""
+    args, error = validate_tool_arguments(name, args)
+    if error:
+        return error, False
+    if name == 'read_region' and args['path'].startswith('log:'):
+        return 'Captured log access requires this branch session state.', False
     if name == "search_symbol":
         needle = str(args.get("name") or "").strip()
         if not needle:
@@ -266,8 +318,14 @@ def execute_tool(box: Container, name: str, args: Mapping[str, Any]) -> tuple[st
             return "run_test needs a path", False
         is_test = path.rsplit("/", 1)[-1].startswith("test_") or path.endswith("_test.py")
         targets = [path] if is_test else public_test_files(box, [path])
-        status, detail, raw = run_public_tests(box, targets)
-        return f"{status}: {detail}\n{_clip(raw, 3500)}", status in ("pass", "fail")
+        tested = run_public_tests(box, targets)
+        status, detail, raw = tested
+        if status in ('fail', 'not_run'):
+            from .state import FailureRecord
+            record = FailureRecord.from_output(getattr(tested, 'command', 'public validation'),
+                getattr(tested, 'exit_code', None), stage='test', stdout=raw or detail, repo_root='/testbed')
+            return ToolFeedback(f'{status}:\n{failure_feedback(record)}', status == 'fail', record)
+        return f"{status}: {detail}\n{error_evidence(raw)}", status in ("pass", "fail")
 
     return f"unknown tool {name!r}", False
 
@@ -364,7 +422,8 @@ def run_interactive(
         state.patches.add(validated.candidate)
         for failure in validated.failures:
             state.failures.add(failure)
-        detail = validated.raw_output or '; '.join(f.message_head for f in validated.failures)
+        detail = (failure_feedback(validated.failures[-1]) if validated.failures
+                  else error_evidence(validated.raw_output))
         best = state.patches.best_candidate()
         result.final_diff = best.diff if best else ''
         return f'applies={validated.candidate.applies_cleanly}, syntax={validated.syntax}, public={validated.candidate.validation}\n{detail}', bool(best and best.validation == 'pass')
@@ -407,7 +466,24 @@ def run_interactive(
                               and state.patches.candidates[-1].syntax != 'fail'):
                             box.apply(state.patches.candidates[-1].diff)
                     else:
-                        observation, progressed = execute_tool(box, name, args)
+                        checked_args, refusal = validate_tool_arguments(name, args)
+                        if refusal:
+                            observation, progressed = refusal, False
+                        elif name == 'read_region' and checked_args['path'].startswith('log:'):
+                            observation, progressed = read_failure_log(
+                                state.failures.records + state.failures.tool_records,
+                                checked_args['path'], checked_args['start'], checked_args['end'], checked_args.get('offset', 0))
+                        else:
+                            candidate = state.patches.best_candidate()
+                            if name == 'run_test' and candidate is not None:
+                                box.revert()
+                                box.apply(candidate.diff)
+                            checked = execute_tool(box, name, checked_args)
+                            observation, progressed = checked
+                            if isinstance(checked, ToolFeedback):
+                                from dataclasses import replace
+                                state.failures.tool_records.append(replace(checked.record,
+                                    candidate_index=candidate.index if candidate else None))
                     key = json.dumps([name, args, observation], sort_keys=True)
                     repeated = key in seen
                     seen.add(key)

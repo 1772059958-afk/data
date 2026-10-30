@@ -359,7 +359,7 @@ def syntax_check(container: Container, touched: Iterable[str]) -> tuple[str, str
     rc = _trailing_rc(out)
     if rc == 0:
         return "pass", f"compiled {len(files)} file(s)"
-    return "fail", _strip_rc(out)[:300]
+    return "fail", _strip_rc(out)
 
 
 def public_test_files(

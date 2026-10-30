@@ -426,6 +426,8 @@ class FailureRecord:
     repo_frames: tuple[str, ...] = ()
     message_head: str = ""
     recovery_attempts: int = 0
+    candidate_index: int | None = None
+    raw_output: str = ""
 
     def __post_init__(self) -> None:
         if self.error_class not in fp.CLASSES:
@@ -452,6 +454,7 @@ class FailureRecord:
             fingerprint=str(summary["fingerprint"]),
             repo_frames=tuple(summary["repo_frames"]),
             message_head=str(summary["message_head"]),
+            raw_output="\n".join(part for part in (stdout, stderr) if part),
             recovery_attempts=recovery_attempts,
         )
 
@@ -464,7 +467,9 @@ class FailureRecord:
             fingerprint=self.fingerprint,
             repo_frames=self.repo_frames,
             message_head=self.message_head,
+            raw_output=self.raw_output,
             recovery_attempts=self.recovery_attempts + 1,
+            candidate_index=self.candidate_index,
         )
 
     @property
@@ -473,6 +478,10 @@ class FailureRecord:
 
     def to_dict(self) -> dict[str, Any]:
         return asdict(self)
+
+    def prompt_view(self) -> dict[str, Any]:
+        from .feedback import failure_view
+        return failure_view(self)
 
     @classmethod
     def from_dict(cls, payload: Mapping[str, Any]) -> "FailureRecord":
@@ -486,6 +495,7 @@ class FailureLog:
     """Append-only failure history, including failures of failed runs."""
 
     records: list[FailureRecord] = field(default_factory=list)
+    tool_records: list[FailureRecord] = field(default_factory=list)
 
     def add(self, record: FailureRecord) -> None:
         self.records.append(record)
@@ -539,12 +549,14 @@ class FailureLog:
     def to_dict(self) -> dict[str, Any]:
         return {
             "records": [r.to_dict() for r in self.records],
+            "tool_records": [r.to_dict() for r in self.tool_records],
             "distinct_fingerprints": list(self.distinct_fingerprints()),
         }
 
     @classmethod
     def from_dict(cls, payload: Mapping[str, Any]) -> "FailureLog":
-        return cls([FailureRecord.from_dict(r) for r in payload.get("records", ())])
+        return cls([FailureRecord.from_dict(r) for r in payload.get("records", ())],
+                   [FailureRecord.from_dict(r) for r in payload.get("tool_records", ())])
 
 
 # --------------------------------------------------------------------------

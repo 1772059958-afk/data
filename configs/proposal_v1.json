@@ -1,5 +1,6 @@
 {
   "config_version": "proposal_aligned_v1",
+  "prompt_version": "proposal_v1_error_feedback_20261030",
   "status": "draft-pending-calibration",
   "note": "Draft safety limits for offline development. Not a frozen experimental configuration.",
   "dataset": {

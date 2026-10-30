@@ -28,7 +28,7 @@ def seed_messages(problem, prefix):
     for c in prefix.state.patches.candidates:
         evidence.append({'index': c.index, 'diff': c.diff, 'applies': c.applies_cleanly,
                          'syntax': c.syntax, 'validation': c.validation})
-    feedback = [r.to_dict() for r in prefix.state.failures.records]
+    feedback = [r.prompt_view() for r in prefix.state.failures.records]
     return [{'role': 'system', 'content': SYSTEM}, {'role': 'user', 'content':
              f'Bug report:\n{problem}\nFiles:\n{prefix.context_text}\n'
              f'Prefix candidates:\n{json.dumps(evidence, ensure_ascii=False)}\n'
