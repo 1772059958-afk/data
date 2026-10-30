@@ -1,0 +1,15 @@
+{
+  "kind": "dev_integration_selection_only",
+  "split": "dev",
+  "seed": 20261030,
+  "sampling": "repository_spread_then_uniform_without_outcome_fields",
+  "population_size": 23,
+  "sample_size": 3,
+  "population_sha256": "a67fe3677fc9d533bfd9e972bc2a421f443b8df1f2e47dfc2b01bb96ef7fd2bd",
+  "instance_ids": [
+    "pvlib__pvlib-python-1707",
+    "pydicom__pydicom-1139",
+    "pyvista__pyvista-4315"
+  ],
+  "intended_use": "integration_acceptance_not_method_effectiveness"
+}

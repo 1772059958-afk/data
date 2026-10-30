@@ -16,6 +16,10 @@ try:
 except (AttributeError, ValueError):  # pragma: no cover
     pass
 
+from fractions import Fraction
+from swe_repair.state import RepairState, TaskManifest, Localization, ContextView, FailureRecord, Candidate
+from swe_repair.budget import BudgetState, Budget
+
 from swe_repair.calibration import (  # noqa: E402
     PairedObservation,
     decide,
@@ -27,23 +31,46 @@ from swe_repair.calibration import (  # noqa: E402
 )
 
 
+def snapshot(u_loc=0.0, *, syntax_error=False, public_pass=False):
+    fraction = Fraction(str(u_loc))
+    count = fraction.denominator
+    overlap = count - fraction.numerator
+    state = RepairState(TaskManifest('example__repo-1', 'example/repo', 'base', 'test', 'hash'))
+    state.localization = Localization.from_file_sets({
+        'one': [f'pkg/p{i}.py' for i in range(count)],
+        'two': [f'pkg/p{i}.py' for i in range(overlap)],
+    })
+    state.context = ContextView(checks_run=1)
+    state.budget = BudgetState('test', Budget(200000, 12, 80, 1200))
+    state.patches.add(Candidate.build(0, '--- a/pkg/p.py\n+++ b/pkg/p.py\n@@ -1 +1 @@\n-a\n+b\n',
+                                      applies_cleanly=True, validation='pass' if public_pass else 'fail'))
+    state.failures.add(FailureRecord.from_output('check', 1, stage='syntax_check' if syntax_error else 'test',
+                         stdout='SyntaxError: invalid' if syntax_error else 'AssertionError: behaviour'))
+    return state.to_dict()
+
+
+def observation(iid, fixed, interactive, u_loc=0.0, **kwargs):
+    snap = snapshot(u_loc, **kwargs)
+    snap['task_manifest']['instance_id'] = iid
+    return PairedObservation(iid, fixed, interactive, u_loc=u_loc, prefix_snapshot=snap)
+
+
 def separable() -> list[PairedObservation]:
     """Interaction wins exactly when u_loc is high; eight instances, no ties."""
     out = []
     for i in range(4):
-        out.append(PairedObservation(f"hi-{i}", fixed_resolved=False, interactive_resolved=True,
-                                    u_loc=0.8, u_dup=0.0))
+        out.append(observation(f"hi-{i}", False, True, u_loc=0.8))
     for i in range(4):
-        out.append(PairedObservation(f"lo-{i}", fixed_resolved=True, interactive_resolved=False,
-                                    u_loc=0.2, u_dup=0.0))
+        out.append(observation(f"lo-{i}", True, False, u_loc=0.2))
     return out
 
 
-def test_decide_mirrors_the_rule_semantics():
-    assert decide(0.9, 0.0, 0.5, 0.5) == "interactive"
-    assert decide(0.4, 0.0, 0.5, 0.5) == "fixed"
-    assert decide(None, 0.9, 0.5, 0.5) == "interactive"  # missing u_loc is not disagreement
-    assert decide(None, 0.1, 0.5, 0.5) == "fixed"
+def test_decide_replays_the_complete_router():
+    assert decide(snapshot(0.9), 0.5, 0.5) == 'interactive'
+    assert decide(snapshot(0.4), 0.5, 0.5) == 'fixed'
+    # A local syntax error pre-empts even a high numerical disagreement.
+    assert decide(snapshot(0.9, syntax_error=True), 0.5, 0.5) == 'fixed'
+    assert decide(snapshot(0.9, public_pass=True), 0.5, 0.5) == 'stop'
 
 
 def test_grid_scoring_counts_regrets_and_agreements():
@@ -85,9 +112,9 @@ def test_calibration_report_is_serialisable_and_has_sensitivity():
 def test_calibration_separates_thresholds_when_the_data_allows_it():
     boundary = []
     for i in range(3):
-        boundary.append(PairedObservation(f"hi{i}", False, True, u_loc=0.85))
-        boundary.append(PairedObservation(f"mid{i}", False, True, u_loc=0.70))
-        boundary.append(PairedObservation(f"lo{i}", True, False, u_loc=0.30))
+        boundary.append(observation(f"hi{i}", False, True, u_loc=0.85))
+        boundary.append(observation(f"mid{i}", False, True, u_loc=0.70))
+        boundary.append(observation(f"lo{i}", True, False, u_loc=0.30))
     report = select_thresholds(boundary, grid=(0.25, 0.50, 0.75))
     assert report.chosen.localization_threshold == 0.50  # 0.75 would regret the 0.70 cases
     assert report.chosen.regrets == 0
@@ -98,8 +125,8 @@ def test_calibration_separates_thresholds_when_the_data_allows_it():
 
 def test_small_sample_and_ties_are_called_out():
     tiny = [
-        PairedObservation("a", True, True, u_loc=0.9),
-        PairedObservation("b", False, False, u_loc=0.1),
+        observation("a", True, True, u_loc=0.9),
+        observation("b", False, False, u_loc=0.1),
     ]
     report = select_thresholds(tiny)
     assert any("indicative, not decisive" in w for w in report.warnings), report.warnings
@@ -108,24 +135,48 @@ def test_small_sample_and_ties_are_called_out():
 
 def test_one_sided_outcome_is_reported_as_uninformative():
     fixed_always = [
-        PairedObservation(f"i{i}", fixed_resolved=True, interactive_resolved=False, u_loc=0.9)
+        observation(f"i{i}", True, False, u_loc=0.9)
         for i in range(10)
     ]
     warnings = select_thresholds(fixed_always).warnings
     assert any("interaction never helped" in w for w in warnings), warnings
 
     interactive_always = [
-        PairedObservation(f"j{i}", fixed_resolved=False, interactive_resolved=True, u_loc=0.1)
+        observation(f"j{i}", False, True, u_loc=0.1)
         for i in range(10)
     ]
     warnings = select_thresholds(interactive_always).warnings
     assert any("arm C degeneracy" in w for w in warnings), warnings
 
 
-def test_switch_probability_is_the_observed_win_rate():
-    assert select_switch_probability(separable()) == 0.5
-    only_fixed = [PairedObservation("a", True, False)]
-    assert select_switch_probability(only_fixed) == 0.0
+def test_switch_probability_matches_d_trigger_rate_excluding_stops():
+    assert select_switch_probability(['interactive', 'fixed', 'stop']) == 0.5
+    assert select_switch_probability(['fixed', 'fixed']) == 0.0
+    assert select_switch_probability(['interactive', 'interactive', 'fixed']) == 2 / 3
+    try:
+        select_switch_probability(separable())
+    except ValueError:
+        pass
+    else:
+        raise AssertionError('outcome win rate was incorrectly accepted as a routing probability')
+
+
+def test_calibration_rejects_feature_only_legacy_and_test_split():
+    for obs in [PairedObservation('legacy', False, True, u_loc=0.9),
+                PairedObservation('test', False, True, prefix_snapshot=snapshot(0.9), split='test')]:
+        try:
+            select_thresholds([obs])
+        except ValueError:
+            pass
+        else:
+            raise AssertionError('invalid calibration input accepted')
+
+
+def test_shared_stops_are_excluded_from_branch_calibration():
+    observations = separable() + [observation('stopped', True, False, 0.9, public_pass=True)]
+    score = score_grid_point(observations, 0.5, 0.5)
+    assert score.compared == 8 and score.excluded_stops == 1
+    assert score.interactive_share == 0.5
 
 
 def test_pair_summary_counts_the_four_outcome_cells():
@@ -163,3 +214,9 @@ if __name__ == "__main__":
             print(f"FAIL  {name}: {type(exc).__name__}: {exc}")
     print(f"\n{len(names)} checks, {failures} failed")
     raise SystemExit(1 if failures else 0)
+
+
+def test_empty_calibration_does_not_invent_thresholds():
+    report = select_thresholds([])
+    assert report.chosen is None
+    assert any('no eligible' in w for w in report.warnings)

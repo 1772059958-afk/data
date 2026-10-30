@@ -265,6 +265,8 @@ class Candidate:
     files_touched: tuple[str, ...] = ()
     diff_lines: int = 0
     origin: str = "prefix"
+    syntax: str = "not_run"
+    scope_valid: bool = True
 
     def __post_init__(self) -> None:
         if self.validation not in VALIDATION_STATUSES:
@@ -284,6 +286,8 @@ class Candidate:
         applies_cleanly: bool | None = None,
         validation: str = "not_run",
         origin: str = "prefix",
+        syntax: str = "not_run",
+        scope_valid: bool = True,
     ) -> "Candidate":
         from .patchutil import count_diff_lines, files_touched
 
@@ -295,6 +299,8 @@ class Candidate:
             files_touched=files_touched(diff),
             diff_lines=count_diff_lines(diff),
             origin=origin,
+            syntax=syntax,
+            scope_valid=scope_valid,
         )
 
     def to_dict(self) -> dict[str, Any]:
@@ -310,6 +316,8 @@ class Candidate:
             "files_touched": list(self.files_touched),
             "diff_lines": self.diff_lines,
             "origin": self.origin,
+            "syntax": self.syntax,
+            "scope_valid": self.scope_valid,
         }
 
 
@@ -340,10 +348,11 @@ class PatchHistory:
         return duplicates / total
 
     def has_public_pass(self) -> bool:
-        return any(c.validation == "pass" for c in self.candidates)
+        return any(c.validation == "pass" for c in self.applicable())
 
     def applicable(self) -> list[Candidate]:
-        return [c for c in self.candidates if c.applies_cleanly is not False]
+        return [c for c in self.candidates if c.applies_cleanly is True
+                and c.syntax != "fail" and c.scope_valid and c.diff.strip()]
 
     def best_candidate(self) -> Candidate | None:
         """Deterministic selection order frozen in the config (section 4.4).
@@ -393,6 +402,8 @@ class PatchHistory:
                     files_touched=tuple(item.get("files_touched", ())),
                     diff_lines=int(item.get("diff_lines", 0)),
                     origin=str(item.get("origin", "prefix")),
+                    syntax=str(item.get("syntax", "not_run")),
+                    scope_valid=bool(item.get("scope_valid", True)),
                 )
             )
         return history
@@ -415,6 +426,8 @@ class FailureRecord:
     repo_frames: tuple[str, ...] = ()
     message_head: str = ""
     recovery_attempts: int = 0
+    candidate_index: int | None = None
+    raw_output: str = ""
 
     def __post_init__(self) -> None:
         if self.error_class not in fp.CLASSES:
@@ -441,6 +454,7 @@ class FailureRecord:
             fingerprint=str(summary["fingerprint"]),
             repo_frames=tuple(summary["repo_frames"]),
             message_head=str(summary["message_head"]),
+            raw_output="\n".join(part for part in (stdout, stderr) if part),
             recovery_attempts=recovery_attempts,
         )
 
@@ -453,7 +467,9 @@ class FailureRecord:
             fingerprint=self.fingerprint,
             repo_frames=self.repo_frames,
             message_head=self.message_head,
+            raw_output=self.raw_output,
             recovery_attempts=self.recovery_attempts + 1,
+            candidate_index=self.candidate_index,
         )
 
     @property
@@ -462,6 +478,10 @@ class FailureRecord:
 
     def to_dict(self) -> dict[str, Any]:
         return asdict(self)
+
+    def prompt_view(self) -> dict[str, Any]:
+        from .feedback import failure_view
+        return failure_view(self)
 
     @classmethod
     def from_dict(cls, payload: Mapping[str, Any]) -> "FailureRecord":
@@ -475,6 +495,7 @@ class FailureLog:
     """Append-only failure history, including failures of failed runs."""
 
     records: list[FailureRecord] = field(default_factory=list)
+    tool_records: list[FailureRecord] = field(default_factory=list)
 
     def add(self, record: FailureRecord) -> None:
         self.records.append(record)
@@ -492,6 +513,8 @@ class FailureLog:
     def environment_failure(self) -> FailureRecord | None:
         """Most recent environment failure, whether or not it was retried."""
         for record in reversed(self.records):
+            if record.stage == 'env' and record.exit_code == 0:
+                return None  # explicit successful deterministic recovery
             if record.is_environment:
                 return record
         return None
@@ -526,12 +549,14 @@ class FailureLog:
     def to_dict(self) -> dict[str, Any]:
         return {
             "records": [r.to_dict() for r in self.records],
+            "tool_records": [r.to_dict() for r in self.tool_records],
             "distinct_fingerprints": list(self.distinct_fingerprints()),
         }
 
     @classmethod
     def from_dict(cls, payload: Mapping[str, Any]) -> "FailureLog":
-        return cls([FailureRecord.from_dict(r) for r in payload.get("records", ())])
+        return cls([FailureRecord.from_dict(r) for r in payload.get("records", ())],
+                   [FailureRecord.from_dict(r) for r in payload.get("tool_records", ())])
 
 
 # --------------------------------------------------------------------------

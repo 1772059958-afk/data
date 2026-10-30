@@ -1,0 +1,172 @@
+{
+  "split": "dev",
+  "designated_total": 23,
+  "integration_selection": [
+    "pvlib__pvlib-python-1707",
+    "pydicom__pydicom-1139",
+    "pyvista__pyvista-4315"
+  ],
+  "instances": [
+    {
+      "instance_id": "marshmallow-code__marshmallow-1343",
+      "selected_for_integration": false,
+      "generation_status": "not_run",
+      "environment_status": "not_verified",
+      "evaluation_status": "not_scored"
+    },
+    {
+      "instance_id": "marshmallow-code__marshmallow-1359",
+      "selected_for_integration": false,
+      "generation_status": "not_run",
+      "environment_status": "not_verified",
+      "evaluation_status": "not_scored"
+    },
+    {
+      "instance_id": "pvlib__pvlib-python-1072",
+      "selected_for_integration": false,
+      "generation_status": "not_run",
+      "environment_status": "not_verified",
+      "evaluation_status": "not_scored"
+    },
+    {
+      "instance_id": "pvlib__pvlib-python-1154",
+      "selected_for_integration": false,
+      "generation_status": "not_run",
+      "environment_status": "not_verified",
+      "evaluation_status": "not_scored"
+    },
+    {
+      "instance_id": "pvlib__pvlib-python-1606",
+      "selected_for_integration": false,
+      "generation_status": "not_run",
+      "environment_status": "not_verified",
+      "evaluation_status": "not_scored"
+    },
+    {
+      "instance_id": "pvlib__pvlib-python-1707",
+      "selected_for_integration": true,
+      "generation_status": "not_run",
+      "environment_status": "not_verified",
+      "evaluation_status": "not_scored"
+    },
+    {
+      "instance_id": "pvlib__pvlib-python-1854",
+      "selected_for_integration": false,
+      "generation_status": "not_run",
+      "environment_status": "not_verified",
+      "evaluation_status": "not_scored"
+    },
+    {
+      "instance_id": "pydicom__pydicom-1139",
+      "selected_for_integration": true,
+      "generation_status": "not_run",
+      "environment_status": "not_verified",
+      "evaluation_status": "not_scored"
+    },
+    {
+      "instance_id": "pydicom__pydicom-1256",
+      "selected_for_integration": false,
+      "generation_status": "not_run",
+      "environment_status": "not_verified",
+      "evaluation_status": "not_scored"
+    },
+    {
+      "instance_id": "pydicom__pydicom-1413",
+      "selected_for_integration": false,
+      "generation_status": "not_run",
+      "environment_status": "not_verified",
+      "evaluation_status": "not_scored"
+    },
+    {
+      "instance_id": "pydicom__pydicom-1694",
+      "selected_for_integration": false,
+      "generation_status": "not_run",
+      "environment_status": "not_verified",
+      "evaluation_status": "not_scored"
+    },
+    {
+      "instance_id": "pydicom__pydicom-901",
+      "selected_for_integration": false,
+      "generation_status": "not_run",
+      "environment_status": "not_verified",
+      "evaluation_status": "not_scored"
+    },
+    {
+      "instance_id": "pylint-dev__astroid-1196",
+      "selected_for_integration": false,
+      "generation_status": "not_run",
+      "environment_status": "not_verified",
+      "evaluation_status": "not_scored"
+    },
+    {
+      "instance_id": "pylint-dev__astroid-1268",
+      "selected_for_integration": false,
+      "generation_status": "not_run",
+      "environment_status": "not_verified",
+      "evaluation_status": "not_scored"
+    },
+    {
+      "instance_id": "pylint-dev__astroid-1333",
+      "selected_for_integration": false,
+      "generation_status": "not_run",
+      "environment_status": "not_verified",
+      "evaluation_status": "not_scored"
+    },
+    {
+      "instance_id": "pylint-dev__astroid-1866",
+      "selected_for_integration": false,
+      "generation_status": "not_run",
+      "environment_status": "not_verified",
+      "evaluation_status": "not_scored"
+    },
+    {
+      "instance_id": "pylint-dev__astroid-1978",
+      "selected_for_integration": false,
+      "generation_status": "not_run",
+      "environment_status": "not_verified",
+      "evaluation_status": "not_scored"
+    },
+    {
+      "instance_id": "pyvista__pyvista-4315",
+      "selected_for_integration": true,
+      "generation_status": "not_run",
+      "environment_status": "not_verified",
+      "evaluation_status": "not_scored"
+    },
+    {
+      "instance_id": "sqlfluff__sqlfluff-1517",
+      "selected_for_integration": false,
+      "generation_status": "not_run",
+      "environment_status": "not_verified",
+      "evaluation_status": "not_scored"
+    },
+    {
+      "instance_id": "sqlfluff__sqlfluff-1625",
+      "selected_for_integration": false,
+      "generation_status": "not_run",
+      "environment_status": "not_verified",
+      "evaluation_status": "not_scored"
+    },
+    {
+      "instance_id": "sqlfluff__sqlfluff-1733",
+      "selected_for_integration": false,
+      "generation_status": "not_run",
+      "environment_status": "not_verified",
+      "evaluation_status": "not_scored"
+    },
+    {
+      "instance_id": "sqlfluff__sqlfluff-1763",
+      "selected_for_integration": false,
+      "generation_status": "not_run",
+      "environment_status": "not_verified",
+      "evaluation_status": "not_scored"
+    },
+    {
+      "instance_id": "sqlfluff__sqlfluff-2419",
+      "selected_for_integration": false,
+      "generation_status": "not_run",
+      "environment_status": "not_verified",
+      "evaluation_status": "not_scored"
+    }
+  ]
+}

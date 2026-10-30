@@ -76,7 +76,7 @@ def check_harness() -> None:
 def check_dataset() -> None:
     path = os.path.join(ROOT, "data", "frozen", "manifest.json")
     if not os.path.exists(path):
-        add("frozen dataset", False, "run: python scripts/freeze_dataset.py")
+        add("frozen dataset", False, "protected manifest missing; restore the original asset and run scripts/verify_preservation.py --archive")
         return
     with open(path, encoding="utf-8") as fh:
         manifest = json.load(fh)

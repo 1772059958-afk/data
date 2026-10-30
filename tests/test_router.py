@@ -49,7 +49,7 @@ from swe_repair.state import (  # noqa: E402
 )
 
 CONFIG_PATH = os.path.join(
-    os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "configs", "frozen_v1.json"
+    os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "configs", "proposal_v1.json"
 )
 
 DIFF = "--- a/pkg/mod.py\n+++ b/pkg/mod.py\n@@ -1,3 +1,4 @@\n x = 1\n+y = 2\n z = 3\n"
@@ -58,13 +58,14 @@ DIFF = "--- a/pkg/mod.py\n+++ b/pkg/mod.py\n@@ -1,3 +1,4 @@\n x = 1\n+y = 2\n z 
 def raw_config(**router_overrides):
     router = {
         "rule_order": [
-            "freeze_when_public_candidate_passes",
             "stop_on_env_failure_after_one_recovery",
             "stop_when_budget_insufficient",
+            "freeze_when_public_candidate_passes",
+            "fixed_on_local_application_or_syntax_error",
             "interactive_on_wide_localization_disagreement",
             "interactive_on_high_duplicate_rate",
             "interactive_on_out_of_scope_stack_evidence",
-            "interactive_when_no_behavioural_signal",
+            "fixed_when_evidence_insufficient",
             "fixed_continuation_otherwise",
         ],
         "localization_disagreement_threshold": None,
@@ -148,7 +149,7 @@ def test_config_and_code_agree_on_the_rule_set():
     order = shipped["router"]["rule_order"]
     assert order == list(RouterConfig.from_config(shipped).rule_order)
     assert set(order) == set(RULES), set(order) ^ set(RULES)
-    assert len(order) == 8
+    assert len(order) == 9
 
 
 def test_unknown_rule_name_in_config_raises():
@@ -164,10 +165,10 @@ def test_unknown_rule_name_in_config_raises():
 
 def test_shipped_config_is_the_frozen_v1_and_is_not_yet_calibrated():
     cfg = RouterConfig.from_file(CONFIG_PATH)
-    assert cfg.config_version == "frozen_v1"
+    assert cfg.config_version == "proposal_aligned_v1"
     assert cfg.calibrated is False
     assert cfg.threshold_grid == (0.25, 0.50, 0.75)
-    assert cfg.budget_tiers()["small"]["model_call"] == 12
+    assert cfg.budget_tiers()["development"]["model_call"] == 12
     assert len(cfg.digest) == 64
 
 
@@ -268,13 +269,13 @@ def test_out_of_scope_stack_frame_triggers_interaction():
     assert "pkg/normalise.py" in decision.detail
 
 
-def test_no_behavioural_signal_triggers_interaction():
+def test_no_behavioural_signal_conservatively_stays_fixed():
     st = quiet_failure(state())
     st.context = ContextView(indexed_paths=frozenset({"pkg/mod.py"}))
     st.failures = FailureLog()
     decision = route(st, calibrated())
-    assert decision.route == "interactive"
-    assert decision.reason == "interactive_when_no_behavioural_signal"
+    assert decision.route == "fixed"
+    assert decision.reason == "fixed_when_evidence_insufficient"
 
 
 def test_quiet_failure_falls_through_to_the_fixed_branch():
@@ -376,7 +377,7 @@ def test_route_for_arm_dispatches_every_other_arm():
 def test_evaluate_all_reports_every_rule_and_never_short_circuits():
     st = quiet_failure(state())
     rows = evaluate_all(st, RouterConfig.from_file(CONFIG_PATH))
-    assert len(rows) == 8
+    assert len(rows) == 9
     assert [r["rule"] for r in rows] == list(RouterConfig.from_file(CONFIG_PATH).rule_order)
     fired = [r["rule"] for r in rows if r["fires"]]
     assert fired == ["fixed_continuation_otherwise"]

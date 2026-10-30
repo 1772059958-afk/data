@@ -1,0 +1,35 @@
+{
+  "kind": "gold_environment_check",
+  "split": "dev",
+  "tag": "dev_gold_20261030",
+  "designated_instances": [
+    "pvlib__pvlib-python-1707",
+    "pydicom__pydicom-1139",
+    "pyvista__pyvista-4315"
+  ],
+  "instance_list_sha256": "c28b69fbb9d6e3b2dfefe2448a172bb041a517cf6e3d8218498da22af412144c",
+  "output_directory": "C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\runs\\dev_gold_20261030",
+  "command": [
+    "C:\\Users\\remil\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+    "-m",
+    "swebench.harness.run_evaluation",
+    "--dataset_name",
+    "C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\data\\harness",
+    "--split",
+    "dev",
+    "--predictions_path",
+    "gold",
+    "--instance_ids",
+    "pvlib__pvlib-python-1707",
+    "pydicom__pydicom-1139",
+    "pyvista__pyvista-4315",
+    "--run_id",
+    "dev_gold_20261030",
+    "--max_workers",
+    "1",
+    "--report_dir",
+    "C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\runs\\dev_gold_20261030"
+  ],
+  "model_calls": 0,
+  "execute": false
+}

@@ -1,10 +1,8 @@
 """Offline checks for the bounded interactive executor.
 
-Only the parts that can be checked without a container or a model are covered
-here: that the six tools and four states line up with the protocol, that the
-budget defaults are sane, and that the browser-facing helpers behave. The
-session loop itself needs a live container, so it is exercised by the smoke run
-and not here.
+These specification/helper checks run without a live container or model.
+The session loop, state transitions and retry limits have additional injected
+transport/container coverage in test_interaction_contracts.py.
 """
 
 from __future__ import annotations

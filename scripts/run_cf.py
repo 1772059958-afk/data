@@ -1,536 +1,234 @@
-"""Run the paired-branch counterfactual on a few instances.
-
-Per instance this does four things, in this order, on one container:
-
-1. the shared prefix (index, localise x2, read, N candidates, validate each);
-2. the fixed continuation (one more candidate, no tools) -- arm A's endpoint;
-3. the interactive escalation from the prefix state -- what C/D/E would get;
-4. a standalone interactive session from nothing -- arm B.
-
-Branches 2 and 3 are both run because this is a *counterfactual* experiment: the
-routers are then evaluated offline against the resulting table, so one pass of
-paid work supports every policy. Arm D's decision comes from the real router in
-``swe_repair.router``, driven by a snapshot of the state taken at the prefix
-boundary -- deliberately not re-derived from summary numbers, because
-reconstructing the patch history would fake the duplicate rate.
-
-Usage (inside WSL, with the venv at /opt/swe-env):
-
-    /opt/swe-env/bin/python scripts/run_cf.py --dry-run
-    /opt/swe-env/bin/python scripts/run_cf.py --total-cny 9.5 --tag cf_dev4
-"""
-
+"""Proposal runner. Default is an offline plan; explicit authorization gates live work."""
 from __future__ import annotations
-
 import argparse
-import datetime as dt
+import hashlib
 import json
 import os
-import random
+from pathlib import Path
 import re
 import sys
-
-HERE = os.path.dirname(os.path.abspath(__file__))
-REPO = os.path.dirname(HERE)
-sys.path.insert(0, os.path.join(REPO, "src"))
-
-import pyarrow.parquet as pq  # noqa: E402
-
-from swe_repair import cf  # noqa: E402
-from swe_repair.budget import BudgetState, tier_table  # noqa: E402
-from swe_repair.interact import (  # noqa: E402
-    SYSTEM as INTERACT_SYSTEM,
-    InteractionBudget,
-    run_interactive,
-)
-from swe_repair.llm import DeepSeekClient, ModelConfig  # noqa: E402
-from swe_repair.prefix import (  # noqa: E402
-    Container,
-    Candidate,
-    candidate_messages,
-    context_block,
-    extract_patch,
-    image_for,
-    lexical_localize,
-    read_files,
-    resolve_paths,
-    run_prefix,
-    validate_candidate,
-)
-from swe_repair.router import (  # noqa: E402
-    RouterConfig,
-    evaluate_all,
-    route_cascade,
-    route_fixed_or_stop,
-    route_for_arm,
-    route_random,
-)
-from swe_repair.spend import SpendGuard, SpendPolicy  # noqa: E402
-from swe_repair.state import RepairState, generation_view  # noqa: E402
-
-DEFAULT_INSTANCES = (
-    "marshmallow-code__marshmallow-1343",
-    "pylint-dev__astroid-1196",
-    "pylint-dev__astroid-1978",
-    "sqlfluff__sqlfluff-1625",
-)
-
-# Placeholders for the smoke run only. The protocol requires both to be
-# calibrated on the dev split and frozen before any main experiment; 0.50 exists
-# solely so the machinery can run, and every output file records that.
-PLACEHOLDER_THRESHOLD = 0.5
-PLACEHOLDER_SWITCH = 0.5
-
-# The frozen config's `small` tier allows 32000 tokens, which a single prefix
-# already exceeds: three calls over a 15k-token context measured 47009 tokens,
-# so the budget rule fired on every instance and A/C/D/E all stopped at the same
-# point. The demo tier below is wide enough for a prefix plus a continuation on
-# this context size. It is an amendment, recorded in the protocol, not a knob
-# tuned to produce a result.
-DEMO_TIER = {
-    "token": 200_000,
-    "model_call": 12,
-    "tool_call": 20,
-    "wallclock_seconds": 600.0,
-}
+import math
+import subprocess
+import platform
+if hasattr(sys.stdout, 'reconfigure'):
+    sys.stdout.reconfigure(encoding='utf-8', errors='replace')
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / 'src'))
+from swe_repair.router import RouterConfig
 
 
-def load_config() -> dict:
-    with open(os.path.join(REPO, "configs/frozen_v1.json"), encoding="utf-8") as fh:
-        return json.load(fh)
+def file_hash(path):
+    return hashlib.sha256(Path(path).read_bytes()).hexdigest()
 
 
-def _container_slug(instance_id: str) -> str:
-    """Deterministic container name (``hash()`` is salted per process)."""
-    return re.sub(r"[^a-zA-Z0-9_.-]", "-", instance_id)[:36]
+def frozen_config_errors(raw):
+    """All formal freeze declarations must agree; numeric defaults are not evidence."""
+    errors = []
+    if raw.get('status') != 'frozen':
+        errors.append('overall status is not frozen')
+    for section in ('model', 'prefix', 'router', 'fixed_continuation'):
+        if raw.get(section, {}).get('calibration') != 'frozen':
+            errors.append(f'{section}.calibration is not frozen')
+    for section in ('candidate_selection', 'evaluation'):
+        if raw.get(section, {}).get('frozen') is not True:
+            errors.append(f'{section}.frozen is not true')
+    if not raw.get('model', {}).get('model_version'):
+        errors.append('served model version is not pinned')
+    router = raw.get('router', {})
+    if any(router.get(k) is None for k in ('localization_disagreement_threshold', 'duplicate_rate_threshold', 'switch_probability')):
+        errors.append('router thresholds or matched switch probability are pending')
+    if raw.get('evaluation', {}).get('repeats', 0) < 3:
+        errors.append('formal evaluation requires at least three repeats')
+    if not raw.get('prompt_version'):
+        errors.append('prompt version is missing')
+    return errors
 
 
-# --------------------------------------------------------------------------
-# prompt pieces
-# --------------------------------------------------------------------------
+def validate_development_contract(raw):
+    fixed = raw.get('fixed_continuation', {})
+    if (not isinstance(fixed.get('max_candidates'), int) or isinstance(fixed['max_candidates'], bool)
+            or fixed['max_candidates'] < 1 or fixed.get('feedback') != 'structured'
+            or fixed.get('stop_on_public_pass') is not True):
+        raise ValueError('fixed continuation must have a positive candidate limit, structured feedback and public-pass early stop')
+    for key in ('model_calls', 'tool_calls', 'wallclock_seconds'):
+        value = raw['interaction'].get(key)
+        if not isinstance(value, (int, float)) or isinstance(value, bool) or not math.isfinite(value) or value <= 0:
+            raise ValueError(f'interaction.{key} must be positive and finite')
+    for key in ('total_cny', 'per_instance_cny'):
+        value = raw['execution'].get(key)
+        if not isinstance(value, (int, float)) or isinstance(value, bool) or not math.isfinite(value) or value <= 0:
+            raise ValueError(f'execution.{key} must be positive and finite')
 
 
-def tried_patches_block(state: RepairState) -> str:
-    lines: list[str] = []
-    for candidate in state.patches.candidates:
-        if not candidate.diff.strip():
-            lines.append(f"### attempt {candidate.index}: (no patch was produced)")
-            continue
-        body = candidate.diff
-        if len(body) > 2000:
-            body = body[:2000] + "\n... [truncated]"
-        lines.append(
-            f"### attempt {candidate.index} "
-            f"(applies_cleanly={candidate.applies_cleanly}, "
-            f"public_test={candidate.validation})\n```diff\n{body}\n```"
-        )
-    return "\n\n".join(lines) or "(no patches yet)"
+def load_plan(args):
+    cfgpath = Path(args.config)
+    if not cfgpath.is_absolute(): cfgpath = ROOT / cfgpath
+    raw = json.loads(cfgpath.read_text(encoding='utf-8'))
+    validate_development_contract(raw)
+    listing = Path(args.instances_file) if args.instances_file else ROOT / f'data/frozen/instances_{args.split}.txt'
+    if not listing.is_absolute(): listing = ROOT / listing
+    text = listing.read_text(encoding='utf-8')
+    ids = json.loads(text)['instance_ids'] if listing.suffix == '.json' else [s.strip() for s in text.splitlines() if s.strip()]
+    full = set((ROOT / f'data/frozen/instances_{args.split}.txt').read_text(encoding='utf-8').splitlines())
+    if not ids or len(ids) != len(set(ids)) or set(ids) - full:
+        raise ValueError('empty, duplicate or out-of-split instance selection')
+    if args.repeat_index < 0: raise ValueError('repeat-index must be nonnegative')
+    if args.calibration and (args.split != 'dev' or args.mode != 'diagnostic'):
+        raise ValueError('calibration is allowed only for dev diagnostics')
+    files = sorted((ROOT / 'src/swe_repair').glob('*.py')) + [Path(__file__)]
+    revision = subprocess.run(['git', 'rev-parse', 'HEAD'], cwd=ROOT, capture_output=True, text=True, check=True).stdout.strip()
+    raw['provenance'] = {'code_sha256': hashlib.sha256(''.join(file_hash(p) for p in files).encode()).hexdigest(),
+                         'git_commit': revision,
+                         'dataset_manifest_sha256': file_hash(ROOT / 'data/harness/manifest.json'),
+                         'instance_list_sha256': file_hash(listing)}
+    cfg = RouterConfig.from_config(raw)
+    tier = cfg.budget_tiers()[raw['active_tier']]
+    if any(not math.isfinite(float(x)) or float(x) <= 0 for x in tier.values()):
+        raise ValueError('resource ceilings must be positive finite values')
+    if not 0 < cfg.prefix_fraction <= 1:
+        raise ValueError('prefix fraction must be in (0, 1]')
+    if (raw['execution']['tool_call_unit'] != 'container_exec'
+            or raw['execution']['environment_retries'] != 1
+            or raw['execution']['modify_scope'] != 'python_source_excluding_tests'):
+        raise ValueError('unsupported execution contract; update protocol and implementation together')
+    tag = args.tag or f'proposal_{args.mode}_{args.split}_{args.arm}_r{args.repeat_index}_{args.seed}'
+    if not re.fullmatch(r'[A-Za-z0-9_-]{1,96}', tag):
+        raise ValueError('invalid tag: letters, digits, underscore and hyphen only')
+    if args.execute:
+        if not args.allow_paid or not raw['execution'].get('live_authorized', False):
+            raise ValueError('paid execution disabled: user authorization, config live_authorized and --allow-paid required')
+        if not raw['model'].get('model_version'):
+            raise ValueError('pin served model version first')
+        if not args.calibration and (not cfg.calibrated or cfg.switch_probability is None):
+            raise ValueError('freeze thresholds and matched random probability on dev first')
+        if not args.calibration and frozen_config_errors(raw):
+            raise ValueError('formal configuration is not consistently frozen: ' + '; '.join(frozen_config_errors(raw)))
+        if args.split == 'test' and len(ids) < len(full):
+            sample = raw['evaluation'].get('sample_manifest')
+            if not sample: raise ValueError('test subset requires a preregistered sampling manifest')
+            samplepath = Path(sample)
+            if not samplepath.is_absolute(): samplepath = ROOT / samplepath
+            manifest = json.loads(samplepath.read_text(encoding='utf-8'))
+            if manifest.get('instance_ids') != ids or manifest.get('seed') is None:
+                raise ValueError('sampling manifest does not match selected instances')
+    return raw, {'tag': tag, 'mode': args.mode, 'arm': args.arm, 'split': args.split,
+                 'seed': args.seed, 'repeat_index': args.repeat_index, 'calibration': args.calibration,
+                 'designated_instances': ids, 'instance_list_sha256': file_hash(listing),
+                 'config_hash': cfg.digest, 'effective_config': cfg.effective_config(),
+                 'formal_readiness_errors': frozen_config_errors(raw),
+                 'live_authorized': raw['execution']['live_authorized'],
+                 'execute': args.execute, 'output_directory': str(ROOT / 'runs' / tag)}
 
 
-def escalation_seed(problem: str, prefix) -> list[dict]:
-    """Start the interactive branch from what the prefix already learned.
-
-    The file text is included on purpose. Without it the interactive branch has
-    to spend its whole tool budget rediscovering files the fixed branch was
-    handed for free, which measures the seed rather than the branch.
-    """
-    files = "\n".join(f"- {p}" for p in prefix.context_files) or "(none)"
-    body = (
-        f"# Bug report\n\n{problem.strip()}\n\n"
-        f"# Files the fixed prefix looked at\n\n{files}\n\n"
-        f"# Contents of those files\n\n{prefix.context_text}\n\n"
-        f"# Patches the fixed prefix already tried\n\n"
-        f"{tried_patches_block(prefix.state)}\n\n"
-        "Continue from here. Do not repeat a patch listed above; work out why it "
-        "failed and produce a better one, then call finish with it."
-    )
-    return [
-        {"role": "system", "content": INTERACT_SYSTEM},
-        {"role": "user", "content": body},
-    ]
+def predictions(case, mode, arm):
+    stages = case['stages']
+    if mode == 'formal': return {arm: case.get('submitted_patch', '')}
+    result = {}
+    for a in ('A', 'C', 'D', 'E'):
+        decision = case.get('decisions', {}).get(a)
+        if decision:
+            stage = 'prefix' if decision['route'] == 'stop' else decision['route']
+            result[a] = stages.get(stage, {}).get('patch', '')
+    for name, stage in (('B', 'standalone'), ('FIXED', 'fixed'), ('ESC', 'interactive')):
+        if stage in stages: result[name] = stages[stage]['patch']
+    return result
 
 
-# --------------------------------------------------------------------------
-# one instance
-# --------------------------------------------------------------------------
-
-
-def run_one(
-    row: dict,
-    client: DeepSeekClient,
-    *,
-    cfg: RouterConfig,
-    config_version: str,
-    config_hash: str,
-    n_candidates: int,
-    interactive_budget: InteractionBudget,
-    skip_standalone: bool,
-    verbose: bool = True,
-) -> tuple[cf.InstanceOutcome, str]:
-    """Run all four steps. Returns the outcome and the prefix snapshot (JSON)."""
-    iid = row["instance_id"]
-    box = Container(image_for(iid), f"cf-{_container_slug(iid)}")
-    box.start()
-    try:
-        prefix = run_prefix(
-            row, client,
-            config_version=config_version, config_hash=config_hash,
-            n_candidates=n_candidates, container=box,
-        )
-        prefix_best = prefix.state.patches.best_candidate()
-        # Freeze the state exactly at the decision point, before anything else
-        # can touch the patch history. The budget travels with it, so the
-        # router's budget rule has real consumption to reason about.
-        prefix_state = _attach_budget(prefix.state, tokens=prefix.tokens,
-                                      calls=prefix.calls)
-        snapshot = json.dumps(prefix_state.to_dict(), ensure_ascii=False,
-                              sort_keys=True)
-
-        outcome = cf.InstanceOutcome(
-            instance_id=iid,
-            features=prefix.features(),
-            prefix_candidate_index=prefix_best.index if prefix_best else None,
-            prefix_cost_cny=prefix.cost_cny,
-            prefix_calls=prefix.calls,
-            prefix_tokens=prefix.tokens,
-            prefix_trace=list(prefix.trace),
-        )
-        if verbose:
-            print(f"    prefix   : {prefix.calls} calls, {prefix.cost_cny:.4f} CNY, "
-                  f"files={len(prefix.context_files)}, "
-                  f"u_loc={outcome.features['u_loc']}, "
-                  f"u_dup={outcome.features['u_dup']}, "
-                  f"public_pass={outcome.features['n_public_pass']}, "
-                  f"signal={outcome.features['behavioural_signal']}")
-
-        # ---- 2. fixed continuation (arm A's endpoint) --------------------
-        problem = str(row.get("problem_statement") or "")
-        stop = route_fixed_or_stop(prefix_state, cfg)
-        fixed_diff = prefix_best.diff if prefix_best else ""
-        if stop.route == "fixed":
-            bodies = read_files(box, prefix.context_files)
-            reply = client.chat(
-                candidate_messages(problem, context_block(bodies), n_candidates)
-            )
-            raw = extract_patch(reply.text)
-            if raw.strip():
-                validated = validate_candidate(
-                    box, Candidate.build(n_candidates, raw, origin="continuation"),
-                    tuple(prefix.state.localization.symbols_union()),
-                )
-                prefix.state.patches.add(validated.candidate)
-            outcome.fixed_cost_cny = reply.record.cost_cny
-            outcome.fixed_calls = 1
-            best = prefix.state.patches.best_candidate()
-            fixed_diff = best.diff if best else fixed_diff
-        else:
-            outcome.notes.append(f"arm A stopped instead of continuing: {stop.rule}")
-        outcome.fixed_diff = fixed_diff
-        if verbose:
-            print(f"    fixed    : +{outcome.fixed_calls} call(s), "
-                  f"{outcome.fixed_cost_cny:.4f} CNY, "
-                  f"{len(fixed_diff.splitlines())} lines")
-
-        # ---- 3. interactive escalation from the prefix state ------------
-        esc = run_interactive(
-            problem,
-            client=client,
-            budget=interactive_budget,
-            container=box,
-            instance_id=iid,
-            seed_messages=escalation_seed(problem, prefix),
-        )
-        outcome.interactive_diff = esc.final_diff
-        outcome.interactive_cost_cny = esc.cost_cny
-        outcome.interactive_calls = esc.calls
-        outcome.interactive_ended_by = esc.ended_by
-        if verbose:
-            print(f"    escalate : {esc.calls} calls / {esc.tool_calls} tools, "
-                  f"{esc.cost_cny:.4f} CNY, ended={esc.ended_by}, "
-                  f"{len(esc.final_diff.splitlines())} lines")
-
-        # ---- 4. standalone interactive (arm B) --------------------------
-        if not skip_standalone:
-            solo = run_interactive(
-                problem,
-                client=client,
-                budget=interactive_budget,
-                container=box,
-                instance_id=iid,
-            )
-            outcome.standalone_diff = solo.final_diff
-            outcome.standalone_cost_cny = solo.cost_cny
-            outcome.standalone_calls = solo.calls
-            if verbose:
-                print(f"    B solo   : {solo.calls} calls / {solo.tool_calls} tools, "
-                      f"{solo.cost_cny:.4f} CNY, ended={solo.ended_by}")
-        return outcome, snapshot
-    finally:
-        box.close()
-
-
-def _attach_budget(state: RepairState, *, tokens: int, calls: int) -> RepairState:
-    """Attach the demo budget state so the router's budget rule has real data.
-
-    Uses ``DEMO_TIER`` rather than the config's ``small`` tier, because that tier
-    is smaller than one prefix and made every arm stop immediately.
-    """
-    budget = BudgetState.for_tier(
-        "demo", {"demo": DEMO_TIER}
-    )
-    budget.spend(
-        token=max(0, int(tokens)),
-        model_call=max(0, int(calls)),
-        tool_call=0,
-        wallclock_seconds=0.0,
-    )
-    state.budget = budget
-    return state
-
-
-# --------------------------------------------------------------------------
-# arm decisions
-# --------------------------------------------------------------------------
-
-
-def arm_decisions(
-    state: RepairState, cfg: RouterConfig, rng: random.Random
-) -> dict[str, str]:
-    """What each arm decides at the prefix boundary, with the rule that fired."""
-    out: dict[str, str] = {}
-    a = route_fixed_or_stop(state, cfg)
-    out["A"] = a.route
-    c = route_cascade(state, cfg)
-    out["C"] = c.route
-    d = route_for_arm("D", state, cfg, allow_uncalibrated=True)
-    out["D"] = d.route
-    e = route_random(state, cfg, rng=rng, probability=PLACEHOLDER_SWITCH)
-    out["E"] = e.route
-    return out
-
-
-def main() -> int:
-    ap = argparse.ArgumentParser(
-        description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter
-    )
-    ap.add_argument("--instances", nargs="*", default=list(DEFAULT_INSTANCES))
-    ap.add_argument("--n-candidates", type=int, default=2,
-                    help="candidates generated by the prefix (default 2)")
-    ap.add_argument("--interactive-calls", type=int, default=8,
-                    help="model calls allowed per interactive session")
-    ap.add_argument("--interactive-tools", type=int, default=10,
-                    help="tool calls allowed per interactive session")
-    ap.add_argument("--per-instance-cny", type=float, default=2.2)
-    ap.add_argument("--total-cny", type=float, default=9.5,
-                    help="hard ceiling for the whole run (protocol: 10.00)")
-    ap.add_argument("--max-tokens", type=int, default=16384,
-                    help="output ceiling; 8192 truncated patches in thinking mode")
-    ap.add_argument("--effort", default="low", choices=["low", "high", "max"])
-    ap.add_argument("--skip-standalone", action="store_true",
-                    help="skip arm B's session (the single largest cost)")
-    ap.add_argument("--seed", type=int, default=20261023)
-    ap.add_argument("--tag", default="cf_dev4")
-    ap.add_argument("--dry-run", action="store_true",
-                    help="containers and prompts only; no model calls, no spend")
-    args = ap.parse_args()
-
-    raw_cfg = load_config()
-    cfg = RouterConfig.from_config(raw_cfg).with_thresholds(
-        localization_disagreement=PLACEHOLDER_THRESHOLD,
-        duplicate_rate=PLACEHOLDER_THRESHOLD,
-    )
-
-    rows = pq.read_table(os.path.join(REPO, "data/harness/dev.parquet")).to_pylist()
-    by_id = {r["instance_id"]: r for r in rows}
-    todo = [generation_view(by_id[i]) for i in args.instances if i in by_id]
-    missing = [i for i in args.instances if i not in by_id]
-    if missing:
-        print(f"warning: not in the dev split: {missing}", file=sys.stderr)
-
-    print(f"instances      : {len(todo)}")
-    print(f"model          : deepseek-flash  thinking=on effort={args.effort} "
-          f"max_tokens={args.max_tokens}")
-    print(f"prefix         : {args.n_candidates} candidates")
-    print(f"interactive    : {args.interactive_calls} calls / "
-          f"{args.interactive_tools} tools per session")
-    print(f"ceilings       : {args.per_instance_cny:.2f} CNY per instance, "
-          f"{args.total_cny:.2f} CNY total")
-    print("thresholds     : 0.50 / 0.50 -- PLACEHOLDER, not calibrated")
-    print()
-
-    if args.dry_run:
-        for row in todo:
-            iid = row["instance_id"]
-            box = Container(image_for(iid), f"cf-dry-{abs(hash(iid)) % 100000}")
-            box.start()
-            try:
-                code, listing = box.bash("cd /testbed && ls")
-                entries = [x for x in listing.splitlines() if x.strip()]
-                lexical = lexical_localize(row.get("problem_statement", ""))
-                paths = resolve_paths(box, sorted(lexical))
-                bodies = read_files(box, paths)
-                chars = len(context_block(bodies))
-                print(f"  {iid}")
-                print(f"      listing   : {len(entries)} entries")
-                print(f"      lexical   : {sorted(lexical) or '(none)'}")
-                print(f"      resolved  : {paths or '(none)'}")
-                print(f"      context   : {chars} chars (~{chars // 4} tokens)")
-            finally:
-                box.close()
-        print("\ndry run: no model calls, nothing spent")
-        return 0
-
-    guard = SpendGuard(SpendPolicy(
-        ceiling_cny=args.total_cny,
-        approval_threshold_cny=args.total_cny,
-        assumed_prompt_tokens=60_000,
-        note=f"{args.tag}: paired-branch smoke run",
-    ))
-    client = DeepSeekClient(
-        ModelConfig(thinking=True, effort=args.effort, max_tokens=args.max_tokens),
-        guard=guard,
-    )
-    interactive_budget = InteractionBudget(
-        model_calls=args.interactive_calls,
-        tool_calls=args.interactive_tools,
-    )
-    rng = random.Random(args.seed)
-
-    outcomes: list[cf.InstanceOutcome] = []
-    decisions: dict[str, dict[str, str]] = {}
-    failures: list[dict] = []
-    snapshots: dict[str, str] = {}
-
-    for row in todo:
-        iid = row["instance_id"]
-        print(f"  {iid}")
-        if guard.spent_cny >= args.total_cny:
-            failures.append({"instance_id": iid, "stage": "precheck",
-                             "error": "total ceiling already reached"})
-            print("      skipped: total ceiling reached")
-            continue
-        try:
-            outcome, snapshot = run_one(
-                row, client,
-                cfg=cfg,
-                config_version=cfg.config_version,
-                config_hash=cfg.digest,
-                n_candidates=args.n_candidates,
-                interactive_budget=interactive_budget,
-                skip_standalone=args.skip_standalone,
-            )
-            outcomes.append(outcome)
-            snapshots[iid] = snapshot
-        except Exception as exc:
-            failures.append({"instance_id": iid, "stage": "run_one",
-                             "error": f"{type(exc).__name__}: {exc}"})
-            print(f"      FAILED: {type(exc).__name__}: {exc}")
-        print(f"      spent so far: {guard.spent_cny:.4f} CNY")
-        print()
-
-    # Decisions are computed after the fact from the frozen prefix snapshots, so
-    # an API failure later in an instance cannot change how its arm decided.
-    for outcome in outcomes:
-        state = RepairState.from_dict(json.loads(snapshots[outcome.instance_id]))
-        decisions[outcome.instance_id] = arm_decisions(state, cfg, random.Random(
-            f"{args.seed}:{outcome.instance_id}"
-        ))
-        # Record the whole rule table, not just the winner: if D never differs
-        # from C, the next question is which rule is doing the escalating, and
-        # that cannot be answered from the decision alone.
-        outcome.router_rules = evaluate_all(state, cfg, allow_uncalibrated=True)
-
-    stamp = dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
-    os.makedirs(os.path.join(REPO, "reports"), exist_ok=True)
-
-    preds_path = os.path.join(REPO, "reports", f"{args.tag}.jsonl")
-    counts = {arm: 0 for arm in ("A", "B", "C", "D", "E", "ESC")}
-    with open(preds_path, "w", encoding="utf-8", newline="\n") as fh:
-        for outcome in outcomes:
-            routes = decisions.get(outcome.instance_id, {})
-            patches = {
-                "A": outcome.fixed_diff,
-                # ESC is not an arm: it is the escalation branch scored on its
-                # own so the counterfactual cell is filled even for instances
-                # where every arm happened to freeze early.
-                "ESC": outcome.interactive_diff,
-                "C": (outcome.interactive_diff if routes.get("C") == "interactive"
-                      else outcome.fixed_diff),
-                "D": (outcome.interactive_diff if routes.get("D") == "interactive"
-                      else outcome.fixed_diff),
-                "E": (outcome.interactive_diff if routes.get("E") == "interactive"
-                      else outcome.fixed_diff),
-            }
-            # Arm B is only written when its session actually ran: submitting an
-            # empty patch would be scored as a failure and read as "B is bad"
-            # when in truth B was never run.
-            if not args.skip_standalone:
-                patches["B"] = outcome.standalone_diff
-            for arm, patch in patches.items():
-                fh.write(json.dumps({
-                    "instance_id": outcome.instance_id,
-                    "model_name_or_path": f"{args.tag}-{arm}",
-                    "model_patch": patch,
-                }, ensure_ascii=False) + "\n")
-                counts[arm] += 1
-
-    matrix = {
-        "tag": args.tag,
-        "built_utc": stamp,
-        "what": (
-            "paired-branch counterfactual smoke run: shared prefix, fixed "
-            "continuation, interactive escalation, standalone interactive. "
-            "A connectivity check for the five-arm machinery, NOT an effect result."
-        ),
-        "caveats": [
-            "n is tiny: no ordering, no significance, no 'one arm is better' claim",
-            f"routing thresholds are placeholders at {PLACEHOLDER_THRESHOLD}",
-            f"arm E switch probability is a placeholder at {PLACEHOLDER_SWITCH}",
-            "repeats = 1",
-        ],
-        "model_config": {
-            "model": "deepseek-flash", "thinking": True,
-            "effort": args.effort, "max_tokens": args.max_tokens,
-        },
-        "budget": {
-            "tier": "demo",
-            "tier_ceiling": dict(DEMO_TIER),
-            "amendment": (
-                "config small tier is 32000 tokens, but one prefix measured "
-                "47009 tokens, so the budget rule fired on every instance and "
-                "A/C/D/E all stopped. The demo tier is the amendment."
-            ),
-            "prefix_candidates": args.n_candidates,
-            "interactive_model_calls": args.interactive_calls,
-            "interactive_tool_calls": args.interactive_tools,
-            "per_instance_cny": args.per_instance_cny,
-            "total_cny": args.total_cny,
-        },
-        "config": {"version": cfg.config_version, "hash": cfg.digest},
-        "spent_cny": guard.spent_cny,
-        "guard": guard.summary(),
-        "predictions_file": os.path.relpath(preds_path, REPO).replace("\\", "/"),
-        "prediction_rows_per_arm": counts,
-        "decisions": decisions,
-        "instances": [o.to_dict() for o in outcomes],
-        "quadrants_before_scoring": cf.quadrant_table(outcomes),
-        "failures": failures,
-    }
-    matrix_path = os.path.join(REPO, "reports", f"{args.tag}_matrix.json")
-    with open(matrix_path, "w", encoding="utf-8", newline="\n") as fh:
-        json.dump(matrix, fh, indent=2, ensure_ascii=False)
-
-    print(f"spent total    : {guard.spent_cny:.4f} CNY")
-    print(f"predictions    : {os.path.relpath(preds_path, REPO)}")
-    print(f"matrix         : {os.path.relpath(matrix_path, REPO)}")
-    print()
-    print("next: score all five arms in one harness pass")
-    print("  /opt/swe-env/bin/python -m swebench.harness.run_evaluation \\")
-    print("      --dataset_name data/harness --split dev \\")
-    print(f"      --predictions_path {os.path.relpath(preds_path, REPO)} \\")
-    print(f"      --run_id {args.tag} --max_workers 3 --report_dir reports")
+def execute(raw, plan):
+    from swe_repair.experiment import run_case
+    from swe_repair.llm import DeepSeekClient, ModelConfig
+    from swe_repair.spend import SpendGuard, SpendPolicy
+    from swe_repair.state import generation_view
+    import pyarrow.parquet as pq
+    out = Path(plan['output_directory'])
+    out.mkdir(parents=True, exist_ok=False)
+    matrixpath = out / 'matrix.json'
+    from importlib.metadata import version, PackageNotFoundError
+    dependencies = {}
+    for package in ('requests', 'pyarrow', 'swebench'):
+        try: dependencies[package] = version(package)
+        except PackageNotFoundError: dependencies[package] = None
+    matrix = dict(plan, cases=[], schema_version='proposal-v1', historical=False,
+                  environment={'python': platform.python_version(), 'platform': platform.platform(),
+                               'dependencies': dependencies})
+    def save():
+        tmp = out / 'matrix.tmp'
+        tmp.write_text(json.dumps(matrix, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+        tmp.replace(matrixpath)
+    save()
+    guard = SpendGuard(SpendPolicy(ceiling_cny=raw['execution']['total_cny']))
+    m = raw['model']
+    client = DeepSeekClient(ModelConfig(model=m['model'], thinking=m['thinking'], effort=m['effort'],
+                                       max_tokens=m['max_tokens'], max_retries=m.get('max_retries', 0),
+                                       temperature=m.get('temperature'), top_p=m.get('top_p')),
+                            guard=guard, allow_live=True)
+    manifest = json.loads((ROOT / 'data/harness/manifest.json').read_text(encoding='utf-8'))
+    parquet = ROOT / manifest['splits'][plan['split']]['local_file']
+    if file_hash(parquet).lower() != manifest['splits'][plan['split']]['sha256'].lower():
+        raise ValueError('dataset bytes differ from frozen manifest')
+    rows = {r['instance_id']: generation_view(r) for r in pq.read_table(parquet).to_pylist()}
+    cache = ROOT / 'runs/prefix_cache' / plan['config_hash']
+    cache.mkdir(parents=True, exist_ok=True)
+    with (out / 'events.jsonl').open('x', encoding='utf-8', newline='\n') as log:
+        def checkpoint(event):
+            log.write(json.dumps(event, ensure_ascii=False) + '\n')
+            log.flush()
+            os.fsync(log.fileno())
+        for iid in plan['designated_instances']:
+            cachepath = cache / f"{plan['seed']}_r{plan['repeat_index']}_{iid}.json"
+            cached = json.loads(cachepath.read_text(encoding='utf-8')) if cachepath.exists() else None
+            case = run_case(rows[iid], client, raw, mode=plan['mode'], arm=plan['arm'], seed=plan['seed'],
+                            calibration=plan['calibration'], checkpoint=checkpoint, cached_prefix=cached)
+            case['repeat_index'] = plan['repeat_index']
+            case['seed'] = plan['seed']
+            case['run_id'] = plan['tag']
+            matrix['cases'].append(case)
+            matrix['new_generation_cost_cny'] = guard.spent_cny
+            save()
+            prefix = case['stages'].get('prefix')
+            if (prefix and prefix['status'] == 'completed' and not cachepath.exists()
+                    and not any(x.get('step') == 'prefix_error' for x in prefix.get('trace', []))):
+                with cachepath.open('x', encoding='utf-8') as fh:
+                    json.dump({'config_hash': plan['config_hash'], 'image_digest': case['image_digest'],
+                               'stage': prefix}, fh, ensure_ascii=False)
+            for a, diff in predictions(case, plan['mode'], plan['arm']).items():
+                with (out / f'predictions_{a}.jsonl').open('a', encoding='utf-8', newline='\n') as fh:
+                    fh.write(json.dumps({'instance_id': iid, 'model_name_or_path': f"{plan['tag']}-{a}",
+                                         'model_patch': diff}, ensure_ascii=False) + '\n')
+    print(matrixpath)
     return 0
 
 
-if __name__ == "__main__":
+def parser():
+    p = argparse.ArgumentParser(description=__doc__)
+    p.add_argument('--config', default='configs/proposal_v1.json')
+    p.add_argument('--mode', choices=('formal', 'diagnostic'), default='diagnostic')
+    p.add_argument('--arm', choices=tuple('ABCDE'), default='D')
+    p.add_argument('--split', choices=('dev', 'test'), default='dev')
+    p.add_argument('--instances-file')
+    p.add_argument('--seed', type=int, default=20261029)
+    p.add_argument('--repeat-index', type=int, default=0)
+    p.add_argument('--tag')
+    p.add_argument('--calibration', action='store_true')
+    action = p.add_mutually_exclusive_group()
+    action.add_argument('--dry-run', action='store_true')
+    action.add_argument('--execute', action='store_true')
+    p.add_argument('--allow-paid', action='store_true')
+    return p
+
+
+def main(argv=None):
+    args = parser().parse_args(argv)
+    try:
+        raw, plan = load_plan(args)
+        if not args.execute:
+            print(json.dumps(plan, ensure_ascii=False, indent=2))
+            return 0
+        return execute(raw, plan)
+    except (ValueError, FileExistsError, KeyError) as exc:
+        print(str(exc), file=sys.stderr)
+        return 2
+
+
+if __name__ == '__main__':
     raise SystemExit(main())

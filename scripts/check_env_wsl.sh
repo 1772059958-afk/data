@@ -74,10 +74,10 @@ for split in dev test; do
   fi
 done
 
-if [[ -f "$REPO/configs/frozen_v1.json" ]]; then
-  good "frozen config" "$(jq -r '.config_version + " (" + .status + ")"' "$REPO/configs/frozen_v1.json" 2>/dev/null || echo present)"
+if [[ -f "$REPO/configs/proposal_v1.json" ]]; then
+  good "proposal config (draft until calibrated)" "$(jq -r '.config_version + " (" + .status + ")"' "$REPO/configs/proposal_v1.json" 2>/dev/null || echo present)"
 else
-  bad "frozen config" "configs/frozen_v1.json missing"
+  bad "proposal config (draft until calibrated)" "configs/proposal_v1.json missing"
 fi
 
 echo

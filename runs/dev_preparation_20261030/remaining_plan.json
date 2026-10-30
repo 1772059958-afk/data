@@ -1,0 +1,191 @@
+{
+  "tag": "dev_remaining_20261030",
+  "mode": "diagnostic",
+  "arm": "D",
+  "split": "dev",
+  "seed": 20261030,
+  "repeat_index": 0,
+  "calibration": true,
+  "designated_instances": [
+    "pydicom__pydicom-1139",
+    "pyvista__pyvista-4315"
+  ],
+  "instance_list_sha256": "a9fa89632f7475a36b59eceae3ba73616dbd1bc9f50ee6f68b6811a6cdf11de2",
+  "config_hash": "70e2bc3b8494a635514952119acc0302a5c45ebe393d4b0ba9da66559b83a360",
+  "effective_config": {
+    "config_version": "proposal_aligned_v1",
+    "prompt_version": "proposal_v1_fixed_feedback_20261029",
+    "status": "draft-pending-calibration",
+    "note": "Draft safety limits for offline development. Not a frozen experimental configuration.",
+    "dataset": {
+      "name": "princeton-nlp/SWE-bench_Lite",
+      "revision": "6ec7bb89b9342f664a54a6e0a6ea6501d3437cc2",
+      "dev_split": "dev",
+      "test_split": "test",
+      "dev_instances": 23,
+      "test_instances": 300,
+      "manifest": "data/frozen/manifest.json"
+    },
+    "model": {
+      "model": "deepseek-flash",
+      "model_version": null,
+      "thinking": true,
+      "effort": "low",
+      "temperature": null,
+      "top_p": null,
+      "max_tokens": 16384,
+      "max_retries": 0,
+      "calibration": "pending"
+    },
+    "budget_tiers": [
+      {
+        "tier": "development",
+        "token": 512000,
+        "model_call": 12,
+        "tool_call": 80,
+        "wallclock_seconds": 1200
+      }
+    ],
+    "prefix": {
+      "n_candidates": 2,
+      "prefix_fraction": 0.3,
+      "prefix_fraction_grid": [
+        0.2,
+        0.3,
+        0.4
+      ],
+      "calibration": "pending"
+    },
+    "fixed_continuation": {
+      "max_candidates": 6,
+      "feedback": "structured",
+      "stop_on_public_pass": true,
+      "calibration": "pending"
+    },
+    "router": {
+      "rule_order": [
+        "stop_on_env_failure_after_one_recovery",
+        "stop_when_budget_insufficient",
+        "freeze_when_public_candidate_passes",
+        "fixed_on_local_application_or_syntax_error",
+        "interactive_on_wide_localization_disagreement",
+        "interactive_on_high_duplicate_rate",
+        "interactive_on_out_of_scope_stack_evidence",
+        "fixed_when_evidence_insufficient",
+        "fixed_continuation_otherwise"
+      ],
+      "localization_disagreement_threshold": null,
+      "duplicate_rate_threshold": null,
+      "threshold_grid": [
+        0.25,
+        0.5,
+        0.75
+      ],
+      "switch_probability": null,
+      "min_continuation": {
+        "token": 2048,
+        "model_call": 1,
+        "tool_call": 1,
+        "wallclock_seconds": 30
+      },
+      "calibration": "pending"
+    },
+    "interaction": {
+      "tools": [
+        "search_symbol",
+        "read_region",
+        "find_references",
+        "apply_patch",
+        "run_test",
+        "finish"
+      ],
+      "states": [
+        "analyse",
+        "edit",
+        "validate",
+        "finish"
+      ],
+      "stagnation_patience": 3,
+      "model_calls": 6,
+      "tool_calls": 10,
+      "wallclock_seconds": 420,
+      "final_call": "reserved_inside_limit"
+    },
+    "candidate_selection": {
+      "order": [
+        "scope_valid",
+        "syntax_valid",
+        "applies_cleanly",
+        "public_validation",
+        "fewer_files_touched",
+        "fewer_diff_lines",
+        "generation_order"
+      ],
+      "frozen": false
+    },
+    "evaluation": {
+      "harness": "SWE-bench official containerised harness",
+      "repeats": 3,
+      "primary_metric": "resolved_rate",
+      "denominator": "all designated instances",
+      "generation_view_fields": [
+        "problem_statement",
+        "base_commit",
+        "repo",
+        "version",
+        "environment_setup_commit"
+      ],
+      "withheld_from_generation": [
+        "patch",
+        "test_patch",
+        "FAIL_TO_PASS",
+        "PASS_TO_PASS"
+      ],
+      "frozen": false,
+      "instance_list": "data/frozen/instances_test.txt",
+      "sampling": "full_split_or_preregistered_stratified_subset",
+      "environment_failures": "retain_in_primary_denominator",
+      "statistics": "instance_cluster_bootstrap_95_percent_ci"
+    },
+    "arms": {
+      "A": "fixed workflow",
+      "B": "interactive only",
+      "C": "simple cascade (shared prefix, all eligible failures escalate)",
+      "D": "adaptive hybrid (shared prefix, evidence-based routing)",
+      "E": "random routing (switch probability fixed on dev split)"
+    },
+    "protocol": "docs/实验协议_开题对齐.md",
+    "active_tier": "development",
+    "execution": {
+      "live_authorized": false,
+      "per_instance_cny": 2.0,
+      "total_cny": 6.0,
+      "tool_call_unit": "container_exec",
+      "environment_retries": 1,
+      "environment_recovery": "retry_same_public_validation_no_install",
+      "output_root": "runs",
+      "modify_scope": "python_source_excluding_tests",
+      "prompt_estimator": "utf8_bytes_plus_1024"
+    },
+    "provenance": {
+      "code_sha256": "1a15dd6921538506f9c8eef8e134c9120fd56ad6061517dbdbd0b33374e2b3bd",
+      "git_commit": "a5b365bd33f068315db0558b0ddd12cfc1e8bbba",
+      "dataset_manifest_sha256": "30e1f10eafa8248cf02cf2752eae888e2ec896dcc0697da803ed99e04599d54c",
+      "instance_list_sha256": "a9fa89632f7475a36b59eceae3ba73616dbd1bc9f50ee6f68b6811a6cdf11de2"
+    }
+  },
+  "formal_readiness_errors": [
+    "overall status is not frozen",
+    "model.calibration is not frozen",
+    "prefix.calibration is not frozen",
+    "router.calibration is not frozen",
+    "fixed_continuation.calibration is not frozen",
+    "candidate_selection.frozen is not true",
+    "evaluation.frozen is not true",
+    "served model version is not pinned",
+    "router thresholds or matched switch probability are pending"
+  ],
+  "live_authorized": false,
+  "execute": false,
+  "output_directory": "C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\runs\\dev_remaining_20261030"
+}

@@ -1,0 +1,852 @@
+{
+  "historical_diagnostic_only": true,
+  "mode": "legacy_diagnostic",
+  "designated_instances": [
+    "marshmallow-code__marshmallow-1343",
+    "marshmallow-code__marshmallow-1359",
+    "pylint-dev__astroid-1196",
+    "pylint-dev__astroid-1866",
+    "pylint-dev__astroid-1978",
+    "sqlfluff__sqlfluff-1625",
+    "sqlfluff__sqlfluff-2419"
+  ],
+  "scored_instances": 4,
+  "split": "legacy",
+  "observations": [],
+  "paired_eligible": 4,
+  "paired_complete": 4,
+  "unscored_paired_instances": [],
+  "primary_summaries": {
+    "A": {
+      "designated_instances": 7,
+      "repeats": 1,
+      "total": 7,
+      "resolved": 3,
+      "complete": true,
+      "status_counts": {
+        "resolved": 3,
+        "unresolved": 3,
+        "empty_patch": 1
+      },
+      "resolved_rate": 0.42857142857142855,
+      "resolved_rate_lower_bound": 0.42857142857142855,
+      "cost_cny_recorded": 0.519,
+      "cost_complete": true,
+      "cost_per_resolved_cny": 0.17300000000000001,
+      "per_repo": {
+        "marshmallow-code__marshmallow": {
+          "total": 2,
+          "resolved": 1,
+          "status_counts": {
+            "resolved": 1,
+            "unresolved": 1
+          },
+          "resolved_rate": 0.5
+        },
+        "pylint-dev__astroid": {
+          "total": 3,
+          "resolved": 1,
+          "status_counts": {
+            "empty_patch": 1,
+            "resolved": 1,
+            "unresolved": 1
+          },
+          "resolved_rate": 0.3333333333333333
+        },
+        "sqlfluff__sqlfluff": {
+          "total": 2,
+          "resolved": 1,
+          "status_counts": {
+            "unresolved": 1,
+            "resolved": 1
+          },
+          "resolved_rate": 0.5
+        }
+      },
+      "repository_macro_average": 0.4444444444444444
+    },
+    "B": {
+      "designated_instances": 7,
+      "repeats": 1,
+      "total": 7,
+      "resolved": 4,
+      "complete": true,
+      "status_counts": {
+        "resolved": 4,
+        "unresolved": 3
+      },
+      "resolved_rate": 0.5714285714285714,
+      "resolved_rate_lower_bound": 0.5714285714285714,
+      "cost_cny_recorded": 0.06861500000000001,
+      "cost_complete": true,
+      "cost_per_resolved_cny": 0.017153750000000002,
+      "per_repo": {
+        "marshmallow-code__marshmallow": {
+          "total": 2,
+          "resolved": 1,
+          "status_counts": {
+            "resolved": 1,
+            "unresolved": 1
+          },
+          "resolved_rate": 0.5
+        },
+        "pylint-dev__astroid": {
+          "total": 3,
+          "resolved": 2,
+          "status_counts": {
+            "resolved": 2,
+            "unresolved": 1
+          },
+          "resolved_rate": 0.6666666666666666
+        },
+        "sqlfluff__sqlfluff": {
+          "total": 2,
+          "resolved": 1,
+          "status_counts": {
+            "unresolved": 1,
+            "resolved": 1
+          },
+          "resolved_rate": 0.5
+        }
+      },
+      "repository_macro_average": 0.5555555555555555
+    },
+    "C": {
+      "designated_instances": 7,
+      "repeats": 1,
+      "total": 7,
+      "resolved": 4,
+      "complete": true,
+      "status_counts": {
+        "resolved": 4,
+        "unresolved": 3
+      },
+      "resolved_rate": 0.5714285714285714,
+      "resolved_rate_lower_bound": 0.5714285714285714,
+      "cost_cny_recorded": 0.5743370000000001,
+      "cost_complete": true,
+      "cost_per_resolved_cny": 0.14358425000000002,
+      "per_repo": {
+        "marshmallow-code__marshmallow": {
+          "total": 2,
+          "resolved": 1,
+          "status_counts": {
+            "resolved": 1,
+            "unresolved": 1
+          },
+          "resolved_rate": 0.5
+        },
+        "pylint-dev__astroid": {
+          "total": 3,
+          "resolved": 2,
+          "status_counts": {
+            "resolved": 2,
+            "unresolved": 1
+          },
+          "resolved_rate": 0.6666666666666666
+        },
+        "sqlfluff__sqlfluff": {
+          "total": 2,
+          "resolved": 1,
+          "status_counts": {
+            "unresolved": 1,
+            "resolved": 1
+          },
+          "resolved_rate": 0.5
+        }
+      },
+      "repository_macro_average": 0.5555555555555555
+    },
+    "D": {
+      "designated_instances": 7,
+      "repeats": 1,
+      "total": 7,
+      "resolved": 4,
+      "complete": true,
+      "status_counts": {
+        "resolved": 4,
+        "unresolved": 3
+      },
+      "resolved_rate": 0.5714285714285714,
+      "resolved_rate_lower_bound": 0.5714285714285714,
+      "cost_cny_recorded": 0.5743370000000001,
+      "cost_complete": true,
+      "cost_per_resolved_cny": 0.14358425000000002,
+      "per_repo": {
+        "marshmallow-code__marshmallow": {
+          "total": 2,
+          "resolved": 1,
+          "status_counts": {
+            "resolved": 1,
+            "unresolved": 1
+          },
+          "resolved_rate": 0.5
+        },
+        "pylint-dev__astroid": {
+          "total": 3,
+          "resolved": 2,
+          "status_counts": {
+            "resolved": 2,
+            "unresolved": 1
+          },
+          "resolved_rate": 0.6666666666666666
+        },
+        "sqlfluff__sqlfluff": {
+          "total": 2,
+          "resolved": 1,
+          "status_counts": {
+            "unresolved": 1,
+            "resolved": 1
+          },
+          "resolved_rate": 0.5
+        }
+      },
+      "repository_macro_average": 0.5555555555555555
+    },
+    "E": {
+      "designated_instances": 7,
+      "repeats": 1,
+      "total": 7,
+      "resolved": 3,
+      "complete": true,
+      "status_counts": {
+        "resolved": 3,
+        "unresolved": 3,
+        "empty_patch": 1
+      },
+      "resolved_rate": 0.42857142857142855,
+      "resolved_rate_lower_bound": 0.42857142857142855,
+      "cost_cny_recorded": 0.5822090000000001,
+      "cost_complete": true,
+      "cost_per_resolved_cny": 0.1940696666666667,
+      "per_repo": {
+        "marshmallow-code__marshmallow": {
+          "total": 2,
+          "resolved": 1,
+          "status_counts": {
+            "resolved": 1,
+            "unresolved": 1
+          },
+          "resolved_rate": 0.5
+        },
+        "pylint-dev__astroid": {
+          "total": 3,
+          "resolved": 1,
+          "status_counts": {
+            "empty_patch": 1,
+            "resolved": 1,
+            "unresolved": 1
+          },
+          "resolved_rate": 0.3333333333333333
+        },
+        "sqlfluff__sqlfluff": {
+          "total": 2,
+          "resolved": 1,
+          "status_counts": {
+            "unresolved": 1,
+            "resolved": 1
+          },
+          "resolved_rate": 0.5
+        }
+      },
+      "repository_macro_average": 0.4444444444444444
+    }
+  },
+  "policies": [
+    {
+      "policy": "A_actual",
+      "resolved": 3,
+      "total": 7,
+      "resolved_rate": 0.4286,
+      "resolved_rate_lower_bound": 0.4286,
+      "not_scored": 0,
+      "stops": 3,
+      "status_counts": {
+        "resolved": 3,
+        "unresolved": 3,
+        "empty_patch": 1
+      },
+      "cost_cny": 0.519,
+      "cost_per_resolved_cny": 0.173,
+      "escalations": 0,
+      "escalation_share": 0.0
+    },
+    {
+      "policy": "B_actual",
+      "resolved": 4,
+      "total": 7,
+      "resolved_rate": 0.5714,
+      "resolved_rate_lower_bound": 0.5714,
+      "not_scored": 0,
+      "stops": 0,
+      "status_counts": {
+        "resolved": 4,
+        "unresolved": 3
+      },
+      "cost_cny": 0.068615,
+      "cost_per_resolved_cny": 0.0172,
+      "escalations": 0,
+      "escalation_share": 0.0
+    },
+    {
+      "policy": "C_actual",
+      "resolved": 4,
+      "total": 7,
+      "resolved_rate": 0.5714,
+      "resolved_rate_lower_bound": 0.5714,
+      "not_scored": 0,
+      "stops": 3,
+      "status_counts": {
+        "resolved": 4,
+        "unresolved": 3
+      },
+      "cost_cny": 0.574337,
+      "cost_per_resolved_cny": 0.1436,
+      "escalations": 4,
+      "escalation_share": 0.5714
+    },
+    {
+      "policy": "D_actual",
+      "resolved": 4,
+      "total": 7,
+      "resolved_rate": 0.5714,
+      "resolved_rate_lower_bound": 0.5714,
+      "not_scored": 0,
+      "stops": 3,
+      "status_counts": {
+        "resolved": 4,
+        "unresolved": 3
+      },
+      "cost_cny": 0.574337,
+      "cost_per_resolved_cny": 0.1436,
+      "escalations": 4,
+      "escalation_share": 0.5714
+    },
+    {
+      "policy": "E_actual",
+      "resolved": 3,
+      "total": 7,
+      "resolved_rate": 0.4286,
+      "resolved_rate_lower_bound": 0.4286,
+      "not_scored": 0,
+      "stops": 3,
+      "status_counts": {
+        "resolved": 3,
+        "unresolved": 3,
+        "empty_patch": 1
+      },
+      "cost_cny": 0.582209,
+      "cost_per_resolved_cny": 0.1941,
+      "escalations": 2,
+      "escalation_share": 0.2857
+    }
+  ],
+  "quadrants": {
+    "counts": {
+      "Q1_double_success": 1,
+      "Q2_fixed_only": 0,
+      "Q3_interactive_only": 1,
+      "Q4_double_failure": 2
+    },
+    "meanings": {
+      "Q1_double_success": "both branches solve it: escalating wastes the interactive budget",
+      "Q2_fixed_only": "only the fixed branch solves it: escalating makes the answer worse",
+      "Q3_interactive_only": "only interaction solves it: this is what the router must find",
+      "Q4_double_failure": "neither solves it: escalating is futile"
+    },
+    "scored": 4,
+    "unscored": [],
+    "escalation_necessary_share": 0.25,
+    "wasted_share": 0.75
+  },
+  "features": [
+    {
+      "feature": "u_loc",
+      "direction": "higher escalates",
+      "n": 4,
+      "n_positive": 1,
+      "auc": 0.3333
+    },
+    {
+      "feature": "u_dup",
+      "direction": "higher escalates",
+      "n": 4,
+      "n_positive": 1,
+      "auc": 0.5
+    },
+    {
+      "feature": "lacks_behavioural_signal",
+      "direction": "higher escalates",
+      "n": 4,
+      "n_positive": 1,
+      "auc": 0.6667
+    },
+    {
+      "feature": "n_public_pass",
+      "direction": "lower escalates",
+      "n": 4,
+      "n_positive": 1,
+      "auc": 0.5
+    },
+    {
+      "feature": "n_applicable",
+      "direction": "lower escalates",
+      "n": 4,
+      "n_positive": 1,
+      "auc": 1.0
+    }
+  ],
+  "oracle_gap_closure_paired_complete_diagnostic_only": {
+    "fixed_resolved": 1,
+    "router_resolved": 2,
+    "oracle_resolved": 2,
+    "headroom": 1,
+    "gained": 1,
+    "gap_closure": 1.0,
+    "complete": true,
+    "fixed_cost_cny": 0.363467,
+    "router_cost_cny": 0.418804,
+    "oracle_cost_cny": 0.343687,
+    "note": "gap_closure is undefined when the oracle cannot beat the fixed branch, because there is no headroom to close"
+  },
+  "diagnostic_cost_cny": 0.865986,
+  "records": [
+    {
+      "instance_id": "marshmallow-code__marshmallow-1343",
+      "repeat_index": 0,
+      "mode": "legacy_diagnostic",
+      "config_hash": null,
+      "arm": "A",
+      "status": "resolved",
+      "cost_cny": 0.037467,
+      "generation_status": "missing_case",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "marshmallow-code__marshmallow-1343",
+      "repeat_index": 0,
+      "mode": "legacy_diagnostic",
+      "config_hash": null,
+      "arm": "B",
+      "status": "resolved",
+      "cost_cny": 0.013145,
+      "generation_status": "missing_case",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "marshmallow-code__marshmallow-1343",
+      "repeat_index": 0,
+      "mode": "legacy_diagnostic",
+      "config_hash": null,
+      "arm": "C",
+      "status": "resolved",
+      "cost_cny": 0.037467,
+      "generation_status": "missing_case",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "marshmallow-code__marshmallow-1343",
+      "repeat_index": 0,
+      "mode": "legacy_diagnostic",
+      "config_hash": null,
+      "arm": "D",
+      "status": "resolved",
+      "cost_cny": 0.037467,
+      "generation_status": "missing_case",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "marshmallow-code__marshmallow-1343",
+      "repeat_index": 0,
+      "mode": "legacy_diagnostic",
+      "config_hash": null,
+      "arm": "E",
+      "status": "resolved",
+      "cost_cny": 0.037467,
+      "generation_status": "missing_case",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "marshmallow-code__marshmallow-1359",
+      "repeat_index": 0,
+      "mode": "legacy_diagnostic",
+      "config_hash": null,
+      "arm": "A",
+      "status": "unresolved",
+      "cost_cny": 0.094583,
+      "generation_status": "missing_case",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "marshmallow-code__marshmallow-1359",
+      "repeat_index": 0,
+      "mode": "legacy_diagnostic",
+      "config_hash": null,
+      "arm": "B",
+      "status": "unresolved",
+      "cost_cny": 0.006862,
+      "generation_status": "missing_case",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "marshmallow-code__marshmallow-1359",
+      "repeat_index": 0,
+      "mode": "legacy_diagnostic",
+      "config_hash": null,
+      "arm": "C",
+      "status": "unresolved",
+      "cost_cny": 0.094583,
+      "generation_status": "missing_case",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "marshmallow-code__marshmallow-1359",
+      "repeat_index": 0,
+      "mode": "legacy_diagnostic",
+      "config_hash": null,
+      "arm": "D",
+      "status": "unresolved",
+      "cost_cny": 0.094583,
+      "generation_status": "missing_case",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "marshmallow-code__marshmallow-1359",
+      "repeat_index": 0,
+      "mode": "legacy_diagnostic",
+      "config_hash": null,
+      "arm": "E",
+      "status": "unresolved",
+      "cost_cny": 0.094583,
+      "generation_status": "missing_case",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "pylint-dev__astroid-1196",
+      "repeat_index": 0,
+      "mode": "legacy_diagnostic",
+      "config_hash": null,
+      "arm": "A",
+      "status": "empty_patch",
+      "cost_cny": 0.11474100000000001,
+      "generation_status": "missing_case",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "pylint-dev__astroid-1196",
+      "repeat_index": 0,
+      "mode": "legacy_diagnostic",
+      "config_hash": null,
+      "arm": "B",
+      "status": "resolved",
+      "cost_cny": 0.017977,
+      "generation_status": "missing_case",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "pylint-dev__astroid-1196",
+      "repeat_index": 0,
+      "mode": "legacy_diagnostic",
+      "config_hash": null,
+      "arm": "C",
+      "status": "resolved",
+      "cost_cny": 0.094961,
+      "generation_status": "missing_case",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "pylint-dev__astroid-1196",
+      "repeat_index": 0,
+      "mode": "legacy_diagnostic",
+      "config_hash": null,
+      "arm": "D",
+      "status": "resolved",
+      "cost_cny": 0.094961,
+      "generation_status": "missing_case",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "pylint-dev__astroid-1196",
+      "repeat_index": 0,
+      "mode": "legacy_diagnostic",
+      "config_hash": null,
+      "arm": "E",
+      "status": "empty_patch",
+      "cost_cny": 0.11474100000000001,
+      "generation_status": "missing_case",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "pylint-dev__astroid-1866",
+      "repeat_index": 0,
+      "mode": "legacy_diagnostic",
+      "config_hash": null,
+      "arm": "A",
+      "status": "resolved",
+      "cost_cny": 0.071307,
+      "generation_status": "missing_case",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "pylint-dev__astroid-1866",
+      "repeat_index": 0,
+      "mode": "legacy_diagnostic",
+      "config_hash": null,
+      "arm": "B",
+      "status": "resolved",
+      "cost_cny": 0.005391,
+      "generation_status": "missing_case",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "pylint-dev__astroid-1866",
+      "repeat_index": 0,
+      "mode": "legacy_diagnostic",
+      "config_hash": null,
+      "arm": "C",
+      "status": "resolved",
+      "cost_cny": 0.061408,
+      "generation_status": "missing_case",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "pylint-dev__astroid-1866",
+      "repeat_index": 0,
+      "mode": "legacy_diagnostic",
+      "config_hash": null,
+      "arm": "D",
+      "status": "resolved",
+      "cost_cny": 0.061408,
+      "generation_status": "missing_case",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "pylint-dev__astroid-1866",
+      "repeat_index": 0,
+      "mode": "legacy_diagnostic",
+      "config_hash": null,
+      "arm": "E",
+      "status": "resolved",
+      "cost_cny": 0.061408,
+      "generation_status": "missing_case",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "pylint-dev__astroid-1978",
+      "repeat_index": 0,
+      "mode": "legacy_diagnostic",
+      "config_hash": null,
+      "arm": "A",
+      "status": "unresolved",
+      "cost_cny": 0.033107,
+      "generation_status": "missing_case",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "pylint-dev__astroid-1978",
+      "repeat_index": 0,
+      "mode": "legacy_diagnostic",
+      "config_hash": null,
+      "arm": "B",
+      "status": "unresolved",
+      "cost_cny": 0.00627,
+      "generation_status": "missing_case",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "pylint-dev__astroid-1978",
+      "repeat_index": 0,
+      "mode": "legacy_diagnostic",
+      "config_hash": null,
+      "arm": "C",
+      "status": "unresolved",
+      "cost_cny": 0.106215,
+      "generation_status": "missing_case",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "pylint-dev__astroid-1978",
+      "repeat_index": 0,
+      "mode": "legacy_diagnostic",
+      "config_hash": null,
+      "arm": "D",
+      "status": "unresolved",
+      "cost_cny": 0.106215,
+      "generation_status": "missing_case",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "pylint-dev__astroid-1978",
+      "repeat_index": 0,
+      "mode": "legacy_diagnostic",
+      "config_hash": null,
+      "arm": "E",
+      "status": "unresolved",
+      "cost_cny": 0.106215,
+      "generation_status": "missing_case",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "sqlfluff__sqlfluff-1625",
+      "repeat_index": 0,
+      "mode": "legacy_diagnostic",
+      "config_hash": null,
+      "arm": "A",
+      "status": "unresolved",
+      "cost_cny": 0.144312,
+      "generation_status": "missing_case",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "sqlfluff__sqlfluff-1625",
+      "repeat_index": 0,
+      "mode": "legacy_diagnostic",
+      "config_hash": null,
+      "arm": "B",
+      "status": "unresolved",
+      "cost_cny": 0.010297,
+      "generation_status": "missing_case",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "sqlfluff__sqlfluff-1625",
+      "repeat_index": 0,
+      "mode": "legacy_diagnostic",
+      "config_hash": null,
+      "arm": "C",
+      "status": "unresolved",
+      "cost_cny": 0.15622,
+      "generation_status": "missing_case",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "sqlfluff__sqlfluff-1625",
+      "repeat_index": 0,
+      "mode": "legacy_diagnostic",
+      "config_hash": null,
+      "arm": "D",
+      "status": "unresolved",
+      "cost_cny": 0.15622,
+      "generation_status": "missing_case",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "sqlfluff__sqlfluff-1625",
+      "repeat_index": 0,
+      "mode": "legacy_diagnostic",
+      "config_hash": null,
+      "arm": "E",
+      "status": "unresolved",
+      "cost_cny": 0.144312,
+      "generation_status": "missing_case",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "sqlfluff__sqlfluff-2419",
+      "repeat_index": 0,
+      "mode": "legacy_diagnostic",
+      "config_hash": null,
+      "arm": "A",
+      "status": "resolved",
+      "cost_cny": 0.023483,
+      "generation_status": "missing_case",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "sqlfluff__sqlfluff-2419",
+      "repeat_index": 0,
+      "mode": "legacy_diagnostic",
+      "config_hash": null,
+      "arm": "B",
+      "status": "resolved",
+      "cost_cny": 0.008673,
+      "generation_status": "missing_case",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "sqlfluff__sqlfluff-2419",
+      "repeat_index": 0,
+      "mode": "legacy_diagnostic",
+      "config_hash": null,
+      "arm": "C",
+      "status": "resolved",
+      "cost_cny": 0.023483,
+      "generation_status": "missing_case",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "sqlfluff__sqlfluff-2419",
+      "repeat_index": 0,
+      "mode": "legacy_diagnostic",
+      "config_hash": null,
+      "arm": "D",
+      "status": "resolved",
+      "cost_cny": 0.023483,
+      "generation_status": "missing_case",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "sqlfluff__sqlfluff-2419",
+      "repeat_index": 0,
+      "mode": "legacy_diagnostic",
+      "config_hash": null,
+      "arm": "E",
+      "status": "resolved",
+      "cost_cny": 0.023483,
+      "generation_status": "missing_case",
+      "cost_complete": true
+    }
+  ],
+  "arm_equivalence": {
+    "C": {
+      "identical_to_C": true,
+      "escalations": 4
+    },
+    "D": {
+      "identical_to_C": true,
+      "escalations": 4
+    },
+    "E": {
+      "identical_to_C": false,
+      "escalations": 2
+    }
+  },
+  "notes": [
+    "Unknown verdicts remain not_scored. Final rates require complete evaluator coverage.",
+    "Paired metrics are diagnostic complete-case results; their denominator is not the primary population.",
+    "Legacy generations cannot become proposal-aligned formal evidence through reanalysis."
+  ],
+  "source_reports": [
+    {
+      "arm": "A",
+      "path": "C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\reports\\cf_dev7_v23-A.cf_dev7_v23.json",
+      "sha256": "c91af9478ebb6fdd34d2662e0fb2a1f865f9d280d9ef387b2b9d39688f8d41a4"
+    },
+    {
+      "arm": "B",
+      "path": "C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\reports\\cf_dev7_v23-B.cf_dev7_v23.json",
+      "sha256": "b348fd3e05ffbd36dbe25f87f1284f657a44ac072184696ee83a2dbc0b0f7283"
+    },
+    {
+      "arm": "C",
+      "path": "C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\reports\\cf_dev7_v23-C.cf_dev7_v23.json",
+      "sha256": "b348fd3e05ffbd36dbe25f87f1284f657a44ac072184696ee83a2dbc0b0f7283"
+    },
+    {
+      "arm": "D",
+      "path": "C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\reports\\cf_dev7_v23-D.cf_dev7_v23.json",
+      "sha256": "b348fd3e05ffbd36dbe25f87f1284f657a44ac072184696ee83a2dbc0b0f7283"
+    },
+    {
+      "arm": "E",
+      "path": "C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\reports\\cf_dev7_v23-E.cf_dev7_v23.json",
+      "sha256": "c91af9478ebb6fdd34d2662e0fb2a1f865f9d280d9ef387b2b9d39688f8d41a4"
+    },
+    {
+      "arm": "ESC",
+      "path": "C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\reports\\cf_dev7_v23-ESC.cf_dev7_v23.json",
+      "sha256": "b62a6323b5332bfa81350e9b181175e504c06ecafae7d8aa90a5a5ed017a090e"
+    }
+  ],
+  "source_matrix_sha256": "06ebb0f69e6c04a4f53f9ccedc9c18380d42d95e6a01e6f49280202eafcbaf25"
+}

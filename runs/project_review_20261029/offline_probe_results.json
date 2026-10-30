@@ -1,0 +1,43 @@
+{
+  "kind": "synthetic_source_review_only",
+  "external_frame": {
+    "input_frame": "/opt/venv/lib/python/site-packages/dependency/helper.py",
+    "stored_frames": [
+      "helper.py"
+    ],
+    "route": "interactive",
+    "rule": "interactive_on_out_of_scope_stack_evidence"
+  },
+  "suffix_test_frame": {
+    "input_frame": "/testbed/pkg/widget_test.py",
+    "stored_frames": [
+      "pkg/widget_test.py"
+    ],
+    "route": "interactive",
+    "rule": "interactive_on_out_of_scope_stack_evidence"
+  },
+  "foreign_report": {
+    "accepted": true,
+    "foreign_run_id": "UNRELATED_OLD_RUN",
+    "status": "resolved",
+    "resolved_rate": 1.0
+  },
+  "missing_verdict_trigger_rate": {
+    "eligible": 2,
+    "complete_pairs": 1,
+    "all_eligible_trigger_rate": 0.5,
+    "observations_only_trigger_rate": 1.0
+  },
+  "fixed_one_attempt": {
+    "requests": 1,
+    "case_status": "completed",
+    "stage_status": "completed",
+    "remaining_model_calls": 11
+  },
+  "aggregate_budget_status": {
+    "requests": 0,
+    "case_status": "completed",
+    "stage_status": "budget_exhausted",
+    "remaining_model_calls": 12
+  }
+}

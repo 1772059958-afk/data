@@ -105,11 +105,14 @@ def test_policy_cost_pays_the_prefix_plus_the_chosen_branch():
     assert round(escalate.cost_cny, 6) == round(0.1 + 0.3 + 0.1 + 0.3, 6)
 
 
-def test_policy_skips_instances_that_were_never_scored():
+def test_policy_keeps_designated_denominator_and_marks_unknown():
     outcomes = [_outcome("a", None, None), _outcome("b", False, True)]
     score = cf.score_policy("all", outcomes, lambda o: True)
-    assert score.total == 1
+    assert score.total == 2
     assert score.resolved == 1
+    assert score.not_scored == 1
+    assert score.resolved_rate is None
+    assert score.to_dict()["resolved_rate_lower_bound"] == 0.5
 
 
 def test_oracle_gap_closure_is_bounded_and_keeps_negative_results():
@@ -145,3 +148,55 @@ def test_oracle_escalates_exactly_on_the_necessary_cell():
     oracle = cf.score_policy("oracle", outcomes, cf.build_policies()["oracle"])
     assert oracle.escalations == 1
     assert oracle.resolved == 3
+
+
+def test_harness_absence_and_infra_are_not_unresolved():
+    report = {'resolved_ids': ['a'], 'unresolved_ids': ['b'], 'infra_failure_ids': ['c']}
+    assert cf.verdict_status(report, 'a') == 'resolved'
+    assert cf.verdict_status(report, 'b') == 'unresolved'
+    assert cf.verdict_status(report, 'c') == 'infra_error'
+    assert cf.verdict_status(report, 'missing') == 'not_scored'
+    assert cf.resolved_value('infra_error') is None
+    assert cf.resolved_value('empty_patch') is False
+
+
+def test_conflicting_harness_status_is_rejected():
+    try:
+        cf.verdict_status({'resolved_ids': ['a'], 'error_ids': ['a']}, 'a')
+    except ValueError:
+        pass
+    else:
+        raise AssertionError('contradictory verdict accepted')
+
+
+def test_c_actual_obeys_stop_and_has_same_cost_as_identical_d():
+    stopped = _outcome('stopped', True, False)
+    stopped.prefix_resolved = True
+    stopped.routes = {'C': 'stop', 'D': 'stop'}
+    failed = _outcome('failed', False, True)
+    failed.routes = {'C': 'interactive', 'D': 'interactive'}
+    c = cf.score_actual_policy('C_actual', [stopped, failed], 'C')
+    d = cf.score_actual_policy('D_actual', [stopped, failed], 'D')
+    forced = cf.score_policy('forced_ESC_diagnostic_only', [stopped, failed], lambda o: True)
+    assert c.resolved == d.resolved == 2
+    assert c.escalations == d.escalations == 1
+    assert c.stops == 1
+    assert c.cost_cny == d.cost_cny
+    assert forced.resolved == 1 and forced.cost_cny > c.cost_cny
+    assert 'C_escalate_all' not in cf.build_policies()
+
+
+def test_primary_actual_keeps_environment_failures():
+    outcome = _outcome('bad-env', None, None)
+    outcome.routes = {'D': 'stop'}
+    outcome.arm_statuses = {'D': 'infra_error'}
+    score = cf.score_actual_policy('D', [outcome], 'D')
+    assert score.total == 1 and score.not_scored == 0 and score.resolved_rate == 0
+    assert score.status_counts == {'infra_error': 1}
+
+
+def test_noneligible_prefixes_do_not_enter_quadrant_labels():
+    outcome = _outcome('already-passed', True, True)
+    outcome.paired_eligible = False
+    assert outcome.quadrant is None
+    assert cf.feature_report([outcome])[0]['n'] == 0

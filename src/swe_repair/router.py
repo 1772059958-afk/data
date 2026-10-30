@@ -9,7 +9,7 @@ The router reads the observable state and returns one of three branches:
 
 Three properties are deliberate:
 
-1. the rule *order* comes from ``configs/frozen_v1.json``, not from this file.
+1. the rule *order* comes from ``configs/proposal_v1.json``, not from this file.
    A rule name in the config with no implementation raises at load time, so the
    protocol cannot drift away from the code silently;
 2. a numeric rule whose threshold is still ``null`` in the config refuses to
@@ -27,10 +27,12 @@ from __future__ import annotations
 import json
 import os
 import random
+import copy
 from dataclasses import dataclass, field
 from typing import Any, Callable, Mapping, NamedTuple
 
 from .budget import ASPECTS, Budget, tier_table
+from .patchutil import is_source_path
 from .runlog import config_hash as _config_hash
 from .state import RepairState
 
@@ -75,6 +77,7 @@ class RouterConfig:
 
     @classmethod
     def from_config(cls, raw: Mapping[str, Any]) -> "RouterConfig":
+        raw = copy.deepcopy(dict(raw))
         router = raw.get("router", {})
         order = tuple(router.get("rule_order", ()))
         unknown = [name for name in order if name not in RULES]
@@ -84,6 +87,12 @@ class RouterConfig:
             )
         if not order:
             raise ValueError("config has an empty rule order")
+        if len(set(order)) != len(order):
+            raise ValueError('duplicate routing rule')
+        for key in ('localization_disagreement_threshold', 'duplicate_rate_threshold', 'switch_probability'):
+            value = router.get(key)
+            if value is not None and (not isinstance(value, (int, float)) or not 0 <= value <= 1):
+                raise ValueError(f'{key} must be within [0, 1]')
         grid = tuple(float(x) for x in router.get("threshold_grid", (0.25, 0.50, 0.75)))
         floor = router.get("min_continuation")
         return cls(
@@ -107,7 +116,20 @@ class RouterConfig:
     @property
     def digest(self) -> str:
         """Must equal the ``config_hash`` written into every run record."""
-        return _config_hash(dict(self.raw)) if self.raw else ""
+        return _config_hash(self.effective_config())
+
+    def effective_config(self):
+        raw = copy.deepcopy(dict(self.raw))
+        raw.setdefault('router', {}).update({
+            'rule_order': list(self.rule_order),
+            'localization_disagreement_threshold': self.localization_disagreement_threshold,
+            'duplicate_rate_threshold': self.duplicate_rate_threshold,
+            'switch_probability': self.switch_probability,
+            'min_continuation': self.min_continuation.as_dict(),
+        })
+        raw.setdefault('prefix', {})['prefix_fraction'] = self.prefix_fraction
+        raw.setdefault('interaction', {})['stagnation_patience'] = self.stagnation_patience
+        return raw
 
     def budget_tiers(self) -> dict[str, dict[str, Any]]:
         return tier_table(self.raw.get("budget_tiers", ()))
@@ -169,7 +191,7 @@ class RouterConfig:
 
 
 def _stop_freeze(state: RepairState, cfg: RouterConfig) -> str | None:
-    passing = [c.index for c in state.patches.candidates if c.validation == "pass"]
+    passing = [c.index for c in state.patches.applicable() if c.validation == "pass"]
     if not passing:
         return None
     best = state.patches.best_candidate()
@@ -230,17 +252,26 @@ def _interactive_duplicates(state: RepairState, cfg: RouterConfig) -> str | None
 
 
 def _interactive_out_of_scope(state: RepairState, cfg: RouterConfig) -> str | None:
-    frames = state.out_of_scope_frames()
+    # Test runners and test files do not establish an unseen SOURCE dependency.
+    frames = tuple(p for p in state.out_of_scope_frames() if is_source_path(p))
     if not frames:
         return None
     return "stack points outside the inspected context: " + ", ".join(frames[:3])
 
 
-def _interactive_no_signal(state: RepairState, cfg: RouterConfig) -> str | None:
+def _fixed_no_signal(state: RepairState, cfg: RouterConfig) -> str | None:
     signal = state.behavioural_signal()
     if signal == "behavioural":
         return None
-    return f"no usable behavioural signal ({signal}); checks_run={state.context.checks_run}"
+    return f"insufficient evidence ({signal}); conservatively continue fixed"
+
+
+def _fixed_local_error(state: RepairState, cfg: RouterConfig) -> str | None:
+    latest = state.failures.latest
+    if latest and latest.error_class in ('patch_format', 'syntax_or_import'):
+        if not _interactive_out_of_scope(state, cfg):
+            return 'local application or syntax/import error without unseen source evidence'
+    return None
 
 
 def _fixed_otherwise(state: RepairState, cfg: RouterConfig) -> str | None:
@@ -258,9 +289,10 @@ class _Rule(NamedTuple):
 RULES: dict[str, _Rule] = {
     rule.name: rule
     for rule in (
-        _Rule("freeze_when_public_candidate_passes", "stop", "early_stop_public_pass", _stop_freeze),
         _Rule("stop_on_env_failure_after_one_recovery", "stop", "stop_env_failure", _stop_env_failure),
         _Rule("stop_when_budget_insufficient", "stop", "stop_budget_insufficient", _stop_budget),
+        _Rule("freeze_when_public_candidate_passes", "stop", "early_stop_public_pass", _stop_freeze),
+        _Rule("fixed_on_local_application_or_syntax_error", "fixed", "fixed_on_local_application_or_syntax_error", _fixed_local_error),
         _Rule(
             "interactive_on_wide_localization_disagreement",
             "interactive",
@@ -282,10 +314,10 @@ RULES: dict[str, _Rule] = {
             _interactive_out_of_scope,
         ),
         _Rule(
-            "interactive_when_no_behavioural_signal",
-            "interactive",
-            "interactive_when_no_behavioural_signal",
-            _interactive_no_signal,
+            "fixed_when_evidence_insufficient",
+            "fixed",
+            "fixed_when_evidence_insufficient",
+            _fixed_no_signal,
         ),
         _Rule("fixed_continuation_otherwise", "fixed", "fixed_continuation_otherwise", _fixed_otherwise),
     )
@@ -368,6 +400,8 @@ def apply_decision(state: RepairState, decision: Decision) -> Any:
 
 
 def _shared_stop(state: RepairState, cfg: RouterConfig) -> Decision | None:
+    if state.budget is not None and state.budget.overrun:
+        return Decision('stop_when_budget_insufficient', 'stop', 'stop_budget_insufficient', 'budget overrun')
     for name in cfg.rule_order:
         rule = RULES[name]
         if rule.route != "stop":
@@ -420,6 +454,9 @@ def route_random(
     probability: float | None = None,
 ) -> Decision:
     """Arm E: switch with a probability fixed on the dev split."""
+    stop = _shared_stop(state, cfg)
+    if stop is not None:
+        return stop
     p = cfg.switch_probability if probability is None else probability
     if p is None:
         raise UncalibratedThreshold(

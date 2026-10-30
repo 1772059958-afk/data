@@ -27,11 +27,14 @@ import os
 import re
 import subprocess
 import time
+import shlex
+from dataclasses import replace
 from dataclasses import dataclass, field
 from typing import Any, Iterable, Mapping, Sequence
 
+from .execution import ResourceLimit
 from .llm import ChatResult, DeepSeekClient, ModelConfig
-from .patchutil import count_diff_lines, files_touched, repair_hunk_headers
+from .patchutil import count_diff_lines, files_touched, repair_hunk_headers, patch_scope_valid, safe_repo_path
 from .state import (
     Candidate,
     ContextView,
@@ -51,6 +54,10 @@ MAX_CONTEXT_CHARS = 60_000
 MAX_LISTING_LINES = 80
 
 PYTEST_TIMEOUT = 180
+
+
+class EnvironmentFailure(RuntimeError):
+    """Container identity or baseline reset could not be established."""
 
 
 # --------------------------------------------------------------------------
@@ -80,7 +87,7 @@ class Container:
         subprocess.run(["docker", "rm", "-f", self.name], capture_output=True, text=True)
         proc = subprocess.run(
             [
-                "docker", "run", "-d", "--name", self.name,
+                "docker", "run", "-d", "--network", "none", "--name", self.name,
                 "--entrypoint", "/bin/bash", self.image, "-lc", "sleep infinity",
             ],
             capture_output=True, text=True, errors="replace",
@@ -94,15 +101,16 @@ class Container:
     def bash(self, script: str, timeout: int = 300) -> tuple[int, str]:
         """Run a shell script inside the container. Exit code is returned, not raised."""
         proc = subprocess.run(
-            ["docker", "exec", self.name, "bash", "-lc", script],
-            capture_output=True, text=True, errors="replace", timeout=timeout,
+            ["docker", "exec", self.name, "bash", "-lc",
+             f"timeout --signal=KILL {float(timeout)}s bash -lc {shlex.quote(script)}"],
+            capture_output=True, text=True, errors="replace", timeout=timeout + 5,
         )
         return proc.returncode, (proc.stdout or "") + (proc.stderr or "")
 
     def write_file(self, path: str, text: str) -> None:
         """Push text into the container without depending on shell quoting."""
         blob = base64.b64encode(text.encode("utf-8")).decode("ascii")
-        code, out = self.bash(f"printf '%s' '{blob}' | base64 -d > {path}")
+        code, out = self.bash(f"printf '%s' '{blob}' | base64 -d > {shlex.quote(path)}")
         if code != 0:
             raise RuntimeError(f"could not write {path}: {out[:300]}")
 
@@ -129,14 +137,25 @@ class Container:
         return rc == 0, _strip_rc(out)
 
     def revert(self) -> None:
-        self.bash(
-            f"cd {self.workdir} && git checkout -- . && git clean -fdq "
-            "> /dev/null 2>&1; true"
+        code, output = self.bash(
+            f"cd {shlex.quote(self.workdir)} && git checkout -- . && git clean -fdq "
+            "&& git diff --quiet && git diff --cached --quiet"
         )
+        if code != 0:
+            raise EnvironmentFailure(f'baseline reset failed (exit {code}): {output[:300]}')
 
     def head(self) -> str:
         code, out = self.bash(f"cd {self.workdir} && git rev-parse HEAD")
         return _strip_rc(out).strip().splitlines()[0] if code == 0 else ""
+
+    def image_digest(self) -> str:
+        # Inspect the image actually used by this running container, not a
+        # mutable tag which could have moved since docker run.
+        proc = subprocess.run(['docker', 'inspect', '--type', 'container', '--format', '{{.Image}}', self.name],
+                              capture_output=True, text=True, timeout=30)
+        if proc.returncode:
+            raise EnvironmentFailure('running container image identity unavailable')
+        return proc.stdout.strip()
 
 
 def _trailing_rc(text: str) -> int:
@@ -207,7 +226,7 @@ def parse_localization(text: str) -> tuple[frozenset[str], frozenset[str]]:
     except ValueError:
         return frozenset(), frozenset()
     files = {
-        str(p).strip().lstrip("./")
+        safe_repo_path(p.strip())
         for p in (payload.get("files") or [])
         if isinstance(p, str) and p.strip()
     }
@@ -217,7 +236,7 @@ def parse_localization(text: str) -> tuple[frozenset[str], frozenset[str]]:
 
 def resolve_paths(container: Container, wanted: Iterable[str]) -> list[str]:
     """Map report-style path tails onto real paths in the checkout."""
-    tails = [t for t in wanted if t]
+    tails = [safe_repo_path(t) for t in wanted if t]
     if not tails:
         return []
     script = ["cd /testbed", "while IFS= read -r tail; do", '  [ -z "$tail" ] && continue']
@@ -250,7 +269,8 @@ def read_files(container: Container, paths: Sequence[str]) -> dict[str, str]:
     for path in paths:
         if budget <= 0:
             break
-        code, out = container.bash(f"cd /testbed && cat -- '{path}'")
+        path = safe_repo_path(path)
+        code, out = container.bash(f"cd /testbed && cat -- {shlex.quote(path)}")
         if code != 0:
             continue
         body = _strip_rc(out)
@@ -335,19 +355,35 @@ def candidate_messages(problem: str, context: str, attempt: int) -> list[dict[st
 # --------------------------------------------------------------------------
 
 
-def syntax_check(container: Container, touched: Iterable[str]) -> tuple[str, str]:
+@dataclass(frozen=True)
+class SyntaxResult:
+    status: str
+    detail: str
+    exit_code: int | None
+
+    def __iter__(self):
+        yield self.status
+        yield self.detail
+
+
+def command_exit_code(code: int, output: str) -> int:
+    """Use the inner command status, or the outer timeout/exec status."""
+    return _trailing_rc(output) if re.search(r'__rc=\d+\s*$', output or '') else code
+
+
+def syntax_check(container: Container, touched: Iterable[str]) -> SyntaxResult:
     """``py_compile`` the touched files. Returns (status, detail)."""
     files = [f for f in touched if f.endswith(".py")]
     if not files:
-        return "not_applicable", "no python file touched"
-    quoted = " ".join(f"'{f}'" for f in files)
+        return SyntaxResult("not_applicable", "no python file touched", None)
+    quoted = " ".join(shlex.quote(safe_repo_path(f)) for f in files)
     code, out = container.bash(
         f"cd /testbed && python -m py_compile {quoted} 2>&1; echo \"__rc=$?\""
     )
-    rc = _trailing_rc(out)
+    rc = command_exit_code(code, out)
     if rc == 0:
-        return "pass", f"compiled {len(files)} file(s)"
-    return "fail", _strip_rc(out)[:300]
+        return SyntaxResult("pass", f"compiled {len(files)} file(s)", rc)
+    return SyntaxResult("fail", _strip_rc(out), rc)
 
 
 def public_test_files(
@@ -388,7 +424,7 @@ def public_test_files(
         )
         script.append("done")
     if needles:
-        args = " ".join(f"-e '{n}'" for n in needles)
+        args = " ".join(f"-e {shlex.quote(n)}" for n in needles)
         script.append("if [ -d tests ] || [ -d test ]; then")
         script.append(
             f"  grep -rlF {args} --include='test_*.py' --include='*_test.py' "
@@ -408,9 +444,25 @@ def public_test_files(
     return found[:3]
 
 
+@dataclass(frozen=True)
+class PublicTestResult:
+    status: str
+    detail: str
+    raw_output: str
+    exit_code: int | None
+    category: str
+    command: str
+
+    def __iter__(self):
+        # Existing tool callers only need these three display fields.
+        yield self.status
+        yield self.detail
+        yield self.raw_output
+
+
 def run_public_tests(
     container: Container, files: Sequence[str]
-) -> tuple[str, str, str]:
+) -> PublicTestResult:
     """Run the discovered test files. Missing pytest is not a failure.
 
     Returns ``(status, detail, raw_output)``. The raw output is returned because
@@ -419,23 +471,27 @@ def run_public_tests(
     that fails on import tells us nothing, and only the text can separate them.
     """
     if not files:
-        return "not_applicable", "no repository test file next to the touched modules", ""
-    quoted = " ".join(f"'{f}'" for f in files)
+        return PublicTestResult("not_applicable", "no repository test file next to the touched modules", "",
+                                None, 'missing_tests', '')
+    quoted = " ".join(shlex.quote(safe_repo_path(f)) for f in files)
+    command = f'python -m pytest {quoted} -q --no-header -p no:cacheprovider'
     code, out = container.bash(
         f"cd /testbed && timeout {PYTEST_TIMEOUT} python -m pytest {quoted} -q "
         "--no-header -p no:cacheprovider 2>&1; echo \"__rc=$?\"",
         timeout=PYTEST_TIMEOUT + 60,
     )
-    rc = _trailing_rc(out)
+    rc = command_exit_code(code, out)
     text = _strip_rc(out)
     if "No module named pytest" in text or "No module named 'pytest'" in text:
-        return "not_run", "pytest is not installed in this image", text
+        return PublicTestResult("not_run", "pytest is not installed in this image", text, rc, 'missing_runner', command)
     if rc == 0:
-        return "pass", _summary_line(text), text
+        return PublicTestResult("pass", _summary_line(text), text, rc, 'pass', command)
     if rc == 1:
-        return "fail", _summary_line(text), text
+        return PublicTestResult("fail", _summary_line(text), text, rc, 'test_failure', command)
     # Collection errors and timeouts say nothing about behaviour.
-    return "not_run", f"pytest exit {rc}: {_summary_line(text)}", text
+    category = ('timeout' if rc in (124, 137, -9) else 'collection_error' if rc == 2 else
+                'missing_tests' if rc == 5 else 'runner_error')
+    return PublicTestResult("not_run", f"pytest exit {rc}: {_summary_line(text)}", text, rc, category, command)
 
 
 def _summary_line(text: str) -> str:
@@ -464,13 +520,25 @@ class ValidationResult:
     #: "a check ran and told us the patch is behaviourally wrong" from "nothing
     #: was learned", and the router's rule 7 then escalates unconditionally.
     failures: tuple[FailureRecord, ...] = ()
+    raw_output: str = ""
+    test_command: str = ""
+    test_exit_code: int | None = None
+    test_category: str = "not_run"
+    syntax_exit_code: int | None = None
 
 
 def validate_candidate(
     container: Container, candidate: Candidate, symbols: Sequence[str] = ()
 ) -> ValidationResult:
     """Apply, compile, run public tests, then revert."""
-    applies, _ = container.apply(candidate.diff)
+    def failure(*args, **kwargs):
+        return replace(FailureRecord.from_output(*args, **kwargs), candidate_index=candidate.index)
+    if not patch_scope_valid(candidate.diff):
+        return ValidationResult(candidate=replace(candidate, applies_cleanly=False, scope_valid=False),
+                                failures=(failure('scope_check', 1, stage='apply_patch',
+                                          stdout='invalid patch or forbidden modification scope'),))
+    container.revert()
+    applies, detail = container.apply(candidate.diff)
     if not applies:
         return ValidationResult(
             candidate=Candidate.build(
@@ -478,43 +546,80 @@ def validate_candidate(
                 applies_cleanly=False,
                 validation="not_run",
                 origin=candidate.origin,
-            )
+            ),
+            failures=(failure('git apply', 1, stage='apply_patch', stdout=detail),)
         )
     try:
         touched = files_touched(candidate.diff)
-        syntax, syntax_detail = syntax_check(container, touched)
+        syntax_result = syntax_check(container, touched)
+        syntax, syntax_detail = syntax_result
         if syntax == "fail":
             return ValidationResult(
                 candidate=Candidate.build(
                     candidate.index, candidate.diff,
-                    applies_cleanly=True, validation="fail", origin=candidate.origin,
+                    applies_cleanly=True, validation="fail", origin=candidate.origin, syntax='fail',
                 ),
                 syntax="fail",
-                failures=(FailureRecord.from_output(
-                    f"python -m py_compile {' '.join(touched)}", 1,
+                failures=(failure(
+                    f"python -m py_compile {' '.join(touched)}", syntax_result.exit_code,
                     stage="syntax_check", stdout=syntax_detail, repo_root="/testbed",
-                ),),
+                ),), syntax_exit_code=syntax_result.exit_code,
             )
         targets = public_test_files(container, touched, symbols)
-        status, _detail, raw = run_public_tests(container, targets)
+        tested = run_public_tests(container, targets)
+        status, _detail, raw = tested
         records: tuple[FailureRecord, ...] = ()
-        if status == "fail":
-            records = (FailureRecord.from_output(
-                f"python -m pytest {' '.join(targets)}", 1,
-                stage="test", stdout=raw, repo_root="/testbed",
+        if status in ("fail", "not_run") and tested.exit_code is not None:
+            records = (failure(
+                tested.command, tested.exit_code,
+                stage='env' if status == 'not_run' and 'No module named' in raw and 'pytest' in raw else 'test',
+                stdout=raw or _detail, repo_root="/testbed",
             ),)
         return ValidationResult(
             candidate=Candidate.build(
                 candidate.index, candidate.diff,
-                applies_cleanly=True, validation=status, origin=candidate.origin,
+                applies_cleanly=True, validation=status, origin=candidate.origin, syntax=syntax,
             ),
             checks_run=1 if status in ("pass", "fail") else 0,
             test_files=tuple(targets),
             syntax=syntax,
             failures=records,
+            raw_output=raw,
+            test_command=tested.command, test_exit_code=tested.exit_code, test_category=tested.category,
+            syntax_exit_code=syntax_result.exit_code,
         )
     finally:
         container.revert()
+
+
+def recover_environment(container: Container, state: RepairState) -> bool:
+    """Retry the failing candidate's SAME public validation once, without setup.
+
+    A later candidate's syntax/application outcome cannot clear an earlier
+    environment failure. A runnable public pass/failure is required to clear it.
+    """
+    original = state.failures.environment_failure()
+    if original is None:
+        return True
+    if original.recovery_attempts:
+        return False
+    candidate = next((c for c in state.patches.candidates if c.index == original.candidate_index), None)
+    if candidate is None:
+        raise EnvironmentFailure('environment failure has no associated candidate; safe retry is unavailable')
+    validated = validate_candidate(container, candidate, tuple(state.localization.symbols_union()))
+    position = state.patches.candidates.index(candidate)
+    state.patches.candidates[position] = validated.candidate
+    for record in validated.failures:
+        state.failures.add(record.with_recovery())
+    if (validated.test_command == original.command and validated.checks_run > 0
+            and not any(f.is_environment for f in validated.failures)):
+        state.failures.add(FailureRecord.from_output(original.command, 0, stage='env'))
+        return True
+    # No evidence that the original public check became runnable. Keep the
+    # original environment reason, including when retry stopped at compilation.
+    if not any(f.is_environment for f in validated.failures):
+        state.failures.add(original.with_recovery())
+    return False
 
 
 # --------------------------------------------------------------------------
@@ -547,7 +652,7 @@ class PrefixResult:
             "n_candidates": len(self.state.patches.candidates),
             "n_applicable": len(applicable),
             "n_public_pass": sum(
-                1 for c in self.state.patches.candidates if c.validation == "pass"
+                1 for c in applicable if c.validation == "pass"
             ),
             "u_loc": self.state.u_loc,
             "u_dup": self.state.u_dup,
@@ -591,6 +696,8 @@ def run_prefix(
     cost = 0.0
     tokens = 0
     trace: list[dict[str, Any]] = []
+    listing, bodies, context = [], {}, ''
+    checks_run, test_files = 0, []
     try:
         state = _replace(state, base_commit=box.head())
         listing = _index(box)
@@ -610,9 +717,11 @@ def run_prefix(
             "finish_reason": result.record.finish_reason,
         })
 
-        state.localization.add(LocalizationPass("lexical", lexical))
+        lexical_resolved = frozenset(resolve_paths(box, sorted(lexical)))
+        model_resolved = frozenset(resolve_paths(box, sorted(model_files)))
+        state.localization.add(LocalizationPass("lexical", lexical_resolved))
         state.localization.add(
-            LocalizationPass("model", model_files, symbols)
+            LocalizationPass("model", model_resolved, symbols)
         )
 
         # Model-localised files come first. Ordering matters because the read
@@ -620,8 +729,8 @@ def run_prefix(
         # actually wanted to edit fell outside the cut, and it then wrote a diff
         # for a file whose contents it had never been shown. Those diffs cannot
         # apply, and the failure looks like a bad fix rather than a bad context.
-        wanted = list(model_files)
-        for tail in sorted(lexical):
+        wanted = sorted(model_resolved)
+        for tail in sorted(lexical_resolved):
             if tail not in wanted:
                 wanted.append(tail)
         paths = resolve_paths(box, wanted)
@@ -666,6 +775,8 @@ def run_prefix(
                     failure_classes.append(record.error_class)
             history.add(candidate)
             state.patches = history
+            state.context = ContextView(indexed_paths=frozenset(listing), read_files=frozenset(bodies),
+                                        registered_test_commands=tuple(test_files), checks_run=checks_run)
             trace.append({
                 "step": f"candidate_{attempt}", "calls": 1,
                 "cost_cny": round(cost, 6),
@@ -684,6 +795,10 @@ def run_prefix(
                     path for path in candidate.files_touched if path not in bodies
                 ],
                 "failure_classes": failure_classes,
+                "raw_reply": reply.message,
+                "raw_validation_output": validation.raw_output if candidate.diff.strip() else '',
+                "test_exit_code": validation.test_exit_code if candidate.diff.strip() else None,
+                "test_category": validation.test_category if candidate.diff.strip() else 'not_run',
             })
 
         state.patches = history
@@ -706,6 +821,14 @@ def run_prefix(
             tokens=tokens,
             trace=trace,
         )
+    except ResourceLimit as exc:
+        trace.append({'step': 'prefix_stop', 'reason': str(exc)})
+        return PrefixResult(state, state.task.base_commit, tuple(bodies), tuple(listing),
+                            context_text=context, calls=calls, cost_cny=cost, tokens=tokens, trace=trace)
+    except Exception as exc:
+        trace.append({'step': 'prefix_error', 'reason': f'{type(exc).__name__}: {exc}'})
+        return PrefixResult(state, state.task.base_commit, tuple(bodies), tuple(listing),
+                            context_text=context, calls=calls, cost_cny=cost, tokens=tokens, trace=trace)
     finally:
         if own_container:
             box.close()
