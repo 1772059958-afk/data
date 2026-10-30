@@ -32,6 +32,7 @@ from dataclasses import dataclass, field
 from typing import Any, Callable, Mapping, NamedTuple
 
 from .budget import ASPECTS, Budget, tier_table
+from .patchutil import is_source_path
 from .runlog import config_hash as _config_hash
 from .state import RepairState
 
@@ -252,9 +253,7 @@ def _interactive_duplicates(state: RepairState, cfg: RouterConfig) -> str | None
 
 def _interactive_out_of_scope(state: RepairState, cfg: RouterConfig) -> str | None:
     # Test runners and test files do not establish an unseen SOURCE dependency.
-    frames = tuple(p for p in state.out_of_scope_frames()
-                   if not any(x in ('test', 'tests', '.git') for x in p.split('/'))
-                   and not p.rsplit('/', 1)[-1].startswith('test_'))
+    frames = tuple(p for p in state.out_of_scope_frames() if is_source_path(p))
     if not frames:
         return None
     return "stack points outside the inspected context: " + ", ".join(frames[:3])

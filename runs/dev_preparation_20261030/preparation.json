@@ -1,0 +1,51 @@
+{
+  "kind": "offline_dev_preparation",
+  "execute": false,
+  "live_authorized": false,
+  "seed": 20261030,
+  "selected_instances": [
+    "pvlib__pvlib-python-1707",
+    "pydicom__pydicom-1139",
+    "pyvista__pyvista-4315"
+  ],
+  "first_instance": "pvlib__pvlib-python-1707",
+  "full_dev_denominator": 23,
+  "python": "3.14.2",
+  "local_import_availability": {
+    "requests": false,
+    "pyarrow": false,
+    "swebench": false
+  },
+  "executable_paths_only": {
+    "docker": null,
+    "wsl": "C:\\Windows\\system32\\wsl.EXE"
+  },
+  "config_hash": "8df9d99f624597553140f8feb6f05230a5aa0718007824c630d34da0452ed852",
+  "formal_readiness_errors": [
+    "overall status is not frozen",
+    "model.calibration is not frozen",
+    "prefix.calibration is not frozen",
+    "router.calibration is not frozen",
+    "fixed_continuation.calibration is not frozen",
+    "candidate_selection.frozen is not true",
+    "evaluation.frozen is not true",
+    "served model version is not pinned",
+    "router thresholds or matched switch probability are pending"
+  ],
+  "review_gates_before_live": [
+    "explicit authorization for real containers and paid generation",
+    "pin and verify the served model version; keep router calibration pending",
+    "validate WSL/Linux dependencies and local image digest/base commit",
+    "approve instance/batch ceilings and reserve termination budget",
+    "accept the first instance interface/tool/patch/public-test behavior before widening",
+    "retain environment errors and resource exhaustion; never silently replace a case",
+    "score frozen predictions independently with provenance sidecars",
+    "use complete eligible dev prefixes for E matching after full-dev calibration"
+  ],
+  "budget": {
+    "batch_ceiling_cny": 6.0,
+    "per_policy_instance_ceiling_cny": 2.0,
+    "diagnostic_upper_bound_cny": 18.0,
+    "note": "A diagnostic collects alternative policies. The batch guard may stop before all plans finish; no automatic ceiling increase."
+  }
+}

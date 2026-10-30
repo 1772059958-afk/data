@@ -17,6 +17,8 @@
     "model_version": null,
     "thinking": true,
     "effort": "low",
+    "temperature": null,
+    "top_p": null,
     "max_tokens": 16384,
     "max_retries": 0,
     "calibration": "pending"
@@ -31,12 +33,19 @@
     }
   ],
   "prefix": {
+    "n_candidates": 2,
     "prefix_fraction": 0.3,
     "prefix_fraction_grid": [
       0.2,
       0.3,
       0.4
     ],
+    "calibration": "pending"
+  },
+  "fixed_continuation": {
+    "max_candidates": 6,
+    "feedback": "structured",
+    "stop_on_public_pass": true,
     "calibration": "pending"
   },
   "router": {

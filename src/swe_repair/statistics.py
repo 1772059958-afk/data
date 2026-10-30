@@ -4,10 +4,13 @@ from __future__ import annotations
 import hashlib
 import math
 import random
+import re
 from collections import Counter, defaultdict
 from typing import Any, Iterable, Mapping, Sequence
 
-from .cf import SCORED_STATUSES
+from .cf import BEHAVIOURAL_STATUSES, SCORED_STATUSES
+
+RESOURCE_ASPECTS = ('token', 'model_call', 'tool_call', 'wallclock_seconds')
 
 
 def repo_of(instance_id: str) -> str:
@@ -45,12 +48,27 @@ def primary_summary(records: Sequence[Mapping[str, Any]], designated_ids: Sequen
         indexed[key] = row
     counts, per_repo = Counter(), defaultdict(lambda: Counter())
     total_cost, cost_complete = 0.0, True
+    resource_totals = {name: 0.0 for name in RESOURCE_ASPECTS}
+    resource_complete = {name: True for name in RESOURCE_ASPECTS}
     for iid in ids:
         for repeat in range(repeats):
             row = indexed.get((iid, repeat))
             status = row.get('status', 'not_scored') if row else 'not_scored'
             counts[status] += 1
             per_repo[repo_of(iid)][status] += 1
+            for name in RESOURCE_ASPECTS:
+                value = (row.get('resources') or {}).get(name) if row else None
+                if value is None:
+                    resource_complete[name] = False
+                    continue
+                if isinstance(value, bool) or not isinstance(value, (int, float)) or not math.isfinite(value) or value < 0:
+                    raise ValueError(f'invalid {name} resource usage')
+                resource_totals[name] += value
+                known = row.get('resources_complete', False)
+                known = known.get(name, False) if isinstance(known, Mapping) else known
+                if not isinstance(known, bool):
+                    raise ValueError('resource completeness markers must be boolean')
+                resource_complete[name] &= known
             if row is None or row.get('cost_cny') is None:
                 cost_complete = False
             else:
@@ -73,10 +91,115 @@ def primary_summary(records: Sequence[Mapping[str, Any]], designated_ids: Sequen
         'resolved_rate_lower_bound': resolved / total,
         'cost_cny_recorded': total_cost, 'cost_complete': cost_complete,
         'cost_per_resolved_cny': total_cost / resolved if complete and cost_complete and resolved else None,
+        'resources': {
+            name: {'recorded_total': resource_totals[name], 'complete': resource_complete[name],
+                   'mean_per_task': resource_totals[name] / total if resource_complete[name] else None,
+                   'per_resolved': resource_totals[name] / resolved
+                   if complete and resource_complete[name] and resolved else None}
+            for name in RESOURCE_ASPECTS},
         'per_repo': rows,
         'repository_macro_average': (sum(r['resolved_rate'] for r in rows.values()) / len(rows))
         if complete else None,
     }
+
+
+def validate_formal_records(records: Sequence[Mapping[str, Any]], designated_ids: Sequence[str],
+                            repeats: int) -> None:
+    """Verify paired seeds and run/prediction identities before main analysis.
+
+    One run can contain many instances, but it cannot silently be reused as a
+    different arm, repetition, seed or configuration. Missing evaluator labels
+    may be retained, with their prediction identity explicitly unknown.
+    """
+    ids = set(_ids(designated_ids))
+    if not isinstance(repeats, int) or isinstance(repeats, bool) or repeats < 1 or not records:
+        raise ValueError('formal records and a positive repeat count are required')
+    hashes, indexed, paired_seeds, runs, run_predictions = set(), set(), {}, {}, {}
+    for row in records:
+        if row.get('mode') != 'formal' or row.get('arm') not in tuple('ABCDE'):
+            raise ValueError('main summary requires explicitly formal A-E records')
+        iid, repeat = row.get('instance_id'), row.get('repeat_index')
+        if iid not in ids or not isinstance(repeat, int) or isinstance(repeat, bool) or not 0 <= repeat < repeats:
+            raise ValueError('formal record lies outside the designated repeat grid')
+        identity = (iid, repeat, row['arm'])
+        if identity in indexed:
+            raise ValueError('duplicate formal instance/repeat/arm record')
+        indexed.add(identity)
+        config_hash, seed, run_id = row.get('config_hash'), row.get('seed'), row.get('run_id')
+        if not isinstance(config_hash, str) or not config_hash or not isinstance(seed, int) or isinstance(seed, bool):
+            raise ValueError('formal records require configuration identity and an integer generation seed')
+        if not isinstance(run_id, str) or not run_id.strip():
+            raise ValueError('formal records require a run identity')
+        hashes.add(config_hash)
+        pair = (iid, repeat)
+        if pair in paired_seeds and paired_seeds[pair] != seed:
+            raise ValueError('paired arms use different generation seeds')
+        paired_seeds[pair] = seed
+        run_identity = (row['arm'], repeat, seed, config_hash)
+        if run_id in runs and runs[run_id] != run_identity:
+            raise ValueError('one run identity was reused for different arm/repeat/seed/configuration')
+        runs[run_id] = run_identity
+        status = row.get('status')
+        if status not in SCORED_STATUSES | {'not_scored'}:
+            raise ValueError('unknown independent evaluation status')
+        for field in ('prediction_sha256', 'patch_sha256'):
+            value = row.get(field)
+            if value is None and status == 'not_scored':
+                continue
+            if not isinstance(value, str) or not re.fullmatch(r'[0-9a-fA-F]{64}', value):
+                raise ValueError(f'known evaluations require a valid {field}')
+        prediction_hash = row.get('prediction_sha256')
+        if prediction_hash is not None:
+            if run_id in run_predictions and run_predictions[run_id] != prediction_hash:
+                raise ValueError('one formal run identity refers to different prediction files')
+            run_predictions[run_id] = prediction_hash
+    if len(hashes) != 1:
+        raise ValueError('formal records must share one frozen effective configuration hash')
+
+
+def common_runnable_summary(records: Sequence[Mapping[str, Any]], designated_ids: Sequence[str],
+                            *, repeats: int = 3, arms: Sequence[str] | None = None) -> dict[str, Any]:
+    """Secondary subset: every requested arm and repetition has a runnable verdict.
+
+    Empty patches count as behavioural outcomes, provided generation did not
+    terminate on an environment/infrastructure error. This never changes the
+    primary designated denominator and never selects by success.
+    """
+    ids = _ids(designated_ids)
+    requested = tuple(arms or sorted({row['arm'] for row in records}))
+    if not requested or len(requested) != len(set(requested)):
+        raise ValueError('common subset requires distinct arms')
+    indexed = {}
+    for row in records:
+        if row.get('arm') not in requested:
+            continue
+        key = (row['instance_id'], row.get('repeat_index', 0), row['arm'])
+        if key in indexed or key[0] not in ids or not isinstance(key[1], int) or not 0 <= key[1] < repeats:
+            raise ValueError('invalid common-subset record grid')
+        indexed[key] = row
+    common, excluded = [], {}
+    for iid in ids:
+        reasons = []
+        for repeat in range(repeats):
+            for arm in requested:
+                row = indexed.get((iid, repeat, arm))
+                status = row.get('status', 'not_scored') if row else 'not_scored'
+                termination = row.get('termination_reason', '') if row else ''
+                generation = row.get('generation_status', '') if row else 'missing_case'
+                if (status not in BEHAVIOURAL_STATUSES or termination in ('stop_env_failure', 'environment_error', 'environment_failure')
+                        or generation in ('environment_error', 'environment_failure', 'missing_case')):
+                    reasons.append({'arm': arm, 'repeat_index': repeat, 'status': status,
+                                    'generation_status': generation, 'termination_reason': termination})
+        if reasons:
+            excluded[iid] = reasons
+        else:
+            common.append(iid)
+    return {'kind': 'secondary_common_runnable_subset', 'designated_instances': len(ids),
+            'arms': list(requested), 'repeats': repeats, 'instance_ids': common,
+            'excluded': excluded,
+            'rule': 'all arms and repeats have resolved/unresolved/empty_patch with no explicit environment error; model failures are retained',
+            'primary': {arm: primary_summary([row for row in records if row.get('arm') == arm and row['instance_id'] in common],
+                                            common, repeats) for arm in requested} if common else {}}
 
 
 def paired_cluster_bootstrap(records: Sequence[Mapping[str, Any]], designated_ids: Sequence[str],
@@ -92,6 +215,8 @@ def paired_cluster_bootstrap(records: Sequence[Mapping[str, Any]], designated_id
         raise ValueError('formal interval needs >=3 repeats and >=100 resamples')
     if left == right:
         raise ValueError('compare distinct arms')
+    relevant = [row for row in records if row.get('arm') in (left, right)]
+    validate_formal_records(relevant, ids, repeats)
     indexed = {}
     hashes = {row['config_hash'] for row in records if row.get('config_hash') and row.get('arm') in (left, right)}
     if len(hashes) > 1:

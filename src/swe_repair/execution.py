@@ -29,6 +29,9 @@ class Runtime:
         self.started = clock()
         self.elapsed_booked = 0.0
         self.token_limit = token_limit
+        # Optional cumulative request cap within the global resource ceiling.
+        # A session may tighten it to reserve its last actual HTTP attempt.
+        self.model_call_limit: int | None = None
         self.records: list[dict[str, Any]] = []
         self.events: list[dict[str, Any]] = []
         self.deadline: float | None = None
@@ -61,6 +64,9 @@ class Runtime:
         if (self.token_limit is not None
                 and self.state.consumed.token + need.token > self.token_limit):
             raise ResourceLimit('prefix token allowance reached')
+        if (self.model_call_limit is not None
+                and self.state.consumed.model_call + need.model_call > self.model_call_limit):
+            raise ResourceLimit('session model request allowance reached')
 
     def tool(self, timeout):
         self.require(Budget(tool_call=1))

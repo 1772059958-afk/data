@@ -1,0 +1,42 @@
+{
+  "date": "2026-10-30",
+  "python": "3.14.2",
+  "offline_tests": {
+    "command": "python scripts/run_offline_tests.py",
+    "passed": 291,
+    "total": 291
+  },
+  "preservation": {
+    "experiments": {
+      "baseline_commit": "3759265",
+      "protected_total": 93,
+      "verified": 93,
+      "missing": [],
+      "changed": [],
+      "invalid": [],
+      "ok": true
+    },
+    "archive": {
+      "archived_total": 131,
+      "missing": [],
+      "changed": [],
+      "invalid": [],
+      "ok": true
+    }
+  },
+  "config_hash": "8df9d99f624597553140f8feb6f05230a5aa0718007824c630d34da0452ed852",
+  "source_identity": {
+    "code_sha256": "1a15dd6921538506f9c8eef8e134c9120fd56ad6061517dbdbd0b33374e2b3bd",
+    "git_commit": "a5b365bd33f068315db0558b0ddd12cfc1e8bbba",
+    "dataset_manifest_sha256": "30e1f10eafa8248cf02cf2752eae888e2ec896dcc0697da803ed99e04599d54c",
+    "instance_list_sha256": "c28b69fbb9d6e3b2dfefe2448a172bb041a517cf6e3d8218498da22af412144c"
+  },
+  "configuration_status": "draft-pending-calibration",
+  "live_authorized": false,
+  "real_container_validation": "not_run",
+  "paid_generation": "not_run",
+  "official_independent_scoring": "not_run",
+  "calibration": "pending",
+  "formal_statistics": "not_run",
+  "ablations": "not_run"
+}

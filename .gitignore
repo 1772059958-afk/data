@@ -20,6 +20,9 @@ runs/**/events.jsonl
 runs/**/*.tmp
 *.log
 
+# Microsoft Office lock files are transient and may be unreadable while open.
+~$*
+
 # 半截下载
 data/raw/*.part
 

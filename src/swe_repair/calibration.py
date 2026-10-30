@@ -22,6 +22,7 @@ appears in every run record.
 from __future__ import annotations
 
 import json
+import math
 import os
 from dataclasses import dataclass, field
 from typing import Any, Iterable, Mapping, Sequence
@@ -95,6 +96,129 @@ def load_observations(path: str | os.PathLike[str]) -> list[PairedObservation]:
     return [PairedObservation.from_dict(row) for row in rows]
 
 
+@dataclass(frozen=True)
+class CalibrationInputs:
+    """Labels and the complete eligible population have different denominators."""
+
+    observations: tuple[PairedObservation, ...]
+    eligible_prefixes: tuple[Mapping[str, Any], ...]
+    config_hash: str
+    missing_pair_ids: tuple[str, ...]
+
+    def trigger_rate(self, config: RouterConfig) -> dict[str, Any]:
+        decisions = [route_for_arm('D', RepairState.from_dict(row['prefix_snapshot']), config)
+                     for row in self.eligible_prefixes]
+        if any(d.route == 'stop' for d in decisions):
+            raise ValueError('an eligible calibration prefix became a shared stop')
+        return {'probability': select_switch_probability(decisions),
+                'denominator': len(decisions),
+                'interactive': sum(d.route == 'interactive' for d in decisions),
+                'complete_pair_count': len(self.observations),
+                'missing_pair_ids': list(self.missing_pair_ids),
+                'source': 'all_eligible_dev_prefixes'}
+
+
+def calibration_inputs(payload: Mapping[str, Any], config: RouterConfig, *,
+                       allowed_ids: Iterable[str] | None = None) -> CalibrationInputs:
+    """Validate the complete DEV prefix population before producing a candidate.
+
+    Feature-only/legacy input may still be read for diagnostic utilities, but it
+    cannot determine E's deployment probability. Missing paired labels are fine;
+    missing prefixes or a mismatched snapshot are not.
+    """
+    if (not isinstance(payload, Mapping) or payload.get('split') != 'dev'
+            or payload.get('mode') != 'diagnostic' or payload.get('historical_diagnostic_only')):
+        raise ValueError('calibration requires a new dev diagnostic analysis')
+    if payload.get('eligible_population_complete') is not True or payload.get('prefix_unavailable_instance_ids'):
+        raise ValueError('the designated prefix population is incomplete; do not estimate E from complete pairs')
+    def identifiers(values, label):
+        if (not isinstance(values, list) or any(not isinstance(i, str) or not i.strip() for i in values)
+                or len(values) != len(set(values))):
+            raise ValueError(f'{label} must be a unique instance list')
+        return values
+    designated = identifiers(payload.get('designated_instances'), 'designated_instances')
+    eligible = identifiers(payload.get('eligible_instance_ids'), 'eligible_instance_ids')
+    if not designated or set(eligible) - set(designated):
+        raise ValueError('eligible prefixes must belong to the designated dev population')
+    if allowed_ids is not None and set(designated) - set(allowed_ids):
+        raise ValueError('calibration population contains instances outside the frozen dev split')
+    if payload.get('paired_eligible') != len(eligible):
+        raise ValueError('eligible count does not match the frozen eligible instance list')
+    source_hash = payload.get('config_hash')
+    if not isinstance(source_hash, str) or not source_hash:
+        raise ValueError('calibration analysis has no source configuration identity')
+    effective = payload.get('effective_config')
+    if not isinstance(effective, Mapping) or RouterConfig.from_config(effective).digest != source_hash:
+        raise ValueError('source effective configuration is missing or does not match its hash')
+    source_settings = dict(effective)
+    requested_settings = config.effective_config()
+    source_settings.pop('provenance', None)
+    requested_settings.pop('provenance', None)
+    if source_settings != requested_settings:
+        raise ValueError('calibration configuration differs from the configuration that generated the prefixes')
+    rows = payload.get('eligible_prefixes')
+    if not isinstance(rows, list):
+        raise ValueError('all eligible dev prefix snapshots are required')
+    indexed = {}
+    for row in rows:
+        if not isinstance(row, Mapping) or row.get('split') != 'dev':
+            raise ValueError('eligible prefix must explicitly belong to dev')
+        iid = row.get('instance_id')
+        if iid in indexed or iid not in eligible:
+            raise ValueError('duplicate or out-of-population eligible prefix')
+        snapshot = row.get('prefix_snapshot')
+        if not isinstance(snapshot, Mapping):
+            raise ValueError('full eligible prefix snapshot required')
+        state = RepairState.from_dict(snapshot)
+        if (state.task.instance_id != iid or state.task.config_hash != source_hash
+                or state.task.config_version != config.config_version or state.budget is None):
+            raise ValueError('eligible snapshot instance/configuration/budget identity mismatch')
+        if route_for_arm('A', state, config).route == 'stop':
+            raise ValueError('shared-stop prefix cannot enter the eligible population')
+        indexed[iid] = row
+    if set(indexed) != set(eligible):
+        raise ValueError('some eligible dev snapshots are missing')
+    raw_observations = payload.get('observations')
+    if not isinstance(raw_observations, list):
+        raise ValueError('paired observations must be supplied separately')
+    observations = [PairedObservation.from_dict(row) for row in raw_observations]
+    _validate_observations(observations)
+    for obs in observations:
+        if obs.instance_id not in indexed or obs.split != 'dev':
+            raise ValueError('paired label lies outside the eligible dev population')
+        if obs.prefix_snapshot != indexed[obs.instance_id]['prefix_snapshot']:
+            raise ValueError('paired label and eligible population use different snapshots')
+    missing = sorted(set(eligible) - {obs.instance_id for obs in observations})
+    if (payload.get('paired_complete') != len(observations)
+            or sorted(identifiers(payload.get('unscored_paired_instances'), 'unscored_paired_instances')) != missing):
+        raise ValueError('paired completeness metadata does not match observations')
+    return CalibrationInputs(tuple(observations), tuple(indexed[i] for i in eligible), source_hash, tuple(missing))
+
+
+def load_calibration_inputs(path: str | os.PathLike[str], config: RouterConfig, *,
+                            allowed_ids: Iterable[str] | None = None) -> CalibrationInputs:
+    with open(path, encoding='utf-8') as stream:
+        return calibration_inputs(json.load(stream), config, allowed_ids=allowed_ids)
+
+
+def _validate_observations(observations: Sequence[PairedObservation]) -> None:
+    seen, hashes = set(), set()
+    for obs in observations:
+        if obs.instance_id in seen:
+            raise ValueError('duplicate paired calibration observation')
+        seen.add(obs.instance_id)
+        _known_bool(obs.fixed_resolved)
+        _known_bool(obs.interactive_resolved)
+        if obs.split != 'dev' or not isinstance(obs.prefix_snapshot, Mapping):
+            raise ValueError('calibration needs full dev prefix snapshots')
+        state = RepairState.from_dict(obs.prefix_snapshot)
+        if state.task.instance_id != obs.instance_id or state.budget is None or not state.task.config_hash:
+            raise ValueError('paired label and prefix snapshot identity/budget mismatch')
+        hashes.add(state.task.config_hash)
+    if len(hashes) > 1:
+        raise ValueError('calibration observations mix source configurations')
+
+
 def _default_config() -> RouterConfig:
     return RouterConfig.from_file(Path(__file__).resolve().parents[2] / 'configs/proposal_v1.json')
 
@@ -147,6 +271,7 @@ def score_grid_point(
     a_dup: float,
     config: RouterConfig | None = None,
 ) -> GridScore:
+    _validate_observations(observations)
     score = GridScore(a_loc, a_dup)
     switches = 0
     for obs in observations:
@@ -229,6 +354,9 @@ def select_thresholds(
 ) -> CalibrationReport:
     """Score every (u_loc, u_dup) threshold pair and pick the simplest winner."""
     obs = list(observations)
+    _validate_observations(obs)
+    if not grid or any(not math.isfinite(float(t)) or not 0 <= float(t) <= 1 for t in grid):
+        raise ValueError('threshold grid must contain finite values within [0, 1]')
     report = CalibrationReport(samples=len(obs))
     report.samples_with_localization = sum(
         1 for o in obs if o.prefix_snapshot and RepairState.from_dict(o.prefix_snapshot).u_loc is not None)
@@ -267,6 +395,17 @@ def select_thresholds(
         ties_only = report.chosen.ties == report.chosen.compared
         if ties_only:
             report.warnings.append("all observations are ties; no threshold is justified by this data")
+    if config is not None:
+        count = config.raw.get('prefix', {}).get('n_candidates', 2)
+        if not isinstance(count, int) or isinstance(count, bool) or count < 1:
+            raise ValueError('prefix.n_candidates must be a positive integer')
+        maximum = (count - 1) / count
+        dormant = [float(t) for t in grid if float(t) >= maximum]
+        if dormant:
+            report.warnings.append(
+                f'duplicate-rate rule is unreachable at thresholds {dormant}: '
+                f'{count} prefix candidates have maximum repeat rate {maximum:g}, '
+                'and the trigger uses a strict greater-than comparison')
     return report
 
 

@@ -2,8 +2,8 @@
 # containers, so nothing here needs to match the repositories under test.
 #
 # `requests` is what llm.py uses to reach the model API. It is imported lazily,
-# so a missing install only shows up as 15 failing client tests rather than an
-# import error at startup.
+# so standard-library offline tests with fake transport do not require it.
+# These lower bounds are development dependencies, not a frozen run lockfile.
 pyarrow>=21
 swebench>=5.0.2
 requests>=2.31

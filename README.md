@@ -6,6 +6,8 @@
 
 研究依据见 [开题正文摘录](docs/开题报告正文摘录.md)，当前约束见 [开题对齐协议](docs/实验协议_开题对齐.md)，后续实验 agent 先读 [AGENTS.md](AGENTS.md)。
 
+2026-10-30 已完成边界修复和小范围 dev 离线准备，当前活动套件 291/291 通过，原始/归档资产完整。详见 [修复验收与 dev 准备](docs/修复验收与dev准备_20261030.md)；真实容器、付费生成和新协议官方判分仍未执行。
+
 ## 活动目录
 
 | 目录 | 内容 |
@@ -25,7 +27,7 @@
 ## 离线验证与计划
 
 ```powershell
-# 无模型、无容器、无密钥；2026-10-29 完整活动套件 222/222 通过
+# 无模型、无容器、无密钥；修改代码后须重新运行，不沿用历史通过数
 python scripts/run_offline_tests.py
 
 # 核对原始实验文件和退役归档
@@ -39,6 +41,9 @@ python scripts/sample_instances.py --size 60 --seed 20261029 --out runs/plans/te
 
 # 免费 gold 环境扫描的离线计划，仍不启动容器
 python scripts/scan_gold.py --split dev --tag gold_new --dry-run
+
+# 小范围 dev 的离线准备：仅依据 ID 与仓库分布取 3 例，保留全部 23 例台账
+python scripts/prepare_dev.py --size 3 --seed 20261030 --out runs/dev_preparation_20261030
 ```
 
 60 只是命令示例，不是已选定的主实验样本量。样本规模须在正式结果揭晓前确定，并写入配置和计划清单。
@@ -67,7 +72,7 @@ A 是共享前缀后的固定延续，B 从零受限交互，C 在共享停止�
 python scripts/analyse_cf.py --matrix runs/new_diagnostic/matrix.json --report FIXED=runs/new_diagnostic/fixed_verdict.json --report ESC=runs/new_diagnostic/esc_verdict.json --out runs/new_diagnostic/analysis.json --records-out runs/new_diagnostic/evaluated_records.jsonl
 ```
 
-后续容器评测入口为 `bash scripts/score_all_arms.sh runs/<tag>`，从矩阵读取 split 和清单，报告留在该新运行的 `scoring/` 中。它不调用付费模型，但需要 Docker 和官方 harness；本轮没有执行。
+后续判分计划入口为 `python scripts/score_run.py runs/<tag>`，默认不执行。`bash scripts/score_all_arms.sh runs/<tag>` 是显式容器评测入口，从矩阵读取 split 和清单，在新的 `scoring/<arm>/` 写报告与 provenance sidecar；分析器核对预测、补丁和运行身份后才接收标签。它不调用模型，但需要 Docker 和官方 harness，当前未执行。
 
 dev 配对分析含完整 `observations` 后，可离线生成待审阅的校准候选：
 

@@ -20,6 +20,9 @@ ROW = {'instance_id': 'demo__repo-1', 'repo': 'demo/repo', 'base_commit': 'base'
 def config():
     raw = json.loads((ROOT / 'configs/proposal_v1.json').read_text(encoding='utf-8'))
     raw['router'].update(localization_disagreement_threshold=.5, duplicate_rate_threshold=.5, switch_probability=.5)
+    # Existing single-step fixtures isolate orchestration, not the live draft's
+    # multi-round fixed policy. Separate tests below exercise its full loop.
+    raw['fixed_continuation']['max_candidates'] = 1
     return raw
 
 
@@ -226,3 +229,133 @@ def test_malformed_success_response_reserves_batch_and_instance_money():
     assert batch.spent_cny > 0 and local.spent_cny > 0
     assert rt.state.consumed.model_call == 1
     assert rt.records[0]['billing'] == 'unknown'
+
+
+def test_diagnostic_uses_new_containers_and_keeps_external_artifacts_isolated():
+    boxes = []
+    class IsolatedBox(Box):
+        def __init__(self, image, name):
+            super().__init__(image, name)
+            self.files, self.closed = {}, False
+            boxes.append(self)
+        def close(self): self.closed = True
+    def fixed_validation(box, c, *args):
+        box.box.files['ignored_or_tmp_artifact'] = 'fixed-only'
+        return validation(box, c)
+    seen = []
+    def clean_interactive(*args, container, **kwargs):
+        seen.append(dict(container.box.files))
+        return interactive(*args, container=container, **kwargs)
+    with patch.object(ex, 'run_prefix', prefix), patch.object(ex, 'validate_candidate', fixed_validation), \
+         patch.object(ex, 'run_interactive', clean_interactive):
+        result = ex.run_case(ROW, Client(), config(), mode='diagnostic', box_factory=IsolatedBox)
+    assert result['status'] == 'completed', result
+    assert len(boxes) == 4 and len({b.name for b in boxes}) == 4
+    assert seen == [{}, {}] and all(b.closed for b in boxes)
+    assert [e['stage'] for e in result['lifecycle'] if e['event'] == 'start'] == ['prefix', 'fixed', 'interactive', 'standalone']
+
+
+def test_new_branch_identity_failure_is_recorded_without_model_use():
+    boxes = []
+    class ChangedImage(Box):
+        def __init__(self, image, name):
+            super().__init__(image, name)
+            boxes.append(self)
+        def image_digest(self): return 'prefix-image' if len(boxes) == 1 else 'changed-image'
+    client = Client()
+    with patch.object(ex, 'run_prefix', prefix):
+        result = ex.run_case(ROW, client, config(), mode='formal', arm='A', box_factory=ChangedImage)
+    assert len(client.requests) == 1
+    assert result['status'] == result['stages']['fixed']['status'] == 'environment_error'
+
+
+def test_fixed_continues_with_recorded_feedback_and_retains_prefix():
+    raw = config()
+    raw['fixed_continuation']['max_candidates'] = 3
+    client = Client()
+    with patch.object(ex, 'run_prefix', prefix), patch.object(ex, 'validate_candidate', validation):
+        result = ex.run_case(ROW, client, raw, mode='formal', arm='A', box_factory=Box)
+    assert len(client.requests) == 4
+    assert result['stages']['fixed']['attempted_candidates'] == 3
+    assert result['termination_reason'] == 'fixed_step_limit'
+    assert 'AFTER_FIXED' in json.dumps(client.requests[2])
+    candidates = result['stages']['fixed']['state']['patch_history']['candidates']
+    assert len(candidates) == 4 and candidates[0]['diff'] == DIFF
+
+
+def test_fixed_public_pass_stops_before_candidate_limit():
+    raw = config()
+    raw['fixed_continuation']['max_candidates'] = 6
+    def passing(box, candidate, *args):
+        return ValidationResult(Candidate.build(candidate.index, candidate.diff, applies_cleanly=True,
+                                                syntax='pass', validation='pass', origin='fixed'))
+    client = Client()
+    with patch.object(ex, 'run_prefix', prefix), patch.object(ex, 'validate_candidate', passing):
+        result = ex.run_case(ROW, client, raw, mode='formal', arm='A', box_factory=Box)
+    assert len(client.requests) == 2
+    assert result['termination_reason'] == 'early_stop_public_pass'
+
+
+def test_fixed_resource_exhaustion_propagates_to_case_status():
+    raw = config()
+    raw['budget_tiers'][0]['model_call'] = 2
+    raw['fixed_continuation']['max_candidates'] = 6
+    client = Client()
+    with patch.object(ex, 'run_prefix', prefix), patch.object(ex, 'validate_candidate', validation):
+        result = ex.run_case(ROW, client, raw, mode='formal', arm='A', box_factory=Box)
+    assert len(client.requests) == 2
+    assert result['status'] == result['stages']['fixed']['status'] == 'budget_exhausted'
+    assert result['termination_reason'] == 'budget_exhausted'
+    assert result['submitted_patch']
+
+
+def test_formal_freeze_checks_all_calibration_and_freeze_declarations():
+    mod = runner()
+    raw = config()
+    before = copy.deepcopy(raw)
+    errors = mod.frozen_config_errors(raw)
+    assert all(any(section in message for message in errors) for section in
+               ('model.calibration', 'prefix.calibration', 'router.calibration', 'fixed_continuation.calibration',
+                'candidate_selection.frozen', 'evaluation.frozen'))
+    assert raw == before and raw['execution']['live_authorized'] is False
+
+
+def test_development_contract_rejects_invalid_fixed_limit_and_nonfinite_money():
+    mod = runner()
+    for section, key, value in [('fixed_continuation', 'max_candidates', 0),
+                                ('fixed_continuation', 'stop_on_public_pass', False),
+                                ('execution', 'total_cny', float('nan'))]:
+        raw = config()
+        raw[section][key] = value
+        try: mod.validate_development_contract(raw)
+        except ValueError: pass
+        else: raise AssertionError('invalid execution policy was accepted')
+
+
+def test_prefix_failure_preserves_previously_valid_candidate_and_cost():
+    def failed_after_candidate(*args, **kwargs):
+        result = prefix(*args, **kwargs)
+        result.trace.append({'step': 'prefix_error', 'reason': 'RuntimeError: synthetic later failure'})
+        return result
+    with patch.object(ex, 'run_prefix', failed_after_candidate):
+        result = ex.run_case(ROW, Client(), config(), mode='formal', arm='A', box_factory=Box)
+    assert result['status'] == 'generation_error' and result['submitted_patch'] == DIFF
+    assert result['policy_cost_cny'] == result['stages']['prefix']['cost_cny'] == .01
+
+
+def test_final_cleanup_failure_retains_case_cost_candidate_and_audit():
+    def passing(*args, **kwargs):
+        result = prefix(*args, **kwargs)
+        result.state.patches.candidates[0] = Candidate.build(0, DIFF, applies_cleanly=True,
+                                                           syntax='pass', validation='pass')
+        return result
+    class CleanupFailure(Box):
+        def close(self): raise RuntimeError('synthetic rm failure')
+    events = []
+    with patch.object(ex, 'run_prefix', passing):
+        result = ex.run_case(ROW, Client(), config(), mode='formal', arm='A', box_factory=CleanupFailure,
+                             checkpoint=events.append)
+    assert result['instance_id'] == ROW['instance_id'] and result['submitted_patch'] == DIFF
+    assert result['status'] == 'environment_error' and result['cleanup_errors']
+    assert result['termination_reason'] == 'environment_cleanup_failed'
+    assert result['policy_cost_cny'] == .01 and events[-1]['stage'] == 'case_complete'

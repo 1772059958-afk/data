@@ -28,6 +28,8 @@ import posixpath
 import re
 from typing import Iterable, NamedTuple
 
+from .patchutil import safe_repo_path
+
 # SWE-bench instances check the repository out at /testbed inside the container.
 DEFAULT_REPO_ROOTS = ("/testbed", "/repo", "/workspace")
 
@@ -37,6 +39,8 @@ CLASSES = (
     "behaviour_assertion",
     "public_test_missing",
     "env_setup",
+    "timeout",
+    "test_collection",
     "unknown",
 )
 
@@ -114,47 +118,67 @@ _PYTEST_NO_TESTS_EXIT = 5
 
 
 class Frame(NamedTuple):
-    path: str  # repository-relative, POSIX separators
+    path: str  # relative only for repository frames; external paths stay absolute
     line: int
     func: str
+    raw_path: str = ""
+    in_repository: bool = False
 
 
 def strip_ansi(text: str) -> str:
     return _ANSI.sub("", text or "")
 
 
-def normalise_repo_path(path: str, repo_root: str | os.PathLike[str] | None = None) -> str:
-    """Rewrite a path to a repository-relative POSIX path.
+def repository_path(path: str, repo_root: str | os.PathLike[str] | None = None) -> str | None:
+    """Return a safe relative checkout path, or None for external/escaping frames.
 
-    Absolute container paths are the norm (``/testbed/django/db/x.py``), and a
-    fingerprint that keeps them would differ between machines. Anything that
-    cannot be placed inside a known root keeps its basename.
+    An explicitly supplied root is authoritative. The conventional container
+    roots are used only when the caller has not supplied one. A relative Python
+    traceback path is interpreted relative to the checkout command's cwd; this
+    function cannot resolve symlinks or prove that a file exists in the checkout.
     """
     raw = str(path).replace("\\", "/").strip()
-    if not raw:
-        return ""
-    roots: list[str] = []
-    if repo_root:
-        roots.append(str(repo_root).replace("\\", "/").rstrip("/"))
-    roots.extend(DEFAULT_REPO_ROOTS)
+    if not raw or any(char in raw for char in ('\x00', '\n', '\r')):
+        return None
+    normalized = posixpath.normpath(raw)
+    roots = ((str(repo_root),) if repo_root is not None else DEFAULT_REPO_ROOTS)
     for root in roots:
-        if raw == root:
-            return ""
-        if raw.startswith(root + "/"):
-            return raw[len(root) + 1 :]
-    if not raw.startswith("/"):
-        return posixpath.normpath(raw).lstrip("./")
-    return posixpath.basename(raw)
+        root = posixpath.normpath(root.replace("\\", "/"))
+        if root in ('', '.', '/'):
+            continue
+        if normalized.startswith(root + "/"):
+            try:
+                return safe_repo_path(normalized[len(root) + 1:])
+            except ValueError:
+                return None
+    if normalized.startswith('/') or re.match(r'^[A-Za-z]:/', normalized):
+        return None
+    try:
+        return safe_repo_path(normalized)
+    except ValueError:
+        return None
+
+
+def normalise_repo_path(path: str, repo_root: str | os.PathLike[str] | None = None) -> str:
+    """Normalize checkout frames, preserving external identity for audit logs.
+
+    External frames must never be reduced to basenames: doing so turns an
+    installed dependency into an apparent, previously unread repository file.
+    """
+    relative = repository_path(path, repo_root)
+    return relative if relative is not None else posixpath.normpath(str(path).replace('\\', '/').strip())
 
 
 def parse_frames(text: str, repo_root: str | os.PathLike[str] | None = None) -> tuple[Frame, ...]:
     """Extract ``File "...", line N, in func`` frames from captured output."""
     frames: list[Frame] = []
     for match in _FRAME.finditer(strip_ansi(text or "")):
-        path = normalise_repo_path(match.group(1), repo_root)
+        raw = match.group(1)
+        relative = repository_path(raw, repo_root)
+        path = normalise_repo_path(raw, repo_root)
         if not path:
             continue
-        frames.append(Frame(path, int(match.group(2)), match.group(3) or "?"))
+        frames.append(Frame(path, int(match.group(2)), match.group(3) or "?", raw, relative is not None))
     return tuple(frames)
 
 
@@ -162,7 +186,7 @@ def repo_frames(text: str, repo_root: str | os.PathLike[str] | None = None) -> t
     """Distinct repository files named by stack frames, in first-seen order."""
     seen: dict[str, None] = {}
     for frame in parse_frames(text, repo_root):
-        if frame.path.endswith(".py"):
+        if frame.in_repository and frame.path.endswith(".py"):
             seen.setdefault(frame.path, None)
     return tuple(seen)
 
@@ -205,12 +229,17 @@ def classify(
     body = strip_ansi(text or "").lower()
     code = exit_code if exit_code is not None else 0
 
+    if code in (124, 137, -9):
+        return "timeout"
     if stage in ("env", "index") and code != 0:
         return "env_setup"
     if stage == "apply_patch" and code != 0:
         return "patch_format"
     if stage == "test" and code == _PYTEST_NO_TESTS_EXIT:
         return "public_test_missing"
+    if stage == "test" and code == 2:
+        return ("syntax_or_import" if any(re.search(p, body, re.MULTILINE) for p in _SYNTAX_PATTERNS)
+                else "test_collection")
 
     if any(re.search(p, body, re.MULTILINE) for p in _ENV_PATTERNS):
         return "env_setup"

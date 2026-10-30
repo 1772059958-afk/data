@@ -6,7 +6,8 @@ from pathlib import Path
 import sys
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'src'))
-from swe_repair.statistics import primary_summary, paired_cluster_bootstrap
+from swe_repair.statistics import (primary_summary, paired_cluster_bootstrap,
+                                   validate_formal_records, common_runnable_summary)
 
 
 def main():
@@ -36,11 +37,33 @@ def main():
             p.error('sampling manifest instance list is missing or inconsistent')
     else:
         ids = text.splitlines()
-    report = {'repeats': a.repeats,
-              'primary': {arm: primary_summary([r for r in records if r['arm'] == arm], ids, a.repeats)
-                          for arm in sorted({r['arm'] for r in records})},
+    validate_formal_records(records, ids, a.repeats)
+    if a.repeats < 3 or a.bootstrap_samples < 100 or a.left == a.right:
+        p.error('formal summary needs >=3 repeats, >=100 bootstrap samples and distinct comparison arms')
+    primary = {arm: primary_summary([r for r in records if r['arm'] == arm], ids, a.repeats)
+               for arm in sorted({r['arm'] for r in records})}
+    if a.left not in primary or a.right not in primary:
+        p.error('both comparison arms must be present')
+    interval_complete = primary[a.left]['complete'] and primary[a.right]['complete']
+    report = {'repeats': a.repeats, 'primary': primary,
               'paired_difference': paired_cluster_bootstrap(records, ids, a.left, a.right,
-                          repeats=a.repeats, samples=a.bootstrap_samples, seed=a.seed)}
+                          repeats=a.repeats, samples=a.bootstrap_samples, seed=a.seed) if interval_complete else None,
+              'paired_difference_unavailable_reason': None if interval_complete else 'incomplete designated evaluator coverage',
+              'common_runnable': common_runnable_summary(records, ids, repeats=a.repeats),
+              'quality_cost_points': [dict(arm=arm,
+                    resolved_rate=summary['resolved_rate'],
+                    resolved_rate_lower_bound=summary['resolved_rate_lower_bound'],
+                    cost_cny_recorded=summary['cost_cny_recorded'], cost_complete=summary['cost_complete'],
+                    cost_per_resolved_cny=summary['cost_per_resolved_cny'], resources=summary['resources'])
+                    for arm, summary in primary.items()],
+              'notes': ['Common runnable results are secondary; the primary population is unchanged.',
+                        'One frozen budget tier gives comparison points, not a multi-budget cost curve.',
+                        'Recorded resource totals can include conservative reservations; complete=false marks unknown use.']}
+    common = report['common_runnable']['instance_ids']
+    report['common_runnable']['paired_difference'] = (
+        paired_cluster_bootstrap([r for r in records if r['instance_id'] in common], common,
+                                 a.left, a.right, repeats=a.repeats,
+                                 samples=a.bootstrap_samples, seed=a.seed) if common else None)
     out = a.out.resolve()
     if not out.is_relative_to(ROOT / 'runs') or out.exists():
         p.error('output must be a new file under runs/')

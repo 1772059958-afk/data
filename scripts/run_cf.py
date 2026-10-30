@@ -8,6 +8,8 @@ from pathlib import Path
 import re
 import sys
 import math
+import subprocess
+import platform
 if hasattr(sys.stdout, 'reconfigure'):
     sys.stdout.reconfigure(encoding='utf-8', errors='replace')
 ROOT = Path(__file__).resolve().parents[1]
@@ -19,10 +21,50 @@ def file_hash(path):
     return hashlib.sha256(Path(path).read_bytes()).hexdigest()
 
 
+def frozen_config_errors(raw):
+    """All formal freeze declarations must agree; numeric defaults are not evidence."""
+    errors = []
+    if raw.get('status') != 'frozen':
+        errors.append('overall status is not frozen')
+    for section in ('model', 'prefix', 'router', 'fixed_continuation'):
+        if raw.get(section, {}).get('calibration') != 'frozen':
+            errors.append(f'{section}.calibration is not frozen')
+    for section in ('candidate_selection', 'evaluation'):
+        if raw.get(section, {}).get('frozen') is not True:
+            errors.append(f'{section}.frozen is not true')
+    if not raw.get('model', {}).get('model_version'):
+        errors.append('served model version is not pinned')
+    router = raw.get('router', {})
+    if any(router.get(k) is None for k in ('localization_disagreement_threshold', 'duplicate_rate_threshold', 'switch_probability')):
+        errors.append('router thresholds or matched switch probability are pending')
+    if raw.get('evaluation', {}).get('repeats', 0) < 3:
+        errors.append('formal evaluation requires at least three repeats')
+    if not raw.get('prompt_version'):
+        errors.append('prompt version is missing')
+    return errors
+
+
+def validate_development_contract(raw):
+    fixed = raw.get('fixed_continuation', {})
+    if (not isinstance(fixed.get('max_candidates'), int) or isinstance(fixed['max_candidates'], bool)
+            or fixed['max_candidates'] < 1 or fixed.get('feedback') != 'structured'
+            or fixed.get('stop_on_public_pass') is not True):
+        raise ValueError('fixed continuation must have a positive candidate limit, structured feedback and public-pass early stop')
+    for key in ('model_calls', 'tool_calls', 'wallclock_seconds'):
+        value = raw['interaction'].get(key)
+        if not isinstance(value, (int, float)) or isinstance(value, bool) or not math.isfinite(value) or value <= 0:
+            raise ValueError(f'interaction.{key} must be positive and finite')
+    for key in ('total_cny', 'per_instance_cny'):
+        value = raw['execution'].get(key)
+        if not isinstance(value, (int, float)) or isinstance(value, bool) or not math.isfinite(value) or value <= 0:
+            raise ValueError(f'execution.{key} must be positive and finite')
+
+
 def load_plan(args):
     cfgpath = Path(args.config)
     if not cfgpath.is_absolute(): cfgpath = ROOT / cfgpath
     raw = json.loads(cfgpath.read_text(encoding='utf-8'))
+    validate_development_contract(raw)
     listing = Path(args.instances_file) if args.instances_file else ROOT / f'data/frozen/instances_{args.split}.txt'
     if not listing.is_absolute(): listing = ROOT / listing
     text = listing.read_text(encoding='utf-8')
@@ -34,7 +76,9 @@ def load_plan(args):
     if args.calibration and (args.split != 'dev' or args.mode != 'diagnostic'):
         raise ValueError('calibration is allowed only for dev diagnostics')
     files = sorted((ROOT / 'src/swe_repair').glob('*.py')) + [Path(__file__)]
+    revision = subprocess.run(['git', 'rev-parse', 'HEAD'], cwd=ROOT, capture_output=True, text=True, check=True).stdout.strip()
     raw['provenance'] = {'code_sha256': hashlib.sha256(''.join(file_hash(p) for p in files).encode()).hexdigest(),
+                         'git_commit': revision,
                          'dataset_manifest_sha256': file_hash(ROOT / 'data/harness/manifest.json'),
                          'instance_list_sha256': file_hash(listing)}
     cfg = RouterConfig.from_config(raw)
@@ -57,8 +101,8 @@ def load_plan(args):
             raise ValueError('pin served model version first')
         if not args.calibration and (not cfg.calibrated or cfg.switch_probability is None):
             raise ValueError('freeze thresholds and matched random probability on dev first')
-        if args.split == 'test' and raw.get('status') != 'frozen':
-            raise ValueError('test requires a frozen configuration')
+        if not args.calibration and frozen_config_errors(raw):
+            raise ValueError('formal configuration is not consistently frozen: ' + '; '.join(frozen_config_errors(raw)))
         if args.split == 'test' and len(ids) < len(full):
             sample = raw['evaluation'].get('sample_manifest')
             if not sample: raise ValueError('test subset requires a preregistered sampling manifest')
@@ -71,6 +115,8 @@ def load_plan(args):
                  'seed': args.seed, 'repeat_index': args.repeat_index, 'calibration': args.calibration,
                  'designated_instances': ids, 'instance_list_sha256': file_hash(listing),
                  'config_hash': cfg.digest, 'effective_config': cfg.effective_config(),
+                 'formal_readiness_errors': frozen_config_errors(raw),
+                 'live_authorized': raw['execution']['live_authorized'],
                  'execute': args.execute, 'output_directory': str(ROOT / 'runs' / tag)}
 
 
@@ -97,7 +143,14 @@ def execute(raw, plan):
     out = Path(plan['output_directory'])
     out.mkdir(parents=True, exist_ok=False)
     matrixpath = out / 'matrix.json'
-    matrix = dict(plan, cases=[], schema_version='proposal-v1', historical=False)
+    from importlib.metadata import version, PackageNotFoundError
+    dependencies = {}
+    for package in ('requests', 'pyarrow', 'swebench'):
+        try: dependencies[package] = version(package)
+        except PackageNotFoundError: dependencies[package] = None
+    matrix = dict(plan, cases=[], schema_version='proposal-v1', historical=False,
+                  environment={'python': platform.python_version(), 'platform': platform.platform(),
+                               'dependencies': dependencies})
     def save():
         tmp = out / 'matrix.tmp'
         tmp.write_text(json.dumps(matrix, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
@@ -106,7 +159,8 @@ def execute(raw, plan):
     guard = SpendGuard(SpendPolicy(ceiling_cny=raw['execution']['total_cny']))
     m = raw['model']
     client = DeepSeekClient(ModelConfig(model=m['model'], thinking=m['thinking'], effort=m['effort'],
-                                       max_tokens=m['max_tokens'], max_retries=m.get('max_retries', 0)),
+                                       max_tokens=m['max_tokens'], max_retries=m.get('max_retries', 0),
+                                       temperature=m.get('temperature'), top_p=m.get('top_p')),
                             guard=guard, allow_live=True)
     manifest = json.loads((ROOT / 'data/harness/manifest.json').read_text(encoding='utf-8'))
     parquet = ROOT / manifest['splits'][plan['split']]['local_file']
@@ -126,6 +180,8 @@ def execute(raw, plan):
             case = run_case(rows[iid], client, raw, mode=plan['mode'], arm=plan['arm'], seed=plan['seed'],
                             calibration=plan['calibration'], checkpoint=checkpoint, cached_prefix=cached)
             case['repeat_index'] = plan['repeat_index']
+            case['seed'] = plan['seed']
+            case['run_id'] = plan['tag']
             matrix['cases'].append(case)
             matrix['new_generation_cost_cny'] = guard.spent_cny
             save()

@@ -25,7 +25,7 @@ from typing import Any, Callable, Mapping, Sequence
 
 from .llm import DeepSeekClient, parse_tool_arguments, tool_message
 from .feedback import error_evidence, failure_feedback, read_failure_log, LOG_REF, ToolFeedback
-from .patchutil import repair_hunk_headers, safe_repo_path, patch_scope_valid
+from .patchutil import repair_hunk_headers, safe_repo_path, patch_scope_valid, is_test_path
 from .prefix import (
     Container,
     extract_patch,
@@ -33,6 +33,8 @@ from .prefix import (
     public_test_files,
     run_public_tests,
     validate_candidate,
+    recover_environment,
+    EnvironmentFailure,
 )
 
 STATES = ("analyse", "edit", "validate", "finish")
@@ -47,6 +49,36 @@ TOOL_STATE = {
     "finish": "finish",
 }
 
+ALLOWED_TRANSITIONS = {
+    'analyse': frozenset(('analyse', 'edit', 'validate', 'finish')),
+    'edit': frozenset(('analyse', 'edit', 'validate', 'finish')),
+    'validate': frozenset(('analyse', 'edit', 'validate', 'finish')),
+    'finish': frozenset(),
+}
+
+
+@dataclass
+class InteractionStateMachine:
+    state: str = 'analyse'
+
+    def transition(self, tool: str, *, has_candidate: bool, commit: bool = True) -> str | None:
+        """Commit one legal transition, or return a refusal without changing state.
+
+        A prefix candidate can justify analyse->validate after it is restored.
+        Every validation needs a valid candidate; finish is terminal.
+        """
+        target = TOOL_STATE.get(tool)
+        if target is None:
+            return f'unknown tool {tool!r}'
+        if self.state not in ALLOWED_TRANSITIONS or target not in ALLOWED_TRANSITIONS[self.state]:
+            return f'invalid transition {self.state} -> {target}'
+        if target == 'validate' and not has_candidate:
+            return 'run_test requires an applicable, syntax-valid candidate first'
+        if commit:
+            self.state = target
+        return None
+
+
 STAGNATION_PATIENCE = 3
 
 SYSTEM = """You are repairing a bug in a real Python repository. You are in a bounded
@@ -60,10 +92,13 @@ numbers. For full captured output, call read_region with its log:<sha256> path,
 returned cursor to read more. Only this branch's public generation logs exist.
 
 1. analyse  - search_symbol / read_region / find_references to find the cause.
-2. edit     - apply_patch with a unified diff, paths relative to /testbed with
-              a/ and b/ prefixes.
-3. validate - run_test to check the repository's own tests near what you edited.
-4. finish   - call finish when the patch is your best answer.
+2. edit     - apply_patch supplies a COMPLETE diff against the clean base, with
+              a/ and b/ paths. It automatically applies, compiles and runs the
+              discovered public tests, then reports the result.
+3. validate - run_test may run an additional public check on a valid candidate.
+              It is unavailable until a valid candidate exists.
+4. finish   - optionally supply a complete diff; omit it to keep the best valid
+              candidate already recorded. No tool runs after finish.
 
 Rules:
 - One tool call per turn. Every apply_patch/finish diff is a COMPLETE candidate against the clean base, not an incremental edit. Never modify tests. Keep reading targeted: whole-file reads waste budget.
@@ -129,7 +164,7 @@ def tool_specs() -> list[dict[str, Any]]:
             "type": "function",
             "function": {
                 "name": "apply_patch",
-                "description": "Apply a unified diff to the checkout.",
+                "description": "Submit a complete diff against the clean base; automatically apply, compile and validate it.",
                 "parameters": {
                     "type": "object",
                     "properties": {
@@ -163,7 +198,7 @@ def tool_specs() -> list[dict[str, Any]]:
                     "properties": {
                         "diff": {
                             "type": "string",
-                            "description": "final unified diff; omit to keep what is applied",
+                            "description": "final complete unified diff; omit to retain the best recorded valid candidate",
                         },
                     },
                 },
@@ -316,8 +351,7 @@ def execute_tool(box: Container, name: str, args: Mapping[str, Any]) -> tuple[st
         path = str(args.get("path") or "").strip().lstrip("./")
         if not path:
             return "run_test needs a path", False
-        is_test = path.rsplit("/", 1)[-1].startswith("test_") or path.endswith("_test.py")
-        targets = [path] if is_test else public_test_files(box, [path])
+        targets = [path] if is_test_path(path) else public_test_files(box, [path])
         tested = run_public_tests(box, targets)
         status, detail, raw = tested
         if status in ('fail', 'not_run'):
@@ -394,16 +428,40 @@ def run_interactive(
     result = InteractiveResult(final_diff='')
     started = clock()
     runtime = getattr(client, 'runtime', None)
+    call_start = runtime.state.consumed.model_call if runtime is not None else 0
+    token_start = runtime.state.consumed.token if runtime is not None else 0
+    record_start = len(runtime.records) if runtime is not None else 0
+    old_call_limit = runtime.model_call_limit if runtime is not None else None
+    old_deadline = runtime.deadline if runtime is not None else None
     if runtime is not None:
         runtime.deadline = min(runtime.deadline or float('inf'), runtime.clock() + budget.wallclock_seconds)
     seen, stagnation = set(), 0
+    machine = InteractionStateMachine()
+    active_candidate = None
+
+    def calls_used():
+        return runtime.state.consumed.model_call - call_start if runtime is not None else result.calls
+
+    def phase(tool):
+        error = machine.transition(tool, has_candidate=state.patches.best_candidate() is not None)
+        if error:
+            raise AssertionError(error)  # all model-controlled requests are preflighted below
+        result.final_state = machine.state
 
     def request(*, final=False):
-        result.calls += 1  # Failed requests consume a call too.
-        if final:
-            reply = client.chat(messages + [{'role': 'user', 'content': FORCE_FINAL_PROMPT}])
+        if runtime is not None:
+            allowance = call_start + max(0, budget.model_calls - (0 if final else 1))
+            runtime.model_call_limit = allowance if old_call_limit is None else min(old_call_limit, allowance)
         else:
-            reply = client.chat(messages, tools=tool_specs(), tool_choice='auto')
+            result.calls += 1  # Test doubles have no attempt hook; count their calls.
+        try:
+            if final:
+                reply = client.chat(messages + [{'role': 'user', 'content': FORCE_FINAL_PROMPT}])
+            else:
+                reply = client.chat(messages, tools=tool_specs(), tool_choice='auto')
+        finally:
+            if runtime is not None:
+                result.calls = calls_used()
         result.cost_cny += reply.record.cost_cny
         result.tokens += reply.record.prompt_tokens + reply.record.output_tokens
         result.finish_reason = reply.record.finish_reason
@@ -413,8 +471,11 @@ def run_interactive(
         return reply
 
     def submit(diff):
+        nonlocal active_candidate
         if not diff.strip():
-            return 'empty candidate', False
+            return 'empty candidate', False, None
+        phase('apply_patch')
+        active_candidate = None  # validation starts from, and returns to, the clean base
         repaired, _ = repair_hunk_headers(diff)
         idx = max((c.index for c in state.patches.candidates), default=-1) + 1
         validated = validate_candidate(box, Candidate.build(idx, repaired, origin='interactive'),
@@ -422,26 +483,43 @@ def run_interactive(
         state.patches.add(validated.candidate)
         for failure in validated.failures:
             state.failures.add(failure)
+        recovered = state.failures.needs_recovery_attempt()
+        if recovered and not recover_environment(box, state):
+            raise EnvironmentFailure('public validation remains unrunnable after its deterministic retry')
+        candidate = next(c for c in state.patches.candidates if c.index == idx)
         detail = (failure_feedback(validated.failures[-1]) if validated.failures
                   else error_evidence(validated.raw_output))
+        if recovered:
+            detail += '\nDeterministic public-validation recovery completed.'
         best = state.patches.best_candidate()
         result.final_diff = best.diff if best else ''
-        return f'applies={validated.candidate.applies_cleanly}, syntax={validated.syntax}, public={validated.candidate.validation}\n{detail}', bool(best and best.validation == 'pass')
+        if candidate in state.patches.applicable():
+            phase('run_test')  # apply_patch performs this validation automatically
+        return (f'applies={candidate.applies_cleanly}, syntax={candidate.syntax}, public={candidate.validation}\n{detail}',
+                bool(best and best.validation == 'pass'), candidate)
 
     try:
         # Keep the last allowed call for a no-tools submission, never add one.
-        while result.calls < max(0, budget.model_calls - 1):
+        while calls_used() < max(0, budget.model_calls - 1):
             if clock() - started >= budget.wallclock_seconds:
                 result.ended_by = 'wallclock'
                 break
             if result.tool_calls >= budget.tool_calls:
                 result.ended_by = 'tool_budget'
                 break
-            reply = request()
+            try:
+                reply = request()
+            except ResourceLimit as exc:
+                if runtime is not None and max(0, budget.model_calls - 1) <= calls_used() < budget.model_calls:
+                    result.ended_by = 'model_call_budget'
+                    result.trace.append({'event': 'ordinary_request_stopped', 'detail': str(exc), 'calls': calls_used()})
+                    break
+                raise
             if not reply.tool_calls:
                 patch = extract_patch(reply.text)
                 if patch:
-                    observation, passed = submit(patch)
+                    observation, passed, candidate = submit(patch)
+                    phase('finish')
                     result.trace.append({'tool': 'patch_in_text', 'observation': observation})
                     result.ended_by = 'patch_in_text'
                     break
@@ -449,47 +527,75 @@ def run_interactive(
                 messages.append({'role': 'user', 'content': 'Use one tool, or submit a complete diff.'})
             else:
                 for offset, call in enumerate(reply.tool_calls):
+                    call = call if isinstance(call, Mapping) else {}
+                    if result.ended_by or machine.state == 'finish':
+                        messages.append(tool_message(call, 'Not executed: session already finished.'))
+                        continue
                     if offset or result.tool_calls >= budget.tool_calls:
                         messages.append(tool_message(call, 'Not executed: one tool per turn and strict tool limit.'))
                         continue
                     result.tool_calls += 1
-                    name = (call.get('function') or {}).get('name', '')
-                    args = parse_tool_arguments(call)
-                    result.final_state = TOOL_STATE.get(name, result.final_state)
-                    if name in ('apply_patch', 'finish'):
-                        observation, passed = submit(str(args.get('diff') or ''))
-                        progressed = bool(str(args.get('diff') or '').strip())
+                    function = call.get('function')
+                    name = function.get('name', '') if isinstance(function, Mapping) else ''
+                    name = name if isinstance(name, str) else ''
+                    args = parse_tool_arguments(call) if isinstance(function, Mapping) else {}
+                    args, refusal = validate_tool_arguments(name, args)
+                    before_state = machine.state
+                    refusal = refusal or machine.transition(name, has_candidate=state.patches.best_candidate() is not None, commit=False)
+                    if refusal:
+                        observation, progressed = refusal, False
+                    elif name in ('apply_patch', 'finish'):
+                        diff = args.get('diff', '')
+                        if name == 'finish' and not diff.strip():
+                            best = state.patches.best_candidate()
+                            observation = f'keeping candidate#{best.index}' if best else 'finished with no valid candidate'
+                            passed, progressed, candidate = bool(best and best.validation == 'pass'), False, None
+                        else:
+                            observation, passed, candidate = submit(diff)
+                            progressed = bool(candidate and candidate.diff.strip())
                         if name == 'finish' or passed:
                             result.ended_by = 'public_pass' if passed else 'finish_tool'
-                            result.final_state = 'finish'
-                        elif (state.patches.candidates[-1].applies_cleanly and state.patches.candidates[-1].scope_valid
-                              and state.patches.candidates[-1].syntax != 'fail'):
-                            box.apply(state.patches.candidates[-1].diff)
-                    else:
-                        checked_args, refusal = validate_tool_arguments(name, args)
-                        if refusal:
-                            observation, progressed = refusal, False
-                        elif name == 'read_region' and checked_args['path'].startswith('log:'):
-                            observation, progressed = read_failure_log(
-                                state.failures.records + state.failures.tool_records,
-                                checked_args['path'], checked_args['start'], checked_args['end'], checked_args.get('offset', 0))
+                            phase('finish')
+                        elif candidate in state.patches.applicable():
+                            ok, detail = box.apply(candidate.diff)
+                            if ok:
+                                active_candidate = candidate
+                            else:
+                                observation += '\nCould not restore candidate for further inspection: ' + _clip(detail, 500)
+                                progressed = False
+                    elif name == 'run_test':
+                        candidate = active_candidate or state.patches.best_candidate()
+                        if active_candidate is None:
+                            box.revert()
+                            ok, detail = box.apply(candidate.diff)
+                            if ok:
+                                active_candidate = candidate
                         else:
-                            candidate = state.patches.best_candidate()
-                            if name == 'run_test' and candidate is not None:
-                                box.revert()
-                                box.apply(candidate.diff)
-                            checked = execute_tool(box, name, checked_args)
+                            ok, detail = True, ''
+                        if ok:
+                            phase(name)
+                            checked = execute_tool(box, name, args)
                             observation, progressed = checked
                             if isinstance(checked, ToolFeedback):
                                 from dataclasses import replace
-                                state.failures.tool_records.append(replace(checked.record,
-                                    candidate_index=candidate.index if candidate else None))
+                                state.failures.tool_records.append(replace(checked.record, candidate_index=candidate.index))
+                            observation = f'candidate#{candidate.index}\n' + observation
+                        else:
+                            observation, progressed = 'Could not restore candidate: ' + _clip(detail, 500), False
+                    else:
+                        phase(name)
+                        if name == 'read_region' and args['path'].startswith('log:'):
+                            observation, progressed = read_failure_log(
+                                state.failures.records + state.failures.tool_records,
+                                args['path'], args['start'], args['end'], args.get('offset', 0))
+                        else:
+                            observation, progressed = execute_tool(box, name, args)
                     key = json.dumps([name, args, observation], sort_keys=True)
                     repeated = key in seen
                     seen.add(key)
                     stagnation = 0 if progressed and not repeated else stagnation + 1
                     messages.append(tool_message(call, _clip(observation, 3500)))
-                    result.trace.append({'turn': result.calls, 'tool': name, 'state': result.final_state,
+                    result.trace.append({'turn': result.calls, 'tool': name, 'state_before': before_state, 'state': result.final_state,
                                          'progressed': progressed, 'repeated': repeated,
                                          'observation': _clip(observation, 3500)})
                 if result.ended_by:
@@ -500,16 +606,23 @@ def run_interactive(
         if not result.ended_by:
             result.ended_by = 'model_call_budget'
         if (not state.patches.has_public_pass() and result.ended_by not in ('finish_tool', 'patch_in_text', 'wallclock')
-                and result.calls < budget.model_calls and clock() - started < budget.wallclock_seconds):
+                and calls_used() < budget.model_calls and clock() - started < budget.wallclock_seconds):
             reply = request(final=True)
             patch = extract_patch(reply.text)
             if patch:
-                observation, passed = submit(patch)
+                observation, passed, candidate = submit(patch)
                 result.finalized_by_forced_call = True
                 result.trace.append({'tool': 'reserved_final', 'observation': observation})
+            phase('finish')
     except Exception as exc:
         result.ended_by = f'{type(exc).__name__}: {exc}'
     finally:
+        if runtime is not None:
+            result.calls = calls_used()
+            result.tokens = runtime.state.consumed.token - token_start
+            result.cost_cny = sum(float(r['cost_cny']) for r in runtime.records[record_start:])
+            runtime.model_call_limit = old_call_limit
+            runtime.deadline = old_deadline
         best = state.patches.best_candidate()
         result.final_diff = best.diff if best else ''
         result.transcript = messages

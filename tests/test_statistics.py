@@ -40,6 +40,8 @@ def test_primary_rejects_generation_status_and_duplicate_rows():
 
 def paired_rows():
     return [{'instance_id': iid, 'repeat_index': repeat, 'arm': arm,
+             'mode': 'formal', 'config_hash': 'frozen-config', 'seed': 100 + repeat,
+             'run_id': f'run_{arm}_r{repeat}', 'prediction_sha256': 'a' * 64, 'patch_sha256': 'b' * 64,
              'status': 'resolved' if ((iid == 'one' and arm == 'D') or (iid == 'two' and arm == 'A')) else 'unresolved'}
             for iid in ('one', 'two') for repeat in range(3) for arm in ('A', 'D')]
 
