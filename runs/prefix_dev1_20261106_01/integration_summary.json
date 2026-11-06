@@ -1,0 +1,78 @@
+{
+  "mode": "prefix",
+  "arm": "PREFIX",
+  "case_count": 1,
+  "status": "completed",
+  "termination_reason": "prefix_complete",
+  "selected_route": "prefix",
+  "stage_names": [
+    "prefix"
+  ],
+  "policy_cost_cny": 0.19823127999999998,
+  "new_generation_cost_cny": 0.19823127999999998,
+  "resources": {
+    "token": 40871,
+    "model_call": 3,
+    "tool_call": 10,
+    "wallclock_seconds": 122.58410499999991
+  },
+  "features": {
+    "n_candidates": 2,
+    "n_applicable": 1,
+    "n_public_pass": 0,
+    "u_loc": 1.0,
+    "u_dup": 0.0,
+    "behavioural_signal": "behavioural",
+    "lacks_behavioural_signal": 0,
+    "localization_missing": false,
+    "context_files": [
+      "pvlib/iam.py"
+    ],
+    "remaining_token": 471129
+  },
+  "candidates": [
+    {
+      "index": 0,
+      "applies_cleanly": true,
+      "syntax": "pass",
+      "validation": "fail",
+      "scope_valid": true,
+      "diff_lines": 3,
+      "files_touched": [
+        "pvlib/iam.py"
+      ]
+    },
+    {
+      "index": 1,
+      "applies_cleanly": false,
+      "syntax": "not_run",
+      "validation": "not_run",
+      "scope_valid": true,
+      "diff_lines": 0,
+      "files_touched": []
+    }
+  ],
+  "failure_classes": [
+    "behaviour_assertion"
+  ],
+  "lifecycle": [
+    {
+      "event": "start",
+      "stage": "prefix",
+      "container": "proposal-prefix-pvlib__pvlib-python-1707-6e322a0f45",
+      "image_digest": "sha256:6bddca9c6360684b088cba4a502969e84c3a2f125550983e48e38e2e252b660c",
+      "base_commit": "40e9e978c170bdde4eeee1547729417665dbc34c",
+      "elapsed_seconds": 2.207386999999926
+    },
+    {
+      "event": "close",
+      "container": "proposal-prefix-pvlib__pvlib-python-1707-6e322a0f45",
+      "elapsed_seconds": 0.43973289999985354,
+      "error": null
+    }
+  ],
+  "cost_complete": true,
+  "prediction_files": [
+    "predictions_PREFIX.jsonl"
+  ]
+}

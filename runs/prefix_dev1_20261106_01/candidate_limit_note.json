@@ -1,0 +1,26 @@
+{
+  "kind": "prefix_candidate_failure_notes",
+  "candidates": [
+    {
+      "step": "candidate_0",
+      "finish_reason": "stop",
+      "output_tokens": 5781,
+      "reasoning_tokens": 5644,
+      "validation": "fail",
+      "test_exit_code": 1,
+      "test_category": "test_failure",
+      "diff_lines": 3
+    },
+    {
+      "step": "candidate_1",
+      "finish_reason": "length",
+      "output_tokens": 16384,
+      "reasoning_tokens": 16384,
+      "validation": "not_run",
+      "test_exit_code": null,
+      "test_category": "not_run",
+      "diff_lines": 0
+    }
+  ],
+  "note": "Second candidate exhausted the output cap in reasoning and produced no diff; first candidate failed public validation. No resolved verdict or method effect inferred."
+}

@@ -1,0 +1,9 @@
+{
+  "kind": "non_generation_model_list_diagnostic",
+  "generation_requests": 0,
+  "http_status": 401,
+  "ok": false,
+  "response_is_json": true,
+  "error_type": "authentication_error",
+  "error_code": "invalid_request_error"
+}

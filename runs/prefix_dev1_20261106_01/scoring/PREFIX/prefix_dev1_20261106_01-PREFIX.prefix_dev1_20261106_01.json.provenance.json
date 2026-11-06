@@ -1,0 +1,55 @@
+{
+  "schema_version": "swe-repair-evaluation-v1",
+  "identity": {
+    "tag": "prefix_dev1_20261106_01",
+    "config_hash": "7d908cbbe0d7d4259e0a768d1a4e71a74699beca9f479acc104d7d3f0d145779",
+    "mode": "prefix",
+    "split": "dev",
+    "seed": 20261106,
+    "repeat_index": 0
+  },
+  "arm": "PREFIX",
+  "matrix_sha256": "bbd9c9c53351cae558345802d4046b4121c6094b7cfbe08c99007fe3b0e611f1",
+  "matrix_content_sha256": "a64f5f6cd2b1df738dfb75b8b473fdf19373a865beb41fac07f7d71aaa10276b",
+  "report_sha256": "8faf57eee7e5663d2dd05d12b8088abc9491429232ed5c49c37588562c306717",
+  "report_content_sha256": "0bdb8bdcb50ab121a418fc81e2b1da244f0f8330a7dfe7be062a8be9d3707933",
+  "predictions_file": "predictions_PREFIX.jsonl",
+  "predictions_sha256": "a7e02b0412ea3df90e57559f41eef9ee820a28a4f6ca24fa08c0576312e7a703",
+  "model_name_or_path": "prefix_dev1_20261106_01-PREFIX",
+  "prediction_patch_sha256": {
+    "pvlib__pvlib-python-1707": "5d78cf77ba000f52b2e13c87b02976499230e791a1ca892195f3352d9b8044d6"
+  },
+  "harness_environment": {
+    "python": "3.11.5",
+    "swebench": "5.0.2"
+  },
+  "harness_command": [
+    "/opt/scoring/bin/python",
+    "-m",
+    "swebench.harness.run_evaluation",
+    "--dataset_name",
+    "/workspace/runs/prefix_dev1_20261106_01/scoring/evaluation_dataset.json",
+    "--split",
+    "dev",
+    "--predictions_path",
+    "/workspace/runs/prefix_dev1_20261106_01/predictions_PREFIX.jsonl",
+    "--instance_ids",
+    "pvlib__pvlib-python-1707",
+    "--run_id",
+    "prefix_dev1_20261106_01",
+    "--max_workers",
+    "1",
+    "--report_dir",
+    "/workspace/runs/prefix_dev1_20261106_01/scoring/PREFIX"
+  ],
+  "evaluation_dataset": {
+    "source": "/workspace/data/harness/dev.parquet",
+    "source_sha256": "b90bcbfaca1b5f65155500124a977876c264a4003ab384aca4dfc39a54bef89f",
+    "source_manifest_sha256": "30e1f10eafa8248cf02cf2752eae888e2ec896dcc0697da803ed99e04599d54c",
+    "prepared_images": {
+      "pvlib__pvlib-python-1707": "sha256:6bddca9c6360684b088cba4a502969e84c3a2f125550983e48e38e2e252b660c"
+    },
+    "dataset_path": "/workspace/runs/prefix_dev1_20261106_01/scoring/evaluation_dataset.json",
+    "effective_dataset_sha256": "677092bae31f6954d084bfabef124f35e7eb936d25b4f5658ec522c87cfd9fbe"
+  }
+}

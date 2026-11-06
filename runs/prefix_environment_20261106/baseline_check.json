@@ -1,0 +1,7 @@
+{
+  "kind": "designated_baseline_preparation_check",
+  "generation_requests": 0,
+  "exit_code": 1,
+  "stdout": "40e9e978c170bdde4eeee1547729417665dbc34c\n",
+  "stderr": "HEAD is now at 40e9e97 fix recombination args in pvsystem.maximum_power_point (#1733)\nTraceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n  File \"/testbed/pvlib/__init__.py\", line 3, in <module>\n    from pvlib import (  # noqa: F401\n  File \"/testbed/pvlib/ivtools/__init__.py\", line 7, in <module>\n    from pvlib.ivtools import sde, sdm, utils  # noqa: F401\n  File \"/testbed/pvlib/ivtools/sdm.py\", line 15, in <module>\n    from pvlib.pvsystem import calcparams_pvsyst, singlediode, v_from_i\n  File \"/testbed/pvlib/pvsystem.py\", line 21, in <module>\n    from pvlib import (atmosphere, iam, inverter, irradiance,\n  File \"/testbed/pvlib/singlediode.py\", line 59, in <module>\n    NsVbi=np.Inf, breakdown_factor=0., breakdown_voltage=-5.5,\n  File \"/opt/miniconda3/envs/testbed/lib/python3.9/site-packages/numpy/__init__.py\", line 397, in __getattr__\n    raise AttributeError(\nAttributeError: `np.Inf` was removed in the NumPy 2.0 release. Use `np.inf` instead.\n"
+}
