@@ -1,0 +1,8 @@
+# Install Linux wheels on the host first, then supply their extracted site dir
+# as the linux-dependencies named context. No network or Windows wheel is used.
+FROM swebench/sweb.eval.x86_64.pvlib_1776_pvlib-python-1707@sha256:3c103594eb39c0564cfd71f12ecca0d75a9a4a821f33c6e43b036d2271e75de7
+RUN /opt/miniconda3/bin/python -m venv /opt/scoring
+COPY --from=linux-dependencies / /opt/scoring/lib/python3.11/site-packages/
+WORKDIR /workspace
+ENV HF_HUB_OFFLINE=1 HF_DATASETS_OFFLINE=1 TZ=Asia/Shanghai
+ENTRYPOINT ["/opt/scoring/bin/python"]

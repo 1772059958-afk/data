@@ -1,0 +1,9 @@
+# Verify this local tag's actual ID before/after build against the recorded
+# sha256:123849a78746d803a2b646170562856056621673f02d9f4ab11c6f150b732aef.
+# Built local images have no registry RepoDigest; digest-qualified FROM would
+# incorrectly try Docker Hub. Generation/instance environments stay as-is.
+FROM swe-repair/scoring-controller:20261106
+# Supplied named context contains only the verified official Linux CLI binary.
+COPY --chmod=0755 --from=docker-cli /docker /usr/local/bin/docker
+RUN echo 'f5000a4e1745a901bc9ecef3c3063da4454d9bcb7bfd581eb1bbeb3c3602da9b  /usr/local/bin/docker' | sha256sum -c -
+RUN docker --version
