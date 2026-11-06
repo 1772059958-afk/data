@@ -1,0 +1,102 @@
+{
+  "kind": "linux_scoring_controller",
+  "model_calls": 0,
+  "execute": true,
+  "identity": {
+    "tag": "dev2_pilot_C_20261106_01",
+    "config_hash": "d485c95edec9f5d5f944d96680a8a558104743119326e794510a664b5c0f4c19",
+    "mode": "pilot",
+    "split": "dev",
+    "seed": 20261106,
+    "repeat_index": 0
+  },
+  "matrix_sha256": "69015a3f79752fb6dfbeafd60ddeb15cc15eb4ed0fab7237af39b76dd73a1b7c",
+  "requested_controller_image": "sha256:1f43c83b3d3c631d37af54a19828df269accd045a22c62c0aab5b2bfa713726f",
+  "docker_context": "desktop-linux",
+  "command": [
+    "docker",
+    "--context",
+    "desktop-linux",
+    "run",
+    "--rm",
+    "--network",
+    "none",
+    "--workdir",
+    "/workspace",
+    "--env",
+    "DOCKER_HOST=unix:///var/run/docker.sock",
+    "--env",
+    "HF_HUB_OFFLINE=1",
+    "--env",
+    "HF_DATASETS_OFFLINE=1",
+    "--mount",
+    "type=bind,src=C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\src,dst=/workspace/src,readonly",
+    "--mount",
+    "type=bind,src=C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\scripts,dst=/workspace/scripts,readonly",
+    "--mount",
+    "type=bind,src=C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\data\\harness,dst=/workspace/data/harness,readonly",
+    "--mount",
+    "type=bind,src=/var/run/docker.sock,dst=/var/run/docker.sock",
+    "--mount",
+    "type=bind,src=C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\runs\\dev2_pilot_C_20261106_01,dst=/workspace/runs/dev2_pilot_C_20261106_01",
+    "--mount",
+    "type=bind,src=C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\runs\\dev2_pilot_C_20261106_01\\controller\\logs,dst=/workspace/logs",
+    "--mount",
+    "type=bind,src=C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\runs\\dev2_pilot_C_20261106_01\\matrix.json,dst=/workspace/runs/dev2_pilot_C_20261106_01/matrix.json,readonly",
+    "--mount",
+    "type=bind,src=C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\runs\\dev2_pilot_C_20261106_01\\predictions_C.jsonl,dst=/workspace/runs/dev2_pilot_C_20261106_01/predictions_C.jsonl,readonly",
+    "sha256:1f43c83b3d3c631d37af54a19828df269accd045a22c62c0aab5b2bfa713726f",
+    "/workspace/scripts/score_run.py",
+    "/workspace/runs/dev2_pilot_C_20261106_01",
+    "--max-workers",
+    "1",
+    "--execute"
+  ],
+  "container_image_argument": 31,
+  "jobs": [
+    {
+      "arm": "C",
+      "predictions_file": "predictions_C.jsonl",
+      "predictions_sha256": "20747b72e11e5f96dee78047d0ab9b4ff02f7e628648b4deafa4afceda3a4588",
+      "model_name_or_path": "dev2_pilot_C_20261106_01-C",
+      "prediction_patch_sha256": {
+        "pvlib__pvlib-python-1707": "eee604c853803bd89d9465f45d97abf3cf826b856ca0e1ee1dc4458b61ae1510",
+        "pydicom__pydicom-1139": "8415fd7cb734e9df85ab0028fafbc86eaf9864fce0ced43db316b833e314636f"
+      },
+      "report_path": "C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\runs\\dev2_pilot_C_20261106_01\\scoring\\C\\dev2_pilot_C_20261106_01-C.dev2_pilot_C_20261106_01.json",
+      "command": [
+        "C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\.venv\\Scripts\\python.exe",
+        "-m",
+        "swebench.harness.run_evaluation",
+        "--dataset_name",
+        "C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\runs\\dev2_pilot_C_20261106_01\\scoring\\evaluation_dataset.json",
+        "--split",
+        "dev",
+        "--predictions_path",
+        "C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\runs\\dev2_pilot_C_20261106_01\\predictions_C.jsonl",
+        "--instance_ids",
+        "pvlib__pvlib-python-1707",
+        "pydicom__pydicom-1139",
+        "--run_id",
+        "dev2_pilot_C_20261106_01",
+        "--max_workers",
+        "1",
+        "--report_dir",
+        "C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\runs\\dev2_pilot_C_20261106_01\\scoring\\C"
+      ],
+      "directory": "C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\runs\\dev2_pilot_C_20261106_01\\scoring\\C",
+      "evaluation_dataset": {
+        "source": "C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\data\\harness\\dev.parquet",
+        "source_sha256": "b90bcbfaca1b5f65155500124a977876c264a4003ab384aca4dfc39a54bef89f",
+        "source_manifest_sha256": "30e1f10eafa8248cf02cf2752eae888e2ec896dcc0697da803ed99e04599d54c",
+        "prepared_images": {
+          "pvlib__pvlib-python-1707": "sha256:6bddca9c6360684b088cba4a502969e84c3a2f125550983e48e38e2e252b660c",
+          "pydicom__pydicom-1139": "sha256:bd5edf8694cde12aaf99beb18b3935b15e076e81ac7e52aef46b1ca3d9071428"
+        },
+        "dataset_path": "C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\runs\\dev2_pilot_C_20261106_01\\scoring\\evaluation_dataset.json"
+      }
+    }
+  ],
+  "log_directory": "C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\runs\\dev2_pilot_C_20261106_01\\controller\\logs",
+  "controller_image_id": "sha256:1f43c83b3d3c631d37af54a19828df269accd045a22c62c0aab5b2bfa713726f"
+}
