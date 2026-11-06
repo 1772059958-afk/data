@@ -1,0 +1,29 @@
+{
+  "kind": "release_validation",
+  "offline_suite": {
+    "passed": 350,
+    "total": 350,
+    "stdout_sha256": "337ef52f6d974218d91d4e9ca8675e81f923edfcf4fb4ce8e03739546e68c41a"
+  },
+  "preservation": {
+    "experiments": {
+      "baseline_commit": "3759265",
+      "protected_total": 93,
+      "verified": 93,
+      "missing": [],
+      "changed": [],
+      "invalid": [],
+      "ok": true
+    },
+    "archive": {
+      "archived_total": 131,
+      "missing": [],
+      "changed": [],
+      "invalid": [],
+      "ok": true
+    }
+  },
+  "pilot_cells": 10,
+  "independently_scored_cells": 10,
+  "model_calls_after_generation_completion": 0
+}

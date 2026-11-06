@@ -1,0 +1,65 @@
+{
+  "kind": "complete_model_generation_accounting",
+  "billing": "estimates_from_reported_usage_plus_unknown_reservations_not_invoice",
+  "ceiling_cny": 100.0,
+  "cumulative_cny": 2.04914488,
+  "estimated_from_usage_cny": 2.0448948799999997,
+  "unknown_reserved_cny": 0.00425,
+  "actual_request_records": 91,
+  "pending": null,
+  "ledger_sha256": "979cc53a59e139aac15f53e3258de1ea35bb9a81c2fd30d731f6bc4a8139fcaf",
+  "pilot_new_generation_cny": 0.7624043600000001,
+  "pilot_full_policy_cny": 1.63647584,
+  "arms": {
+    "A": {
+      "run_directory": "runs/dev2_pilot_A_20261106_01",
+      "matrix_sha256": "f97247289a78ae7810e4b6ec6067f247459a910a0d22909c9a212e34c4783027",
+      "new_generation_cost_cny": 0.41296884,
+      "policy_cost_cny": 0.41296883999999995
+    },
+    "B": {
+      "run_directory": "runs/dev2_pilot_B_20261106_01",
+      "matrix_sha256": "babc931962ae36451360803031328d0254457937f46371b65486a223e42b76f6",
+      "new_generation_cost_cny": 0.11664728000000002,
+      "policy_cost_cny": 0.11664727999999999
+    },
+    "C": {
+      "run_directory": "runs/dev2_pilot_C_20261106_01",
+      "matrix_sha256": "69015a3f79752fb6dfbeafd60ddeb15cc15eb4ed0fab7237af39b76dd73a1b7c",
+      "new_generation_cost_cny": 0.08567071999999998,
+      "policy_cost_cny": 0.37702788
+    },
+    "D": {
+      "run_directory": "runs/dev2_pilot_D_20261106_01",
+      "matrix_sha256": "0f1e11c87fc460713ca5b49ae49a7c5bf20a698c5db41d7e0ee3f7845485e6a6",
+      "new_generation_cost_cny": 0.058795280000000005,
+      "policy_cost_cny": 0.35015243999999995
+    },
+    "E": {
+      "run_directory": "runs/dev2_pilot_E_20261106_01",
+      "matrix_sha256": "d26dffa6e647a05b555cb0412432930de9718f3f380d57b733a9c759b5e96448",
+      "new_generation_cost_cny": 0.08832224000000011,
+      "policy_cost_cny": 0.37967939999999994
+    }
+  },
+  "offline_suite": "349/349 passed",
+  "offline_stdout_sha256": "43e3cbc0ce3f32b359d97785a880f257fb54a1633bcaa814c0a77a98a50e92ba",
+  "preservation": {
+    "experiments": {
+      "baseline_commit": "3759265",
+      "protected_total": 93,
+      "verified": 93,
+      "missing": [],
+      "changed": [],
+      "invalid": [],
+      "ok": true
+    },
+    "archive": {
+      "archived_total": 131,
+      "missing": [],
+      "changed": [],
+      "invalid": [],
+      "ok": true
+    }
+  }
+}

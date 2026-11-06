@@ -1,0 +1,10 @@
+{
+  "kind": "git_byte_preservation",
+  "passed": true,
+  "tracked_files_verified": 97,
+  "source_digest": "385e36d172ab33194d800abb80bb96091ef69a0c961ed94e4226d402be7e3eb8",
+  "matches_pilot_runtime_source_digest": true,
+  "git_commit": "b07a80728df83aa7b409503237d350f24cb25a76",
+  "protected_asset_paths_modified": false,
+  "rule_scope": "dated new run/config artifacts, prefix cache, hashed runtime source, new deck source; historical raw/data/reports/archive rules unchanged"
+}

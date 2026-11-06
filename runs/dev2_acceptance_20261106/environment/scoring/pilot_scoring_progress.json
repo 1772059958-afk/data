@@ -1,0 +1,29 @@
+{
+  "controller_image_id": "sha256:1f43c83b3d3c631d37af54a19828df269accd045a22c62c0aab5b2bfa713726f",
+  "model_calls": 0,
+  "verdicts_exported": false,
+  "completed": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E"
+  ],
+  "reports": {
+    "A": [
+      "runs\\dev2_pilot_A_20261106_01\\scoring\\A\\dev2_pilot_A_20261106_01-A.dev2_pilot_A_20261106_01.json"
+    ],
+    "B": [
+      "runs\\dev2_pilot_B_20261106_01\\scoring\\B\\dev2_pilot_B_20261106_01-B.dev2_pilot_B_20261106_01.json"
+    ],
+    "C": [
+      "runs\\dev2_pilot_C_20261106_01\\scoring\\C\\dev2_pilot_C_20261106_01-C.dev2_pilot_C_20261106_01.json"
+    ],
+    "D": [
+      "runs\\dev2_pilot_D_20261106_01\\scoring\\D\\dev2_pilot_D_20261106_01-D.dev2_pilot_D_20261106_01.json"
+    ],
+    "E": [
+      "runs\\dev2_pilot_E_20261106_01\\scoring\\E\\dev2_pilot_E_20261106_01-E.dev2_pilot_E_20261106_01.json"
+    ]
+  }
+}

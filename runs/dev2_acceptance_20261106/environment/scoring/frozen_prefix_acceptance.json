@@ -1,0 +1,15 @@
+{
+  "run": "prefix_dev1_20261106_01",
+  "model_calls": 0,
+  "controller_image_id": "sha256:123849a78746d803a2b646170562856056621673f02d9f4ab11c6f150b732aef",
+  "harness": "swebench==5.0.2",
+  "frozen_inputs_unchanged": true,
+  "verdict": "unresolved",
+  "completed_instances": 1,
+  "error_instances": 0,
+  "infrastructure_error": false,
+  "report": "runs/prefix_dev1_20261106_01/scoring/PREFIX/prefix_dev1_20261106_01-PREFIX.prefix_dev1_20261106_01.json",
+  "report_sha256": "8faf57eee7e5663d2dd05d12b8088abc9491429232ed5c49c37588562c306717",
+  "provenance": "runs/prefix_dev1_20261106_01/scoring/PREFIX/prefix_dev1_20261106_01-PREFIX.prefix_dev1_20261106_01.json.provenance.json",
+  "hidden_feedback_exported": false
+}

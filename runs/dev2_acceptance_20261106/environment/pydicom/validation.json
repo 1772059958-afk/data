@@ -1,0 +1,22 @@
+{
+  "instance_id": "pydicom__pydicom-1139",
+  "kind": "public_source_preparation_validation",
+  "image_id": "sha256:ccf2918b7408c41e80c71bad3f9ee49138a971543dde0c59b0a33c5ce8396daa",
+  "base_commit": "b9fb05c177b685bf683f7f57b2d57374eb7d882d",
+  "python": "3.9.21",
+  "pytest": "8.3.5",
+  "pydicom": "2.1.0.dev0",
+  "numpy": "1.26.4",
+  "public_imports": "pass",
+  "public_collection": {
+    "file": "pydicom/tests/test_dataset.py",
+    "tests_collected": 120,
+    "exit_code": 0,
+    "artifact": "prepared_environment_v2.json"
+  },
+  "temporary_container_cleanup_confirmed": true,
+  "is_official_pydicom_image": false,
+  "generation_requests": 0,
+  "complete_test_execution": "not_run",
+  "official_independent_scoring": "not_run"
+}

@@ -1,0 +1,85 @@
+{
+  "instance_id": "pydicom__pydicom-1139",
+  "date": "2026-11-06",
+  "kind": "public_environment_compatibility_repair",
+  "updates_prior_preparation_summary": "environment_summary.json",
+  "original_environment_evidence_preserved": {
+    "image_id": "sha256:ccf2918b7408c41e80c71bad3f9ee49138a971543dde0c59b0a33c5ce8396daa",
+    "public_test_execution": "public_test_dataset_offline_execution.json",
+    "pytest": "8.3.5",
+    "result": {"passed": 79, "failed": 41, "seconds": 1.4},
+    "failure_classification": "All 41 failures are missing test-instance attributes initialized by legacy setup methods; zero AssertionError exception lines. This is test-runner compatibility evidence, not model repair quality.",
+    "missing_public_fixture": "MR-SIEMENS-DICOM-WithOverlays.dcm"
+  },
+  "repair": {
+    "new_image_id": "sha256:bd5edf8694cde12aaf99beb18b3935b15e076e81ac7e52aef46b1ca3d9071428",
+    "new_tag": "prefix-env/pydicom-1139:base-b9fb05c1-pytest7-20261106",
+    "base_commit": "b9fb05c177b685bf683f7f57b2d57374eb7d882d",
+    "dockerfile": "docker/prefix/pydicom-1139-pytest7.Dockerfile",
+    "changes": [
+      "Pin pytest to 7.4.4 using pip --no-deps; preserve existing other dependencies",
+      "Precache one public fixture under /root/.pydicom/data after verification against the SHA256 already present in the designated public commit"
+    ],
+    "source_and_tests_modified": false,
+    "checkout_status_before_and_after_public_execution": "clean",
+    "official_pydicom_instance_image": false,
+    "identity_evidence": "prepared_pytest7_image_identity.json"
+  },
+  "compatibility_sources": [
+    {
+      "url": "https://docs.pytest.org/en/7.4.x/how-to/nose.html",
+      "supports": "pytest 7.4 documents legacy setup and teardown support at class/method level"
+    },
+    {
+      "url": "https://docs.pytest.org/en/8.3.x/deprecations.html#support-for-tests-written-for-nose",
+      "supports": "nose setup/teardown support was removed in pytest 8.0"
+    },
+    {
+      "public_checkout_path": "setup.py:26",
+      "supports": "The designated public pydicom commit declares pytest without a version upper bound"
+    }
+  ],
+  "public_fixture": {
+    "public_checkout_url_map": "pydicom/data/urls.json",
+    "public_checkout_hash_map": "pydicom/data/hashes.json",
+    "url": "https://zenodo.org/record/3861966/files/MR-SIEMENS-DICOM-WithOverlays.dcm?download=1",
+    "sha256": "094faf56c63bff84c30567e29de0c67d7c5a8ae05cf880ac12175491b6b645d2",
+    "size_bytes": 510928,
+    "host_download_tls_verified": true,
+    "build_reverified_hash_against_public_source": true,
+    "download_evidence": "public_overlay_fixture_download.json",
+    "retained_download_failure": "Direct urllib download inside the first build failed with ConnectionRefusedError 111. The same public URL was then downloaded on the host with default TLS verification and the exact expected hash. The Dockerfile stages those verified bytes."
+  },
+  "real_public_validation": [
+    {
+      "test_file": "pydicom/tests/test_dataset.py",
+      "network": "none",
+      "passed": 120,
+      "failed": 0,
+      "warnings": 118,
+      "seconds": 0.49,
+      "exit_code": 0,
+      "evidence": "test_dataset_pytest7_offline_execution.json",
+      "temporary_container_cleanup_confirmed": true
+    },
+    {
+      "test_file": "pydicom/tests/test_valuerep.py",
+      "network": "none",
+      "passed": 38,
+      "failed": 0,
+      "warnings": 16,
+      "seconds": 0.18,
+      "exit_code": 0,
+      "evidence": "test_valuerep_pytest7_offline_execution.json",
+      "temporary_container_cleanup_confirmed": true
+    }
+  ],
+  "scope": {
+    "credentials_read": false,
+    "model_requests": 0,
+    "hidden_test_patch_or_official_patch_read": false,
+    "generation_or_scoring_outcomes_reviewed": false,
+    "official_independent_scoring_performed": false,
+    "limitation": "These are unmodified public baseline tests, not a repaired-candidate evaluation or official resolution verdict. Other public test files and the complete repository suite remain unverified."
+  }
+}

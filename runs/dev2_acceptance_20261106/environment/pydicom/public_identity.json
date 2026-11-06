@@ -1,0 +1,7 @@
+{
+  "instance_id": "pydicom__pydicom-1139",
+  "repo": "pydicom/pydicom",
+  "base_commit": "b9fb05c177b685bf683f7f57b2d57374eb7d882d",
+  "version": "2.0",
+  "environment_setup_commit": "9d69811e539774f296c2f289839147e741251716"
+}

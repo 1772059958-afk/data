@@ -1,0 +1,36 @@
+{
+  "kind": "offline_and_environment_acceptance_before_corrected_diagnostic",
+  "offline_suite": "347/347 passed",
+  "stdout_sha256": "08a4a3534c3fe92d54609e5de323a27ddba1f075f4a886e1831e116d993ca766",
+  "source_provenance": {
+    "code_sha256": "385e36d172ab33194d800abb80bb96091ef69a0c961ed94e4226d402be7e3eb8",
+    "git_commit": "47bcd23f24aa29a1844b245d5b8a5c5690c08256",
+    "dataset_manifest_sha256": "30e1f10eafa8248cf02cf2752eae888e2ec896dcc0697da803ed99e04599d54c",
+    "instance_list_sha256": "5c3cf15a042e0c6565851fc257257b2a8694172c4f72da3b9adbc4750f892dbd"
+  },
+  "config_hash": "da6d858652f3457442bf4d883759a3a31a5f13724e31926131b3058ff93f30c2",
+  "public_baseline_execution": {
+    "pvlib/tests/test_pvsystem.py": 245,
+    "pydicom/tests/test_dataset.py": 120,
+    "pydicom/tests/test_valuerep.py": 38
+  },
+  "preservation": {
+    "experiments": {
+      "baseline_commit": "3759265",
+      "protected_total": 93,
+      "verified": 93,
+      "missing": [],
+      "changed": [],
+      "invalid": [],
+      "ok": true
+    },
+    "archive": {
+      "archived_total": 131,
+      "missing": [],
+      "changed": [],
+      "invalid": [],
+      "ok": true
+    }
+  },
+  "formal_config_still_pending": true
+}

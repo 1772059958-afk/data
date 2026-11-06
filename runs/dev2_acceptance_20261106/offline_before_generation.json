@@ -1,0 +1,49 @@
+{
+  "kind": "offline_before_paid_generation",
+  "python": "3.14.2",
+  "result": "336/336 passed",
+  "network_blocked_by_runner": true,
+  "source_manifest": {
+    "src\\swe_repair\\__init__.py": "7601d785831bc507c8c3393ffaeaf1a95d084f138d3ca075027596afe4b46858",
+    "src\\swe_repair\\batch_ledger.py": "5b7be9ff47a3281eaf2f03942ba456f1c39136b2a02d97e5844c4336892a48a0",
+    "src\\swe_repair\\budget.py": "c877a1c9e5e3bddae24b89164653931e3ecb3f8eb138f184951bd19494a1bd7f",
+    "src\\swe_repair\\calibration.py": "0ac1012191b66b5d34a293a950b112cd324dab6850b1434593b7436d30f9ffd7",
+    "src\\swe_repair\\cf.py": "0c12d662805d5df2a370db740fe337913bfa4b55d9469ed60e5f2353797420f4",
+    "src\\swe_repair\\evaluation.py": "8c178fcaa9fc413829b2dac8a7a695afb6d7462806e161172c9bd9497a0299d2",
+    "src\\swe_repair\\execution.py": "135477380d2370a8af66db9a0b62931d523ba0251da856c7d01f0d20fe4f6046",
+    "src\\swe_repair\\experiment.py": "86502c658e10e7e6297d289813e19b627abc377a828bd3e68fae0cc1558eff88",
+    "src\\swe_repair\\feedback.py": "e233cfdf87dd62aa533e59b37a3257c06373c2496bcc356abf328f0d987f5d12",
+    "src\\swe_repair\\fingerprint.py": "d7ed58eb7b7202fa2b5b9be023dc31d2e22730cbbd0ce1120790b3ecd8e5da83",
+    "src\\swe_repair\\interact.py": "1f0700cb35f4ceafebe5c60084a4efa9304931cea62cf2e7fe01a39254fa6fdd",
+    "src\\swe_repair\\llm.py": "0148c52375e46d555ee437c008ea5ea1bfcd76d6655027dd2a4f54857e70e617",
+    "src\\swe_repair\\patchutil.py": "adc4ae3d01b9ca85bfd14ebe3133f79eba35794cc9db83a57b6daf97d932a876",
+    "src\\swe_repair\\prefix.py": "27ada97b1c9f63d5cd57a98ef5862331a3e5d39fe5d9cf4acb14fcaf0449617f",
+    "src\\swe_repair\\pricing.py": "561ffd2040541887e3b61949bd5d3ac1dc2400fa91312ce6210facf4c29630db",
+    "src\\swe_repair\\router.py": "d1867d57704266f554ac17235ac34b3cd32d242a07314443932e927626c88cdf",
+    "src\\swe_repair\\runlog.py": "a5311ae21a3a40d2d74b366d63a6454acfafa6863d1a4792b2b05f05e5cbdb48",
+    "src\\swe_repair\\spend.py": "130a2f4291e9d4312fc8f1379d530f8c318deadebd9fdd7816a0592c011209a0",
+    "src\\swe_repair\\state.py": "2d0b0c5d84180b90a14df846b5c6096803723311b35aec7f7cebc4506b4a674c",
+    "src\\swe_repair\\statistics.py": "5d95441c326779871ef513c8ed2d27b949a46f94d0c46d1283c8a80d675871b7",
+    "scripts\\run_cf.py": "b897234a785f4a5e8cd8795e3893acf5d5ea0a04121ad8029b490e1174eb73cf"
+  },
+  "diagnostic_config_sha256": "8f1173deca128a7e9f454b09c7e77092d8cab6853e3f439622279b5346b1bc0b",
+  "preservation": {
+    "experiments": {
+      "baseline_commit": "3759265",
+      "protected_total": 93,
+      "verified": 93,
+      "missing": [],
+      "changed": [],
+      "invalid": [],
+      "ok": true
+    },
+    "archive": {
+      "archived_total": 131,
+      "missing": [],
+      "changed": [],
+      "invalid": [],
+      "ok": true
+    }
+  },
+  "stdout_sha256": "430d86aa2657bea3d2e7b55f827a285421cfefa7a960fc0be11aade375841a8b"
+}

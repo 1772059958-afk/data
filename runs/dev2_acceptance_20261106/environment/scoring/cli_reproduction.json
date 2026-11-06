@@ -1,0 +1,11 @@
+{
+  "execute": true,
+  "model_calls": 0,
+  "url": "https://download.docker.com/linux/ubuntu/dists/jammy/pool/stable/amd64/docker-ce-cli_29.9.2-1~ubuntu.22.04~jammy_amd64.deb",
+  "package_sha256": "b40b9821da9d2bbed47b868624ee08d9205be28de6366bbd2824116dc364b226",
+  "binary_sha256": "f5000a4e1745a901bc9ecef3c3063da4454d9bcb7bfd581eb1bbeb3c3602da9b",
+  "target": "C:\\Users\\remil\\Desktop\\3yr\\\u79d1\u7814\\proj\\work\\scoring_setup\\docker_cli\\bin\\docker",
+  "version": "29.9.2",
+  "architecture": "linux-amd64",
+  "hashes_verified": true
+}

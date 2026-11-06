@@ -1,0 +1,33 @@
+{
+  "official_cleanup_function": "swebench.harness.docker_utils.cleanup_container",
+  "docker_cli": "/usr/local/bin/docker",
+  "docker_cli_version": "Docker version 29.9.2, build a82e528",
+  "smoke_container_name": "swe-repair-scoring-cli-cleanup-20261106",
+  "smoke_container_id": "c66154b536d7ad103768b9838b01838a745f4ce34b45f436e9de830f5775446c",
+  "official_cleanup_completed": true,
+  "absence_verified_by_sdk": true,
+  "cleanup_console": "Attempting to stop container swe-repair-scoring-cli-cleanup-20261106...\nContainer swe-repair-scoring-cli-cleanup-20261106 stopped successfully.\nAttempting to remove container swe-repair-scoring-cli-cleanup-20261106...\nContainer swe-repair-scoring-cli-cleanup-20261106 removed successfully.\n",
+  "model_calls": 0,
+  "hidden_rows_read": 0,
+  "controller_image_id": "sha256:1f43c83b3d3c631d37af54a19828df269accd045a22c62c0aab5b2bfa713726f",
+  "parent_controller_image_id": "sha256:123849a78746d803a2b646170562856056621673f02d9f4ab11c6f150b732aef",
+  "command": [
+    "docker",
+    "--context",
+    "desktop-linux",
+    "run",
+    "--rm",
+    "--network",
+    "none",
+    "--env",
+    "DOCKER_HOST=unix:///var/run/docker.sock",
+    "--mount",
+    "type=bind,src=/var/run/docker.sock,dst=/var/run/docker.sock",
+    "--mount",
+    "type=bind,src=C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\work\\scoring_setup\\check_official_cleanup.py,dst=/opt/check.py,readonly",
+    "sha256:1f43c83b3d3c631d37af54a19828df269accd045a22c62c0aab5b2bfa713726f",
+    "/opt/check.py"
+  ],
+  "network": "none",
+  "dataset_mounted": false
+}

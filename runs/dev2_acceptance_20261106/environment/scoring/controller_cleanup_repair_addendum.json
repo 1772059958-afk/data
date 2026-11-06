@@ -1,0 +1,17 @@
+{
+  "issue": "The initial Linux scoring controller had Docker SDK access but no Linux docker CLI. SWE-bench 5.0.2 cleanup_container invokes the CLI, so completed tail containers could remain after reports were written.",
+  "old_controller_image_id": "sha256:123849a78746d803a2b646170562856056621673f02d9f4ab11c6f150b732aef",
+  "new_controller_image_id": "sha256:1f43c83b3d3c631d37af54a19828df269accd045a22c62c0aab5b2bfa713726f",
+  "docker_cli_version": "29.9.2",
+  "official_harness_changed": false,
+  "generation_or_instance_images_changed": false,
+  "original_matrix_predictions_reports_changed": false,
+  "cross_arm_container_state": "Official create_container removes any same-name existing container through Docker SDK, then creates from the configured immutable image before evaluation.",
+  "remediation": "Three explicitly named completed evaluator containers were removed and their absence verified; the new controller passed actual official create/start/cleanup and Docker SDK absence verification.",
+  "audit_paths": [
+    "runs/dev2_diagnostic_20261106_02/scoring/controller_cleanup_addendum.json",
+    "runs/dev2_acceptance_20261106/environment/scoring/cli_upstream/verification.json",
+    "runs/dev2_acceptance_20261106/environment/scoring/cleanup_smoke.json"
+  ],
+  "environment_health_claim": "Harness execution completion and zero harness report errors do not alone establish all test-framework or dependency health."
+}

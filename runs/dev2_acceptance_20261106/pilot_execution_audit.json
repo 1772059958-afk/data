@@ -1,0 +1,418 @@
+{
+  "kind": "generation_only_pilot_execution_audit",
+  "date": "2026-11-06",
+  "scope": "2 designated dev instances x 5 actual pilot arms x 1 repeat; no scoring artifacts read",
+  "passed": true,
+  "findings": [],
+  "cell_count": 10,
+  "expected_cell_count": 10,
+  "config_hash": "d485c95edec9f5d5f944d96680a8a558104743119326e794510a664b5c0f4c19",
+  "seed": 20261106,
+  "repeat_index": 0,
+  "formal_status": "draft-pending-calibration",
+  "global_resource_ceiling": {
+    "token": 512000,
+    "model_call": 12,
+    "tool_call": 80,
+    "wallclock_seconds": 1200
+  },
+  "interaction_session_ceiling": {
+    "model_calls": 6,
+    "tool_calls": 10,
+    "wallclock_seconds": 420,
+    "final_call": "reserved_inside_limit"
+  },
+  "per_instance_cny": 2.0,
+  "shared_prefix": {
+    "pvlib__pvlib-python-1707": {
+      "complete_stage_hashes": {
+        "A": "6eac41db2780996d11c0e7558ac26f440f50c72764a317a6ed09228bae03f5f6",
+        "C": "6eac41db2780996d11c0e7558ac26f440f50c72764a317a6ed09228bae03f5f6",
+        "D": "6eac41db2780996d11c0e7558ac26f440f50c72764a317a6ed09228bae03f5f6",
+        "E": "6eac41db2780996d11c0e7558ac26f440f50c72764a317a6ed09228bae03f5f6"
+      },
+      "snapshot_hashes": {
+        "A": "35fc0b4f5d398cc0d89c0077e8543415e64831c358920023b3f91125e472d700",
+        "C": "35fc0b4f5d398cc0d89c0077e8543415e64831c358920023b3f91125e472d700",
+        "D": "35fc0b4f5d398cc0d89c0077e8543415e64831c358920023b3f91125e472d700",
+        "E": "35fc0b4f5d398cc0d89c0077e8543415e64831c358920023b3f91125e472d700"
+      },
+      "hash_scheme": "SHA256 of UTF-8 canonical JSON: sorted keys, compact separators, ensure_ascii=false"
+    },
+    "pydicom__pydicom-1139": {
+      "complete_stage_hashes": {
+        "A": "e6420dc75d4510c7ea71f378a671cf6f24862dc6bccd8e377ac5143cbef5a28a",
+        "C": "e6420dc75d4510c7ea71f378a671cf6f24862dc6bccd8e377ac5143cbef5a28a",
+        "D": "e6420dc75d4510c7ea71f378a671cf6f24862dc6bccd8e377ac5143cbef5a28a",
+        "E": "e6420dc75d4510c7ea71f378a671cf6f24862dc6bccd8e377ac5143cbef5a28a"
+      },
+      "snapshot_hashes": {
+        "A": "63d3a66570cefa938bcb57cbbb0edb025ab0cf8c9e68e2bc2cd462720604713a",
+        "C": "63d3a66570cefa938bcb57cbbb0edb025ab0cf8c9e68e2bc2cd462720604713a",
+        "D": "63d3a66570cefa938bcb57cbbb0edb025ab0cf8c9e68e2bc2cd462720604713a",
+        "E": "63d3a66570cefa938bcb57cbbb0edb025ab0cf8c9e68e2bc2cd462720604713a"
+      },
+      "hash_scheme": "SHA256 of UTF-8 canonical JSON: sorted keys, compact separators, ensure_ascii=false"
+    }
+  },
+  "cells": [
+    {
+      "arm": "A",
+      "instance_id": "pvlib__pvlib-python-1707",
+      "status": "completed",
+      "termination_reason": "early_stop_public_pass",
+      "selected_route": "fixed",
+      "executed_stages": [
+        "prefix",
+        "fixed"
+      ],
+      "image_id": "sha256:6bddca9c6360684b088cba4a502969e84c3a2f125550983e48e38e2e252b660c",
+      "base_commit": "40e9e978c170bdde4eeee1547729417665dbc34c",
+      "prefix_reused": false,
+      "policy_cost_cny": 0.38696647999999995,
+      "inherited_prefix_cost_cny": 0.26535479999999995,
+      "new_generation_cost_cny": 0.38696647999999995,
+      "global_resource_consumed": {
+        "token": 84574,
+        "model_call": 4,
+        "tool_call": 10,
+        "wallclock_seconds": 254.95850790000077
+      },
+      "interaction_session_consumed": null,
+      "cleanup_lifecycle_ok": true,
+      "container_names": [
+        "proposal-fixed-pvlib__pvlib-python-1707-d32163c62b",
+        "proposal-prefix-pvlib__pvlib-python-1707-ed7201e671"
+      ],
+      "prediction_patch_sha256": "806f6631772e8d67ea2dafd8023c72c3b0d511fbd415bab3d9b28a8731bc1883"
+    },
+    {
+      "arm": "A",
+      "instance_id": "pydicom__pydicom-1139",
+      "status": "completed",
+      "termination_reason": "early_stop_public_pass",
+      "selected_route": "stop",
+      "executed_stages": [
+        "prefix"
+      ],
+      "image_id": "sha256:bd5edf8694cde12aaf99beb18b3935b15e076e81ac7e52aef46b1ca3d9071428",
+      "base_commit": "b9fb05c177b685bf683f7f57b2d57374eb7d882d",
+      "prefix_reused": false,
+      "policy_cost_cny": 0.026002360000000002,
+      "inherited_prefix_cost_cny": 0.026002360000000002,
+      "new_generation_cost_cny": 0.026002360000000002,
+      "global_resource_consumed": {
+        "token": 18042,
+        "model_call": 3,
+        "tool_call": 15,
+        "wallclock_seconds": 26.431380800000625
+      },
+      "interaction_session_consumed": null,
+      "cleanup_lifecycle_ok": true,
+      "container_names": [
+        "proposal-prefix-pydicom__pydicom-1139-4496f3bc29"
+      ],
+      "prediction_patch_sha256": "8415fd7cb734e9df85ab0028fafbc86eaf9864fce0ced43db316b833e314636f"
+    },
+    {
+      "arm": "B",
+      "instance_id": "pvlib__pvlib-python-1707",
+      "status": "budget_exhausted",
+      "termination_reason": "model_call_budget",
+      "selected_route": "standalone",
+      "executed_stages": [
+        "standalone"
+      ],
+      "image_id": "sha256:6bddca9c6360684b088cba4a502969e84c3a2f125550983e48e38e2e252b660c",
+      "base_commit": "40e9e978c170bdde4eeee1547729417665dbc34c",
+      "prefix_reused": false,
+      "policy_cost_cny": 0.09412279999999999,
+      "inherited_prefix_cost_cny": 0.0,
+      "new_generation_cost_cny": 0.09412279999999999,
+      "global_resource_consumed": {
+        "token": 27904,
+        "model_call": 6,
+        "tool_call": 10,
+        "wallclock_seconds": 59.90418520000094
+      },
+      "interaction_session_consumed": {
+        "token": 27904,
+        "model_call": 6,
+        "tool_call": 10,
+        "wallclock_seconds": 59.90418520000094,
+        "named_tool_calls": 5
+      },
+      "cleanup_lifecycle_ok": true,
+      "container_names": [
+        "proposal-standalone-pvlib__pvlib-python-1707-d849f7b454"
+      ],
+      "prediction_patch_sha256": "bc7bb9ebc9adf681be4253becbc4c8e376222157266ccb60222bd8435b1fc3a6"
+    },
+    {
+      "arm": "B",
+      "instance_id": "pydicom__pydicom-1139",
+      "status": "budget_exhausted",
+      "termination_reason": "model_call_budget",
+      "selected_route": "standalone",
+      "executed_stages": [
+        "standalone"
+      ],
+      "image_id": "sha256:bd5edf8694cde12aaf99beb18b3935b15e076e81ac7e52aef46b1ca3d9071428",
+      "base_commit": "b9fb05c177b685bf683f7f57b2d57374eb7d882d",
+      "prefix_reused": false,
+      "policy_cost_cny": 0.02252448,
+      "inherited_prefix_cost_cny": 0.0,
+      "new_generation_cost_cny": 0.02252448,
+      "global_resource_consumed": {
+        "token": 18358,
+        "model_call": 6,
+        "tool_call": 10,
+        "wallclock_seconds": 13.234989399999904
+      },
+      "interaction_session_consumed": {
+        "token": 18358,
+        "model_call": 6,
+        "tool_call": 10,
+        "wallclock_seconds": 13.234989399999904,
+        "named_tool_calls": 5
+      },
+      "cleanup_lifecycle_ok": true,
+      "container_names": [
+        "proposal-standalone-pydicom__pydicom-1139-6b74f7b28e"
+      ],
+      "prediction_patch_sha256": "4a4c200659779408e3c36693df17f48ebe439e47ab5ecc40e55053ffe02aeb7d"
+    },
+    {
+      "arm": "C",
+      "instance_id": "pvlib__pvlib-python-1707",
+      "status": "completed",
+      "termination_reason": "public_pass",
+      "selected_route": "interactive",
+      "executed_stages": [
+        "prefix",
+        "interactive"
+      ],
+      "image_id": "sha256:6bddca9c6360684b088cba4a502969e84c3a2f125550983e48e38e2e252b660c",
+      "base_commit": "40e9e978c170bdde4eeee1547729417665dbc34c",
+      "prefix_reused": true,
+      "policy_cost_cny": 0.35102552,
+      "inherited_prefix_cost_cny": 0.26535479999999995,
+      "new_generation_cost_cny": 0.08567072000000003,
+      "global_resource_consumed": {
+        "token": 121719,
+        "model_call": 7,
+        "tool_call": 14,
+        "wallclock_seconds": 237.071869100002
+      },
+      "interaction_session_consumed": {
+        "token": 70231,
+        "model_call": 4,
+        "tool_call": 9,
+        "wallclock_seconds": 61.1018892000011,
+        "named_tool_calls": 4
+      },
+      "cleanup_lifecycle_ok": true,
+      "container_names": [
+        "proposal-interactive-pvlib__pvlib-python-1707-0b71ff771f",
+        "proposal-prefix-pvlib__pvlib-python-1707-5b43d653f2"
+      ],
+      "prediction_patch_sha256": "eee604c853803bd89d9465f45d97abf3cf826b856ca0e1ee1dc4458b61ae1510"
+    },
+    {
+      "arm": "C",
+      "instance_id": "pydicom__pydicom-1139",
+      "status": "completed",
+      "termination_reason": "early_stop_public_pass",
+      "selected_route": "stop",
+      "executed_stages": [
+        "prefix"
+      ],
+      "image_id": "sha256:bd5edf8694cde12aaf99beb18b3935b15e076e81ac7e52aef46b1ca3d9071428",
+      "base_commit": "b9fb05c177b685bf683f7f57b2d57374eb7d882d",
+      "prefix_reused": true,
+      "policy_cost_cny": 0.026002360000000002,
+      "inherited_prefix_cost_cny": 0.026002360000000002,
+      "new_generation_cost_cny": 0.0,
+      "global_resource_consumed": {
+        "token": 18042,
+        "model_call": 3,
+        "tool_call": 15,
+        "wallclock_seconds": 26.431380800000625
+      },
+      "interaction_session_consumed": null,
+      "cleanup_lifecycle_ok": true,
+      "container_names": [
+        "proposal-prefix-pydicom__pydicom-1139-31e4b1f8cc"
+      ],
+      "prediction_patch_sha256": "8415fd7cb734e9df85ab0028fafbc86eaf9864fce0ced43db316b833e314636f"
+    },
+    {
+      "arm": "D",
+      "instance_id": "pvlib__pvlib-python-1707",
+      "status": "budget_exhausted",
+      "termination_reason": "model_call_budget",
+      "selected_route": "interactive",
+      "executed_stages": [
+        "prefix",
+        "interactive"
+      ],
+      "image_id": "sha256:6bddca9c6360684b088cba4a502969e84c3a2f125550983e48e38e2e252b660c",
+      "base_commit": "40e9e978c170bdde4eeee1547729417665dbc34c",
+      "prefix_reused": true,
+      "policy_cost_cny": 0.32415007999999995,
+      "inherited_prefix_cost_cny": 0.26535479999999995,
+      "new_generation_cost_cny": 0.058795280000000005,
+      "global_resource_consumed": {
+        "token": 130456,
+        "model_call": 9,
+        "tool_call": 14,
+        "wallclock_seconds": 202.386933400001
+      },
+      "interaction_session_consumed": {
+        "token": 78968,
+        "model_call": 6,
+        "tool_call": 9,
+        "wallclock_seconds": 26.41695350000009,
+        "named_tool_calls": 5
+      },
+      "cleanup_lifecycle_ok": true,
+      "container_names": [
+        "proposal-interactive-pvlib__pvlib-python-1707-3f7845666f",
+        "proposal-prefix-pvlib__pvlib-python-1707-326d95389e"
+      ],
+      "prediction_patch_sha256": "4823d6969e2bcf38a5f0a09428ef4dff86ac8529f2ea4fdd39d9886314ff9636"
+    },
+    {
+      "arm": "D",
+      "instance_id": "pydicom__pydicom-1139",
+      "status": "completed",
+      "termination_reason": "early_stop_public_pass",
+      "selected_route": "stop",
+      "executed_stages": [
+        "prefix"
+      ],
+      "image_id": "sha256:bd5edf8694cde12aaf99beb18b3935b15e076e81ac7e52aef46b1ca3d9071428",
+      "base_commit": "b9fb05c177b685bf683f7f57b2d57374eb7d882d",
+      "prefix_reused": true,
+      "policy_cost_cny": 0.026002360000000002,
+      "inherited_prefix_cost_cny": 0.026002360000000002,
+      "new_generation_cost_cny": 0.0,
+      "global_resource_consumed": {
+        "token": 18042,
+        "model_call": 3,
+        "tool_call": 15,
+        "wallclock_seconds": 26.431380800000625
+      },
+      "interaction_session_consumed": null,
+      "cleanup_lifecycle_ok": true,
+      "container_names": [
+        "proposal-prefix-pydicom__pydicom-1139-a199481f3f"
+      ],
+      "prediction_patch_sha256": "8415fd7cb734e9df85ab0028fafbc86eaf9864fce0ced43db316b833e314636f"
+    },
+    {
+      "arm": "E",
+      "instance_id": "pvlib__pvlib-python-1707",
+      "status": "completed",
+      "termination_reason": "public_pass",
+      "selected_route": "interactive",
+      "executed_stages": [
+        "prefix",
+        "interactive"
+      ],
+      "image_id": "sha256:6bddca9c6360684b088cba4a502969e84c3a2f125550983e48e38e2e252b660c",
+      "base_commit": "40e9e978c170bdde4eeee1547729417665dbc34c",
+      "prefix_reused": true,
+      "policy_cost_cny": 0.35367703999999994,
+      "inherited_prefix_cost_cny": 0.26535479999999995,
+      "new_generation_cost_cny": 0.08832224,
+      "global_resource_consumed": {
+        "token": 128677,
+        "model_call": 8,
+        "tool_call": 14,
+        "wallclock_seconds": 235.17898360000072
+      },
+      "interaction_session_consumed": {
+        "token": 77189,
+        "model_call": 5,
+        "tool_call": 9,
+        "wallclock_seconds": 59.20900369999981,
+        "named_tool_calls": 5
+      },
+      "cleanup_lifecycle_ok": true,
+      "container_names": [
+        "proposal-interactive-pvlib__pvlib-python-1707-04d37945e8",
+        "proposal-prefix-pvlib__pvlib-python-1707-8c313e8fbd"
+      ],
+      "prediction_patch_sha256": "86843d42c833fbb6114303b6b5da8a8e9957a78a64ef1d6ce9f9d90f384ba86f"
+    },
+    {
+      "arm": "E",
+      "instance_id": "pydicom__pydicom-1139",
+      "status": "completed",
+      "termination_reason": "early_stop_public_pass",
+      "selected_route": "stop",
+      "executed_stages": [
+        "prefix"
+      ],
+      "image_id": "sha256:bd5edf8694cde12aaf99beb18b3935b15e076e81ac7e52aef46b1ca3d9071428",
+      "base_commit": "b9fb05c177b685bf683f7f57b2d57374eb7d882d",
+      "prefix_reused": true,
+      "policy_cost_cny": 0.026002360000000002,
+      "inherited_prefix_cost_cny": 0.026002360000000002,
+      "new_generation_cost_cny": 0.0,
+      "global_resource_consumed": {
+        "token": 18042,
+        "model_call": 3,
+        "tool_call": 15,
+        "wallclock_seconds": 26.431380800000625
+      },
+      "interaction_session_consumed": null,
+      "cleanup_lifecycle_ok": true,
+      "container_names": [
+        "proposal-prefix-pydicom__pydicom-1139-c7ef017013"
+      ],
+      "prediction_patch_sha256": "8415fd7cb734e9df85ab0028fafbc86eaf9864fce0ced43db316b833e314636f"
+    }
+  ],
+  "policy_cost_cny_by_arm": {
+    "A": 0.41296883999999995,
+    "B": 0.11664727999999999,
+    "C": 0.37702788,
+    "D": 0.35015243999999995,
+    "E": 0.37967939999999994
+  },
+  "pilot_new_generation_cost_cny": 0.7624043600000001,
+  "cumulative_ledger": {
+    "path": "runs\\dev2_acceptance_20261106\\batch_ledger.json",
+    "sha256": "979cc53a59e139aac15f53e3258de1ea35bb9a81c2fd30d731f6bc4a8139fcaf",
+    "ceiling_cny": 100.0,
+    "booked_cny": 2.04914488,
+    "pending": null,
+    "record_count": 91,
+    "billing_counts": {
+      "unknown": 1,
+      "estimated_from_usage": 90
+    },
+    "cost_interpretation": "usage-based estimates and retained conservative unknown reservations; not invoiced payment"
+  },
+  "source_file_sha256": {
+    "runs\\dev2_pilot_A_20261106_01\\matrix.json": "f97247289a78ae7810e4b6ec6067f247459a910a0d22909c9a212e34c4783027",
+    "runs\\dev2_pilot_A_20261106_01\\predictions_A.jsonl": "190b3b32ccbd131dbc75ec7c9f51d802eb46c9c3628e95308c729323a65703af",
+    "runs\\dev2_pilot_B_20261106_01\\matrix.json": "babc931962ae36451360803031328d0254457937f46371b65486a223e42b76f6",
+    "runs\\dev2_pilot_B_20261106_01\\predictions_B.jsonl": "55456e7e40aedbafc6a84168304af28d007d139e9e04a346bf7eebb3131851ad",
+    "runs\\dev2_pilot_C_20261106_01\\matrix.json": "69015a3f79752fb6dfbeafd60ddeb15cc15eb4ed0fab7237af39b76dd73a1b7c",
+    "runs\\dev2_pilot_C_20261106_01\\predictions_C.jsonl": "20747b72e11e5f96dee78047d0ab9b4ff02f7e628648b4deafa4afceda3a4588",
+    "runs\\dev2_pilot_D_20261106_01\\matrix.json": "0f1e11c87fc460713ca5b49ae49a7c5bf20a698c5db41d7e0ee3f7845485e6a6",
+    "runs\\dev2_pilot_D_20261106_01\\predictions_D.jsonl": "ea6510fef921b612b4a73b855fff096672b7680237ffc1a8de31d68bc8a42808",
+    "runs\\dev2_pilot_E_20261106_01\\matrix.json": "d26dffa6e647a05b555cb0412432930de9718f3f380d57b733a9c759b5e96448",
+    "runs\\dev2_pilot_E_20261106_01\\predictions_E.jsonl": "844297d0b715ddcf89b96e35cf786a0740f2da41ecdddfebc67bc10bdbcafc7c",
+    "runs\\dev2_acceptance_20261106\\batch_ledger.json": "979cc53a59e139aac15f53e3258de1ea35bb9a81c2fd30d731f6bc4a8139fcaf"
+  },
+  "audit_script_sha256": "b8b8da4822a495893f2363139da92a72cdf3b8f2463df3c18b8e9b37d8925ba2",
+  "limitations": [
+    "Cleanup is verified from generation lifecycle records, not an additional Docker inspection.",
+    "The entire audit uses generation matrices, predictions and the cumulative ledger; no scoring reports, hidden patches, logs, credentials or model calls.",
+    "This is a small provisional dev pilot, not formal calibration or a three-repeat statistical experiment."
+  ]
+}

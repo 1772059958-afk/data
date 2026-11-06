@@ -1,0 +1,23 @@
+{
+  "synthetic_only": true,
+  "hidden_dataset_rows_read": 0,
+  "model_calls": 0,
+  "exit_code": 1,
+  "parseable_results": true,
+  "parsed_statuses": [
+    "ERROR",
+    "PASSED"
+  ],
+  "official_resolved": false,
+  "official_instance_infra_flag": false,
+  "official_posthoc_classification": null,
+  "missing_module_control": [
+    "missing_module",
+    "ambiguous"
+  ],
+  "network_failure_control": [
+    "network_unreachable",
+    "environment"
+  ],
+  "controller_image_id": "sha256:123849a78746d803a2b646170562856056621673f02d9f4ab11c6f150b732aef"
+}

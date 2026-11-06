@@ -1,0 +1,9 @@
+{
+  "kind": "final_pilot_gate_qa",
+  "result": "343/343 passed",
+  "code_sha256": "509be0621e27c53f6e601e7748ec968b7e29b30491bb8cc5642cf0738d1ab45b",
+  "git_commit": "47bcd23f24aa29a1844b245d5b8a5c5690c08256",
+  "stdout_sha256": "424da54b86c3d6dfa59ad991536d4ab1bc1fb81c34b1b80199a3eb9345e6bdb8",
+  "pilot_cli_regressions": 7,
+  "main_formal_config_unchanged": true
+}

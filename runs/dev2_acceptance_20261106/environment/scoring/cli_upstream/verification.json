@@ -1,0 +1,18 @@
+{
+  "upstream": "https://download.docker.com/linux/ubuntu/",
+  "version": "5:29.9.2-1~ubuntu.22.04~jammy",
+  "architecture": "amd64",
+  "package_filename": "dists/jammy/pool/stable/amd64/docker-ce-cli_29.9.2-1~ubuntu.22.04~jammy_amd64.deb",
+  "package_sha256": "b40b9821da9d2bbed47b868624ee08d9205be28de6366bbd2824116dc364b226",
+  "binary_sha256": "f5000a4e1745a901bc9ecef3c3063da4454d9bcb7bfd581eb1bbeb3c3602da9b",
+  "signed_release_verified": true,
+  "release_signer_primary_fingerprint": "9DC858229FC7DD38854AE2D88D81803C0EBFCD88",
+  "packages_index_sha256": "e283fd244b98c6bb5b65f81c7060f27368f61cbfa10a063f6a9b79ce720df19b",
+  "static_checksum_probes": {
+    "https://download.docker.com/linux/static/stable/x86_64/docker-29.9.2.tgz.sha256": 404,
+    "https://download.docker.com/linux/static/stable/x86_64/docker-29.9.2.tgz.sha256sum": 404
+  },
+  "selection_reason": "official static checksum URLs unavailable; signed official APT SHA256 chain used",
+  "installed_component": "usr/bin/docker only; no daemon",
+  "linux_binary": true
+}
