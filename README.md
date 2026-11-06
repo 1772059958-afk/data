@@ -94,6 +94,11 @@ python scripts/calibrate_router.py --observations runs/new_diagnostic/analysis.j
 
 ## 运行依赖
 
+2026-11-06 增加 `--mode prefix`：完成共享前缀、恢复检查和快照后退出，输出仅为 `PREFIX`，不调用路由或任何延续分支。默认仍只打印计划。prefix 宿主最小依赖见 `requirements-prefix.txt`，本机精确安装版本另记 `requirements-prefix.lock.txt`；官方判分才额外需要 SWE-bench harness。专用集成配置限定单个 dev 实例，`execution.credential_source=project_dotenv` 时只读取项目 `.env`，不会回退到系统变量。主实验配置继续 pending。环境准备和实际验收记录见 `docs/prefix环境与集成验收_20261106.md`。
+
 标准库离线套件不需要 requests、pyarrow、swebench 或 pytest。只有经授权的真实生成/容器评测才需要对应依赖、模型密钥和 WSL/Linux Docker 环境；依赖见 `requirements.txt`。正式运行前需记录实际 Python/依赖版本、模型服务端版本与镜像 digest，不能依赖下限版本约束或 latest 标签推定复现性。
 
 密钥通过环境变量或未入库 `.env` 提供，不得写入日志、配置或提交。当前不需要读取或配置密钥。
+
+
+本轮两例五组一次的生成、独立判分、成本与环境修复结果见 [实验摘要](docs/两例五组实验摘要_20261106.md)，对应数据位于 `runs/dev2_acceptance_20261106/`；报告 PPT 位于 `docs/deliverables/组会汇报_两例五组实验_20261106.pptx`。
