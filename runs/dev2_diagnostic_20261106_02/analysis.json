@@ -1,0 +1,1358 @@
+{
+  "historical_diagnostic_only": false,
+  "mode": "diagnostic",
+  "config_hash": "da6d858652f3457442bf4d883759a3a31a5f13724e31926131b3058ff93f30c2",
+  "effective_config": {
+    "config_version": "proposal_aligned_v1",
+    "prompt_version": "proposal_v1_error_feedback_20261030",
+    "status": "draft-pending-calibration",
+    "note": "Two designated DEV cases, paired diagnostic followed by five actual single-policy pilot arms; one repeat; provisional routing remains pending formal calibration. Corrected public-test environment: pytest7 legacy setup compatibility, public fixture preloaded; no source/test edits.",
+    "dataset": {
+      "name": "princeton-nlp/SWE-bench_Lite",
+      "revision": "6ec7bb89b9342f664a54a6e0a6ea6501d3437cc2",
+      "dev_split": "dev",
+      "test_split": "test",
+      "dev_instances": 23,
+      "test_instances": 300,
+      "manifest": "data/frozen/manifest.json"
+    },
+    "model": {
+      "model": "deepseek-flash",
+      "model_version": "deepseek-flash",
+      "thinking": true,
+      "effort": "low",
+      "temperature": null,
+      "top_p": null,
+      "max_tokens": 16384,
+      "max_retries": 0,
+      "calibration": "pending",
+      "identity_probe": {
+        "file": "runs/model_probe_20261106_02/result.json",
+        "sha256": "2283b2bbc72a51f3348261ab86a368a301e44fbce1b6727cdb387861c387370a",
+        "request_id": "71d41ce5-7560-4bdf-807b-7daf90db2836",
+        "immutable_version": false
+      }
+    },
+    "budget_tiers": [
+      {
+        "tier": "development",
+        "token": 512000,
+        "model_call": 12,
+        "tool_call": 80,
+        "wallclock_seconds": 1200
+      }
+    ],
+    "prefix": {
+      "n_candidates": 2,
+      "prefix_fraction": 0.3,
+      "prefix_fraction_grid": [
+        0.2,
+        0.3,
+        0.4
+      ],
+      "calibration": "pending"
+    },
+    "fixed_continuation": {
+      "max_candidates": 6,
+      "feedback": "structured",
+      "stop_on_public_pass": true,
+      "calibration": "pending"
+    },
+    "router": {
+      "rule_order": [
+        "stop_on_env_failure_after_one_recovery",
+        "stop_when_budget_insufficient",
+        "freeze_when_public_candidate_passes",
+        "fixed_on_local_application_or_syntax_error",
+        "interactive_on_wide_localization_disagreement",
+        "interactive_on_high_duplicate_rate",
+        "interactive_on_out_of_scope_stack_evidence",
+        "fixed_when_evidence_insufficient",
+        "fixed_continuation_otherwise"
+      ],
+      "localization_disagreement_threshold": null,
+      "duplicate_rate_threshold": null,
+      "threshold_grid": [
+        0.25,
+        0.5,
+        0.75
+      ],
+      "switch_probability": null,
+      "min_continuation": {
+        "token": 2048,
+        "model_call": 1,
+        "tool_call": 1,
+        "wallclock_seconds": 30
+      },
+      "calibration": "pending"
+    },
+    "interaction": {
+      "tools": [
+        "search_symbol",
+        "read_region",
+        "find_references",
+        "apply_patch",
+        "run_test",
+        "finish"
+      ],
+      "states": [
+        "analyse",
+        "edit",
+        "validate",
+        "finish"
+      ],
+      "stagnation_patience": 3,
+      "model_calls": 6,
+      "tool_calls": 10,
+      "wallclock_seconds": 420,
+      "final_call": "reserved_inside_limit"
+    },
+    "candidate_selection": {
+      "order": [
+        "scope_valid",
+        "syntax_valid",
+        "applies_cleanly",
+        "public_validation",
+        "fewer_files_touched",
+        "fewer_diff_lines",
+        "generation_order"
+      ],
+      "frozen": false
+    },
+    "evaluation": {
+      "harness": "SWE-bench official containerised harness",
+      "repeats": 1,
+      "primary_metric": "resolved_rate",
+      "denominator": "all designated instances",
+      "generation_view_fields": [
+        "problem_statement",
+        "base_commit",
+        "repo",
+        "version",
+        "environment_setup_commit"
+      ],
+      "withheld_from_generation": [
+        "patch",
+        "test_patch",
+        "FAIL_TO_PASS",
+        "PASS_TO_PASS"
+      ],
+      "frozen": false,
+      "instance_list": "runs/dev2_acceptance_20261106/instances.json",
+      "sampling": "full_split_or_preregistered_stratified_subset",
+      "environment_failures": "retain_in_primary_denominator",
+      "statistics": "descriptive_two_case_single_repeat_pilot"
+    },
+    "arms": {
+      "A": "fixed workflow",
+      "B": "interactive only",
+      "C": "simple cascade (shared prefix, all eligible failures escalate)",
+      "D": "adaptive hybrid (shared prefix, evidence-based routing)",
+      "E": "random routing (switch probability fixed on dev split)"
+    },
+    "protocol": "docs/实验协议_开题对齐.md",
+    "active_tier": "development",
+    "execution": {
+      "live_authorized": true,
+      "per_instance_cny": 2.0,
+      "total_cny": 100.0,
+      "tool_call_unit": "container_exec",
+      "environment_retries": 1,
+      "environment_recovery": "retry_same_public_validation_no_install",
+      "output_root": "runs",
+      "modify_scope": "python_source_excluding_tests",
+      "prompt_estimator": "utf8_bytes_plus_1024",
+      "allowed_modes": [
+        "diagnostic",
+        "pilot"
+      ],
+      "allowed_splits": [
+        "dev"
+      ],
+      "allowed_instances": [
+        "pvlib__pvlib-python-1707",
+        "pydicom__pydicom-1139"
+      ],
+      "max_instances": 2,
+      "model_probe_authorized": false,
+      "docker_context": "desktop-linux",
+      "authorization_date": "2026-11-06",
+      "authorization_scope": "User requested this round 2 cases x 5 arms x 1 repeat and confirmed a cumulative 100 CNY model ceiling; includes dev paired preparation and independent scoring; no test formal expansion.",
+      "credential_source": "project_dotenv",
+      "images": {
+        "pvlib__pvlib-python-1707": "sha256:6bddca9c6360684b088cba4a502969e84c3a2f125550983e48e38e2e252b660c",
+        "pydicom__pydicom-1139": "sha256:bd5edf8694cde12aaf99beb18b3935b15e076e81ac7e52aef46b1ca3d9071428"
+      },
+      "batch_ledger": "runs/dev2_acceptance_20261106/batch_ledger.json"
+    },
+    "provenance": {
+      "code_sha256": "385e36d172ab33194d800abb80bb96091ef69a0c961ed94e4226d402be7e3eb8",
+      "git_commit": "47bcd23f24aa29a1844b245d5b8a5c5690c08256",
+      "dataset_manifest_sha256": "30e1f10eafa8248cf02cf2752eae888e2ec896dcc0697da803ed99e04599d54c",
+      "instance_list_sha256": "5c3cf15a042e0c6565851fc257257b2a8694172c4f72da3b9adbc4750f892dbd"
+    }
+  },
+  "designated_instances": [
+    "pvlib__pvlib-python-1707",
+    "pydicom__pydicom-1139"
+  ],
+  "scored_instances": 1,
+  "split": "dev",
+  "observations": [
+    {
+      "instance_id": "pvlib__pvlib-python-1707",
+      "fixed_resolved": true,
+      "interactive_resolved": true,
+      "prefix_snapshot": {
+        "budget_state": {
+          "ceiling": {
+            "model_call": 12,
+            "token": 512000,
+            "tool_call": 80,
+            "wallclock_seconds": 1200
+          },
+          "consumed": {
+            "model_call": 3,
+            "token": 45873,
+            "tool_call": 10,
+            "wallclock_seconds": 149.08168079999996
+          },
+          "exhausted_at": null,
+          "fraction_used": {
+            "model_call": 0.25,
+            "token": 0.089595703125,
+            "tool_call": 0.125,
+            "wallclock_seconds": 0.12423473399999997
+          },
+          "overrun": false,
+          "remaining": {
+            "model_call": 9,
+            "token": 466127,
+            "tool_call": 70,
+            "wallclock_seconds": 1050.9183192
+          },
+          "tier": "development"
+        },
+        "context_view": {
+          "checks_run": 1,
+          "indexed_paths": [
+            ".coveragerc",
+            ".gitattributes",
+            ".github",
+            ".gitignore",
+            ".stickler.yml",
+            "AUTHORS.md",
+            "CODE_OF_CONDUCT.md",
+            "LICENSE",
+            "MANIFEST.in",
+            "README.md",
+            "benchmarks",
+            "ci",
+            "codecov.yml",
+            "docs",
+            "paper",
+            "pvlib",
+            "pvlib.egg-info",
+            "pyproject.toml",
+            "readthedocs.yml",
+            "setup.cfg",
+            "setup.py"
+          ],
+          "read_files": [
+            "pvlib/iam.py"
+          ],
+          "registered_test_commands": [
+            "pvlib/tests/test_iam.py"
+          ],
+          "repro_reproduces": null,
+          "repro_scripts": []
+        },
+        "decision_trace": [],
+        "derived": {
+          "behavioural_signal": "behavioural",
+          "out_of_scope_frames": [],
+          "u_dup": 0.0,
+          "u_loc": 1.0
+        },
+        "failure_record": {
+          "distinct_fingerprints": [
+            "f6ac77d35c3270bb"
+          ],
+          "records": [
+            {
+              "candidate_index": 0,
+              "command": "python -m pytest pvlib/tests/test_iam.py -q --no-header -p no:cacheprovider",
+              "error_class": "behaviour_assertion",
+              "exit_code": 1,
+              "fingerprint": "f6ac77d35c3270bb",
+              "message_head": "..F...........................                                           [100%]\n=================================== FAILURES ===================================\n________________________________ test_physical _________________________________\n    def test_physical():",
+              "raw_output": "..F...........................                                           [100%]\n=================================== FAILURES ===================================\n________________________________ test_physical _________________________________\n\n    def test_physical():\n        aoi = np.array([-90., -67.5, -45., -22.5, 0., 22.5, 45., 67.5, 90.,\n                        np.nan])\n        expected = np.array([0, 0.8893998, 0.98797788, 0.99926198, 1, 0.99926198,\n                             0.98797788, 0.8893998, 0, np.nan])\n        iam = _iam.physical(aoi, 1.526, 0.002, 4)\n        assert_allclose(iam, expected, atol=1e-7, equal_nan=True)\n    \n        # GitHub issue 397\n        aoi = pd.Series(aoi)\n        iam = _iam.physical(aoi, 1.526, 0.002, 4)\n        expected = pd.Series(expected)\n>       assert_series_equal(iam, expected)\n\npvlib/tests/test_iam.py:51: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \npvlib/tests/conftest.py:63: in assert_series_equal\n    pd.testing.assert_series_equal(left, right, **kwargs)\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nleft = array([0.        , 0.8893998 , 0.98797788, 0.99926198, 1.        ,\n       0.99926198, 0.98797788, 0.8893998 , 0.        ,        nan])\nright = 0    0.000000\n1    0.889400\n2    0.987978\n3    0.999262\n4    1.000000\n5    0.999262\n6    0.987978\n7    0.889400\n8    0.000000\n9         NaN\ndtype: float64\ncls = <class 'pandas.core.series.Series'>\n\n    def _check_isinstance(left, right, cls) -> None:\n        \"\"\"\n        Helper method for our assert_* methods that ensures that\n        the two objects being compared have the right type before\n        proceeding with the comparison.\n    \n        Parameters\n        ----------\n        left : The first object being compared.\n        right : The second object being compared.\n        cls : The class type to check against.\n    \n        Raises\n        ------\n        AssertionError : Either `left` or `right` is not an instance of `cls`.\n        \"\"\"\n        cls_name = cls.__name__\n    \n        if not isinstance(left, cls):\n>           raise AssertionError(\n                f\"{cls_name} Expected type {cls}, found {type(left)} instead\"\n            )\nE           AssertionError: Series Expected type <class 'pandas.core.series.Series'>, found <class 'numpy.ndarray'> instead\n\n/opt/miniconda3/envs/testbed/lib/python3.9/site-packages/pandas/_testing/asserters.py:167: AssertionError\n=============================== warnings summary ===============================\npvlib/tests/conftest.py:7\n  /testbed/pvlib/tests/conftest.py:7: DeprecationWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html\n    from pkg_resources import parse_version\n\n../opt/miniconda3/envs/testbed/lib/python3.9/site-packages/pkg_resources/__init__.py:3144\n  /opt/miniconda3/envs/testbed/lib/python3.9/site-packages/pkg_resources/__init__.py:3144: DeprecationWarning: Deprecated call to `pkg_resources.declare_namespace('sphinxcontrib')`.\n  Implementing implicit namespace packages (as specified in PEP 420) is preferred to `pkg_resources.declare_namespace`. See https://setuptools.pypa.io/en/latest/references/keywords.html#keyword-namespace-packages\n    declare_namespace(pkg)\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n=========================== short test summary info ============================\nFAILED pvlib/tests/test_iam.py::test_physical - AssertionError: Series Expect...\n1 failed, 29 passed, 2 warnings in 0.30s",
+              "recovery_attempts": 0,
+              "repo_frames": [],
+              "stage": "test"
+            }
+          ],
+          "tool_records": []
+        },
+        "localization": {
+          "disagreement": 1.0,
+          "files_union": [
+            "pvlib/iam.py"
+          ],
+          "missing": false,
+          "passes": [
+            {
+              "evidence": [],
+              "files": [],
+              "label": "lexical",
+              "symbols": []
+            },
+            {
+              "evidence": [],
+              "files": [
+                "pvlib/iam.py"
+              ],
+              "label": "model",
+              "symbols": [
+                "physical"
+              ]
+            }
+          ],
+          "symbols_union": [
+            "physical"
+          ]
+        },
+        "patch_history": {
+          "candidates": [
+            {
+              "applies_cleanly": true,
+              "diff": "--- a/pvlib/iam.py\n+++ b/pvlib/iam.py\n@@ -215,4 +215,7 @@ def physical(aoi, n=1.526, K=4.0, L=0.002, *, n_ar=None):\n     # incidence angle modifier\n     iam = (tau_s + tau_p) / 2 / tau_0\n \n+    # set iam to 0 for AOI >= 90\n+    iam = np.where(np.abs(aoi) >= 90, 0, iam)\n+\n     return iam\n",
+              "diff_lines": 3,
+              "files_touched": [
+                "pvlib/iam.py"
+              ],
+              "hash": "de3d69ba8c0967475eb447a3745a7725c6fa75148e437775e675a4337c04a87e",
+              "index": 0,
+              "origin": "prefix",
+              "scope_valid": true,
+              "syntax": "pass",
+              "validation": "fail"
+            },
+            {
+              "applies_cleanly": false,
+              "diff": "",
+              "diff_lines": 0,
+              "files_touched": [],
+              "hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "index": 1,
+              "origin": "prefix",
+              "scope_valid": true,
+              "syntax": "not_run",
+              "validation": "not_run"
+            }
+          ],
+          "distinct_hashes": 2,
+          "duplicate_rate": 0.0
+        },
+        "state_version": "1.0",
+        "task_manifest": {
+          "base_commit": "40e9e978c170bdde4eeee1547729417665dbc34c",
+          "config_hash": "da6d858652f3457442bf4d883759a3a31a5f13724e31926131b3058ff93f30c2",
+          "config_version": "proposal_aligned_v1",
+          "environment_setup_commit": "6072e0982c3c0236f532ddfa48fbf461180d834e",
+          "image_id": "sha256:6bddca9c6360684b088cba4a502969e84c3a2f125550983e48e38e2e252b660c",
+          "instance_id": "pvlib__pvlib-python-1707",
+          "repo": "pvlib/pvlib-python",
+          "repo_root": "/testbed",
+          "version": "0.9"
+        }
+      },
+      "split": "dev",
+      "u_loc": 1.0,
+      "u_dup": 0.0
+    }
+  ],
+  "eligible_prefixes": [
+    {
+      "instance_id": "pvlib__pvlib-python-1707",
+      "prefix_snapshot": {
+        "budget_state": {
+          "ceiling": {
+            "model_call": 12,
+            "token": 512000,
+            "tool_call": 80,
+            "wallclock_seconds": 1200
+          },
+          "consumed": {
+            "model_call": 3,
+            "token": 45873,
+            "tool_call": 10,
+            "wallclock_seconds": 149.08168079999996
+          },
+          "exhausted_at": null,
+          "fraction_used": {
+            "model_call": 0.25,
+            "token": 0.089595703125,
+            "tool_call": 0.125,
+            "wallclock_seconds": 0.12423473399999997
+          },
+          "overrun": false,
+          "remaining": {
+            "model_call": 9,
+            "token": 466127,
+            "tool_call": 70,
+            "wallclock_seconds": 1050.9183192
+          },
+          "tier": "development"
+        },
+        "context_view": {
+          "checks_run": 1,
+          "indexed_paths": [
+            ".coveragerc",
+            ".gitattributes",
+            ".github",
+            ".gitignore",
+            ".stickler.yml",
+            "AUTHORS.md",
+            "CODE_OF_CONDUCT.md",
+            "LICENSE",
+            "MANIFEST.in",
+            "README.md",
+            "benchmarks",
+            "ci",
+            "codecov.yml",
+            "docs",
+            "paper",
+            "pvlib",
+            "pvlib.egg-info",
+            "pyproject.toml",
+            "readthedocs.yml",
+            "setup.cfg",
+            "setup.py"
+          ],
+          "read_files": [
+            "pvlib/iam.py"
+          ],
+          "registered_test_commands": [
+            "pvlib/tests/test_iam.py"
+          ],
+          "repro_reproduces": null,
+          "repro_scripts": []
+        },
+        "decision_trace": [],
+        "derived": {
+          "behavioural_signal": "behavioural",
+          "out_of_scope_frames": [],
+          "u_dup": 0.0,
+          "u_loc": 1.0
+        },
+        "failure_record": {
+          "distinct_fingerprints": [
+            "f6ac77d35c3270bb"
+          ],
+          "records": [
+            {
+              "candidate_index": 0,
+              "command": "python -m pytest pvlib/tests/test_iam.py -q --no-header -p no:cacheprovider",
+              "error_class": "behaviour_assertion",
+              "exit_code": 1,
+              "fingerprint": "f6ac77d35c3270bb",
+              "message_head": "..F...........................                                           [100%]\n=================================== FAILURES ===================================\n________________________________ test_physical _________________________________\n    def test_physical():",
+              "raw_output": "..F...........................                                           [100%]\n=================================== FAILURES ===================================\n________________________________ test_physical _________________________________\n\n    def test_physical():\n        aoi = np.array([-90., -67.5, -45., -22.5, 0., 22.5, 45., 67.5, 90.,\n                        np.nan])\n        expected = np.array([0, 0.8893998, 0.98797788, 0.99926198, 1, 0.99926198,\n                             0.98797788, 0.8893998, 0, np.nan])\n        iam = _iam.physical(aoi, 1.526, 0.002, 4)\n        assert_allclose(iam, expected, atol=1e-7, equal_nan=True)\n    \n        # GitHub issue 397\n        aoi = pd.Series(aoi)\n        iam = _iam.physical(aoi, 1.526, 0.002, 4)\n        expected = pd.Series(expected)\n>       assert_series_equal(iam, expected)\n\npvlib/tests/test_iam.py:51: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \npvlib/tests/conftest.py:63: in assert_series_equal\n    pd.testing.assert_series_equal(left, right, **kwargs)\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nleft = array([0.        , 0.8893998 , 0.98797788, 0.99926198, 1.        ,\n       0.99926198, 0.98797788, 0.8893998 , 0.        ,        nan])\nright = 0    0.000000\n1    0.889400\n2    0.987978\n3    0.999262\n4    1.000000\n5    0.999262\n6    0.987978\n7    0.889400\n8    0.000000\n9         NaN\ndtype: float64\ncls = <class 'pandas.core.series.Series'>\n\n    def _check_isinstance(left, right, cls) -> None:\n        \"\"\"\n        Helper method for our assert_* methods that ensures that\n        the two objects being compared have the right type before\n        proceeding with the comparison.\n    \n        Parameters\n        ----------\n        left : The first object being compared.\n        right : The second object being compared.\n        cls : The class type to check against.\n    \n        Raises\n        ------\n        AssertionError : Either `left` or `right` is not an instance of `cls`.\n        \"\"\"\n        cls_name = cls.__name__\n    \n        if not isinstance(left, cls):\n>           raise AssertionError(\n                f\"{cls_name} Expected type {cls}, found {type(left)} instead\"\n            )\nE           AssertionError: Series Expected type <class 'pandas.core.series.Series'>, found <class 'numpy.ndarray'> instead\n\n/opt/miniconda3/envs/testbed/lib/python3.9/site-packages/pandas/_testing/asserters.py:167: AssertionError\n=============================== warnings summary ===============================\npvlib/tests/conftest.py:7\n  /testbed/pvlib/tests/conftest.py:7: DeprecationWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html\n    from pkg_resources import parse_version\n\n../opt/miniconda3/envs/testbed/lib/python3.9/site-packages/pkg_resources/__init__.py:3144\n  /opt/miniconda3/envs/testbed/lib/python3.9/site-packages/pkg_resources/__init__.py:3144: DeprecationWarning: Deprecated call to `pkg_resources.declare_namespace('sphinxcontrib')`.\n  Implementing implicit namespace packages (as specified in PEP 420) is preferred to `pkg_resources.declare_namespace`. See https://setuptools.pypa.io/en/latest/references/keywords.html#keyword-namespace-packages\n    declare_namespace(pkg)\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n=========================== short test summary info ============================\nFAILED pvlib/tests/test_iam.py::test_physical - AssertionError: Series Expect...\n1 failed, 29 passed, 2 warnings in 0.30s",
+              "recovery_attempts": 0,
+              "repo_frames": [],
+              "stage": "test"
+            }
+          ],
+          "tool_records": []
+        },
+        "localization": {
+          "disagreement": 1.0,
+          "files_union": [
+            "pvlib/iam.py"
+          ],
+          "missing": false,
+          "passes": [
+            {
+              "evidence": [],
+              "files": [],
+              "label": "lexical",
+              "symbols": []
+            },
+            {
+              "evidence": [],
+              "files": [
+                "pvlib/iam.py"
+              ],
+              "label": "model",
+              "symbols": [
+                "physical"
+              ]
+            }
+          ],
+          "symbols_union": [
+            "physical"
+          ]
+        },
+        "patch_history": {
+          "candidates": [
+            {
+              "applies_cleanly": true,
+              "diff": "--- a/pvlib/iam.py\n+++ b/pvlib/iam.py\n@@ -215,4 +215,7 @@ def physical(aoi, n=1.526, K=4.0, L=0.002, *, n_ar=None):\n     # incidence angle modifier\n     iam = (tau_s + tau_p) / 2 / tau_0\n \n+    # set iam to 0 for AOI >= 90\n+    iam = np.where(np.abs(aoi) >= 90, 0, iam)\n+\n     return iam\n",
+              "diff_lines": 3,
+              "files_touched": [
+                "pvlib/iam.py"
+              ],
+              "hash": "de3d69ba8c0967475eb447a3745a7725c6fa75148e437775e675a4337c04a87e",
+              "index": 0,
+              "origin": "prefix",
+              "scope_valid": true,
+              "syntax": "pass",
+              "validation": "fail"
+            },
+            {
+              "applies_cleanly": false,
+              "diff": "",
+              "diff_lines": 0,
+              "files_touched": [],
+              "hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "index": 1,
+              "origin": "prefix",
+              "scope_valid": true,
+              "syntax": "not_run",
+              "validation": "not_run"
+            }
+          ],
+          "distinct_hashes": 2,
+          "duplicate_rate": 0.0
+        },
+        "state_version": "1.0",
+        "task_manifest": {
+          "base_commit": "40e9e978c170bdde4eeee1547729417665dbc34c",
+          "config_hash": "da6d858652f3457442bf4d883759a3a31a5f13724e31926131b3058ff93f30c2",
+          "config_version": "proposal_aligned_v1",
+          "environment_setup_commit": "6072e0982c3c0236f532ddfa48fbf461180d834e",
+          "image_id": "sha256:6bddca9c6360684b088cba4a502969e84c3a2f125550983e48e38e2e252b660c",
+          "instance_id": "pvlib__pvlib-python-1707",
+          "repo": "pvlib/pvlib-python",
+          "repo_root": "/testbed",
+          "version": "0.9"
+        }
+      },
+      "split": "dev"
+    }
+  ],
+  "eligible_instance_ids": [
+    "pvlib__pvlib-python-1707"
+  ],
+  "eligible_population_complete": true,
+  "prefix_unavailable_instance_ids": [],
+  "paired_eligible": 1,
+  "paired_complete": 1,
+  "unscored_paired_instances": [],
+  "primary_summaries": {
+    "A": {
+      "designated_instances": 2,
+      "repeats": 1,
+      "total": 2,
+      "resolved": 1,
+      "complete": true,
+      "status_counts": {
+        "resolved": 1,
+        "unresolved": 1
+      },
+      "resolved_rate": 0.5,
+      "resolved_rate_lower_bound": 0.5,
+      "cost_cny_recorded": 0.35596555999999996,
+      "cost_complete": true,
+      "cost_per_resolved_cny": 0.35596555999999996,
+      "resources": {
+        "token": {
+          "recorded_total": 93863.0,
+          "complete": true,
+          "mean_per_task": 46931.5,
+          "per_resolved": 93863.0
+        },
+        "model_call": {
+          "recorded_total": 7.0,
+          "complete": true,
+          "mean_per_task": 3.5,
+          "per_resolved": 7.0
+        },
+        "tool_call": {
+          "recorded_total": 30.0,
+          "complete": true,
+          "mean_per_task": 15.0,
+          "per_resolved": 30.0
+        },
+        "wallclock_seconds": {
+          "recorded_total": 233.8109655999997,
+          "complete": true,
+          "mean_per_task": 116.90548279999985,
+          "per_resolved": 233.8109655999997
+        }
+      },
+      "per_repo": {
+        "pvlib__pvlib-python": {
+          "total": 1,
+          "resolved": 1,
+          "status_counts": {
+            "resolved": 1
+          },
+          "resolved_rate": 1.0
+        },
+        "pydicom__pydicom": {
+          "total": 1,
+          "resolved": 0,
+          "status_counts": {
+            "unresolved": 1
+          },
+          "resolved_rate": 0.0
+        }
+      },
+      "repository_macro_average": 0.5
+    },
+    "B": {
+      "designated_instances": 2,
+      "repeats": 1,
+      "total": 2,
+      "resolved": 0,
+      "complete": true,
+      "status_counts": {
+        "unresolved": 2
+      },
+      "resolved_rate": 0.0,
+      "resolved_rate_lower_bound": 0.0,
+      "cost_cny_recorded": 0.0458264,
+      "cost_complete": true,
+      "cost_per_resolved_cny": null,
+      "resources": {
+        "token": {
+          "recorded_total": 32012.0,
+          "complete": true,
+          "mean_per_task": 16006.0,
+          "per_resolved": null
+        },
+        "model_call": {
+          "recorded_total": 12.0,
+          "complete": true,
+          "mean_per_task": 6.0,
+          "per_resolved": null
+        },
+        "tool_call": {
+          "recorded_total": 20.0,
+          "complete": true,
+          "mean_per_task": 10.0,
+          "per_resolved": null
+        },
+        "wallclock_seconds": {
+          "recorded_total": 35.53025329999946,
+          "complete": true,
+          "mean_per_task": 17.76512664999973,
+          "per_resolved": null
+        }
+      },
+      "per_repo": {
+        "pvlib__pvlib-python": {
+          "total": 1,
+          "resolved": 0,
+          "status_counts": {
+            "unresolved": 1
+          },
+          "resolved_rate": 0.0
+        },
+        "pydicom__pydicom": {
+          "total": 1,
+          "resolved": 0,
+          "status_counts": {
+            "unresolved": 1
+          },
+          "resolved_rate": 0.0
+        }
+      },
+      "repository_macro_average": 0.0
+    },
+    "C": {
+      "designated_instances": 2,
+      "repeats": 1,
+      "total": 2,
+      "resolved": 1,
+      "complete": true,
+      "status_counts": {
+        "resolved": 1,
+        "unresolved": 1
+      },
+      "resolved_rate": 0.5,
+      "resolved_rate_lower_bound": 0.5,
+      "cost_cny_recorded": 0.32747107999999997,
+      "cost_complete": true,
+      "cost_per_resolved_cny": 0.32747107999999997,
+      "resources": {
+        "token": {
+          "recorded_total": 106914.0,
+          "complete": true,
+          "mean_per_task": 53457.0,
+          "per_resolved": 106914.0
+        },
+        "model_call": {
+          "recorded_total": 9.0,
+          "complete": true,
+          "mean_per_task": 4.5,
+          "per_resolved": 9.0
+        },
+        "tool_call": {
+          "recorded_total": 33.0,
+          "complete": true,
+          "mean_per_task": 16.5,
+          "per_resolved": 33.0
+        },
+        "wallclock_seconds": {
+          "recorded_total": 216.01721749999888,
+          "complete": true,
+          "mean_per_task": 108.00860874999944,
+          "per_resolved": 216.01721749999888
+        }
+      },
+      "per_repo": {
+        "pvlib__pvlib-python": {
+          "total": 1,
+          "resolved": 1,
+          "status_counts": {
+            "resolved": 1
+          },
+          "resolved_rate": 1.0
+        },
+        "pydicom__pydicom": {
+          "total": 1,
+          "resolved": 0,
+          "status_counts": {
+            "unresolved": 1
+          },
+          "resolved_rate": 0.0
+        }
+      },
+      "repository_macro_average": 0.5
+    },
+    "D": {
+      "designated_instances": 2,
+      "repeats": 1,
+      "total": 2,
+      "resolved": 1,
+      "complete": true,
+      "status_counts": {
+        "resolved": 1,
+        "unresolved": 1
+      },
+      "resolved_rate": 0.5,
+      "resolved_rate_lower_bound": 0.5,
+      "cost_cny_recorded": 0.35596555999999996,
+      "cost_complete": true,
+      "cost_per_resolved_cny": 0.35596555999999996,
+      "resources": {
+        "token": {
+          "recorded_total": 93863.0,
+          "complete": true,
+          "mean_per_task": 46931.5,
+          "per_resolved": 93863.0
+        },
+        "model_call": {
+          "recorded_total": 7.0,
+          "complete": true,
+          "mean_per_task": 3.5,
+          "per_resolved": 7.0
+        },
+        "tool_call": {
+          "recorded_total": 30.0,
+          "complete": true,
+          "mean_per_task": 15.0,
+          "per_resolved": 30.0
+        },
+        "wallclock_seconds": {
+          "recorded_total": 233.8109655999997,
+          "complete": true,
+          "mean_per_task": 116.90548279999985,
+          "per_resolved": 233.8109655999997
+        }
+      },
+      "per_repo": {
+        "pvlib__pvlib-python": {
+          "total": 1,
+          "resolved": 1,
+          "status_counts": {
+            "resolved": 1
+          },
+          "resolved_rate": 1.0
+        },
+        "pydicom__pydicom": {
+          "total": 1,
+          "resolved": 0,
+          "status_counts": {
+            "unresolved": 1
+          },
+          "resolved_rate": 0.0
+        }
+      },
+      "repository_macro_average": 0.5
+    },
+    "E": {
+      "designated_instances": 2,
+      "repeats": 1,
+      "total": 2,
+      "resolved": 0,
+      "complete": false,
+      "status_counts": {
+        "not_scored": 2
+      },
+      "resolved_rate": null,
+      "resolved_rate_lower_bound": 0.0,
+      "cost_cny_recorded": 0.29355716,
+      "cost_complete": false,
+      "cost_per_resolved_cny": null,
+      "resources": {
+        "token": {
+          "recorded_total": 69805.0,
+          "complete": false,
+          "mean_per_task": null,
+          "per_resolved": null
+        },
+        "model_call": {
+          "recorded_total": 6.0,
+          "complete": false,
+          "mean_per_task": null,
+          "per_resolved": null
+        },
+        "tool_call": {
+          "recorded_total": 25.0,
+          "complete": false,
+          "mean_per_task": null,
+          "per_resolved": null
+        },
+        "wallclock_seconds": {
+          "recorded_total": 200.95953649999865,
+          "complete": false,
+          "mean_per_task": null,
+          "per_resolved": null
+        }
+      },
+      "per_repo": {
+        "pvlib__pvlib-python": {
+          "total": 1,
+          "resolved": 0,
+          "status_counts": {
+            "not_scored": 1
+          },
+          "resolved_rate": null
+        },
+        "pydicom__pydicom": {
+          "total": 1,
+          "resolved": 0,
+          "status_counts": {
+            "not_scored": 1
+          },
+          "resolved_rate": null
+        }
+      },
+      "repository_macro_average": null
+    }
+  },
+  "policies": [
+    {
+      "policy": "A_actual",
+      "resolved": 1,
+      "total": 2,
+      "resolved_rate": 0.5,
+      "resolved_rate_lower_bound": 0.5,
+      "not_scored": 0,
+      "stops": 1,
+      "status_counts": {
+        "resolved": 1,
+        "unresolved": 1
+      },
+      "cost_cny": 0.355966,
+      "cost_per_resolved_cny": 0.356,
+      "escalations": 0,
+      "escalation_share": 0.0
+    },
+    {
+      "policy": "B_actual",
+      "resolved": 0,
+      "total": 2,
+      "resolved_rate": 0.0,
+      "resolved_rate_lower_bound": 0.0,
+      "not_scored": 0,
+      "stops": 0,
+      "status_counts": {
+        "unresolved": 2
+      },
+      "cost_cny": 0.045826,
+      "cost_per_resolved_cny": null,
+      "escalations": 0,
+      "escalation_share": 0.0
+    },
+    {
+      "policy": "C_actual",
+      "resolved": 1,
+      "total": 2,
+      "resolved_rate": 0.5,
+      "resolved_rate_lower_bound": 0.5,
+      "not_scored": 0,
+      "stops": 1,
+      "status_counts": {
+        "resolved": 1,
+        "unresolved": 1
+      },
+      "cost_cny": 0.327471,
+      "cost_per_resolved_cny": 0.3275,
+      "escalations": 1,
+      "escalation_share": 0.5
+    },
+    {
+      "policy": "D_actual",
+      "resolved": 1,
+      "total": 2,
+      "resolved_rate": 0.5,
+      "resolved_rate_lower_bound": 0.5,
+      "not_scored": 0,
+      "stops": 1,
+      "status_counts": {
+        "resolved": 1,
+        "unresolved": 1
+      },
+      "cost_cny": 0.355966,
+      "cost_per_resolved_cny": 0.356,
+      "escalations": 0,
+      "escalation_share": 0.0
+    },
+    {
+      "policy": "E_actual",
+      "resolved": 0,
+      "total": 2,
+      "resolved_rate": null,
+      "resolved_rate_lower_bound": 0.0,
+      "not_scored": 2,
+      "stops": 0,
+      "status_counts": {
+        "not_scored": 2
+      },
+      "cost_cny": 0.293557,
+      "cost_per_resolved_cny": null,
+      "escalations": 0,
+      "escalation_share": 0.0
+    }
+  ],
+  "quadrants": {
+    "counts": {
+      "Q1_double_success": 1,
+      "Q2_fixed_only": 0,
+      "Q3_interactive_only": 0,
+      "Q4_double_failure": 0
+    },
+    "meanings": {
+      "Q1_double_success": "both branches solve it: escalating wastes the interactive budget",
+      "Q2_fixed_only": "only the fixed branch solves it: escalating makes the answer worse",
+      "Q3_interactive_only": "only interaction solves it: this is what the router must find",
+      "Q4_double_failure": "neither solves it: escalating is futile"
+    },
+    "scored": 1,
+    "unscored": [],
+    "escalation_necessary_share": 0.0,
+    "wasted_share": 1.0
+  },
+  "features": [
+    {
+      "feature": "u_loc",
+      "direction": "higher escalates",
+      "n": 1,
+      "n_positive": 0,
+      "auc": null
+    },
+    {
+      "feature": "u_dup",
+      "direction": "higher escalates",
+      "n": 1,
+      "n_positive": 0,
+      "auc": null
+    },
+    {
+      "feature": "lacks_behavioural_signal",
+      "direction": "higher escalates",
+      "n": 1,
+      "n_positive": 0,
+      "auc": null
+    },
+    {
+      "feature": "n_public_pass",
+      "direction": "lower escalates",
+      "n": 1,
+      "n_positive": 0,
+      "auc": null
+    },
+    {
+      "feature": "n_applicable",
+      "direction": "lower escalates",
+      "n": 1,
+      "n_positive": 0,
+      "auc": null
+    }
+  ],
+  "oracle_gap_closure_paired_complete_diagnostic_only": {
+    "fixed_resolved": 1,
+    "router_resolved": 1,
+    "oracle_resolved": 1,
+    "headroom": 0,
+    "gained": 0,
+    "gap_closure": null,
+    "complete": true,
+    "fixed_cost_cny": 0.282843,
+    "router_cost_cny": 0.282843,
+    "oracle_cost_cny": 0.282843,
+    "note": "gap_closure is undefined when the oracle cannot beat the fixed branch, because there is no headroom to close"
+  },
+  "diagnostic_cost_cny": 0.43570588,
+  "records": [
+    {
+      "instance_id": "pvlib__pvlib-python-1707",
+      "repeat_index": 0,
+      "seed": 20261106,
+      "run_id": "dev2_diagnostic_20261106_02",
+      "mode": "diagnostic",
+      "config_hash": "da6d858652f3457442bf4d883759a3a31a5f13724e31926131b3058ff93f30c2",
+      "arm": "A",
+      "status": "resolved",
+      "cost_cny": 0.28284319999999996,
+      "prediction_sha256": "26192be1c9d1672bb86a6975b2f6e4ff7b30693c4b343b17d0440ed52ce9586a",
+      "patch_sha256": "fc070dd912e771f86faad2753971c80b21764297c03465a5ea0ad23d69e95e7c",
+      "resources": {
+        "token": 69931,
+        "model_call": 4,
+        "tool_call": 15,
+        "wallclock_seconds": 181.933109900001
+      },
+      "resources_complete": {
+        "token": true,
+        "model_call": true,
+        "tool_call": true,
+        "wallclock_seconds": true
+      },
+      "termination_reason": "early_stop_public_pass",
+      "generation_status": "completed",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "pvlib__pvlib-python-1707",
+      "repeat_index": 0,
+      "seed": 20261106,
+      "run_id": "dev2_diagnostic_20261106_02",
+      "mode": "diagnostic",
+      "config_hash": "da6d858652f3457442bf4d883759a3a31a5f13724e31926131b3058ff93f30c2",
+      "arm": "B",
+      "status": "unresolved",
+      "cost_cny": 0.03140608,
+      "prediction_sha256": "93af2521a36c7fc8155489eac943c3131b5fe76b7b98c9889402d815c3d83344",
+      "patch_sha256": "7d0ed0e673249f17f4c3876b5629c6aa630aa18a627dcf7aa64f132d8f27d89a",
+      "resources": {
+        "token": 19082,
+        "model_call": 6,
+        "tool_call": 10,
+        "wallclock_seconds": 21.904776800000036
+      },
+      "resources_complete": {
+        "token": true,
+        "model_call": true,
+        "tool_call": true,
+        "wallclock_seconds": true
+      },
+      "termination_reason": "model_call_budget",
+      "generation_status": "budget_exhausted",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "pvlib__pvlib-python-1707",
+      "repeat_index": 0,
+      "seed": 20261106,
+      "run_id": "dev2_diagnostic_20261106_02",
+      "mode": "diagnostic",
+      "config_hash": "da6d858652f3457442bf4d883759a3a31a5f13724e31926131b3058ff93f30c2",
+      "arm": "C",
+      "status": "resolved",
+      "cost_cny": 0.25434872,
+      "prediction_sha256": "ca015fa962b63fd3bec5160342be68f281993d637e5cba8008695834785186ee",
+      "patch_sha256": "05154edc68f2b8603f660a9a101a7ed9d680f10b1f041652c890a796038589c6",
+      "resources": {
+        "token": 82982,
+        "model_call": 6,
+        "tool_call": 18,
+        "wallclock_seconds": 164.1393618000002
+      },
+      "resources_complete": {
+        "token": true,
+        "model_call": true,
+        "tool_call": true,
+        "wallclock_seconds": true
+      },
+      "termination_reason": "public_pass",
+      "generation_status": "completed",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "pvlib__pvlib-python-1707",
+      "repeat_index": 0,
+      "seed": 20261106,
+      "run_id": "dev2_diagnostic_20261106_02",
+      "mode": "diagnostic",
+      "config_hash": "da6d858652f3457442bf4d883759a3a31a5f13724e31926131b3058ff93f30c2",
+      "arm": "D",
+      "status": "resolved",
+      "cost_cny": 0.28284319999999996,
+      "prediction_sha256": "70c2201f65293d44b2c50d9840d26868efecc05e6331cefc15eaa1dd833f22f7",
+      "patch_sha256": "fc070dd912e771f86faad2753971c80b21764297c03465a5ea0ad23d69e95e7c",
+      "resources": {
+        "token": 69931,
+        "model_call": 4,
+        "tool_call": 15,
+        "wallclock_seconds": 181.933109900001
+      },
+      "resources_complete": {
+        "token": true,
+        "model_call": true,
+        "tool_call": true,
+        "wallclock_seconds": true
+      },
+      "termination_reason": "early_stop_public_pass",
+      "generation_status": "completed",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "pvlib__pvlib-python-1707",
+      "repeat_index": 0,
+      "seed": 20261106,
+      "run_id": "dev2_diagnostic_20261106_02",
+      "mode": "diagnostic",
+      "config_hash": "da6d858652f3457442bf4d883759a3a31a5f13724e31926131b3058ff93f30c2",
+      "arm": "E",
+      "status": "not_scored",
+      "cost_cny": 0.2204348,
+      "prediction_sha256": null,
+      "patch_sha256": null,
+      "resources": {
+        "token": 45873,
+        "model_call": 3,
+        "tool_call": 10,
+        "wallclock_seconds": 149.08168079999996
+      },
+      "resources_complete": {
+        "token": false,
+        "model_call": false,
+        "tool_call": false,
+        "wallclock_seconds": false
+      },
+      "termination_reason": "random_probability_pending",
+      "generation_status": "not_run",
+      "cost_complete": false
+    },
+    {
+      "instance_id": "pydicom__pydicom-1139",
+      "repeat_index": 0,
+      "seed": 20261106,
+      "run_id": "dev2_diagnostic_20261106_02",
+      "mode": "diagnostic",
+      "config_hash": "da6d858652f3457442bf4d883759a3a31a5f13724e31926131b3058ff93f30c2",
+      "arm": "A",
+      "status": "unresolved",
+      "cost_cny": 0.07312236000000001,
+      "prediction_sha256": "26192be1c9d1672bb86a6975b2f6e4ff7b30693c4b343b17d0440ed52ce9586a",
+      "patch_sha256": "1327a049a0eab155fa7cd7557254b7a25595104d0dbd226d38c13ac33971b60b",
+      "resources": {
+        "token": 23932,
+        "model_call": 3,
+        "tool_call": 15,
+        "wallclock_seconds": 51.87785569999869
+      },
+      "resources_complete": {
+        "token": true,
+        "model_call": true,
+        "tool_call": true,
+        "wallclock_seconds": true
+      },
+      "termination_reason": "early_stop_public_pass",
+      "generation_status": "completed",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "pydicom__pydicom-1139",
+      "repeat_index": 0,
+      "seed": 20261106,
+      "run_id": "dev2_diagnostic_20261106_02",
+      "mode": "diagnostic",
+      "config_hash": "da6d858652f3457442bf4d883759a3a31a5f13724e31926131b3058ff93f30c2",
+      "arm": "B",
+      "status": "unresolved",
+      "cost_cny": 0.01442032,
+      "prediction_sha256": "93af2521a36c7fc8155489eac943c3131b5fe76b7b98c9889402d815c3d83344",
+      "patch_sha256": "baafcd03da4aad2ab681a05159e443928c9f46d0b6a215b3f6a5220b384a86b2",
+      "resources": {
+        "token": 12930,
+        "model_call": 6,
+        "tool_call": 10,
+        "wallclock_seconds": 13.625476499999422
+      },
+      "resources_complete": {
+        "token": true,
+        "model_call": true,
+        "tool_call": true,
+        "wallclock_seconds": true
+      },
+      "termination_reason": "model_call_budget",
+      "generation_status": "budget_exhausted",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "pydicom__pydicom-1139",
+      "repeat_index": 0,
+      "seed": 20261106,
+      "run_id": "dev2_diagnostic_20261106_02",
+      "mode": "diagnostic",
+      "config_hash": "da6d858652f3457442bf4d883759a3a31a5f13724e31926131b3058ff93f30c2",
+      "arm": "C",
+      "status": "unresolved",
+      "cost_cny": 0.07312236000000001,
+      "prediction_sha256": "ca015fa962b63fd3bec5160342be68f281993d637e5cba8008695834785186ee",
+      "patch_sha256": "1327a049a0eab155fa7cd7557254b7a25595104d0dbd226d38c13ac33971b60b",
+      "resources": {
+        "token": 23932,
+        "model_call": 3,
+        "tool_call": 15,
+        "wallclock_seconds": 51.87785569999869
+      },
+      "resources_complete": {
+        "token": true,
+        "model_call": true,
+        "tool_call": true,
+        "wallclock_seconds": true
+      },
+      "termination_reason": "early_stop_public_pass",
+      "generation_status": "completed",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "pydicom__pydicom-1139",
+      "repeat_index": 0,
+      "seed": 20261106,
+      "run_id": "dev2_diagnostic_20261106_02",
+      "mode": "diagnostic",
+      "config_hash": "da6d858652f3457442bf4d883759a3a31a5f13724e31926131b3058ff93f30c2",
+      "arm": "D",
+      "status": "unresolved",
+      "cost_cny": 0.07312236000000001,
+      "prediction_sha256": "70c2201f65293d44b2c50d9840d26868efecc05e6331cefc15eaa1dd833f22f7",
+      "patch_sha256": "1327a049a0eab155fa7cd7557254b7a25595104d0dbd226d38c13ac33971b60b",
+      "resources": {
+        "token": 23932,
+        "model_call": 3,
+        "tool_call": 15,
+        "wallclock_seconds": 51.87785569999869
+      },
+      "resources_complete": {
+        "token": true,
+        "model_call": true,
+        "tool_call": true,
+        "wallclock_seconds": true
+      },
+      "termination_reason": "early_stop_public_pass",
+      "generation_status": "completed",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "pydicom__pydicom-1139",
+      "repeat_index": 0,
+      "seed": 20261106,
+      "run_id": "dev2_diagnostic_20261106_02",
+      "mode": "diagnostic",
+      "config_hash": "da6d858652f3457442bf4d883759a3a31a5f13724e31926131b3058ff93f30c2",
+      "arm": "E",
+      "status": "not_scored",
+      "cost_cny": 0.07312236000000001,
+      "prediction_sha256": null,
+      "patch_sha256": null,
+      "resources": {
+        "token": 23932,
+        "model_call": 3,
+        "tool_call": 15,
+        "wallclock_seconds": 51.87785569999869
+      },
+      "resources_complete": {
+        "token": false,
+        "model_call": false,
+        "tool_call": false,
+        "wallclock_seconds": false
+      },
+      "termination_reason": "random_probability_pending",
+      "generation_status": "not_run",
+      "cost_complete": false
+    }
+  ],
+  "arm_equivalence": {
+    "C": {
+      "identical_to_C": true,
+      "escalations": 1
+    },
+    "D": {
+      "identical_to_C": false,
+      "escalations": 0
+    },
+    "E": {
+      "identical_to_C": null,
+      "escalations": 0
+    }
+  },
+  "notes": [
+    "Unknown verdicts remain not_scored. Final rates require complete evaluator coverage.",
+    "Paired metrics are diagnostic complete-case results; their denominator is not the primary population.",
+    "Legacy generations cannot become proposal-aligned formal evidence through reanalysis."
+  ],
+  "source_reports": [
+    {
+      "arm": "A",
+      "path": "C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\runs\\dev2_diagnostic_20261106_02\\scoring\\A\\dev2_diagnostic_20261106_02-A.dev2_diagnostic_20261106_02.json",
+      "sha256": "a1a1fdb50a70b6e4acbb5309950552f692b6f780949e9f5610bb9ee83ab7b8bb",
+      "provenance_path": "C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\runs\\dev2_diagnostic_20261106_02\\scoring\\A\\dev2_diagnostic_20261106_02-A.dev2_diagnostic_20261106_02.json.provenance.json",
+      "provenance_sha256": "2e2eb65edc2230be612f150eae1a3423506e546f7927a7ae86650de58f244067"
+    },
+    {
+      "arm": "B",
+      "path": "C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\runs\\dev2_diagnostic_20261106_02\\scoring\\B\\dev2_diagnostic_20261106_02-B.dev2_diagnostic_20261106_02.json",
+      "sha256": "affd8538e70d2ce837c57bf64fe27a71d134846d3217fe29c3887bb3bfe42db7",
+      "provenance_path": "C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\runs\\dev2_diagnostic_20261106_02\\scoring\\B\\dev2_diagnostic_20261106_02-B.dev2_diagnostic_20261106_02.json.provenance.json",
+      "provenance_sha256": "248be8d9832de8a843b160ac6cd4eff3289321c45b80252f7da9041c1171cbc8"
+    },
+    {
+      "arm": "C",
+      "path": "C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\runs\\dev2_diagnostic_20261106_02\\scoring\\C\\dev2_diagnostic_20261106_02-C.dev2_diagnostic_20261106_02.json",
+      "sha256": "a1a1fdb50a70b6e4acbb5309950552f692b6f780949e9f5610bb9ee83ab7b8bb",
+      "provenance_path": "C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\runs\\dev2_diagnostic_20261106_02\\scoring\\C\\dev2_diagnostic_20261106_02-C.dev2_diagnostic_20261106_02.json.provenance.json",
+      "provenance_sha256": "8714afef9175e394006e7efe7c2647b65d05af010604d895bc8719625c6768dc"
+    },
+    {
+      "arm": "D",
+      "path": "C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\runs\\dev2_diagnostic_20261106_02\\scoring\\D\\dev2_diagnostic_20261106_02-D.dev2_diagnostic_20261106_02.json",
+      "sha256": "a1a1fdb50a70b6e4acbb5309950552f692b6f780949e9f5610bb9ee83ab7b8bb",
+      "provenance_path": "C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\runs\\dev2_diagnostic_20261106_02\\scoring\\D\\dev2_diagnostic_20261106_02-D.dev2_diagnostic_20261106_02.json.provenance.json",
+      "provenance_sha256": "181000f615102bad8a2f51dbb2eece6a211f6f7341b89d6f3a1a60982905204a"
+    },
+    {
+      "arm": "FIXED",
+      "path": "C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\runs\\dev2_diagnostic_20261106_02\\scoring\\FIXED\\dev2_diagnostic_20261106_02-FIXED.dev2_diagnostic_20261106_02.json",
+      "sha256": "f02a4d3df28b4c2c4bfc2624f830c284a473e84e0c4952dfd9266c70f9f2691b",
+      "provenance_path": "C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\runs\\dev2_diagnostic_20261106_02\\scoring\\FIXED\\dev2_diagnostic_20261106_02-FIXED.dev2_diagnostic_20261106_02.json.provenance.json",
+      "provenance_sha256": "7e45370fe598806b7f9ee16978beac319e61c1e7d9d074b7e5b661383bc8c267"
+    },
+    {
+      "arm": "ESC",
+      "path": "C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\runs\\dev2_diagnostic_20261106_02\\scoring\\ESC\\dev2_diagnostic_20261106_02-ESC.dev2_diagnostic_20261106_02.json",
+      "sha256": "f02a4d3df28b4c2c4bfc2624f830c284a473e84e0c4952dfd9266c70f9f2691b",
+      "provenance_path": "C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\runs\\dev2_diagnostic_20261106_02\\scoring\\ESC\\dev2_diagnostic_20261106_02-ESC.dev2_diagnostic_20261106_02.json.provenance.json",
+      "provenance_sha256": "f163383cea26dcc5adb2c1499c65d55a6686ea356e52991fa2427f81ec069984"
+    }
+  ],
+  "source_matrix_sha256": "14fd91223a7a89acf9e8983a63e4cfa2f56314e6630d685a1e4345ffaaeebe06"
+}

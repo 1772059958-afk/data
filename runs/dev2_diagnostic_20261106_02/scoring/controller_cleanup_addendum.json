@@ -1,0 +1,23 @@
+{
+  "scope": "three explicitly named completed evaluator containers only",
+  "containers": [
+    {
+      "name": "sweb.eval.pvlib__pvlib-python-1707.prefix_dev1_20261106_01",
+      "id": "0167ccb96730922fb87bf83632f10403eae73510df28571f988aaa355bb7be34",
+      "removed": true,
+      "absence_verified": true
+    },
+    {
+      "name": "sweb.eval.pvlib__pvlib-python-1707.dev2_diagnostic_20261106_02",
+      "id": "13872857e6fbd7e64957589503aa23a3718bf689761234c52d7157c759c74d64",
+      "removed": true,
+      "absence_verified": true
+    },
+    {
+      "name": "sweb.eval.pydicom__pydicom-1139.dev2_diagnostic_20261106_02",
+      "id": "c38e49d1d6fdc783d57056edd279c43108d3b01a10d50242c33caacc68986b4d",
+      "removed": true,
+      "absence_verified": true
+    }
+  ]
+}
