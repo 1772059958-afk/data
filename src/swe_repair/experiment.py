@@ -91,18 +91,26 @@ def fixed_continuation(problem, prefix, client, box, raw):
     return {'termination_reason': reason, 'trace': trace, 'attempted_candidates': len(trace)}
 
 
-def run_case(row, client, raw, *, mode='formal', arm='D', seed=0,
+def run_case(row, client, raw, *, mode='formal', arm='D', seed=0, split=None,
              calibration=False, box_factory=Container, checkpoint=lambda event: None,
              cached_prefix=None):
     """Run one designated instance. All failed stages remain in the returned row.
 
-    Formal: run only the selected branch. Diagnostic: run fixed/interactive
-    alternatives from separately restored snapshots, plus independent B.
+    Formal and dev-only pilot run only the selected branch. Pilot execution is
+    descriptive integration, never an implicit formal freeze. Diagnostic runs
+    fixed/interactive alternatives from restored snapshots plus independent B.
     """
-    if mode not in ('formal', 'diagnostic') or arm not in 'ABCDE':
+    if mode == 'prefix':
+        arm = 'PREFIX'
+    if mode not in ('formal', 'diagnostic', 'prefix', 'pilot') or (mode != 'prefix' and arm not in tuple('ABCDE')):
         raise ValueError('unknown experiment mode/arm')
+    if mode == 'pilot' and (split != 'dev' or calibration):
+        raise ValueError('pilot requires explicit dev split and cannot use the calibration bypass')
     assert_generation_only(row, 'experiment input')
     cfg = RouterConfig.from_config(raw)
+    if mode == 'pilot' and (not cfg.calibrated or cfg.switch_probability is None):
+        raise ValueError('pilot requires an explicit candidate D policy and matched E probability')
+    single_policy = mode in ('formal', 'pilot')
     iid, problem = row['instance_id'], row.get('problem_statement', '')
     ceiling = _new_budget(raw)
     outcome = {'instance_id': iid, 'mode': mode, 'arm': arm, 'seed': seed, 'config_hash': cfg.digest,
@@ -134,7 +142,8 @@ def run_case(row, client, raw, *, mode='formal', arm='D', seed=0,
         close_box()
         current_stage = stage
         started = time.monotonic()
-        box = box_factory(image_for(iid), f'proposal-{stage}-{iid[:24]}-{uuid.uuid4().hex[:10]}')
+        image = raw.get('execution', {}).get('images', {}).get(iid, image_for(iid))
+        box = box_factory(image, f'proposal-{stage}-{iid[:24]}-{uuid.uuid4().hex[:10]}')
         try:
             box.start()
             digest = box.image_digest()
@@ -160,8 +169,8 @@ def run_case(row, client, raw, *, mode='formal', arm='D', seed=0,
         outcome['stages'][stage] = payload
         checkpoint({'instance_id': iid, 'stage': stage, **payload})
     try:
-        open_box('standalone' if mode == 'formal' and arm == 'B' else 'prefix')
-        if mode == 'formal' and arm == 'B':
+        open_box('standalone' if single_policy and arm == 'B' else 'prefix')
+        if single_policy and arm == 'B':
             prefix = None
         else:
             if cached_prefix is not None:
@@ -203,6 +212,23 @@ def run_case(row, client, raw, *, mode='formal', arm='D', seed=0,
             outcome['prefix_snapshot'] = json.loads(prefix.state.to_json())
             prefix = clone_prefix(prefix)
             outcome['features'] = prefix.features()
+            if mode == 'prefix':
+                # The shared prefix is the same code and budget boundary. No
+                # router, fixed/interactive continuation or independent B runs.
+                stage = outcome['stages']['prefix']
+                error = next((x for x in prefix.trace if x.get('step') == 'prefix_error'), None)
+                status, reason = stage['status'], 'prefix_complete'
+                if prefix.state.failures.environment_failure_after_recovery():
+                    status, reason = 'environment_error', 'environment_error'
+                elif error:
+                    status = 'environment_error' if error['reason'].startswith('EnvironmentFailure:') else 'generation_error'
+                    reason = status
+                elif any(x.get('step') == 'prefix_stop' for x in prefix.trace):
+                    status, reason = 'budget_exhausted', 'prefix_budget_exhausted'
+                stage.update(status=status, termination_reason=reason)
+                outcome.update(status=status, termination_reason=reason, selected_route='prefix',
+                               submitted_patch=stage['patch'], policy_cost_cny=stage['cost_cny'])
+                return outcome
             outcome['router_rules'] = evaluate_all(prefix.state, cfg, allow_uncalibrated=calibration)
             for a in ('A', 'C', 'D', 'E'):
                 # E is undefined until its dev trigger-rate matching is frozen.
@@ -217,7 +243,7 @@ def run_case(row, client, raw, *, mode='formal', arm='D', seed=0,
                     raise EnvironmentFailure(prefix_failure['reason'])
                 raise RuntimeError(prefix_failure['reason'])
 
-        if mode == 'formal':
+        if single_policy:
             selected = 'standalone' if arm == 'B' else outcome['decisions'][arm]['route']
             branches = [selected] if selected != 'stop' else []
         else:
@@ -274,7 +300,7 @@ def run_case(row, client, raw, *, mode='formal', arm='D', seed=0,
                     rt = Runtime(state.budget)
                 emit(branch, rt, state, status, **details)
                 close_box()
-        if mode == 'formal':
+        if single_policy:
             outcome['selected_route'] = selected
             if selected == 'stop':
                 outcome['submitted_patch'] = outcome['stages']['prefix']['patch']
@@ -286,7 +312,7 @@ def run_case(row, client, raw, *, mode='formal', arm='D', seed=0,
         statuses = {s['status'] for s in outcome['stages'].values()}
         outcome['status'] = next((s for s in ('generation_error', 'environment_error', 'budget_exhausted')
                                   if s in statuses), 'completed')
-        if mode == 'formal':
+        if single_policy:
             if selected == 'stop':
                 reason = outcome['decisions'][arm]['reason']
                 outcome['termination_reason'] = reason
@@ -312,7 +338,7 @@ def run_case(row, client, raw, *, mode='formal', arm='D', seed=0,
         selected_stage = actual_stage or outcome['stages'].get('prefix', {})
         outcome.update(status=status, termination_reason=status, error=f'{type(exc).__name__}: {exc}',
                        submitted_patch=selected_stage.get('patch', ''))
-        if mode == 'formal':
+        if single_policy or mode == 'prefix':
             outcome['selected_route'] = chosen
             outcome['policy_cost_cny'] = outcome['stages'].get('prefix', {}).get('cost_cny', 0.0) + (
                 actual_stage.get('cost_cny', 0.0) if actual_stage and chosen not in ('prefix', 'stop') else 0.0)
