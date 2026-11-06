@@ -1,0 +1,570 @@
+{
+  "complete": true,
+  "date": "2026 年 11 月 6 日",
+  "mode": "pilot",
+  "scale": "2 例 × 5 组 × 1 次",
+  "instances": [
+    "pvlib__pvlib-python-1707",
+    "pydicom__pydicom-1139"
+  ],
+  "budget_ceiling_cny": 100,
+  "summary": "A/C/E 各解决 1 例，B/D 均未解决",
+  "completion": "两例五组全部生成并完成独立判分，10 格结果齐全",
+  "environment_rows": [
+    [
+      "pvlib 基线",
+      "官方镜像初始HEAD偏离指定commit",
+      "切回固定公开基线"
+    ],
+    [
+      "pvlib 依赖",
+      "NumPy 2移除旧代码使用的np.Inf",
+      "固定NumPy 1.26.4，245项公开测试通过"
+    ],
+    [
+      "pydicom 测试器",
+      "pytest 8不再执行旧式setup",
+      "固定pytest 7.4.4，恢复测试初始化"
+    ],
+    [
+      "pydicom 数据",
+      "公开fixture未缓存，断网不可读取",
+      "核对公开SHA256预缓存，120+38项通过"
+    ]
+  ],
+  "offline": {
+    "passed": 350,
+    "total": 350,
+    "protected_original": "93/93",
+    "protected_archive": "131/131",
+    "source": "runs/dev2_acceptance_20261106/release_validation.json",
+    "release_evidence": {
+      "kind": "release_validation",
+      "offline_suite": {
+        "passed": 350,
+        "total": 350,
+        "stdout_sha256": "337ef52f6d974218d91d4e9ca8675e81f923edfcf4fb4ce8e03739546e68c41a"
+      },
+      "preservation": {
+        "experiments": {
+          "baseline_commit": "3759265",
+          "protected_total": 93,
+          "verified": 93,
+          "missing": [],
+          "changed": [],
+          "invalid": [],
+          "ok": true
+        },
+        "archive": {
+          "archived_total": 131,
+          "missing": [],
+          "changed": [],
+          "invalid": [],
+          "ok": true
+        }
+      },
+      "pilot_cells": 10,
+      "independently_scored_cells": 10,
+      "model_calls_after_generation_completion": 0
+    }
+  },
+  "interface_lines": {
+    "environment": "两例均通过指定公开测试文件，生成与判分链路可运行",
+    "environment_notes": "pvlib固定公开基线与NumPy 1.26.4。pydicom使用独立公开源码派生镜像，pytest7.4.4恢复旧setup并预缓存公开SHA256一致的fixture。未修改源码或测试。公开基线验证为245、120、38项通过。pydicom派生镜像不等于原官方实例镜像。",
+    "model": "deepseek-flash，真实修复生成与工具调用完成",
+    "scoring": "SWE-bench 5.0.2，10/10 独立判分完成",
+    "footnote": "真实容器执行、共享前缀、分支选择与判分关联均有独立记录",
+    "notes": "350/350是最终源码状态的活动离线测试。独立判分在冻结补丁后运行，10个指定结果均完成，非空补丁10个，基础设施错误0个。响应模型名称为服务别名。费用与请求覆盖此前失败探测及诊断。"
+  },
+  "results": [
+    {
+      "instance_id": "pvlib__pvlib-python-1707",
+      "arm": "A",
+      "route": "固定延续",
+      "verdict": "已解决",
+      "resolved": true,
+      "status": "resolved",
+      "generation_status": "completed",
+      "termination_reason": "early_stop_public_pass",
+      "run_id": "dev2_pilot_A_20261106_01",
+      "policy_cny": 0.38696647999999995,
+      "new_cny": 0.38696647999999995,
+      "resources": {
+        "token": 84574,
+        "model_call": 4,
+        "tool_call": 10,
+        "wallclock_seconds": 254.95850790000077
+      },
+      "prediction_sha256": "190b3b32ccbd131dbc75ec7c9f51d802eb46c9c3628e95308c729323a65703af",
+      "patch_sha256": "806f6631772e8d67ea2dafd8023c72c3b0d511fbd415bab3d9b28a8731bc1883"
+    },
+    {
+      "instance_id": "pvlib__pvlib-python-1707",
+      "arm": "B",
+      "route": "从零交互",
+      "verdict": "未解决",
+      "resolved": false,
+      "status": "unresolved",
+      "generation_status": "budget_exhausted",
+      "termination_reason": "model_call_budget",
+      "run_id": "dev2_pilot_B_20261106_01",
+      "policy_cny": 0.09412279999999999,
+      "new_cny": 0.09412279999999999,
+      "resources": {
+        "token": 27904,
+        "model_call": 6,
+        "tool_call": 10,
+        "wallclock_seconds": 59.90418520000094
+      },
+      "prediction_sha256": "55456e7e40aedbafc6a84168304af28d007d139e9e04a346bf7eebb3131851ad",
+      "patch_sha256": "bc7bb9ebc9adf681be4253becbc4c8e376222157266ccb60222bd8435b1fc3a6"
+    },
+    {
+      "instance_id": "pvlib__pvlib-python-1707",
+      "arm": "C",
+      "route": "交互延续",
+      "verdict": "已解决",
+      "resolved": true,
+      "status": "resolved",
+      "generation_status": "completed",
+      "termination_reason": "public_pass",
+      "run_id": "dev2_pilot_C_20261106_01",
+      "policy_cny": 0.35102552,
+      "new_cny": 0.08567072000000003,
+      "resources": {
+        "token": 121719,
+        "model_call": 7,
+        "tool_call": 14,
+        "wallclock_seconds": 237.071869100002
+      },
+      "prediction_sha256": "20747b72e11e5f96dee78047d0ab9b4ff02f7e628648b4deafa4afceda3a4588",
+      "patch_sha256": "eee604c853803bd89d9465f45d97abf3cf826b856ca0e1ee1dc4458b61ae1510"
+    },
+    {
+      "instance_id": "pvlib__pvlib-python-1707",
+      "arm": "D",
+      "route": "交互延续",
+      "verdict": "未解决",
+      "resolved": false,
+      "status": "unresolved",
+      "generation_status": "budget_exhausted",
+      "termination_reason": "model_call_budget",
+      "run_id": "dev2_pilot_D_20261106_01",
+      "policy_cny": 0.32415007999999995,
+      "new_cny": 0.058795280000000005,
+      "resources": {
+        "token": 130456,
+        "model_call": 9,
+        "tool_call": 14,
+        "wallclock_seconds": 202.386933400001
+      },
+      "prediction_sha256": "ea6510fef921b612b4a73b855fff096672b7680237ffc1a8de31d68bc8a42808",
+      "patch_sha256": "4823d6969e2bcf38a5f0a09428ef4dff86ac8529f2ea4fdd39d9886314ff9636"
+    },
+    {
+      "instance_id": "pvlib__pvlib-python-1707",
+      "arm": "E",
+      "route": "交互延续",
+      "verdict": "已解决",
+      "resolved": true,
+      "status": "resolved",
+      "generation_status": "completed",
+      "termination_reason": "public_pass",
+      "run_id": "dev2_pilot_E_20261106_01",
+      "policy_cny": 0.35367703999999994,
+      "new_cny": 0.08832224,
+      "resources": {
+        "token": 128677,
+        "model_call": 8,
+        "tool_call": 14,
+        "wallclock_seconds": 235.17898360000072
+      },
+      "prediction_sha256": "844297d0b715ddcf89b96e35cf786a0740f2da41ecdddfebc67bc10bdbcafc7c",
+      "patch_sha256": "86843d42c833fbb6114303b6b5da8a8e9957a78a64ef1d6ce9f9d90f384ba86f"
+    },
+    {
+      "instance_id": "pydicom__pydicom-1139",
+      "arm": "A",
+      "route": "前缀停止",
+      "verdict": "未解决",
+      "resolved": false,
+      "status": "unresolved",
+      "generation_status": "completed",
+      "termination_reason": "early_stop_public_pass",
+      "run_id": "dev2_pilot_A_20261106_01",
+      "policy_cny": 0.026002360000000002,
+      "new_cny": 0.026002360000000002,
+      "resources": {
+        "token": 18042,
+        "model_call": 3,
+        "tool_call": 15,
+        "wallclock_seconds": 26.431380800000625
+      },
+      "prediction_sha256": "190b3b32ccbd131dbc75ec7c9f51d802eb46c9c3628e95308c729323a65703af",
+      "patch_sha256": "8415fd7cb734e9df85ab0028fafbc86eaf9864fce0ced43db316b833e314636f"
+    },
+    {
+      "instance_id": "pydicom__pydicom-1139",
+      "arm": "B",
+      "route": "从零交互",
+      "verdict": "未解决",
+      "resolved": false,
+      "status": "unresolved",
+      "generation_status": "budget_exhausted",
+      "termination_reason": "model_call_budget",
+      "run_id": "dev2_pilot_B_20261106_01",
+      "policy_cny": 0.02252448,
+      "new_cny": 0.02252448,
+      "resources": {
+        "token": 18358,
+        "model_call": 6,
+        "tool_call": 10,
+        "wallclock_seconds": 13.234989399999904
+      },
+      "prediction_sha256": "55456e7e40aedbafc6a84168304af28d007d139e9e04a346bf7eebb3131851ad",
+      "patch_sha256": "4a4c200659779408e3c36693df17f48ebe439e47ab5ecc40e55053ffe02aeb7d"
+    },
+    {
+      "instance_id": "pydicom__pydicom-1139",
+      "arm": "C",
+      "route": "前缀停止",
+      "verdict": "未解决",
+      "resolved": false,
+      "status": "unresolved",
+      "generation_status": "completed",
+      "termination_reason": "early_stop_public_pass",
+      "run_id": "dev2_pilot_C_20261106_01",
+      "policy_cny": 0.026002360000000002,
+      "new_cny": 0,
+      "resources": {
+        "token": 18042,
+        "model_call": 3,
+        "tool_call": 15,
+        "wallclock_seconds": 26.431380800000625
+      },
+      "prediction_sha256": "20747b72e11e5f96dee78047d0ab9b4ff02f7e628648b4deafa4afceda3a4588",
+      "patch_sha256": "8415fd7cb734e9df85ab0028fafbc86eaf9864fce0ced43db316b833e314636f"
+    },
+    {
+      "instance_id": "pydicom__pydicom-1139",
+      "arm": "D",
+      "route": "前缀停止",
+      "verdict": "未解决",
+      "resolved": false,
+      "status": "unresolved",
+      "generation_status": "completed",
+      "termination_reason": "early_stop_public_pass",
+      "run_id": "dev2_pilot_D_20261106_01",
+      "policy_cny": 0.026002360000000002,
+      "new_cny": 0,
+      "resources": {
+        "token": 18042,
+        "model_call": 3,
+        "tool_call": 15,
+        "wallclock_seconds": 26.431380800000625
+      },
+      "prediction_sha256": "ea6510fef921b612b4a73b855fff096672b7680237ffc1a8de31d68bc8a42808",
+      "patch_sha256": "8415fd7cb734e9df85ab0028fafbc86eaf9864fce0ced43db316b833e314636f"
+    },
+    {
+      "instance_id": "pydicom__pydicom-1139",
+      "arm": "E",
+      "route": "前缀停止",
+      "verdict": "未解决",
+      "resolved": false,
+      "status": "unresolved",
+      "generation_status": "completed",
+      "termination_reason": "early_stop_public_pass",
+      "run_id": "dev2_pilot_E_20261106_01",
+      "policy_cny": 0.026002360000000002,
+      "new_cny": 0,
+      "resources": {
+        "token": 18042,
+        "model_call": 3,
+        "tool_call": 15,
+        "wallclock_seconds": 26.431380800000625
+      },
+      "prediction_sha256": "844297d0b715ddcf89b96e35cf786a0740f2da41ecdddfebc67bc10bdbcafc7c",
+      "patch_sha256": "8415fd7cb734e9df85ab0028fafbc86eaf9864fce0ced43db316b833e314636f"
+    }
+  ],
+  "arm_costs": [
+    {
+      "arm": "A",
+      "resolved": 1,
+      "policy_cny": 0.41296883999999995,
+      "new_cny": 0.41296884,
+      "resources": {
+        "token": {
+          "recorded_total": 102616,
+          "complete": true,
+          "mean_per_task": 51308,
+          "per_resolved": 102616
+        },
+        "model_call": {
+          "recorded_total": 7,
+          "complete": true,
+          "mean_per_task": 3.5,
+          "per_resolved": 7
+        },
+        "tool_call": {
+          "recorded_total": 25,
+          "complete": true,
+          "mean_per_task": 12.5,
+          "per_resolved": 25
+        },
+        "wallclock_seconds": {
+          "recorded_total": 281.3898887000014,
+          "complete": true,
+          "mean_per_task": 140.6949443500007,
+          "per_resolved": 281.3898887000014
+        }
+      }
+    },
+    {
+      "arm": "B",
+      "resolved": 0,
+      "policy_cny": 0.11664727999999999,
+      "new_cny": 0.11664728000000002,
+      "resources": {
+        "token": {
+          "recorded_total": 46262,
+          "complete": true,
+          "mean_per_task": 23131,
+          "per_resolved": null
+        },
+        "model_call": {
+          "recorded_total": 12,
+          "complete": true,
+          "mean_per_task": 6,
+          "per_resolved": null
+        },
+        "tool_call": {
+          "recorded_total": 20,
+          "complete": true,
+          "mean_per_task": 10,
+          "per_resolved": null
+        },
+        "wallclock_seconds": {
+          "recorded_total": 73.13917460000084,
+          "complete": true,
+          "mean_per_task": 36.56958730000042,
+          "per_resolved": null
+        }
+      }
+    },
+    {
+      "arm": "C",
+      "resolved": 1,
+      "policy_cny": 0.37702788,
+      "new_cny": 0.08567071999999998,
+      "resources": {
+        "token": {
+          "recorded_total": 139761,
+          "complete": true,
+          "mean_per_task": 69880.5,
+          "per_resolved": 139761
+        },
+        "model_call": {
+          "recorded_total": 10,
+          "complete": true,
+          "mean_per_task": 5,
+          "per_resolved": 10
+        },
+        "tool_call": {
+          "recorded_total": 29,
+          "complete": true,
+          "mean_per_task": 14.5,
+          "per_resolved": 29
+        },
+        "wallclock_seconds": {
+          "recorded_total": 263.50324990000263,
+          "complete": true,
+          "mean_per_task": 131.75162495000131,
+          "per_resolved": 263.50324990000263
+        }
+      }
+    },
+    {
+      "arm": "D",
+      "resolved": 0,
+      "policy_cny": 0.35015243999999995,
+      "new_cny": 0.058795280000000005,
+      "resources": {
+        "token": {
+          "recorded_total": 148498,
+          "complete": true,
+          "mean_per_task": 74249,
+          "per_resolved": null
+        },
+        "model_call": {
+          "recorded_total": 12,
+          "complete": true,
+          "mean_per_task": 6,
+          "per_resolved": null
+        },
+        "tool_call": {
+          "recorded_total": 29,
+          "complete": true,
+          "mean_per_task": 14.5,
+          "per_resolved": null
+        },
+        "wallclock_seconds": {
+          "recorded_total": 228.81831420000162,
+          "complete": true,
+          "mean_per_task": 114.40915710000081,
+          "per_resolved": null
+        }
+      }
+    },
+    {
+      "arm": "E",
+      "resolved": 1,
+      "policy_cny": 0.37967939999999994,
+      "new_cny": 0.08832224000000011,
+      "resources": {
+        "token": {
+          "recorded_total": 146719,
+          "complete": true,
+          "mean_per_task": 73359.5,
+          "per_resolved": 146719
+        },
+        "model_call": {
+          "recorded_total": 11,
+          "complete": true,
+          "mean_per_task": 5.5,
+          "per_resolved": 11
+        },
+        "tool_call": {
+          "recorded_total": 29,
+          "complete": true,
+          "mean_per_task": 14.5,
+          "per_resolved": 29
+        },
+        "wallclock_seconds": {
+          "recorded_total": 261.61036440000134,
+          "complete": true,
+          "mean_per_task": 130.80518220000067,
+          "per_resolved": 261.61036440000134
+        }
+      }
+    }
+  ],
+  "totals": {
+    "result_summary": "pvlib：A/C/E 解决，B/D 未解决\npydicom：五组均未解决",
+    "cost_summary": "五组新增 0.7624 元，累计 2.0491 元",
+    "next_summary": "本轮完成端到端链路，下一步改进公开验证覆盖与交互预算",
+    "pilot_new_generation_cny": 0.7624043600000001,
+    "full_policy_cny": 1.63647584,
+    "cumulative_cny": 2.04914488,
+    "usage_estimated_cny": 2.0448948799999997,
+    "unknown_reserved_cny": 0.00425,
+    "actual_request_records": 91,
+    "pending": null,
+    "budget_ceiling_cny": 100
+  },
+  "failure_example": {
+    "title": "pydicom 的公开通过与最终未解决",
+    "metric1": "4 组",
+    "metric2": "0 组",
+    "label1": "公开验证通过后停止",
+    "label2": "独立判分确认解决",
+    "evidence": "A/C/D/E 在公开验证通过后共享停止，提交同一前缀补丁。\n四组独立判分均为未解决。",
+    "cause": "公开通过没有转化为最终解决\n后续需加强公开复现与停止条件审查",
+    "followup": "pvlib D 则耗尽 6 次交互请求，C/E 在 4/5 次请求后完成公开验证",
+    "notes": "pydicom A/C/D/E selected_route=stop，termination_reason=early_stop_public_pass，补丁SHA256均为8415fd7cb734e9df85ab0028fafbc86eaf9864fce0ced43db316b833e314636f。四组独立结果均为unresolved。公开通过与最终未解决为直接观察，未根据官方基础设施附加标签推定全面环境健康，也未读取或展示隐藏反馈。pvlib D/C/E均选择interactive，实际交互会话请求为6/4/5次，D因model_call_budget退出，C/E因public_pass退出。"
+  },
+  "candidate_calibration": {
+    "summary": "同两例配对，eligible=1\n临时阈值 0.75/0.75，E 触发概率 1.0",
+    "notes": "候选来自修复环境后的dev2_diagnostic_20261106_02独立配对判分。唯一eligible实例pvlib的固定与交互分支均resolved。九个阈值组合均为平局，数据不能确定最优阈值。本轮接口候选暂用localization/duplicate阈值0.75/0.75。D在全部eligible dev前缀的触发率为1/1，E概率据此匹配为1.0。候选状态仍为pending，后续同两例五组接口验收不提供独立无偏方法收益结论。"
+  },
+  "next_steps": [
+    [
+      "公开验证",
+      "补充 pydicom 公开复现，分析公开通过与最终未解决的差异"
+    ],
+    [
+      "交互预算",
+      "分析 D 的请求分配与候选有效性，保留同路由负结果"
+    ],
+    [
+      "完整 dev 校准",
+      "扩大独立 dev 样本，校准完整路由、前缀与资源上限"
+    ],
+    [
+      "正式研究",
+      "冻结模型配置后重复实验，补消融、敏感性与语义审查"
+    ]
+  ],
+  "sources_by_slide": [
+    [
+      "docs/两例五组实验摘要_20261106.md",
+      "runs/dev2_acceptance_20261106/pilot_summary.json"
+    ],
+    [
+      "runs/dev2_acceptance_20261106/preregistration.json",
+      "runs/dev2_acceptance_20261106/pilot_summary.json",
+      "runs/dev2_acceptance_20261106/pilot_official_scoring_summary.json"
+    ],
+    [
+      "src/swe_repair/experiment.py",
+      "runs/dev2_acceptance_20261106/pilot_execution_audit.json",
+      "runs/dev2_acceptance_20261106/calibration_candidate.json"
+    ],
+    [
+      "runs/dev2_acceptance_20261106/environment/pvlib/public_test_pvsystem_execution_v2.json",
+      "runs/dev2_acceptance_20261106/environment/pydicom/public_environment_repair_summary.json"
+    ],
+    [
+      "runs/dev2_acceptance_20261106/release_validation.json",
+      "runs/dev2_acceptance_20261106/pilot_official_scoring_summary.json",
+      "runs/dev2_acceptance_20261106/pilot_execution_audit.json",
+      "runs/model_probe_20261106_02/result.json"
+    ],
+    [
+      "runs/dev2_acceptance_20261106/pilot_summary.json",
+      "runs/dev2_acceptance_20261106/pilot_execution_audit.json",
+      "runs/dev2_acceptance_20261106/pilot_official_scoring_summary.json"
+    ],
+    [
+      "runs/dev2_acceptance_20261106/generation_accounting.json",
+      "runs/dev2_acceptance_20261106/pilot_summary.json",
+      "runs/dev2_acceptance_20261106/batch_ledger.json"
+    ],
+    [
+      "runs/dev2_acceptance_20261106/pilot_execution_audit.json",
+      "runs/dev2_acceptance_20261106/pilot_official_scoring_summary.json",
+      "runs/dev2_pilot_D_20261106_01/matrix.json"
+    ],
+    [
+      "runs/dev2_acceptance_20261106/calibration_candidate.json",
+      "runs/dev2_diagnostic_20261106_02/analysis.json",
+      "runs/dev2_acceptance_20261106/generation_accounting.json",
+      "configs/proposal_v1.json"
+    ],
+    [
+      "docs/两例五组实验摘要_20261106.md",
+      "docs/实验协议_开题对齐.md",
+      "runs/dev2_acceptance_20261106/pilot_summary.json"
+    ]
+  ],
+  "source_hashes": {
+    "docs/两例五组实验摘要_20261106.md": "5584136abb2726d47c61c5bc191e10e2aef159cfd799e921a3302971099ccd0f",
+    "runs/dev2_acceptance_20261106/pilot_summary.json": "128eecf6235933c15b1a1a7f3aacee8e45f1d717ce3dc166383761cc21ed575b",
+    "runs/dev2_acceptance_20261106/preregistration.json": "d0da4f254dacae820eb14214e40e9793ac8c946bd0c20495893127ca2f42fbfd",
+    "runs/dev2_acceptance_20261106/pilot_official_scoring_summary.json": "0a5a5579320e834615d359b224843c42492649329cfa4eea41e3e65f8e3419ad",
+    "src/swe_repair/experiment.py": "86502c658e10e7e6297d289813e19b627abc377a828bd3e68fae0cc1558eff88",
+    "runs/dev2_acceptance_20261106/pilot_execution_audit.json": "8891d359476997eb9b6638c200f2f753548d4230ec7eaa3764d578fb89f3a0c9",
+    "runs/dev2_acceptance_20261106/calibration_candidate.json": "16a20ca56603a17898f4e245156f34d8c967350a0c0b3679305e3462b4ef063f",
+    "runs/dev2_acceptance_20261106/environment/pvlib/public_test_pvsystem_execution_v2.json": "ab3f8de1785f9e71e82d3a621c709da8705f10079e235c4bdae314f58c14290b",
+    "runs/dev2_acceptance_20261106/environment/pydicom/public_environment_repair_summary.json": "ed34882af786d5a5f9183585f183e42fbc9381a8cf18c8d68cbb4ff3ddeb41e9",
+    "runs/dev2_acceptance_20261106/release_validation.json": "aff191ba3dbb8795ab216c99506bd7efc8488c9570f192a145a3beffbc5cd363",
+    "runs/model_probe_20261106_02/result.json": "2283b2bbc72a51f3348261ab86a368a301e44fbce1b6727cdb387861c387370a",
+    "runs/dev2_acceptance_20261106/generation_accounting.json": "4637f05cef5113ac5e4d19871e88d0573e7bb8be0e5f804c7dba8e10d4e8124d",
+    "runs/dev2_acceptance_20261106/batch_ledger.json": "979cc53a59e139aac15f53e3258de1ea35bb9a81c2fd30d731f6bc4a8139fcaf",
+    "runs/dev2_pilot_D_20261106_01/matrix.json": "0f1e11c87fc460713ca5b49ae49a7c5bf20a698c5db41d7e0ee3f7845485e6a6",
+    "runs/dev2_diagnostic_20261106_02/analysis.json": "35a7a8b7f2257e571b62c121d45662c8c81779c8f7e96df1eb7e97b077857321",
+    "configs/proposal_v1.json": "3f22958c5dce68d90c826d8774c0fa9bfa882ee546529dafc3bd1f82326f9308",
+    "docs/实验协议_开题对齐.md": "b4bf16d25bbe87546ff652e572801c1d62deee48d140ed7fa22917fe4b3d9573"
+  }
+}
