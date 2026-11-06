@@ -243,6 +243,9 @@ def execute_controller(run_dir: Path, image: str, *, docker_context='desktop-lin
         report_path = Path(job['report_path'])
         provenance_path = sidecar_path(report_path)
         provenance = json.loads(provenance_path.read_text(encoding='utf-8'))
+        if (provenance.get('matrix_sha256') != plan['matrix_sha256']
+                or provenance.get('predictions_sha256') != job['predictions_sha256']):
+            raise ValueError('controller evaluated inputs different from the outer frozen plan')
         if provenance.get('harness_environment', {}).get('swebench') != '5.0.2':
             raise ValueError('controller returned an unexpected official harness version')
         validate_artifact_files(run_dir / 'matrix.json', report_path, job['arm'], provenance)

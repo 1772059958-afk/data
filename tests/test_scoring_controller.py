@@ -97,6 +97,36 @@ def test_controller_pins_actual_image_and_verifies_report_after_fake_dispatch():
         assert len(calls) == 2
 
 
+def test_controller_rejects_replaced_inputs_even_with_valid_inner_sidecar():
+    for replaced in ('matrix.json', 'predictions_D.jsonl'):
+        with temporary() as tmp:
+            path = Path(tmp)
+            matrix, report, _ = fixture.materialize(path)
+            def fake(command, **kwargs):
+                if 'inspect' in command:
+                    return types.SimpleNamespace(returncode=0, stdout='sha256:' + '1' * 64)
+                selected = path / replaced
+                selected.write_bytes(selected.read_bytes() + b'\n')
+                directory = path / 'scoring/D'
+                directory.mkdir(parents=True)
+                report_path = directory / 'identity_dev-D.identity_dev.json'
+                report_path.write_text(json.dumps(report), encoding='utf-8')
+                provenance = build_provenance(matrix, 'D', (path / 'predictions_D.jsonl').read_bytes(), report,
+                    matrix_bytes=(path / 'matrix.json').read_bytes(), report_bytes=report_path.read_bytes())
+                provenance['harness_environment'] = {'python': '3.11', 'swebench': '5.0.2'}
+                descriptor = scoring.dataset_descriptor(matrix, path)
+                descriptor['effective_dataset_sha256'] = descriptor['source_sha256']
+                provenance['evaluation_dataset'] = descriptor
+                sidecar_path(report_path).write_text(json.dumps(provenance), encoding='utf-8')
+                return types.SimpleNamespace(returncode=0)
+            try:
+                scoring.execute_controller(path, 'local/controller:test', runner=fake)
+            except ValueError as exc:
+                assert 'outer frozen plan' in str(exc)
+            else:
+                raise AssertionError('controller accepted a replacement despite outer frozen hashes')
+
+
 def test_prepared_image_evaluator_projection_never_mutates_protected_dataset():
     with temporary() as tmp:
         path = Path(tmp)
