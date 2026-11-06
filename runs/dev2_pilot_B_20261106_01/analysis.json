@@ -1,0 +1,429 @@
+{
+  "historical_diagnostic_only": false,
+  "mode": "pilot",
+  "config_hash": "d485c95edec9f5d5f944d96680a8a558104743119326e794510a664b5c0f4c19",
+  "effective_config": {
+    "config_version": "proposal_aligned_v1",
+    "prompt_version": "proposal_v1_error_feedback_20261030",
+    "status": "draft-pending-calibration",
+    "note": "Two designated DEV cases, paired diagnostic followed by five actual single-policy pilot arms; one repeat; provisional routing remains pending formal calibration. Corrected public-test environment: pytest7 legacy setup compatibility, public fixture preloaded; no source/test edits.",
+    "dataset": {
+      "name": "princeton-nlp/SWE-bench_Lite",
+      "revision": "6ec7bb89b9342f664a54a6e0a6ea6501d3437cc2",
+      "dev_split": "dev",
+      "test_split": "test",
+      "dev_instances": 23,
+      "test_instances": 300,
+      "manifest": "data/frozen/manifest.json"
+    },
+    "model": {
+      "model": "deepseek-flash",
+      "model_version": "deepseek-flash",
+      "thinking": true,
+      "effort": "low",
+      "temperature": null,
+      "top_p": null,
+      "max_tokens": 16384,
+      "max_retries": 0,
+      "calibration": "pending",
+      "identity_probe": {
+        "file": "runs/model_probe_20261106_02/result.json",
+        "sha256": "2283b2bbc72a51f3348261ab86a368a301e44fbce1b6727cdb387861c387370a",
+        "request_id": "71d41ce5-7560-4bdf-807b-7daf90db2836",
+        "immutable_version": false
+      }
+    },
+    "budget_tiers": [
+      {
+        "tier": "development",
+        "token": 512000,
+        "model_call": 12,
+        "tool_call": 80,
+        "wallclock_seconds": 1200
+      }
+    ],
+    "prefix": {
+      "n_candidates": 2,
+      "prefix_fraction": 0.3,
+      "prefix_fraction_grid": [
+        0.2,
+        0.3,
+        0.4
+      ],
+      "calibration": "pending"
+    },
+    "fixed_continuation": {
+      "max_candidates": 6,
+      "feedback": "structured",
+      "stop_on_public_pass": true,
+      "calibration": "pending"
+    },
+    "router": {
+      "rule_order": [
+        "stop_on_env_failure_after_one_recovery",
+        "stop_when_budget_insufficient",
+        "freeze_when_public_candidate_passes",
+        "fixed_on_local_application_or_syntax_error",
+        "interactive_on_wide_localization_disagreement",
+        "interactive_on_high_duplicate_rate",
+        "interactive_on_out_of_scope_stack_evidence",
+        "fixed_when_evidence_insufficient",
+        "fixed_continuation_otherwise"
+      ],
+      "localization_disagreement_threshold": 0.75,
+      "duplicate_rate_threshold": 0.75,
+      "threshold_grid": [
+        0.25,
+        0.5,
+        0.75
+      ],
+      "switch_probability": 1.0,
+      "min_continuation": {
+        "token": 2048,
+        "model_call": 1,
+        "tool_call": 1,
+        "wallclock_seconds": 30
+      },
+      "calibration": "pending"
+    },
+    "interaction": {
+      "tools": [
+        "search_symbol",
+        "read_region",
+        "find_references",
+        "apply_patch",
+        "run_test",
+        "finish"
+      ],
+      "states": [
+        "analyse",
+        "edit",
+        "validate",
+        "finish"
+      ],
+      "stagnation_patience": 3,
+      "model_calls": 6,
+      "tool_calls": 10,
+      "wallclock_seconds": 420,
+      "final_call": "reserved_inside_limit"
+    },
+    "candidate_selection": {
+      "order": [
+        "scope_valid",
+        "syntax_valid",
+        "applies_cleanly",
+        "public_validation",
+        "fewer_files_touched",
+        "fewer_diff_lines",
+        "generation_order"
+      ],
+      "frozen": false
+    },
+    "evaluation": {
+      "harness": "SWE-bench official containerised harness",
+      "repeats": 1,
+      "primary_metric": "resolved_rate",
+      "denominator": "all designated instances",
+      "generation_view_fields": [
+        "problem_statement",
+        "base_commit",
+        "repo",
+        "version",
+        "environment_setup_commit"
+      ],
+      "withheld_from_generation": [
+        "patch",
+        "test_patch",
+        "FAIL_TO_PASS",
+        "PASS_TO_PASS"
+      ],
+      "frozen": false,
+      "instance_list": "runs/dev2_acceptance_20261106/instances.json",
+      "sampling": "full_split_or_preregistered_stratified_subset",
+      "environment_failures": "retain_in_primary_denominator",
+      "statistics": "descriptive_two_case_single_repeat_pilot"
+    },
+    "arms": {
+      "A": "fixed workflow",
+      "B": "interactive only",
+      "C": "simple cascade (shared prefix, all eligible failures escalate)",
+      "D": "adaptive hybrid (shared prefix, evidence-based routing)",
+      "E": "random routing (switch probability fixed on dev split)"
+    },
+    "protocol": "docs/实验协议_开题对齐.md",
+    "active_tier": "development",
+    "execution": {
+      "live_authorized": true,
+      "per_instance_cny": 2.0,
+      "total_cny": 100.0,
+      "tool_call_unit": "container_exec",
+      "environment_retries": 1,
+      "environment_recovery": "retry_same_public_validation_no_install",
+      "output_root": "runs",
+      "modify_scope": "python_source_excluding_tests",
+      "prompt_estimator": "utf8_bytes_plus_1024",
+      "allowed_modes": [
+        "diagnostic",
+        "pilot"
+      ],
+      "allowed_splits": [
+        "dev"
+      ],
+      "allowed_instances": [
+        "pvlib__pvlib-python-1707",
+        "pydicom__pydicom-1139"
+      ],
+      "max_instances": 2,
+      "model_probe_authorized": false,
+      "docker_context": "desktop-linux",
+      "authorization_date": "2026-11-06",
+      "authorization_scope": "User requested this round 2 cases x 5 arms x 1 repeat and confirmed a cumulative 100 CNY model ceiling; includes dev paired preparation and independent scoring; no test formal expansion.",
+      "credential_source": "project_dotenv",
+      "images": {
+        "pvlib__pvlib-python-1707": "sha256:6bddca9c6360684b088cba4a502969e84c3a2f125550983e48e38e2e252b660c",
+        "pydicom__pydicom-1139": "sha256:bd5edf8694cde12aaf99beb18b3935b15e076e81ac7e52aef46b1ca3d9071428"
+      },
+      "batch_ledger": "runs/dev2_acceptance_20261106/batch_ledger.json"
+    },
+    "pilot": {
+      "kind": "actual_single_policy_dev_acceptance",
+      "calibration_candidate": "runs/dev2_acceptance_20261106/calibration_candidate.json",
+      "candidate_sha256": "16a20ca56603a17898f4e245156f34d8c967350a0c0b3679305e3462b4ef063f",
+      "analysis_kind": "descriptive_same_dev_cases_one_repeat"
+    },
+    "provenance": {
+      "code_sha256": "385e36d172ab33194d800abb80bb96091ef69a0c961ed94e4226d402be7e3eb8",
+      "git_commit": "47bcd23f24aa29a1844b245d5b8a5c5690c08256",
+      "dataset_manifest_sha256": "30e1f10eafa8248cf02cf2752eae888e2ec896dcc0697da803ed99e04599d54c",
+      "instance_list_sha256": "5c3cf15a042e0c6565851fc257257b2a8694172c4f72da3b9adbc4750f892dbd"
+    }
+  },
+  "designated_instances": [
+    "pvlib__pvlib-python-1707",
+    "pydicom__pydicom-1139"
+  ],
+  "scored_instances": 0,
+  "split": "dev",
+  "observations": [],
+  "eligible_prefixes": [],
+  "eligible_instance_ids": [],
+  "eligible_population_complete": false,
+  "prefix_unavailable_instance_ids": [
+    "pvlib__pvlib-python-1707",
+    "pydicom__pydicom-1139"
+  ],
+  "paired_eligible": 0,
+  "paired_complete": 0,
+  "unscored_paired_instances": [],
+  "primary_summaries": {
+    "B": {
+      "designated_instances": 2,
+      "repeats": 1,
+      "total": 2,
+      "resolved": 0,
+      "complete": true,
+      "status_counts": {
+        "unresolved": 2
+      },
+      "resolved_rate": 0.0,
+      "resolved_rate_lower_bound": 0.0,
+      "cost_cny_recorded": 0.11664727999999999,
+      "cost_complete": true,
+      "cost_per_resolved_cny": null,
+      "resources": {
+        "token": {
+          "recorded_total": 46262.0,
+          "complete": true,
+          "mean_per_task": 23131.0,
+          "per_resolved": null
+        },
+        "model_call": {
+          "recorded_total": 12.0,
+          "complete": true,
+          "mean_per_task": 6.0,
+          "per_resolved": null
+        },
+        "tool_call": {
+          "recorded_total": 20.0,
+          "complete": true,
+          "mean_per_task": 10.0,
+          "per_resolved": null
+        },
+        "wallclock_seconds": {
+          "recorded_total": 73.13917460000084,
+          "complete": true,
+          "mean_per_task": 36.56958730000042,
+          "per_resolved": null
+        }
+      },
+      "per_repo": {
+        "pvlib__pvlib-python": {
+          "total": 1,
+          "resolved": 0,
+          "status_counts": {
+            "unresolved": 1
+          },
+          "resolved_rate": 0.0
+        },
+        "pydicom__pydicom": {
+          "total": 1,
+          "resolved": 0,
+          "status_counts": {
+            "unresolved": 1
+          },
+          "resolved_rate": 0.0
+        }
+      },
+      "repository_macro_average": 0.0
+    }
+  },
+  "policies": [
+    {
+      "policy": "B_actual",
+      "resolved": 0,
+      "total": 2,
+      "resolved_rate": 0.0,
+      "resolved_rate_lower_bound": 0.0,
+      "not_scored": 0,
+      "stops": 0,
+      "status_counts": {
+        "unresolved": 2
+      },
+      "cost_cny": 0.116647,
+      "cost_per_resolved_cny": null,
+      "escalations": 0,
+      "escalation_share": 0.0
+    }
+  ],
+  "quadrants": {
+    "counts": {
+      "Q1_double_success": 0,
+      "Q2_fixed_only": 0,
+      "Q3_interactive_only": 0,
+      "Q4_double_failure": 0
+    },
+    "meanings": {
+      "Q1_double_success": "both branches solve it: escalating wastes the interactive budget",
+      "Q2_fixed_only": "only the fixed branch solves it: escalating makes the answer worse",
+      "Q3_interactive_only": "only interaction solves it: this is what the router must find",
+      "Q4_double_failure": "neither solves it: escalating is futile"
+    },
+    "scored": 0,
+    "unscored": [],
+    "escalation_necessary_share": null,
+    "wasted_share": null
+  },
+  "features": [
+    {
+      "feature": "u_loc",
+      "direction": "higher escalates",
+      "n": 0,
+      "n_positive": 0,
+      "auc": null
+    },
+    {
+      "feature": "u_dup",
+      "direction": "higher escalates",
+      "n": 0,
+      "n_positive": 0,
+      "auc": null
+    },
+    {
+      "feature": "lacks_behavioural_signal",
+      "direction": "higher escalates",
+      "n": 0,
+      "n_positive": 0,
+      "auc": null
+    },
+    {
+      "feature": "n_public_pass",
+      "direction": "lower escalates",
+      "n": 0,
+      "n_positive": 0,
+      "auc": null
+    },
+    {
+      "feature": "n_applicable",
+      "direction": "lower escalates",
+      "n": 0,
+      "n_positive": 0,
+      "auc": null
+    }
+  ],
+  "oracle_gap_closure_paired_complete_diagnostic_only": null,
+  "diagnostic_cost_cny": 0.11664727999999999,
+  "records": [
+    {
+      "instance_id": "pvlib__pvlib-python-1707",
+      "repeat_index": 0,
+      "seed": 20261106,
+      "run_id": "dev2_pilot_B_20261106_01",
+      "mode": "pilot",
+      "config_hash": "d485c95edec9f5d5f944d96680a8a558104743119326e794510a664b5c0f4c19",
+      "arm": "B",
+      "status": "unresolved",
+      "cost_cny": 0.09412279999999999,
+      "prediction_sha256": "55456e7e40aedbafc6a84168304af28d007d139e9e04a346bf7eebb3131851ad",
+      "patch_sha256": "bc7bb9ebc9adf681be4253becbc4c8e376222157266ccb60222bd8435b1fc3a6",
+      "resources": {
+        "token": 27904,
+        "model_call": 6,
+        "tool_call": 10,
+        "wallclock_seconds": 59.90418520000094
+      },
+      "resources_complete": {
+        "token": true,
+        "model_call": true,
+        "tool_call": true,
+        "wallclock_seconds": true
+      },
+      "termination_reason": "model_call_budget",
+      "generation_status": "budget_exhausted",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "pydicom__pydicom-1139",
+      "repeat_index": 0,
+      "seed": 20261106,
+      "run_id": "dev2_pilot_B_20261106_01",
+      "mode": "pilot",
+      "config_hash": "d485c95edec9f5d5f944d96680a8a558104743119326e794510a664b5c0f4c19",
+      "arm": "B",
+      "status": "unresolved",
+      "cost_cny": 0.02252448,
+      "prediction_sha256": "55456e7e40aedbafc6a84168304af28d007d139e9e04a346bf7eebb3131851ad",
+      "patch_sha256": "4a4c200659779408e3c36693df17f48ebe439e47ab5ecc40e55053ffe02aeb7d",
+      "resources": {
+        "token": 18358,
+        "model_call": 6,
+        "tool_call": 10,
+        "wallclock_seconds": 13.234989399999904
+      },
+      "resources_complete": {
+        "token": true,
+        "model_call": true,
+        "tool_call": true,
+        "wallclock_seconds": true
+      },
+      "termination_reason": "model_call_budget",
+      "generation_status": "budget_exhausted",
+      "cost_complete": true
+    }
+  ],
+  "arm_equivalence": {},
+  "notes": [
+    "Unknown verdicts remain not_scored. Final rates require complete evaluator coverage.",
+    "Paired metrics are diagnostic complete-case results; their denominator is not the primary population.",
+    "Legacy generations cannot become proposal-aligned formal evidence through reanalysis."
+  ],
+  "source_reports": [
+    {
+      "arm": "B",
+      "path": "C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\runs\\dev2_pilot_B_20261106_01\\scoring\\B\\dev2_pilot_B_20261106_01-B.dev2_pilot_B_20261106_01.json",
+      "sha256": "6abda4f9b46401bfe8f99502e9c3e14ecbd22ded6f7f6dc9fdc9284069071769",
+      "provenance_path": "C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\runs\\dev2_pilot_B_20261106_01\\scoring\\B\\dev2_pilot_B_20261106_01-B.dev2_pilot_B_20261106_01.json.provenance.json",
+      "provenance_sha256": "53fa82a8d4277416ab2ca40adf64a78f48a75207dcd8bd5534bcdd9e598aaa3b"
+    }
+  ],
+  "source_matrix_sha256": "babc931962ae36451360803031328d0254457937f46371b65486a223e42b76f6"
+}

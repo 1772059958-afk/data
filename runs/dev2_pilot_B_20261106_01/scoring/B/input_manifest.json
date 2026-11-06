@@ -1,0 +1,52 @@
+{
+  "identity": {
+    "tag": "dev2_pilot_B_20261106_01",
+    "config_hash": "d485c95edec9f5d5f944d96680a8a558104743119326e794510a664b5c0f4c19",
+    "mode": "pilot",
+    "split": "dev",
+    "seed": 20261106,
+    "repeat_index": 0
+  },
+  "matrix_sha256": "babc931962ae36451360803031328d0254457937f46371b65486a223e42b76f6",
+  "arm": "B",
+  "predictions_file": "predictions_B.jsonl",
+  "predictions_sha256": "55456e7e40aedbafc6a84168304af28d007d139e9e04a346bf7eebb3131851ad",
+  "model_name_or_path": "dev2_pilot_B_20261106_01-B",
+  "prediction_patch_sha256": {
+    "pvlib__pvlib-python-1707": "bc7bb9ebc9adf681be4253becbc4c8e376222157266ccb60222bd8435b1fc3a6",
+    "pydicom__pydicom-1139": "4a4c200659779408e3c36693df17f48ebe439e47ab5ecc40e55053ffe02aeb7d"
+  },
+  "report_path": "/workspace/runs/dev2_pilot_B_20261106_01/scoring/B/dev2_pilot_B_20261106_01-B.dev2_pilot_B_20261106_01.json",
+  "command": [
+    "/opt/scoring/bin/python",
+    "-m",
+    "swebench.harness.run_evaluation",
+    "--dataset_name",
+    "/workspace/runs/dev2_pilot_B_20261106_01/scoring/evaluation_dataset.json",
+    "--split",
+    "dev",
+    "--predictions_path",
+    "/workspace/runs/dev2_pilot_B_20261106_01/predictions_B.jsonl",
+    "--instance_ids",
+    "pvlib__pvlib-python-1707",
+    "pydicom__pydicom-1139",
+    "--run_id",
+    "dev2_pilot_B_20261106_01",
+    "--max_workers",
+    "1",
+    "--report_dir",
+    "/workspace/runs/dev2_pilot_B_20261106_01/scoring/B"
+  ],
+  "directory": "/workspace/runs/dev2_pilot_B_20261106_01/scoring/B",
+  "evaluation_dataset": {
+    "source": "/workspace/data/harness/dev.parquet",
+    "source_sha256": "b90bcbfaca1b5f65155500124a977876c264a4003ab384aca4dfc39a54bef89f",
+    "source_manifest_sha256": "30e1f10eafa8248cf02cf2752eae888e2ec896dcc0697da803ed99e04599d54c",
+    "prepared_images": {
+      "pvlib__pvlib-python-1707": "sha256:6bddca9c6360684b088cba4a502969e84c3a2f125550983e48e38e2e252b660c",
+      "pydicom__pydicom-1139": "sha256:bd5edf8694cde12aaf99beb18b3935b15e076e81ac7e52aef46b1ca3d9071428"
+    },
+    "dataset_path": "/workspace/runs/dev2_pilot_B_20261106_01/scoring/evaluation_dataset.json",
+    "effective_dataset_sha256": "1317d85058093189e5ad9eaacff7f37a3c2b53224ad8c379b2fcc6be2e3d5ed4"
+  }
+}
