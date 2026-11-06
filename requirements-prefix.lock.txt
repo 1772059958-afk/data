@@ -1,0 +1,9 @@
+# Observed Windows Python 3.14.2 prefix environment, 2026-11-06.
+# This is an integration dependency snapshot, not a frozen experiment.
+certifi==2026.10.23
+charset-normalizer==3.5.2
+idna==3.20
+pyarrow==26.0.1
+requests==2.34.2
+tzdata==2026.6
+urllib3==2.8.0

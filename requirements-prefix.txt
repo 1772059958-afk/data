@@ -1,0 +1,4 @@
+# Host controller only; repository dependencies remain in each instance image.
+requests>=2.31
+pyarrow>=21
+tzdata; sys_platform == "win32"
