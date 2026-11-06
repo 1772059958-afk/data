@@ -1,0 +1,54 @@
+{
+  "kind": "integration_environment_rejection",
+  "status": "retained_attempt_not_calibration_source",
+  "reason": "Independent full public test_dataset.py execution found 41 legacy setup initialization AttributeErrors with pytest 8.3.5; collection-only acceptance was insufficient. Prepare a compatible immutable environment before the final five-arm pilot.",
+  "evidence": "runs/dev2_acceptance_20261106/environment/pydicom/public_test_dataset_offline_execution.json",
+  "matrix_sha256": "af52828ec13bfcb62d4056b65ca68ba425b85092faf5600363aacb4fd01083ee",
+  "cases": [
+    {
+      "instance_id": "pvlib__pvlib-python-1707",
+      "status": "budget_exhausted",
+      "stages": {
+        "prefix": {
+          "status": "completed",
+          "model_requests": 3,
+          "cost_cny": 0.2370988
+        },
+        "standalone": {
+          "status": "budget_exhausted",
+          "model_requests": 6,
+          "cost_cny": 0.02156864
+        }
+      }
+    },
+    {
+      "instance_id": "pydicom__pydicom-1139",
+      "status": "budget_exhausted",
+      "stages": {
+        "prefix": {
+          "status": "completed",
+          "model_requests": 3,
+          "cost_cny": 0.03641272
+        },
+        "fixed": {
+          "status": "completed",
+          "model_requests": 6,
+          "cost_cny": 0.26977080000000003
+        },
+        "interactive": {
+          "status": "budget_exhausted",
+          "model_requests": 6,
+          "cost_cny": 0.06478648000000001
+        },
+        "standalone": {
+          "status": "budget_exhausted",
+          "model_requests": 6,
+          "cost_cny": 0.01874592
+        }
+      }
+    }
+  ],
+  "new_generation_cost_cny": 0.64838336,
+  "all_costs_retained_in_cumulative_ledger": true,
+  "generation_stopped_without_pending_request": true
+}
