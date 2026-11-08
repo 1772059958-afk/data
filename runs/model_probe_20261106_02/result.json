@@ -1,0 +1,82 @@
+{
+  "kind": "model_identity_probe",
+  "status": "completed",
+  "model": "deepseek-flash",
+  "observed_served_model": "deepseek-flash",
+  "response_text": "OK",
+  "record": {
+    "requested_model": "deepseek-flash",
+    "served_model": "deepseek-flash",
+    "thinking": true,
+    "effort": "low",
+    "prompt_tokens": 37,
+    "cache_hit_tokens": 0,
+    "cache_miss_tokens": 37,
+    "output_tokens": 12,
+    "reasoning_tokens": 10,
+    "latency_seconds": 0.7169,
+    "finish_reason": "stop",
+    "attempts": 1,
+    "request_id": "71d41ce5-7560-4bdf-807b-7daf90db2836",
+    "started_at": "2026-11-06T09:39:14.473566+08:00",
+    "cost_cny": 0.00017,
+    "price_tier": "peak",
+    "usage_reported": true,
+    "billing": "estimated_from_usage",
+    "served_model_reported": true
+  },
+  "cost_cny": 0.00017,
+  "budget": {
+    "tier": "probe",
+    "ceiling": {
+      "token": 4096,
+      "model_call": 1,
+      "tool_call": 0,
+      "wallclock_seconds": 60
+    },
+    "consumed": {
+      "token": 49,
+      "model_call": 1,
+      "tool_call": 0,
+      "wallclock_seconds": 0.9051322000000255
+    },
+    "remaining": {
+      "token": 4047,
+      "model_call": 0,
+      "tool_call": 0,
+      "wallclock_seconds": 59.094867799999975
+    },
+    "fraction_used": {
+      "token": 0.011962890625,
+      "model_call": 1.0,
+      "tool_call": 0.0,
+      "wallclock_seconds": 0.015085536666667091
+    },
+    "overrun": false,
+    "exhausted_at": null
+  },
+  "calls": [
+    {
+      "requested_model": "deepseek-flash",
+      "served_model": "deepseek-flash",
+      "thinking": true,
+      "effort": "low",
+      "prompt_tokens": 37,
+      "cache_hit_tokens": 0,
+      "cache_miss_tokens": 37,
+      "output_tokens": 12,
+      "reasoning_tokens": 10,
+      "latency_seconds": 0.7169,
+      "finish_reason": "stop",
+      "attempts": 1,
+      "request_id": "71d41ce5-7560-4bdf-807b-7daf90db2836",
+      "started_at": "2026-11-06T09:39:14.473566+08:00",
+      "cost_cny": 0.00017,
+      "price_tier": "peak",
+      "usage_reported": true,
+      "billing": "estimated_from_usage",
+      "served_model_reported": true
+    }
+  ],
+  "cost_complete": true
+}

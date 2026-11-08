@@ -38,8 +38,10 @@ def run_identity(matrix: Mapping[str, Any]) -> dict[str, Any]:
     missing = [field for field in IDENTITY_FIELDS if matrix.get(field) is None]
     if missing:
         raise ValueError('evaluation requires persisted run identity: ' + ', '.join(missing))
-    if matrix['mode'] not in ('formal', 'diagnostic') or matrix['split'] not in ('dev', 'test'):
+    if matrix['mode'] not in ('formal', 'diagnostic', 'prefix', 'pilot') or matrix['split'] not in ('dev', 'test'):
         raise ValueError('invalid evaluated run mode/split')
+    if matrix['mode'] == 'pilot' and matrix['split'] != 'dev':
+        raise ValueError('pilot evaluation is restricted to the dev split')
     if (not isinstance(matrix['seed'], int) or isinstance(matrix['seed'], bool)
             or not isinstance(matrix['repeat_index'], int) or isinstance(matrix['repeat_index'], bool)
             or matrix['repeat_index'] < 0):
@@ -53,6 +55,8 @@ def run_identity(matrix: Mapping[str, Any]) -> dict[str, Any]:
 
 def frozen_predictions(matrix: Mapping[str, Any], arm: str) -> dict[str, str]:
     """Recover only frozen output patches; never reconstruct generation inputs."""
+    if matrix.get('mode') == 'pilot' and matrix.get('split') != 'dev':
+        raise ValueError('pilot evaluation is restricted to the dev split')
     if arm not in ARMS:
         raise ValueError('unknown evaluation arm')
     designated = matrix.get('designated_instances')
@@ -72,9 +76,15 @@ def frozen_predictions(matrix: Mapping[str, Any], arm: str) -> dict[str, str]:
             raise ValueError('case and run identity differ: run_id')
         stages = case.get('stages', {})
         mode = case.get('mode', matrix.get('mode'))
-        if mode == 'formal':
+        if mode == 'prefix':
+            if arm != 'PREFIX':
+                raise ValueError('prefix-only runs expose only the PREFIX prediction')
+            if case.get('arm', matrix.get('arm')) != 'PREFIX' or matrix.get('arm') != 'PREFIX':
+                raise ValueError('prefix-only run has an invalid arm identity')
+            diff = case.get('submitted_patch', stages.get('prefix', {}).get('patch', ''))
+        elif mode in ('formal', 'pilot'):
             if case.get('arm', matrix.get('arm')) != matrix.get('arm'):
-                raise ValueError('formal case and run arm differ')
+                raise ValueError('single-policy case and run arm differ')
             if arm != case.get('arm', matrix.get('arm')):
                 continue
             diff = case.get('submitted_patch', '')
@@ -93,7 +103,7 @@ def frozen_predictions(matrix: Mapping[str, Any], arm: str) -> dict[str, str]:
                     continue
             diff = stages.get(stage, {}).get('patch', '')
         else:
-            raise ValueError('only current formal/diagnostic matrices can be evaluated')
+            raise ValueError('only current formal/diagnostic/prefix/pilot matrices can be evaluated')
         if not isinstance(diff, str):
             raise ValueError('invalid frozen patch')
         result[iid] = diff

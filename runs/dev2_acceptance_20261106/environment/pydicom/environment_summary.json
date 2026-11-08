@@ -1,0 +1,62 @@
+{
+  "instance_id": "pydicom__pydicom-1139",
+  "date": "2026-11-06",
+  "kind": "public_environment_preparation_summary",
+  "official_image": {
+    "tag": "swebench/sweb.eval.x86_64.pydicom_1776_pydicom-1139:latest",
+    "manifest_digest": "sha256:a2344b4b6db428913523e14f576fe358d6ae0c349cd77ac82e616188955ddb3b",
+    "download_completed": false,
+    "own_stalled_pull_cancelled": true,
+    "evidence": "official_pull_and_fallback.json"
+  },
+  "actual_prepared_environment": {
+    "is_official_pydicom_image": false,
+    "tag": "prefix-env/pydicom-1139:base-b9fb05c1-20261106",
+    "image_id": "sha256:ccf2918b7408c41e80c71bad3f9ee49138a971543dde0c59b0a33c5ce8396daa",
+    "source_image_id": "sha256:6bddca9c6360684b088cba4a502969e84c3a2f125550983e48e38e2e252b660c",
+    "source_repository": "https://github.com/pydicom/pydicom.git",
+    "actual_head": "b9fb05c177b685bf683f7f57b2d57374eb7d882d",
+    "checkout": "/testbed",
+    "installation": "pip install --no-deps --no-build-isolation -e /testbed",
+    "python": "3.9.21",
+    "pytest": "8.3.5",
+    "pydicom": "2.1.0.dev0",
+    "numpy": "1.26.4",
+    "evidence": "prepared_image_identity.json"
+  },
+  "observed_public_validation": {
+    "container_network": "none",
+    "base_identity_and_imports": "pass",
+    "public_file": "pydicom/tests/test_dataset.py",
+    "operation": "collect-only",
+    "tests_collected": 120,
+    "exit_code": 0,
+    "full_test_file_executed_by_this_preparation": false,
+    "temporary_acceptance_container_confirmed_absent": true,
+    "evidence": "prepared_environment_v2.json"
+  },
+  "full_public_test_network_risk": {
+    "status": "known_missing_downloadable_fixture; full offline execution unverified",
+    "public_source_inspection_only": true,
+    "test_location": "pydicom/tests/test_dataset.py:1672",
+    "test_behavior": "TestDatasetOverlayArray.setup calls get_testdata_file for MR-SIEMENS-DICOM-WithOverlays.dcm",
+    "missing_fixture": "MR-SIEMENS-DICOM-WithOverlays.dcm",
+    "fixture_in_public_download_url_map": true,
+    "fixture_absent_from_checked_locations": [
+      "/testbed/pydicom/data/test_files",
+      "/root/.pydicom",
+      "/home"
+    ],
+    "loader_location": "pydicom/data/data_manager.py:117",
+    "loader_behavior": "Search repository fixtures, then call download.data_path_with_download for names in the public URL map",
+    "local_repository_fixtures_confirmed": ["CT_small.dcm", "MR_small.dcm"],
+    "implication": "Collection does not execute setup. Full execution may attempt a download and fail with network disabled; no fixture was downloaded and no image was changed during this audit."
+  },
+  "scope": {
+    "model_requests_by_this_environment_preparation": 0,
+    "credentials_read": false,
+    "official_hidden_fields_read": false,
+    "official_independent_scoring_performed_by_this_preparation": false,
+    "generation_or_scoring_outcomes_reviewed": false
+  }
+}

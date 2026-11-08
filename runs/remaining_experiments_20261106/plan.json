@@ -1,0 +1,46 @@
+{
+  "kind": "staged_remaining_experiments_plan",
+  "authorization": "user: 进行剩余的实验",
+  "model_credential_source": "project_dotenv",
+  "existing_estimated_spend_cny": 0.19840128,
+  "unknown_request_reservation_cny": 0.00425,
+  "current_total_ceiling_cny": 6.0,
+  "current_remaining_cny": 5.79734872,
+  "per_policy_instance_cny": 2.0,
+  "stages": [
+    {
+      "stage": "remaining_prefix_interfaces",
+      "instance_ids": [
+        "pydicom__pydicom-1139",
+        "pyvista__pyvista-4315"
+      ],
+      "max_new_cny": 4.0
+    },
+    {
+      "stage": "paired_and_interactive_interface_acceptance",
+      "instances": 3,
+      "mode": "diagnostic",
+      "upper_bound_cny": 18.0,
+      "note": "Do not silently increase the cumulative 6 CNY ceiling."
+    },
+    {
+      "stage": "full_dev_calibration",
+      "designated_instances": 23,
+      "diagnostic_upper_bound_one_setting_cny": 138.0,
+      "requires": "complete eligible snapshots, independent paired verdicts, full policy replay"
+    },
+    {
+      "stage": "formal_test",
+      "instances": 300,
+      "arms": 5,
+      "repeats": 3,
+      "policy_budget_upper_bound_cny": 9000.0,
+      "requires": "preregistration and calibration/freeze before formal results"
+    },
+    {
+      "stage": "ablations_sensitivity_semantic_review",
+      "budget": "separate preregistration after dev resource measurements"
+    }
+  ],
+  "note": "Upper bounds derived from development guards, not predicted or billed costs. No artificial freeze. Actual expense may be much lower."
+}

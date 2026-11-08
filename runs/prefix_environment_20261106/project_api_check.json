@@ -1,0 +1,12 @@
+{
+  "kind": "project_dotenv_model_list_check",
+  "credential_source": "project_dotenv",
+  "generation_requests": 0,
+  "http_status": 200,
+  "ok": true,
+  "available_models": [
+    "deepseek-flash",
+    "deepseek-v4-pro"
+  ],
+  "configured_model_available": true
+}

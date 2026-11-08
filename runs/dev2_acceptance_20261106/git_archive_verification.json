@@ -1,0 +1,10 @@
+{
+  "kind": "committed_archive_byte_verification",
+  "passed": true,
+  "git_commit": "49fb7b63a636771f131b99f569f330c245815875",
+  "files_verified": 201,
+  "credential_shape_scan_new_changed_files": 231,
+  "credential_shape_hits": 0,
+  "dotenv_tracked": false,
+  "source_and_bound_artifacts_byte_identical": true
+}

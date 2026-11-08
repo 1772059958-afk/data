@@ -60,6 +60,76 @@ def validate_development_contract(raw):
             raise ValueError(f'execution.{key} must be positive and finite')
 
 
+def validate_pilot_candidate(raw, ids):
+    """Bind provisional routing to its audited DEV population and execution setup.
+
+    The candidate remains provisional. This validates the existing calibration
+    artifact schema rather than converting a small pilot into a formal freeze.
+    """
+    from swe_repair.calibration import calibration_inputs
+    review = raw.get('pilot', {})
+    candidate_path = ROOT / review.get('calibration_candidate', '')
+    if (not candidate_path.resolve().is_relative_to(ROOT / 'runs') or not candidate_path.is_file()
+            or file_hash(candidate_path) != review.get('candidate_sha256')):
+        raise ValueError('pilot needs an audited independent DEV calibration candidate')
+    candidate = json.loads(candidate_path.read_text(encoding='utf-8'))
+    proposed_config = candidate.get('candidate_config')
+    if (candidate.get('status') != 'candidate_requires_review_and_freeze'
+            or not isinstance(proposed_config, dict)):
+        raise ValueError('pilot needs an actual DEV candidate configuration')
+    proposed = RouterConfig.from_config(proposed_config)
+    if proposed.digest != candidate.get('candidate_config_hash'):
+        raise ValueError('pilot candidate configuration hash differs')
+    source = candidate.get('calibration_source', {})
+    source_path = Path(source.get('path', ''))
+    if not source_path.is_absolute(): source_path = ROOT / source_path
+    if (not source_path.resolve().is_relative_to(ROOT / 'runs') or not source_path.is_file()
+            or file_hash(source_path) != source.get('sha256')):
+        raise ValueError('pilot calibration source is missing or changed')
+    analysis = json.loads(source_path.read_text(encoding='utf-8'))
+    source_config = analysis.get('effective_config')
+    if not isinstance(source_config, dict) or source.get('config_hash') != analysis.get('config_hash'):
+        raise ValueError('pilot calibration source configuration identity differs')
+    original = RouterConfig.from_config(source_config)
+    inputs = calibration_inputs(analysis, original,
+        allowed_ids=(ROOT / 'data/frozen/instances_dev.txt').read_text(encoding='utf-8').splitlines())
+    if set(ids) - set(analysis.get('designated_instances', [])):
+        raise ValueError('pilot instances lie outside the complete designated DEV diagnostic')
+    if (len(inputs.observations) < 1
+            or source.get('complete_pair_count') != len(inputs.observations)
+            or source.get('eligible_count') != len(inputs.eligible_prefixes)
+            or source.get('missing_pair_ids') != list(inputs.missing_pair_ids)):
+        raise ValueError('pilot calibration source counts differ from its full DEV population')
+    chosen = candidate.get('chosen', {})
+    if (chosen.get('localization_threshold') != proposed.localization_disagreement_threshold
+            or chosen.get('duplicate_threshold') != proposed.duplicate_rate_threshold):
+        raise ValueError('pilot thresholds differ from the selected DEV grid candidate')
+    matching = inputs.trigger_rate(proposed)
+    if (candidate.get('trigger_rate_matching') != matching
+            or candidate.get('matched_switch_probability') != matching['probability']
+            or proposed.switch_probability != matching['probability']):
+        raise ValueError('pilot E probability differs from the full eligible DEV trigger rate')
+    for section in ('model', 'prefix', 'interaction', 'fixed_continuation', 'budget_tiers',
+                    'prompt_version', 'active_tier', 'candidate_selection'):
+        if (proposed_config.get(section) != raw.get(section)
+                or proposed_config.get(section) != source_config.get(section)):
+            raise ValueError('pilot changed calibrated execution setting: ' + section)
+    calibrated = {'localization_disagreement_threshold', 'duplicate_rate_threshold', 'switch_probability'}
+    router_setup = lambda config: {key: value for key, value in config.get('router', {}).items()
+                                  if key not in calibrated}
+    if router_setup(raw) != router_setup(proposed_config) or router_setup(proposed_config) != router_setup(source_config):
+        raise ValueError('pilot changed the DEV routing rule order or continuation setup')
+    for key in calibrated:
+        if proposed_config['router'].get(key) != raw['router'].get(key):
+            raise ValueError('pilot routing differs from the actual DEV candidate')
+    for key in ('total_cny', 'per_instance_cny', 'tool_call_unit', 'environment_retries',
+                'environment_recovery', 'modify_scope', 'prompt_estimator', 'docker_context',
+                'images', 'credential_source', 'batch_ledger'):
+        values = [config.get('execution', {}).get(key) for config in (raw, proposed_config, source_config)]
+        if values[0] != values[1] or values[1] != values[2]:
+            raise ValueError('pilot changed calibrated execution setting: execution.' + key)
+
+
 def load_plan(args):
     cfgpath = Path(args.config)
     if not cfgpath.is_absolute(): cfgpath = ROOT / cfgpath
@@ -75,6 +145,8 @@ def load_plan(args):
     if args.repeat_index < 0: raise ValueError('repeat-index must be nonnegative')
     if args.calibration and (args.split != 'dev' or args.mode != 'diagnostic'):
         raise ValueError('calibration is allowed only for dev diagnostics')
+    if args.mode == 'pilot' and args.split != 'dev':
+        raise ValueError('pilot interface runs are restricted to dev')
     files = sorted((ROOT / 'src/swe_repair').glob('*.py')) + [Path(__file__)]
     revision = subprocess.run(['git', 'rev-parse', 'HEAD'], cwd=ROOT, capture_output=True, text=True, check=True).stdout.strip()
     raw['provenance'] = {'code_sha256': hashlib.sha256(''.join(file_hash(p) for p in files).encode()).hexdigest(),
@@ -97,11 +169,24 @@ def load_plan(args):
     if args.execute:
         if not args.allow_paid or not raw['execution'].get('live_authorized', False):
             raise ValueError('paid execution disabled: user authorization, config live_authorized and --allow-paid required')
+        scope = raw['execution']
+        if scope.get('allowed_modes') is not None and args.mode not in scope['allowed_modes']:
+            raise ValueError('run mode is outside the authorized scope')
+        if scope.get('allowed_splits') is not None and args.split not in scope['allowed_splits']:
+            raise ValueError('split is outside the authorized scope')
+        if scope.get('allowed_instances') is not None and set(ids) - set(scope['allowed_instances']):
+            raise ValueError('instance selection is outside the authorized scope')
+        if scope.get('max_instances') is not None and len(ids) > scope['max_instances']:
+            raise ValueError('instance count exceeds the authorized scope')
+        if args.mode == 'prefix' and args.split != 'dev':
+            raise ValueError('prefix integration is restricted to dev')
         if not raw['model'].get('model_version'):
             raise ValueError('pin served model version first')
-        if not args.calibration and (not cfg.calibrated or cfg.switch_probability is None):
+        if args.mode != 'prefix' and not args.calibration and (not cfg.calibrated or cfg.switch_probability is None):
             raise ValueError('freeze thresholds and matched random probability on dev first')
-        if not args.calibration and frozen_config_errors(raw):
+        if args.mode == 'pilot':
+            validate_pilot_candidate(raw, ids)
+        if args.mode not in ('prefix', 'pilot') and not args.calibration and frozen_config_errors(raw):
             raise ValueError('formal configuration is not consistently frozen: ' + '; '.join(frozen_config_errors(raw)))
         if args.split == 'test' and len(ids) < len(full):
             sample = raw['evaluation'].get('sample_manifest')
@@ -111,7 +196,7 @@ def load_plan(args):
             manifest = json.loads(samplepath.read_text(encoding='utf-8'))
             if manifest.get('instance_ids') != ids or manifest.get('seed') is None:
                 raise ValueError('sampling manifest does not match selected instances')
-    return raw, {'tag': tag, 'mode': args.mode, 'arm': args.arm, 'split': args.split,
+    return raw, {'tag': tag, 'mode': args.mode, 'arm': 'PREFIX' if args.mode == 'prefix' else args.arm, 'split': args.split,
                  'seed': args.seed, 'repeat_index': args.repeat_index, 'calibration': args.calibration,
                  'designated_instances': ids, 'instance_list_sha256': file_hash(listing),
                  'config_hash': cfg.digest, 'effective_config': cfg.effective_config(),
@@ -122,7 +207,9 @@ def load_plan(args):
 
 def predictions(case, mode, arm):
     stages = case['stages']
-    if mode == 'formal': return {arm: case.get('submitted_patch', '')}
+    if mode == 'prefix':
+        return {'PREFIX': case.get('submitted_patch', stages.get('prefix', {}).get('patch', ''))}
+    if mode in ('formal', 'pilot'): return {arm: case.get('submitted_patch', '')}
     result = {}
     for a in ('A', 'C', 'D', 'E'):
         decision = case.get('decisions', {}).get(a)
@@ -136,10 +223,12 @@ def predictions(case, mode, arm):
 
 def execute(raw, plan):
     from swe_repair.experiment import run_case
-    from swe_repair.llm import DeepSeekClient, ModelConfig
+    from swe_repair.llm import DeepSeekClient, ModelConfig, load_scoped_api_key
     from swe_repair.spend import SpendGuard, SpendPolicy
     from swe_repair.state import generation_view
     import pyarrow.parquet as pq
+    if raw['execution'].get('docker_context'):
+        os.environ['DOCKER_CONTEXT'] = raw['execution']['docker_context']
     out = Path(plan['output_directory'])
     out.mkdir(parents=True, exist_ok=False)
     matrixpath = out / 'matrix.json'
@@ -156,12 +245,21 @@ def execute(raw, plan):
         tmp.write_text(json.dumps(matrix, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
         tmp.replace(matrixpath)
     save()
-    guard = SpendGuard(SpendPolicy(ceiling_cny=raw['execution']['total_cny']))
+    ledger = raw['execution'].get('batch_ledger')
+    if ledger:
+        from swe_repair.batch_ledger import LedgerSpendGuard
+        ledgerpath = (ROOT / ledger).resolve()
+        if not ledgerpath.is_relative_to(ROOT / 'runs'):
+            raise ValueError('cumulative ledger must stay under runs/')
+        guard = LedgerSpendGuard(ledgerpath, raw['execution']['total_cny'], plan['tag'])
+    else:
+        guard = SpendGuard(SpendPolicy(ceiling_cny=raw['execution']['total_cny']))
+    starting_spend = guard.spent_cny
     m = raw['model']
     client = DeepSeekClient(ModelConfig(model=m['model'], thinking=m['thinking'], effort=m['effort'],
                                        max_tokens=m['max_tokens'], max_retries=m.get('max_retries', 0),
                                        temperature=m.get('temperature'), top_p=m.get('top_p')),
-                            guard=guard, allow_live=True)
+                            api_key=load_scoped_api_key(raw['execution'], str(ROOT)), guard=guard, allow_live=True)
     manifest = json.loads((ROOT / 'data/harness/manifest.json').read_text(encoding='utf-8'))
     parquet = ROOT / manifest['splits'][plan['split']]['local_file']
     if file_hash(parquet).lower() != manifest['splits'][plan['split']]['sha256'].lower():
@@ -178,12 +276,13 @@ def execute(raw, plan):
             cachepath = cache / f"{plan['seed']}_r{plan['repeat_index']}_{iid}.json"
             cached = json.loads(cachepath.read_text(encoding='utf-8')) if cachepath.exists() else None
             case = run_case(rows[iid], client, raw, mode=plan['mode'], arm=plan['arm'], seed=plan['seed'],
-                            calibration=plan['calibration'], checkpoint=checkpoint, cached_prefix=cached)
+                            split=plan['split'], calibration=plan['calibration'], checkpoint=checkpoint, cached_prefix=cached)
             case['repeat_index'] = plan['repeat_index']
             case['seed'] = plan['seed']
             case['run_id'] = plan['tag']
             matrix['cases'].append(case)
-            matrix['new_generation_cost_cny'] = guard.spent_cny
+            matrix['new_generation_cost_cny'] = guard.spent_cny - starting_spend
+            matrix['cumulative_batch_cost_cny'] = guard.spent_cny
             save()
             prefix = case['stages'].get('prefix')
             if (prefix and prefix['status'] == 'completed' and not cachepath.exists()
@@ -202,7 +301,7 @@ def execute(raw, plan):
 def parser():
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument('--config', default='configs/proposal_v1.json')
-    p.add_argument('--mode', choices=('formal', 'diagnostic'), default='diagnostic')
+    p.add_argument('--mode', choices=('formal', 'diagnostic', 'prefix', 'pilot'), default='diagnostic')
     p.add_argument('--arm', choices=tuple('ABCDE'), default='D')
     p.add_argument('--split', choices=('dev', 'test'), default='dev')
     p.add_argument('--instances-file')

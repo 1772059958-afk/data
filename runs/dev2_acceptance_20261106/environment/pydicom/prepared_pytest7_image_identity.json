@@ -1,0 +1,14 @@
+{
+  "tag": "prefix-env/pydicom-1139:base-b9fb05c1-pytest7-20261106",
+  "image_id": "sha256:bd5edf8694cde12aaf99beb18b3935b15e076e81ac7e52aef46b1ca3d9071428",
+  "source_image_id": "sha256:ccf2918b7408c41e80c71bad3f9ee49138a971543dde0c59b0a33c5ce8396daa",
+  "base_commit": "b9fb05c177b685bf683f7f57b2d57374eb7d882d",
+  "dockerfile": "docker/prefix/pydicom-1139-pytest7.Dockerfile",
+  "dockerfile_sha256": "f4e72d6bdc0f4c18c1ba9ec745b3c39cd49e8e817e1c347b839cb5fa78f5fa1f",
+  "is_official_pydicom_image": false,
+  "changes": [
+    "pytest 8.3.5 -> 7.4.4",
+    "precache public MR-SIEMENS-DICOM-WithOverlays.dcm with original public-commit SHA256"
+  ],
+  "fixture_sha256": "094faf56c63bff84c30567e29de0c67d7c5a8ae05cf880ac12175491b6b645d2"
+}

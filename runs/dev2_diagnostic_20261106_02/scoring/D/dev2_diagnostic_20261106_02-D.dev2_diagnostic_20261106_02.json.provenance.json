@@ -1,0 +1,58 @@
+{
+  "schema_version": "swe-repair-evaluation-v1",
+  "identity": {
+    "tag": "dev2_diagnostic_20261106_02",
+    "config_hash": "da6d858652f3457442bf4d883759a3a31a5f13724e31926131b3058ff93f30c2",
+    "mode": "diagnostic",
+    "split": "dev",
+    "seed": 20261106,
+    "repeat_index": 0
+  },
+  "arm": "D",
+  "matrix_sha256": "14fd91223a7a89acf9e8983a63e4cfa2f56314e6630d685a1e4345ffaaeebe06",
+  "matrix_content_sha256": "4d1d022a424bbd892d16dfc8bf55f736116effa1c53ed5fc1850e408608f002d",
+  "report_sha256": "a1a1fdb50a70b6e4acbb5309950552f692b6f780949e9f5610bb9ee83ab7b8bb",
+  "report_content_sha256": "723b605af9a8759aca7b6877f55b81e64e4350c5cadfba6568a9e7ec90f33adc",
+  "predictions_file": "predictions_D.jsonl",
+  "predictions_sha256": "70c2201f65293d44b2c50d9840d26868efecc05e6331cefc15eaa1dd833f22f7",
+  "model_name_or_path": "dev2_diagnostic_20261106_02-D",
+  "prediction_patch_sha256": {
+    "pvlib__pvlib-python-1707": "fc070dd912e771f86faad2753971c80b21764297c03465a5ea0ad23d69e95e7c",
+    "pydicom__pydicom-1139": "1327a049a0eab155fa7cd7557254b7a25595104d0dbd226d38c13ac33971b60b"
+  },
+  "harness_environment": {
+    "python": "3.11.5",
+    "swebench": "5.0.2"
+  },
+  "harness_command": [
+    "/opt/scoring/bin/python",
+    "-m",
+    "swebench.harness.run_evaluation",
+    "--dataset_name",
+    "/workspace/runs/dev2_diagnostic_20261106_02/scoring/evaluation_dataset.json",
+    "--split",
+    "dev",
+    "--predictions_path",
+    "/workspace/runs/dev2_diagnostic_20261106_02/predictions_D.jsonl",
+    "--instance_ids",
+    "pvlib__pvlib-python-1707",
+    "pydicom__pydicom-1139",
+    "--run_id",
+    "dev2_diagnostic_20261106_02",
+    "--max_workers",
+    "1",
+    "--report_dir",
+    "/workspace/runs/dev2_diagnostic_20261106_02/scoring/D"
+  ],
+  "evaluation_dataset": {
+    "source": "/workspace/data/harness/dev.parquet",
+    "source_sha256": "b90bcbfaca1b5f65155500124a977876c264a4003ab384aca4dfc39a54bef89f",
+    "source_manifest_sha256": "30e1f10eafa8248cf02cf2752eae888e2ec896dcc0697da803ed99e04599d54c",
+    "prepared_images": {
+      "pvlib__pvlib-python-1707": "sha256:6bddca9c6360684b088cba4a502969e84c3a2f125550983e48e38e2e252b660c",
+      "pydicom__pydicom-1139": "sha256:bd5edf8694cde12aaf99beb18b3935b15e076e81ac7e52aef46b1ca3d9071428"
+    },
+    "dataset_path": "/workspace/runs/dev2_diagnostic_20261106_02/scoring/evaluation_dataset.json",
+    "effective_dataset_sha256": "1317d85058093189e5ad9eaacff7f37a3c2b53224ad8c379b2fcc6be2e3d5ed4"
+  }
+}

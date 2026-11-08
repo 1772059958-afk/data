@@ -360,11 +360,14 @@ def build_policies() -> dict[str, Decision]:
 
 
 # Harness statuses, independent of generation status. Absence is NEVER a failure.
-VERDICT_FIELDS = {
+PRIMARY_VERDICT_FIELDS = {
     'resolved_ids': 'resolved', 'unresolved_ids': 'unresolved',
     'empty_patch_ids': 'empty_patch', 'error_ids': 'error',
+}
+INFRA_VERDICT_FIELDS = {
     'infra_failure_ids': 'infra_error', 'ambiguous_failure_ids': 'ambiguous_error',
 }
+VERDICT_FIELDS = {**PRIMARY_VERDICT_FIELDS, **INFRA_VERDICT_FIELDS}
 SCORED_STATUSES = frozenset(VERDICT_FIELDS.values())
 BEHAVIOURAL_STATUSES = frozenset(('resolved', 'unresolved', 'empty_patch'))
 
@@ -372,10 +375,21 @@ BEHAVIOURAL_STATUSES = frozenset(('resolved', 'unresolved', 'empty_patch'))
 def verdict_status(report: Mapping[str, Any] | None, instance_id: str) -> str:
     if report is None:
         return 'not_scored'
-    found = {status for field, status in VERDICT_FIELDS.items()
+    found = {status for field, status in PRIMARY_VERDICT_FIELDS.items()
              if instance_id in set(report.get(field) or [])}
     if len(found) > 1:
         raise ValueError(f'conflicting harness verdicts for {instance_id}: {sorted(found)}')
+    auxiliary = {status for field, status in INFRA_VERDICT_FIELDS.items()
+                 if instance_id in set(report.get(field) or [])}
+    if len(auxiliary) > 1:
+        raise ValueError(f'conflicting harness infrastructure labels for {instance_id}: {sorted(auxiliary)}')
+    if auxiliary:
+        # Official SWE-bench 5.0.2 adds these flags to unresolved/error ids;
+        # retain that environment category rather than count a model failure.
+        # Check primary conflicts first, so a flag cannot hide a bad report.
+        if found - {'unresolved', 'error'}:
+            raise ValueError(f'infrastructure label conflicts with harness verdict for {instance_id}: {sorted(found)}')
+        return next(iter(auxiliary))
     return next(iter(found), 'not_scored')
 
 

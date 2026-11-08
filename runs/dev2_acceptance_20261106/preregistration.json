@@ -1,0 +1,35 @@
+{
+  "kind": "two_case_five_arm_single_repeat_pilot",
+  "date": "2026-11-06",
+  "user_scope": "本次先做2例5组1次",
+  "instances": [
+    "pvlib__pvlib-python-1707",
+    "pydicom__pydicom-1139"
+  ],
+  "selection_basis": "first two of the existing preregistered dev integration list, chosen by ID/repository before new outcomes",
+  "arms": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E"
+  ],
+  "repeats": 1,
+  "seed": 20261106,
+  "cumulative_model_ceiling_cny": 100,
+  "per_policy_instance_ceiling_cny": 2,
+  "prior_recorded_or_reserved_cny": 0.20265128,
+  "stages": [
+    "paired_diagnostic_on_both_cases",
+    "independent_scoring",
+    "pending_dev_candidate_policy",
+    "actual_single_policy_A_E_pilot",
+    "independent_pilot_scoring",
+    "descriptive_summary_and_report"
+  ],
+  "analysis_kind": "dev_interface_acceptance_not_formal_effectiveness",
+  "no_confidence_interval": true,
+  "source_of_thresholds": "actual independent DEV paired outcomes only, never fabricate pending values",
+  "credential_source": "project_dotenv",
+  "note": "Same two dev cases inform the provisional policy and interface pilot; no held-out efficacy conclusion."
+}

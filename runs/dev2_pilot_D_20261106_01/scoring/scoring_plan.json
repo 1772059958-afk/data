@@ -1,0 +1,67 @@
+{
+  "kind": "independent_scoring",
+  "identity": {
+    "tag": "dev2_pilot_D_20261106_01",
+    "config_hash": "d485c95edec9f5d5f944d96680a8a558104743119326e794510a664b5c0f4c19",
+    "mode": "pilot",
+    "split": "dev",
+    "seed": 20261106,
+    "repeat_index": 0
+  },
+  "matrix_sha256": "0f1e11c87fc460713ca5b49ae49a7c5bf20a698c5db41d7e0ee3f7845485e6a6",
+  "jobs": [
+    {
+      "arm": "D",
+      "predictions_file": "predictions_D.jsonl",
+      "predictions_sha256": "ea6510fef921b612b4a73b855fff096672b7680237ffc1a8de31d68bc8a42808",
+      "model_name_or_path": "dev2_pilot_D_20261106_01-D",
+      "prediction_patch_sha256": {
+        "pvlib__pvlib-python-1707": "4823d6969e2bcf38a5f0a09428ef4dff86ac8529f2ea4fdd39d9886314ff9636",
+        "pydicom__pydicom-1139": "8415fd7cb734e9df85ab0028fafbc86eaf9864fce0ced43db316b833e314636f"
+      },
+      "report_path": "/workspace/runs/dev2_pilot_D_20261106_01/scoring/D/dev2_pilot_D_20261106_01-D.dev2_pilot_D_20261106_01.json",
+      "command": [
+        "/opt/scoring/bin/python",
+        "-m",
+        "swebench.harness.run_evaluation",
+        "--dataset_name",
+        "/workspace/runs/dev2_pilot_D_20261106_01/scoring/evaluation_dataset.json",
+        "--split",
+        "dev",
+        "--predictions_path",
+        "/workspace/runs/dev2_pilot_D_20261106_01/predictions_D.jsonl",
+        "--instance_ids",
+        "pvlib__pvlib-python-1707",
+        "pydicom__pydicom-1139",
+        "--run_id",
+        "dev2_pilot_D_20261106_01",
+        "--max_workers",
+        "1",
+        "--report_dir",
+        "/workspace/runs/dev2_pilot_D_20261106_01/scoring/D"
+      ],
+      "directory": "/workspace/runs/dev2_pilot_D_20261106_01/scoring/D",
+      "evaluation_dataset": {
+        "source": "/workspace/data/harness/dev.parquet",
+        "source_sha256": "b90bcbfaca1b5f65155500124a977876c264a4003ab384aca4dfc39a54bef89f",
+        "source_manifest_sha256": "30e1f10eafa8248cf02cf2752eae888e2ec896dcc0697da803ed99e04599d54c",
+        "prepared_images": {
+          "pvlib__pvlib-python-1707": "sha256:6bddca9c6360684b088cba4a502969e84c3a2f125550983e48e38e2e252b660c",
+          "pydicom__pydicom-1139": "sha256:bd5edf8694cde12aaf99beb18b3935b15e076e81ac7e52aef46b1ca3d9071428"
+        },
+        "dataset_path": "/workspace/runs/dev2_pilot_D_20261106_01/scoring/evaluation_dataset.json"
+      }
+    }
+  ],
+  "evaluation_dataset": {
+    "source": "/workspace/data/harness/dev.parquet",
+    "source_sha256": "b90bcbfaca1b5f65155500124a977876c264a4003ab384aca4dfc39a54bef89f",
+    "source_manifest_sha256": "30e1f10eafa8248cf02cf2752eae888e2ec896dcc0697da803ed99e04599d54c",
+    "prepared_images": {
+      "pvlib__pvlib-python-1707": "sha256:6bddca9c6360684b088cba4a502969e84c3a2f125550983e48e38e2e252b660c",
+      "pydicom__pydicom-1139": "sha256:bd5edf8694cde12aaf99beb18b3935b15e076e81ac7e52aef46b1ca3d9071428"
+    },
+    "dataset_path": "/workspace/runs/dev2_pilot_D_20261106_01/scoring/evaluation_dataset.json",
+    "effective_dataset_sha256": "1317d85058093189e5ad9eaacff7f37a3c2b53224ad8c379b2fcc6be2e3d5ed4"
+  }
+}

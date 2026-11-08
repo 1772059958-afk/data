@@ -4,6 +4,8 @@
 
 ## 当前任务状态和授权
 
+2026-11-06 新授权（仅覆盖本轮集成范围）：用户明确要求配置 prefix 环境、补齐 prefix-only 入口、先离线验证再尝试付费模型，并指定改用项目 `.env`。允许安装项目虚拟环境依赖、启动 Docker、拉取一个指定实例镜像并准备独立派生镜像；付费范围为小额接口探测及 `pvlib__pvlib-python-1707` 的一次 prefix 验收，沿用单实例 2 CNY、批次 6 CNY。不得自动扩展到其他实例、延续分支、正式 A–E 或官方判分。主配置 `proposal_v1.json` 继续 pending/未授权；专用 `prefix_smoke_20261106.json` 用 allowed_modes/splits/instances 限定范围，并使用 project_dotenv，禁止回退到系统旧 Key。已出现的系统 Key 401 探测保留原记录，不称为零消耗或实付。模型响应别名仅作为本次集成身份，不是不可变版本冻结。详细结果见本轮 prefix 环境验收文档。
+
 用户在 2026-10-29 明确要求按开题报告修复代码、保留原始实验数据、先完成离线验证、暂不跑付费实验。该限制持续有效，直到用户明确解除。不得因获得模型密钥、发现旧脚本或看到配置预算而推定已有授权。
 
 当前活动配置为 `configs/proposal_v1.json`，整体 `draft-pending-calibration`，模型版本与路由阈值尚未冻结，`execution.live_authorized=false`。开发限额不是主实验参数。不能填写虚构校准值、仅改状态字符串、打开授权布尔值或直接构造客户端来绕过限制。
@@ -90,3 +92,13 @@ python scripts/scan_gold.py --split dev --tag gold_new --dry-run
 `runs/dev_preparation_20261030/` 保存按 ID/仓库和种子 20261030 选择的 3 例接口验收准备（首例及其余两例）、完整 23 例台账、实际配置/哈希与离线验收摘要。所有计划 execute=false；配置仍 pending、live_authorized=false。未运行真实容器、模型或官方判分，也没有安装/修改 WSL 环境。该准备不构成新的实测授权，不可直接开跑。
 
 固定延续当前最多 6 个候选并使用结构化反馈，仍是待校准开发限额。`scripts/score_run.py runs/<tag>` 默认仅计划；`score_all_arms.sh` 是显式启动容器的评测入口。新报告必须有关联 sidecar；历史 `--tag` 不能绕过此限制产生正式证据。
+
+
+## 2026-11-06 两例五组后续授权
+
+用户随后明确要求完成本轮两例、A/B/C/D/E 五组、一次重复，确认累计模型费用上限 100 CNY，并要求数据、文档按逻辑变更分别 commit/push，再参照既有 PPT 生成报告。该授权覆盖这两例的公开环境准备、dev 配对诊断、临时路由候选、实际单策略 pilot 和独立容器判分；凭据仅从项目 `.env` 读取。指定实例为已有 dev 准备清单前两例 `pvlib__pvlib-python-1707`、`pydicom__pydicom-1139`，种子 20261106，不增加实例或重复。单策略实例费用守卫仍为 2 CNY，跨进程累计账本位于 `runs/dev2_acceptance_20261106/batch_ledger.json`，中断请求保留 pending，不能免费重试。
+
+本轮主配置 `proposal_v1.json` 继续 pending/未授权正式 test。两例临时 dev 候选与单次 pilot 使用专用配置，不能称为完整 dev 校准或正式三重复统计。首轮 `dev2_diagnostic_20261106_01` 暴露 pytest8 旧 setup 兼容问题，其数据与费用保留；改用同一公开基线、pytest7.4.4 与固定哈希公开 fixture 的新 pydicom 镜像，完整公开文件 120/120 与 38/38 通过后，以新 tag `dev2_diagnostic_20261106_02` 重新诊断。不得把旧环境探测拼入新成绩。当前来源与环境证据保存在 `runs/dev2_acceptance_20261106/`。
+
+
+本轮两例五组一次已完成：A/C/E各解决1/2，B/D为0/2；最终完整离线350/350、原始93/93、归档131/131通过。十条预测的独立判分与共享前缀/分支/费用/清理审计均完成，账本pending=null；累计估计/保守记账2.04914488 CNY，含未知用量预留0.00425 CNY。本次授权任务已收尾，不能仅凭剩余额度或历史配置中的live_authorized重复付费。详情与后续未完成的完整dev校准、统计、消融见 docs/两例五组实验摘要_20261106.md。

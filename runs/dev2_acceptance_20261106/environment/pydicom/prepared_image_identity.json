@@ -1,0 +1,15 @@
+{
+  "kind": "prepared_public_source_image",
+  "tag": "prefix-env/pydicom-1139:base-b9fb05c1-20261106",
+  "image_id": "sha256:ccf2918b7408c41e80c71bad3f9ee49138a971543dde0c59b0a33c5ce8396daa",
+  "repo_digests": [
+    "prefix-env/pydicom-1139@sha256:ccf2918b7408c41e80c71bad3f9ee49138a971543dde0c59b0a33c5ce8396daa"
+  ],
+  "image_size_bytes": 6356904131,
+  "os": "linux",
+  "architecture": "amd64",
+  "source_image_id": "sha256:6bddca9c6360684b088cba4a502969e84c3a2f125550983e48e38e2e252b660c",
+  "designated_base_commit": "b9fb05c177b685bf683f7f57b2d57374eb7d882d",
+  "environment_is_official_pydicom_image": false,
+  "dockerfile_sha256": "2f661c0563c51991c6d5263873c712b564415fe69291614405ac38e411ce06a5"
+}

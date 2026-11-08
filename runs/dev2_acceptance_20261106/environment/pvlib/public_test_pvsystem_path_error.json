@@ -1,0 +1,12 @@
+{
+  "kind": "public_command_path_error",
+  "image_id": "sha256:6bddca9c6360684b088cba4a502969e84c3a2f125550983e48e38e2e252b660c",
+  "command": "cd /testbed && /opt/miniconda3/envs/testbed/bin/python -m pytest pvlib/test/test_pvsystem.py -q --tb=short",
+  "network": "none",
+  "exit_code": 4,
+  "stdout": "\nno tests ran in 0.00s\n",
+  "stderr": "ERROR: file or directory not found: pvlib/test/test_pvsystem.py\n\n",
+  "generation_requests": 0,
+  "classification": "no_test_execution_wrong_public_path",
+  "actual_result": "follow-up public_test_pvsystem_execution_v2.json"
+}

@@ -1,0 +1,8 @@
+{
+  "kind": "prefix_integration_costs",
+  "currency": "CNY",
+  "known_usage_estimate_cny": 0.19840128,
+  "failed_probe_reservation_cny": 0.00425,
+  "actual_bill_verified": false,
+  "formal_experiment": false
+}

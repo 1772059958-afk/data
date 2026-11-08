@@ -18,6 +18,7 @@ work/
 # 大体积逐事件原始日志可单独备份，但不要忽略整个新实验目录。
 runs/**/events.jsonl
 runs/**/*.tmp
+runs/**/*.lock
 *.log
 
 # Microsoft Office lock files are transient and may be unreadable while open.

@@ -1,0 +1,52 @@
+{
+  "identity": {
+    "tag": "dev2_diagnostic_20261106_02",
+    "config_hash": "da6d858652f3457442bf4d883759a3a31a5f13724e31926131b3058ff93f30c2",
+    "mode": "diagnostic",
+    "split": "dev",
+    "seed": 20261106,
+    "repeat_index": 0
+  },
+  "matrix_sha256": "14fd91223a7a89acf9e8983a63e4cfa2f56314e6630d685a1e4345ffaaeebe06",
+  "arm": "B",
+  "predictions_file": "predictions_B.jsonl",
+  "predictions_sha256": "93af2521a36c7fc8155489eac943c3131b5fe76b7b98c9889402d815c3d83344",
+  "model_name_or_path": "dev2_diagnostic_20261106_02-B",
+  "prediction_patch_sha256": {
+    "pvlib__pvlib-python-1707": "7d0ed0e673249f17f4c3876b5629c6aa630aa18a627dcf7aa64f132d8f27d89a",
+    "pydicom__pydicom-1139": "baafcd03da4aad2ab681a05159e443928c9f46d0b6a215b3f6a5220b384a86b2"
+  },
+  "report_path": "/workspace/runs/dev2_diagnostic_20261106_02/scoring/B/dev2_diagnostic_20261106_02-B.dev2_diagnostic_20261106_02.json",
+  "command": [
+    "/opt/scoring/bin/python",
+    "-m",
+    "swebench.harness.run_evaluation",
+    "--dataset_name",
+    "/workspace/runs/dev2_diagnostic_20261106_02/scoring/evaluation_dataset.json",
+    "--split",
+    "dev",
+    "--predictions_path",
+    "/workspace/runs/dev2_diagnostic_20261106_02/predictions_B.jsonl",
+    "--instance_ids",
+    "pvlib__pvlib-python-1707",
+    "pydicom__pydicom-1139",
+    "--run_id",
+    "dev2_diagnostic_20261106_02",
+    "--max_workers",
+    "1",
+    "--report_dir",
+    "/workspace/runs/dev2_diagnostic_20261106_02/scoring/B"
+  ],
+  "directory": "/workspace/runs/dev2_diagnostic_20261106_02/scoring/B",
+  "evaluation_dataset": {
+    "source": "/workspace/data/harness/dev.parquet",
+    "source_sha256": "b90bcbfaca1b5f65155500124a977876c264a4003ab384aca4dfc39a54bef89f",
+    "source_manifest_sha256": "30e1f10eafa8248cf02cf2752eae888e2ec896dcc0697da803ed99e04599d54c",
+    "prepared_images": {
+      "pvlib__pvlib-python-1707": "sha256:6bddca9c6360684b088cba4a502969e84c3a2f125550983e48e38e2e252b660c",
+      "pydicom__pydicom-1139": "sha256:bd5edf8694cde12aaf99beb18b3935b15e076e81ac7e52aef46b1ca3d9071428"
+    },
+    "dataset_path": "/workspace/runs/dev2_diagnostic_20261106_02/scoring/evaluation_dataset.json",
+    "effective_dataset_sha256": "1317d85058093189e5ad9eaacff7f37a3c2b53224ad8c379b2fcc6be2e3d5ed4"
+  }
+}

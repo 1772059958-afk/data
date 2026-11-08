@@ -1,0 +1,179 @@
+{
+  "controller_image_id": "sha256:1f43c83b3d3c631d37af54a19828df269accd045a22c62c0aab5b2bfa713726f",
+  "harness": "swebench==5.0.2",
+  "model_calls": 0,
+  "hidden_feedback_exported": false,
+  "shared_run_identity": {
+    "config_hash": "d485c95edec9f5d5f944d96680a8a558104743119326e794510a664b5c0f4c19",
+    "mode": "pilot",
+    "split": "dev",
+    "seed": 20261106,
+    "repeat_index": 0,
+    "designated_instances": [
+      "pvlib__pvlib-python-1707",
+      "pydicom__pydicom-1139"
+    ],
+    "prepared_images": {
+      "pvlib__pvlib-python-1707": "sha256:6bddca9c6360684b088cba4a502969e84c3a2f125550983e48e38e2e252b660c",
+      "pydicom__pydicom-1139": "sha256:bd5edf8694cde12aaf99beb18b3935b15e076e81ac7e52aef46b1ca3d9071428"
+    }
+  },
+  "arms": [
+    {
+      "arm": "A",
+      "tag": "dev2_pilot_A_20261106_01",
+      "report": "runs/dev2_pilot_A_20261106_01/scoring/A/dev2_pilot_A_20261106_01-A.dev2_pilot_A_20261106_01.json",
+      "provenance": "runs/dev2_pilot_A_20261106_01/scoring/A/dev2_pilot_A_20261106_01-A.dev2_pilot_A_20261106_01.json.provenance.json",
+      "provenance_valid": true,
+      "outer_inner_current_hashes_match": true,
+      "verdicts": {
+        "pvlib__pvlib-python-1707": "resolved",
+        "pydicom__pydicom-1139": "unresolved"
+      },
+      "submitted_instances": 2,
+      "completed_instances": 2,
+      "resolved_instances": 1,
+      "unresolved_instances": 1,
+      "empty_patch_instances": 0,
+      "error_instances": 0,
+      "infra_failure_instances": 0,
+      "ambiguous_failure_instances": 0
+    },
+    {
+      "arm": "B",
+      "tag": "dev2_pilot_B_20261106_01",
+      "report": "runs/dev2_pilot_B_20261106_01/scoring/B/dev2_pilot_B_20261106_01-B.dev2_pilot_B_20261106_01.json",
+      "provenance": "runs/dev2_pilot_B_20261106_01/scoring/B/dev2_pilot_B_20261106_01-B.dev2_pilot_B_20261106_01.json.provenance.json",
+      "provenance_valid": true,
+      "outer_inner_current_hashes_match": true,
+      "verdicts": {
+        "pvlib__pvlib-python-1707": "unresolved",
+        "pydicom__pydicom-1139": "unresolved"
+      },
+      "submitted_instances": 2,
+      "completed_instances": 2,
+      "resolved_instances": 0,
+      "unresolved_instances": 2,
+      "empty_patch_instances": 0,
+      "error_instances": 0,
+      "infra_failure_instances": 0,
+      "ambiguous_failure_instances": 0
+    },
+    {
+      "arm": "C",
+      "tag": "dev2_pilot_C_20261106_01",
+      "report": "runs/dev2_pilot_C_20261106_01/scoring/C/dev2_pilot_C_20261106_01-C.dev2_pilot_C_20261106_01.json",
+      "provenance": "runs/dev2_pilot_C_20261106_01/scoring/C/dev2_pilot_C_20261106_01-C.dev2_pilot_C_20261106_01.json.provenance.json",
+      "provenance_valid": true,
+      "outer_inner_current_hashes_match": true,
+      "verdicts": {
+        "pvlib__pvlib-python-1707": "resolved",
+        "pydicom__pydicom-1139": "unresolved"
+      },
+      "submitted_instances": 2,
+      "completed_instances": 2,
+      "resolved_instances": 1,
+      "unresolved_instances": 1,
+      "empty_patch_instances": 0,
+      "error_instances": 0,
+      "infra_failure_instances": 0,
+      "ambiguous_failure_instances": 0
+    },
+    {
+      "arm": "D",
+      "tag": "dev2_pilot_D_20261106_01",
+      "report": "runs/dev2_pilot_D_20261106_01/scoring/D/dev2_pilot_D_20261106_01-D.dev2_pilot_D_20261106_01.json",
+      "provenance": "runs/dev2_pilot_D_20261106_01/scoring/D/dev2_pilot_D_20261106_01-D.dev2_pilot_D_20261106_01.json.provenance.json",
+      "provenance_valid": true,
+      "outer_inner_current_hashes_match": true,
+      "verdicts": {
+        "pvlib__pvlib-python-1707": "unresolved",
+        "pydicom__pydicom-1139": "unresolved"
+      },
+      "submitted_instances": 2,
+      "completed_instances": 2,
+      "resolved_instances": 0,
+      "unresolved_instances": 2,
+      "empty_patch_instances": 0,
+      "error_instances": 0,
+      "infra_failure_instances": 0,
+      "ambiguous_failure_instances": 0
+    },
+    {
+      "arm": "E",
+      "tag": "dev2_pilot_E_20261106_01",
+      "report": "runs/dev2_pilot_E_20261106_01/scoring/E/dev2_pilot_E_20261106_01-E.dev2_pilot_E_20261106_01.json",
+      "provenance": "runs/dev2_pilot_E_20261106_01/scoring/E/dev2_pilot_E_20261106_01-E.dev2_pilot_E_20261106_01.json.provenance.json",
+      "provenance_valid": true,
+      "outer_inner_current_hashes_match": true,
+      "verdicts": {
+        "pvlib__pvlib-python-1707": "resolved",
+        "pydicom__pydicom-1139": "unresolved"
+      },
+      "submitted_instances": 2,
+      "completed_instances": 2,
+      "resolved_instances": 1,
+      "unresolved_instances": 1,
+      "empty_patch_instances": 0,
+      "error_instances": 0,
+      "infra_failure_instances": 0,
+      "ambiguous_failure_instances": 0
+    }
+  ],
+  "cleanup": [
+    {
+      "name": "sweb.eval.pvlib__pvlib-python-1707.dev2_pilot_A_20261106_01",
+      "already_absent": true,
+      "absence_verified": true
+    },
+    {
+      "name": "sweb.eval.pydicom__pydicom-1139.dev2_pilot_A_20261106_01",
+      "already_absent": true,
+      "absence_verified": true
+    },
+    {
+      "name": "sweb.eval.pvlib__pvlib-python-1707.dev2_pilot_B_20261106_01",
+      "already_absent": true,
+      "absence_verified": true
+    },
+    {
+      "name": "sweb.eval.pydicom__pydicom-1139.dev2_pilot_B_20261106_01",
+      "already_absent": true,
+      "absence_verified": true
+    },
+    {
+      "name": "sweb.eval.pvlib__pvlib-python-1707.dev2_pilot_C_20261106_01",
+      "already_absent": true,
+      "absence_verified": true
+    },
+    {
+      "name": "sweb.eval.pydicom__pydicom-1139.dev2_pilot_C_20261106_01",
+      "already_absent": true,
+      "absence_verified": true
+    },
+    {
+      "name": "sweb.eval.pvlib__pvlib-python-1707.dev2_pilot_D_20261106_01",
+      "already_absent": true,
+      "absence_verified": true
+    },
+    {
+      "name": "sweb.eval.pydicom__pydicom-1139.dev2_pilot_D_20261106_01",
+      "already_absent": true,
+      "absence_verified": true
+    },
+    {
+      "name": "sweb.eval.pvlib__pvlib-python-1707.dev2_pilot_E_20261106_01",
+      "already_absent": true,
+      "absence_verified": true
+    },
+    {
+      "name": "sweb.eval.pydicom__pydicom-1139.dev2_pilot_E_20261106_01",
+      "already_absent": true,
+      "absence_verified": true
+    }
+  ],
+  "all_known_evaluator_containers_absent": true,
+  "all_five_outer_inner_current_hashes_match": true,
+  "protected_evaluator_source_unchanged": true,
+  "environment_health": "not_inferred_from_harness_error_count"
+}

@@ -685,7 +685,7 @@ def run_prefix(
     iid = str(instance["instance_id"])
     manifest = TaskManifest.from_instance(
         instance, config_version, config_hash,
-        image_id=image_for(iid),
+        image_id=container.image if container is not None else image_for(iid),
     )
     state = RepairState(task=manifest)
     own_container = container is None

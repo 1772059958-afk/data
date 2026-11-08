@@ -142,6 +142,8 @@ class BudgetedClient:
         return result
 
     def _check_served_model(self, result):
+        if self.expected_served_model and not getattr(result.record, 'served_model_reported', True):
+            raise RuntimeError('server response omitted its model identity')
         if self.expected_served_model and result.record.served_model != self.expected_served_model:
             raise RuntimeError(f'served model drift: expected {self.expected_served_model}, '
                                f'got {result.record.served_model}')

@@ -1,0 +1,47 @@
+{
+  "kind": "model_identity_probe",
+  "status": "failed",
+  "model": "deepseek-flash",
+  "error_type": "RuntimeError",
+  "cost_cny": 0.00425,
+  "budget": {
+    "tier": "probe",
+    "ceiling": {
+      "token": 4096,
+      "model_call": 1,
+      "tool_call": 0,
+      "wallclock_seconds": 60
+    },
+    "consumed": {
+      "token": 1357,
+      "model_call": 1,
+      "tool_call": 0,
+      "wallclock_seconds": 0.5407395000001998
+    },
+    "remaining": {
+      "token": 2739,
+      "model_call": 0,
+      "tool_call": 0,
+      "wallclock_seconds": 59.4592604999998
+    },
+    "fraction_used": {
+      "token": 0.331298828125,
+      "model_call": 1.0,
+      "tool_call": 0.0,
+      "wallclock_seconds": 0.009012325000003329
+    },
+    "overrun": false,
+    "exhausted_at": null
+  },
+  "calls": [
+    {
+      "event": "failed_request",
+      "prompt_tokens": 1101,
+      "output_tokens": 256,
+      "cost_cny": 0.00425,
+      "billing": "unknown",
+      "served_model": null
+    }
+  ],
+  "cost_complete": false
+}

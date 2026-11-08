@@ -1,0 +1,36 @@
+{
+  "kind": "environment_amendment_before_five_arm_outcomes",
+  "first_attempt": "runs/dev2_diagnostic_20261106_01",
+  "new_diagnostic_tag": "dev2_diagnostic_20261106_02",
+  "same_instances_arms_repeats_seed": true,
+  "reason": "Public whole-file execution exposed pytest8 removal of legacy setup; verified pytest7 environment preserves designated baseline source/tests.",
+  "old_pydicom_image": "sha256:ccf2918b7408c41e80c71bad3f9ee49138a971543dde0c59b0a33c5ce8396daa",
+  "new_pydicom_image": "sha256:bd5edf8694cde12aaf99beb18b3935b15e076e81ac7e52aef46b1ca3d9071428",
+  "public_test_passes": {
+    "pydicom/tests/test_dataset.py": 120,
+    "pydicom/tests/test_valuerep.py": 38,
+    "pvlib/tests/test_pvsystem.py": 245
+  },
+  "new_config": "configs\\dev2_diagnostic_fixedenv_20261106.json",
+  "config_file_sha256": "5286f75fccc6b91e280b3706fdaf46f3eb42b543dd5ba17f7144ccef61166f8d",
+  "offline_suite": "347/347 passed",
+  "preservation": {
+    "experiments": {
+      "baseline_commit": "3759265",
+      "protected_total": 93,
+      "verified": 93,
+      "missing": [],
+      "changed": [],
+      "invalid": [],
+      "ok": true
+    },
+    "archive": {
+      "archived_total": 131,
+      "missing": [],
+      "changed": [],
+      "invalid": [],
+      "ok": true
+    }
+  },
+  "all_prior_costs_retained": true
+}

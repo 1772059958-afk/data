@@ -169,6 +169,56 @@ def test_conflicting_harness_status_is_rejected():
         raise AssertionError('contradictory verdict accepted')
 
 
+def test_official_infrastructure_annotations_may_overlap_failure_verdicts():
+    import copy
+    report = {'unresolved_ids': ['env', 'ambiguous'], 'error_ids': ['env-error', 'ambiguous-error'],
+              'infra_failure_ids': ['env', 'env-error'],
+              'ambiguous_failure_ids': ['ambiguous', 'ambiguous-error']}
+    before = copy.deepcopy(report)
+    for iid in ('env', 'env-error'):
+        assert cf.verdict_status(report, iid) == 'infra_error'
+    for iid in ('ambiguous', 'ambiguous-error'):
+        assert cf.verdict_status(report, iid) == 'ambiguous_error'
+    assert report == before
+    assert cf.resolved_value(cf.verdict_status(report, 'env')) is None
+    assert cf.resolved_value(cf.verdict_status(report, 'ambiguous')) is None
+
+
+def test_auxiliary_infrastructure_annotation_never_hides_primary_conflicts():
+    for primary in ({'resolved_ids': ['x'], 'unresolved_ids': ['x']},
+                    {'unresolved_ids': ['x'], 'error_ids': ['x']},
+                    {'resolved_ids': ['x']}, {'empty_patch_ids': ['x']}):
+        for auxiliary in ('infra_failure_ids', 'ambiguous_failure_ids'):
+            report = {**primary, auxiliary: ['x']}
+            try:
+                cf.verdict_status(report, 'x')
+            except ValueError:
+                pass
+            else:
+                raise AssertionError('infrastructure flag hid a contradictory verdict')
+
+
+def test_conflicting_auxiliary_infrastructure_annotations_are_rejected():
+    report = {'unresolved_ids': ['x'], 'infra_failure_ids': ['x'], 'ambiguous_failure_ids': ['x']}
+    try:
+        cf.verdict_status(report, 'x')
+    except ValueError:
+        pass
+    else:
+        raise AssertionError('conflicting environment categories accepted')
+
+
+def test_official_overlapping_infrastructure_label_remains_in_primary_population():
+    report = {'unresolved_ids': ['bad-env'], 'infra_failure_ids': ['bad-env']}
+    outcome = _outcome('bad-env', None, None)
+    outcome.routes = {'D': 'stop'}
+    outcome.arm_statuses = {'D': cf.verdict_status(report, 'bad-env')}
+    score = cf.score_actual_policy('D', [outcome], 'D')
+    assert score.total == 1 and score.not_scored == 0 and score.resolved == 0
+    assert score.status_counts == {'infra_error': 1}
+    assert score.cost_cny == outcome.prefix_cost_cny
+
+
 def test_c_actual_obeys_stop_and_has_same_cost_as_identical_d():
     stopped = _outcome('stopped', True, False)
     stopped.prefix_resolved = True

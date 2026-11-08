@@ -99,6 +99,16 @@ def load_api_key(
     return key
 
 
+def load_scoped_api_key(execution: Mapping[str, Any], root: str) -> str:
+    """An explicit project credential source must never fall back to system keys."""
+    source = execution.get('credential_source', 'environment_or_dotenv')
+    if source == 'project_dotenv':
+        return load_api_key(env={}, dotenv_path=os.path.join(root, DOTENV_NAME))
+    if source == 'environment_or_dotenv':
+        return load_api_key()
+    raise ModelConfigError('unsupported credential source')
+
+
 @dataclasses.dataclass(frozen=True)
 class ModelConfig:
     """Everything that must be identical across arms for a fair comparison."""
@@ -200,6 +210,7 @@ class CallRecord:
     price_tier: str
     usage_reported: bool = True
     billing: str = "estimated_from_usage"
+    served_model_reported: bool = True
 
     @property
     def input_tokens(self) -> int:
@@ -361,6 +372,9 @@ class DeepSeekClient:
             timeout = attempt_hook('before') if attempt_hook else None
             attempts += 1
             attempt_started = time.time()
+            if self._guard is not None and hasattr(self._guard, 'reserve_before'):
+                self._guard.reserve_before(self.config.model, prompt_tokens=prompt_tokens_estimate,
+                                           max_output_tokens=self.config.max_tokens)
             try:
                 status, payload = self._post(body, timeout)
             except Exception as exc:  # transport-level failure
@@ -483,6 +497,7 @@ class DeepSeekClient:
             cost_cny=cost,
             price_tier=pricing.tier_for(when),
             usage_reported=all(k in usage for k in ('prompt_tokens', 'completion_tokens')),
+            served_model_reported=bool(payload.get('model')),
         )
 
         tool_calls = list(message.get("tool_calls") or [])

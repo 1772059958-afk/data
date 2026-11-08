@@ -1,0 +1,11 @@
+{
+  "kind": "model_identity_probe",
+  "execute": true,
+  "output_directory": "C:\\Users\\remil\\Desktop\\3yr\\\u79d1\u7814\\proj\\runs\\model_probe_20261106_02",
+  "config_sha256": "2ed75f56567018995aa5e0785e61bb138b8475a01fa8d07f70b062776b2d2bc1",
+  "model": "deepseek-flash",
+  "model_calls_limit": 1,
+  "max_output_tokens": 256,
+  "ceiling_cny": 0.05,
+  "note": "Integration only; observed response identity is not an immutable model freeze."
+}

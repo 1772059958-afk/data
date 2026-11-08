@@ -1,0 +1,577 @@
+{
+  "target_python": "3.11",
+  "target_platform": "x86_64-manylinux_2_28",
+  "package_count": 76,
+  "packages": [
+    {
+      "name": "aiohappyeyeballs",
+      "version": "2.7.1",
+      "wheel_tags": [
+        "py3-none-any"
+      ]
+    },
+    {
+      "name": "aiohttp",
+      "version": "3.14.5",
+      "wheel_tags": [
+        "cp311-cp311-manylinux_2_17_x86_64",
+        "cp311-cp311-manylinux2014_x86_64",
+        "cp311-cp311-manylinux_2_28_x86_64"
+      ]
+    },
+    {
+      "name": "aiosignal",
+      "version": "1.4.0",
+      "wheel_tags": [
+        "py3-none-any"
+      ]
+    },
+    {
+      "name": "annotated-doc",
+      "version": "0.0.5",
+      "wheel_tags": [
+        "py3-none-any"
+      ]
+    },
+    {
+      "name": "anyio",
+      "version": "4.16.0",
+      "wheel_tags": [
+        "py3-none-any"
+      ]
+    },
+    {
+      "name": "attrs",
+      "version": "26.1.0",
+      "wheel_tags": [
+        "py3-none-any"
+      ]
+    },
+    {
+      "name": "beautifulsoup4",
+      "version": "4.15.0",
+      "wheel_tags": [
+        "py3-none-any"
+      ]
+    },
+    {
+      "name": "cbor2",
+      "version": "6.2.0.post2",
+      "wheel_tags": [
+        "cp311-cp311-manylinux_2_28_x86_64"
+      ]
+    },
+    {
+      "name": "certifi",
+      "version": "2026.10.23",
+      "wheel_tags": [
+        "py3-none-any"
+      ]
+    },
+    {
+      "name": "cfgv",
+      "version": "3.5.0",
+      "wheel_tags": [
+        "py2-none-any",
+        "py3-none-any"
+      ]
+    },
+    {
+      "name": "chardet",
+      "version": "7.7.0",
+      "wheel_tags": [
+        "cp311-cp311-manylinux_2_17_x86_64",
+        "cp311-cp311-manylinux2014_x86_64",
+        "cp311-cp311-manylinux_2_28_x86_64"
+      ]
+    },
+    {
+      "name": "charset-normalizer",
+      "version": "3.5.2",
+      "wheel_tags": [
+        "cp311-cp311-manylinux_2_17_x86_64",
+        "cp311-cp311-manylinux2014_x86_64",
+        "cp311-cp311-manylinux_2_28_x86_64"
+      ]
+    },
+    {
+      "name": "click",
+      "version": "8.5.0",
+      "wheel_tags": [
+        "py3-none-any"
+      ]
+    },
+    {
+      "name": "datasets",
+      "version": "5.1.0",
+      "wheel_tags": [
+        "py3-none-any"
+      ]
+    },
+    {
+      "name": "dill",
+      "version": "0.4.1",
+      "wheel_tags": [
+        "py3-none-any"
+      ]
+    },
+    {
+      "name": "distlib",
+      "version": "0.4.4",
+      "wheel_tags": [
+        "py2-none-any",
+        "py3-none-any"
+      ]
+    },
+    {
+      "name": "docker",
+      "version": "7.2.0",
+      "wheel_tags": [
+        "py3-none-any"
+      ]
+    },
+    {
+      "name": "fastcore",
+      "version": "1.14.5",
+      "wheel_tags": [
+        "py3-none-any"
+      ]
+    },
+    {
+      "name": "filelock",
+      "version": "4.2.9",
+      "wheel_tags": [
+        "py3-none-any"
+      ]
+    },
+    {
+      "name": "frozenlist",
+      "version": "1.8.0",
+      "wheel_tags": [
+        "cp311-cp311-manylinux_2_5_x86_64",
+        "cp311-cp311-manylinux1_x86_64",
+        "cp311-cp311-manylinux_2_28_x86_64"
+      ]
+    },
+    {
+      "name": "fsspec",
+      "version": "2026.7.0",
+      "wheel_tags": [
+        "py3-none-any"
+      ]
+    },
+    {
+      "name": "ghapi",
+      "version": "1.1.1",
+      "wheel_tags": [
+        "py3-none-any"
+      ]
+    },
+    {
+      "name": "gitdb",
+      "version": "4.0.12",
+      "wheel_tags": [
+        "py3-none-any"
+      ]
+    },
+    {
+      "name": "GitPython",
+      "version": "3.2.1",
+      "wheel_tags": [
+        "py3-none-any"
+      ]
+    },
+    {
+      "name": "grpclib",
+      "version": "0.4.9",
+      "wheel_tags": [
+        "py3-none-any"
+      ]
+    },
+    {
+      "name": "h11",
+      "version": "0.16.0",
+      "wheel_tags": [
+        "py3-none-any"
+      ]
+    },
+    {
+      "name": "h2",
+      "version": "4.4.1",
+      "wheel_tags": [
+        "py3-none-any"
+      ]
+    },
+    {
+      "name": "hf-xet",
+      "version": "1.8.0",
+      "wheel_tags": [
+        "cp38-abi3-manylinux2014_x86_64",
+        "cp38-abi3-manylinux_2_17_x86_64"
+      ]
+    },
+    {
+      "name": "hpack",
+      "version": "4.2.0",
+      "wheel_tags": [
+        "py3-none-any"
+      ]
+    },
+    {
+      "name": "httpcore2",
+      "version": "2.16.0",
+      "wheel_tags": [
+        "py3-none-any"
+      ]
+    },
+    {
+      "name": "httpx2",
+      "version": "2.16.0",
+      "wheel_tags": [
+        "py3-none-any"
+      ]
+    },
+    {
+      "name": "huggingface_hub",
+      "version": "2.4.0",
+      "wheel_tags": [
+        "py3-none-any"
+      ]
+    },
+    {
+      "name": "hyperframe",
+      "version": "6.1.0",
+      "wheel_tags": [
+        "py3-none-any"
+      ]
+    },
+    {
+      "name": "identify",
+      "version": "2.6.20",
+      "wheel_tags": [
+        "py2-none-any",
+        "py3-none-any"
+      ]
+    },
+    {
+      "name": "idna",
+      "version": "3.20",
+      "wheel_tags": [
+        "py3-none-any"
+      ]
+    },
+    {
+      "name": "markdown-it-py",
+      "version": "4.2.0",
+      "wheel_tags": [
+        "py3-none-any"
+      ]
+    },
+    {
+      "name": "mdurl",
+      "version": "0.1.2",
+      "wheel_tags": [
+        "py3-none-any"
+      ]
+    },
+    {
+      "name": "modal",
+      "version": "1.6.3",
+      "wheel_tags": [
+        "py3-none-any"
+      ]
+    },
+    {
+      "name": "multidict",
+      "version": "7.2.1",
+      "wheel_tags": [
+        "cp311-cp311-manylinux_2_17_x86_64",
+        "cp311-cp311-manylinux2014_x86_64",
+        "cp311-cp311-manylinux_2_28_x86_64"
+      ]
+    },
+    {
+      "name": "multiprocess",
+      "version": "0.70.19",
+      "wheel_tags": [
+        "py311-none-any"
+      ]
+    },
+    {
+      "name": "nodeenv",
+      "version": "1.12.0",
+      "wheel_tags": [
+        "py3-none-any"
+      ]
+    },
+    {
+      "name": "numpy",
+      "version": "2.4.6",
+      "wheel_tags": [
+        "cp311-cp311-manylinux_2_27_x86_64",
+        "cp311-cp311-manylinux_2_28_x86_64"
+      ]
+    },
+    {
+      "name": "packaging",
+      "version": "26.3",
+      "wheel_tags": [
+        "py3-none-any"
+      ]
+    },
+    {
+      "name": "pandas",
+      "version": "3.1.1",
+      "wheel_tags": [
+        "cp311-cp311-manylinux_2_24_x86_64",
+        "cp311-cp311-manylinux_2_28_x86_64"
+      ]
+    },
+    {
+      "name": "platformdirs",
+      "version": "4.14.5",
+      "wheel_tags": [
+        "py3-none-any"
+      ]
+    },
+    {
+      "name": "pre_commit",
+      "version": "4.7.0",
+      "wheel_tags": [
+        "py2-none-any",
+        "py3-none-any"
+      ]
+    },
+    {
+      "name": "propcache",
+      "version": "0.5.4",
+      "wheel_tags": [
+        "cp311-cp311-manylinux_2_17_x86_64",
+        "cp311-cp311-manylinux2014_x86_64",
+        "cp311-cp311-manylinux_2_28_x86_64"
+      ]
+    },
+    {
+      "name": "protobuf",
+      "version": "7.36.2",
+      "wheel_tags": [
+        "cp310-abi3-manylinux2014_x86_64"
+      ]
+    },
+    {
+      "name": "pyarrow",
+      "version": "26.0.1",
+      "wheel_tags": [
+        "cp311-cp311-manylinux_2_28_x86_64"
+      ]
+    },
+    {
+      "name": "Pygments",
+      "version": "2.21.0",
+      "wheel_tags": [
+        "py3-none-any"
+      ]
+    },
+    {
+      "name": "python-dateutil",
+      "version": "4.0.0",
+      "wheel_tags": [
+        "py3-none-any"
+      ]
+    },
+    {
+      "name": "python-discovery",
+      "version": "1.9.4",
+      "wheel_tags": [
+        "py3-none-any"
+      ]
+    },
+    {
+      "name": "python-dotenv",
+      "version": "1.2.4",
+      "wheel_tags": [
+        "py3-none-any"
+      ]
+    },
+    {
+      "name": "PyYAML",
+      "version": "6.0.3",
+      "wheel_tags": [
+        "cp311-cp311-manylinux_2_17_x86_64",
+        "cp311-cp311-manylinux2014_x86_64",
+        "cp311-cp311-manylinux_2_28_x86_64"
+      ]
+    },
+    {
+      "name": "requests",
+      "version": "2.34.2",
+      "wheel_tags": [
+        "py3-none-any"
+      ]
+    },
+    {
+      "name": "rich",
+      "version": "15.0.0",
+      "wheel_tags": [
+        "py3-none-any"
+      ]
+    },
+    {
+      "name": "shellingham",
+      "version": "1.5.4",
+      "wheel_tags": [
+        "py2-none-any",
+        "py3-none-any"
+      ]
+    },
+    {
+      "name": "smmap",
+      "version": "5.0.3",
+      "wheel_tags": [
+        "py3-none-any"
+      ]
+    },
+    {
+      "name": "soupsieve",
+      "version": "2.10",
+      "wheel_tags": [
+        "py3-none-any"
+      ]
+    },
+    {
+      "name": "swebench",
+      "version": "5.0.2",
+      "wheel_tags": [
+        "py3-none-any"
+      ]
+    },
+    {
+      "name": "synchronicity",
+      "version": "0.12.7",
+      "wheel_tags": [
+        "py3-none-any"
+      ]
+    },
+    {
+      "name": "tenacity",
+      "version": "9.2.1",
+      "wheel_tags": [
+        "py3-none-any"
+      ]
+    },
+    {
+      "name": "toml",
+      "version": "0.10.2",
+      "wheel_tags": [
+        "py2-none-any",
+        "py3-none-any"
+      ]
+    },
+    {
+      "name": "tqdm",
+      "version": "4.70.1",
+      "wheel_tags": [
+        "py3-none-any"
+      ]
+    },
+    {
+      "name": "truststore",
+      "version": "0.10.5",
+      "wheel_tags": [
+        "py3-none-any"
+      ]
+    },
+    {
+      "name": "typer",
+      "version": "0.27.3",
+      "wheel_tags": [
+        "py3-none-any"
+      ]
+    },
+    {
+      "name": "types-certifi",
+      "version": "2021.10.8.3",
+      "wheel_tags": [
+        "py3-none-any"
+      ]
+    },
+    {
+      "name": "types-toml",
+      "version": "0.10.8.20260518",
+      "wheel_tags": [
+        "py3-none-any"
+      ]
+    },
+    {
+      "name": "typing_extensions",
+      "version": "4.16.0",
+      "wheel_tags": [
+        "py3-none-any"
+      ]
+    },
+    {
+      "name": "tzdata",
+      "version": "2026.6",
+      "wheel_tags": [
+        "py2-none-any",
+        "py3-none-any"
+      ]
+    },
+    {
+      "name": "unidiff",
+      "version": "1.0.1",
+      "wheel_tags": [
+        "py3-none-any"
+      ]
+    },
+    {
+      "name": "urllib3",
+      "version": "2.8.0",
+      "wheel_tags": [
+        "py3-none-any"
+      ]
+    },
+    {
+      "name": "virtualenv",
+      "version": "21.15.5",
+      "wheel_tags": [
+        "py3-none-any"
+      ]
+    },
+    {
+      "name": "watchfiles",
+      "version": "1.3.0",
+      "wheel_tags": [
+        "cp310-abi3-manylinux_2_17_x86_64",
+        "cp310-abi3-manylinux2014_x86_64"
+      ]
+    },
+    {
+      "name": "xxhash",
+      "version": "4.0.2",
+      "wheel_tags": [
+        "cp311-cp311-manylinux_2_17_x86_64",
+        "cp311-cp311-manylinux2014_x86_64",
+        "cp311-cp311-manylinux_2_28_x86_64"
+      ]
+    },
+    {
+      "name": "yarl",
+      "version": "1.25.1",
+      "wheel_tags": [
+        "cp311-cp311-manylinux_2_17_x86_64",
+        "cp311-cp311-manylinux2014_x86_64",
+        "cp311-cp311-manylinux_2_28_x86_64"
+      ]
+    }
+  ],
+  "installation": {
+    "source_index": "https://pypi.tuna.tsinghua.edu.cn/simple",
+    "hash_origin": "official PyPI",
+    "require_hashes": true,
+    "only_binary": true
+  },
+  "requirements_lock_sha256": "42eb64555e63723530ef47b30a6254983680797700cdd216f2e72bd5956effa5",
+  "windows_or_macos_wheels": 0,
+  "shared_library_count": 123
+}

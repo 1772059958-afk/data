@@ -1,0 +1,11 @@
+{
+  "offline_suite_passed": 312,
+  "original_assets_verified": 93,
+  "archive_assets_verified": 131,
+  "paid_model_probe": "completed_using_project_dotenv",
+  "live_prefix": "completed",
+  "independent_scoring": "not_run",
+  "formal_calibration_statistics_ablations": "not_completed",
+  "main_config_live_authorized": false,
+  "credential_file_ignored": true
+}

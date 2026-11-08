@@ -1,0 +1,11 @@
+{
+  "public_source_url": "https://zenodo.org/record/3861966/files/MR-SIEMENS-DICOM-WithOverlays.dcm?download=1",
+  "final_url": "https://zenodo.org/records/3861966/files/MR-SIEMENS-DICOM-WithOverlays.dcm",
+  "expected_sha256_from_designated_public_commit": "094faf56c63bff84c30567e29de0c67d7c5a8ae05cf880ac12175491b6b645d2",
+  "actual_sha256": "094faf56c63bff84c30567e29de0c67d7c5a8ae05cf880ac12175491b6b645d2",
+  "size_bytes": 510928,
+  "ssl_verification": true,
+  "local_file": "docker\\prefix\\fixtures\\MR-SIEMENS-DICOM-WithOverlays.dcm",
+  "docker_build_direct_download_failure": "urllib URLError ConnectionRefusedError 111; pytest7.4.4 install preceding layer succeeded",
+  "credentials_read": false
+}

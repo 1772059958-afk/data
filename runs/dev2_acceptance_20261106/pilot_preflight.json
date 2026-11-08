@@ -1,0 +1,56 @@
+{
+  "model_requests": 0,
+  "docker_requests": 0,
+  "plans": [
+    {
+      "arm": "A",
+      "config_hash": "d485c95edec9f5d5f944d96680a8a558104743119326e794510a664b5c0f4c19",
+      "candidate_validated": true,
+      "mode": "pilot",
+      "instances": [
+        "pvlib__pvlib-python-1707",
+        "pydicom__pydicom-1139"
+      ]
+    },
+    {
+      "arm": "B",
+      "config_hash": "d485c95edec9f5d5f944d96680a8a558104743119326e794510a664b5c0f4c19",
+      "candidate_validated": true,
+      "mode": "pilot",
+      "instances": [
+        "pvlib__pvlib-python-1707",
+        "pydicom__pydicom-1139"
+      ]
+    },
+    {
+      "arm": "C",
+      "config_hash": "d485c95edec9f5d5f944d96680a8a558104743119326e794510a664b5c0f4c19",
+      "candidate_validated": true,
+      "mode": "pilot",
+      "instances": [
+        "pvlib__pvlib-python-1707",
+        "pydicom__pydicom-1139"
+      ]
+    },
+    {
+      "arm": "D",
+      "config_hash": "d485c95edec9f5d5f944d96680a8a558104743119326e794510a664b5c0f4c19",
+      "candidate_validated": true,
+      "mode": "pilot",
+      "instances": [
+        "pvlib__pvlib-python-1707",
+        "pydicom__pydicom-1139"
+      ]
+    },
+    {
+      "arm": "E",
+      "config_hash": "d485c95edec9f5d5f944d96680a8a558104743119326e794510a664b5c0f4c19",
+      "candidate_validated": true,
+      "mode": "pilot",
+      "instances": [
+        "pvlib__pvlib-python-1707",
+        "pydicom__pydicom-1139"
+      ]
+    }
+  ]
+}

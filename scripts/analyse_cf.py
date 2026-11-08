@@ -40,6 +40,8 @@ def _designated(matrix):
 def analyze(matrix: dict, reports: dict[str, dict], provenance: dict | None = None,
             *, historical: bool = False) -> dict:
     """Never use generation completed/error as an evaluator verdict."""
+    if matrix.get('mode') == 'prefix':
+        raise ValueError('prefix-only integration is not a formal or paired diagnostic experiment')
     legacy = 'cases' not in matrix
     if legacy != historical or (legacy and matrix.get('mode') == 'formal'):
         raise ValueError('legacy matrices require explicit historical analysis; current runs require cases')
@@ -67,7 +69,7 @@ def analyze(matrix: dict, reports: dict[str, dict], provenance: dict | None = No
         stages = case.get('stages', {})
         routes = case.get('decisions', matrix.get('decisions', {}).get(iid, {}))
         routes = {arm: _route(value) for arm, value in routes.items()}
-        if not legacy and case.get('mode', matrix.get('mode')) == 'formal':
+        if not legacy and case.get('mode', matrix.get('mode')) in ('formal', 'pilot'):
             routes[case.get('arm', matrix.get('arm', 'D'))] = case.get('selected_route', routes.get(case.get('arm', matrix.get('arm', 'D'))))
         outcome = cf.InstanceOutcome(iid, dict(case.get('features', {})))
         outcome.routes = routes
@@ -102,7 +104,7 @@ def analyze(matrix: dict, reports: dict[str, dict], provenance: dict | None = No
                                  'u_loc': outcome.features.get('u_loc'), 'u_dup': outcome.features.get('u_dup', 0)})
         for arm in arms:
             chosen = routes.get(arm)
-            if not legacy and case.get('mode', matrix.get('mode')) == 'formal':
+            if not legacy and case.get('mode', matrix.get('mode')) in ('formal', 'pilot'):
                 cost = case.get('policy_cost_cny')
                 if cost is None and case:
                     chosen = routes.get(arm)

@@ -1,0 +1,20 @@
+{
+  "kind": "official_pull_observation",
+  "date": "2026-11-06",
+  "image": "swebench/sweb.eval.x86_64.pydicom_1776_pydicom-1139:latest",
+  "official_manifest_digest": "sha256:a2344b4b6db428913523e14f576fe358d6ae0c349cd77ac82e616188955ddb3b",
+  "compressed_size_bytes": 1589489340,
+  "locally_available_before_fallback": false,
+  "unfinished_layer_prefixes": [
+    "439d0cacf337",
+    "48249c132622"
+  ],
+  "own_pull_intentionally_cancelled_for_public_source_fallback": true,
+  "no_other_pulls_or_resources_pruned": true,
+  "generation_requests": 0,
+  "fallback_source_image": "sha256:6bddca9c6360684b088cba4a502969e84c3a2f125550983e48e38e2e252b660c",
+  "fallback_source_repo": "https://github.com/pydicom/pydicom.git",
+  "fallback_public_base_commit": "b9fb05c177b685bf683f7f57b2d57374eb7d882d",
+  "dockerfile_sha256": "2f661c0563c51991c6d5263873c712b564415fe69291614405ac38e411ce06a5",
+  "limitation": "Fallback is a separately prepared public-source environment, not the official pydicom image."
+}
