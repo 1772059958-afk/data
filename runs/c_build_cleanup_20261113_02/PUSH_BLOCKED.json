@@ -1,0 +1,23 @@
+{
+  "status": "blocked_permission_denied",
+  "date_local": "2026-11-13",
+  "remote": "origin",
+  "remote_url": "git@github.com:1772059958-afk/data.git",
+  "remote_ref": "refs/heads/develop",
+  "authenticated_login": "scarlet-hearn",
+  "error": "Permission to 1772059958-afk/data.git denied to scarlet-hearn",
+  "completed_commits": [
+    "84ad2f26af0faca0d75f3acec70834aa369a5d21",
+    "65a27c162ec4fcb12ac2d7a1a5d75e968ecd1d29",
+    "bd8c4d5fa5b1c7a3f22ae294fa1165e3a02e067a"
+  ],
+  "alternate_saved_gcm_accounts": [],
+  "connected_github_login": "scarlet-hearn",
+  "push_success": false,
+  "force_push": false,
+  "shutdown": false,
+  "cleanup_complete": true,
+  "offline_tests": "399/399",
+  "preservation": "93/93 + 131/131",
+  "next_step": "Use a GitHub identity with target write permission, or a new repository target explicitly specified by the user."
+}
