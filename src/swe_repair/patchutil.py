@@ -25,7 +25,8 @@ def safe_repo_path(path: str) -> str:
 def is_test_path(path: str) -> bool:
     """One checkout-relative test convention for routing and modification scope."""
     parts = str(path).replace('\\', '/').split('/')
-    return (any(part in ('test', 'tests') for part in parts)
+    return (parts[0] == 'testing' or parts[-1] == 'conftest.py'
+            or any(part in ('test', 'tests') for part in parts)
             or parts[-1].startswith('test_') or parts[-1].endswith('_test.py'))
 
 
@@ -55,7 +56,10 @@ def patch_scope_valid(diff: str) -> bool:
     try:
         for raw in paths:
             path = safe_repo_path(raw)
-            if not is_source_path(path):
+            metadata = (path in ('setup.py', 'noxfile.py', 'conftest.py')
+                        or any(part in ('.github', '.circleci', '.gitlab', '.devcontainer',
+                                        '.vscode', '.idea', '.tox', '.nox') for part in path.split('/')))
+            if not is_source_path(path) or metadata:
                 return False
     except ValueError:
         return False

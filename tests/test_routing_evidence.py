@@ -34,12 +34,21 @@ def test_external_dependency_keeps_auditable_path_without_triggering_interaction
 
 
 def test_all_test_path_conventions_are_excluded_from_both_routing_and_patches():
-    for path in ('tests/fixture.py', 'test/fixture.py', 'pkg/test_widget.py', 'pkg/widget_test.py'):
+    for path in ('tests/fixture.py', 'test/fixture.py', 'pkg/test_widget.py', 'pkg/widget_test.py',
+                 'testing/conftest.py', 'testing/helper.py', 'conftest.py', 'pkg/conftest.py'):
         assert is_test_path(path) and not is_source_path(path)
         diff = f'--- a/{path}\n+++ b/{path}\n@@ -1 +1 @@\n-old\n+new\n'
         assert not patch_scope_valid(diff)
         state = state_with_frame('/testbed/' + path)
         assert route_for_arm('D', state, config()).route == 'fixed'
+
+
+def test_packaging_and_repository_metadata_are_not_repair_targets():
+    for path in ('setup.py', 'noxfile.py', '.github/check.py', '.devcontainer/setup.py'):
+        assert not patch_scope_valid(f'--- a/{path}\n+++ b/{path}\n@@ -1 +1 @@\n-old\n+new\n')
+    for path in ('sphinx/testing/util.py', 'matplotlib/testing/decorators.py', 'pkg/setup_helpers.py'):
+        assert is_source_path(path)
+        assert patch_scope_valid(f'--- a/{path}\n+++ b/{path}\n@@ -1 +1 @@\n-old\n+new\n')
 
 
 def test_unseen_checkout_source_still_triggers_interaction():

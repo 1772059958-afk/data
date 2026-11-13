@@ -91,9 +91,34 @@ def fixed_continuation(problem, prefix, client, box, raw):
     return {'termination_reason': reason, 'trace': trace, 'attempted_candidates': len(trace)}
 
 
+def validate_diagnostic_prefix_contract(raw, source, *, mode, split, calibration):
+    """Allow continuation-only DEV interventions, never cross-config formal reuse.
+
+    The source prefix retains its original task/config identity. Every setting
+    that can generate or validate a prefix must be identical; only subsequent
+    interaction/feedback settings may differ. The paid entry audits the source.
+    """
+    if mode != 'diagnostic' or split != 'dev' or not calibration:
+        raise ValueError('cross-config prefix reuse is restricted to explicit DEV diagnostics')
+    original = source['effective_config']
+    if RouterConfig.from_config(original).digest != source['config_hash']:
+        raise ValueError('source prefix configuration hash differs')
+    for key in ('model', 'prefix', 'budget_tiers', 'active_tier', 'candidate_selection',
+                'config_version', 'prompt_version', 'dataset'):
+        if raw.get(key) != original.get(key):
+            raise ValueError('prefix-generating configuration changed: ' + key)
+    for key in ('images', 'modify_scope', 'tool_call_unit', 'environment_retries'):
+        if raw['execution'].get(key) != original['execution'].get(key):
+            raise ValueError('prefix environment contract changed: ' + key)
+    for key in ('code_sha256', 'dataset_manifest_sha256'):
+        if raw.get('provenance', {}).get(key) != original.get('provenance', {}).get(key):
+            raise ValueError('prefix source/data identity changed: ' + key)
+    return source['config_hash']
+
+
 def run_case(row, client, raw, *, mode='formal', arm='D', seed=0, split=None,
              calibration=False, box_factory=Container, checkpoint=lambda event: None,
-             cached_prefix=None):
+             cached_prefix=None, cached_prefix_contract=None):
     """Run one designated instance. All failed stages remain in the returned row.
 
     Formal and dev-only pilot run only the selected branch. Pilot execution is
@@ -108,6 +133,11 @@ def run_case(row, client, raw, *, mode='formal', arm='D', seed=0, split=None,
         raise ValueError('pilot requires explicit dev split and cannot use the calibration bypass')
     assert_generation_only(row, 'experiment input')
     cfg = RouterConfig.from_config(raw)
+    prefix_source_hash = (validate_diagnostic_prefix_contract(raw, cached_prefix_contract,
+                          mode=mode, split=split, calibration=calibration)
+                          if cached_prefix_contract is not None else cfg.digest)
+    if cached_prefix_contract is not None and cached_prefix is None:
+        raise ValueError('a prefix reuse contract requires an actual serialized prefix')
     if mode == 'pilot' and (not cfg.calibrated or cfg.switch_probability is None):
         raise ValueError('pilot requires an explicit candidate D policy and matched E probability')
     single_policy = mode in ('formal', 'pilot')
@@ -175,23 +205,28 @@ def run_case(row, client, raw, *, mode='formal', arm='D', seed=0, split=None,
         else:
             if cached_prefix is not None:
                 saved = copy.deepcopy(cached_prefix)
-                if (saved['image_digest'] != outcome['image_digest'] or saved['config_hash'] != cfg.digest
+                if (saved['image_digest'] != outcome['image_digest'] or saved['config_hash'] != prefix_source_hash
                         or saved['stage']['state']['task_manifest']['instance_id'] != iid):
                     raise ValueError('cached prefix identity mismatch')
                 stage = saved['stage']
                 state = RepairState.from_dict(stage['state'])
+                if state.task.config_hash != prefix_source_hash:
+                    raise ValueError('cached task and prefix-source configuration differ')
                 if state.task.base_commit != row['base_commit']:
                     raise ValueError('cached base commit mismatch')
                 prefix = PrefixResult(state, row['base_commit'], tuple(stage['context_files']),
                                       tuple(stage['listing']), context_text=stage['context_text'], trace=stage['trace'])
                 outcome['stages']['prefix'] = stage
                 outcome['prefix_reused'] = True
+                if cached_prefix_contract is not None:
+                    outcome['prefix_source_config_hash'] = prefix_source_hash
                 rt = Runtime(state.budget, money=_money(raw, [type('Booked', (), x)() for x in stage['calls']]))
                 counted = BudgetedContainer(box, rt)
             else:
                 rt = Runtime(ceiling, money=_money(raw), token_limit=int(ceiling.ceiling.token * cfg.prefix_fraction),
                              event_sink=lambda e: checkpoint({'instance_id': iid, 'stage': 'prefix', 'event': e}))
-                wrapped = BudgetedClient(client, rt, expected_served_model=raw['model'].get('model_version'))
+                wrapped = BudgetedClient(client, rt, expected_served_model=raw['model'].get('model_version'),
+                                         expected_system_fingerprint=raw['model'].get('system_fingerprint'))
                 counted = BudgetedContainer(box, rt)
                 prefix = run_prefix(row, wrapped, config_version=cfg.config_version, config_hash=cfg.digest,
                                     n_candidates=raw['prefix'].get('n_candidates', 2), container=counted)
@@ -253,6 +288,8 @@ def run_case(row, client, raw, *, mode='formal', arm='D', seed=0, split=None,
             branches = (['fixed', 'interactive'] if eligible else []) + ['standalone']
 
         for branch in branches:
+            if getattr(client, '_api_breakpoint', None):
+                raise RuntimeError('API access/quota breakpoint; remaining branches not started')
             branch_prefix = clone_prefix(prefix) if prefix else None
             state = (branch_prefix.state if branch != 'standalone' else
                      RepairState(TaskManifest.from_instance(row, cfg.config_version, cfg.digest)))
@@ -270,7 +307,8 @@ def run_case(row, client, raw, *, mode='formal', arm='D', seed=0, split=None,
                 rt = Runtime(state.budget, money=_money(raw, [type('Booked', (), x)() for x in inherited]),
                              event_sink=lambda e, b=branch: checkpoint({'instance_id': iid, 'stage': b, 'event': e}))
                 counted = BudgetedContainer(box, rt)
-                wrapped = BudgetedClient(client, rt, expected_served_model=raw['model'].get('model_version'))
+                wrapped = BudgetedClient(client, rt, expected_served_model=raw['model'].get('model_version'),
+                                         expected_system_fingerprint=raw['model'].get('system_fingerprint'))
                 if branch == 'fixed':
                     details = fixed_continuation(problem, branch_prefix, wrapped, counted, raw)
                 else:

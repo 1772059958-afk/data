@@ -1,9 +1,9 @@
 """Model client with explicit token and cost accounting.
 
-The generation side needs three things from a model call: the answer, an exact
-record of what it cost, and a guarantee that the model version cannot drift
-mid-experiment. This module provides all three against DeepSeek's
-OpenAI-compatible endpoint.
+The generation side needs the answer, an auditable usage/cost estimate, and
+the model identity actually reported by the provider. This module records
+those fields against DeepSeek's OpenAI-compatible endpoint. A model alias
+and backend fingerprint are observations, not an immutable version guarantee.
 
 Two settings are treated as experiment parameters rather than conveniences,
 because leaving them implicit would let two arms differ in ways the write-up
@@ -30,7 +30,7 @@ from types import SimpleNamespace
 from typing import Any, Iterable, Mapping, Sequence
 
 from . import pricing
-from .spend import SpendGuard
+from .spend import SpendGuard, SpendLimitExceeded
 
 DEFAULT_BASE_URL = "https://api.deepseek.com"
 DEFAULT_MODEL = "deepseek-flash"
@@ -122,6 +122,8 @@ class ModelConfig:
     top_p: float | None = None
     timeout_seconds: float = 600.0
     max_retries: int = 4
+    stop_on_api_breakpoint: bool = False
+    workflow_stop_file: str | None = None
 
     def __post_init__(self) -> None:
         if self.effort not in VALID_EFFORTS:
@@ -132,6 +134,10 @@ class ModelConfig:
             raise ModelConfigError("max_tokens must be positive")
         if self.max_retries < 0 or self.timeout_seconds <= 0:
             raise ModelConfigError('retry count must be nonnegative and timeout positive')
+        if not isinstance(self.stop_on_api_breakpoint, bool):
+            raise ModelConfigError('stop_on_api_breakpoint must be boolean')
+        if self.workflow_stop_file is not None and not isinstance(self.workflow_stop_file, str):
+            raise ModelConfigError('workflow_stop_file must be a path string')
 
         if self.thinking:
             # The provider accepts these and ignores them, which is worse than
@@ -211,6 +217,8 @@ class CallRecord:
     usage_reported: bool = True
     billing: str = "estimated_from_usage"
     served_model_reported: bool = True
+    system_fingerprint: str | None = None
+    provider_created: int | None = None
 
     @property
     def input_tokens(self) -> int:
@@ -314,6 +322,8 @@ class DeepSeekClient:
         # No guard means no ceiling, which is only acceptable in tests. Every
         # script that talks to the real service attaches one.
         self._guard = guard
+        self._identity_violation: str | None = None
+        self._api_breakpoint: str | None = None
         self._sleeper = sleeper
         if session is None:
             if not allow_live:
@@ -351,6 +361,10 @@ class DeepSeekClient:
             payload = {"raw": getattr(response, "text", "")[:500]}
         return response.status_code, payload
 
+    def check_workflow_stop(self) -> None:
+        if self.config.workflow_stop_file and os.path.exists(self.config.workflow_stop_file):
+            self._api_breakpoint = 'workflow_stop_requested'
+
     def chat(
         self,
         messages: Sequence[Mapping[str, Any]],
@@ -360,6 +374,9 @@ class DeepSeekClient:
         attempt_hook: Any = None,
         prompt_tokens_estimate: int | None = None,
     ) -> ChatResult:
+        self.check_workflow_stop()
+        if self._api_breakpoint:
+            raise RuntimeError('model access halted after an API access/quota breakpoint')
         body = self.config.request_body(messages, tools, tool_choice)
         started = time.time()
         attempts = 0
@@ -367,8 +384,13 @@ class DeepSeekClient:
 
         while attempts <= self.config.max_retries:
             if self._guard is not None:
-                self._guard.check_before(self.config.model, max_output_tokens=self.config.max_tokens,
-                                         prompt_tokens=prompt_tokens_estimate)
+                try:
+                    self._guard.check_before(self.config.model, max_output_tokens=self.config.max_tokens,
+                                             prompt_tokens=prompt_tokens_estimate)
+                except SpendLimitExceeded:
+                    if self.config.stop_on_api_breakpoint:
+                        self._api_breakpoint = 'batch_spend_limit_or_unreconciled_request'
+                    raise
             timeout = attempt_hook('before') if attempt_hook else None
             attempts += 1
             attempt_started = time.time()
@@ -383,6 +405,10 @@ class DeepSeekClient:
 
             if status == 200:
                 break
+            if self.config.stop_on_api_breakpoint:
+                # Keep only a fixed status code, never a credential-bearing
+                # provider error body. Book the failed attempt before stopping.
+                self._api_breakpoint = f'api_http_{status}'
             try:
                 if self._guard is not None:
                     prompt_reserved = (self._guard.policy.assumed_prompt_tokens if prompt_tokens_estimate is None
@@ -397,6 +423,8 @@ class DeepSeekClient:
                     attempt_hook('failed')
 
             retryable = status == TRANSPORT_ERROR_STATUS or status in RETRY_STATUSES
+            if self._api_breakpoint:
+                raise RuntimeError('model access halted: ' + self._api_breakpoint)
             if not retryable or attempts > self.config.max_retries:
                 detail = payload.get("error") if isinstance(payload, dict) else None
                 raise RuntimeError(
@@ -440,6 +468,10 @@ class DeepSeekClient:
         try:
             if self._guard is not None:
                 self._guard.book(result.record)
+        except SpendLimitExceeded:
+            if self.config.stop_on_api_breakpoint:
+                self._api_breakpoint = 'batch_spend_limit_after_accounting'
+            raise
         finally:
             if attempt_hook:
                 attempt_hook('success', result.record)
@@ -470,6 +502,12 @@ class DeepSeekClient:
         )
 
         served_model = str(payload.get("model") or self.config.model)
+        fingerprint = payload.get('system_fingerprint')
+        if not isinstance(fingerprint, str) or not fingerprint.strip():
+            fingerprint = None
+        created = payload.get('created')
+        if not isinstance(created, int) or isinstance(created, bool) or created < 0:
+            created = None
         when = dt.datetime.fromtimestamp(started, pricing.BEIJING)
         cost = pricing.estimate_cost(
             self.config.model,
@@ -498,6 +536,8 @@ class DeepSeekClient:
             price_tier=pricing.tier_for(when),
             usage_reported=all(k in usage for k in ('prompt_tokens', 'completion_tokens')),
             served_model_reported=bool(payload.get('model')),
+            system_fingerprint=fingerprint,
+            provider_created=created,
         )
 
         tool_calls = list(message.get("tool_calls") or [])

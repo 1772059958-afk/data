@@ -72,6 +72,24 @@ def run(**kwargs):
     return result, client
 
 
+def test_diagnostic_continuation_intervention_keeps_actual_prefix_identity():
+    raw=config()
+    with patch.object(ex,'run_prefix',prefix), patch.object(ex,'validate_candidate',validation), patch.object(ex,'run_interactive',interactive):
+        original=ex.run_case(ROW,Client(),raw,mode='diagnostic',split='dev',calibration=True,box_factory=Box)
+        changed=copy.deepcopy(raw);changed['interaction']['model_calls']=4
+        client=Client()
+        restored=ex.run_case(ROW,client,changed,mode='diagnostic',split='dev',calibration=True,box_factory=Box,
+            cached_prefix={'config_hash':original['config_hash'],'image_digest':original['image_digest'],
+                           'stage':original['stages']['prefix']},
+            cached_prefix_contract={'config_hash':original['config_hash'],'effective_config':raw})
+    assert restored['config_hash']!=original['config_hash']
+    assert restored['prefix_source_config_hash']==original['config_hash']
+    assert restored['prefix_snapshot']==original['prefix_snapshot']
+    assert restored['stages']['prefix']==original['stages']['prefix']
+    assert restored['prefix_snapshot']['task_manifest']['config_hash']==original['config_hash']
+    assert len(client.requests)==3  # fixed, interactive and independent B; no prefix API
+
+
 def test_formal_runs_only_selected_fixed_branch():
     result, client = run(mode='formal', arm='D')
     assert result['status'] == 'completed', result
@@ -330,6 +348,43 @@ def test_development_contract_rejects_invalid_fixed_limit_and_nonfinite_money():
         try: mod.validate_development_contract(raw)
         except ValueError: pass
         else: raise AssertionError('invalid execution policy was accepted')
+
+
+def test_configured_fingerprint_reaches_prefix_and_identity_failure_keeps_paid_usage():
+    class FingerprintClient(Client):
+        def chat(self, *args, **kwargs):
+            result = super().chat(*args, **kwargs)
+            result.record.system_fingerprint = 'unexpected-backend'
+            return result
+    client = FingerprintClient()
+    raw = config()
+    raw['model']['system_fingerprint'] = 'expected-backend'
+    with patch.object(ex, 'run_prefix', prefix):
+        result = ex.run_case(ROW, client, raw, mode='prefix', box_factory=Box)
+    assert result['status'] == 'generation_error' and len(client.requests) == 1
+    assert client._identity_violation == 'system_fingerprint_mismatch'
+    assert result['stages']['prefix']['cost_cny'] == .01
+
+
+def test_configured_fingerprint_reaches_continuations_and_fuse_blocks_other_branches():
+    class FingerprintClient(Client):
+        def chat(self, *args, **kwargs):
+            result = super().chat(*args, **kwargs)
+            result.record.system_fingerprint = ('expected-backend' if len(self.requests) == 1
+                                                else 'unexpected-backend')
+            return result
+    client = FingerprintClient()
+    raw = config()
+    raw['model']['system_fingerprint'] = 'expected-backend'
+    with patch.object(ex, 'run_prefix', prefix), patch.object(ex, 'validate_candidate', validation), \
+         patch.object(ex, 'run_interactive', interactive):
+        result = ex.run_case(ROW, client, raw, mode='diagnostic', box_factory=Box)
+    assert result['status'] == 'generation_error'
+    assert len(client.requests) == 2  # Prefix and first bad fixed response only.
+    assert client._identity_violation == 'system_fingerprint_mismatch'
+    assert result['stages']['fixed']['cost_cny'] == .01
+    assert result['stages']['interactive']['cost_cny'] == 0
+    assert result['stages']['standalone']['cost_cny'] == 0
 
 
 def test_prefix_failure_preserves_previously_valid_candidate_and_cost():

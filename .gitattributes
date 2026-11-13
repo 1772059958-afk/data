@@ -12,3 +12,18 @@ scripts/*.sh text eol=lf
 /src/swe_repair/*.py -text
 /scripts/run_cf.py -text
 /docs/deliverables/*_20261106_source/** -text
+# Preserve the preregistration bytes used by the next single-run design.
+/runs/*20261111*/** -text
+/configs/*20261111.json -text
+# Preserve resumed run/config/source evidence without newline normalization.
+/runs/*20261112*/** -text
+/configs/*20261112*.json -text
+
+# Preserve cleanup/publish audit and source bytes exactly, including validation receipts.
+/runs/*20261113*/** -text
+/docs/deliverables/** -text
+/docs/*202611*.md -text
+/scripts/** -text
+/tests/** -text
+# Keep all run records byte-exact, including legacy CRLF evidence.
+/runs/** -text

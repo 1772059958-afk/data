@@ -21,6 +21,64 @@ def file_hash(path):
     return hashlib.sha256(Path(path).read_bytes()).hexdigest()
 
 
+SINGLE_RUN_DESIGN = 'preregistered_single_run_descriptive'
+
+
+def single_run_design_errors(raw):
+    """Bind the user-requested 20 x A-E x 1 design to its offline registration.
+
+    This changes the repetition design only. Calibration, freeze declarations,
+    credentials and paid authorization retain their independent checks.
+    """
+    evaluation, scope = raw.get('evaluation', {}), raw.get('execution', {})
+    errors = []
+    if (evaluation.get('design') != SINGLE_RUN_DESIGN or type(evaluation.get('repeats')) is not int
+            or evaluation.get('repeats') != 1
+            or evaluation.get('inference') is not False
+            or evaluation.get('statistics') != 'descriptive_single_run_no_inference'):
+        errors.append('single-run design requires one descriptive repetition without inference')
+    try:
+        def registered_file(key, hash_key):
+            path = Path(evaluation.get(key, ''))
+            if not path.is_absolute():
+                path = ROOT / path
+            path = path.resolve()
+            if (not path.is_relative_to(ROOT / 'runs') or not path.is_file()
+                    or file_hash(path) != evaluation.get(hash_key)):
+                raise ValueError(key + ' is missing, outside runs, or has changed')
+            return json.loads(path.read_text(encoding='utf-8'))
+        sample = registered_file('sample_manifest', 'sample_manifest_sha256')
+        registration = registered_file('preregistration', 'preregistration_sha256')
+        from swe_repair.statistics import stratified_sample
+        population = (ROOT / 'data/frozen/instances_test.txt').read_text(encoding='utf-8').splitlines()
+        seed = registration.get('sampling_seed')
+        if not isinstance(seed, int) or isinstance(seed, bool):
+            raise ValueError('registration needs an integer sampling seed')
+        expected = stratified_sample(population, 20, seed)
+        if any(sample.get(key) != value for key, value in expected.items()):
+            raise ValueError('single-run sample differs from full-test stratified registration')
+        if (registration.get('kind') != SINGLE_RUN_DESIGN or registration.get('split') != 'test'
+                or registration.get('arms') != list('ABCDE') or type(registration.get('repeats')) is not int
+                or registration.get('repeats') != 1 or type(registration.get('repeat_index')) is not int
+                or registration.get('repeat_index') != 0 or registration.get('sample_size') != 20
+                or registration.get('inference') is not False
+                or registration.get('sample_manifest') != evaluation.get('sample_manifest')
+                or registration.get('sample_manifest_sha256') != evaluation.get('sample_manifest_sha256')
+                or registration.get('instance_ids') != sample['instance_ids']
+                or registration.get('generation_seed') != evaluation.get('generation_seed')
+                or not isinstance(evaluation.get('generation_seed'), int)
+                or isinstance(evaluation.get('generation_seed'), bool)):
+            raise ValueError('single-run registration identity or scope differs')
+        if (evaluation.get('instance_list') != evaluation.get('sample_manifest')
+                or scope.get('allowed_modes') != ['formal'] or scope.get('allowed_splits') != ['test']
+                or scope.get('allowed_instances') != sample['instance_ids']
+                or scope.get('max_instances') != 20):
+            raise ValueError('single-run configuration must be restricted to the registered 20 test cases')
+    except (OSError, ValueError, KeyError, TypeError) as exc:
+        errors.append('single-run preregistration invalid: ' + str(exc))
+    return errors
+
+
 def frozen_config_errors(raw):
     """All formal freeze declarations must agree; numeric defaults are not evidence."""
     errors = []
@@ -37,7 +95,9 @@ def frozen_config_errors(raw):
     router = raw.get('router', {})
     if any(router.get(k) is None for k in ('localization_disagreement_threshold', 'duplicate_rate_threshold', 'switch_probability')):
         errors.append('router thresholds or matched switch probability are pending')
-    if raw.get('evaluation', {}).get('repeats', 0) < 3:
+    if raw.get('evaluation', {}).get('design') == SINGLE_RUN_DESIGN:
+        errors.extend(single_run_design_errors(raw))
+    elif raw.get('evaluation', {}).get('repeats', 0) < 3:
         errors.append('formal evaluation requires at least three repeats')
     if not raw.get('prompt_version'):
         errors.append('prompt version is missing')
@@ -147,6 +207,14 @@ def load_plan(args):
         raise ValueError('calibration is allowed only for dev diagnostics')
     if args.mode == 'pilot' and args.split != 'dev':
         raise ValueError('pilot interface runs are restricted to dev')
+    if raw.get('evaluation', {}).get('design') == SINGLE_RUN_DESIGN:
+        problems = single_run_design_errors(raw)
+        if problems:
+            raise ValueError('; '.join(problems))
+        if (args.mode != 'formal' or args.split != 'test' or args.repeat_index != 0
+                or args.seed != raw['evaluation']['generation_seed']
+                or ids != raw['execution']['allowed_instances']):
+            raise ValueError('single-run plan must use the exact registered test20 list, seed and repeat zero')
     files = sorted((ROOT / 'src/swe_repair').glob('*.py')) + [Path(__file__)]
     revision = subprocess.run(['git', 'rev-parse', 'HEAD'], cwd=ROOT, capture_output=True, text=True, check=True).stdout.strip()
     raw['provenance'] = {'code_sha256': hashlib.sha256(''.join(file_hash(p) for p in files).encode()).hexdigest(),
@@ -256,9 +324,16 @@ def execute(raw, plan):
         guard = SpendGuard(SpendPolicy(ceiling_cny=raw['execution']['total_cny']))
     starting_spend = guard.spent_cny
     m = raw['model']
+    stop_file = raw['execution'].get('workflow_stop_file')
+    if stop_file:
+        stop_file = (ROOT / stop_file).resolve()
+        if not stop_file.is_relative_to(ROOT / 'runs'):
+            raise ValueError('workflow stop file must stay under runs/')
     client = DeepSeekClient(ModelConfig(model=m['model'], thinking=m['thinking'], effort=m['effort'],
                                        max_tokens=m['max_tokens'], max_retries=m.get('max_retries', 0),
-                                       temperature=m.get('temperature'), top_p=m.get('top_p')),
+                                       temperature=m.get('temperature'), top_p=m.get('top_p'),
+                                       stop_on_api_breakpoint=raw['execution'].get('stop_on_api_breakpoint', False),
+                                       workflow_stop_file=str(stop_file) if stop_file else None),
                             api_key=load_scoped_api_key(raw['execution'], str(ROOT)), guard=guard, allow_live=True)
     manifest = json.loads((ROOT / 'data/harness/manifest.json').read_text(encoding='utf-8'))
     parquet = ROOT / manifest['splits'][plan['split']]['local_file']
@@ -273,6 +348,12 @@ def execute(raw, plan):
             log.flush()
             os.fsync(log.fileno())
         for iid in plan['designated_instances']:
+            getattr(client, 'check_workflow_stop', lambda: None)()
+            if getattr(client, '_api_breakpoint', None):
+                matrix['batch_stopped'] = 'api_access_or_quota_breakpoint'
+                matrix['api_breakpoint'] = client._api_breakpoint
+                save()
+                break
             cachepath = cache / f"{plan['seed']}_r{plan['repeat_index']}_{iid}.json"
             cached = json.loads(cachepath.read_text(encoding='utf-8')) if cachepath.exists() else None
             case = run_case(rows[iid], client, raw, mode=plan['mode'], arm=plan['arm'], seed=plan['seed'],
@@ -294,8 +375,26 @@ def execute(raw, plan):
                 with (out / f'predictions_{a}.jsonl').open('a', encoding='utf-8', newline='\n') as fh:
                     fh.write(json.dumps({'instance_id': iid, 'model_name_or_path': f"{plan['tag']}-{a}",
                                          'model_patch': diff}, ensure_ascii=False) + '\n')
+            if getattr(client, '_identity_violation', None):
+                matrix['batch_stopped'] = 'served_model_identity_violation'
+                matrix['identity_violation'] = client._identity_violation
+                save()
+                break
+            if getattr(client, '_api_breakpoint', None):
+                matrix['batch_stopped'] = 'api_access_or_quota_breakpoint'
+                matrix['api_breakpoint'] = client._api_breakpoint
+                save()
+                break
+            if (plan['mode'] == 'formal' and plan['arm'] in 'ACDE'
+                    and (not prefix or prefix['status'] != 'completed'
+                         or any(x.get('step') == 'prefix_error' for x in prefix.get('trace', [])))):
+                # An interrupted prefix cannot be regenerated independently in
+                # subsequent A/C/D/E runs while claiming a shared actual prefix.
+                matrix['batch_stopped'] = 'formal_prefix_failed_no_cross_arm_regeneration'
+                save()
+                break
     print(matrixpath)
-    return 0
+    return 2 if matrix.get('batch_stopped') else 0
 
 
 def parser():

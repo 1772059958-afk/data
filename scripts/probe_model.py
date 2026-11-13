@@ -35,7 +35,16 @@ def execute(raw, plan):
     target = Path(plan['output_directory'])
     target.mkdir(parents=True, exist_ok=False)
     (target / 'plan.json').write_text(json.dumps(plan, indent=2), encoding='utf-8')
-    batch = SpendGuard(SpendPolicy(ceiling_cny=plan['ceiling_cny'], max_calls=1))
+    ledger = raw['execution'].get('batch_ledger')
+    if ledger:
+        from swe_repair.batch_ledger import LedgerSpendGuard
+        ledgerpath = (ROOT / ledger).resolve()
+        if not ledgerpath.is_relative_to(ROOT / 'runs'):
+            raise ValueError('probe cumulative ledger must stay under runs/')
+        batch = LedgerSpendGuard(ledgerpath, raw['execution']['total_cny'], target.name)
+    else:
+        batch = SpendGuard(SpendPolicy(ceiling_cny=plan['ceiling_cny'], max_calls=1))
+    starting_spend = batch.spent_cny
     runtime = Runtime(BudgetState('probe', Budget(4096, 1, 0, 60)),
                       money=SpendGuard(SpendPolicy(ceiling_cny=plan['ceiling_cny'], max_calls=1)))
     result = {'kind': plan['kind'], 'status': 'not_sent', 'model': plan['model']}
@@ -58,8 +67,12 @@ def execute(raw, plan):
     finally:
         runtime.sync()
         result.update(cost_cny=runtime.cost_cny, budget=runtime.state.to_dict(), calls=runtime.records,
-                      cost_complete=bool(runtime.records) and all(r.get('billing') != 'unknown' for r in runtime.records))
+                      cost_complete=bool(runtime.records) and all(r.get('billing') != 'unknown' for r in runtime.records),
+                      new_generation_cost_cny=batch.spent_cny - starting_spend,
+                      cumulative_batch_cost_cny=batch.spent_cny)
         (target / 'result.json').write_text(json.dumps(result, ensure_ascii=False, indent=2), encoding='utf-8')
+        if ledger:
+            batch.close()
     print(target / 'result.json')
     return 0 if result['status'] == 'completed' else 1
 

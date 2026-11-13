@@ -1,0 +1,258 @@
+{
+  "config_version": "proposal_aligned_v1",
+  "prompt_version": "proposal_v1_error_feedback_20261030",
+  "status": "frozen",
+  "note": "Inactive handoff copy after the authorized test20 x A-E x repeat0 has completed. Not the actual execution config. Original frozen execution bytes and hashes remain preserved; unused budget grants no repeat authorization.",
+  "dataset": {
+    "name": "princeton-nlp/SWE-bench_Lite",
+    "revision": "6ec7bb89b9342f664a54a6e0a6ea6501d3437cc2",
+    "dev_split": "dev",
+    "test_split": "test",
+    "dev_instances": 23,
+    "test_instances": 300,
+    "manifest": "data/frozen/manifest.json"
+  },
+  "model": {
+    "model": "deepseek-flash",
+    "model_version": "deepseek-flash",
+    "thinking": true,
+    "effort": "low",
+    "temperature": null,
+    "top_p": 1.0,
+    "max_tokens": 16384,
+    "max_retries": 0,
+    "calibration": "frozen",
+    "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+    "identity_probe": {
+      "file": "runs/test20_resume_20261112_01/model_probe_01/result.json",
+      "sha256": "b34d9f912df5d6321e59a863670fa6a5656f9b3bfa12355d5131357f390a20c9",
+      "immutable_version": false
+    },
+    "identity_protocol": {
+      "mode": "provider_alias_with_backend_fingerprint_monitoring",
+      "official_current_mapping": "DeepSeek-V4.1-Flash-1017",
+      "approval": "runs/test20_execution_20261111/model_identity_amendment_approved.json",
+      "approval_sha256": "6964448992ec408a02683a5cbd8f930e47410d13dee2060d0fac6a34f654a89e"
+    },
+    "immutable_version": false
+  },
+  "budget_tiers": [
+    {
+      "tier": "development",
+      "token": 512000,
+      "model_call": 12,
+      "tool_call": 80,
+      "wallclock_seconds": 1200
+    }
+  ],
+  "prefix": {
+    "n_candidates": 2,
+    "prefix_fraction": 0.2,
+    "prefix_fraction_grid": [
+      0.2,
+      0.3,
+      0.4
+    ],
+    "calibration": "frozen"
+  },
+  "fixed_continuation": {
+    "max_candidates": 6,
+    "feedback": "structured",
+    "stop_on_public_pass": true,
+    "calibration": "frozen"
+  },
+  "router": {
+    "rule_order": [
+      "stop_on_env_failure_after_one_recovery",
+      "stop_when_budget_insufficient",
+      "freeze_when_public_candidate_passes",
+      "fixed_on_local_application_or_syntax_error",
+      "interactive_on_wide_localization_disagreement",
+      "interactive_on_high_duplicate_rate",
+      "interactive_on_out_of_scope_stack_evidence",
+      "fixed_when_evidence_insufficient",
+      "fixed_continuation_otherwise"
+    ],
+    "localization_disagreement_threshold": 0.75,
+    "duplicate_rate_threshold": 0.75,
+    "threshold_grid": [
+      0.25,
+      0.5,
+      0.75
+    ],
+    "switch_probability": 0.47058823529411764,
+    "min_continuation": {
+      "token": 2048,
+      "model_call": 1,
+      "tool_call": 1,
+      "wallclock_seconds": 30
+    },
+    "calibration": "frozen"
+  },
+  "interaction": {
+    "tools": [
+      "search_symbol",
+      "read_region",
+      "find_references",
+      "apply_patch",
+      "run_test",
+      "finish"
+    ],
+    "states": [
+      "analyse",
+      "edit",
+      "validate",
+      "finish"
+    ],
+    "stagnation_patience": 3,
+    "model_calls": 6,
+    "tool_calls": 10,
+    "wallclock_seconds": 420,
+    "final_call": "reserved_inside_limit"
+  },
+  "candidate_selection": {
+    "order": [
+      "scope_valid",
+      "syntax_valid",
+      "applies_cleanly",
+      "public_validation",
+      "fewer_files_touched",
+      "fewer_diff_lines",
+      "generation_order"
+    ],
+    "frozen": true
+  },
+  "evaluation": {
+    "harness": "SWE-bench official containerised harness",
+    "repeats": 1,
+    "primary_metric": "resolved_rate",
+    "denominator": "all designated instances",
+    "generation_view_fields": [
+      "problem_statement",
+      "base_commit",
+      "repo",
+      "version",
+      "environment_setup_commit"
+    ],
+    "withheld_from_generation": [
+      "patch",
+      "test_patch",
+      "FAIL_TO_PASS",
+      "PASS_TO_PASS"
+    ],
+    "frozen": true,
+    "instance_list": "runs/test20_preparation_20261111/instances.json",
+    "sampling": "full_split_or_preregistered_stratified_subset",
+    "environment_failures": "retain_in_primary_denominator",
+    "statistics": "descriptive_single_run_no_inference",
+    "design": "preregistered_single_run_descriptive",
+    "inference": false,
+    "sample_manifest": "runs/test20_preparation_20261111/instances.json",
+    "sample_manifest_sha256": "c3261e16b12a1cc206eb4dc8a97c3397cb8e4ecb7fc8b712de6e9a88e8979ecb",
+    "preregistration": "runs/test20_preparation_20261111/preregistration.json",
+    "preregistration_sha256": "9af590a74055b0c6c0cd8911d634029a4dfb7edac15933f8dfdaabdf445502d9",
+    "generation_seed": 20261111
+  },
+  "arms": {
+    "A": "fixed workflow",
+    "B": "interactive only",
+    "C": "simple cascade (shared prefix, all eligible failures escalate)",
+    "D": "adaptive hybrid (shared prefix, evidence-based routing)",
+    "E": "random routing (switch probability fixed on dev split)"
+  },
+  "protocol": "docs/实验协议_开题对齐.md",
+  "active_tier": "development",
+  "execution": {
+    "live_authorized": false,
+    "per_instance_cny": 2.0,
+    "total_cny": 100.0,
+    "tool_call_unit": "container_exec",
+    "environment_retries": 1,
+    "environment_recovery": "retry_same_public_validation_no_install",
+    "output_root": "runs",
+    "modify_scope": "python_source_excluding_tests",
+    "prompt_estimator": "utf8_bytes_plus_1024",
+    "allowed_modes": [
+      "formal"
+    ],
+    "allowed_splits": [
+      "test"
+    ],
+    "allowed_instances": [
+      "astropy__astropy-14995",
+      "django__django-11910",
+      "django__django-12708",
+      "django__django-13230",
+      "django__django-17087",
+      "matplotlib__matplotlib-23987",
+      "matplotlib__matplotlib-24970",
+      "mwaskom__seaborn-2848",
+      "pallets__flask-4045",
+      "psf__requests-1963",
+      "pydata__xarray-3364",
+      "pylint-dev__pylint-7114",
+      "pytest-dev__pytest-6116",
+      "pytest-dev__pytest-8906",
+      "scikit-learn__scikit-learn-11281",
+      "scikit-learn__scikit-learn-13496",
+      "sphinx-doc__sphinx-8595",
+      "sympy__sympy-13480",
+      "sympy__sympy-16503",
+      "sympy__sympy-23262"
+    ],
+    "max_instances": 20,
+    "credential_source": "project_dotenv",
+    "budget_status": "authorized_resume_20261112_shared_100_cny",
+    "batch_ledger": "runs/test20_execution_20261111/batch_ledger.json",
+    "model_probe_authorized": false,
+    "docker_context": "desktop-linux",
+    "authorization_date": "2026-11-12",
+    "authorization_scope": "New cumulative 100 CNY for this round dev calibration and fixed test20 A-E x one, including identity probes; shared ledger; formal freeze required.",
+    "images": {
+      "astropy__astropy-14995": "sha256:0a51084026792042368b7bc0f6762f6b2dcfc59b2a312bf08caebe8eea04e51d",
+      "django__django-11910": "sha256:d63b3f0dba718f0918a7cebcc2b07c8b2c1d468bbe352bdc32a35e88e009614b",
+      "django__django-12708": "sha256:2b20a09526a3015b9662cb32614ad4f730067ecf0745e5b15643f11747769fa9",
+      "django__django-13230": "sha256:a6c75a61856f0255b76cecc4848f011bc044f689f21aca840ee5af18915e1910",
+      "django__django-17087": "sha256:5b6a7793738b7fb98d06785b04260571023d8958bc873ae09da399a06089b442",
+      "matplotlib__matplotlib-23987": "sha256:689f6530b99d146a198d10b42fad5914b30c9f4103355545e85bd9c40e11c143",
+      "matplotlib__matplotlib-24970": "sha256:78a42b640f639285951d69ab93657a49c8d408a2700eab2a013f14fb1bdd29e6",
+      "mwaskom__seaborn-2848": "sha256:35e4dfb23a6b6ae8cafd2e7ea27737383aeec900393aecade15642816c07836c",
+      "pallets__flask-4045": "sha256:5675924f3b37d0a4a3f9813160fbd06839eefa602077c1178548bb2f24dd4598",
+      "psf__requests-1963": "sha256:1a3ef1305f53f9461a03e19fd236b1c36d283d82acb57c0631e672ebff8767f4",
+      "pydata__xarray-3364": "sha256:4bd7b859a358d2226e87fb9f15145da4c51a9049189ddb638e38d52c522e833b",
+      "pylint-dev__pylint-7114": "sha256:0c3b036664667f40e49856af25fa595f0b291195943c38fde1631eaa8f360e96",
+      "pytest-dev__pytest-6116": "sha256:60e7cb54d9e4204edbd75f324cfdc48359d4021a40c1f46e7e9a068950f0ba17",
+      "pytest-dev__pytest-8906": "sha256:2a91b4f3d27b636875b80ebb069881ac338e747acdf26366efb2ee5b281da1cf",
+      "scikit-learn__scikit-learn-11281": "sha256:b3cfff40aed0f36c348aa43ba7451e15d8ee73404e62af02ab0b8002d99983d2",
+      "scikit-learn__scikit-learn-13496": "sha256:6ba0fa1ac853801c9b8352179d4be742f35dc58270fd345e0c5640d461e7e8b2",
+      "sphinx-doc__sphinx-8595": "sha256:4e0787e6f511b15298cb30a75f9a067eb0c31f3dbc097859b70568cbc9c4cac7",
+      "sympy__sympy-13480": "sha256:d269f23ba7f00ac1cfa73a8e5536f319e8a014e61fcc9cd6f0e6cc1b32512601",
+      "sympy__sympy-16503": "sha256:f477b0ffc87e640a8a53698276c97e90d57b1a30c1f57cc14a0f38c48be5c3d2",
+      "sympy__sympy-23262": "sha256:62e684981507d2fc79ceba088ff39459b9e2b5a13a423adf46170bb200402f32"
+    },
+    "stop_on_api_breakpoint": true,
+    "workflow_stop_file": "runs/test20_resume_20261112_01/WORKFLOW_STOP.json"
+  },
+  "resource_selection_evidence": {
+    "resource_setting_review_01.json": {
+      "path": "runs/test20_resume_20261112_01/resource_setting_review_01.json",
+      "sha256": "15f6b31419dbc9671fc9758cb18c22fc36bf6c92f58d72f2b6af81435f0ec572"
+    },
+    "prefix_setting_review_01.json": {
+      "path": "runs/test20_resume_20261112_01/prefix_setting_review_01.json",
+      "sha256": "126e9530b423daae98e6ddf3d3a5c37c6ef24c891f3e21abcc352763593bd015"
+    },
+    "screen_complete_observations_01.json": {
+      "path": "runs/test20_resume_20261112_01/screen_complete_observations_01.json",
+      "sha256": "742227e9f96c70d1e3e1437cded43965b95ca3f62c7374dcccd1934d2740c686"
+    }
+  },
+  "formal_environment_evidence": {
+    "path": "runs\\test20_resume_20261112_01\\test20_public_environment_review_03.json",
+    "sha256": "92567a285bc76c39c9c574ac678817ba42d33226f71b271323e6c80ca76afc77"
+  },
+  "freeze_review": {
+    "path": "runs\\test20_resume_20261112_01\\formal_freeze_review_01.json",
+    "sha256": "0361cf05eced3ae4a6233de91ffbd4359a406b3376565178e5ed504a0c5521f4"
+  }
+}
