@@ -1,0 +1,14 @@
+{
+  "date_local": "2026-11-13",
+  "user_instruction": "push到git@github.com:scarlet-hearn/data.git",
+  "old_remote_url": "git@github.com:1772059958-afk/data.git",
+  "new_remote_url": "git@github.com:scarlet-hearn/data.git",
+  "remote": "origin",
+  "branch": "develop",
+  "remote_ref": "refs/heads/develop",
+  "starting_local_head": "4e4f60b9b43b568abd7497fc72fd8c8ac8b64a95",
+  "force_push": false,
+  "shutdown": false,
+  "prior_permission_block": "Historical; superseded by user's new target.",
+  "actual_push_result": "See local .git/codex_publish_20261113_02.json after execution."
+}
