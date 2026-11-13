@@ -1,12 +1,12 @@
 # 面向仓库级程序修复的自适应混合架构
 
-本项目研究在相同模型、初始信息和资源上限下，失败证据能否帮助选择固定延续或受限交互。本轮已完成开题对齐修复与离线验证；真实环境集成和新协议下的正式实验尚未进行。
+本项目研究在相同模型、初始信息和资源上限下，失败证据能否帮助选择固定延续或受限交互。2026-11-06 已完成两例 dev、五组、一次真实生成与独立判分；完整 dev 校准和正式 test 尚未执行。
 
-当前用户授权仅限代码修复、归档、文档和离线验证。`configs/proposal_v1.json` 是待校准草案，`execution.live_authorized=false`。默认实验入口只生成计划，不启动 Docker 或调用模型。旧结果不能作为恢复后方法的主结果。
+2026-11-11 正式规模已预注册为 **20例 × A/B/C/D/E × 1次**。2026-11-12 用户明确恢复完整dev校准、正式实验及独立判分，沿用原100元累计账本及指纹监测；遇到需用户决策或API/usage额度等断点时保存、核验后关机，不再询问。当前进度见 [恢复执行记录](docs/恢复执行与断点交接_20261112.md)；前一日停机保存仍作为历史检查点保留。配置尚未冻结，不凭历史live标记绕过门槛。
 
 研究依据见 [开题正文摘录](docs/开题报告正文摘录.md)，当前约束见 [开题对齐协议](docs/实验协议_开题对齐.md)，后续实验 agent 先读 [AGENTS.md](AGENTS.md)。
 
-2026-10-30 已完成边界修复和小范围 dev 离线准备，当前活动套件 291/291 通过，原始/归档资产完整。详见 [修复验收与 dev 准备](docs/修复验收与dev准备_20261030.md)；真实容器、付费生成和新协议官方判分仍未执行。
+上一轮真实验收为350/350，详见 [两例五组实验摘要](docs/两例五组实验摘要_20261106.md)。本轮准备时372/372，执行前扩展为383/383；保存时核对活动源码未再变化，原始93/93、归档131/131一致，见 `runs/test20_execution_20261111/stop_validation.json`。这些离线结果不替代真实校准或独立判分。
 
 ## 活动目录
 
@@ -48,7 +48,7 @@ python scripts/prepare_dev.py --size 3 --seed 20261030 --out runs/dev_preparatio
 
 60 只是命令示例，不是已选定的主实验样本量。样本规模须在正式结果揭晓前确定，并写入配置和计划清单。
 
-本轮禁止运行付费实验。未来只有用户明确解除限制、确认范围和预算，并完成配置校准/冻结后，才可使用 `--execute --allow-paid`。配置授权与显式开关是技术门闩，不替代用户授权。不要通过构造客户端、旧脚本或修改 pending/null 值来绕过预检。
+本轮现已按用户要求立即停止，dev与正式test均待下次明确续跑。共享100元账本不重置；配置授权与显式开关不替代当前用户指令，历史余额或live标记不授予自动执行权限。不要通过构造客户端、旧脚本或修改 pending/null 值绕过预检。
 
 离线通过说明规则、隔离、预算等在假执行环境中通过回归；不代表真实服务兼容、容器测试环境或修复能力已通过验收。完整验证状态和未完成事项见 [离线验证记录](docs/离线验证_20261029.md)。
 
@@ -72,7 +72,7 @@ A 是共享前缀后的固定延续，B 从零受限交互，C 在共享停止�
 python scripts/analyse_cf.py --matrix runs/new_diagnostic/matrix.json --report FIXED=runs/new_diagnostic/fixed_verdict.json --report ESC=runs/new_diagnostic/esc_verdict.json --out runs/new_diagnostic/analysis.json --records-out runs/new_diagnostic/evaluated_records.jsonl
 ```
 
-后续判分计划入口为 `python scripts/score_run.py runs/<tag>`，默认不执行。`bash scripts/score_all_arms.sh runs/<tag>` 是显式容器评测入口，从矩阵读取 split 和清单，在新的 `scoring/<arm>/` 写报告与 provenance sidecar；分析器核对预测、补丁和运行身份后才接收标签。它不调用模型，但需要 Docker 和官方 harness，当前未执行。
+后续判分计划入口为 `python scripts/score_run.py runs/<tag>`，默认不执行。`bash scripts/score_all_arms.sh runs/<tag>` 是显式容器评测入口，从矩阵读取 split 和清单，在新的 `scoring/<arm>/` 写报告与 provenance sidecar；分析器核对预测、补丁和运行身份后才接收标签。它不调用模型，但需要 Docker 和官方 harness；此前仅完成指定两例的评分，本轮20例尚未执行。
 
 dev 配对分析含完整 `observations` 后，可离线生成待审阅的校准候选：
 
@@ -81,6 +81,8 @@ python scripts/calibrate_router.py --observations runs/new_diagnostic/analysis.j
 ```
 
 校准脚本不自动冻结配置、不授权付费，也不接受旧矩阵充当新配对观察。正式多次重复分别分析生成 `evaluated_records.jsonl` 后，使用 `scripts/summarize_experiment.py --records <多个正式重复的记录文件> --instances <指定清单> --repeats 3 --left A --right D --out runs/new_summary/summary.json` 汇总；诊断模式记录、重复不完整或混合配置不能冒充正式主结果。
+
+本轮用户指定的20例单次使用 `configs/test20_single_20261111.json`，绑定 `runs/test20_preparation_20261111/instances.json` 和分析预注册。正式前仍需完整dev校准与冻结；五组独立评测记录使用 `scripts/summarize_single_run.py` 作描述性汇总，不输出置信区间或显著性。三重复推断入口保留，单次结果不声称覆盖原开题完整统计验证。
 
 缺失报告不是未解决。主分析保留预先指定的总体，另报所有组可运行的共同子集。四象限只使用 eligible 且分支判分完整的实例，并显式列出缺失。至少三次正式重复后，按实例重采样、保留其全部重复，报告 95% 置信区间、逐仓库结果与宏平均。仍须完成信号/反馈/停滞消融、敏感性和人工语义审查。
 
@@ -102,3 +104,6 @@ python scripts/calibrate_router.py --observations runs/new_diagnostic/analysis.j
 
 
 本轮两例五组一次的生成、独立判分、成本与环境修复结果见 [实验摘要](docs/两例五组实验摘要_20261106.md)，对应数据位于 `runs/dev2_acceptance_20261106/`；报告 PPT 位于 `docs/deliverables/组会汇报_两例五组实验_20261106.pptx`。
+
+
+本轮20例五组一次的最终结果、费用及评测限制见 [实验报告](docs/test20五组一次实验报告_20261112.md)；当前非执行交接配置为 `configs/test20_inactive_20261112_02.json`，不得据历史live标记重跑。
