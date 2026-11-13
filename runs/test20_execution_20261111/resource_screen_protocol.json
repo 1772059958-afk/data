@@ -1,0 +1,65 @@
+{
+  "kind": "resource_screen_before_generation",
+  "date": "2026-11-11",
+  "execute": false,
+  "selection_manifest": "runs/test20_preparation_20261111/resource_screen_instances.json",
+  "seed": 20261111,
+  "repeat_index": 0,
+  "split": "dev",
+  "mode": "diagnostic",
+  "baseline": {
+    "token": 512000,
+    "model_call": 12,
+    "tool_call": 80,
+    "wallclock_seconds": 1200,
+    "max_output_tokens": 16384,
+    "prefix_candidates": 2,
+    "prefix_fraction": 0.3,
+    "fixed_candidates": 6,
+    "interaction_model_calls": 6,
+    "interaction_tool_calls": 10,
+    "interaction_seconds": 420,
+    "thinking": true,
+    "reasoning_effort": "low",
+    "temperature": null,
+    "top_p": 1.0
+  },
+  "resource_alternative": {
+    "maximum_additional_settings": 1,
+    "trigger": "Auditable output truncation or session/global resource refusal on the baseline; do not trigger just for unresolved outcomes",
+    "output_truncation_only": {
+      "max_output_tokens": 32768
+    },
+    "session_model_limit_only": {
+      "interaction_model_calls": 10
+    },
+    "both_output_and_session_limits": {
+      "max_output_tokens": 32768,
+      "interaction_model_calls": 10
+    },
+    "other_settings": "Keep baseline settings; if a different cap is causally binding, prerecord targeted numerical change and rationale before rerunning all three designated cases",
+    "selection": "Prefer original setting unless measured usable-flow coverage improves; do not select using test or official solved outcomes"
+  },
+  "prefix_grid": [
+    0.2,
+    0.3,
+    0.4
+  ],
+  "prefix_selection_order": [
+    "exclude settings unable to complete prefix or preserve minimum continuation on still-running cases",
+    "maximize valid-flow coverage: public-pass shared stop or valid complete paired execution",
+    "maximize applicable syntactically-valid candidate coverage",
+    "tie: smaller prefix fraction"
+  ],
+  "repeat_rule": "Reuse the actual .30 screen only if exact execution/config/image identity is unchanged; otherwise use a new run. Full dev23 has a new population/config identity and is not merged with screen records.",
+  "duplicate_rule_design": "Keep n=2 for baseline; thresholds >=.5 explicitly represent a disabled duplicate signal under strict >. Preserve warnings. No post-test redesign.",
+  "budget": {
+    "shared_ledger": "runs/test20_execution_20261111/batch_ledger.json",
+    "new_total_ceiling_cny": 100.0,
+    "per_strategy_instance_ceiling_cny": 2.0,
+    "retry_policy": "zero model retries; interruptions reconciled first",
+    "allocation": "Review actual screen spend before each next setting and reserve the remainder for full dev and test; no automatic increase beyond100"
+  },
+  "model_identity": "Must use actual observed alias and record fingerprint/created; immutable snapshot is not fabricated",
+  "status": "precommitted_screen_criteria_not_calibrated_values"
+}

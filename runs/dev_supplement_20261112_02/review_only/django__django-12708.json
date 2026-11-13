@@ -1,0 +1,66 @@
+{
+  "kind": "review_only_after_all_formal_predictions_sealed",
+  "instance_id": "django__django-12708",
+  "repo": "django/django",
+  "base_commit": "447980e72ac01da1594dd3373a03ba40b7ee6f80",
+  "issue": "Migration crashes deleting an index_together if there is a unique_together on the same fields\nDescription\n\t\nHappens with Django 1.11.10\nSteps to reproduce:\n1) Create models with 2 fields, add 2 same fields to unique_together and to index_together\n2) Delete index_together -> Fail\nIt will fail at django/db/backends/base/schema.py, line 378, in _delete_composed_index(), ValueError: Found wrong number (2) of constraints for as this one will find two constraints, the _uniq and the _idx one. No way to get out of this...\nThe worst in my case is that happened as I wanted to refactor my code to use the \"new\" (Dj 1.11) Options.indexes feature. I am actually not deleting the index, just the way it is declared in my code.\nI think there are 2 different points here:\n1) The deletion of index_together should be possible alone or made coherent (migrations side?) with unique_together\n2) Moving the declaration of an index should not result in an index re-creation\n",
+  "developer_reference_patch": "diff --git a/django/db/backends/base/schema.py b/django/db/backends/base/schema.py\n--- a/django/db/backends/base/schema.py\n+++ b/django/db/backends/base/schema.py\n@@ -393,7 +393,12 @@ def alter_index_together(self, model, old_index_together, new_index_together):\n         news = {tuple(fields) for fields in new_index_together}\n         # Deleted indexes\n         for fields in olds.difference(news):\n-            self._delete_composed_index(model, fields, {'index': True}, self.sql_delete_index)\n+            self._delete_composed_index(\n+                model,\n+                fields,\n+                {'index': True, 'unique': False},\n+                self.sql_delete_index,\n+            )\n         # Created indexes\n         for field_names in news.difference(olds):\n             fields = [model._meta.get_field(field) for field in field_names]\n",
+  "unique_submitted_patches": [
+    {
+      "sha256": "035ae261574ca2c4481e1d7fa99c9f2ba25bba65228c27c98a60fb3b2867cfb0",
+      "patch": "--- a/django/db/backends/base/schema.py\n+++ b/django/db/backends/base/schema.py\n@@ -718,7 +718,7 @@ class BaseDatabaseSchemaEditor:\n         news = {tuple(fields) for fields in new_index_together}\n         # Deleted indexes\n         for fields in olds.difference(news):\n-            self._delete_composed_index(model, fields, {'index': True}, self.sql_delete_index)\n+            self._delete_composed_index(model, fields, {'index': True, 'unique': False}, self.sql_delete_index)\n         # Created indexes\n         for field_names in news.difference(olds):\n             fields = [model._meta.get_field(field) for field in field_names]\n",
+      "arms": [
+        "A",
+        "C",
+        "D",
+        "E"
+      ]
+    },
+    {
+      "sha256": "0b37d9bb9df66d9c7d8518b37f48dc75d5557a0c82f8f5adfe41b2c3a6525ec5",
+      "patch": "--- a/django/db/backends/base/schema.py\n+++ b/django/db/backends/base/schema.py\n@@ -373,7 +373,10 @@ class BaseDatabaseSchemaEditor:\n         news = {tuple(fields) for fields in new_unique_together}\n         # Deleted uniques\n         for fields in olds.difference(news):\n-            self._delete_composed_index(model, fields, {'unique': True}, self.sql_delete_unique)\n+            self._delete_composed_index(\n+                model, fields, {'unique': True, 'primary_key': False},\n+                self.sql_delete_unique,\n+            )\n         # Created uniques\n         for fields in news.difference(olds):\n             columns = [model._meta.get_field(field).column for field in fields]\n@@ -389,7 +392,10 @@ class BaseDatabaseSchemaEditor:\n         news = {tuple(fields) for fields in new_index_together}\n         # Deleted indexes\n         for fields in olds.difference(news):\n-            self._delete_composed_index(model, fields, {'index': True}, self.sql_delete_index)\n+            self._delete_composed_index(\n+                model, fields, {'index': True, 'unique': False},\n+                self.sql_delete_index,\n+            )\n         # Created indexes\n         for field_names in news.difference(olds):\n             fields = [model._meta.get_field(field) for field in field_names]\n",
+      "arms": [
+        "B"
+      ]
+    }
+  ],
+  "submissions": {
+    "A": {
+      "patch_sha256": "035ae261574ca2c4481e1d7fa99c9f2ba25bba65228c27c98a60fb3b2867cfb0",
+      "official_status": "resolved",
+      "generation_status": "environment_error",
+      "route": "stop",
+      "source_matrix": "runs\\test20_A_20261112_01\\matrix.json"
+    },
+    "B": {
+      "patch_sha256": "0b37d9bb9df66d9c7d8518b37f48dc75d5557a0c82f8f5adfe41b2c3a6525ec5",
+      "official_status": "resolved",
+      "generation_status": "environment_error",
+      "route": "standalone",
+      "source_matrix": "runs\\test20_B_20261112_02\\matrix.json"
+    },
+    "C": {
+      "patch_sha256": "035ae261574ca2c4481e1d7fa99c9f2ba25bba65228c27c98a60fb3b2867cfb0",
+      "official_status": "resolved",
+      "generation_status": "environment_error",
+      "route": "stop",
+      "source_matrix": "runs\\test20_C_20261112_01\\matrix.json"
+    },
+    "D": {
+      "patch_sha256": "035ae261574ca2c4481e1d7fa99c9f2ba25bba65228c27c98a60fb3b2867cfb0",
+      "official_status": "resolved",
+      "generation_status": "environment_error",
+      "route": "stop",
+      "source_matrix": "runs\\test20_D_20261112_01\\matrix.json"
+    },
+    "E": {
+      "patch_sha256": "035ae261574ca2c4481e1d7fa99c9f2ba25bba65228c27c98a60fb3b2867cfb0",
+      "official_status": "resolved",
+      "generation_status": "environment_error",
+      "route": "stop",
+      "source_matrix": "runs\\test20_E_20261112_01\\matrix.json"
+    }
+  },
+  "generation_import_prohibited": true,
+  "reference_is_not_a_textual_equality_oracle": true
+}

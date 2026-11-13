@@ -1,0 +1,16 @@
+{
+  "arm": "A",
+  "completed_strategy_units": 20,
+  "predictions": 20,
+  "matrix_sha256": "dae72f7f6bd16236e6e5f949b1a2f68d7724eac928a2c63fa8ee15b185297bdc",
+  "predictions_sha256": "b94bf4a0bdbdd5d7dfc435ad4035d1b7c4e785bc997b4d0f32400766d65c6126",
+  "actual_requests": 128,
+  "actual_new_generation_estimate_cny": 4.39227512,
+  "cumulative_estimate_at_A_exit": 12.03399598,
+  "prefix_caches": 20,
+  "prefix_reused_in_A": 0,
+  "all_A_fingerprints_match": true,
+  "missing_usage_records": 0,
+  "formal_independent_scoring_started": false,
+  "not_invoice": true
+}

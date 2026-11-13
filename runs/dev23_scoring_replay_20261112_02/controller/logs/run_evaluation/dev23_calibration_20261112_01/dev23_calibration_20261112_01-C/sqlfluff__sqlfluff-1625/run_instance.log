@@ -1,0 +1,50 @@
+2026-11-12 04:09:37,999 - INFO - Creating container for sqlfluff__sqlfluff-1625...
+2026-11-12 04:09:38,049 - INFO - Container for sqlfluff__sqlfluff-1625 created: f77a9f8de6ff201b87e2ba5d9d302a600963882e6f5b2665b07b1e4688389446
+2026-11-12 04:09:38,225 - INFO - Container for sqlfluff__sqlfluff-1625 started: f77a9f8de6ff201b87e2ba5d9d302a600963882e6f5b2665b07b1e4688389446
+2026-11-12 04:09:38,228 - INFO - Intermediate patch for sqlfluff__sqlfluff-1625 written to logs/run_evaluation/dev23_calibration_20261112_01/dev23_calibration_20261112_01-C/sqlfluff__sqlfluff-1625/patch.diff, now applying to container...
+2026-11-12 04:09:38,331 - INFO - >>>>> Applied Patch:
+Checking patch src/sqlfluff/rules/L031.py...
+Applied patch src/sqlfluff/rules/L031.py cleanly.
+
+2026-11-12 04:09:38,468 - INFO - Git diff before:
+diff --git a/src/sqlfluff/rules/L031.py b/src/sqlfluff/rules/L031.py
+index 838c6ce..5a4b384 100644
+--- a/src/sqlfluff/rules/L031.py
++++ b/src/sqlfluff/rules/L031.py
+@@ -91,6 +91,10 @@ class Rule_L031(BaseRule):
+                 for column_reference in clause.recursive_crawl("column_reference"):
+                     column_reference_segments.append(column_reference)
+ 
++            # If there is only one table in the FROM clause, there is no join.
++            if len(from_expression_elements) < 2:
++                return None
++
+             return (
+                 self._lint_aliases_in_join(
+                     base_table,
+2026-11-12 04:09:38,471 - INFO - Eval script for sqlfluff__sqlfluff-1625 written to logs/run_evaluation/dev23_calibration_20261112_01/dev23_calibration_20261112_01-C/sqlfluff__sqlfluff-1625/eval.sh; copying to container...
+2026-11-12 04:09:48,158 - INFO - Test runtime: 9.63 seconds
+2026-11-12 04:09:48,194 - INFO - Test output for sqlfluff__sqlfluff-1625 written to logs/run_evaluation/dev23_calibration_20261112_01/dev23_calibration_20261112_01-C/sqlfluff__sqlfluff-1625/test_output.txt
+2026-11-12 04:09:48,245 - INFO - Git diff after:
+diff --git a/src/sqlfluff/rules/L031.py b/src/sqlfluff/rules/L031.py
+index 838c6ce..5a4b384 100644
+--- a/src/sqlfluff/rules/L031.py
++++ b/src/sqlfluff/rules/L031.py
+@@ -91,6 +91,10 @@ class Rule_L031(BaseRule):
+                 for column_reference in clause.recursive_crawl("column_reference"):
+                     column_reference_segments.append(column_reference)
+ 
++            # If there is only one table in the FROM clause, there is no join.
++            if len(from_expression_elements) < 2:
++                return None
++
+             return (
+                 self._lint_aliases_in_join(
+                     base_table,
+2026-11-12 04:09:48,246 - INFO - Grading answer for sqlfluff__sqlfluff-1625...
+2026-11-12 04:09:48,333 - INFO - report: {'sqlfluff__sqlfluff-1625': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'infra_failure': False, 'tests_status': {'FAIL_TO_PASS': {'success': [], 'failure': ['test/cli/commands_test.py::test__cli__command_directed']}, 'PASS_TO_PASS': {'success': ['test/cli/commands_test.py::test__cli__command_dialect', 'test/cli/commands_test.py::test__cli__command_dialect_legacy', 'test/cli/commands_test.py::test__cli__command_lint_stdin[command0]', 'test/cli/commands_test.py::test__cli__command_lint_stdin[command1]', 'test/cli/commands_test.py::test__cli__command_lint_stdin[command2]', 'test/cli/commands_test.py::test__cli__command_lint_stdin[command3]', 'test/cli/commands_test.py::test__cli__command_lint_parse[command0]', 'test/cli/commands_test.py::test__cli__command_lint_parse[command1]', 'test/cli/commands_test.py::test__cli__command_lint_parse[command2]', 'test/cli/commands_test.py::test__cli__command_lint_parse[command3]', 'test/cli/commands_test.py::test__cli__command_lint_parse[command4]', 'test/cli/commands_test.py::test__cli__command_lint_parse[command5]', 'test/cli/commands_test.py::test__cli__command_lint_parse[command6]', 'test/cli/commands_test.py::test__cli__command_lint_parse[command7]', 'test/cli/commands_test.py::test__cli__command_lint_parse[command8]', 'test/cli/commands_test.py::test__cli__command_lint_parse[command9]', 'test/cli/commands_test.py::test__cli__command_lint_parse[command10]', 'test/cli/commands_test.py::test__cli__command_lint_parse[command11]', 'test/cli/commands_test.py::test__cli__command_lint_parse[command12]', 'test/cli/commands_test.py::test__cli__command_lint_parse[command13]', 'test/cli/commands_test.py::test__cli__command_lint_parse[command14]', 'test/cli/commands_test.py::test__cli__command_lint_parse[command15]', 'test/cli/commands_test.py::test__cli__command_lint_parse[command16]', 'test/cli/commands_test.py::test__cli__command_lint_parse[command17]', 'test/cli/commands_test.py::test__cli__command_lint_parse[command18]', 'test/cli/commands_test.py::test__cli__command_lint_parse[command19]', 'test/cli/commands_test.py::test__cli__command_lint_parse[command20]', 'test/cli/commands_test.py::test__cli__command_lint_parse[command21]', 'test/cli/commands_test.py::test__cli__command_lint_parse_with_retcode[command0-1]', 'test/cli/commands_test.py::test__cli__command_lint_parse_with_retcode[command1-1]', 'test/cli/commands_test.py::test__cli__command_lint_parse_with_retcode[command2-1]', 'test/cli/commands_test.py::test__cli__command_lint_warning_explicit_file_ignored', 'test/cli/commands_test.py::test__cli__command_lint_skip_ignore_files', 'test/cli/commands_test.py::test__cli__command_versioning', 'test/cli/commands_test.py::test__cli__command_version', 'test/cli/commands_test.py::test__cli__command_rules', 'test/cli/commands_test.py::test__cli__command_dialects', 'test/cli/commands_test.py::test__cli__command__fix[L001-test/fixtures/linter/indentation_errors.sql]', 'test/cli/commands_test.py::test__cli__command__fix[L008-test/fixtures/linter/whitespace_errors.sql]', 'test/cli/commands_test.py::test__cli__command__fix[L008-test/fixtures/linter/indentation_errors.sql]', 'test/cli/commands_test.py::test__cli__command__fix[L003-test/fixtures/linter/indentation_error_hard.sql]', 'test/cli/commands_test.py::test__cli__command_fix_stdin[select', 'test/cli/commands_test.py::test__cli__command_fix_stdin[', 'test/cli/commands_test.py::test__cli__command_fix_stdin[SELECT', 'test/cli/commands_test.py::test__cli__command_fix_stdin_logging_to_stderr', 'test/cli/commands_test.py::test__cli__command_fix_stdin_safety', 'test/cli/commands_test.py::test__cli__command_fix_stdin_error_exit_code[create', 'test/cli/commands_test.py::test__cli__command_fix_stdin_error_exit_code[select', 'test/cli/commands_test.py::test__cli__command__fix_no_force[L001-test/fixtures/linter/indentation_errors.sql-y-0-0]', 'test/cli/commands_test.py::test__cli__command__fix_no_force[L001-test/fixtures/linter/indentation_errors.sql-n-65-1]', 'test/cli/commands_test.py::test__cli__command_parse_serialize_from_stdin[yaml]', 'test/cli/commands_test.py::test__cli__command_parse_serialize_from_stdin[json]', 'test/cli/commands_test.py::test__cli__command_lint_serialize_from_stdin[select', 'test/cli/commands_test.py::test__cli__command_lint_serialize_from_stdin[SElect', 'test/cli/commands_test.py::test__cli__command_fail_nice_not_found[command0]', 'test/cli/commands_test.py::test__cli__command_fail_nice_not_found[command1]', 'test/cli/commands_test.py::test__cli__command_lint_serialize_multiple_files[yaml]', 'test/cli/commands_test.py::test__cli__command_lint_serialize_multiple_files[json]', 'test/cli/commands_test.py::test__cli__command_lint_serialize_multiple_files[github-annotation]', 'test/cli/commands_test.py::test__cli__command_lint_serialize_github_annotation', 'test/cli/commands_test.py::test___main___help', 'test/cli/commands_test.py::test_encoding[utf-8-ascii]', 'test/cli/commands_test.py::test_encoding[utf-8-sig-UTF-8-SIG]', 'test/cli/commands_test.py::test_encoding[utf-32-UTF-32]'], 'failure': []}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for sqlfluff__sqlfluff-1625: resolved: False
+2026-11-12 04:09:48,336 - INFO - Attempting to stop container sweb.eval.sqlfluff__sqlfluff-1625.dev23_calibration_20261112_01...
+2026-11-12 04:10:03,589 - INFO - Container sweb.eval.sqlfluff__sqlfluff-1625.dev23_calibration_20261112_01 stopped successfully.
+2026-11-12 04:10:03,589 - INFO - Attempting to remove container sweb.eval.sqlfluff__sqlfluff-1625.dev23_calibration_20261112_01...
+2026-11-12 04:10:03,635 - INFO - Container sweb.eval.sqlfluff__sqlfluff-1625.dev23_calibration_20261112_01 removed successfully.

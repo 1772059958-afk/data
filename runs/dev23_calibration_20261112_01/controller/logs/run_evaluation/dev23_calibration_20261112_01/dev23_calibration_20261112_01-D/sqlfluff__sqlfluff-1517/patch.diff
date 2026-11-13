@@ -1,0 +1,56 @@
+--- a/src/sqlfluff/core/parser/grammar/delimited.py
++++ b/src/sqlfluff/core/parser/grammar/delimited.py
+@@ -126,6 +126,6 @@
+                     if not self.allow_gaps and any(
+                         seg.is_whitespace for seg in pre_non_code + post_non_code
+                     ):
+                         return MatchResult.from_unmatched(
+-                            mutated_segments
++                            segments
+                         )  # pragma: no cover TODO?
+@@ -141,5 +141,5 @@
+                     # No match, or an incomplete match: Not allowed
+                     if not match or not match.is_complete():
+-                        return MatchResult.from_unmatched(mutated_segments)
++                        return MatchResult.from_unmatched(segments)
+ 
+                     # We have a complete match!
+@@ -167,6 +167,6 @@
+                         if (
+                             self.min_delimiters
+                             and len(delimiters) < self.min_delimiters
+                         ):
+-                            return MatchResult.from_unmatched(mutated_segments)
++                            return MatchResult.from_unmatched(segments)
+                         else:
+@@ -185,6 +185,6 @@
+                 else:
+                     # Zero length section between delimiters, or zero code
+                     # elements if appropriate. Return unmatched.
+-                    return MatchResult.from_unmatched(mutated_segments)
++                    return MatchResult.from_unmatched(segments)
+             else:
+                 # No match for a delimiter looking forward, this means we're
+@@ -195,7 +195,7 @@
+                 # First check we're had enough delimiters, because if we haven't then
+                 # there's no sense to try matching
+                 if self.min_delimiters and len(delimiters) < self.min_delimiters:
+-                    return MatchResult.from_unmatched(mutated_segments)
++                    return MatchResult.from_unmatched(segments)
+ 
+                 # We use the whitespace padded match to hoover up whitespace if enabled,
+                 # and default to the longest matcher. We don't care which one matches.
+@@ -207,6 +207,6 @@
+                 if not self.allow_gaps and any(
+                     seg.is_whitespace for seg in pre_non_code + post_non_code
+                 ):
+                     return MatchResult.from_unmatched(
+-                        mutated_segments
++                        segments
+                     )  # pragma: no cover TODO?
+@@ -249,4 +249,4 @@
+                     if self.allow_trailing:
+                         return MatchResult(matched_segments.matched_segments, seg_buff)
+                     else:
+-                        return MatchResult.from_unmatched(mutated_segments)
++                        return MatchResult.from_unmatched(segments)

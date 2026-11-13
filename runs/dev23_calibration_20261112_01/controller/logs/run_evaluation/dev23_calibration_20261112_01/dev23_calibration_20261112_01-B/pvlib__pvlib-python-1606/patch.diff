@@ -1,0 +1,17 @@
+--- a/pvlib/tools.py
++++ b/pvlib/tools.py
+@@ -336,7 +336,12 @@ def _golden_sect_DataFrame(params, lower, upper, func, atol=1e-8):
+     with warnings.catch_warnings():
+         warnings.filterwarnings(action='ignore',
+                                 message='All-NaN slice encountered')
+-        iterlimit = 1 + np.nanmax(
+-            np.trunc(np.log(atol / (df['VH'] - df['VL'])) / np.log(phim1)))
++        vrange = df['VH'] - df['VL']
++        with np.errstate(divide='ignore'):
++            iterlimit = 1 + np.nanmax(
++                np.trunc(np.log(atol / vrange) / np.log(phim1)))
++        # zero-width intervals converge in one iteration; ensure the loop
++        # still runs at least once so the function is evaluated at the bound
++        iterlimit = max(iterlimit, 1)
+ 
+     while not converged and (iterations <= iterlimit):

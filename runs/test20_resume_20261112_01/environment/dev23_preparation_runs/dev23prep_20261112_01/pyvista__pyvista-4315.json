@@ -1,0 +1,82 @@
+{
+  "instance_id": "pyvista__pyvista-4315",
+  "base_commit": "db6ee8dd4a747b8864caae36c5d05883976a3ae5",
+  "repo": "pyvista/pyvista",
+  "dependency_profile": "pyvista_corrected",
+  "status": "public_smoke_ready",
+  "patch_applied": false,
+  "model_calls": 0,
+  "smoke_scope_only": true,
+  "source_or_tests_modified": false,
+  "reuse_validation": {
+    "actual_image_id": "sha256:e731651d0a515514b18d73156752957fc4ca63bffd0957c14a3e9fcb0af3dd71",
+    "identity_before": {
+      "head": "db6ee8dd4a747b8864caae36c5d05883976a3ae5",
+      "clean": true,
+      "selected_git_blob_bytes_verified": true,
+      "python": "3.9.21"
+    },
+    "imports": {
+      "head": "db6ee8dd4a747b8864caae36c5d05883976a3ae5",
+      "clean": true,
+      "selected_git_blob_bytes_verified": true,
+      "python": "3.9.21",
+      "module_file": "/testbed/pyvista/__init__.py",
+      "module_version": "0.39.dev0",
+      "distributions": {
+        "pytest": "7.3.2",
+        "numpy": "1.24.4",
+        "pandas": "2.2.3",
+        "scipy": "1.13.1",
+        "wrapt": null,
+        "lazy-object-proxy": null,
+        "simplejson": null,
+        "sqlfluff": null,
+        "Jinja2": "3.1.6",
+        "click": null,
+        "nose": null
+      }
+    },
+    "public_smoke": {
+      "label": "public_smoke",
+      "arguments": [
+        "docker",
+        "--context",
+        "desktop-linux",
+        "exec",
+        "dev23prep-dev23prep_20261112_01-baa5107649a6",
+        "bash",
+        "-lc",
+        "cd /testbed && PYVISTA_OFF_SCREEN=true MPLBACKEND=Agg python -m pytest tests/test_pyvista_ndarray.py tests/test_grid.py tests/test_demos.py tests/test_cells.py -q --no-header -p no:cacheprovider"
+      ],
+      "exit_code": 0,
+      "log": "0393_public_smoke.log",
+      "log_sha256": "defb65a07deb3385f9ce12468cedb55422d0a2d7e68df8a83e0b9a5bc0469ed9",
+      "seconds": 3.227
+    },
+    "identity_after": {
+      "head": "db6ee8dd4a747b8864caae36c5d05883976a3ae5",
+      "clean": true,
+      "selected_git_blob_bytes_verified": true,
+      "python": "3.9.21",
+      "module_file": "/testbed/pyvista/__init__.py",
+      "module_version": "0.39.dev0",
+      "distributions": {
+        "pytest": "7.3.2",
+        "numpy": "1.24.4",
+        "pandas": "2.2.3",
+        "scipy": "1.13.1",
+        "wrapt": null,
+        "lazy-object-proxy": null,
+        "simplejson": null,
+        "sqlfluff": null,
+        "Jinja2": "3.1.6",
+        "click": null,
+        "nose": null
+      }
+    },
+    "passed": true
+  },
+  "image_id": "sha256:e731651d0a515514b18d73156752957fc4ca63bffd0957c14a3e9fcb0af3dd71",
+  "reused": true
+}

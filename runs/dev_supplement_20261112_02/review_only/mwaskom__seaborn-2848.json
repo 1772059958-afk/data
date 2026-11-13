@@ -1,0 +1,72 @@
+{
+  "kind": "review_only_after_all_formal_predictions_sealed",
+  "instance_id": "mwaskom__seaborn-2848",
+  "repo": "mwaskom/seaborn",
+  "base_commit": "94621cef29f80282436d73e8d2c0aa76dab81273",
+  "issue": "pairplot fails with hue_order not containing all hue values in seaborn 0.11.1\nIn seaborn < 0.11, one could plot only a subset of the values in the hue column, by passing a hue_order list containing only the desired values. Points with hue values not in the list were simply not plotted.\n```python\niris = sns.load_dataset(\"iris\")`\n# The hue column contains three different species; here we want to plot two\nsns.pairplot(iris, hue=\"species\", hue_order=[\"setosa\", \"versicolor\"])\n```\n\nThis no longer works in 0.11.1. Passing a hue_order list that does not contain some of the values in the hue column raises a long, ugly error traceback. The first exception arises in seaborn/_core.py:\n```\nTypeError: ufunc 'isnan' not supported for the input types, and the inputs could not be safely coerced to any supported types according to the casting rule ''safe''\n```\nseaborn version: 0.11.1\nmatplotlib version: 3.3.2\nmatplotlib backends: MacOSX, Agg or jupyter notebook inline.",
+  "developer_reference_patch": "diff --git a/seaborn/_oldcore.py b/seaborn/_oldcore.py\n--- a/seaborn/_oldcore.py\n+++ b/seaborn/_oldcore.py\n@@ -149,6 +149,13 @@ def _lookup_single(self, key):\n             # Use a value that's in the original data vector\n             value = self.lookup_table[key]\n         except KeyError:\n+\n+            if self.norm is None:\n+                # Currently we only get here in scatterplot with hue_order,\n+                # because scatterplot does not consider hue a grouping variable\n+                # So unused hue levels are in the data, but not the lookup table\n+                return (0, 0, 0, 0)\n+\n             # Use the colormap to interpolate between existing datapoints\n             # (e.g. in the context of making a continuous legend)\n             try:\n",
+  "unique_submitted_patches": [
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch": "",
+      "arms": [
+        "A",
+        "D",
+        "E"
+      ]
+    },
+    {
+      "sha256": "d8ffe65e4c43a3161ad2b568e9f4f8e521d3407a8ca58ea24451240496dc78b2",
+      "patch": "--- a/seaborn/_oldcore.py\n+++ b/seaborn/_oldcore.py\n@@ -152,7 +152,12 @@ class HueMapping:\n         try:\n             # Use a value that's in the original data vector\n             value = self.lookup_table[key]\n         except KeyError:\n+            # If the value is not in the mapping (e.g. because hue_order\n+            # specified a subset of the levels), draw it transparently.\n+            if self.norm is None:\n+                return (0, 0, 0, 0)\n+\n             # Use the colormap to interpolate between existing datapoints\n             # (e.g. in the context of making a continuous legend)\n             try:\n",
+      "arms": [
+        "B"
+      ]
+    },
+    {
+      "sha256": "93e7ae4641320e2c29e5c6f7b0ad4a52dfeac0db20eb1598a44c8a1f3b9c16ba",
+      "patch": "--- a/seaborn/_oldcore.py\n+++ b/seaborn/_oldcore.py\n@@ -144,10 +144,15 @@ class HueMapping:\n         except KeyError:\n             # Use the colormap to interpolate between existing datapoints\n             # (e.g. in the context of making a continuous legend)\n+            if self.norm is None:\n+                # Currently we only get here in scatterplot with hue_order,\n+                # because scatterplot does not consider hue a grouping variable\n+                # So unused hue levels are in the data, but not the lookup table\n+                return (0, 0, 0, 0)\n             try:\n                 normed = self.norm(key)\n             except TypeError as err:\n-                if np.isnan(key):\n+                if pd.isnull(key):\n                     value = (0, 0, 0, 0)\n                 else:\n                     raise err\n",
+      "arms": [
+        "C"
+      ]
+    }
+  ],
+  "submissions": {
+    "A": {
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "official_status": "empty_patch",
+      "generation_status": "completed",
+      "route": "fixed",
+      "source_matrix": "runs\\test20_A_20261112_01\\matrix.json"
+    },
+    "B": {
+      "patch_sha256": "d8ffe65e4c43a3161ad2b568e9f4f8e521d3407a8ca58ea24451240496dc78b2",
+      "official_status": "resolved",
+      "generation_status": "budget_exhausted",
+      "route": "standalone",
+      "source_matrix": "runs\\test20_B_20261112_02\\matrix.json"
+    },
+    "C": {
+      "patch_sha256": "93e7ae4641320e2c29e5c6f7b0ad4a52dfeac0db20eb1598a44c8a1f3b9c16ba",
+      "official_status": "resolved",
+      "generation_status": "completed",
+      "route": "interactive",
+      "source_matrix": "runs\\test20_C_20261112_01\\matrix.json"
+    },
+    "D": {
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "official_status": "empty_patch",
+      "generation_status": "completed",
+      "route": "fixed",
+      "source_matrix": "runs\\test20_D_20261112_01\\matrix.json"
+    },
+    "E": {
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "official_status": "empty_patch",
+      "generation_status": "completed",
+      "route": "fixed",
+      "source_matrix": "runs\\test20_E_20261112_01\\matrix.json"
+    }
+  },
+  "generation_import_prohibited": true,
+  "reference_is_not_a_textual_equality_oracle": true
+}

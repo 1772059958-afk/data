@@ -1,0 +1,29 @@
+--- a/pydicom/valuerep.py
++++ b/pydicom/valuerep.py
+@@ -751,8 +751,26 @@ class PersonName:
+     def __bool__(self):
+         if self.original_string is None:
+             return (bool(self._components) and
+                     (len(self._components) > 1 or bool(self._components[0])))
+         return bool(self.original_string)
++
++    def __iter__(self):
++        yield from str(self)
++
++    def __contains__(self, item):
++        return item in str(self)
++
++    def __getitem__(self, item):
++        return str(self)[item]
++
++    def __len__(self):
++        return len(str(self))
++
++    def __eq__(self, other):
++        return str(self) == other
++
++    def __ne__(self, other):
++        return str(self) != other
+ 
+ 
+ # Alias old class names for backwards compat in user code

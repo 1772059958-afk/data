@@ -1,0 +1,15 @@
+{
+  "kind": "resource_screen_selection_only",
+  "split": "dev",
+  "seed": 20261111,
+  "sampling": "repository_spread_then_uniform_without_outcome_fields",
+  "sample_size": 3,
+  "population_size": 23,
+  "population_sha256": "a67fe3677fc9d533bfd9e972bc2a421f443b8df1f2e47dfc2b01bb96ef7fd2bd",
+  "instance_ids": [
+    "pydicom__pydicom-1256",
+    "pylint-dev__astroid-1866",
+    "pyvista__pyvista-4315"
+  ],
+  "intended_use": "resource_and_interface_checks_not_calibration_conclusion"
+}

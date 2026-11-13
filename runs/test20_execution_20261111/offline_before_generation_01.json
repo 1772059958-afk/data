@@ -1,0 +1,28 @@
+{
+  "command": "python scripts/run_offline_tests.py",
+  "exit_code": 0,
+  "source_sha256": {
+    "src/swe_repair/__init__.py": "7601d785831bc507c8c3393ffaeaf1a95d084f138d3ca075027596afe4b46858",
+    "src/swe_repair/batch_ledger.py": "5b7be9ff47a3281eaf2f03942ba456f1c39136b2a02d97e5844c4336892a48a0",
+    "src/swe_repair/budget.py": "c877a1c9e5e3bddae24b89164653931e3ecb3f8eb138f184951bd19494a1bd7f",
+    "src/swe_repair/calibration.py": "0ac1012191b66b5d34a293a950b112cd324dab6850b1434593b7436d30f9ffd7",
+    "src/swe_repair/cf.py": "0dd225cd78ce813e754c40243d1b24876c1e4b94c76f1077ea792d74486e8025",
+    "src/swe_repair/evaluation.py": "8c178fcaa9fc413829b2dac8a7a695afb6d7462806e161172c9bd9497a0299d2",
+    "src/swe_repair/execution.py": "8c10a6da8a6dedf5be6d5d5a7ccc0685d095d9747fbeedcca1999294d27139fc",
+    "src/swe_repair/experiment.py": "c5810a3b27d573e64091db1924980d000ecc9a38569cb75ffd747a2a5ecc02f9",
+    "src/swe_repair/feedback.py": "e233cfdf87dd62aa533e59b37a3257c06373c2496bcc356abf328f0d987f5d12",
+    "src/swe_repair/fingerprint.py": "d7ed58eb7b7202fa2b5b9be023dc31d2e22730cbbd0ce1120790b3ecd8e5da83",
+    "src/swe_repair/interact.py": "1f0700cb35f4ceafebe5c60084a4efa9304931cea62cf2e7fe01a39254fa6fdd",
+    "src/swe_repair/llm.py": "aedd6b686fe90ad311d3e1fb6a9b2297f79cbdf0debe6a68fc0b6b9683c28a41",
+    "src/swe_repair/patchutil.py": "adc4ae3d01b9ca85bfd14ebe3133f79eba35794cc9db83a57b6daf97d932a876",
+    "src/swe_repair/prefix.py": "27ada97b1c9f63d5cd57a98ef5862331a3e5d39fe5d9cf4acb14fcaf0449617f",
+    "src/swe_repair/pricing.py": "561ffd2040541887e3b61949bd5d3ac1dc2400fa91312ce6210facf4c29630db",
+    "src/swe_repair/router.py": "d1867d57704266f554ac17235ac34b3cd32d242a07314443932e927626c88cdf",
+    "src/swe_repair/runlog.py": "a5311ae21a3a40d2d74b366d63a6454acfafa6863d1a4792b2b05f05e5cbdb48",
+    "src/swe_repair/spend.py": "130a2f4291e9d4312fc8f1379d530f8c318deadebd9fdd7816a0592c011209a0",
+    "src/swe_repair/state.py": "2d0b0c5d84180b90a14df846b5c6096803723311b35aec7f7cebc4506b4a674c",
+    "src/swe_repair/statistics.py": "5d95441c326779871ef513c8ed2d27b949a46f94d0c46d1283c8a80d675871b7",
+    "scripts/run_cf.py": "46037a167cb2a29ba009273e04fe89e8e499b6a66f0a621ebf377aa8f07f8fa3",
+    "scripts/probe_model.py": "e04ca157858046889600c5237de04233cd77e13e367f31a0655a880717519374"
+  }
+}

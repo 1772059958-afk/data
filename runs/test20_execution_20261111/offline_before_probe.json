@@ -1,0 +1,7 @@
+{
+  "command": [
+    "C:\\Users\\remil\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+    "scripts/run_offline_tests.py"
+  ],
+  "exit_code": 0
+}

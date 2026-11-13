@@ -1,0 +1,14 @@
+{
+  "instance_ids": [
+    "marshmallow-code__marshmallow-1343",
+    "pvlib__pvlib-python-1854",
+    "pydicom__pydicom-1694",
+    "pylint-dev__astroid-1268",
+    "pyvista__pyvista-4315",
+    "sqlfluff__sqlfluff-1763"
+  ],
+  "seed": 20261112,
+  "population_size": 23,
+  "sample_size": 6,
+  "selection": "One per each of six DEV repositories, minimum SHA256 of 20261112:instance_id; no labels, gold or image availability used."
+}

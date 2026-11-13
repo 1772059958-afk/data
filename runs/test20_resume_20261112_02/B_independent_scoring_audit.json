@@ -1,0 +1,48 @@
+{
+  "arm": "B",
+  "audit_rows": 20,
+  "status_counts": {
+    "resolved": 7,
+    "empty_patch": 5,
+    "ambiguous_error": 4,
+    "unresolved": 4
+  },
+  "unknown_semantic_verdict_instances": [
+    "pallets__flask-4045",
+    "psf__requests-1963",
+    "pytest-dev__pytest-6116",
+    "pytest-dev__pytest-8906"
+  ],
+  "artifacts": [
+    {
+      "path": "runs/test20_B_20261112_02/matrix.json",
+      "sha256": "6329c129c112da058ac39c20f20381e97159cada28d42f7eb4adf918550db96b"
+    },
+    {
+      "path": "runs/test20_B_20261112_02/predictions_B.jsonl",
+      "sha256": "3bc30e942c59b24cbb446b03832509537d08fa9e37caaa6758b04b449afa423c"
+    },
+    {
+      "path": "runs/test20_B_20261112_02/scoring/B/test20_B_20261112_02-B.test20_B_20261112_02.json",
+      "sha256": "ec09e2287358895afdcc786cbe4e6bc8626df94f108b9db083844ef10f7cc4b1"
+    },
+    {
+      "path": "runs/test20_B_20261112_02/scoring/B/test20_B_20261112_02-B.test20_B_20261112_02.json.provenance.json",
+      "sha256": "80d51c91ccbb7a589527a121161b7c9945a3ba0c5eebda28e40716708eac4193"
+    },
+    {
+      "path": "runs/test20_B_20261112_02/evaluated_records.jsonl",
+      "sha256": "ceffb80abf362859523c5ab2223bf6e5723243eefafd964fb7e354308e908b87"
+    },
+    {
+      "path": "runs/test20_B_20261112_02/analysis.json",
+      "sha256": "519d830374122a17163aebee1ecf38e472f86c7b84aff9e2494e5a810471fb4d"
+    }
+  ],
+  "analysis_exit": {
+    "returncode": 0,
+    "at": "2026-11-12T03:06:03.342260+00:00"
+  },
+  "other_arms_not_completed": true,
+  "at": "2026-11-12T03:07:05.811435+00:00"
+}

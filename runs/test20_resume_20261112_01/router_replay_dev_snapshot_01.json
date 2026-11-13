@@ -1,0 +1,1451 @@
+[
+  {
+    "dup": 0.25,
+    "iid": "marshmallow-code__marshmallow-1343",
+    "loc": 0.25,
+    "route": "stop",
+    "rule": "freeze_when_public_candidate_passes"
+  },
+  {
+    "dup": 0.5,
+    "iid": "marshmallow-code__marshmallow-1343",
+    "loc": 0.25,
+    "route": "stop",
+    "rule": "freeze_when_public_candidate_passes"
+  },
+  {
+    "dup": 0.75,
+    "iid": "marshmallow-code__marshmallow-1343",
+    "loc": 0.25,
+    "route": "stop",
+    "rule": "freeze_when_public_candidate_passes"
+  },
+  {
+    "dup": 0.25,
+    "iid": "marshmallow-code__marshmallow-1343",
+    "loc": 0.5,
+    "route": "stop",
+    "rule": "freeze_when_public_candidate_passes"
+  },
+  {
+    "dup": 0.5,
+    "iid": "marshmallow-code__marshmallow-1343",
+    "loc": 0.5,
+    "route": "stop",
+    "rule": "freeze_when_public_candidate_passes"
+  },
+  {
+    "dup": 0.75,
+    "iid": "marshmallow-code__marshmallow-1343",
+    "loc": 0.5,
+    "route": "stop",
+    "rule": "freeze_when_public_candidate_passes"
+  },
+  {
+    "dup": 0.25,
+    "iid": "marshmallow-code__marshmallow-1343",
+    "loc": 0.75,
+    "route": "stop",
+    "rule": "freeze_when_public_candidate_passes"
+  },
+  {
+    "dup": 0.5,
+    "iid": "marshmallow-code__marshmallow-1343",
+    "loc": 0.75,
+    "route": "stop",
+    "rule": "freeze_when_public_candidate_passes"
+  },
+  {
+    "dup": 0.75,
+    "iid": "marshmallow-code__marshmallow-1343",
+    "loc": 0.75,
+    "route": "stop",
+    "rule": "freeze_when_public_candidate_passes"
+  },
+  {
+    "dup": 0.25,
+    "iid": "marshmallow-code__marshmallow-1359",
+    "loc": 0.25,
+    "route": "stop",
+    "rule": "freeze_when_public_candidate_passes"
+  },
+  {
+    "dup": 0.5,
+    "iid": "marshmallow-code__marshmallow-1359",
+    "loc": 0.25,
+    "route": "stop",
+    "rule": "freeze_when_public_candidate_passes"
+  },
+  {
+    "dup": 0.75,
+    "iid": "marshmallow-code__marshmallow-1359",
+    "loc": 0.25,
+    "route": "stop",
+    "rule": "freeze_when_public_candidate_passes"
+  },
+  {
+    "dup": 0.25,
+    "iid": "marshmallow-code__marshmallow-1359",
+    "loc": 0.5,
+    "route": "stop",
+    "rule": "freeze_when_public_candidate_passes"
+  },
+  {
+    "dup": 0.5,
+    "iid": "marshmallow-code__marshmallow-1359",
+    "loc": 0.5,
+    "route": "stop",
+    "rule": "freeze_when_public_candidate_passes"
+  },
+  {
+    "dup": 0.75,
+    "iid": "marshmallow-code__marshmallow-1359",
+    "loc": 0.5,
+    "route": "stop",
+    "rule": "freeze_when_public_candidate_passes"
+  },
+  {
+    "dup": 0.25,
+    "iid": "marshmallow-code__marshmallow-1359",
+    "loc": 0.75,
+    "route": "stop",
+    "rule": "freeze_when_public_candidate_passes"
+  },
+  {
+    "dup": 0.5,
+    "iid": "marshmallow-code__marshmallow-1359",
+    "loc": 0.75,
+    "route": "stop",
+    "rule": "freeze_when_public_candidate_passes"
+  },
+  {
+    "dup": 0.75,
+    "iid": "marshmallow-code__marshmallow-1359",
+    "loc": 0.75,
+    "route": "stop",
+    "rule": "freeze_when_public_candidate_passes"
+  },
+  {
+    "dup": 0.25,
+    "iid": "pvlib__pvlib-python-1072",
+    "loc": 0.25,
+    "route": "stop",
+    "rule": "freeze_when_public_candidate_passes"
+  },
+  {
+    "dup": 0.5,
+    "iid": "pvlib__pvlib-python-1072",
+    "loc": 0.25,
+    "route": "stop",
+    "rule": "freeze_when_public_candidate_passes"
+  },
+  {
+    "dup": 0.75,
+    "iid": "pvlib__pvlib-python-1072",
+    "loc": 0.25,
+    "route": "stop",
+    "rule": "freeze_when_public_candidate_passes"
+  },
+  {
+    "dup": 0.25,
+    "iid": "pvlib__pvlib-python-1072",
+    "loc": 0.5,
+    "route": "stop",
+    "rule": "freeze_when_public_candidate_passes"
+  },
+  {
+    "dup": 0.5,
+    "iid": "pvlib__pvlib-python-1072",
+    "loc": 0.5,
+    "route": "stop",
+    "rule": "freeze_when_public_candidate_passes"
+  },
+  {
+    "dup": 0.75,
+    "iid": "pvlib__pvlib-python-1072",
+    "loc": 0.5,
+    "route": "stop",
+    "rule": "freeze_when_public_candidate_passes"
+  },
+  {
+    "dup": 0.25,
+    "iid": "pvlib__pvlib-python-1072",
+    "loc": 0.75,
+    "route": "stop",
+    "rule": "freeze_when_public_candidate_passes"
+  },
+  {
+    "dup": 0.5,
+    "iid": "pvlib__pvlib-python-1072",
+    "loc": 0.75,
+    "route": "stop",
+    "rule": "freeze_when_public_candidate_passes"
+  },
+  {
+    "dup": 0.75,
+    "iid": "pvlib__pvlib-python-1072",
+    "loc": 0.75,
+    "route": "stop",
+    "rule": "freeze_when_public_candidate_passes"
+  },
+  {
+    "dup": 0.25,
+    "iid": "pvlib__pvlib-python-1154",
+    "loc": 0.25,
+    "route": "interactive",
+    "rule": "interactive_on_wide_localization_disagreement"
+  },
+  {
+    "dup": 0.5,
+    "iid": "pvlib__pvlib-python-1154",
+    "loc": 0.25,
+    "route": "interactive",
+    "rule": "interactive_on_wide_localization_disagreement"
+  },
+  {
+    "dup": 0.75,
+    "iid": "pvlib__pvlib-python-1154",
+    "loc": 0.25,
+    "route": "interactive",
+    "rule": "interactive_on_wide_localization_disagreement"
+  },
+  {
+    "dup": 0.25,
+    "iid": "pvlib__pvlib-python-1154",
+    "loc": 0.5,
+    "route": "interactive",
+    "rule": "interactive_on_wide_localization_disagreement"
+  },
+  {
+    "dup": 0.5,
+    "iid": "pvlib__pvlib-python-1154",
+    "loc": 0.5,
+    "route": "interactive",
+    "rule": "interactive_on_wide_localization_disagreement"
+  },
+  {
+    "dup": 0.75,
+    "iid": "pvlib__pvlib-python-1154",
+    "loc": 0.5,
+    "route": "interactive",
+    "rule": "interactive_on_wide_localization_disagreement"
+  },
+  {
+    "dup": 0.25,
+    "iid": "pvlib__pvlib-python-1154",
+    "loc": 0.75,
+    "route": "interactive",
+    "rule": "interactive_on_wide_localization_disagreement"
+  },
+  {
+    "dup": 0.5,
+    "iid": "pvlib__pvlib-python-1154",
+    "loc": 0.75,
+    "route": "interactive",
+    "rule": "interactive_on_wide_localization_disagreement"
+  },
+  {
+    "dup": 0.75,
+    "iid": "pvlib__pvlib-python-1154",
+    "loc": 0.75,
+    "route": "interactive",
+    "rule": "interactive_on_wide_localization_disagreement"
+  },
+  {
+    "dup": 0.25,
+    "iid": "pvlib__pvlib-python-1606",
+    "loc": 0.25,
+    "route": "interactive",
+    "rule": "interactive_on_wide_localization_disagreement"
+  },
+  {
+    "dup": 0.5,
+    "iid": "pvlib__pvlib-python-1606",
+    "loc": 0.25,
+    "route": "interactive",
+    "rule": "interactive_on_wide_localization_disagreement"
+  },
+  {
+    "dup": 0.75,
+    "iid": "pvlib__pvlib-python-1606",
+    "loc": 0.25,
+    "route": "interactive",
+    "rule": "interactive_on_wide_localization_disagreement"
+  },
+  {
+    "dup": 0.25,
+    "iid": "pvlib__pvlib-python-1606",
+    "loc": 0.5,
+    "route": "fixed",
+    "rule": "fixed_continuation_otherwise"
+  },
+  {
+    "dup": 0.5,
+    "iid": "pvlib__pvlib-python-1606",
+    "loc": 0.5,
+    "route": "fixed",
+    "rule": "fixed_continuation_otherwise"
+  },
+  {
+    "dup": 0.75,
+    "iid": "pvlib__pvlib-python-1606",
+    "loc": 0.5,
+    "route": "fixed",
+    "rule": "fixed_continuation_otherwise"
+  },
+  {
+    "dup": 0.25,
+    "iid": "pvlib__pvlib-python-1606",
+    "loc": 0.75,
+    "route": "fixed",
+    "rule": "fixed_continuation_otherwise"
+  },
+  {
+    "dup": 0.5,
+    "iid": "pvlib__pvlib-python-1606",
+    "loc": 0.75,
+    "route": "fixed",
+    "rule": "fixed_continuation_otherwise"
+  },
+  {
+    "dup": 0.75,
+    "iid": "pvlib__pvlib-python-1606",
+    "loc": 0.75,
+    "route": "fixed",
+    "rule": "fixed_continuation_otherwise"
+  },
+  {
+    "dup": 0.25,
+    "iid": "pvlib__pvlib-python-1707",
+    "loc": 0.25,
+    "route": "interactive",
+    "rule": "interactive_on_wide_localization_disagreement"
+  },
+  {
+    "dup": 0.5,
+    "iid": "pvlib__pvlib-python-1707",
+    "loc": 0.25,
+    "route": "interactive",
+    "rule": "interactive_on_wide_localization_disagreement"
+  },
+  {
+    "dup": 0.75,
+    "iid": "pvlib__pvlib-python-1707",
+    "loc": 0.25,
+    "route": "interactive",
+    "rule": "interactive_on_wide_localization_disagreement"
+  },
+  {
+    "dup": 0.25,
+    "iid": "pvlib__pvlib-python-1707",
+    "loc": 0.5,
+    "route": "interactive",
+    "rule": "interactive_on_wide_localization_disagreement"
+  },
+  {
+    "dup": 0.5,
+    "iid": "pvlib__pvlib-python-1707",
+    "loc": 0.5,
+    "route": "interactive",
+    "rule": "interactive_on_wide_localization_disagreement"
+  },
+  {
+    "dup": 0.75,
+    "iid": "pvlib__pvlib-python-1707",
+    "loc": 0.5,
+    "route": "interactive",
+    "rule": "interactive_on_wide_localization_disagreement"
+  },
+  {
+    "dup": 0.25,
+    "iid": "pvlib__pvlib-python-1707",
+    "loc": 0.75,
+    "route": "interactive",
+    "rule": "interactive_on_wide_localization_disagreement"
+  },
+  {
+    "dup": 0.5,
+    "iid": "pvlib__pvlib-python-1707",
+    "loc": 0.75,
+    "route": "interactive",
+    "rule": "interactive_on_wide_localization_disagreement"
+  },
+  {
+    "dup": 0.75,
+    "iid": "pvlib__pvlib-python-1707",
+    "loc": 0.75,
+    "route": "interactive",
+    "rule": "interactive_on_wide_localization_disagreement"
+  },
+  {
+    "dup": 0.25,
+    "iid": "pvlib__pvlib-python-1854",
+    "loc": 0.25,
+    "route": "fixed",
+    "rule": "fixed_continuation_otherwise"
+  },
+  {
+    "dup": 0.5,
+    "iid": "pvlib__pvlib-python-1854",
+    "loc": 0.25,
+    "route": "fixed",
+    "rule": "fixed_continuation_otherwise"
+  },
+  {
+    "dup": 0.75,
+    "iid": "pvlib__pvlib-python-1854",
+    "loc": 0.25,
+    "route": "fixed",
+    "rule": "fixed_continuation_otherwise"
+  },
+  {
+    "dup": 0.25,
+    "iid": "pvlib__pvlib-python-1854",
+    "loc": 0.5,
+    "route": "fixed",
+    "rule": "fixed_continuation_otherwise"
+  },
+  {
+    "dup": 0.5,
+    "iid": "pvlib__pvlib-python-1854",
+    "loc": 0.5,
+    "route": "fixed",
+    "rule": "fixed_continuation_otherwise"
+  },
+  {
+    "dup": 0.75,
+    "iid": "pvlib__pvlib-python-1854",
+    "loc": 0.5,
+    "route": "fixed",
+    "rule": "fixed_continuation_otherwise"
+  },
+  {
+    "dup": 0.25,
+    "iid": "pvlib__pvlib-python-1854",
+    "loc": 0.75,
+    "route": "fixed",
+    "rule": "fixed_continuation_otherwise"
+  },
+  {
+    "dup": 0.5,
+    "iid": "pvlib__pvlib-python-1854",
+    "loc": 0.75,
+    "route": "fixed",
+    "rule": "fixed_continuation_otherwise"
+  },
+  {
+    "dup": 0.75,
+    "iid": "pvlib__pvlib-python-1854",
+    "loc": 0.75,
+    "route": "fixed",
+    "rule": "fixed_continuation_otherwise"
+  },
+  {
+    "dup": 0.25,
+    "iid": "pydicom__pydicom-1139",
+    "loc": 0.25,
+    "route": "stop",
+    "rule": "freeze_when_public_candidate_passes"
+  },
+  {
+    "dup": 0.5,
+    "iid": "pydicom__pydicom-1139",
+    "loc": 0.25,
+    "route": "stop",
+    "rule": "freeze_when_public_candidate_passes"
+  },
+  {
+    "dup": 0.75,
+    "iid": "pydicom__pydicom-1139",
+    "loc": 0.25,
+    "route": "stop",
+    "rule": "freeze_when_public_candidate_passes"
+  },
+  {
+    "dup": 0.25,
+    "iid": "pydicom__pydicom-1139",
+    "loc": 0.5,
+    "route": "stop",
+    "rule": "freeze_when_public_candidate_passes"
+  },
+  {
+    "dup": 0.5,
+    "iid": "pydicom__pydicom-1139",
+    "loc": 0.5,
+    "route": "stop",
+    "rule": "freeze_when_public_candidate_passes"
+  },
+  {
+    "dup": 0.75,
+    "iid": "pydicom__pydicom-1139",
+    "loc": 0.5,
+    "route": "stop",
+    "rule": "freeze_when_public_candidate_passes"
+  },
+  {
+    "dup": 0.25,
+    "iid": "pydicom__pydicom-1139",
+    "loc": 0.75,
+    "route": "stop",
+    "rule": "freeze_when_public_candidate_passes"
+  },
+  {
+    "dup": 0.5,
+    "iid": "pydicom__pydicom-1139",
+    "loc": 0.75,
+    "route": "stop",
+    "rule": "freeze_when_public_candidate_passes"
+  },
+  {
+    "dup": 0.75,
+    "iid": "pydicom__pydicom-1139",
+    "loc": 0.75,
+    "route": "stop",
+    "rule": "freeze_when_public_candidate_passes"
+  },
+  {
+    "dup": 0.25,
+    "iid": "pydicom__pydicom-1256",
+    "loc": 0.25,
+    "route": "interactive",
+    "rule": "interactive_on_high_duplicate_rate"
+  },
+  {
+    "dup": 0.5,
+    "iid": "pydicom__pydicom-1256",
+    "loc": 0.25,
+    "route": "fixed",
+    "rule": "fixed_when_evidence_insufficient"
+  },
+  {
+    "dup": 0.75,
+    "iid": "pydicom__pydicom-1256",
+    "loc": 0.25,
+    "route": "fixed",
+    "rule": "fixed_when_evidence_insufficient"
+  },
+  {
+    "dup": 0.25,
+    "iid": "pydicom__pydicom-1256",
+    "loc": 0.5,
+    "route": "interactive",
+    "rule": "interactive_on_high_duplicate_rate"
+  },
+  {
+    "dup": 0.5,
+    "iid": "pydicom__pydicom-1256",
+    "loc": 0.5,
+    "route": "fixed",
+    "rule": "fixed_when_evidence_insufficient"
+  },
+  {
+    "dup": 0.75,
+    "iid": "pydicom__pydicom-1256",
+    "loc": 0.5,
+    "route": "fixed",
+    "rule": "fixed_when_evidence_insufficient"
+  },
+  {
+    "dup": 0.25,
+    "iid": "pydicom__pydicom-1256",
+    "loc": 0.75,
+    "route": "interactive",
+    "rule": "interactive_on_high_duplicate_rate"
+  },
+  {
+    "dup": 0.5,
+    "iid": "pydicom__pydicom-1256",
+    "loc": 0.75,
+    "route": "fixed",
+    "rule": "fixed_when_evidence_insufficient"
+  },
+  {
+    "dup": 0.75,
+    "iid": "pydicom__pydicom-1256",
+    "loc": 0.75,
+    "route": "fixed",
+    "rule": "fixed_when_evidence_insufficient"
+  },
+  {
+    "dup": 0.25,
+    "iid": "pydicom__pydicom-1413",
+    "loc": 0.25,
+    "route": "fixed",
+    "rule": "fixed_on_local_application_or_syntax_error"
+  },
+  {
+    "dup": 0.5,
+    "iid": "pydicom__pydicom-1413",
+    "loc": 0.25,
+    "route": "fixed",
+    "rule": "fixed_on_local_application_or_syntax_error"
+  },
+  {
+    "dup": 0.75,
+    "iid": "pydicom__pydicom-1413",
+    "loc": 0.25,
+    "route": "fixed",
+    "rule": "fixed_on_local_application_or_syntax_error"
+  },
+  {
+    "dup": 0.25,
+    "iid": "pydicom__pydicom-1413",
+    "loc": 0.5,
+    "route": "fixed",
+    "rule": "fixed_on_local_application_or_syntax_error"
+  },
+  {
+    "dup": 0.5,
+    "iid": "pydicom__pydicom-1413",
+    "loc": 0.5,
+    "route": "fixed",
+    "rule": "fixed_on_local_application_or_syntax_error"
+  },
+  {
+    "dup": 0.75,
+    "iid": "pydicom__pydicom-1413",
+    "loc": 0.5,
+    "route": "fixed",
+    "rule": "fixed_on_local_application_or_syntax_error"
+  },
+  {
+    "dup": 0.25,
+    "iid": "pydicom__pydicom-1413",
+    "loc": 0.75,
+    "route": "fixed",
+    "rule": "fixed_on_local_application_or_syntax_error"
+  },
+  {
+    "dup": 0.5,
+    "iid": "pydicom__pydicom-1413",
+    "loc": 0.75,
+    "route": "fixed",
+    "rule": "fixed_on_local_application_or_syntax_error"
+  },
+  {
+    "dup": 0.75,
+    "iid": "pydicom__pydicom-1413",
+    "loc": 0.75,
+    "route": "fixed",
+    "rule": "fixed_on_local_application_or_syntax_error"
+  },
+  {
+    "dup": 0.25,
+    "iid": "pydicom__pydicom-1694",
+    "loc": 0.25,
+    "route": "stop",
+    "rule": "freeze_when_public_candidate_passes"
+  },
+  {
+    "dup": 0.5,
+    "iid": "pydicom__pydicom-1694",
+    "loc": 0.25,
+    "route": "stop",
+    "rule": "freeze_when_public_candidate_passes"
+  },
+  {
+    "dup": 0.75,
+    "iid": "pydicom__pydicom-1694",
+    "loc": 0.25,
+    "route": "stop",
+    "rule": "freeze_when_public_candidate_passes"
+  },
+  {
+    "dup": 0.25,
+    "iid": "pydicom__pydicom-1694",
+    "loc": 0.5,
+    "route": "stop",
+    "rule": "freeze_when_public_candidate_passes"
+  },
+  {
+    "dup": 0.5,
+    "iid": "pydicom__pydicom-1694",
+    "loc": 0.5,
+    "route": "stop",
+    "rule": "freeze_when_public_candidate_passes"
+  },
+  {
+    "dup": 0.75,
+    "iid": "pydicom__pydicom-1694",
+    "loc": 0.5,
+    "route": "stop",
+    "rule": "freeze_when_public_candidate_passes"
+  },
+  {
+    "dup": 0.25,
+    "iid": "pydicom__pydicom-1694",
+    "loc": 0.75,
+    "route": "stop",
+    "rule": "freeze_when_public_candidate_passes"
+  },
+  {
+    "dup": 0.5,
+    "iid": "pydicom__pydicom-1694",
+    "loc": 0.75,
+    "route": "stop",
+    "rule": "freeze_when_public_candidate_passes"
+  },
+  {
+    "dup": 0.75,
+    "iid": "pydicom__pydicom-1694",
+    "loc": 0.75,
+    "route": "stop",
+    "rule": "freeze_when_public_candidate_passes"
+  },
+  {
+    "dup": 0.25,
+    "iid": "pydicom__pydicom-901",
+    "loc": 0.25,
+    "route": "fixed",
+    "rule": "fixed_on_local_application_or_syntax_error"
+  },
+  {
+    "dup": 0.5,
+    "iid": "pydicom__pydicom-901",
+    "loc": 0.25,
+    "route": "fixed",
+    "rule": "fixed_on_local_application_or_syntax_error"
+  },
+  {
+    "dup": 0.75,
+    "iid": "pydicom__pydicom-901",
+    "loc": 0.25,
+    "route": "fixed",
+    "rule": "fixed_on_local_application_or_syntax_error"
+  },
+  {
+    "dup": 0.25,
+    "iid": "pydicom__pydicom-901",
+    "loc": 0.5,
+    "route": "fixed",
+    "rule": "fixed_on_local_application_or_syntax_error"
+  },
+  {
+    "dup": 0.5,
+    "iid": "pydicom__pydicom-901",
+    "loc": 0.5,
+    "route": "fixed",
+    "rule": "fixed_on_local_application_or_syntax_error"
+  },
+  {
+    "dup": 0.75,
+    "iid": "pydicom__pydicom-901",
+    "loc": 0.5,
+    "route": "fixed",
+    "rule": "fixed_on_local_application_or_syntax_error"
+  },
+  {
+    "dup": 0.25,
+    "iid": "pydicom__pydicom-901",
+    "loc": 0.75,
+    "route": "fixed",
+    "rule": "fixed_on_local_application_or_syntax_error"
+  },
+  {
+    "dup": 0.5,
+    "iid": "pydicom__pydicom-901",
+    "loc": 0.75,
+    "route": "fixed",
+    "rule": "fixed_on_local_application_or_syntax_error"
+  },
+  {
+    "dup": 0.75,
+    "iid": "pydicom__pydicom-901",
+    "loc": 0.75,
+    "route": "fixed",
+    "rule": "fixed_on_local_application_or_syntax_error"
+  },
+  {
+    "dup": 0.25,
+    "iid": "pylint-dev__astroid-1196",
+    "loc": 0.25,
+    "route": "fixed",
+    "rule": "fixed_on_local_application_or_syntax_error"
+  },
+  {
+    "dup": 0.5,
+    "iid": "pylint-dev__astroid-1196",
+    "loc": 0.25,
+    "route": "fixed",
+    "rule": "fixed_on_local_application_or_syntax_error"
+  },
+  {
+    "dup": 0.75,
+    "iid": "pylint-dev__astroid-1196",
+    "loc": 0.25,
+    "route": "fixed",
+    "rule": "fixed_on_local_application_or_syntax_error"
+  },
+  {
+    "dup": 0.25,
+    "iid": "pylint-dev__astroid-1196",
+    "loc": 0.5,
+    "route": "fixed",
+    "rule": "fixed_on_local_application_or_syntax_error"
+  },
+  {
+    "dup": 0.5,
+    "iid": "pylint-dev__astroid-1196",
+    "loc": 0.5,
+    "route": "fixed",
+    "rule": "fixed_on_local_application_or_syntax_error"
+  },
+  {
+    "dup": 0.75,
+    "iid": "pylint-dev__astroid-1196",
+    "loc": 0.5,
+    "route": "fixed",
+    "rule": "fixed_on_local_application_or_syntax_error"
+  },
+  {
+    "dup": 0.25,
+    "iid": "pylint-dev__astroid-1196",
+    "loc": 0.75,
+    "route": "fixed",
+    "rule": "fixed_on_local_application_or_syntax_error"
+  },
+  {
+    "dup": 0.5,
+    "iid": "pylint-dev__astroid-1196",
+    "loc": 0.75,
+    "route": "fixed",
+    "rule": "fixed_on_local_application_or_syntax_error"
+  },
+  {
+    "dup": 0.75,
+    "iid": "pylint-dev__astroid-1196",
+    "loc": 0.75,
+    "route": "fixed",
+    "rule": "fixed_on_local_application_or_syntax_error"
+  },
+  {
+    "dup": 0.25,
+    "iid": "pylint-dev__astroid-1268",
+    "loc": 0.25,
+    "route": "interactive",
+    "rule": "interactive_on_wide_localization_disagreement"
+  },
+  {
+    "dup": 0.5,
+    "iid": "pylint-dev__astroid-1268",
+    "loc": 0.25,
+    "route": "interactive",
+    "rule": "interactive_on_wide_localization_disagreement"
+  },
+  {
+    "dup": 0.75,
+    "iid": "pylint-dev__astroid-1268",
+    "loc": 0.25,
+    "route": "interactive",
+    "rule": "interactive_on_wide_localization_disagreement"
+  },
+  {
+    "dup": 0.25,
+    "iid": "pylint-dev__astroid-1268",
+    "loc": 0.5,
+    "route": "fixed",
+    "rule": "fixed_when_evidence_insufficient"
+  },
+  {
+    "dup": 0.5,
+    "iid": "pylint-dev__astroid-1268",
+    "loc": 0.5,
+    "route": "fixed",
+    "rule": "fixed_when_evidence_insufficient"
+  },
+  {
+    "dup": 0.75,
+    "iid": "pylint-dev__astroid-1268",
+    "loc": 0.5,
+    "route": "fixed",
+    "rule": "fixed_when_evidence_insufficient"
+  },
+  {
+    "dup": 0.25,
+    "iid": "pylint-dev__astroid-1268",
+    "loc": 0.75,
+    "route": "fixed",
+    "rule": "fixed_when_evidence_insufficient"
+  },
+  {
+    "dup": 0.5,
+    "iid": "pylint-dev__astroid-1268",
+    "loc": 0.75,
+    "route": "fixed",
+    "rule": "fixed_when_evidence_insufficient"
+  },
+  {
+    "dup": 0.75,
+    "iid": "pylint-dev__astroid-1268",
+    "loc": 0.75,
+    "route": "fixed",
+    "rule": "fixed_when_evidence_insufficient"
+  },
+  {
+    "dup": 0.25,
+    "iid": "pylint-dev__astroid-1333",
+    "loc": 0.25,
+    "route": "interactive",
+    "rule": "interactive_on_wide_localization_disagreement"
+  },
+  {
+    "dup": 0.5,
+    "iid": "pylint-dev__astroid-1333",
+    "loc": 0.25,
+    "route": "interactive",
+    "rule": "interactive_on_wide_localization_disagreement"
+  },
+  {
+    "dup": 0.75,
+    "iid": "pylint-dev__astroid-1333",
+    "loc": 0.25,
+    "route": "interactive",
+    "rule": "interactive_on_wide_localization_disagreement"
+  },
+  {
+    "dup": 0.25,
+    "iid": "pylint-dev__astroid-1333",
+    "loc": 0.5,
+    "route": "interactive",
+    "rule": "interactive_on_wide_localization_disagreement"
+  },
+  {
+    "dup": 0.5,
+    "iid": "pylint-dev__astroid-1333",
+    "loc": 0.5,
+    "route": "interactive",
+    "rule": "interactive_on_wide_localization_disagreement"
+  },
+  {
+    "dup": 0.75,
+    "iid": "pylint-dev__astroid-1333",
+    "loc": 0.5,
+    "route": "interactive",
+    "rule": "interactive_on_wide_localization_disagreement"
+  },
+  {
+    "dup": 0.25,
+    "iid": "pylint-dev__astroid-1333",
+    "loc": 0.75,
+    "route": "interactive",
+    "rule": "interactive_on_wide_localization_disagreement"
+  },
+  {
+    "dup": 0.5,
+    "iid": "pylint-dev__astroid-1333",
+    "loc": 0.75,
+    "route": "interactive",
+    "rule": "interactive_on_wide_localization_disagreement"
+  },
+  {
+    "dup": 0.75,
+    "iid": "pylint-dev__astroid-1333",
+    "loc": 0.75,
+    "route": "interactive",
+    "rule": "interactive_on_wide_localization_disagreement"
+  },
+  {
+    "dup": 0.25,
+    "iid": "pylint-dev__astroid-1866",
+    "loc": 0.25,
+    "route": "interactive",
+    "rule": "interactive_on_wide_localization_disagreement"
+  },
+  {
+    "dup": 0.5,
+    "iid": "pylint-dev__astroid-1866",
+    "loc": 0.25,
+    "route": "interactive",
+    "rule": "interactive_on_wide_localization_disagreement"
+  },
+  {
+    "dup": 0.75,
+    "iid": "pylint-dev__astroid-1866",
+    "loc": 0.25,
+    "route": "interactive",
+    "rule": "interactive_on_wide_localization_disagreement"
+  },
+  {
+    "dup": 0.25,
+    "iid": "pylint-dev__astroid-1866",
+    "loc": 0.5,
+    "route": "interactive",
+    "rule": "interactive_on_wide_localization_disagreement"
+  },
+  {
+    "dup": 0.5,
+    "iid": "pylint-dev__astroid-1866",
+    "loc": 0.5,
+    "route": "interactive",
+    "rule": "interactive_on_wide_localization_disagreement"
+  },
+  {
+    "dup": 0.75,
+    "iid": "pylint-dev__astroid-1866",
+    "loc": 0.5,
+    "route": "interactive",
+    "rule": "interactive_on_wide_localization_disagreement"
+  },
+  {
+    "dup": 0.25,
+    "iid": "pylint-dev__astroid-1866",
+    "loc": 0.75,
+    "route": "interactive",
+    "rule": "interactive_on_wide_localization_disagreement"
+  },
+  {
+    "dup": 0.5,
+    "iid": "pylint-dev__astroid-1866",
+    "loc": 0.75,
+    "route": "interactive",
+    "rule": "interactive_on_wide_localization_disagreement"
+  },
+  {
+    "dup": 0.75,
+    "iid": "pylint-dev__astroid-1866",
+    "loc": 0.75,
+    "route": "interactive",
+    "rule": "interactive_on_wide_localization_disagreement"
+  },
+  {
+    "dup": 0.25,
+    "iid": "pylint-dev__astroid-1978",
+    "loc": 0.25,
+    "route": "interactive",
+    "rule": "interactive_on_high_duplicate_rate"
+  },
+  {
+    "dup": 0.5,
+    "iid": "pylint-dev__astroid-1978",
+    "loc": 0.25,
+    "route": "fixed",
+    "rule": "fixed_when_evidence_insufficient"
+  },
+  {
+    "dup": 0.75,
+    "iid": "pylint-dev__astroid-1978",
+    "loc": 0.25,
+    "route": "fixed",
+    "rule": "fixed_when_evidence_insufficient"
+  },
+  {
+    "dup": 0.25,
+    "iid": "pylint-dev__astroid-1978",
+    "loc": 0.5,
+    "route": "interactive",
+    "rule": "interactive_on_high_duplicate_rate"
+  },
+  {
+    "dup": 0.5,
+    "iid": "pylint-dev__astroid-1978",
+    "loc": 0.5,
+    "route": "fixed",
+    "rule": "fixed_when_evidence_insufficient"
+  },
+  {
+    "dup": 0.75,
+    "iid": "pylint-dev__astroid-1978",
+    "loc": 0.5,
+    "route": "fixed",
+    "rule": "fixed_when_evidence_insufficient"
+  },
+  {
+    "dup": 0.25,
+    "iid": "pylint-dev__astroid-1978",
+    "loc": 0.75,
+    "route": "interactive",
+    "rule": "interactive_on_high_duplicate_rate"
+  },
+  {
+    "dup": 0.5,
+    "iid": "pylint-dev__astroid-1978",
+    "loc": 0.75,
+    "route": "fixed",
+    "rule": "fixed_when_evidence_insufficient"
+  },
+  {
+    "dup": 0.75,
+    "iid": "pylint-dev__astroid-1978",
+    "loc": 0.75,
+    "route": "fixed",
+    "rule": "fixed_when_evidence_insufficient"
+  },
+  {
+    "dup": 0.25,
+    "iid": "pyvista__pyvista-4315",
+    "loc": 0.25,
+    "route": "stop",
+    "rule": "freeze_when_public_candidate_passes"
+  },
+  {
+    "dup": 0.5,
+    "iid": "pyvista__pyvista-4315",
+    "loc": 0.25,
+    "route": "stop",
+    "rule": "freeze_when_public_candidate_passes"
+  },
+  {
+    "dup": 0.75,
+    "iid": "pyvista__pyvista-4315",
+    "loc": 0.25,
+    "route": "stop",
+    "rule": "freeze_when_public_candidate_passes"
+  },
+  {
+    "dup": 0.25,
+    "iid": "pyvista__pyvista-4315",
+    "loc": 0.5,
+    "route": "stop",
+    "rule": "freeze_when_public_candidate_passes"
+  },
+  {
+    "dup": 0.5,
+    "iid": "pyvista__pyvista-4315",
+    "loc": 0.5,
+    "route": "stop",
+    "rule": "freeze_when_public_candidate_passes"
+  },
+  {
+    "dup": 0.75,
+    "iid": "pyvista__pyvista-4315",
+    "loc": 0.5,
+    "route": "stop",
+    "rule": "freeze_when_public_candidate_passes"
+  },
+  {
+    "dup": 0.25,
+    "iid": "pyvista__pyvista-4315",
+    "loc": 0.75,
+    "route": "stop",
+    "rule": "freeze_when_public_candidate_passes"
+  },
+  {
+    "dup": 0.5,
+    "iid": "pyvista__pyvista-4315",
+    "loc": 0.75,
+    "route": "stop",
+    "rule": "freeze_when_public_candidate_passes"
+  },
+  {
+    "dup": 0.75,
+    "iid": "pyvista__pyvista-4315",
+    "loc": 0.75,
+    "route": "stop",
+    "rule": "freeze_when_public_candidate_passes"
+  },
+  {
+    "dup": 0.25,
+    "iid": "sqlfluff__sqlfluff-1517",
+    "loc": 0.25,
+    "route": "interactive",
+    "rule": "interactive_on_wide_localization_disagreement"
+  },
+  {
+    "dup": 0.5,
+    "iid": "sqlfluff__sqlfluff-1517",
+    "loc": 0.25,
+    "route": "interactive",
+    "rule": "interactive_on_wide_localization_disagreement"
+  },
+  {
+    "dup": 0.75,
+    "iid": "sqlfluff__sqlfluff-1517",
+    "loc": 0.25,
+    "route": "interactive",
+    "rule": "interactive_on_wide_localization_disagreement"
+  },
+  {
+    "dup": 0.25,
+    "iid": "sqlfluff__sqlfluff-1517",
+    "loc": 0.5,
+    "route": "interactive",
+    "rule": "interactive_on_wide_localization_disagreement"
+  },
+  {
+    "dup": 0.5,
+    "iid": "sqlfluff__sqlfluff-1517",
+    "loc": 0.5,
+    "route": "interactive",
+    "rule": "interactive_on_wide_localization_disagreement"
+  },
+  {
+    "dup": 0.75,
+    "iid": "sqlfluff__sqlfluff-1517",
+    "loc": 0.5,
+    "route": "interactive",
+    "rule": "interactive_on_wide_localization_disagreement"
+  },
+  {
+    "dup": 0.25,
+    "iid": "sqlfluff__sqlfluff-1517",
+    "loc": 0.75,
+    "route": "interactive",
+    "rule": "interactive_on_wide_localization_disagreement"
+  },
+  {
+    "dup": 0.5,
+    "iid": "sqlfluff__sqlfluff-1517",
+    "loc": 0.75,
+    "route": "interactive",
+    "rule": "interactive_on_wide_localization_disagreement"
+  },
+  {
+    "dup": 0.75,
+    "iid": "sqlfluff__sqlfluff-1517",
+    "loc": 0.75,
+    "route": "interactive",
+    "rule": "interactive_on_wide_localization_disagreement"
+  },
+  {
+    "dup": 0.25,
+    "iid": "sqlfluff__sqlfluff-1625",
+    "loc": 0.25,
+    "route": "interactive",
+    "rule": "interactive_on_wide_localization_disagreement"
+  },
+  {
+    "dup": 0.5,
+    "iid": "sqlfluff__sqlfluff-1625",
+    "loc": 0.25,
+    "route": "interactive",
+    "rule": "interactive_on_wide_localization_disagreement"
+  },
+  {
+    "dup": 0.75,
+    "iid": "sqlfluff__sqlfluff-1625",
+    "loc": 0.25,
+    "route": "interactive",
+    "rule": "interactive_on_wide_localization_disagreement"
+  },
+  {
+    "dup": 0.25,
+    "iid": "sqlfluff__sqlfluff-1625",
+    "loc": 0.5,
+    "route": "interactive",
+    "rule": "interactive_on_wide_localization_disagreement"
+  },
+  {
+    "dup": 0.5,
+    "iid": "sqlfluff__sqlfluff-1625",
+    "loc": 0.5,
+    "route": "interactive",
+    "rule": "interactive_on_wide_localization_disagreement"
+  },
+  {
+    "dup": 0.75,
+    "iid": "sqlfluff__sqlfluff-1625",
+    "loc": 0.5,
+    "route": "interactive",
+    "rule": "interactive_on_wide_localization_disagreement"
+  },
+  {
+    "dup": 0.25,
+    "iid": "sqlfluff__sqlfluff-1625",
+    "loc": 0.75,
+    "route": "interactive",
+    "rule": "interactive_on_wide_localization_disagreement"
+  },
+  {
+    "dup": 0.5,
+    "iid": "sqlfluff__sqlfluff-1625",
+    "loc": 0.75,
+    "route": "interactive",
+    "rule": "interactive_on_wide_localization_disagreement"
+  },
+  {
+    "dup": 0.75,
+    "iid": "sqlfluff__sqlfluff-1625",
+    "loc": 0.75,
+    "route": "interactive",
+    "rule": "interactive_on_wide_localization_disagreement"
+  },
+  {
+    "dup": 0.25,
+    "iid": "sqlfluff__sqlfluff-1733",
+    "loc": 0.25,
+    "route": "interactive",
+    "rule": "interactive_on_wide_localization_disagreement"
+  },
+  {
+    "dup": 0.5,
+    "iid": "sqlfluff__sqlfluff-1733",
+    "loc": 0.25,
+    "route": "interactive",
+    "rule": "interactive_on_wide_localization_disagreement"
+  },
+  {
+    "dup": 0.75,
+    "iid": "sqlfluff__sqlfluff-1733",
+    "loc": 0.25,
+    "route": "interactive",
+    "rule": "interactive_on_wide_localization_disagreement"
+  },
+  {
+    "dup": 0.25,
+    "iid": "sqlfluff__sqlfluff-1733",
+    "loc": 0.5,
+    "route": "interactive",
+    "rule": "interactive_on_wide_localization_disagreement"
+  },
+  {
+    "dup": 0.5,
+    "iid": "sqlfluff__sqlfluff-1733",
+    "loc": 0.5,
+    "route": "interactive",
+    "rule": "interactive_on_wide_localization_disagreement"
+  },
+  {
+    "dup": 0.75,
+    "iid": "sqlfluff__sqlfluff-1733",
+    "loc": 0.5,
+    "route": "interactive",
+    "rule": "interactive_on_wide_localization_disagreement"
+  },
+  {
+    "dup": 0.25,
+    "iid": "sqlfluff__sqlfluff-1733",
+    "loc": 0.75,
+    "route": "interactive",
+    "rule": "interactive_on_wide_localization_disagreement"
+  },
+  {
+    "dup": 0.5,
+    "iid": "sqlfluff__sqlfluff-1733",
+    "loc": 0.75,
+    "route": "interactive",
+    "rule": "interactive_on_wide_localization_disagreement"
+  },
+  {
+    "dup": 0.75,
+    "iid": "sqlfluff__sqlfluff-1733",
+    "loc": 0.75,
+    "route": "interactive",
+    "rule": "interactive_on_wide_localization_disagreement"
+  },
+  {
+    "dup": 0.25,
+    "iid": "sqlfluff__sqlfluff-1763",
+    "loc": 0.25,
+    "route": "fixed",
+    "rule": "fixed_on_local_application_or_syntax_error"
+  },
+  {
+    "dup": 0.5,
+    "iid": "sqlfluff__sqlfluff-1763",
+    "loc": 0.25,
+    "route": "fixed",
+    "rule": "fixed_on_local_application_or_syntax_error"
+  },
+  {
+    "dup": 0.75,
+    "iid": "sqlfluff__sqlfluff-1763",
+    "loc": 0.25,
+    "route": "fixed",
+    "rule": "fixed_on_local_application_or_syntax_error"
+  },
+  {
+    "dup": 0.25,
+    "iid": "sqlfluff__sqlfluff-1763",
+    "loc": 0.5,
+    "route": "fixed",
+    "rule": "fixed_on_local_application_or_syntax_error"
+  },
+  {
+    "dup": 0.5,
+    "iid": "sqlfluff__sqlfluff-1763",
+    "loc": 0.5,
+    "route": "fixed",
+    "rule": "fixed_on_local_application_or_syntax_error"
+  },
+  {
+    "dup": 0.75,
+    "iid": "sqlfluff__sqlfluff-1763",
+    "loc": 0.5,
+    "route": "fixed",
+    "rule": "fixed_on_local_application_or_syntax_error"
+  },
+  {
+    "dup": 0.25,
+    "iid": "sqlfluff__sqlfluff-1763",
+    "loc": 0.75,
+    "route": "fixed",
+    "rule": "fixed_on_local_application_or_syntax_error"
+  },
+  {
+    "dup": 0.5,
+    "iid": "sqlfluff__sqlfluff-1763",
+    "loc": 0.75,
+    "route": "fixed",
+    "rule": "fixed_on_local_application_or_syntax_error"
+  },
+  {
+    "dup": 0.75,
+    "iid": "sqlfluff__sqlfluff-1763",
+    "loc": 0.75,
+    "route": "fixed",
+    "rule": "fixed_on_local_application_or_syntax_error"
+  },
+  {
+    "dup": 0.25,
+    "iid": "sqlfluff__sqlfluff-2419",
+    "loc": 0.25,
+    "route": "interactive",
+    "rule": "interactive_on_wide_localization_disagreement"
+  },
+  {
+    "dup": 0.5,
+    "iid": "sqlfluff__sqlfluff-2419",
+    "loc": 0.25,
+    "route": "interactive",
+    "rule": "interactive_on_wide_localization_disagreement"
+  },
+  {
+    "dup": 0.75,
+    "iid": "sqlfluff__sqlfluff-2419",
+    "loc": 0.25,
+    "route": "interactive",
+    "rule": "interactive_on_wide_localization_disagreement"
+  },
+  {
+    "dup": 0.25,
+    "iid": "sqlfluff__sqlfluff-2419",
+    "loc": 0.5,
+    "route": "interactive",
+    "rule": "interactive_on_wide_localization_disagreement"
+  },
+  {
+    "dup": 0.5,
+    "iid": "sqlfluff__sqlfluff-2419",
+    "loc": 0.5,
+    "route": "interactive",
+    "rule": "interactive_on_wide_localization_disagreement"
+  },
+  {
+    "dup": 0.75,
+    "iid": "sqlfluff__sqlfluff-2419",
+    "loc": 0.5,
+    "route": "interactive",
+    "rule": "interactive_on_wide_localization_disagreement"
+  },
+  {
+    "dup": 0.25,
+    "iid": "sqlfluff__sqlfluff-2419",
+    "loc": 0.75,
+    "route": "interactive",
+    "rule": "interactive_on_wide_localization_disagreement"
+  },
+  {
+    "dup": 0.5,
+    "iid": "sqlfluff__sqlfluff-2419",
+    "loc": 0.75,
+    "route": "interactive",
+    "rule": "interactive_on_wide_localization_disagreement"
+  },
+  {
+    "dup": 0.75,
+    "iid": "sqlfluff__sqlfluff-2419",
+    "loc": 0.75,
+    "route": "interactive",
+    "rule": "interactive_on_wide_localization_disagreement"
+  }
+]

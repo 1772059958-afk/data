@@ -1,0 +1,88 @@
+{
+  "kind": "model_identity_probe",
+  "status": "completed",
+  "model": "deepseek-flash",
+  "observed_served_model": "deepseek-flash",
+  "response_text": "OK",
+  "record": {
+    "requested_model": "deepseek-flash",
+    "served_model": "deepseek-flash",
+    "thinking": true,
+    "effort": "low",
+    "prompt_tokens": 37,
+    "cache_hit_tokens": 0,
+    "cache_miss_tokens": 37,
+    "output_tokens": 13,
+    "reasoning_tokens": 11,
+    "latency_seconds": 1.2918,
+    "finish_reason": "stop",
+    "attempts": 1,
+    "request_id": "072ea448-9a4b-4c88-8560-0a4461e39c6a",
+    "started_at": "2026-11-11T20:21:15.840515+08:00",
+    "cost_cny": 8.9e-05,
+    "price_tier": "off_peak",
+    "usage_reported": true,
+    "billing": "estimated_from_usage",
+    "served_model_reported": true,
+    "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+    "provider_created": 1794399674
+  },
+  "cost_cny": 8.9e-05,
+  "budget": {
+    "tier": "probe",
+    "ceiling": {
+      "token": 4096,
+      "model_call": 1,
+      "tool_call": 0,
+      "wallclock_seconds": 60
+    },
+    "consumed": {
+      "token": 50,
+      "model_call": 1,
+      "tool_call": 0,
+      "wallclock_seconds": 1.4357242999976734
+    },
+    "remaining": {
+      "token": 4046,
+      "model_call": 0,
+      "tool_call": 0,
+      "wallclock_seconds": 58.56427570000233
+    },
+    "fraction_used": {
+      "token": 0.01220703125,
+      "model_call": 1.0,
+      "tool_call": 0.0,
+      "wallclock_seconds": 0.023928738333294557
+    },
+    "overrun": false,
+    "exhausted_at": null
+  },
+  "calls": [
+    {
+      "requested_model": "deepseek-flash",
+      "served_model": "deepseek-flash",
+      "thinking": true,
+      "effort": "low",
+      "prompt_tokens": 37,
+      "cache_hit_tokens": 0,
+      "cache_miss_tokens": 37,
+      "output_tokens": 13,
+      "reasoning_tokens": 11,
+      "latency_seconds": 1.2918,
+      "finish_reason": "stop",
+      "attempts": 1,
+      "request_id": "072ea448-9a4b-4c88-8560-0a4461e39c6a",
+      "started_at": "2026-11-11T20:21:15.840515+08:00",
+      "cost_cny": 8.9e-05,
+      "price_tier": "off_peak",
+      "usage_reported": true,
+      "billing": "estimated_from_usage",
+      "served_model_reported": true,
+      "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+      "provider_created": 1794399674
+    }
+  ],
+  "cost_complete": true,
+  "new_generation_cost_cny": 8.9e-05,
+  "cumulative_batch_cost_cny": 8.9e-05
+}

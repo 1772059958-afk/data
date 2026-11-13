@@ -1,0 +1,96 @@
+{
+  "kind": "ubuntu_metadata_gpg_signature_verification",
+  "date": "2026-11-11",
+  "image_id": "sha256:bd5edf8694cde12aaf99beb18b3935b15e076e81ac7e52aef46b1ca3d9071428",
+  "command": [
+    "docker",
+    "--context",
+    "desktop-linux",
+    "run",
+    "--rm",
+    "--pull=never",
+    "--network",
+    "none",
+    "--read-only",
+    "--mount",
+    "type=bind,src=C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\work\\test20_environment_20261111\\ubuntu_metadata_01,dst=/metadata,readonly",
+    "--entrypoint",
+    "/opt/miniconda3/envs/testbed/bin/python",
+    "sha256:bd5edf8694cde12aaf99beb18b3935b15e076e81ac7e52aef46b1ca3d9071428",
+    "-c",
+    "\nimport hashlib, json, pathlib, shutil, subprocess\nkey=pathlib.Path('/usr/share/keyrings/ubuntu-archive-keyring.gpg')\nrows=[]\nfor suite in ('jammy','jammy-updates'):\n    path=pathlib.Path('/metadata')/(suite+'_InRelease')\n    command=['gpgv','--status-fd','1','--keyring',str(key),str(path)]\n    result=subprocess.run(command,capture_output=True,text=True)\n    rows.append({'suite':suite,'command':command,'returncode':result.returncode,'status':result.stdout,'diagnostic':result.stderr,'inrelease_sha256':hashlib.sha256(path.read_bytes()).hexdigest()})\nprint(json.dumps({'gpgv':shutil.which('gpgv'),'keyring_path':str(key),'keyring_sha256':hashlib.sha256(key.read_bytes()).hexdigest(),'results':rows}))\n"
+  ],
+  "returncode": 0,
+  "container_stderr": "",
+  "verification": {
+    "gpgv": "/usr/bin/gpgv",
+    "keyring_path": "/usr/share/keyrings/ubuntu-archive-keyring.gpg",
+    "keyring_sha256": "1a4dd63e5c76728960a2edddae22e2e0fc53df8e8b87806deb971030ac704eb0",
+    "results": [
+      {
+        "suite": "jammy",
+        "command": [
+          "gpgv",
+          "--status-fd",
+          "1",
+          "--keyring",
+          "/usr/share/keyrings/ubuntu-archive-keyring.gpg",
+          "/metadata/jammy_InRelease"
+        ],
+        "returncode": 0,
+        "status": "[GNUPG:] NEWSIG\n[GNUPG:] KEY_CONSIDERED F6ECB3762474EDA9D21B7022871920D1991BC93C 0\n[GNUPG:] SIG_ID HrKrdZjGCBwk+Qp/9/ZuVELIzaQ 2022-04-21 1650561399\n[GNUPG:] KEY_CONSIDERED F6ECB3762474EDA9D21B7022871920D1991BC93C 0\n[GNUPG:] GOODSIG 871920D1991BC93C Ubuntu Archive Automatic Signing Key (2018) <ftpmaster@ubuntu.com>\n[GNUPG:] VALIDSIG F6ECB3762474EDA9D21B7022871920D1991BC93C 2022-04-21 1650561399 0 4 0 1 10 01 F6ECB3762474EDA9D21B7022871920D1991BC93C\n[GNUPG:] VERIFICATION_COMPLIANCE_MODE 23\n",
+        "diagnostic": "gpgv: Signature made Thu Apr 21 17:16:39 2022 UTC\ngpgv:                using RSA key 871920D1991BC93C\ngpgv: Good signature from \"Ubuntu Archive Automatic Signing Key (2018) <ftpmaster@ubuntu.com>\"\n",
+        "inrelease_sha256": "c14060cd8c6d625874dfcb9523a35a395bf4865c28b6b6a82569ef326fe92dc6"
+      },
+      {
+        "suite": "jammy-updates",
+        "command": [
+          "gpgv",
+          "--status-fd",
+          "1",
+          "--keyring",
+          "/usr/share/keyrings/ubuntu-archive-keyring.gpg",
+          "/metadata/jammy-updates_InRelease"
+        ],
+        "returncode": 0,
+        "status": "[GNUPG:] NEWSIG\n[GNUPG:] KEY_CONSIDERED F6ECB3762474EDA9D21B7022871920D1991BC93C 0\n[GNUPG:] SIG_ID jFdjLgTHC4RU2CJMlEifIuL9WqA 2026-11-11 1794378966\n[GNUPG:] KEY_CONSIDERED F6ECB3762474EDA9D21B7022871920D1991BC93C 0\n[GNUPG:] GOODSIG 871920D1991BC93C Ubuntu Archive Automatic Signing Key (2018) <ftpmaster@ubuntu.com>\n[GNUPG:] VALIDSIG F6ECB3762474EDA9D21B7022871920D1991BC93C 2026-11-11 1794378966 0 4 0 1 10 01 F6ECB3762474EDA9D21B7022871920D1991BC93C\n[GNUPG:] VERIFICATION_COMPLIANCE_MODE 23\n",
+        "diagnostic": "gpgv: Signature made Wed Nov 11 06:36:06 2026 UTC\ngpgv:                using RSA key F6ECB3762474EDA9D21B7022871920D1991BC93C\ngpgv: Good signature from \"Ubuntu Archive Automatic Signing Key (2018) <ftpmaster@ubuntu.com>\"\n",
+        "inrelease_sha256": "a43202eb43c540e45242ada90b5e58a3a8f755fec73a077e55dc07f59b195de5"
+      }
+    ]
+  },
+  "download_binding": {
+    "metadata": [
+      {
+        "suite": "jammy",
+        "url": "https://archive.ubuntu.com/ubuntu/dists/jammy/InRelease",
+        "inrelease_sha256": "c14060cd8c6d625874dfcb9523a35a395bf4865c28b6b6a82569ef326fe92dc6",
+        "inrelease_bytes": 270087,
+        "clearsigned_body_sha256": "6883c1cb0fcfeefc2ad2e99746fcbb28cf8b2df66ce49904765d883dbf94a1ca",
+        "release_sha256": "6883c1cb0fcfeefc2ad2e99746fcbb28cf8b2df66ce49904765d883dbf94a1ca",
+        "cleartext_matches_release_bytes": true,
+        "tls_verification": true
+      },
+      {
+        "suite": "jammy-updates",
+        "url": "https://archive.ubuntu.com/ubuntu/dists/jammy-updates/InRelease",
+        "inrelease_sha256": "a43202eb43c540e45242ada90b5e58a3a8f755fec73a077e55dc07f59b195de5",
+        "inrelease_bytes": 128049,
+        "clearsigned_body_sha256": "8776e12b98b387ed0fd791bf2f9f733c39ace09b3435f2b470147f1e55c79ef9",
+        "release_sha256": "8776e12b98b387ed0fd791bf2f9f733c39ace09b3435f2b470147f1e55c79ef9",
+        "cleartext_matches_release_bytes": true,
+        "tls_verification": true
+      }
+    ],
+    "total_bytes": 398136,
+    "packages_or_deb_downloaded": false
+  },
+  "all_signatures_valid": true,
+  "all_cleartext_matches_previous_release": true,
+  "package_binaries_downloaded": false,
+  "apt_update_performed": false,
+  "packages_installed": false,
+  "credentials_mounted": false,
+  "metadata_mount_readonly": true,
+  "network": "none"
+}

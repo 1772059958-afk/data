@@ -1,0 +1,2021 @@
+....EEEEEEEEEEEEEEEEEEEEE.....................................s.s....... [ 90%]
+........                                                                 [100%]
+==================================== ERRORS ====================================
+___________ ERROR at setup of Test_boxplot_stats.test_form_main_list ___________
+
+cls = <class '_pytest.runner.CallInfo'>
+func = <function call_runtest_hook.<locals>.<lambda> at 0x761f3deaed40>
+when = 'setup'
+reraise = (<class '_pytest.outcomes.Exit'>, <class 'KeyboardInterrupt'>)
+
+    @classmethod
+    def from_call(
+        cls,
+        func: "Callable[[], TResult]",
+        when: "Literal['collect', 'setup', 'call', 'teardown']",
+        reraise: Optional[
+            Union[Type[BaseException], Tuple[Type[BaseException], ...]]
+        ] = None,
+    ) -> "CallInfo[TResult]":
+        """Call func, wrapping the result in a CallInfo.
+    
+        :param func:
+            The function to call. Called without arguments.
+        :param when:
+            The phase in which the function is called.
+        :param reraise:
+            Exception or exceptions that shall propagate if raised by the
+            function, instead of being wrapped in the CallInfo.
+        """
+        excinfo = None
+        start = timing.time()
+        precise_start = timing.perf_counter()
+        try:
+>           result: Optional[TResult] = func()
+
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/runner.py:341: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/runner.py:262: in <lambda>
+    lambda: ihook(item=item, **kwds), when=when, reraise=reraise
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/pluggy/_hooks.py:513: in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/pluggy/_manager.py:120: in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/runner.py:157: in pytest_runtest_setup
+    item.session._setupstate.setup(item)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/runner.py:497: in setup
+    raise exc
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/runner.py:494: in setup
+    col.setup()
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/python.py:1795: in setup
+    self._request._fillfixtures()
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:566: in _fillfixtures
+    item.funcargs[argname] = self.getfixturevalue(argname)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:585: in getfixturevalue
+    fixturedef = self._get_active_fixturedef(argname)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:607: in _get_active_fixturedef
+    self._compute_fixture_value(fixturedef)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:693: in _compute_fixture_value
+    fixturedef.execute(request=subrequest)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:1069: in execute
+    result = ihook.pytest_fixture_setup(fixturedef=self, request=request)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/pluggy/_hooks.py:513: in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/pluggy/_manager.py:120: in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:1123: in pytest_fixture_setup
+    result = call_fixture_func(fixturefunc, request, kwargs)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:895: in call_fixture_func
+    fixture_result = next(generator)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <matplotlib.tests.test_cbook.Test_boxplot_stats object at 0x761f3dedfb10>
+request = <SubRequest '_xunit_setup_method_fixture_Test_boxplot_stats' for <Function test_form_main_list>>
+
+    @fixtures.fixture(
+        autouse=True,
+        scope="function",
+        # Use a unique name to speed up lookup.
+        name=f"_xunit_setup_method_fixture_{self.obj.__qualname__}",
+    )
+    def xunit_setup_method_fixture(self, request) -> Generator[None, None, None]:
+        method = request.function
+        if setup_method is not None:
+            func = getattr(self, setup_name)
+            _call_with_optional_argument(func, method)
+            if emit_nose_setup_warning:
+>               warnings.warn(
+                    NOSE_SUPPORT_METHOD.format(
+                        nodeid=request.node.nodeid, method="setup"
+                    ),
+                    stacklevel=2,
+                )
+E               pytest.PytestRemovedIn8Warning: Support for nose tests is deprecated and will be removed in a future release.
+E               lib/matplotlib/tests/test_cbook.py::Test_boxplot_stats::test_form_main_list is using nose-specific method: `setup(self)`
+E               To remove this warning, rename it to `setup_method(self)`
+E               See docs: https://docs.pytest.org/en/stable/deprecations.html#support-for-tests-written-for-nose
+
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/python.py:901: PytestRemovedIn8Warning
+___________ ERROR at setup of Test_boxplot_stats.test_form_each_dict ___________
+
+cls = <class '_pytest.runner.CallInfo'>
+func = <function call_runtest_hook.<locals>.<lambda> at 0x761f3cda3380>
+when = 'setup'
+reraise = (<class '_pytest.outcomes.Exit'>, <class 'KeyboardInterrupt'>)
+
+    @classmethod
+    def from_call(
+        cls,
+        func: "Callable[[], TResult]",
+        when: "Literal['collect', 'setup', 'call', 'teardown']",
+        reraise: Optional[
+            Union[Type[BaseException], Tuple[Type[BaseException], ...]]
+        ] = None,
+    ) -> "CallInfo[TResult]":
+        """Call func, wrapping the result in a CallInfo.
+    
+        :param func:
+            The function to call. Called without arguments.
+        :param when:
+            The phase in which the function is called.
+        :param reraise:
+            Exception or exceptions that shall propagate if raised by the
+            function, instead of being wrapped in the CallInfo.
+        """
+        excinfo = None
+        start = timing.time()
+        precise_start = timing.perf_counter()
+        try:
+>           result: Optional[TResult] = func()
+
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/runner.py:341: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/runner.py:262: in <lambda>
+    lambda: ihook(item=item, **kwds), when=when, reraise=reraise
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/pluggy/_hooks.py:513: in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/pluggy/_manager.py:120: in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/runner.py:157: in pytest_runtest_setup
+    item.session._setupstate.setup(item)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/runner.py:497: in setup
+    raise exc
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/runner.py:494: in setup
+    col.setup()
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/python.py:1795: in setup
+    self._request._fillfixtures()
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:566: in _fillfixtures
+    item.funcargs[argname] = self.getfixturevalue(argname)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:585: in getfixturevalue
+    fixturedef = self._get_active_fixturedef(argname)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:607: in _get_active_fixturedef
+    self._compute_fixture_value(fixturedef)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:693: in _compute_fixture_value
+    fixturedef.execute(request=subrequest)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:1069: in execute
+    result = ihook.pytest_fixture_setup(fixturedef=self, request=request)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/pluggy/_hooks.py:513: in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/pluggy/_manager.py:120: in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:1123: in pytest_fixture_setup
+    result = call_fixture_func(fixturefunc, request, kwargs)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:895: in call_fixture_func
+    fixture_result = next(generator)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <matplotlib.tests.test_cbook.Test_boxplot_stats object at 0x761f3dedf010>
+request = <SubRequest '_xunit_setup_method_fixture_Test_boxplot_stats' for <Function test_form_each_dict>>
+
+    @fixtures.fixture(
+        autouse=True,
+        scope="function",
+        # Use a unique name to speed up lookup.
+        name=f"_xunit_setup_method_fixture_{self.obj.__qualname__}",
+    )
+    def xunit_setup_method_fixture(self, request) -> Generator[None, None, None]:
+        method = request.function
+        if setup_method is not None:
+            func = getattr(self, setup_name)
+            _call_with_optional_argument(func, method)
+            if emit_nose_setup_warning:
+>               warnings.warn(
+                    NOSE_SUPPORT_METHOD.format(
+                        nodeid=request.node.nodeid, method="setup"
+                    ),
+                    stacklevel=2,
+                )
+E               pytest.PytestRemovedIn8Warning: Support for nose tests is deprecated and will be removed in a future release.
+E               lib/matplotlib/tests/test_cbook.py::Test_boxplot_stats::test_form_each_dict is using nose-specific method: `setup(self)`
+E               To remove this warning, rename it to `setup_method(self)`
+E               See docs: https://docs.pytest.org/en/stable/deprecations.html#support-for-tests-written-for-nose
+
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/python.py:901: PytestRemovedIn8Warning
+___________ ERROR at setup of Test_boxplot_stats.test_form_dict_keys ___________
+
+cls = <class '_pytest.runner.CallInfo'>
+func = <function call_runtest_hook.<locals>.<lambda> at 0x761f3cd64fe0>
+when = 'setup'
+reraise = (<class '_pytest.outcomes.Exit'>, <class 'KeyboardInterrupt'>)
+
+    @classmethod
+    def from_call(
+        cls,
+        func: "Callable[[], TResult]",
+        when: "Literal['collect', 'setup', 'call', 'teardown']",
+        reraise: Optional[
+            Union[Type[BaseException], Tuple[Type[BaseException], ...]]
+        ] = None,
+    ) -> "CallInfo[TResult]":
+        """Call func, wrapping the result in a CallInfo.
+    
+        :param func:
+            The function to call. Called without arguments.
+        :param when:
+            The phase in which the function is called.
+        :param reraise:
+            Exception or exceptions that shall propagate if raised by the
+            function, instead of being wrapped in the CallInfo.
+        """
+        excinfo = None
+        start = timing.time()
+        precise_start = timing.perf_counter()
+        try:
+>           result: Optional[TResult] = func()
+
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/runner.py:341: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/runner.py:262: in <lambda>
+    lambda: ihook(item=item, **kwds), when=when, reraise=reraise
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/pluggy/_hooks.py:513: in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/pluggy/_manager.py:120: in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/runner.py:157: in pytest_runtest_setup
+    item.session._setupstate.setup(item)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/runner.py:497: in setup
+    raise exc
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/runner.py:494: in setup
+    col.setup()
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/python.py:1795: in setup
+    self._request._fillfixtures()
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:566: in _fillfixtures
+    item.funcargs[argname] = self.getfixturevalue(argname)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:585: in getfixturevalue
+    fixturedef = self._get_active_fixturedef(argname)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:607: in _get_active_fixturedef
+    self._compute_fixture_value(fixturedef)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:693: in _compute_fixture_value
+    fixturedef.execute(request=subrequest)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:1069: in execute
+    result = ihook.pytest_fixture_setup(fixturedef=self, request=request)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/pluggy/_hooks.py:513: in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/pluggy/_manager.py:120: in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:1123: in pytest_fixture_setup
+    result = call_fixture_func(fixturefunc, request, kwargs)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:895: in call_fixture_func
+    fixture_result = next(generator)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <matplotlib.tests.test_cbook.Test_boxplot_stats object at 0x761f3dedfa10>
+request = <SubRequest '_xunit_setup_method_fixture_Test_boxplot_stats' for <Function test_form_dict_keys>>
+
+    @fixtures.fixture(
+        autouse=True,
+        scope="function",
+        # Use a unique name to speed up lookup.
+        name=f"_xunit_setup_method_fixture_{self.obj.__qualname__}",
+    )
+    def xunit_setup_method_fixture(self, request) -> Generator[None, None, None]:
+        method = request.function
+        if setup_method is not None:
+            func = getattr(self, setup_name)
+            _call_with_optional_argument(func, method)
+            if emit_nose_setup_warning:
+>               warnings.warn(
+                    NOSE_SUPPORT_METHOD.format(
+                        nodeid=request.node.nodeid, method="setup"
+                    ),
+                    stacklevel=2,
+                )
+E               pytest.PytestRemovedIn8Warning: Support for nose tests is deprecated and will be removed in a future release.
+E               lib/matplotlib/tests/test_cbook.py::Test_boxplot_stats::test_form_dict_keys is using nose-specific method: `setup(self)`
+E               To remove this warning, rename it to `setup_method(self)`
+E               See docs: https://docs.pytest.org/en/stable/deprecations.html#support-for-tests-written-for-nose
+
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/python.py:901: PytestRemovedIn8Warning
+__________ ERROR at setup of Test_boxplot_stats.test_results_baseline __________
+
+cls = <class '_pytest.runner.CallInfo'>
+func = <function call_runtest_hook.<locals>.<lambda> at 0x761f3deaed40>
+when = 'setup'
+reraise = (<class '_pytest.outcomes.Exit'>, <class 'KeyboardInterrupt'>)
+
+    @classmethod
+    def from_call(
+        cls,
+        func: "Callable[[], TResult]",
+        when: "Literal['collect', 'setup', 'call', 'teardown']",
+        reraise: Optional[
+            Union[Type[BaseException], Tuple[Type[BaseException], ...]]
+        ] = None,
+    ) -> "CallInfo[TResult]":
+        """Call func, wrapping the result in a CallInfo.
+    
+        :param func:
+            The function to call. Called without arguments.
+        :param when:
+            The phase in which the function is called.
+        :param reraise:
+            Exception or exceptions that shall propagate if raised by the
+            function, instead of being wrapped in the CallInfo.
+        """
+        excinfo = None
+        start = timing.time()
+        precise_start = timing.perf_counter()
+        try:
+>           result: Optional[TResult] = func()
+
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/runner.py:341: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/runner.py:262: in <lambda>
+    lambda: ihook(item=item, **kwds), when=when, reraise=reraise
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/pluggy/_hooks.py:513: in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/pluggy/_manager.py:120: in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/runner.py:157: in pytest_runtest_setup
+    item.session._setupstate.setup(item)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/runner.py:497: in setup
+    raise exc
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/runner.py:494: in setup
+    col.setup()
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/python.py:1795: in setup
+    self._request._fillfixtures()
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:566: in _fillfixtures
+    item.funcargs[argname] = self.getfixturevalue(argname)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:585: in getfixturevalue
+    fixturedef = self._get_active_fixturedef(argname)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:607: in _get_active_fixturedef
+    self._compute_fixture_value(fixturedef)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:693: in _compute_fixture_value
+    fixturedef.execute(request=subrequest)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:1069: in execute
+    result = ihook.pytest_fixture_setup(fixturedef=self, request=request)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/pluggy/_hooks.py:513: in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/pluggy/_manager.py:120: in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:1123: in pytest_fixture_setup
+    result = call_fixture_func(fixturefunc, request, kwargs)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:895: in call_fixture_func
+    fixture_result = next(generator)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <matplotlib.tests.test_cbook.Test_boxplot_stats object at 0x761f3dede710>
+request = <SubRequest '_xunit_setup_method_fixture_Test_boxplot_stats' for <Function test_results_baseline>>
+
+    @fixtures.fixture(
+        autouse=True,
+        scope="function",
+        # Use a unique name to speed up lookup.
+        name=f"_xunit_setup_method_fixture_{self.obj.__qualname__}",
+    )
+    def xunit_setup_method_fixture(self, request) -> Generator[None, None, None]:
+        method = request.function
+        if setup_method is not None:
+            func = getattr(self, setup_name)
+            _call_with_optional_argument(func, method)
+            if emit_nose_setup_warning:
+>               warnings.warn(
+                    NOSE_SUPPORT_METHOD.format(
+                        nodeid=request.node.nodeid, method="setup"
+                    ),
+                    stacklevel=2,
+                )
+E               pytest.PytestRemovedIn8Warning: Support for nose tests is deprecated and will be removed in a future release.
+E               lib/matplotlib/tests/test_cbook.py::Test_boxplot_stats::test_results_baseline is using nose-specific method: `setup(self)`
+E               To remove this warning, rename it to `setup_method(self)`
+E               See docs: https://docs.pytest.org/en/stable/deprecations.html#support-for-tests-written-for-nose
+
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/python.py:901: PytestRemovedIn8Warning
+________ ERROR at setup of Test_boxplot_stats.test_results_bootstrapped ________
+
+cls = <class '_pytest.runner.CallInfo'>
+func = <function call_runtest_hook.<locals>.<lambda> at 0x761f3cd64b80>
+when = 'setup'
+reraise = (<class '_pytest.outcomes.Exit'>, <class 'KeyboardInterrupt'>)
+
+    @classmethod
+    def from_call(
+        cls,
+        func: "Callable[[], TResult]",
+        when: "Literal['collect', 'setup', 'call', 'teardown']",
+        reraise: Optional[
+            Union[Type[BaseException], Tuple[Type[BaseException], ...]]
+        ] = None,
+    ) -> "CallInfo[TResult]":
+        """Call func, wrapping the result in a CallInfo.
+    
+        :param func:
+            The function to call. Called without arguments.
+        :param when:
+            The phase in which the function is called.
+        :param reraise:
+            Exception or exceptions that shall propagate if raised by the
+            function, instead of being wrapped in the CallInfo.
+        """
+        excinfo = None
+        start = timing.time()
+        precise_start = timing.perf_counter()
+        try:
+>           result: Optional[TResult] = func()
+
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/runner.py:341: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/runner.py:262: in <lambda>
+    lambda: ihook(item=item, **kwds), when=when, reraise=reraise
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/pluggy/_hooks.py:513: in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/pluggy/_manager.py:120: in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/runner.py:157: in pytest_runtest_setup
+    item.session._setupstate.setup(item)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/runner.py:497: in setup
+    raise exc
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/runner.py:494: in setup
+    col.setup()
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/python.py:1795: in setup
+    self._request._fillfixtures()
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:566: in _fillfixtures
+    item.funcargs[argname] = self.getfixturevalue(argname)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:585: in getfixturevalue
+    fixturedef = self._get_active_fixturedef(argname)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:607: in _get_active_fixturedef
+    self._compute_fixture_value(fixturedef)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:693: in _compute_fixture_value
+    fixturedef.execute(request=subrequest)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:1069: in execute
+    result = ihook.pytest_fixture_setup(fixturedef=self, request=request)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/pluggy/_hooks.py:513: in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/pluggy/_manager.py:120: in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:1123: in pytest_fixture_setup
+    result = call_fixture_func(fixturefunc, request, kwargs)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:895: in call_fixture_func
+    fixture_result = next(generator)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <matplotlib.tests.test_cbook.Test_boxplot_stats object at 0x761f3dd45490>
+request = <SubRequest '_xunit_setup_method_fixture_Test_boxplot_stats' for <Function test_results_bootstrapped>>
+
+    @fixtures.fixture(
+        autouse=True,
+        scope="function",
+        # Use a unique name to speed up lookup.
+        name=f"_xunit_setup_method_fixture_{self.obj.__qualname__}",
+    )
+    def xunit_setup_method_fixture(self, request) -> Generator[None, None, None]:
+        method = request.function
+        if setup_method is not None:
+            func = getattr(self, setup_name)
+            _call_with_optional_argument(func, method)
+            if emit_nose_setup_warning:
+>               warnings.warn(
+                    NOSE_SUPPORT_METHOD.format(
+                        nodeid=request.node.nodeid, method="setup"
+                    ),
+                    stacklevel=2,
+                )
+E               pytest.PytestRemovedIn8Warning: Support for nose tests is deprecated and will be removed in a future release.
+E               lib/matplotlib/tests/test_cbook.py::Test_boxplot_stats::test_results_bootstrapped is using nose-specific method: `setup(self)`
+E               To remove this warning, rename it to `setup_method(self)`
+E               See docs: https://docs.pytest.org/en/stable/deprecations.html#support-for-tests-written-for-nose
+
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/python.py:901: PytestRemovedIn8Warning
+_______ ERROR at setup of Test_boxplot_stats.test_results_whiskers_float _______
+
+cls = <class '_pytest.runner.CallInfo'>
+func = <function call_runtest_hook.<locals>.<lambda> at 0x761f3cd653a0>
+when = 'setup'
+reraise = (<class '_pytest.outcomes.Exit'>, <class 'KeyboardInterrupt'>)
+
+    @classmethod
+    def from_call(
+        cls,
+        func: "Callable[[], TResult]",
+        when: "Literal['collect', 'setup', 'call', 'teardown']",
+        reraise: Optional[
+            Union[Type[BaseException], Tuple[Type[BaseException], ...]]
+        ] = None,
+    ) -> "CallInfo[TResult]":
+        """Call func, wrapping the result in a CallInfo.
+    
+        :param func:
+            The function to call. Called without arguments.
+        :param when:
+            The phase in which the function is called.
+        :param reraise:
+            Exception or exceptions that shall propagate if raised by the
+            function, instead of being wrapped in the CallInfo.
+        """
+        excinfo = None
+        start = timing.time()
+        precise_start = timing.perf_counter()
+        try:
+>           result: Optional[TResult] = func()
+
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/runner.py:341: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/runner.py:262: in <lambda>
+    lambda: ihook(item=item, **kwds), when=when, reraise=reraise
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/pluggy/_hooks.py:513: in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/pluggy/_manager.py:120: in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/runner.py:157: in pytest_runtest_setup
+    item.session._setupstate.setup(item)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/runner.py:497: in setup
+    raise exc
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/runner.py:494: in setup
+    col.setup()
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/python.py:1795: in setup
+    self._request._fillfixtures()
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:566: in _fillfixtures
+    item.funcargs[argname] = self.getfixturevalue(argname)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:585: in getfixturevalue
+    fixturedef = self._get_active_fixturedef(argname)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:607: in _get_active_fixturedef
+    self._compute_fixture_value(fixturedef)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:693: in _compute_fixture_value
+    fixturedef.execute(request=subrequest)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:1069: in execute
+    result = ihook.pytest_fixture_setup(fixturedef=self, request=request)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/pluggy/_hooks.py:513: in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/pluggy/_manager.py:120: in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:1123: in pytest_fixture_setup
+    result = call_fixture_func(fixturefunc, request, kwargs)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:895: in call_fixture_func
+    fixture_result = next(generator)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <matplotlib.tests.test_cbook.Test_boxplot_stats object at 0x761f3dd44610>
+request = <SubRequest '_xunit_setup_method_fixture_Test_boxplot_stats' for <Function test_results_whiskers_float>>
+
+    @fixtures.fixture(
+        autouse=True,
+        scope="function",
+        # Use a unique name to speed up lookup.
+        name=f"_xunit_setup_method_fixture_{self.obj.__qualname__}",
+    )
+    def xunit_setup_method_fixture(self, request) -> Generator[None, None, None]:
+        method = request.function
+        if setup_method is not None:
+            func = getattr(self, setup_name)
+            _call_with_optional_argument(func, method)
+            if emit_nose_setup_warning:
+>               warnings.warn(
+                    NOSE_SUPPORT_METHOD.format(
+                        nodeid=request.node.nodeid, method="setup"
+                    ),
+                    stacklevel=2,
+                )
+E               pytest.PytestRemovedIn8Warning: Support for nose tests is deprecated and will be removed in a future release.
+E               lib/matplotlib/tests/test_cbook.py::Test_boxplot_stats::test_results_whiskers_float is using nose-specific method: `setup(self)`
+E               To remove this warning, rename it to `setup_method(self)`
+E               See docs: https://docs.pytest.org/en/stable/deprecations.html#support-for-tests-written-for-nose
+
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/python.py:901: PytestRemovedIn8Warning
+_______ ERROR at setup of Test_boxplot_stats.test_results_whiskers_range _______
+
+cls = <class '_pytest.runner.CallInfo'>
+func = <function call_runtest_hook.<locals>.<lambda> at 0x761f3deaed40>
+when = 'setup'
+reraise = (<class '_pytest.outcomes.Exit'>, <class 'KeyboardInterrupt'>)
+
+    @classmethod
+    def from_call(
+        cls,
+        func: "Callable[[], TResult]",
+        when: "Literal['collect', 'setup', 'call', 'teardown']",
+        reraise: Optional[
+            Union[Type[BaseException], Tuple[Type[BaseException], ...]]
+        ] = None,
+    ) -> "CallInfo[TResult]":
+        """Call func, wrapping the result in a CallInfo.
+    
+        :param func:
+            The function to call. Called without arguments.
+        :param when:
+            The phase in which the function is called.
+        :param reraise:
+            Exception or exceptions that shall propagate if raised by the
+            function, instead of being wrapped in the CallInfo.
+        """
+        excinfo = None
+        start = timing.time()
+        precise_start = timing.perf_counter()
+        try:
+>           result: Optional[TResult] = func()
+
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/runner.py:341: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/runner.py:262: in <lambda>
+    lambda: ihook(item=item, **kwds), when=when, reraise=reraise
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/pluggy/_hooks.py:513: in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/pluggy/_manager.py:120: in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/runner.py:157: in pytest_runtest_setup
+    item.session._setupstate.setup(item)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/runner.py:497: in setup
+    raise exc
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/runner.py:494: in setup
+    col.setup()
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/python.py:1795: in setup
+    self._request._fillfixtures()
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:566: in _fillfixtures
+    item.funcargs[argname] = self.getfixturevalue(argname)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:585: in getfixturevalue
+    fixturedef = self._get_active_fixturedef(argname)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:607: in _get_active_fixturedef
+    self._compute_fixture_value(fixturedef)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:693: in _compute_fixture_value
+    fixturedef.execute(request=subrequest)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:1069: in execute
+    result = ihook.pytest_fixture_setup(fixturedef=self, request=request)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/pluggy/_hooks.py:513: in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/pluggy/_manager.py:120: in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:1123: in pytest_fixture_setup
+    result = call_fixture_func(fixturefunc, request, kwargs)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:895: in call_fixture_func
+    fixture_result = next(generator)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <matplotlib.tests.test_cbook.Test_boxplot_stats object at 0x761f3dd450d0>
+request = <SubRequest '_xunit_setup_method_fixture_Test_boxplot_stats' for <Function test_results_whiskers_range>>
+
+    @fixtures.fixture(
+        autouse=True,
+        scope="function",
+        # Use a unique name to speed up lookup.
+        name=f"_xunit_setup_method_fixture_{self.obj.__qualname__}",
+    )
+    def xunit_setup_method_fixture(self, request) -> Generator[None, None, None]:
+        method = request.function
+        if setup_method is not None:
+            func = getattr(self, setup_name)
+            _call_with_optional_argument(func, method)
+            if emit_nose_setup_warning:
+>               warnings.warn(
+                    NOSE_SUPPORT_METHOD.format(
+                        nodeid=request.node.nodeid, method="setup"
+                    ),
+                    stacklevel=2,
+                )
+E               pytest.PytestRemovedIn8Warning: Support for nose tests is deprecated and will be removed in a future release.
+E               lib/matplotlib/tests/test_cbook.py::Test_boxplot_stats::test_results_whiskers_range is using nose-specific method: `setup(self)`
+E               To remove this warning, rename it to `setup_method(self)`
+E               See docs: https://docs.pytest.org/en/stable/deprecations.html#support-for-tests-written-for-nose
+
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/python.py:901: PytestRemovedIn8Warning
+____ ERROR at setup of Test_boxplot_stats.test_results_whiskers_percentiles ____
+
+cls = <class '_pytest.runner.CallInfo'>
+func = <function call_runtest_hook.<locals>.<lambda> at 0x761f3cd65c60>
+when = 'setup'
+reraise = (<class '_pytest.outcomes.Exit'>, <class 'KeyboardInterrupt'>)
+
+    @classmethod
+    def from_call(
+        cls,
+        func: "Callable[[], TResult]",
+        when: "Literal['collect', 'setup', 'call', 'teardown']",
+        reraise: Optional[
+            Union[Type[BaseException], Tuple[Type[BaseException], ...]]
+        ] = None,
+    ) -> "CallInfo[TResult]":
+        """Call func, wrapping the result in a CallInfo.
+    
+        :param func:
+            The function to call. Called without arguments.
+        :param when:
+            The phase in which the function is called.
+        :param reraise:
+            Exception or exceptions that shall propagate if raised by the
+            function, instead of being wrapped in the CallInfo.
+        """
+        excinfo = None
+        start = timing.time()
+        precise_start = timing.perf_counter()
+        try:
+>           result: Optional[TResult] = func()
+
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/runner.py:341: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/runner.py:262: in <lambda>
+    lambda: ihook(item=item, **kwds), when=when, reraise=reraise
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/pluggy/_hooks.py:513: in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/pluggy/_manager.py:120: in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/runner.py:157: in pytest_runtest_setup
+    item.session._setupstate.setup(item)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/runner.py:497: in setup
+    raise exc
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/runner.py:494: in setup
+    col.setup()
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/python.py:1795: in setup
+    self._request._fillfixtures()
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:566: in _fillfixtures
+    item.funcargs[argname] = self.getfixturevalue(argname)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:585: in getfixturevalue
+    fixturedef = self._get_active_fixturedef(argname)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:607: in _get_active_fixturedef
+    self._compute_fixture_value(fixturedef)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:693: in _compute_fixture_value
+    fixturedef.execute(request=subrequest)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:1069: in execute
+    result = ihook.pytest_fixture_setup(fixturedef=self, request=request)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/pluggy/_hooks.py:513: in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/pluggy/_manager.py:120: in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:1123: in pytest_fixture_setup
+    result = call_fixture_func(fixturefunc, request, kwargs)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:895: in call_fixture_func
+    fixture_result = next(generator)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <matplotlib.tests.test_cbook.Test_boxplot_stats object at 0x761f3dd459d0>
+request = <SubRequest '_xunit_setup_method_fixture_Test_boxplot_stats' for <Function test_results_whiskers_percentiles>>
+
+    @fixtures.fixture(
+        autouse=True,
+        scope="function",
+        # Use a unique name to speed up lookup.
+        name=f"_xunit_setup_method_fixture_{self.obj.__qualname__}",
+    )
+    def xunit_setup_method_fixture(self, request) -> Generator[None, None, None]:
+        method = request.function
+        if setup_method is not None:
+            func = getattr(self, setup_name)
+            _call_with_optional_argument(func, method)
+            if emit_nose_setup_warning:
+>               warnings.warn(
+                    NOSE_SUPPORT_METHOD.format(
+                        nodeid=request.node.nodeid, method="setup"
+                    ),
+                    stacklevel=2,
+                )
+E               pytest.PytestRemovedIn8Warning: Support for nose tests is deprecated and will be removed in a future release.
+E               lib/matplotlib/tests/test_cbook.py::Test_boxplot_stats::test_results_whiskers_percentiles is using nose-specific method: `setup(self)`
+E               To remove this warning, rename it to `setup_method(self)`
+E               See docs: https://docs.pytest.org/en/stable/deprecations.html#support-for-tests-written-for-nose
+
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/python.py:901: PytestRemovedIn8Warning
+_________ ERROR at setup of Test_boxplot_stats.test_results_withlabels _________
+
+cls = <class '_pytest.runner.CallInfo'>
+func = <function call_runtest_hook.<locals>.<lambda> at 0x761f3deaed40>
+when = 'setup'
+reraise = (<class '_pytest.outcomes.Exit'>, <class 'KeyboardInterrupt'>)
+
+    @classmethod
+    def from_call(
+        cls,
+        func: "Callable[[], TResult]",
+        when: "Literal['collect', 'setup', 'call', 'teardown']",
+        reraise: Optional[
+            Union[Type[BaseException], Tuple[Type[BaseException], ...]]
+        ] = None,
+    ) -> "CallInfo[TResult]":
+        """Call func, wrapping the result in a CallInfo.
+    
+        :param func:
+            The function to call. Called without arguments.
+        :param when:
+            The phase in which the function is called.
+        :param reraise:
+            Exception or exceptions that shall propagate if raised by the
+            function, instead of being wrapped in the CallInfo.
+        """
+        excinfo = None
+        start = timing.time()
+        precise_start = timing.perf_counter()
+        try:
+>           result: Optional[TResult] = func()
+
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/runner.py:341: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/runner.py:262: in <lambda>
+    lambda: ihook(item=item, **kwds), when=when, reraise=reraise
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/pluggy/_hooks.py:513: in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/pluggy/_manager.py:120: in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/runner.py:157: in pytest_runtest_setup
+    item.session._setupstate.setup(item)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/runner.py:497: in setup
+    raise exc
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/runner.py:494: in setup
+    col.setup()
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/python.py:1795: in setup
+    self._request._fillfixtures()
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:566: in _fillfixtures
+    item.funcargs[argname] = self.getfixturevalue(argname)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:585: in getfixturevalue
+    fixturedef = self._get_active_fixturedef(argname)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:607: in _get_active_fixturedef
+    self._compute_fixture_value(fixturedef)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:693: in _compute_fixture_value
+    fixturedef.execute(request=subrequest)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:1069: in execute
+    result = ihook.pytest_fixture_setup(fixturedef=self, request=request)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/pluggy/_hooks.py:513: in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/pluggy/_manager.py:120: in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:1123: in pytest_fixture_setup
+    result = call_fixture_func(fixturefunc, request, kwargs)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:895: in call_fixture_func
+    fixture_result = next(generator)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <matplotlib.tests.test_cbook.Test_boxplot_stats object at 0x761f3dd46210>
+request = <SubRequest '_xunit_setup_method_fixture_Test_boxplot_stats' for <Function test_results_withlabels>>
+
+    @fixtures.fixture(
+        autouse=True,
+        scope="function",
+        # Use a unique name to speed up lookup.
+        name=f"_xunit_setup_method_fixture_{self.obj.__qualname__}",
+    )
+    def xunit_setup_method_fixture(self, request) -> Generator[None, None, None]:
+        method = request.function
+        if setup_method is not None:
+            func = getattr(self, setup_name)
+            _call_with_optional_argument(func, method)
+            if emit_nose_setup_warning:
+>               warnings.warn(
+                    NOSE_SUPPORT_METHOD.format(
+                        nodeid=request.node.nodeid, method="setup"
+                    ),
+                    stacklevel=2,
+                )
+E               pytest.PytestRemovedIn8Warning: Support for nose tests is deprecated and will be removed in a future release.
+E               lib/matplotlib/tests/test_cbook.py::Test_boxplot_stats::test_results_withlabels is using nose-specific method: `setup(self)`
+E               To remove this warning, rename it to `setup_method(self)`
+E               See docs: https://docs.pytest.org/en/stable/deprecations.html#support-for-tests-written-for-nose
+
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/python.py:901: PytestRemovedIn8Warning
+____________ ERROR at setup of Test_boxplot_stats.test_label_error _____________
+
+cls = <class '_pytest.runner.CallInfo'>
+func = <function call_runtest_hook.<locals>.<lambda> at 0x761f3cd660c0>
+when = 'setup'
+reraise = (<class '_pytest.outcomes.Exit'>, <class 'KeyboardInterrupt'>)
+
+    @classmethod
+    def from_call(
+        cls,
+        func: "Callable[[], TResult]",
+        when: "Literal['collect', 'setup', 'call', 'teardown']",
+        reraise: Optional[
+            Union[Type[BaseException], Tuple[Type[BaseException], ...]]
+        ] = None,
+    ) -> "CallInfo[TResult]":
+        """Call func, wrapping the result in a CallInfo.
+    
+        :param func:
+            The function to call. Called without arguments.
+        :param when:
+            The phase in which the function is called.
+        :param reraise:
+            Exception or exceptions that shall propagate if raised by the
+            function, instead of being wrapped in the CallInfo.
+        """
+        excinfo = None
+        start = timing.time()
+        precise_start = timing.perf_counter()
+        try:
+>           result: Optional[TResult] = func()
+
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/runner.py:341: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/runner.py:262: in <lambda>
+    lambda: ihook(item=item, **kwds), when=when, reraise=reraise
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/pluggy/_hooks.py:513: in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/pluggy/_manager.py:120: in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/runner.py:157: in pytest_runtest_setup
+    item.session._setupstate.setup(item)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/runner.py:497: in setup
+    raise exc
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/runner.py:494: in setup
+    col.setup()
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/python.py:1795: in setup
+    self._request._fillfixtures()
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:566: in _fillfixtures
+    item.funcargs[argname] = self.getfixturevalue(argname)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:585: in getfixturevalue
+    fixturedef = self._get_active_fixturedef(argname)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:607: in _get_active_fixturedef
+    self._compute_fixture_value(fixturedef)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:693: in _compute_fixture_value
+    fixturedef.execute(request=subrequest)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:1069: in execute
+    result = ihook.pytest_fixture_setup(fixturedef=self, request=request)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/pluggy/_hooks.py:513: in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/pluggy/_manager.py:120: in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:1123: in pytest_fixture_setup
+    result = call_fixture_func(fixturefunc, request, kwargs)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:895: in call_fixture_func
+    fixture_result = next(generator)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <matplotlib.tests.test_cbook.Test_boxplot_stats object at 0x761f3dd469d0>
+request = <SubRequest '_xunit_setup_method_fixture_Test_boxplot_stats' for <Function test_label_error>>
+
+    @fixtures.fixture(
+        autouse=True,
+        scope="function",
+        # Use a unique name to speed up lookup.
+        name=f"_xunit_setup_method_fixture_{self.obj.__qualname__}",
+    )
+    def xunit_setup_method_fixture(self, request) -> Generator[None, None, None]:
+        method = request.function
+        if setup_method is not None:
+            func = getattr(self, setup_name)
+            _call_with_optional_argument(func, method)
+            if emit_nose_setup_warning:
+>               warnings.warn(
+                    NOSE_SUPPORT_METHOD.format(
+                        nodeid=request.node.nodeid, method="setup"
+                    ),
+                    stacklevel=2,
+                )
+E               pytest.PytestRemovedIn8Warning: Support for nose tests is deprecated and will be removed in a future release.
+E               lib/matplotlib/tests/test_cbook.py::Test_boxplot_stats::test_label_error is using nose-specific method: `setup(self)`
+E               To remove this warning, rename it to `setup_method(self)`
+E               See docs: https://docs.pytest.org/en/stable/deprecations.html#support-for-tests-written-for-nose
+
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/python.py:901: PytestRemovedIn8Warning
+______________ ERROR at setup of Test_boxplot_stats.test_bad_dims ______________
+
+cls = <class '_pytest.runner.CallInfo'>
+func = <function call_runtest_hook.<locals>.<lambda> at 0x761f3cd64720>
+when = 'setup'
+reraise = (<class '_pytest.outcomes.Exit'>, <class 'KeyboardInterrupt'>)
+
+    @classmethod
+    def from_call(
+        cls,
+        func: "Callable[[], TResult]",
+        when: "Literal['collect', 'setup', 'call', 'teardown']",
+        reraise: Optional[
+            Union[Type[BaseException], Tuple[Type[BaseException], ...]]
+        ] = None,
+    ) -> "CallInfo[TResult]":
+        """Call func, wrapping the result in a CallInfo.
+    
+        :param func:
+            The function to call. Called without arguments.
+        :param when:
+            The phase in which the function is called.
+        :param reraise:
+            Exception or exceptions that shall propagate if raised by the
+            function, instead of being wrapped in the CallInfo.
+        """
+        excinfo = None
+        start = timing.time()
+        precise_start = timing.perf_counter()
+        try:
+>           result: Optional[TResult] = func()
+
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/runner.py:341: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/runner.py:262: in <lambda>
+    lambda: ihook(item=item, **kwds), when=when, reraise=reraise
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/pluggy/_hooks.py:513: in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/pluggy/_manager.py:120: in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/runner.py:157: in pytest_runtest_setup
+    item.session._setupstate.setup(item)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/runner.py:497: in setup
+    raise exc
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/runner.py:494: in setup
+    col.setup()
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/python.py:1795: in setup
+    self._request._fillfixtures()
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:566: in _fillfixtures
+    item.funcargs[argname] = self.getfixturevalue(argname)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:585: in getfixturevalue
+    fixturedef = self._get_active_fixturedef(argname)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:607: in _get_active_fixturedef
+    self._compute_fixture_value(fixturedef)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:693: in _compute_fixture_value
+    fixturedef.execute(request=subrequest)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:1069: in execute
+    result = ihook.pytest_fixture_setup(fixturedef=self, request=request)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/pluggy/_hooks.py:513: in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/pluggy/_manager.py:120: in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:1123: in pytest_fixture_setup
+    result = call_fixture_func(fixturefunc, request, kwargs)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:895: in call_fixture_func
+    fixture_result = next(generator)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <matplotlib.tests.test_cbook.Test_boxplot_stats object at 0x761f3dd470d0>
+request = <SubRequest '_xunit_setup_method_fixture_Test_boxplot_stats' for <Function test_bad_dims>>
+
+    @fixtures.fixture(
+        autouse=True,
+        scope="function",
+        # Use a unique name to speed up lookup.
+        name=f"_xunit_setup_method_fixture_{self.obj.__qualname__}",
+    )
+    def xunit_setup_method_fixture(self, request) -> Generator[None, None, None]:
+        method = request.function
+        if setup_method is not None:
+            func = getattr(self, setup_name)
+            _call_with_optional_argument(func, method)
+            if emit_nose_setup_warning:
+>               warnings.warn(
+                    NOSE_SUPPORT_METHOD.format(
+                        nodeid=request.node.nodeid, method="setup"
+                    ),
+                    stacklevel=2,
+                )
+E               pytest.PytestRemovedIn8Warning: Support for nose tests is deprecated and will be removed in a future release.
+E               lib/matplotlib/tests/test_cbook.py::Test_boxplot_stats::test_bad_dims is using nose-specific method: `setup(self)`
+E               To remove this warning, rename it to `setup_method(self)`
+E               See docs: https://docs.pytest.org/en/stable/deprecations.html#support-for-tests-written-for-nose
+
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/python.py:901: PytestRemovedIn8Warning
+___ ERROR at setup of Test_boxplot_stats.test_boxplot_stats_autorange_false ____
+
+cls = <class '_pytest.runner.CallInfo'>
+func = <function call_runtest_hook.<locals>.<lambda> at 0x761f3deaed40>
+when = 'setup'
+reraise = (<class '_pytest.outcomes.Exit'>, <class 'KeyboardInterrupt'>)
+
+    @classmethod
+    def from_call(
+        cls,
+        func: "Callable[[], TResult]",
+        when: "Literal['collect', 'setup', 'call', 'teardown']",
+        reraise: Optional[
+            Union[Type[BaseException], Tuple[Type[BaseException], ...]]
+        ] = None,
+    ) -> "CallInfo[TResult]":
+        """Call func, wrapping the result in a CallInfo.
+    
+        :param func:
+            The function to call. Called without arguments.
+        :param when:
+            The phase in which the function is called.
+        :param reraise:
+            Exception or exceptions that shall propagate if raised by the
+            function, instead of being wrapped in the CallInfo.
+        """
+        excinfo = None
+        start = timing.time()
+        precise_start = timing.perf_counter()
+        try:
+>           result: Optional[TResult] = func()
+
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/runner.py:341: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/runner.py:262: in <lambda>
+    lambda: ihook(item=item, **kwds), when=when, reraise=reraise
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/pluggy/_hooks.py:513: in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/pluggy/_manager.py:120: in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/runner.py:157: in pytest_runtest_setup
+    item.session._setupstate.setup(item)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/runner.py:497: in setup
+    raise exc
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/runner.py:494: in setup
+    col.setup()
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/python.py:1795: in setup
+    self._request._fillfixtures()
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:566: in _fillfixtures
+    item.funcargs[argname] = self.getfixturevalue(argname)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:585: in getfixturevalue
+    fixturedef = self._get_active_fixturedef(argname)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:607: in _get_active_fixturedef
+    self._compute_fixture_value(fixturedef)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:693: in _compute_fixture_value
+    fixturedef.execute(request=subrequest)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:1069: in execute
+    result = ihook.pytest_fixture_setup(fixturedef=self, request=request)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/pluggy/_hooks.py:513: in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/pluggy/_manager.py:120: in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:1123: in pytest_fixture_setup
+    result = call_fixture_func(fixturefunc, request, kwargs)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:895: in call_fixture_func
+    fixture_result = next(generator)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <matplotlib.tests.test_cbook.Test_boxplot_stats object at 0x761f3deddf90>
+request = <SubRequest '_xunit_setup_method_fixture_Test_boxplot_stats' for <Function test_boxplot_stats_autorange_false>>
+
+    @fixtures.fixture(
+        autouse=True,
+        scope="function",
+        # Use a unique name to speed up lookup.
+        name=f"_xunit_setup_method_fixture_{self.obj.__qualname__}",
+    )
+    def xunit_setup_method_fixture(self, request) -> Generator[None, None, None]:
+        method = request.function
+        if setup_method is not None:
+            func = getattr(self, setup_name)
+            _call_with_optional_argument(func, method)
+            if emit_nose_setup_warning:
+>               warnings.warn(
+                    NOSE_SUPPORT_METHOD.format(
+                        nodeid=request.node.nodeid, method="setup"
+                    ),
+                    stacklevel=2,
+                )
+E               pytest.PytestRemovedIn8Warning: Support for nose tests is deprecated and will be removed in a future release.
+E               lib/matplotlib/tests/test_cbook.py::Test_boxplot_stats::test_boxplot_stats_autorange_false is using nose-specific method: `setup(self)`
+E               To remove this warning, rename it to `setup_method(self)`
+E               See docs: https://docs.pytest.org/en/stable/deprecations.html#support-for-tests-written-for-nose
+
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/python.py:901: PytestRemovedIn8Warning
+____ ERROR at setup of Test_callback_registry.test_callback_complete[True] _____
+
+cls = <class '_pytest.runner.CallInfo'>
+func = <function call_runtest_hook.<locals>.<lambda> at 0x761f3cd66340>
+when = 'setup'
+reraise = (<class '_pytest.outcomes.Exit'>, <class 'KeyboardInterrupt'>)
+
+    @classmethod
+    def from_call(
+        cls,
+        func: "Callable[[], TResult]",
+        when: "Literal['collect', 'setup', 'call', 'teardown']",
+        reraise: Optional[
+            Union[Type[BaseException], Tuple[Type[BaseException], ...]]
+        ] = None,
+    ) -> "CallInfo[TResult]":
+        """Call func, wrapping the result in a CallInfo.
+    
+        :param func:
+            The function to call. Called without arguments.
+        :param when:
+            The phase in which the function is called.
+        :param reraise:
+            Exception or exceptions that shall propagate if raised by the
+            function, instead of being wrapped in the CallInfo.
+        """
+        excinfo = None
+        start = timing.time()
+        precise_start = timing.perf_counter()
+        try:
+>           result: Optional[TResult] = func()
+
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/runner.py:341: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/runner.py:262: in <lambda>
+    lambda: ihook(item=item, **kwds), when=when, reraise=reraise
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/pluggy/_hooks.py:513: in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/pluggy/_manager.py:120: in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/runner.py:157: in pytest_runtest_setup
+    item.session._setupstate.setup(item)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/runner.py:497: in setup
+    raise exc
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/runner.py:494: in setup
+    col.setup()
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/python.py:1795: in setup
+    self._request._fillfixtures()
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:566: in _fillfixtures
+    item.funcargs[argname] = self.getfixturevalue(argname)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:585: in getfixturevalue
+    fixturedef = self._get_active_fixturedef(argname)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:607: in _get_active_fixturedef
+    self._compute_fixture_value(fixturedef)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:693: in _compute_fixture_value
+    fixturedef.execute(request=subrequest)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:1069: in execute
+    result = ihook.pytest_fixture_setup(fixturedef=self, request=request)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/pluggy/_hooks.py:513: in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/pluggy/_manager.py:120: in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:1123: in pytest_fixture_setup
+    result = call_fixture_func(fixturefunc, request, kwargs)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:895: in call_fixture_func
+    fixture_result = next(generator)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <matplotlib.tests.test_cbook.Test_callback_registry object at 0x761f3dd44b10>
+request = <SubRequest '_xunit_setup_method_fixture_Test_callback_registry' for <Function test_callback_complete[True]>>
+
+    @fixtures.fixture(
+        autouse=True,
+        scope="function",
+        # Use a unique name to speed up lookup.
+        name=f"_xunit_setup_method_fixture_{self.obj.__qualname__}",
+    )
+    def xunit_setup_method_fixture(self, request) -> Generator[None, None, None]:
+        method = request.function
+        if setup_method is not None:
+            func = getattr(self, setup_name)
+            _call_with_optional_argument(func, method)
+            if emit_nose_setup_warning:
+>               warnings.warn(
+                    NOSE_SUPPORT_METHOD.format(
+                        nodeid=request.node.nodeid, method="setup"
+                    ),
+                    stacklevel=2,
+                )
+E               pytest.PytestRemovedIn8Warning: Support for nose tests is deprecated and will be removed in a future release.
+E               lib/matplotlib/tests/test_cbook.py::Test_callback_registry::test_callback_complete[True] is using nose-specific method: `setup(self)`
+E               To remove this warning, rename it to `setup_method(self)`
+E               See docs: https://docs.pytest.org/en/stable/deprecations.html#support-for-tests-written-for-nose
+
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/python.py:901: PytestRemovedIn8Warning
+____ ERROR at setup of Test_callback_registry.test_callback_complete[False] ____
+
+cls = <class '_pytest.runner.CallInfo'>
+func = <function call_runtest_hook.<locals>.<lambda> at 0x761f3cd659e0>
+when = 'setup'
+reraise = (<class '_pytest.outcomes.Exit'>, <class 'KeyboardInterrupt'>)
+
+    @classmethod
+    def from_call(
+        cls,
+        func: "Callable[[], TResult]",
+        when: "Literal['collect', 'setup', 'call', 'teardown']",
+        reraise: Optional[
+            Union[Type[BaseException], Tuple[Type[BaseException], ...]]
+        ] = None,
+    ) -> "CallInfo[TResult]":
+        """Call func, wrapping the result in a CallInfo.
+    
+        :param func:
+            The function to call. Called without arguments.
+        :param when:
+            The phase in which the function is called.
+        :param reraise:
+            Exception or exceptions that shall propagate if raised by the
+            function, instead of being wrapped in the CallInfo.
+        """
+        excinfo = None
+        start = timing.time()
+        precise_start = timing.perf_counter()
+        try:
+>           result: Optional[TResult] = func()
+
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/runner.py:341: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/runner.py:262: in <lambda>
+    lambda: ihook(item=item, **kwds), when=when, reraise=reraise
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/pluggy/_hooks.py:513: in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/pluggy/_manager.py:120: in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/runner.py:157: in pytest_runtest_setup
+    item.session._setupstate.setup(item)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/runner.py:497: in setup
+    raise exc
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/runner.py:494: in setup
+    col.setup()
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/python.py:1795: in setup
+    self._request._fillfixtures()
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:566: in _fillfixtures
+    item.funcargs[argname] = self.getfixturevalue(argname)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:585: in getfixturevalue
+    fixturedef = self._get_active_fixturedef(argname)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:607: in _get_active_fixturedef
+    self._compute_fixture_value(fixturedef)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:693: in _compute_fixture_value
+    fixturedef.execute(request=subrequest)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:1069: in execute
+    result = ihook.pytest_fixture_setup(fixturedef=self, request=request)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/pluggy/_hooks.py:513: in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/pluggy/_manager.py:120: in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:1123: in pytest_fixture_setup
+    result = call_fixture_func(fixturefunc, request, kwargs)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:895: in call_fixture_func
+    fixture_result = next(generator)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <matplotlib.tests.test_cbook.Test_callback_registry object at 0x761f3dd47ad0>
+request = <SubRequest '_xunit_setup_method_fixture_Test_callback_registry' for <Function test_callback_complete[False]>>
+
+    @fixtures.fixture(
+        autouse=True,
+        scope="function",
+        # Use a unique name to speed up lookup.
+        name=f"_xunit_setup_method_fixture_{self.obj.__qualname__}",
+    )
+    def xunit_setup_method_fixture(self, request) -> Generator[None, None, None]:
+        method = request.function
+        if setup_method is not None:
+            func = getattr(self, setup_name)
+            _call_with_optional_argument(func, method)
+            if emit_nose_setup_warning:
+>               warnings.warn(
+                    NOSE_SUPPORT_METHOD.format(
+                        nodeid=request.node.nodeid, method="setup"
+                    ),
+                    stacklevel=2,
+                )
+E               pytest.PytestRemovedIn8Warning: Support for nose tests is deprecated and will be removed in a future release.
+E               lib/matplotlib/tests/test_cbook.py::Test_callback_registry::test_callback_complete[False] is using nose-specific method: `setup(self)`
+E               To remove this warning, rename it to `setup_method(self)`
+E               See docs: https://docs.pytest.org/en/stable/deprecations.html#support-for-tests-written-for-nose
+
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/python.py:901: PytestRemovedIn8Warning
+___ ERROR at setup of Test_callback_registry.test_callback_disconnect[True] ____
+
+cls = <class '_pytest.runner.CallInfo'>
+func = <function call_runtest_hook.<locals>.<lambda> at 0x761f3cd65580>
+when = 'setup'
+reraise = (<class '_pytest.outcomes.Exit'>, <class 'KeyboardInterrupt'>)
+
+    @classmethod
+    def from_call(
+        cls,
+        func: "Callable[[], TResult]",
+        when: "Literal['collect', 'setup', 'call', 'teardown']",
+        reraise: Optional[
+            Union[Type[BaseException], Tuple[Type[BaseException], ...]]
+        ] = None,
+    ) -> "CallInfo[TResult]":
+        """Call func, wrapping the result in a CallInfo.
+    
+        :param func:
+            The function to call. Called without arguments.
+        :param when:
+            The phase in which the function is called.
+        :param reraise:
+            Exception or exceptions that shall propagate if raised by the
+            function, instead of being wrapped in the CallInfo.
+        """
+        excinfo = None
+        start = timing.time()
+        precise_start = timing.perf_counter()
+        try:
+>           result: Optional[TResult] = func()
+
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/runner.py:341: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/runner.py:262: in <lambda>
+    lambda: ihook(item=item, **kwds), when=when, reraise=reraise
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/pluggy/_hooks.py:513: in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/pluggy/_manager.py:120: in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/runner.py:157: in pytest_runtest_setup
+    item.session._setupstate.setup(item)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/runner.py:497: in setup
+    raise exc
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/runner.py:494: in setup
+    col.setup()
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/python.py:1795: in setup
+    self._request._fillfixtures()
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:566: in _fillfixtures
+    item.funcargs[argname] = self.getfixturevalue(argname)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:585: in getfixturevalue
+    fixturedef = self._get_active_fixturedef(argname)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:607: in _get_active_fixturedef
+    self._compute_fixture_value(fixturedef)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:693: in _compute_fixture_value
+    fixturedef.execute(request=subrequest)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:1069: in execute
+    result = ihook.pytest_fixture_setup(fixturedef=self, request=request)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/pluggy/_hooks.py:513: in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/pluggy/_manager.py:120: in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:1123: in pytest_fixture_setup
+    result = call_fixture_func(fixturefunc, request, kwargs)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:895: in call_fixture_func
+    fixture_result = next(generator)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <matplotlib.tests.test_cbook.Test_callback_registry object at 0x761f3dd47650>
+request = <SubRequest '_xunit_setup_method_fixture_Test_callback_registry' for <Function test_callback_disconnect[True]>>
+
+    @fixtures.fixture(
+        autouse=True,
+        scope="function",
+        # Use a unique name to speed up lookup.
+        name=f"_xunit_setup_method_fixture_{self.obj.__qualname__}",
+    )
+    def xunit_setup_method_fixture(self, request) -> Generator[None, None, None]:
+        method = request.function
+        if setup_method is not None:
+            func = getattr(self, setup_name)
+            _call_with_optional_argument(func, method)
+            if emit_nose_setup_warning:
+>               warnings.warn(
+                    NOSE_SUPPORT_METHOD.format(
+                        nodeid=request.node.nodeid, method="setup"
+                    ),
+                    stacklevel=2,
+                )
+E               pytest.PytestRemovedIn8Warning: Support for nose tests is deprecated and will be removed in a future release.
+E               lib/matplotlib/tests/test_cbook.py::Test_callback_registry::test_callback_disconnect[True] is using nose-specific method: `setup(self)`
+E               To remove this warning, rename it to `setup_method(self)`
+E               See docs: https://docs.pytest.org/en/stable/deprecations.html#support-for-tests-written-for-nose
+
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/python.py:901: PytestRemovedIn8Warning
+___ ERROR at setup of Test_callback_registry.test_callback_disconnect[False] ___
+
+cls = <class '_pytest.runner.CallInfo'>
+func = <function call_runtest_hook.<locals>.<lambda> at 0x761f3cd65b20>
+when = 'setup'
+reraise = (<class '_pytest.outcomes.Exit'>, <class 'KeyboardInterrupt'>)
+
+    @classmethod
+    def from_call(
+        cls,
+        func: "Callable[[], TResult]",
+        when: "Literal['collect', 'setup', 'call', 'teardown']",
+        reraise: Optional[
+            Union[Type[BaseException], Tuple[Type[BaseException], ...]]
+        ] = None,
+    ) -> "CallInfo[TResult]":
+        """Call func, wrapping the result in a CallInfo.
+    
+        :param func:
+            The function to call. Called without arguments.
+        :param when:
+            The phase in which the function is called.
+        :param reraise:
+            Exception or exceptions that shall propagate if raised by the
+            function, instead of being wrapped in the CallInfo.
+        """
+        excinfo = None
+        start = timing.time()
+        precise_start = timing.perf_counter()
+        try:
+>           result: Optional[TResult] = func()
+
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/runner.py:341: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/runner.py:262: in <lambda>
+    lambda: ihook(item=item, **kwds), when=when, reraise=reraise
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/pluggy/_hooks.py:513: in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/pluggy/_manager.py:120: in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/runner.py:157: in pytest_runtest_setup
+    item.session._setupstate.setup(item)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/runner.py:497: in setup
+    raise exc
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/runner.py:494: in setup
+    col.setup()
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/python.py:1795: in setup
+    self._request._fillfixtures()
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:566: in _fillfixtures
+    item.funcargs[argname] = self.getfixturevalue(argname)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:585: in getfixturevalue
+    fixturedef = self._get_active_fixturedef(argname)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:607: in _get_active_fixturedef
+    self._compute_fixture_value(fixturedef)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:693: in _compute_fixture_value
+    fixturedef.execute(request=subrequest)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:1069: in execute
+    result = ihook.pytest_fixture_setup(fixturedef=self, request=request)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/pluggy/_hooks.py:513: in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/pluggy/_manager.py:120: in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:1123: in pytest_fixture_setup
+    result = call_fixture_func(fixturefunc, request, kwargs)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:895: in call_fixture_func
+    fixture_result = next(generator)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <matplotlib.tests.test_cbook.Test_callback_registry object at 0x761f3defe150>
+request = <SubRequest '_xunit_setup_method_fixture_Test_callback_registry' for <Function test_callback_disconnect[False]>>
+
+    @fixtures.fixture(
+        autouse=True,
+        scope="function",
+        # Use a unique name to speed up lookup.
+        name=f"_xunit_setup_method_fixture_{self.obj.__qualname__}",
+    )
+    def xunit_setup_method_fixture(self, request) -> Generator[None, None, None]:
+        method = request.function
+        if setup_method is not None:
+            func = getattr(self, setup_name)
+            _call_with_optional_argument(func, method)
+            if emit_nose_setup_warning:
+>               warnings.warn(
+                    NOSE_SUPPORT_METHOD.format(
+                        nodeid=request.node.nodeid, method="setup"
+                    ),
+                    stacklevel=2,
+                )
+E               pytest.PytestRemovedIn8Warning: Support for nose tests is deprecated and will be removed in a future release.
+E               lib/matplotlib/tests/test_cbook.py::Test_callback_registry::test_callback_disconnect[False] is using nose-specific method: `setup(self)`
+E               To remove this warning, rename it to `setup_method(self)`
+E               See docs: https://docs.pytest.org/en/stable/deprecations.html#support-for-tests-written-for-nose
+
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/python.py:901: PytestRemovedIn8Warning
+_ ERROR at setup of Test_callback_registry.test_callback_wrong_disconnect[True] _
+
+cls = <class '_pytest.runner.CallInfo'>
+func = <function call_runtest_hook.<locals>.<lambda> at 0x761f3cd662a0>
+when = 'setup'
+reraise = (<class '_pytest.outcomes.Exit'>, <class 'KeyboardInterrupt'>)
+
+    @classmethod
+    def from_call(
+        cls,
+        func: "Callable[[], TResult]",
+        when: "Literal['collect', 'setup', 'call', 'teardown']",
+        reraise: Optional[
+            Union[Type[BaseException], Tuple[Type[BaseException], ...]]
+        ] = None,
+    ) -> "CallInfo[TResult]":
+        """Call func, wrapping the result in a CallInfo.
+    
+        :param func:
+            The function to call. Called without arguments.
+        :param when:
+            The phase in which the function is called.
+        :param reraise:
+            Exception or exceptions that shall propagate if raised by the
+            function, instead of being wrapped in the CallInfo.
+        """
+        excinfo = None
+        start = timing.time()
+        precise_start = timing.perf_counter()
+        try:
+>           result: Optional[TResult] = func()
+
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/runner.py:341: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/runner.py:262: in <lambda>
+    lambda: ihook(item=item, **kwds), when=when, reraise=reraise
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/pluggy/_hooks.py:513: in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/pluggy/_manager.py:120: in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/runner.py:157: in pytest_runtest_setup
+    item.session._setupstate.setup(item)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/runner.py:497: in setup
+    raise exc
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/runner.py:494: in setup
+    col.setup()
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/python.py:1795: in setup
+    self._request._fillfixtures()
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:566: in _fillfixtures
+    item.funcargs[argname] = self.getfixturevalue(argname)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:585: in getfixturevalue
+    fixturedef = self._get_active_fixturedef(argname)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:607: in _get_active_fixturedef
+    self._compute_fixture_value(fixturedef)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:693: in _compute_fixture_value
+    fixturedef.execute(request=subrequest)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:1069: in execute
+    result = ihook.pytest_fixture_setup(fixturedef=self, request=request)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/pluggy/_hooks.py:513: in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/pluggy/_manager.py:120: in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:1123: in pytest_fixture_setup
+    result = call_fixture_func(fixturefunc, request, kwargs)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:895: in call_fixture_func
+    fixture_result = next(generator)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <matplotlib.tests.test_cbook.Test_callback_registry object at 0x761f3defc110>
+request = <SubRequest '_xunit_setup_method_fixture_Test_callback_registry' for <Function test_callback_wrong_disconnect[True]>>
+
+    @fixtures.fixture(
+        autouse=True,
+        scope="function",
+        # Use a unique name to speed up lookup.
+        name=f"_xunit_setup_method_fixture_{self.obj.__qualname__}",
+    )
+    def xunit_setup_method_fixture(self, request) -> Generator[None, None, None]:
+        method = request.function
+        if setup_method is not None:
+            func = getattr(self, setup_name)
+            _call_with_optional_argument(func, method)
+            if emit_nose_setup_warning:
+>               warnings.warn(
+                    NOSE_SUPPORT_METHOD.format(
+                        nodeid=request.node.nodeid, method="setup"
+                    ),
+                    stacklevel=2,
+                )
+E               pytest.PytestRemovedIn8Warning: Support for nose tests is deprecated and will be removed in a future release.
+E               lib/matplotlib/tests/test_cbook.py::Test_callback_registry::test_callback_wrong_disconnect[True] is using nose-specific method: `setup(self)`
+E               To remove this warning, rename it to `setup_method(self)`
+E               See docs: https://docs.pytest.org/en/stable/deprecations.html#support-for-tests-written-for-nose
+
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/python.py:901: PytestRemovedIn8Warning
+_ ERROR at setup of Test_callback_registry.test_callback_wrong_disconnect[False] _
+
+cls = <class '_pytest.runner.CallInfo'>
+func = <function call_runtest_hook.<locals>.<lambda> at 0x761f3cd64720>
+when = 'setup'
+reraise = (<class '_pytest.outcomes.Exit'>, <class 'KeyboardInterrupt'>)
+
+    @classmethod
+    def from_call(
+        cls,
+        func: "Callable[[], TResult]",
+        when: "Literal['collect', 'setup', 'call', 'teardown']",
+        reraise: Optional[
+            Union[Type[BaseException], Tuple[Type[BaseException], ...]]
+        ] = None,
+    ) -> "CallInfo[TResult]":
+        """Call func, wrapping the result in a CallInfo.
+    
+        :param func:
+            The function to call. Called without arguments.
+        :param when:
+            The phase in which the function is called.
+        :param reraise:
+            Exception or exceptions that shall propagate if raised by the
+            function, instead of being wrapped in the CallInfo.
+        """
+        excinfo = None
+        start = timing.time()
+        precise_start = timing.perf_counter()
+        try:
+>           result: Optional[TResult] = func()
+
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/runner.py:341: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/runner.py:262: in <lambda>
+    lambda: ihook(item=item, **kwds), when=when, reraise=reraise
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/pluggy/_hooks.py:513: in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/pluggy/_manager.py:120: in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/runner.py:157: in pytest_runtest_setup
+    item.session._setupstate.setup(item)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/runner.py:497: in setup
+    raise exc
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/runner.py:494: in setup
+    col.setup()
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/python.py:1795: in setup
+    self._request._fillfixtures()
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:566: in _fillfixtures
+    item.funcargs[argname] = self.getfixturevalue(argname)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:585: in getfixturevalue
+    fixturedef = self._get_active_fixturedef(argname)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:607: in _get_active_fixturedef
+    self._compute_fixture_value(fixturedef)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:693: in _compute_fixture_value
+    fixturedef.execute(request=subrequest)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:1069: in execute
+    result = ihook.pytest_fixture_setup(fixturedef=self, request=request)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/pluggy/_hooks.py:513: in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/pluggy/_manager.py:120: in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:1123: in pytest_fixture_setup
+    result = call_fixture_func(fixturefunc, request, kwargs)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:895: in call_fixture_func
+    fixture_result = next(generator)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <matplotlib.tests.test_cbook.Test_callback_registry object at 0x761f3defc390>
+request = <SubRequest '_xunit_setup_method_fixture_Test_callback_registry' for <Function test_callback_wrong_disconnect[False]>>
+
+    @fixtures.fixture(
+        autouse=True,
+        scope="function",
+        # Use a unique name to speed up lookup.
+        name=f"_xunit_setup_method_fixture_{self.obj.__qualname__}",
+    )
+    def xunit_setup_method_fixture(self, request) -> Generator[None, None, None]:
+        method = request.function
+        if setup_method is not None:
+            func = getattr(self, setup_name)
+            _call_with_optional_argument(func, method)
+            if emit_nose_setup_warning:
+>               warnings.warn(
+                    NOSE_SUPPORT_METHOD.format(
+                        nodeid=request.node.nodeid, method="setup"
+                    ),
+                    stacklevel=2,
+                )
+E               pytest.PytestRemovedIn8Warning: Support for nose tests is deprecated and will be removed in a future release.
+E               lib/matplotlib/tests/test_cbook.py::Test_callback_registry::test_callback_wrong_disconnect[False] is using nose-specific method: `setup(self)`
+E               To remove this warning, rename it to `setup_method(self)`
+E               See docs: https://docs.pytest.org/en/stable/deprecations.html#support-for-tests-written-for-nose
+
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/python.py:901: PytestRemovedIn8Warning
+_ ERROR at setup of Test_callback_registry.test_registration_on_non_empty_registry[True] _
+
+cls = <class '_pytest.runner.CallInfo'>
+func = <function call_runtest_hook.<locals>.<lambda> at 0x761f3cd658a0>
+when = 'setup'
+reraise = (<class '_pytest.outcomes.Exit'>, <class 'KeyboardInterrupt'>)
+
+    @classmethod
+    def from_call(
+        cls,
+        func: "Callable[[], TResult]",
+        when: "Literal['collect', 'setup', 'call', 'teardown']",
+        reraise: Optional[
+            Union[Type[BaseException], Tuple[Type[BaseException], ...]]
+        ] = None,
+    ) -> "CallInfo[TResult]":
+        """Call func, wrapping the result in a CallInfo.
+    
+        :param func:
+            The function to call. Called without arguments.
+        :param when:
+            The phase in which the function is called.
+        :param reraise:
+            Exception or exceptions that shall propagate if raised by the
+            function, instead of being wrapped in the CallInfo.
+        """
+        excinfo = None
+        start = timing.time()
+        precise_start = timing.perf_counter()
+        try:
+>           result: Optional[TResult] = func()
+
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/runner.py:341: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/runner.py:262: in <lambda>
+    lambda: ihook(item=item, **kwds), when=when, reraise=reraise
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/pluggy/_hooks.py:513: in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/pluggy/_manager.py:120: in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/runner.py:157: in pytest_runtest_setup
+    item.session._setupstate.setup(item)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/runner.py:497: in setup
+    raise exc
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/runner.py:494: in setup
+    col.setup()
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/python.py:1795: in setup
+    self._request._fillfixtures()
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:566: in _fillfixtures
+    item.funcargs[argname] = self.getfixturevalue(argname)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:585: in getfixturevalue
+    fixturedef = self._get_active_fixturedef(argname)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:607: in _get_active_fixturedef
+    self._compute_fixture_value(fixturedef)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:693: in _compute_fixture_value
+    fixturedef.execute(request=subrequest)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:1069: in execute
+    result = ihook.pytest_fixture_setup(fixturedef=self, request=request)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/pluggy/_hooks.py:513: in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/pluggy/_manager.py:120: in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:1123: in pytest_fixture_setup
+    result = call_fixture_func(fixturefunc, request, kwargs)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:895: in call_fixture_func
+    fixture_result = next(generator)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <matplotlib.tests.test_cbook.Test_callback_registry object at 0x761f3defd0d0>
+request = <SubRequest '_xunit_setup_method_fixture_Test_callback_registry' for <Function test_registration_on_non_empty_registry[True]>>
+
+    @fixtures.fixture(
+        autouse=True,
+        scope="function",
+        # Use a unique name to speed up lookup.
+        name=f"_xunit_setup_method_fixture_{self.obj.__qualname__}",
+    )
+    def xunit_setup_method_fixture(self, request) -> Generator[None, None, None]:
+        method = request.function
+        if setup_method is not None:
+            func = getattr(self, setup_name)
+            _call_with_optional_argument(func, method)
+            if emit_nose_setup_warning:
+>               warnings.warn(
+                    NOSE_SUPPORT_METHOD.format(
+                        nodeid=request.node.nodeid, method="setup"
+                    ),
+                    stacklevel=2,
+                )
+E               pytest.PytestRemovedIn8Warning: Support for nose tests is deprecated and will be removed in a future release.
+E               lib/matplotlib/tests/test_cbook.py::Test_callback_registry::test_registration_on_non_empty_registry[True] is using nose-specific method: `setup(self)`
+E               To remove this warning, rename it to `setup_method(self)`
+E               See docs: https://docs.pytest.org/en/stable/deprecations.html#support-for-tests-written-for-nose
+
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/python.py:901: PytestRemovedIn8Warning
+_ ERROR at setup of Test_callback_registry.test_registration_on_non_empty_registry[False] _
+
+cls = <class '_pytest.runner.CallInfo'>
+func = <function call_runtest_hook.<locals>.<lambda> at 0x761f3cd66840>
+when = 'setup'
+reraise = (<class '_pytest.outcomes.Exit'>, <class 'KeyboardInterrupt'>)
+
+    @classmethod
+    def from_call(
+        cls,
+        func: "Callable[[], TResult]",
+        when: "Literal['collect', 'setup', 'call', 'teardown']",
+        reraise: Optional[
+            Union[Type[BaseException], Tuple[Type[BaseException], ...]]
+        ] = None,
+    ) -> "CallInfo[TResult]":
+        """Call func, wrapping the result in a CallInfo.
+    
+        :param func:
+            The function to call. Called without arguments.
+        :param when:
+            The phase in which the function is called.
+        :param reraise:
+            Exception or exceptions that shall propagate if raised by the
+            function, instead of being wrapped in the CallInfo.
+        """
+        excinfo = None
+        start = timing.time()
+        precise_start = timing.perf_counter()
+        try:
+>           result: Optional[TResult] = func()
+
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/runner.py:341: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/runner.py:262: in <lambda>
+    lambda: ihook(item=item, **kwds), when=when, reraise=reraise
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/pluggy/_hooks.py:513: in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/pluggy/_manager.py:120: in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/runner.py:157: in pytest_runtest_setup
+    item.session._setupstate.setup(item)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/runner.py:497: in setup
+    raise exc
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/runner.py:494: in setup
+    col.setup()
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/python.py:1795: in setup
+    self._request._fillfixtures()
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:566: in _fillfixtures
+    item.funcargs[argname] = self.getfixturevalue(argname)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:585: in getfixturevalue
+    fixturedef = self._get_active_fixturedef(argname)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:607: in _get_active_fixturedef
+    self._compute_fixture_value(fixturedef)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:693: in _compute_fixture_value
+    fixturedef.execute(request=subrequest)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:1069: in execute
+    result = ihook.pytest_fixture_setup(fixturedef=self, request=request)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/pluggy/_hooks.py:513: in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/pluggy/_manager.py:120: in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:1123: in pytest_fixture_setup
+    result = call_fixture_func(fixturefunc, request, kwargs)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:895: in call_fixture_func
+    fixture_result = next(generator)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <matplotlib.tests.test_cbook.Test_callback_registry object at 0x761f3defd250>
+request = <SubRequest '_xunit_setup_method_fixture_Test_callback_registry' for <Function test_registration_on_non_empty_registry[False]>>
+
+    @fixtures.fixture(
+        autouse=True,
+        scope="function",
+        # Use a unique name to speed up lookup.
+        name=f"_xunit_setup_method_fixture_{self.obj.__qualname__}",
+    )
+    def xunit_setup_method_fixture(self, request) -> Generator[None, None, None]:
+        method = request.function
+        if setup_method is not None:
+            func = getattr(self, setup_name)
+            _call_with_optional_argument(func, method)
+            if emit_nose_setup_warning:
+>               warnings.warn(
+                    NOSE_SUPPORT_METHOD.format(
+                        nodeid=request.node.nodeid, method="setup"
+                    ),
+                    stacklevel=2,
+                )
+E               pytest.PytestRemovedIn8Warning: Support for nose tests is deprecated and will be removed in a future release.
+E               lib/matplotlib/tests/test_cbook.py::Test_callback_registry::test_registration_on_non_empty_registry[False] is using nose-specific method: `setup(self)`
+E               To remove this warning, rename it to `setup_method(self)`
+E               See docs: https://docs.pytest.org/en/stable/deprecations.html#support-for-tests-written-for-nose
+
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/python.py:901: PytestRemovedIn8Warning
+____________ ERROR at setup of Test_callback_registry.test_pickling ____________
+
+cls = <class '_pytest.runner.CallInfo'>
+func = <function call_runtest_hook.<locals>.<lambda> at 0x761f3cd668e0>
+when = 'setup'
+reraise = (<class '_pytest.outcomes.Exit'>, <class 'KeyboardInterrupt'>)
+
+    @classmethod
+    def from_call(
+        cls,
+        func: "Callable[[], TResult]",
+        when: "Literal['collect', 'setup', 'call', 'teardown']",
+        reraise: Optional[
+            Union[Type[BaseException], Tuple[Type[BaseException], ...]]
+        ] = None,
+    ) -> "CallInfo[TResult]":
+        """Call func, wrapping the result in a CallInfo.
+    
+        :param func:
+            The function to call. Called without arguments.
+        :param when:
+            The phase in which the function is called.
+        :param reraise:
+            Exception or exceptions that shall propagate if raised by the
+            function, instead of being wrapped in the CallInfo.
+        """
+        excinfo = None
+        start = timing.time()
+        precise_start = timing.perf_counter()
+        try:
+>           result: Optional[TResult] = func()
+
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/runner.py:341: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/runner.py:262: in <lambda>
+    lambda: ihook(item=item, **kwds), when=when, reraise=reraise
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/pluggy/_hooks.py:513: in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/pluggy/_manager.py:120: in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/runner.py:157: in pytest_runtest_setup
+    item.session._setupstate.setup(item)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/runner.py:497: in setup
+    raise exc
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/runner.py:494: in setup
+    col.setup()
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/python.py:1795: in setup
+    self._request._fillfixtures()
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:566: in _fillfixtures
+    item.funcargs[argname] = self.getfixturevalue(argname)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:585: in getfixturevalue
+    fixturedef = self._get_active_fixturedef(argname)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:607: in _get_active_fixturedef
+    self._compute_fixture_value(fixturedef)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:693: in _compute_fixture_value
+    fixturedef.execute(request=subrequest)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:1069: in execute
+    result = ihook.pytest_fixture_setup(fixturedef=self, request=request)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/pluggy/_hooks.py:513: in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/pluggy/_manager.py:120: in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:1123: in pytest_fixture_setup
+    result = call_fixture_func(fixturefunc, request, kwargs)
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/fixtures.py:895: in call_fixture_func
+    fixture_result = next(generator)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <matplotlib.tests.test_cbook.Test_callback_registry object at 0x761f3defe210>
+request = <SubRequest '_xunit_setup_method_fixture_Test_callback_registry' for <Function test_pickling>>
+
+    @fixtures.fixture(
+        autouse=True,
+        scope="function",
+        # Use a unique name to speed up lookup.
+        name=f"_xunit_setup_method_fixture_{self.obj.__qualname__}",
+    )
+    def xunit_setup_method_fixture(self, request) -> Generator[None, None, None]:
+        method = request.function
+        if setup_method is not None:
+            func = getattr(self, setup_name)
+            _call_with_optional_argument(func, method)
+            if emit_nose_setup_warning:
+>               warnings.warn(
+                    NOSE_SUPPORT_METHOD.format(
+                        nodeid=request.node.nodeid, method="setup"
+                    ),
+                    stacklevel=2,
+                )
+E               pytest.PytestRemovedIn8Warning: Support for nose tests is deprecated and will be removed in a future release.
+E               lib/matplotlib/tests/test_cbook.py::Test_callback_registry::test_pickling is using nose-specific method: `setup(self)`
+E               To remove this warning, rename it to `setup_method(self)`
+E               See docs: https://docs.pytest.org/en/stable/deprecations.html#support-for-tests-written-for-nose
+
+/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/python.py:901: PytestRemovedIn8Warning
+=========================== short test summary info ============================
+ERROR lib/matplotlib/tests/test_cbook.py::Test_boxplot_stats::test_form_main_list
+ERROR lib/matplotlib/tests/test_cbook.py::Test_boxplot_stats::test_form_each_dict
+ERROR lib/matplotlib/tests/test_cbook.py::Test_boxplot_stats::test_form_dict_keys
+ERROR lib/matplotlib/tests/test_cbook.py::Test_boxplot_stats::test_results_baseline
+ERROR lib/matplotlib/tests/test_cbook.py::Test_boxplot_stats::test_results_bootstrapped
+ERROR lib/matplotlib/tests/test_cbook.py::Test_boxplot_stats::test_results_whiskers_float
+ERROR lib/matplotlib/tests/test_cbook.py::Test_boxplot_stats::test_results_whiskers_range
+ERROR lib/matplotlib/tests/test_cbook.py::Test_boxplot_stats::test_results_whiskers_percentiles
+ERROR lib/matplotlib/tests/test_cbook.py::Test_boxplot_stats::test_results_withlabels
+ERROR lib/matplotlib/tests/test_cbook.py::Test_boxplot_stats::test_label_error
+ERROR lib/matplotlib/tests/test_cbook.py::Test_boxplot_stats::test_bad_dims
+ERROR lib/matplotlib/tests/test_cbook.py::Test_boxplot_stats::test_boxplot_stats_autorange_false
+ERROR lib/matplotlib/tests/test_cbook.py::Test_callback_registry::test_callback_complete[True]
+ERROR lib/matplotlib/tests/test_cbook.py::Test_callback_registry::test_callback_complete[False]
+ERROR lib/matplotlib/tests/test_cbook.py::Test_callback_registry::test_callback_disconnect[True]
+ERROR lib/matplotlib/tests/test_cbook.py::Test_callback_registry::test_callback_disconnect[False]
+ERROR lib/matplotlib/tests/test_cbook.py::Test_callback_registry::test_callback_wrong_disconnect[True]
+ERROR lib/matplotlib/tests/test_cbook.py::Test_callback_registry::test_callback_wrong_disconnect[False]
+ERROR lib/matplotlib/tests/test_cbook.py::Test_callback_registry::test_registration_on_non_empty_registry[True]
+ERROR lib/matplotlib/tests/test_cbook.py::Test_callback_registry::test_registration_on_non_empty_registry[False]
+ERROR lib/matplotlib/tests/test_cbook.py::Test_callback_registry::test_pickling
+57 passed, 2 skipped, 21 errors in 4.01s

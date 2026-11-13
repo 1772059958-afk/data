@@ -1,0 +1,113 @@
+{
+  "kind": "actual_dirty_working_source_snapshot",
+  "files": [
+    {
+      "path": "src/swe_repair/batch_ledger.py",
+      "sha256": "5b7be9ff47a3281eaf2f03942ba456f1c39136b2a02d97e5844c4336892a48a0"
+    },
+    {
+      "path": "src/swe_repair/budget.py",
+      "sha256": "c877a1c9e5e3bddae24b89164653931e3ecb3f8eb138f184951bd19494a1bd7f"
+    },
+    {
+      "path": "src/swe_repair/calibration.py",
+      "sha256": "0ac1012191b66b5d34a293a950b112cd324dab6850b1434593b7436d30f9ffd7"
+    },
+    {
+      "path": "src/swe_repair/cf.py",
+      "sha256": "0dd225cd78ce813e754c40243d1b24876c1e4b94c76f1077ea792d74486e8025"
+    },
+    {
+      "path": "src/swe_repair/evaluation.py",
+      "sha256": "8c178fcaa9fc413829b2dac8a7a695afb6d7462806e161172c9bd9497a0299d2"
+    },
+    {
+      "path": "src/swe_repair/execution.py",
+      "sha256": "ecbba11a50eb704ea8d80a4edf727d5baf2fdb36e81b80b9ba8176deee6d0d0d"
+    },
+    {
+      "path": "src/swe_repair/experiment.py",
+      "sha256": "196762c0b2d723bcbc89f9a9a943e0bff849e62eab56028f10a2e130df2b66a9"
+    },
+    {
+      "path": "src/swe_repair/feedback.py",
+      "sha256": "e233cfdf87dd62aa533e59b37a3257c06373c2496bcc356abf328f0d987f5d12"
+    },
+    {
+      "path": "src/swe_repair/fingerprint.py",
+      "sha256": "d7ed58eb7b7202fa2b5b9be023dc31d2e22730cbbd0ce1120790b3ecd8e5da83"
+    },
+    {
+      "path": "src/swe_repair/interact.py",
+      "sha256": "1f0700cb35f4ceafebe5c60084a4efa9304931cea62cf2e7fe01a39254fa6fdd"
+    },
+    {
+      "path": "src/swe_repair/llm.py",
+      "sha256": "0d6f327654dd507f8e6597f843b43b1faeadc2c782efe72b9ab8892a4b5af01e"
+    },
+    {
+      "path": "src/swe_repair/patchutil.py",
+      "sha256": "adc4ae3d01b9ca85bfd14ebe3133f79eba35794cc9db83a57b6daf97d932a876"
+    },
+    {
+      "path": "src/swe_repair/prefix.py",
+      "sha256": "27ada97b1c9f63d5cd57a98ef5862331a3e5d39fe5d9cf4acb14fcaf0449617f"
+    },
+    {
+      "path": "src/swe_repair/pricing.py",
+      "sha256": "561ffd2040541887e3b61949bd5d3ac1dc2400fa91312ce6210facf4c29630db"
+    },
+    {
+      "path": "src/swe_repair/router.py",
+      "sha256": "d1867d57704266f554ac17235ac34b3cd32d242a07314443932e927626c88cdf"
+    },
+    {
+      "path": "src/swe_repair/runlog.py",
+      "sha256": "a5311ae21a3a40d2d74b366d63a6454acfafa6863d1a4792b2b05f05e5cbdb48"
+    },
+    {
+      "path": "src/swe_repair/spend.py",
+      "sha256": "130a2f4291e9d4312fc8f1379d530f8c318deadebd9fdd7816a0592c011209a0"
+    },
+    {
+      "path": "src/swe_repair/state.py",
+      "sha256": "2d0b0c5d84180b90a14df846b5c6096803723311b35aec7f7cebc4506b4a674c"
+    },
+    {
+      "path": "src/swe_repair/statistics.py",
+      "sha256": "5d95441c326779871ef513c8ed2d27b949a46f94d0c46d1283c8a80d675871b7"
+    },
+    {
+      "path": "src/swe_repair/__init__.py",
+      "sha256": "7601d785831bc507c8c3393ffaeaf1a95d084f138d3ca075027596afe4b46858"
+    },
+    {
+      "path": "scripts/run_cf.py",
+      "sha256": "85eb9e9ce2b92f15e26b7fc1e6c8050ffb359a9be1bba73e5cbdb9350aaccbb3"
+    },
+    {
+      "path": "scripts/probe_model.py",
+      "sha256": "e04ca157858046889600c5237de04233cd77e13e367f31a0655a880717519374"
+    },
+    {
+      "path": "scripts/analyse_cf.py",
+      "sha256": "0cfd2e3c26857cd40a6d722002d91d9551fc7f60a08c20e15d573bdb330d0d9f"
+    },
+    {
+      "path": "scripts/calibrate_router.py",
+      "sha256": "9c9568843f90049319ee0553fbb2150e10730258cb119a1502dc5702b58d3943"
+    },
+    {
+      "path": "scripts/score_run.py",
+      "sha256": "9e9e45bafb17944b142ecdfc4e7e1e4e40621536dc852d219c7fd640408814f8"
+    },
+    {
+      "path": "scripts/summarize_single_run.py",
+      "sha256": "a4b83b781194b9de24edc48f193309152d4b1f631f29f79212c87ee36f84f387"
+    }
+  ],
+  "full_offline_suite": "386/386",
+  "suite_log": "offline_after_api_guard_02.log",
+  "normal_generation_rules_unchanged": true,
+  "screen_source_not_mixed_with_new_full_dev_source": true
+}

@@ -1,0 +1,26 @@
+{
+  "reviewer":"current coding agent; qualitative code review, not external human sign-off",
+  "cases":[
+    {"instance_id":"scikit-learn__scikit-learn-13496","requirement":"Expose IsolationForest warm_start=False and forward it to BaseBagging so subsequent fits may add trees.","groups":[
+      {"arms":["A","C","D","E"],"assessment":"supports_requested_behavior","reason":"Adds the optional constructor parameter with false default, forwards it unchanged to the existing superclass and documents reuse/addition of estimators. Existing BaseBagging behavior supplies the algorithm rather than new custom tree logic.","residual_risk":"No versionadded directive is supplied; reproducibility and estimator-count constraints remain those of the parent implementation."},
+      {"arms":["B"],"assessment":"no_submission","reason":"Empty submitted patch."}
+    ]},
+    {"instance_id":"sphinx-doc__sphinx-8595","requirement":"Distinguish no __all__ declaration from an explicitly empty list, so an empty export list documents no members.","groups":[
+      {"arms":["A","B","C","D","E"],"assessment":"supports_requested_behavior","reason":"Changes the fallback condition from falsiness to is None. An explicit empty list then follows the explicit-export path, while an absent declaration retains implicit member discovery. Differences in diff line-number context do not change the edit.","residual_risk":"The review is bounded to the existing __all__ parsing contract and does not broaden accepted invalid __all__ types."}
+    ]},
+    {"instance_id":"sympy__sympy-13480","requirement":"Avoid NameError in coth's periodic simplification by checking the variable actually assigned in that branch.","groups":[
+      {"arms":["A","C","D","E"],"assessment":"supports_requested_behavior","reason":"Replaces undefined cotm with cothm, which is assigned immediately above. It restores the intended ComplexInfinity dispatch without changing formulas or branch conditions.","residual_risk":"The localized typo repair does not independently prove every symbolic hyperbolic identity."},
+      {"arms":["B"],"assessment":"no_submission","reason":"Empty submitted patch."}
+    ]},
+    {"instance_id":"sympy__sympy-16503","requirement":"Align summand and surrounding additions correctly across ASCII/Unicode and different sum-sign heights.","groups":[
+      {"arms":["A"],"assessment":"unjustified_global_baseline_shift","reason":"Changes sign_height//2 to (sign_height-1)//2 for every sum. For odd heights the expressions are identical, and for even heights the baseline shifts by one without distinguishing ASCII/Unicode or the existing adjustment. It does not implement a consistent sign-centering invariant across the requested cases.","residual_risk":"Official unresolved; one-line baseline offsets can improve one visual example while regressing another."},
+      {"arms":["B"],"assessment":"partial_offset_without_sign_geometry_fix","reason":"Subtracts adjustment only at the final baseline. It retains the earlier summand-baseline subtraction and the sign constructor's adjustment value, so it does not address the coupled sign-height and summand placement that the reference changes.","residual_risk":"Official unresolved. The code review does not infer correctness solely from visual similarity to the reference."},
+      {"arms":["C","E"],"assessment":"no_submission","reason":"Empty submitted patch."},
+      {"arms":["D"],"assessment":"replacement_baseline_loses_summand_geometry","reason":"Replaces a baseline calculation involving summand height and its existing baseline with a value depending only on the sign and overall bounds. Different-height summands therefore lose their own centering information, while final ASCII/Unicode placement remains unchanged.","residual_risk":"Official unresolved; tall expressions and nested sums remain susceptible to misalignment."}
+    ]},
+    {"instance_id":"sympy__sympy-23262","requirement":"lambdify's native one-element tuple must emit a trailing comma and return a tuple rather than a scalar.","groups":[
+      {"arms":["A","C","D","E"],"assessment":"wrong_layer_for_native_tuple_path","reason":"Adds a tuple printer to AbstractPythonCodePrinter, but native iterable return expressions are recursively assembled in lambdify._recursive_to_string with its own '(' and ')' delimiters. That layer bypasses the added tuple printer for the demonstrated native tuple, so the singleton comma remains missing on the reported path.","residual_risk":"The extra printer may affect symbolic Tuple printing, but that does not establish the native lambdify tuple behavior. Official unresolved status is retained."},
+      {"arms":["B"],"assessment":"no_submission","reason":"Empty submitted patch."}
+    ]}
+  ]
+}

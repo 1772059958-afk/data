@@ -1,0 +1,25 @@
+--- a/astroid/raw_building.py
++++ b/astroid/raw_building.py
+@@ -468,11 +468,16 @@ class InspectBuilder:
+         if real_name != self._module.__name__:
+             # check if it sounds valid and then add an import node, else use a
+             # dummy node
+-            try:
+-                getattr(sys.modules[modname], name)
+-            except (KeyError, AttributeError):
+-                attach_dummy_node(node, name, member)
+-            else:
+-                attach_import_node(node, modname, name)
++            with warnings.catch_warnings():
++                # Suppress warnings from importing deprecated members, for
++                # instance numpy emits a FutureWarning for deprecated aliases.
++                warnings.simplefilter("ignore", DeprecationWarning)
++                warnings.simplefilter("ignore", FutureWarning)
++                try:
++                    getattr(sys.modules[modname], name)
++                except (KeyError, AttributeError):
++                    attach_dummy_node(node, name, member)
++                else:
++                    attach_import_node(node, modname, name)
+             return True
+         return False

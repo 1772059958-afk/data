@@ -1,0 +1,13 @@
+--- a/pvlib/pvsystem.py
++++ b/pvlib/pvsystem.py
+@@ -249,6 +249,10 @@ class PVSystem:
+                 strings_per_inverter,
+                 array_losses_parameters,
+             ),)
++        elif isinstance(arrays, Array):
++            raise TypeError("PVSystem must be initialized with an iterable of "
++                            "Array, not a single Array. Use `arrays=[array]` "
++                            "instead.")
+         elif len(arrays) == 0:
+             raise ValueError("PVSystem must have at least one Array. "
+                              "If you want to create a PVSystem instance "

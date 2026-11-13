@@ -1,0 +1,14 @@
+{
+  "deleted_logical_bytes": 7185761.0,
+  "status": "completed",
+  "shutdown": false,
+  "free_C_change_bytes": 7315456,
+  "at": "2026-11-13T15:30:58.0360597+08:00",
+  "deleted_paths": [
+    "C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\work",
+    "C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\.chart-data-9ms2WV",
+    "C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\.chart-data-uYclH4",
+    "C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\.chart-data-wWZuBa",
+    "C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\.chart-data-yKvtsO"
+  ]
+}

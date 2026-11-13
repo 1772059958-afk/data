@@ -1,0 +1,12 @@
+{
+  "status": "pending_new_user_budget",
+  "currency": "CNY",
+  "authorized": false,
+  "new_total_ceiling_cny": null,
+  "inherited_config_batch_placeholder_cny": 6.0,
+  "per_policy_instance_guard_cny": 2.0,
+  "dev_single_setting_guard_sum_cny": 138,
+  "dev_guard_basis": "23 x 3 x 2 CNY for fixed including prefix, interactive including prefix, and standalone B; actual generation shares prefix, and diagnostic currently includes B",
+  "formal_strategy_guard_sum_cny": 200,
+  "note": "Guard sums are arithmetic upper bounds, not expected use, invoice estimates or authorization. Actual new generation reuses prefixes; diagnostic research costs, environment lifecycle and independent scoring are separate. Any resource-screen settings require their own cost allocation inside an explicitly approved new ceiling. Do not reuse the closed 20261106 budget or silently raise the 6 CNY placeholder."
+}

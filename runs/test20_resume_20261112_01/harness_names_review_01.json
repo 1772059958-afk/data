@@ -1,0 +1,5 @@
+{
+  "exit_code": 0,
+  "stdout": "['FAIL_ONLY_REPOS', 'LOG_REPORT']\n['__init__.py', '__pycache__']\n",
+  "stderr": ""
+}

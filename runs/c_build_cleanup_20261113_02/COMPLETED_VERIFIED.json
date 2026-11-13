@@ -1,0 +1,27 @@
+{
+  "status": "completed_verified",
+  "protected_file_count": 6457,
+  "all_sha256_unchanged": true,
+  "preserved_metadata_files": 5,
+  "original_assets": {
+    "experiments": {
+      "baseline_commit": "3759265",
+      "protected_total": 93,
+      "verified": 93,
+      "missing": [],
+      "changed": [],
+      "invalid": [],
+      "ok": true
+    },
+    "archive": {
+      "archived_total": 131,
+      "missing": [],
+      "changed": [],
+      "invalid": [],
+      "ok": true
+    }
+  },
+  "final_ppt_and_ledger_unchanged": true,
+  "new_model_requests": 0,
+  "shutdown": false
+}

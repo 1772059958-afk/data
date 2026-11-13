@@ -1,0 +1,6 @@
+{
+  "reason": "Strengthen same-actual-prefix control before executing any supplemental request. New protocol in dev_supplement_20261112_02.",
+  "paid_requests_under_this_protocol": 0,
+  "ledger_sha256": "02405b919d5907e08b19ebedd9fd18601fa4749c16d6c2212744bd74ccdd4669",
+  "at": "2026-11-12T09:29:31.320575+00:00"
+}

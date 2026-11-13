@@ -1,0 +1,45 @@
+2026-11-12 03:35:33,348 - INFO - Creating container for pydicom__pydicom-1694...
+2026-11-12 03:35:33,394 - INFO - Container for pydicom__pydicom-1694 created: 9a3e5b80a2b4f21590b4780e727bc72dc97c63431c922403feb2c89f9f6f7c91
+2026-11-12 03:35:33,553 - INFO - Container for pydicom__pydicom-1694 started: 9a3e5b80a2b4f21590b4780e727bc72dc97c63431c922403feb2c89f9f6f7c91
+2026-11-12 03:35:33,557 - INFO - Intermediate patch for pydicom__pydicom-1694 written to logs/run_evaluation/dev23_calibration_20261112_01/dev23_calibration_20261112_01-D/pydicom__pydicom-1694/patch.diff, now applying to container...
+2026-11-12 03:35:33,722 - ERROR - Error in evaluating model for pydicom__pydicom-1694: 409 Client Error for http+docker://localhost/v1.56/exec/8767da28d5f26c840ef0b7ddb424eae9dde96e3e9faed8f2459bd398308bdc50/start: Conflict ("container 9a3e5b80a2b4f21590b4780e727bc72dc97c63431c922403feb2c89f9f6f7c91 is not running")
+Traceback (most recent call last):
+  File "/opt/scoring/lib/python3.11/site-packages/docker/api/client.py", line 275, in _raise_for_status
+    response.raise_for_status()
+  File "/opt/scoring/lib/python3.11/site-packages/requests/models.py", line 1167, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 409 Client Error: Conflict for url: http+docker://localhost/v1.56/exec/8767da28d5f26c840ef0b7ddb424eae9dde96e3e9faed8f2459bd398308bdc50/start
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/opt/scoring/lib/python3.11/site-packages/swebench/harness/run_evaluation.py", line 295, in run_instance
+    copy_to_container(
+  File "/opt/scoring/lib/python3.11/site-packages/swebench/harness/docker_utils.py", line 34, in copy_to_container
+    container.exec_run(f"mkdir -p {dst.parent}")
+  File "/opt/scoring/lib/python3.11/site-packages/docker/models/containers.py", line 214, in exec_run
+    exec_output = self.client.api.exec_start(
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/scoring/lib/python3.11/site-packages/docker/utils/decorators.py", line 19, in wrapped
+    return f(self, resource_id, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/scoring/lib/python3.11/site-packages/docker/api/exec_api.py", line 172, in exec_start
+    output = self._read_from_socket(res, stream, tty=tty, demux=demux)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/scoring/lib/python3.11/site-packages/docker/api/client.py", line 429, in _read_from_socket
+    socket = self._get_raw_response_socket(response)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/scoring/lib/python3.11/site-packages/docker/api/client.py", line 334, in _get_raw_response_socket
+    self._raise_for_status(response)
+  File "/opt/scoring/lib/python3.11/site-packages/docker/api/client.py", line 277, in _raise_for_status
+    raise create_api_error_from_http_exception(e) from e
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/scoring/lib/python3.11/site-packages/docker/errors.py", line 39, in create_api_error_from_http_exception
+    raise cls(e, response=response, explanation=explanation) from e
+docker.errors.APIError: 409 Client Error for http+docker://localhost/v1.56/exec/8767da28d5f26c840ef0b7ddb424eae9dde96e3e9faed8f2459bd398308bdc50/start: Conflict ("container 9a3e5b80a2b4f21590b4780e727bc72dc97c63431c922403feb2c89f9f6f7c91 is not running")
+
+Check (logs/run_evaluation/dev23_calibration_20261112_01/dev23_calibration_20261112_01-D/pydicom__pydicom-1694/run_instance.log) for more information.
+2026-11-12 03:35:33,722 - INFO - Attempting to stop container sweb.eval.pydicom__pydicom-1694.dev23_calibration_20261112_01...
+2026-11-12 03:35:33,745 - INFO - Container sweb.eval.pydicom__pydicom-1694.dev23_calibration_20261112_01 stopped successfully.
+2026-11-12 03:35:33,745 - INFO - Attempting to remove container sweb.eval.pydicom__pydicom-1694.dev23_calibration_20261112_01...
+2026-11-12 03:35:33,784 - INFO - Container sweb.eval.pydicom__pydicom-1694.dev23_calibration_20261112_01 removed successfully.

@@ -1,0 +1,15 @@
+{
+  "instance_id": "astropy__astropy-14995",
+  "only_allowed_changed_path": "pyproject.toml",
+  "only_allowed_changed_field": "build-system.requires",
+  "official_requirements": [
+    "setuptools==68.0.0",
+    "setuptools_scm>=6.2",
+    "cython==0.29.34",
+    "oldest-supported-numpy",
+    "extension-helpers"
+  ],
+  "unchanged_other_toml_sha256": "99a055312d504ad6b4f860d1efe6308869ac248dad56f4586303c3e8d7ef8836",
+  "basis": "Official image pins setuptools==68.0.0 within original unbounded setuptools requirement; Cython0.29.34 and every runtime/test/C-source blob remain unchanged. Exact original pyproject is restored before generation.",
+  "review_sha256": "26caf2ccbc180f119b17c6c1515d95a8652e30159eaad5514180121559209818"
+}

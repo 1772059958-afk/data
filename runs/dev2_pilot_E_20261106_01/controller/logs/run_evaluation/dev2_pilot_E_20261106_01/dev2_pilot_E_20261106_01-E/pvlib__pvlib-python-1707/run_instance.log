@@ -1,0 +1,110 @@
+2026-11-06 11:46:57,275 - INFO - Creating container for pvlib__pvlib-python-1707...
+2026-11-06 11:46:57,394 - INFO - Container for pvlib__pvlib-python-1707 created: a40ebdae3b32f3aa0a7a05f5ba79c39276ca7168a29438dca7b3768326f639bc
+2026-11-06 11:46:57,586 - INFO - Container for pvlib__pvlib-python-1707 started: a40ebdae3b32f3aa0a7a05f5ba79c39276ca7168a29438dca7b3768326f639bc
+2026-11-06 11:46:57,589 - INFO - Intermediate patch for pvlib__pvlib-python-1707 written to logs/run_evaluation/dev2_pilot_E_20261106_01/dev2_pilot_E_20261106_01-E/pvlib__pvlib-python-1707/patch.diff, now applying to container...
+2026-11-06 11:46:57,703 - INFO - >>>>> Applied Patch:
+Checking patch pvlib/iam.py...
+Hunk #1 succeeded at 175 (offset 3 lines).
+Hunk #2 succeeded at 213 (offset 9 lines).
+Applied patch pvlib/iam.py cleanly.
+
+2026-11-06 11:46:58,054 - INFO - Git diff before:
+diff --git a/pvlib/iam.py b/pvlib/iam.py
+index 3eaa6b4..8001497 100644
+--- a/pvlib/iam.py
++++ b/pvlib/iam.py
+@@ -175,8 +175,13 @@ def physical(aoi, n=1.526, K=4.0, L=0.002, *, n_ar=None):
+     n2costheta2 = n2 * costheta
+ 
+     # reflectance of s-, p-polarized, and normal light by the first interface
+-    rho12_s = ((n1costheta1 - n2costheta2) / (n1costheta1 + n2costheta2)) ** 2
+-    rho12_p = ((n1costheta2 - n2costheta1) / (n1costheta2 + n2costheta1)) ** 2
++    with np.errstate(divide='ignore', invalid='ignore'):
++        rho12_s = (
++            (n1costheta1 - n2costheta2) / (n1costheta1 + n2costheta2)
++        ) ** 2
++        rho12_p = (
++            (n1costheta2 - n2costheta1) / (n1costheta2 + n2costheta1)
++        ) ** 2
+     rho12_0 = ((n1 - n2) / (n1 + n2)) ** 2
+ 
+     # transmittance through the first interface
+@@ -208,13 +213,23 @@ def physical(aoi, n=1.526, K=4.0, L=0.002, *, n_ar=None):
+         tau_0 *= (1 - rho23_0) / (1 - rho23_0 * rho12_0)
+ 
+     # transmittance after absorption in the glass
+-    tau_s *= np.exp(-K * L / costheta)
+-    tau_p *= np.exp(-K * L / costheta)
++    with np.errstate(divide='ignore'):
++        tau_s *= np.exp(-K * L / costheta)
++        tau_p *= np.exp(-K * L / costheta)
+     tau_0 *= np.exp(-K * L)
+ 
+     # incidence angle modifier
+     iam = (tau_s + tau_p) / 2 / tau_0
+ 
++    # The model is undefined for AOI >= 90 degrees. In particular, when n=1
++    # there is no refraction, so the reflectance calculation above is 0/0 at
++    # grazing angles and produces nan. Set IAM to zero there, while preserving
++    # nan values in the input.
++    iam = np.where(np.abs(aoi) >= 90, 0, iam)
++
++    if isinstance(aoi, pd.Series):
++        iam = pd.Series(iam, index=aoi.index, name=aoi.name)
++
+     return iam
+2026-11-06 11:46:58,057 - INFO - Eval script for pvlib__pvlib-python-1707 written to logs/run_evaluation/dev2_pilot_E_20261106_01/dev2_pilot_E_20261106_01-E/pvlib__pvlib-python-1707/eval.sh; copying to container...
+2026-11-06 11:47:57,867 - INFO - Test runtime: 59.74 seconds
+2026-11-06 11:47:57,870 - INFO - Test output for pvlib__pvlib-python-1707 written to logs/run_evaluation/dev2_pilot_E_20261106_01/dev2_pilot_E_20261106_01-E/pvlib__pvlib-python-1707/test_output.txt
+2026-11-06 11:47:57,919 - INFO - Git diff after:
+diff --git a/pvlib/iam.py b/pvlib/iam.py
+index 3eaa6b4..8001497 100644
+--- a/pvlib/iam.py
++++ b/pvlib/iam.py
+@@ -175,8 +175,13 @@ def physical(aoi, n=1.526, K=4.0, L=0.002, *, n_ar=None):
+     n2costheta2 = n2 * costheta
+ 
+     # reflectance of s-, p-polarized, and normal light by the first interface
+-    rho12_s = ((n1costheta1 - n2costheta2) / (n1costheta1 + n2costheta2)) ** 2
+-    rho12_p = ((n1costheta2 - n2costheta1) / (n1costheta2 + n2costheta1)) ** 2
++    with np.errstate(divide='ignore', invalid='ignore'):
++        rho12_s = (
++            (n1costheta1 - n2costheta2) / (n1costheta1 + n2costheta2)
++        ) ** 2
++        rho12_p = (
++            (n1costheta2 - n2costheta1) / (n1costheta2 + n2costheta1)
++        ) ** 2
+     rho12_0 = ((n1 - n2) / (n1 + n2)) ** 2
+ 
+     # transmittance through the first interface
+@@ -208,13 +213,23 @@ def physical(aoi, n=1.526, K=4.0, L=0.002, *, n_ar=None):
+         tau_0 *= (1 - rho23_0) / (1 - rho23_0 * rho12_0)
+ 
+     # transmittance after absorption in the glass
+-    tau_s *= np.exp(-K * L / costheta)
+-    tau_p *= np.exp(-K * L / costheta)
++    with np.errstate(divide='ignore'):
++        tau_s *= np.exp(-K * L / costheta)
++        tau_p *= np.exp(-K * L / costheta)
+     tau_0 *= np.exp(-K * L)
+ 
+     # incidence angle modifier
+     iam = (tau_s + tau_p) / 2 / tau_0
+ 
++    # The model is undefined for AOI >= 90 degrees. In particular, when n=1
++    # there is no refraction, so the reflectance calculation above is 0/0 at
++    # grazing angles and produces nan. Set IAM to zero there, while preserving
++    # nan values in the input.
++    iam = np.where(np.abs(aoi) >= 90, 0, iam)
++
++    if isinstance(aoi, pd.Series):
++        iam = pd.Series(iam, index=aoi.index, name=aoi.name)
++
+     return iam
+2026-11-06 11:47:57,919 - INFO - Grading answer for pvlib__pvlib-python-1707...
+2026-11-06 11:47:57,922 - INFO - report: {'pvlib__pvlib-python-1707': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': True, 'infra_failure': False, 'tests_status': {'FAIL_TO_PASS': {'success': ['pvlib/tests/test_iam.py::test_physical_n1_L0'], 'failure': []}, 'PASS_TO_PASS': {'success': ['pvlib/tests/test_iam.py::test_ashrae', 'pvlib/tests/test_iam.py::test_ashrae_scalar', 'pvlib/tests/test_iam.py::test_physical', 'pvlib/tests/test_iam.py::test_physical_ar', 'pvlib/tests/test_iam.py::test_physical_noar', 'pvlib/tests/test_iam.py::test_physical_scalar', 'pvlib/tests/test_iam.py::test_martin_ruiz', 'pvlib/tests/test_iam.py::test_martin_ruiz_exception', 'pvlib/tests/test_iam.py::test_martin_ruiz_diffuse', 'pvlib/tests/test_iam.py::test_iam_interp', 'pvlib/tests/test_iam.py::test_sapm[45-0.9975036250000002]', 'pvlib/tests/test_iam.py::test_sapm[aoi1-expected1]', 'pvlib/tests/test_iam.py::test_sapm[aoi2-expected2]', 'pvlib/tests/test_iam.py::test_sapm_limits', 'pvlib/tests/test_iam.py::test_marion_diffuse_model', 'pvlib/tests/test_iam.py::test_marion_diffuse_kwargs', 'pvlib/tests/test_iam.py::test_marion_diffuse_invalid', 'pvlib/tests/test_iam.py::test_marion_integrate_scalar[sky-180-0.9596085829811408]', 'pvlib/tests/test_iam.py::test_marion_integrate_scalar[horizon-1800-0.8329070417832541]', 'pvlib/tests/test_iam.py::test_marion_integrate_scalar[ground-180-0.719823559106309]', 'pvlib/tests/test_iam.py::test_marion_integrate_list[sky-180-expected0]', 'pvlib/tests/test_iam.py::test_marion_integrate_list[horizon-1800-expected1]', 'pvlib/tests/test_iam.py::test_marion_integrate_list[ground-180-expected2]', 'pvlib/tests/test_iam.py::test_marion_integrate_series[sky-180-expected0]', 'pvlib/tests/test_iam.py::test_marion_integrate_series[horizon-1800-expected1]', 'pvlib/tests/test_iam.py::test_marion_integrate_series[ground-180-expected2]', 'pvlib/tests/test_iam.py::test_marion_integrate_ground_flat', 'pvlib/tests/test_iam.py::test_marion_integrate_invalid', 'pvlib/tests/test_iam.py::test_schlick', 'pvlib/tests/test_iam.py::test_schlick_diffuse'], 'failure': []}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for pvlib__pvlib-python-1707: resolved: True
+2026-11-06 11:47:57,926 - INFO - Attempting to stop container sweb.eval.pvlib__pvlib-python-1707.dev2_pilot_E_20261106_01...
+2026-11-06 11:48:13,183 - INFO - Container sweb.eval.pvlib__pvlib-python-1707.dev2_pilot_E_20261106_01 stopped successfully.
+2026-11-06 11:48:13,183 - INFO - Attempting to remove container sweb.eval.pvlib__pvlib-python-1707.dev2_pilot_E_20261106_01...
+2026-11-06 11:48:13,236 - INFO - Container sweb.eval.pvlib__pvlib-python-1707.dev2_pilot_E_20261106_01 removed successfully.

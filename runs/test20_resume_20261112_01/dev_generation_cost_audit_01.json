@@ -1,0 +1,21 @@
+{
+  "kind": "dev_generation_closed_cost_audit",
+  "ledger": "runs\\test20_execution_20261111\\batch_ledger.json",
+  "ledger_sha256": "83acc65a50a491e6f48733a62522bd2f81962115e458de94662ea8eb14db0e78",
+  "ceiling_cny": 100,
+  "booked_estimate_cny": 7.6417208599999995,
+  "records": 574,
+  "pending": null,
+  "full_dev_records": 370,
+  "full_dev_cost_cny": 6.21434902,
+  "full_dev_fingerprints": {
+    "bc19ba97cbe016479903222bb1578db6": 370
+  },
+  "full_dev_finish_reasons": {
+    "stop": 133,
+    "tool_calls": 189,
+    "length": 48
+  },
+  "unknown_billing_count": 0,
+  "not_invoice_or_account_balance": true
+}

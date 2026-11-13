@@ -1,0 +1,193 @@
+{
+  "kind": "public_pyvista_dependency_fix_cache",
+  "date": "2026-11-11",
+  "status": "candidate_cached_not_installed",
+  "source_base_commit": "db6ee8dd4a747b8864caae36c5d05883976a3ae5",
+  "original_image": "sha256:c3d02ef66da989070d532ea6993104f9d4b76e3d5f86fea85d7e4da1fba2e230",
+  "baseline_failure_report": "pyvista_public_baseline_extended_classification_01.json",
+  "baseline_failure_report_sha256": "ca5dec81ca63a4f717543bc9c5c74df39fdbddb4ca709194cfa40de3474edbc3",
+  "source_evidence": [
+    {
+      "file": "C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\work\\test20_environment_20261111\\pyvista__pyvista-4315\\testbed\\pyproject.toml",
+      "sha256": "e3e82add8b3d4b2dadb162fe250e9df0cf054ea029a2a4449267bd0b31dbb730",
+      "relevant_lines": [
+        {
+          "line_number": 44,
+          "text": "    'meshio>=5.2',"
+        },
+        {
+          "line_number": 52,
+          "text": "io = ['meshio>=5.2']"
+        }
+      ]
+    },
+    {
+      "file": "C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\work\\test20_environment_20261111\\pyvista__pyvista-4315\\testbed\\requirements_test.txt",
+      "sha256": "d5bcedef72a0251553c9801d21adf59360b5b75b33f9b8cd24bb29cc82319807",
+      "relevant_lines": [
+        {
+          "line_number": 12,
+          "text": "meshio<5.4.0"
+        },
+        {
+          "line_number": 26,
+          "text": "tqdm<4.66.0"
+        }
+      ]
+    },
+    {
+      "file": "C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\work\\test20_environment_20261111\\pyvista__pyvista-4315\\testbed\\requirements_docs.txt",
+      "sha256": "ddd104954d854fd1b80ba2678d5b77a426d2b546ca4b24a92e49d9a89bf3ff0a",
+      "relevant_lines": [
+        {
+          "line_number": 11,
+          "text": "meshio==5.3.4"
+        }
+      ]
+    }
+  ],
+  "target_python": "CPython 3.9.23 Linux x86_64",
+  "wheels": [
+    {
+      "package": "meshio",
+      "version": "5.3.4",
+      "metadata_url": "https://pypi.org/pypi/meshio/5.3.4/json",
+      "filename": "meshio-5.3.4-py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/42/0d/e6fb61a615ce1ab5548894dde1efdb22232213a84da671b6314255ba0cfe/meshio-5.3.4-py3-none-any.whl",
+      "cache_path": "D:\\CodexExperimentCache\\test20_20261111\\dependency_wheels\\meshio-5.3.4-py3-none-any.whl",
+      "sha256": "fbd5a7b387fdea98f4d7fed1f154f4a52b7f2e1d619762a52b8ece3df1d8aa0d",
+      "bytes": 167650,
+      "reused_cached_bytes": false,
+      "requires_python": ">=3.7",
+      "requires_dist": [
+        "numpy",
+        "rich",
+        "importlib-metadata ; python_version < \"3.8\"",
+        "netCDF4 ; extra == 'all'",
+        "h5py ; extra == 'all'"
+      ],
+      "verified_https": true
+    },
+    {
+      "package": "tqdm",
+      "version": "4.64.1",
+      "metadata_url": "https://pypi.org/pypi/tqdm/4.64.1/json",
+      "filename": "tqdm-4.64.1-py2.py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/47/bb/849011636c4da2e44f1253cd927cfb20ada4374d8b3a4e425416e84900cc/tqdm-4.64.1-py2.py3-none-any.whl",
+      "cache_path": "D:\\CodexExperimentCache\\test20_20261111\\dependency_wheels\\tqdm-4.64.1-py2.py3-none-any.whl",
+      "sha256": "6fee160d6ffcd1b1c68c65f14c829c22832bc401726335ce92c52d395944a6a1",
+      "bytes": 78468,
+      "reused_cached_bytes": true,
+      "requires_python": "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,>=2.7",
+      "requires_dist": [
+        "colorama ; platform_system == \"Windows\"",
+        "importlib-resources ; python_version < \"3.7\"",
+        "py-make (>=0.1.0) ; extra == 'dev'",
+        "twine ; extra == 'dev'",
+        "wheel ; extra == 'dev'",
+        "ipywidgets (>=6) ; extra == 'notebook'",
+        "slack-sdk ; extra == 'slack'",
+        "requests ; extra == 'telegram'"
+      ],
+      "verified_https": true
+    },
+    {
+      "package": "rich",
+      "version": "13.9.4",
+      "metadata_url": "https://pypi.org/pypi/rich/13.9.4/json",
+      "filename": "rich-13.9.4-py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/19/71/39c7c0d87f8d4e6c020a393182060eaefeeae6c01dab6a84ec346f2567df/rich-13.9.4-py3-none-any.whl",
+      "cache_path": "D:\\CodexExperimentCache\\test20_20261111\\dependency_wheels\\rich-13.9.4-py3-none-any.whl",
+      "sha256": "6049d5e6ec054bf2779ab3358186963bac2ea89175919d699e378b99738c2a90",
+      "bytes": 242424,
+      "reused_cached_bytes": false,
+      "requires_python": ">=3.8.0",
+      "requires_dist": [
+        "ipywidgets (>=7.5.1,<9) ; extra == \"jupyter\"",
+        "markdown-it-py (>=2.2.0)",
+        "pygments (>=2.13.0,<3.0.0)",
+        "typing-extensions (>=4.0.0,<5.0) ; python_version < \"3.11\""
+      ],
+      "verified_https": true
+    },
+    {
+      "package": "markdown-it-py",
+      "version": "3.0.0",
+      "metadata_url": "https://pypi.org/pypi/markdown-it-py/3.0.0/json",
+      "filename": "markdown_it_py-3.0.0-py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/42/d7/1ec15b46af6af88f19b8e5ffea08fa375d433c998b8a7639e76935c14f1f/markdown_it_py-3.0.0-py3-none-any.whl",
+      "cache_path": "D:\\CodexExperimentCache\\test20_20261111\\dependency_wheels\\markdown_it_py-3.0.0-py3-none-any.whl",
+      "sha256": "355216845c60bd96232cd8d8c40e8f9765cc86f46880e43a8fd22dc1a1a8cab1",
+      "bytes": 87528,
+      "reused_cached_bytes": false,
+      "requires_python": ">=3.8",
+      "requires_dist": [
+        "mdurl~=0.1",
+        "psutil ; extra == \"benchmarking\"",
+        "pytest ; extra == \"benchmarking\"",
+        "pytest-benchmark ; extra == \"benchmarking\"",
+        "pre-commit~=3.0 ; extra == \"code_style\"",
+        "commonmark~=0.9 ; extra == \"compare\"",
+        "markdown~=3.4 ; extra == \"compare\"",
+        "mistletoe~=1.0 ; extra == \"compare\"",
+        "mistune~=2.0 ; extra == \"compare\"",
+        "panflute~=2.3 ; extra == \"compare\"",
+        "linkify-it-py>=1,<3 ; extra == \"linkify\"",
+        "mdit-py-plugins ; extra == \"plugins\"",
+        "gprof2dot ; extra == \"profiling\"",
+        "mdit-py-plugins ; extra == \"rtd\"",
+        "myst-parser ; extra == \"rtd\"",
+        "pyyaml ; extra == \"rtd\"",
+        "sphinx ; extra == \"rtd\"",
+        "sphinx-copybutton ; extra == \"rtd\"",
+        "sphinx-design ; extra == \"rtd\"",
+        "sphinx_book_theme ; extra == \"rtd\"",
+        "jupyter_sphinx ; extra == \"rtd\"",
+        "coverage ; extra == \"testing\"",
+        "pytest ; extra == \"testing\"",
+        "pytest-cov ; extra == \"testing\"",
+        "pytest-regressions ; extra == \"testing\""
+      ],
+      "verified_https": true
+    },
+    {
+      "package": "mdurl",
+      "version": "0.1.2",
+      "metadata_url": "https://pypi.org/pypi/mdurl/0.1.2/json",
+      "filename": "mdurl-0.1.2-py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/b3/38/89ba8ad64ae25be8de66a6d463314cf1eb366222074cfda9ee839c56a4b4/mdurl-0.1.2-py3-none-any.whl",
+      "cache_path": "D:\\CodexExperimentCache\\test20_20261111\\dependency_wheels\\mdurl-0.1.2-py3-none-any.whl",
+      "sha256": "84008a41e51615a49fc9966191ff91509e3c40b939176e643fd50a5c2196b8f8",
+      "bytes": 9979,
+      "reused_cached_bytes": false,
+      "requires_python": ">=3.7",
+      "requires_dist": [],
+      "verified_https": true
+    }
+  ],
+  "candidate_lock": {
+    "path": "D:\\CodexExperimentCache\\test20_20261111\\dependency_wheels\\pyvista_public_tests_fix_candidate.additions.lock.txt",
+    "sha256": "de4cba1e9d5a5f8abf0573d630dbb7032ee1eda24ea07f6c73202f347c37f8b6"
+  },
+  "declared_inherited_dependencies": {
+    "numpy": "1.24.4",
+    "Pygments": "2.19.1"
+  },
+  "compatibility_basis": [
+    "meshio5.3.4 exactly matches the same-commit requirements_docs pin and satisfies io>=5.2 and test<5.4.0.",
+    "tqdm4.64.1 satisfies the same-commit test requirement <4.66.0 and reuses verified cached bytes.",
+    "rich13.9.4 supports Python>=3.8; markdown-it-py3.0.0 supports Python>=3.8; mdurl0.1.2 supports Python>=3.7.",
+    "meshio needs numpy>=1.20.0 and rich; rich needs markdown-it-py>=2.2.0 and pygments>=2.13,<3; markdown-it-py needs mdurl~=0.1.",
+    "This is metadata-level compatibility only; exact public baseline rerun remains mandatory."
+  ],
+  "formal_test_execution": "deferred_by_user; this session stops after dev calibration and freeze",
+  "packages_installed": false,
+  "docker_operations": false,
+  "model_calls": 0,
+  "project_dotenv_read": false,
+  "source_or_tests_modified": false,
+  "script_sha256": "e175ba11562011b6ad5b1d16b1d8a0c8b5ad991cfb84c02f7cfac77df9a355bd",
+  "new_download_bytes": 507581,
+  "total_fix_wheel_bytes": 586049,
+  "D_free_bytes": 104726003712
+}

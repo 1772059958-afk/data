@@ -1,0 +1,11 @@
+--- a/requests/sessions.py
++++ b/requests/sessions.py
+@@ -172,5 +172,8 @@ class SessionRedirectMixin(object):
+ 
+             extract_cookies_to_jar(self.cookies, prepared_request, resp.raw)
+ 
++            # Carry the request forward so subsequent redirects are resolved
++            # relative to the request that was actually sent, not the original.
++            req = prepared_request
+             i += 1
+             yield resp

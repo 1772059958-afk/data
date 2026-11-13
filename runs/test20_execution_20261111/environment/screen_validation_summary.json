@@ -1,0 +1,79 @@
+{
+  "kind": "public_screen_environment_acceptance",
+  "date": "2026-11-11",
+  "designated_instances": [
+    "pydicom__pydicom-1256",
+    "pylint-dev__astroid-1866",
+    "pyvista__pyvista-4315"
+  ],
+  "images_file": "screen_images.json",
+  "images_file_sha256": "c732fc9f0ff691d6856630cd64764943dbfc1e9582ae7e8e37ef747d5d466f88",
+  "validation_files": [
+    {
+      "path": "pydicom1256_validation.json",
+      "sha256": "99ff0bb25c2e01f8c17bdf28a418a2bb644dca058af72321ef80aa175d5f3043"
+    },
+    {
+      "path": "astroid1866_validation.json",
+      "sha256": "0315d5578b249d2633e8e8d5ddae6a74bc08ba8bbde149f010b0a97415dfbea0"
+    },
+    {
+      "path": "pyvista4315_validation.json",
+      "sha256": "8408b9d46a52be64ccbaa6fce01d9abc39451da5f66b23a8826cfed1373f4980"
+    }
+  ],
+  "tests": {
+    "pydicom__pydicom-1256": {
+      "test_dataset": {
+        "passed": 136
+      },
+      "test_valuerep": {
+        "passed": 56
+      }
+    },
+    "pylint-dev__astroid-1866": {
+      "unittest_builder": {
+        "passed": 56,
+        "skipped": 1
+      }
+    },
+    "pyvista__pyvista-4315": {
+      "test_pyvista_ndarray": {
+        "passed": 7,
+        "skipped": 1
+      },
+      "rendering": "not_verified_no_DISPLAY_or_Xvfb"
+    }
+  },
+  "all_real_base_commits_verified": true,
+  "all_actual_container_image_ids_verified": true,
+  "network_during_validation": "none",
+  "source_or_test_assertions_modified": false,
+  "hidden_test_or_official_patch_used": false,
+  "model_calls": 0,
+  "project_dotenv_read": false,
+  "cleanup": [
+    {
+      "container_name": "test20-env-pydicom1256-20261111",
+      "exists": false
+    },
+    {
+      "container_name": "test20-env-astroid1866-20261111",
+      "exists": false
+    },
+    {
+      "container_name": "test20-prepare-pyvista4315-20261111",
+      "exists": false
+    },
+    {
+      "container_name": "test20-env-pyvista4315-20261111",
+      "exists": false
+    }
+  ],
+  "C_free_bytes": 5519781888,
+  "limits": [
+    "PyVista only non-rendering public tests validated; no full graphical acceptance.",
+    "PyVista initial missing libXrender failure preserved and fixed before any model generation.",
+    "Only the three prespecified screen environments are accepted here; no claim for all dev23 or test20."
+  ]
+}

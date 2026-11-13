@@ -1,0 +1,92 @@
+{
+  "kind": "all_five_generation_outputs_frozen_before_independent_scoring",
+  "tags": {
+    "A": "test20_A_20261112_01",
+    "B": "test20_B_20261112_02",
+    "C": "test20_C_20261112_01",
+    "D": "test20_D_20261112_01",
+    "E": "test20_E_20261112_01"
+  },
+  "arms": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E"
+  ],
+  "instances": [
+    "astropy__astropy-14995",
+    "django__django-11910",
+    "django__django-12708",
+    "django__django-13230",
+    "django__django-17087",
+    "matplotlib__matplotlib-23987",
+    "matplotlib__matplotlib-24970",
+    "mwaskom__seaborn-2848",
+    "pallets__flask-4045",
+    "psf__requests-1963",
+    "pydata__xarray-3364",
+    "pylint-dev__pylint-7114",
+    "pytest-dev__pytest-6116",
+    "pytest-dev__pytest-8906",
+    "scikit-learn__scikit-learn-11281",
+    "scikit-learn__scikit-learn-13496",
+    "sphinx-doc__sphinx-8595",
+    "sympy__sympy-13480",
+    "sympy__sympy-16503",
+    "sympy__sympy-23262"
+  ],
+  "prediction_count": 100,
+  "artifacts": [
+    {
+      "path": "runs\\test20_A_20261112_01\\matrix.json",
+      "sha256": "dae72f7f6bd16236e6e5f949b1a2f68d7724eac928a2c63fa8ee15b185297bdc"
+    },
+    {
+      "path": "runs\\test20_A_20261112_01\\predictions_A.jsonl",
+      "sha256": "b94bf4a0bdbdd5d7dfc435ad4035d1b7c4e785bc997b4d0f32400766d65c6126"
+    },
+    {
+      "path": "runs\\test20_B_20261112_02\\matrix.json",
+      "sha256": "6329c129c112da058ac39c20f20381e97159cada28d42f7eb4adf918550db96b"
+    },
+    {
+      "path": "runs\\test20_B_20261112_02\\predictions_B.jsonl",
+      "sha256": "3bc30e942c59b24cbb446b03832509537d08fa9e37caaa6758b04b449afa423c"
+    },
+    {
+      "path": "runs\\test20_C_20261112_01\\matrix.json",
+      "sha256": "71aeeffe263e4973fb2a1e853dd17c1e1c6e74addeef7c7495aeadb2e982afcd"
+    },
+    {
+      "path": "runs\\test20_C_20261112_01\\predictions_C.jsonl",
+      "sha256": "fb553b2c484e30bbb7986cd55ea3e7bcbce33c907c7b29b629161cb5a41523af"
+    },
+    {
+      "path": "runs\\test20_D_20261112_01\\matrix.json",
+      "sha256": "97de14a601ea6e13fe1658b79f01befb47d7c5e4b5c013b718aa52de658afaf9"
+    },
+    {
+      "path": "runs\\test20_D_20261112_01\\predictions_D.jsonl",
+      "sha256": "c00c0d7b6fca249e4924522d76e42d5d8d03553ad22a4118d09004c17fd522b7"
+    },
+    {
+      "path": "runs\\test20_E_20261112_01\\matrix.json",
+      "sha256": "b9af88d7f08139d18e22b8428ec0b89252401a3b8407c64cd8d757b43f0659be"
+    },
+    {
+      "path": "runs\\test20_E_20261112_01\\predictions_E.jsonl",
+      "sha256": "13554d7b8aaa6eed04b55591a7275e453ed67364ae55b117e3251baf33f8bf13"
+    }
+  ],
+  "config_hash": "facc7c3aba17b36481828a6109a9a3ccd54deabe0ef3e7b33759b2964e3024dc",
+  "source_sha256": "b065ff0b3feaa3ecc6865c8992432530ceb3d1f57c785ae8252fcff352ebb789",
+  "shared_prefixes_exact": true,
+  "all20_A_C_D_E_actual_prefix_stages_and_snapshots_equal": true,
+  "B_resume_provenance_sha256": "9c68f4637ca4597213c42a83c4325d86d29bb941b59996c774bfd4aab3562975",
+  "B8_recovery_audit_sha256": "3dc9df82064966754351a2a3764c027f3bec84fc6a8c098f80330f78bf828c74",
+  "ledger_sha256": "02405b919d5907e08b19ebedd9fd18601fa4749c16d6c2212744bd74ccdd4669",
+  "cumulative_estimate_cny": 17.86646022,
+  "frozen_at": "2026-11-12T01:42:13.607256+00:00",
+  "hidden_formal_results_read": false
+}

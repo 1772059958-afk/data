@@ -1,0 +1,9 @@
+Looking in links: /tmp/legacy-pytest-wheels
+Processing /tmp/legacy-pytest-wheels/pytest-3.10.1-py2.py3-none-any.whl (from -r /tmp/legacy-pytest.lock.txt (line 1))
+Processing /tmp/legacy-pytest-wheels/pluggy-0.13.1-py2.py3-none-any.whl (from -r /tmp/legacy-pytest.lock.txt (line 2))
+Processing /tmp/legacy-pytest-wheels/atomicwrites-1.4.0-py2.py3-none-any.whl (from -r /tmp/legacy-pytest.lock.txt (line 3))
+Processing /tmp/legacy-pytest-wheels/py-1.11.0-py2.py3-none-any.whl (from -r /tmp/legacy-pytest.lock.txt (line 4))
+Processing /tmp/legacy-pytest-wheels/six-1.16.0-py2.py3-none-any.whl (from -r /tmp/legacy-pytest.lock.txt (line 5))
+Processing /tmp/legacy-pytest-wheels/attrs-19.3.0-py2.py3-none-any.whl (from -r /tmp/legacy-pytest.lock.txt (line 6))
+ERROR: Could not find a version that satisfies the requirement more-itertools==4.3.0 (from versions: none)
+ERROR: No matching distribution found for more-itertools==4.3.0

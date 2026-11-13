@@ -1,0 +1,4 @@
+[artifact-tool] embedded_font_name_mismatch: EOT family "微软雅黑" does not match decoded SFNT name "Microsoft YaHei".
+[artifact-tool] embedded_font_subset_missing_glyph: Embedded font is subsetted; glyph coverage checks are not available yet.
+Inspect result written to file: C:/Users/remil/Desktop/3yr/科研/proj/work/ppt_closeout_20261112/draft/candidate.pptx.inspect.ndjson
+{"candidate":"C:/Users/remil/Desktop/3yr/科研/proj/work/ppt_closeout_20261112/draft/candidate.pptx","slides":10,"render":"C:/Users/remil/Desktop/3yr/科研/proj/work/ppt_closeout_20261112/render"}

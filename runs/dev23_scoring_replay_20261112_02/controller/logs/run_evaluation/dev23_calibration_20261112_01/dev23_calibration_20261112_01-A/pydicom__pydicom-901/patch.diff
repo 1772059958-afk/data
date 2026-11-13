@@ -1,0 +1,23 @@
+--- a/pydicom/config.py
++++ b/pydicom/config.py
+@@ -82,11 +82,7 @@
+ 
+ # Logging system and debug function to change logging level
+ logger = logging.getLogger('pydicom')
+-handler = logging.StreamHandler()
+-formatter = logging.Formatter("%(message)s")
+-handler.setFormatter(formatter)
+-logger.addHandler(handler)
+-
++debugging = False
+ 
+ import pydicom.pixel_data_handlers.numpy_handler as np_handler  # noqa
+ import pydicom.pixel_data_handlers.rle_handler as rle_handler  # noqa
+@@ -165,7 +161,3 @@
+     else:
+         logger.setLevel(logging.WARNING)
+         debugging = False
+-
+-
+-# force level=WARNING, in case logging default is set differently (issue 103)
+-debug(False)

@@ -1,0 +1,145 @@
+2026-11-12 11:02:50,134 - INFO - Creating container for scikit-learn__scikit-learn-11281...
+2026-11-12 11:02:50,181 - INFO - Container for scikit-learn__scikit-learn-11281 created: fc872cf696adb99e244666c6ce3ae9da1201a5f6d658403a9ed0cda16cb14b99
+2026-11-12 11:02:50,350 - INFO - Container for scikit-learn__scikit-learn-11281 started: fc872cf696adb99e244666c6ce3ae9da1201a5f6d658403a9ed0cda16cb14b99
+2026-11-12 11:02:50,354 - INFO - Intermediate patch for scikit-learn__scikit-learn-11281 written to logs/run_evaluation/test20_B_20261112_02/test20_B_20261112_02-B/scikit-learn__scikit-learn-11281/patch.diff, now applying to container...
+2026-11-12 11:02:50,468 - INFO - >>>>> Applied Patch:
+Checking patch sklearn/mixture/base.py...
+Hunk #2 succeeded at 65 (offset 9 lines).
+Hunk #3 succeeded at 242 (offset 1 line).
+Hunk #4 succeeded at 384 (offset -12 lines).
+Applied patch sklearn/mixture/base.py cleanly.
+
+2026-11-12 11:02:50,879 - INFO - Git diff before:
+diff --git a/sklearn/mixture/base.py b/sklearn/mixture/base.py
+index a9f6674..cbe6948 100644
+--- a/sklearn/mixture/base.py
++++ b/sklearn/mixture/base.py
+@@ -14,6 +14,7 @@ import numpy as np
+ 
+ from .. import cluster
+ from ..base import BaseEstimator
++from ..base import ClusterMixin
+ from ..base import DensityMixin
+ from ..externals import six
+ from ..exceptions import ConvergenceWarning
+@@ -64,7 +65,8 @@ def _check_X(X, n_components=None, n_features=None, ensure_min_samples=1):
+     return X
+ 
+ 
+-class BaseMixture(six.with_metaclass(ABCMeta, DensityMixin, BaseEstimator)):
++class BaseMixture(six.with_metaclass(ABCMeta, DensityMixin, ClusterMixin,
++                                     BaseEstimator)):
+     """Base class for mixture models.
+ 
+     This abstract class specifies an interface for all mixture classes and
+@@ -242,6 +244,30 @@ class BaseMixture(six.with_metaclass(ABCMeta, DensityMixin, BaseEstimator)):
+ 
+         return self
+ 
++    def fit_predict(self, X, y=None):
++        """Estimate model parameters using X and predict the labels for X.
++
++        The method fits the model n_init times and sets the parameters with
++        which the model has the largest likelihood or lower bound. Within each
++        trial, the method iterates between E-step and M-step for `max_iter`
++        times until the change of likelihood or lower bound is less than
++        `tol`, otherwise, a `ConvergenceWarning` is raised. After fitting, it
++        predicts the most probable label for the input data points.
++
++        Parameters
++        ----------
++        X : array-like, shape (n_samples, n_features)
++            List of n_features-dimensional data points. Each row
++            corresponds to a single data point.
++
++        Returns
++        -------
++        labels : array, shape (n_samples,)
++            Component labels.
++        """
++        self.fit(X)
++        return self.predict(X)
++
+     def _e_step(self, X):
+         """E step.
+ 
+@@ -358,6 +384,7 @@ class BaseMixture(six.with_metaclass(ABCMeta, DensityMixin, BaseEstimator)):
+         self._check_is_fitted()
+         X = _check_X(X, None, self.means_.shape[1])
+         _, log_resp = self._estimate_log_prob_resp(X)
++        self.labels_ = log_resp.argmax(axis=1)
+         return np.exp(log_resp)
+ 
+     def sample(self, n_samples=1):
+2026-11-12 11:02:50,883 - INFO - Eval script for scikit-learn__scikit-learn-11281 written to logs/run_evaluation/test20_B_20261112_02/test20_B_20261112_02-B/scikit-learn__scikit-learn-11281/eval.sh; copying to container...
+2026-11-12 11:04:51,598 - INFO - Test runtime: 120.65 seconds
+2026-11-12 11:04:51,668 - INFO - Test output for scikit-learn__scikit-learn-11281 written to logs/run_evaluation/test20_B_20261112_02/test20_B_20261112_02-B/scikit-learn__scikit-learn-11281/test_output.txt
+2026-11-12 11:04:51,721 - INFO - Git diff after:
+diff --git a/sklearn/mixture/base.py b/sklearn/mixture/base.py
+index a9f6674..cbe6948 100644
+--- a/sklearn/mixture/base.py
++++ b/sklearn/mixture/base.py
+@@ -14,6 +14,7 @@ import numpy as np
+ 
+ from .. import cluster
+ from ..base import BaseEstimator
++from ..base import ClusterMixin
+ from ..base import DensityMixin
+ from ..externals import six
+ from ..exceptions import ConvergenceWarning
+@@ -64,7 +65,8 @@ def _check_X(X, n_components=None, n_features=None, ensure_min_samples=1):
+     return X
+ 
+ 
+-class BaseMixture(six.with_metaclass(ABCMeta, DensityMixin, BaseEstimator)):
++class BaseMixture(six.with_metaclass(ABCMeta, DensityMixin, ClusterMixin,
++                                     BaseEstimator)):
+     """Base class for mixture models.
+ 
+     This abstract class specifies an interface for all mixture classes and
+@@ -242,6 +244,30 @@ class BaseMixture(six.with_metaclass(ABCMeta, DensityMixin, BaseEstimator)):
+ 
+         return self
+ 
++    def fit_predict(self, X, y=None):
++        """Estimate model parameters using X and predict the labels for X.
++
++        The method fits the model n_init times and sets the parameters with
++        which the model has the largest likelihood or lower bound. Within each
++        trial, the method iterates between E-step and M-step for `max_iter`
++        times until the change of likelihood or lower bound is less than
++        `tol`, otherwise, a `ConvergenceWarning` is raised. After fitting, it
++        predicts the most probable label for the input data points.
++
++        Parameters
++        ----------
++        X : array-like, shape (n_samples, n_features)
++            List of n_features-dimensional data points. Each row
++            corresponds to a single data point.
++
++        Returns
++        -------
++        labels : array, shape (n_samples,)
++            Component labels.
++        """
++        self.fit(X)
++        return self.predict(X)
++
+     def _e_step(self, X):
+         """E step.
+ 
+@@ -358,6 +384,7 @@ class BaseMixture(six.with_metaclass(ABCMeta, DensityMixin, BaseEstimator)):
+         self._check_is_fitted()
+         X = _check_X(X, None, self.means_.shape[1])
+         _, log_resp = self._estimate_log_prob_resp(X)
++        self.labels_ = log_resp.argmax(axis=1)
+         return np.exp(log_resp)
+ 
+     def sample(self, n_samples=1):
+2026-11-12 11:04:51,721 - INFO - Grading answer for scikit-learn__scikit-learn-11281...
+2026-11-12 11:04:53,806 - INFO - report: {'scikit-learn__scikit-learn-11281': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': False, 'resolved': False, 'infra_failure': False}}
+Result for scikit-learn__scikit-learn-11281: resolved: False
+2026-11-12 11:04:53,810 - INFO - Attempting to stop container sweb.eval.scikit-learn__scikit-learn-11281.test20_B_20261112_02...
+2026-11-12 11:05:09,097 - INFO - Container sweb.eval.scikit-learn__scikit-learn-11281.test20_B_20261112_02 stopped successfully.
+2026-11-12 11:05:09,097 - INFO - Attempting to remove container sweb.eval.scikit-learn__scikit-learn-11281.test20_B_20261112_02...
+2026-11-12 11:05:09,170 - INFO - Container sweb.eval.scikit-learn__scikit-learn-11281.test20_B_20261112_02 removed successfully.

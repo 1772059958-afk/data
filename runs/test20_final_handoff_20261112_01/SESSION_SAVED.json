@@ -1,0 +1,106 @@
+{
+  "kind": "verified_stopped_experiment_checkpoint",
+  "saved_at": "2026-11-12T10:16:04.374738+00:00",
+  "outcome": {
+    "state": "formal_complete_supplements_cancelled_by_user",
+    "formal_predictions": 100,
+    "resolved_counts": {
+      "A": 7,
+      "B": 7,
+      "C": 10,
+      "D": 7,
+      "E": 8
+    },
+    "evaluation_errors": 26,
+    "report": "docs\\正式实验最终交接_20261112.md",
+    "report_sha256": "712137b43174827005aa26d4565f465112fed417ef4f79925a7bc721e2b9efb6",
+    "inactive_config": "configs/test20_inactive_20261112_02.json",
+    "new_paid_authorization_required": true,
+    "system_shutdown_scheduled": false,
+    "supplement_settings_not_processed_after_cancellation": true
+  },
+  "cost": {
+    "ledger_sha256": "339bf28d4e5ee0153083d983003db05ef0ab7f77569cc78ac6731816949b6105",
+    "ledger_records": 1152,
+    "cumulative_estimate_cny": 20.31946522,
+    "cancelled_supplement_requests_already_booked": 144,
+    "cancelled_supplement_estimate_cny": 2.453005,
+    "pending": null,
+    "billing": "usage-based estimate, not supplier payment or account balance",
+    "remaining_guard_cny": 79.68053478
+  },
+  "shutdown": {
+    "docker_desktop_stopped": true,
+    "stopped_containers_preserved_count": 1,
+    "docker_wsl_running": false,
+    "old_backups_are_not_current_full_volume": true,
+    "system_shutdown_requested_by_this_script": false,
+    "project_evidence_archive_target": "E:\\DockerBackups\\project-final-20261112-01",
+    "active_docker_data_path": "D:\\DockerData\\swe-repair-20261111\\DockerDesktopWSL",
+    "pre_stop_image_count": 77,
+    "owned_workers_remaining": [],
+    "at": "2026-11-12T18:14:15.1378414+08:00",
+    "container_and_image_deletions": 0,
+    "new_full_vhdx_backup_created": false,
+    "stopped_containers_preserved": [
+      {
+        "Command": "\"tail -f /dev/null\"",
+        "CreatedAt": "2026-11-12 18:10:12 +0800 CST",
+        "HealthStatus": "none",
+        "ID": "52b60b9959bc",
+        "Image": "4e75ccae6883",
+        "Labels": "codex.dev23.preparation=dev23prep_20261112_01,desktop.docker.io/ports.scheme=v2,org.opencontainers.image.ref.name=ubuntu,org.opencontainers.image.version=22.04",
+        "LocalVolumes": "0",
+        "Mounts": "",
+        "Names": "sweb.eval.pvlib__pvlib-python-1854.devsupp_baseline_20261112_02_eval",
+        "Networks": "bridge",
+        "Platform": {
+          "architecture": "amd64",
+          "os": "linux"
+        },
+        "Ports": "",
+        "RunningFor": "3 minutes ago",
+        "Size": "12.5MB (virtual 4.4GB)",
+        "State": "exited",
+        "Status": "Exited (137) 2 minutes ago"
+      }
+    ],
+    "owned_running_containers_remaining": [],
+    "active_cold_vhdx_files": [
+      {
+        "size_bytes": 76381421568,
+        "path": "D:\\DockerData\\swe-repair-20261111\\DockerDesktopWSL\\disk\\docker_data.vhdx",
+        "last_write_utc": "2026-11-12T10:14:04.7220398Z"
+      },
+      {
+        "size_bytes": 100663296,
+        "path": "D:\\DockerData\\swe-repair-20261111\\DockerDesktopWSL\\main\\ext4.vhdx",
+        "last_write_utc": "2026-11-12T10:14:04.5348836Z"
+      }
+    ]
+  },
+  "validation": {
+    "preservation_ok": true,
+    "original_verified": 93,
+    "archive_verified": 131,
+    "formal_sealed_artifacts_unchanged": true,
+    "formal_source_snapshot_files_verified": 62,
+    "latest_offline_suite": "399/399 passed before supplemental execution; no subsequent generator/test changes",
+    "offline_log_sha256": "8fd2a3648182be712811ef6598ac4ba504f84a72d828c68d71cb45843012ca4a",
+    "preservation_log_sha256": "afbced2f537cf1a070591472b695a1eadb99db2f9edfe68bee3d5529467474a3",
+    "offline_suite_passed": true,
+    "offline_passed": 399,
+    "offline_total": 399
+  },
+  "project_archive": {
+    "path": "E:\\DockerBackups\\project-final-20261112-01\\project-final-20261112-01.zip",
+    "sha256": "eea2bd03d43f876724134adfca4526c758315e147310ed4026fa9713ed622171",
+    "size_bytes": 766499205,
+    "files": 4227,
+    "zip_crc_verified": true,
+    "every_entry_sha256_verified": true
+  },
+  "credentials_included": false,
+  "model_calls_during_save": 0,
+  "new_full_vhdx_backup_created": false
+}

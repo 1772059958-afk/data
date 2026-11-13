@@ -1,0 +1,50 @@
+# check spelling, codestyle
+name: Style and Docstring Check
+
+on: [pull_request, workflow_dispatch]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  docstringcheck:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.9
+          cache: 'pip'
+          cache-dependency-path:  |
+            requirements.txt
+            requirements_test.txt
+
+      - uses: actions/cache@v3
+        with:
+          path: ~/.local/share/pyvista/examples
+          key: Examples-Data-${{ hashFiles('*') }}
+          restore-keys: |
+            Examples-Data-
+
+      - name: Install pyvista and doctest requirements
+        run: |
+          pip install -e . --no-deps
+          pip install -r requirements_test.txt vtk
+
+      - name: Setup headless display
+        uses: pyvista/setup-headless-display-action@v2
+
+      - name: Software Report
+        run: |
+          python -c "import pyvista; print(pyvista.Report()); from pyvista import examples; print('Examples path:', examples.USER_DATA_PATH)"
+          which python
+          pip list
+
+      - name: Test Package Docstrings
+        run: pytest -v --doctest-modules pyvista
+
+      - name: Test Package Docstrings with Local Namespace
+        run: make doctest-modules-local-namespace

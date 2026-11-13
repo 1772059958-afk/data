@@ -1,0 +1,69 @@
+{
+  "public_repo": "https://github.com/pytest-dev/pytest.git",
+  "base_commit": "69356d20cfee9a81972dcbf93d8caf9eabe113e8",
+  "directory": "D:\\CodexExperimentCache\\test20_20261111\\source\\pytest-dev__pytest-8906\\testbed",
+  "verified_https": true,
+  "tls_verify_disabled": false,
+  "ca_bundle": "C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\.venv\\Lib\\site-packages\\certifi\\cacert.pem",
+  "requests": [
+    {
+      "method": "GET",
+      "path": "/info/refs?service=git-upload-pack",
+      "status": 200,
+      "received_bytes": 191,
+      "elapsed_seconds": 0.703
+    },
+    {
+      "method": "POST",
+      "path": "/git-upload-pack",
+      "status": 200,
+      "received_bytes": 556837,
+      "elapsed_seconds": 1.278
+    },
+    {
+      "method": "POST",
+      "path": "/git-upload-pack",
+      "status": 200,
+      "received_bytes": 1329402,
+      "elapsed_seconds": 1.386
+    }
+  ],
+  "commands": [
+    {
+      "command": "git init",
+      "exit_code": 0,
+      "stdout": "Initialized empty Git repository in D:/CodexExperimentCache/test20_20261111/source/pytest-dev__pytest-8906/testbed/.git/\n",
+      "stderr": ""
+    },
+    {
+      "command": "git fetch public baseline over verified HTTPS bridge",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "From http://127.0.0.1:63569\n * branch            69356d20cfee9a81972dcbf93d8caf9eabe113e8 -> FETCH_HEAD\n",
+      "elapsed_seconds": 4.373
+    },
+    {
+      "command": "git checkout baseline",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "HEAD is now at 69356d2 Merge pull request #8903 from nicoddemus/remove-fspath-deprecation\n",
+      "elapsed_seconds": 0.45
+    },
+    {
+      "command": "git rev-parse HEAD",
+      "exit_code": 0,
+      "stdout": "69356d20cfee9a81972dcbf93d8caf9eabe113e8\n",
+      "stderr": "",
+      "elapsed_seconds": 0.103
+    },
+    {
+      "command": "git status --porcelain",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "",
+      "elapsed_seconds": 0.134
+    }
+  ],
+  "source_identity_verified": true,
+  "C_free_bytes": 5395296256
+}

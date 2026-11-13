@@ -1,0 +1,16 @@
+{
+  "phase": "formal_A_generation_in_progress",
+  "dev_calibration_complete": true,
+  "dev_complete_pairs": 13,
+  "dev_eligible": 17,
+  "configuration_frozen": true,
+  "formal_config": "configs/test20_frozen_20261112_01.json",
+  "effective_config_hash": "facc7c3aba17b36481828a6109a9a3ccd54deabe0ef3e7b33759b2964e3024dc",
+  "source_hash": "b065ff0b3feaa3ecc6865c8992432530ceb3d1f57c785ae8252fcff352ebb789",
+  "formal_pipeline_session_id": 82593,
+  "disk_guard_session_id": 13915,
+  "next_after_generation": "Verify formal_generation_freeze_manifest.json then run complete_formal_scoring.py; never read formal labels before all five outputs freeze.",
+  "scoring_controller": "sha256:1f43c83b3d3c631d37af54a19828df269accd045a22c62c0aab5b2bfa713726f",
+  "stop_without_questions": true,
+  "cost_is_estimate_not_invoice": true
+}

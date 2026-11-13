@@ -1,0 +1,19 @@
+{
+  "date": "2026-11-11",
+  "user_instruction": "本轮新增模型费用上限100元，包含dev校准和20例五组一次的正式实验，按计划开始执行并完成独立判分。",
+  "new_model_ceiling_cny": 100.0,
+  "previous_ledger_excluded": true,
+  "credential_source": "project_dotenv",
+  "dev_population": 23,
+  "test_sample_manifest": "runs/test20_preparation_20261111/instances.json",
+  "test_arms": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E"
+  ],
+  "test_repeats": 1,
+  "seed": 20261111,
+  "scope": "Public environment preparation, model identity/resource screening, full dev paired calibration, exactly registered test20 five-arm single run, independent official scoring. Formal freeze remains required."
+}

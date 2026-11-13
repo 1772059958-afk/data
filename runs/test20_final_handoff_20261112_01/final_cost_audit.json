@@ -1,0 +1,10 @@
+{
+  "ledger_sha256": "339bf28d4e5ee0153083d983003db05ef0ab7f77569cc78ac6731816949b6105",
+  "ledger_records": 1152,
+  "cumulative_estimate_cny": 20.31946522,
+  "cancelled_supplement_requests_already_booked": 144,
+  "cancelled_supplement_estimate_cny": 2.453005,
+  "pending": null,
+  "billing": "usage-based estimate, not supplier payment or account balance",
+  "remaining_guard_cny": 79.68053478
+}

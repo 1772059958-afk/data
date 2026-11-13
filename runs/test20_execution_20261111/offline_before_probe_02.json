@@ -1,0 +1,11 @@
+{
+  "command": "python scripts/run_offline_tests.py",
+  "exit_code": 0,
+  "source_sha256": {
+    "scripts/run_cf.py": "6f4f5f14a9329198af0fca558fa57d3e5e12cde10f1f2f677bce42075e01f60c",
+    "scripts/probe_model.py": "e04ca157858046889600c5237de04233cd77e13e367f31a0655a880717519374",
+    "src/swe_repair/llm.py": "aedd6b686fe90ad311d3e1fb6a9b2297f79cbdf0debe6a68fc0b6b9683c28a41",
+    "src/swe_repair/execution.py": "8c10a6da8a6dedf5be6d5d5a7ccc0685d095d9747fbeedcca1999294d27139fc",
+    "src/swe_repair/experiment.py": "c5810a3b27d573e64091db1924980d000ecc9a38569cb75ffd747a2a5ecc02f9"
+  }
+}

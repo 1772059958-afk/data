@@ -1,0 +1,279 @@
+{
+  "kind": "public_pyvista_environment_amendment_plan",
+  "date": "2026-11-11",
+  "status": "cached_metadata_checked_waiting_for_docker_migration_no_execution",
+  "scope": "dev calibration and configuration freeze only; formal test20 deferred by user",
+  "instance_id": "pyvista__pyvista-4315",
+  "base_commit": "db6ee8dd4a747b8864caae36c5d05883976a3ae5",
+  "derive_from_image": "sha256:c3d02ef66da989070d532ea6993104f9d4b76e3d5f86fea85d7e4da1fba2e230",
+  "replace_original_image": false,
+  "candidate_lock": {
+    "path": "D:\\CodexExperimentCache\\test20_20261111\\dependency_wheels\\pyvista_public_tests_fix_candidate.additions.lock.txt",
+    "sha256": "de4cba1e9d5a5f8abf0573d630dbb7032ee1eda24ea07f6c73202f347c37f8b6"
+  },
+  "wheel_cache": "D:\\CodexExperimentCache\\test20_20261111\\dependency_wheels",
+  "cache_audit": "pyvista_public_test_dependency_fix_cache_01.json",
+  "cache_audit_sha256": "71064a2b3cdbd3e234e918941ecf4ef0f7aa01a4c993cabddfe259b001a7d512",
+  "baseline_report": "pyvista_public_baseline_extended_01.json",
+  "baseline_report_sha256": "e7aae665d140be24993d85ef3dbeeb75aef1197e87066e3f621dcd0388040f1c",
+  "acceptance_command": "python -m pytest tests/test_grid.py tests/test_demos.py tests/test_cells.py -q --no-header -p no:cacheprovider",
+  "required_test_exit_code": 0,
+  "declared_inherited_versions": {
+    "numpy": "1.24.4",
+    "Pygments": "2.19.1",
+    "typing-extensions": "4.13.2"
+  },
+  "target_environment": {
+    "implementation_name": "cpython",
+    "implementation_version": "3.9.23",
+    "os_name": "posix",
+    "platform_machine": "x86_64",
+    "platform_release": "6.6.114.1-microsoft-standard-WSL2",
+    "platform_system": "Linux",
+    "platform_version": "10.0.26200",
+    "python_full_version": "3.9.23",
+    "platform_python_implementation": "CPython",
+    "python_version": "3.9",
+    "sys_platform": "linux",
+    "extra": ""
+  },
+  "python_compatibility_checks": [
+    {
+      "package": "meshio",
+      "requires_python": ">=3.7",
+      "target": "3.9.23",
+      "satisfied": true
+    },
+    {
+      "package": "tqdm",
+      "requires_python": "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,>=2.7",
+      "target": "3.9.23",
+      "satisfied": true
+    },
+    {
+      "package": "rich",
+      "requires_python": ">=3.8.0",
+      "target": "3.9.23",
+      "satisfied": true
+    },
+    {
+      "package": "markdown-it-py",
+      "requires_python": ">=3.8",
+      "target": "3.9.23",
+      "satisfied": true
+    },
+    {
+      "package": "mdurl",
+      "requires_python": ">=3.7",
+      "target": "3.9.23",
+      "satisfied": true
+    }
+  ],
+  "active_requirements": [
+    {
+      "from": "meshio",
+      "requirement": "numpy",
+      "available_version": "1.24.4",
+      "satisfied": true
+    },
+    {
+      "from": "meshio",
+      "requirement": "rich",
+      "available_version": "13.9.4",
+      "satisfied": true
+    },
+    {
+      "from": "rich",
+      "requirement": "markdown-it-py (>=2.2.0)",
+      "available_version": "3.0.0",
+      "satisfied": true
+    },
+    {
+      "from": "rich",
+      "requirement": "pygments (>=2.13.0,<3.0.0)",
+      "available_version": "2.19.1",
+      "satisfied": true
+    },
+    {
+      "from": "rich",
+      "requirement": "typing-extensions (>=4.0.0,<5.0) ; python_version < \"3.11\"",
+      "available_version": "4.13.2",
+      "satisfied": true
+    },
+    {
+      "from": "markdown-it-py",
+      "requirement": "mdurl~=0.1",
+      "available_version": "0.1.2",
+      "satisfied": true
+    }
+  ],
+  "inactive_optional_requirements": [
+    {
+      "from": "meshio",
+      "requirement": "importlib-metadata ; python_version < \"3.8\""
+    },
+    {
+      "from": "meshio",
+      "requirement": "netCDF4 ; extra == 'all'"
+    },
+    {
+      "from": "meshio",
+      "requirement": "h5py ; extra == 'all'"
+    },
+    {
+      "from": "tqdm",
+      "requirement": "colorama ; platform_system == \"Windows\""
+    },
+    {
+      "from": "tqdm",
+      "requirement": "importlib-resources ; python_version < \"3.7\""
+    },
+    {
+      "from": "tqdm",
+      "requirement": "py-make (>=0.1.0) ; extra == 'dev'"
+    },
+    {
+      "from": "tqdm",
+      "requirement": "twine ; extra == 'dev'"
+    },
+    {
+      "from": "tqdm",
+      "requirement": "wheel ; extra == 'dev'"
+    },
+    {
+      "from": "tqdm",
+      "requirement": "ipywidgets (>=6) ; extra == 'notebook'"
+    },
+    {
+      "from": "tqdm",
+      "requirement": "slack-sdk ; extra == 'slack'"
+    },
+    {
+      "from": "tqdm",
+      "requirement": "requests ; extra == 'telegram'"
+    },
+    {
+      "from": "rich",
+      "requirement": "ipywidgets (>=7.5.1,<9) ; extra == \"jupyter\""
+    },
+    {
+      "from": "markdown-it-py",
+      "requirement": "psutil ; extra == \"benchmarking\""
+    },
+    {
+      "from": "markdown-it-py",
+      "requirement": "pytest ; extra == \"benchmarking\""
+    },
+    {
+      "from": "markdown-it-py",
+      "requirement": "pytest-benchmark ; extra == \"benchmarking\""
+    },
+    {
+      "from": "markdown-it-py",
+      "requirement": "pre-commit~=3.0 ; extra == \"code_style\""
+    },
+    {
+      "from": "markdown-it-py",
+      "requirement": "commonmark~=0.9 ; extra == \"compare\""
+    },
+    {
+      "from": "markdown-it-py",
+      "requirement": "markdown~=3.4 ; extra == \"compare\""
+    },
+    {
+      "from": "markdown-it-py",
+      "requirement": "mistletoe~=1.0 ; extra == \"compare\""
+    },
+    {
+      "from": "markdown-it-py",
+      "requirement": "mistune~=2.0 ; extra == \"compare\""
+    },
+    {
+      "from": "markdown-it-py",
+      "requirement": "panflute~=2.3 ; extra == \"compare\""
+    },
+    {
+      "from": "markdown-it-py",
+      "requirement": "linkify-it-py>=1,<3 ; extra == \"linkify\""
+    },
+    {
+      "from": "markdown-it-py",
+      "requirement": "mdit-py-plugins ; extra == \"plugins\""
+    },
+    {
+      "from": "markdown-it-py",
+      "requirement": "gprof2dot ; extra == \"profiling\""
+    },
+    {
+      "from": "markdown-it-py",
+      "requirement": "mdit-py-plugins ; extra == \"rtd\""
+    },
+    {
+      "from": "markdown-it-py",
+      "requirement": "myst-parser ; extra == \"rtd\""
+    },
+    {
+      "from": "markdown-it-py",
+      "requirement": "pyyaml ; extra == \"rtd\""
+    },
+    {
+      "from": "markdown-it-py",
+      "requirement": "sphinx ; extra == \"rtd\""
+    },
+    {
+      "from": "markdown-it-py",
+      "requirement": "sphinx-copybutton ; extra == \"rtd\""
+    },
+    {
+      "from": "markdown-it-py",
+      "requirement": "sphinx-design ; extra == \"rtd\""
+    },
+    {
+      "from": "markdown-it-py",
+      "requirement": "sphinx_book_theme ; extra == \"rtd\""
+    },
+    {
+      "from": "markdown-it-py",
+      "requirement": "jupyter_sphinx ; extra == \"rtd\""
+    },
+    {
+      "from": "markdown-it-py",
+      "requirement": "coverage ; extra == \"testing\""
+    },
+    {
+      "from": "markdown-it-py",
+      "requirement": "pytest ; extra == \"testing\""
+    },
+    {
+      "from": "markdown-it-py",
+      "requirement": "pytest-cov ; extra == \"testing\""
+    },
+    {
+      "from": "markdown-it-py",
+      "requirement": "pytest-regressions ; extra == \"testing\""
+    }
+  ],
+  "metadata_clarification": "meshio5.3.4 wheel METADATA declares numpy without a bound (the first cache narrative says >=1.20.0); actual METADATA governs. Rich also requires typing-extensions>=4,<5 for Python<3.11, satisfied by inherited4.13.2.",
+  "planned_steps": [
+    "Wait for root to confirm Docker migration has finished; no Docker operation before that.",
+    "Inspect original image ID and create a new owned preparation container from that exact ID, with no network or credentials.",
+    "Bind the approved wheel cache read-only; install only the five pinned hash-required additions with no dependency/network resolution.",
+    "Verify actual container image ID, exact base HEAD and clean checkout, and imports/versions of all added packages.",
+    "Run the exact same three-file public pytest command with no source/test changes; save complete real exit/log and verify checkout remains clean.",
+    "Only after exit0, commit a separately tagged derived image, start a fresh container from its actual ID and repeat identity/acceptance checks.",
+    "Preserve old image, old screen tags, all original costs and environment-failure logs. Do not splice them into the new environment results.",
+    "Build a new complete three-case screen image map and run all three under one new configuration/tag; do not reuse old prefixes across image/config identities.",
+    "Continue dev calibration and freeze, then safely stop owned processes; do not send formal test20 requests this session."
+  ],
+  "not_claimed": [
+    "No package installation or Docker mutation has occurred for this amendment.",
+    "Metadata checks are not a public-test pass or full rendering acceptance.",
+    "The inherited parent has unrelated legacy package metadata; this addition check is not a complete reverse-dependency proof."
+  ],
+  "model_calls": 0,
+  "docker_operations": false,
+  "packages_installed": false,
+  "project_dotenv_read": false,
+  "source_or_tests_modified": false,
+  "script_sha256": "2a69ec53ba2d5e7f5aa2fdbe7743d77d42c8284f0564ca8a7b347c8275a539e8"
+}

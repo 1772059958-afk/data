@@ -1,0 +1,7 @@
+................Testing against Django installed in '/testbed/django'
+System check identified no issues (0 silenced).
+
+----------------------------------------------------------------------
+Ran 16 tests in 0.015s
+
+OK

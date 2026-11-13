@@ -1,0 +1,21 @@
+{
+  "kind": "unattended_api_breakpoint_guard_review",
+  "enabled_in": "configs/dev23_calibration_20261112_01.json",
+  "http_stop_codes": [
+    401,
+    402,
+    403,
+    429
+  ],
+  "global_money_refusal_stops_batch": true,
+  "failed_attempt_costs_retained": true,
+  "new_runtime_cannot_bypass_fuse": true,
+  "remaining_branches_not_started_after_fuse": true,
+  "driver_saves_before_stop": true,
+  "offline_suite": "386/386",
+  "real_quota_failure_tested": false,
+  "normal_generation_behavior_unchanged": true,
+  "screen_source": "original383 suite source, matched across allthree corrected screen settings",
+  "full_dev_source": "new26-file source_snapshot/manifest.json; fresh config/prefix hash, screen snapshots and labels not mixed",
+  "status": "offline_verified_real_normal_traffic_in_progress"
+}

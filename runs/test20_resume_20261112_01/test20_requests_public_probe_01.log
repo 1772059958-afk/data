@@ -1,0 +1,17 @@
+/opt/miniconda3/envs/testbed/bin/python
+Python 3.9.20
+acb09f013fac536054152a243500e46bcc39cb6a
+/testbed/requests/__init__.py
+7.4.4
+.                                                                        [100%]
+=============================== warnings summary ===============================
+requests/packages/urllib3/_collections.py:7
+  /testbed/requests/packages/urllib3/_collections.py:7: DeprecationWarning: Using or importing the ABCs from 'collections' instead of from 'collections.abc' is deprecated since Python 3.3, and in 3.10 it will stop working
+    from collections import MutableMapping
+
+requests/sessions.py:12
+  /testbed/requests/sessions.py:12: DeprecationWarning: Using or importing the ABCs from 'collections' instead of from 'collections.abc' is deprecated since Python 3.3, and in 3.10 it will stop working
+    from collections import Mapping
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+1 passed, 119 deselected, 2 warnings in 0.18s

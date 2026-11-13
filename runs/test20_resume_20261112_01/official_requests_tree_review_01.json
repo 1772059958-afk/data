@@ -1,0 +1,13 @@
+{
+  "instance_id": "psf__requests-1963",
+  "expected_base_commit": "110048f9837f8441ea536804115e80b69f400277",
+  "official_image_head": "acb09f013fac536054152a243500e46bcc39cb6a",
+  "expected_public_tree": "62502eaa272d8566a1b282039f07c5f1fcff14e3",
+  "official_image_tree": "78daa213f19829367e4761ddd4a8fe9a6b6d9713",
+  "tracked_tree_equal": false,
+  "status_digest": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  -",
+  "container_removed": true,
+  "model_calls": 0,
+  "source_or_hidden_patch_contents_read": false,
+  "remediation": "Restore exact shallow public Git metadata only if all tracked source bytes are identical; otherwise independently rebuild exact public baseline."
+}

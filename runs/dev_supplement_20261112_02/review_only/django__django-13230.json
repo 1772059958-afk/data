@@ -1,0 +1,66 @@
+{
+  "kind": "review_only_after_all_formal_predictions_sealed",
+  "instance_id": "django__django-13230",
+  "repo": "django/django",
+  "base_commit": "184a6eebb0ef56d5f1b1315a8e666830e37f3f81",
+  "issue": "Add support for item_comments to syndication framework\nDescription\n\t\nAdd comments argument to feed.add_item() in syndication.views so that item_comments can be defined directly without having to take the detour via item_extra_kwargs .\nAdditionally, comments is already explicitly mentioned in the feedparser, but not implemented in the view.\n",
+  "developer_reference_patch": "diff --git a/django/contrib/syndication/views.py b/django/contrib/syndication/views.py\n--- a/django/contrib/syndication/views.py\n+++ b/django/contrib/syndication/views.py\n@@ -212,6 +212,7 @@ def get_feed(self, obj, request):\n                 author_name=author_name,\n                 author_email=author_email,\n                 author_link=author_link,\n+                comments=self._get_dynamic_attr('item_comments', item),\n                 categories=self._get_dynamic_attr('item_categories', item),\n                 item_copyright=self._get_dynamic_attr('item_copyright', item),\n                 **self.item_extra_kwargs(item)\n",
+  "unique_submitted_patches": [
+    {
+      "sha256": "e20ecb807fc98b83407f6919b3dd0b46b39430e1b3205d3fc47bcd410e573076",
+      "patch": "--- a/django/contrib/syndication/views.py\n+++ b/django/contrib/syndication/views.py\n@@ -212,7 +212,8 @@\n                 author_name=author_name,\n                 author_email=author_email,\n                 author_link=author_link,\n                 categories=self._get_dynamic_attr('item_categories', item),\n+                comments=self._get_dynamic_attr('item_comments', item),\n                 item_copyright=self._get_dynamic_attr('item_copyright', item),\n                 **self.item_extra_kwargs(item)\n             )\n",
+      "arms": [
+        "A",
+        "C",
+        "D",
+        "E"
+      ]
+    },
+    {
+      "sha256": "24247576c7c3224da884351c1447b57747e41aabe9d89d0a19784cc084273acd",
+      "patch": "--- a/django/contrib/syndication/views.py\n+++ b/django/contrib/syndication/views.py\n@@ -44,6 +44,9 @@ class Feed:\n     def item_description(self, item):\n         return str(item)\n \n+    def item_comments(self, item):\n+        return None\n+\n     def item_link(self, item):\n         try:\n             return item.get_absolute_url()\n@@ -214,6 +217,7 @@ class Feed:\n                 author_email=author_email,\n                 author_link=author_link,\n                 categories=self._get_dynamic_attr('item_categories', item),\n+                comments=self._get_dynamic_attr('item_comments', item),\n                 item_copyright=self._get_dynamic_attr('item_copyright', item),\n                 **self.item_extra_kwargs(item)\n             )\n",
+      "arms": [
+        "B"
+      ]
+    }
+  ],
+  "submissions": {
+    "A": {
+      "patch_sha256": "e20ecb807fc98b83407f6919b3dd0b46b39430e1b3205d3fc47bcd410e573076",
+      "official_status": "resolved",
+      "generation_status": "environment_error",
+      "route": "stop",
+      "source_matrix": "runs\\test20_A_20261112_01\\matrix.json"
+    },
+    "B": {
+      "patch_sha256": "24247576c7c3224da884351c1447b57747e41aabe9d89d0a19784cc084273acd",
+      "official_status": "resolved",
+      "generation_status": "environment_error",
+      "route": "standalone",
+      "source_matrix": "runs\\test20_B_20261112_02\\matrix.json"
+    },
+    "C": {
+      "patch_sha256": "e20ecb807fc98b83407f6919b3dd0b46b39430e1b3205d3fc47bcd410e573076",
+      "official_status": "resolved",
+      "generation_status": "environment_error",
+      "route": "stop",
+      "source_matrix": "runs\\test20_C_20261112_01\\matrix.json"
+    },
+    "D": {
+      "patch_sha256": "e20ecb807fc98b83407f6919b3dd0b46b39430e1b3205d3fc47bcd410e573076",
+      "official_status": "resolved",
+      "generation_status": "environment_error",
+      "route": "stop",
+      "source_matrix": "runs\\test20_D_20261112_01\\matrix.json"
+    },
+    "E": {
+      "patch_sha256": "e20ecb807fc98b83407f6919b3dd0b46b39430e1b3205d3fc47bcd410e573076",
+      "official_status": "resolved",
+      "generation_status": "environment_error",
+      "route": "stop",
+      "source_matrix": "runs\\test20_E_20261112_01\\matrix.json"
+    }
+  },
+  "generation_import_prohibited": true,
+  "reference_is_not_a_textual_equality_oracle": true
+}

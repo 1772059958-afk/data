@@ -1,0 +1,8 @@
+Testing against Django installed in '/testbed/django'
+Found 15 test(s).
+System check identified no issues (0 silenced).
+...............
+----------------------------------------------------------------------
+Ran 15 tests in 0.010s
+
+OK

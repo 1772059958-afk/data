@@ -1,0 +1,51 @@
+{
+  "kind": "readonly_docker_desktop_disk_migration_inventory",
+  "date": "2026-11-11",
+  "desktop_file_version": "4.98.0.245422",
+  "desktop_cli_plugin_version": "4.98.0",
+  "wsl_kernel": "6.6.114.1-microsoft-standard-WSL2",
+  "operating_system": "Docker Desktop",
+  "docker_root_dir": "/var/lib/docker",
+  "vhdx": [
+    {
+      "path": "C:/Users/remil/AppData/Local/Docker/wsl/disk/docker_data.vhdx",
+      "logical_file_bytes": 14882439168,
+      "allocated_bytes": 14882439168
+    },
+    {
+      "path": "C:/Users/remil/AppData/Local/Docker/wsl/main/ext4.vhdx",
+      "logical_file_bytes": 100663296,
+      "allocated_bytes": 100663296
+    }
+  ],
+  "snapshot_disk_free_bytes": {
+    "C": 5606301696,
+    "D": 108032507904
+  },
+  "disk_total_bytes": {
+    "C": 214749409280,
+    "D": 294972813312
+  },
+  "settings_file": "C:/Users/remil/AppData/Roaming/Docker/settings-store.json",
+  "selected_settings": {
+    "SettingsVersion": 48
+  },
+  "explicit_disk_fields_found": false,
+  "proposed_active_directory": "D:/DockerData/swe-repair-20261111",
+  "proposed_backup_directory": "D:/DockerBackups/swe-repair-20261111-pre-move",
+  "documented_existing_data_migration_cli_found": false,
+  "supported_route": "Docker Desktop UI Settings > Resources > Advanced > Disk image location",
+  "engine_stopped": false,
+  "settings_modified": false,
+  "files_moved_or_deleted": false,
+  "D_directories_created": false,
+  "vhdx_backup_or_hash_performed": false,
+  "scope": "read-only investigation; any migration remains unexecuted and for root decision",
+  "sources": [
+    "https://docs.docker.com/desktop/features/wsl/",
+    "https://docs.docker.com/reference/cli/docker/desktop/",
+    "https://docs.docker.com/desktop/settings-and-maintenance/backup-and-restore/",
+    "https://docs.docker.com/desktop/setup/install/windows-install/",
+    "https://docs.docker.com/desktop/release-notes/#4980"
+  ]
+}

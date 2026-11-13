@@ -1,0 +1,16 @@
+Traceback (most recent call last):
+  File "C:\Users\remil\Desktop\3yr\科研\proj\runs\test20_resume_20261112_01\prepare_requests_legacy_pytest_07.py", line 54, in <module>
+    if __name__=='__main__':main()
+                            ~~~~^^
+  File "C:\Users\remil\Desktop\3yr\科研\proj\runs\test20_resume_20261112_01\prepare_requests_legacy_pytest_07.py", line 45, in main
+    result['public_smoke'],_=runner.shell(name,'fixed_public_smoke','cd /testbed && '+case['public_smoke_command'])
+                             ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\remil\Desktop\3yr\科研\proj\runs\test20_resume_20261112_01\environment\prepare_dev23_offline.py", line 247, in shell
+    return self.docker(label, 'exec', name, 'bash', '-lc', script, **options)
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\remil\Desktop\3yr\科研\proj\runs\test20_resume_20261112_01\environment\prepare_dev23_offline.py", line 203, in docker
+    return self.run(label, ['docker', '--context', self.args.context, *arguments], **options)
+           ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\remil\Desktop\3yr\科研\proj\runs\test20_resume_20261112_01\environment\prepare_dev23_offline.py", line 199, in run
+    raise RuntimeError(label + ' failed; see ' + path.name)
+RuntimeError: fixed_public_smoke failed; see 0027_fixed_public_smoke.log

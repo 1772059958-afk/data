@@ -1,0 +1,46 @@
+--- a/astroid/nodes/node_classes.py
++++ b/astroid/nodes/node_classes.py
+@@ -2355,18 +2355,33 @@ class Dict(NodeNG, Instance):
+         :raises AstroidIndexError: If the given index does not exist in the
+             dictionary.
+         """
++        if isinstance(index, Const):
++            index_value = index.value
++        else:
++            inferred = util.safe_infer(index)
++            index_value = inferred.value if isinstance(inferred, Const) else index
++
+         for key, value in self.items:
+             # TODO(cpopa): no support for overriding yet, {1:2, **{1: 3}}.
+             if isinstance(key, DictUnpack):
+-                try:
+-                    return value.getitem(index, context)
+-                except (AstroidTypeError, AstroidIndexError):
+-                    continue
+-            for inferredkey in key.infer(context):
+-                if inferredkey is util.Uninferable:
+-                    continue
+-                if isinstance(inferredkey, Const) and isinstance(index, Const):
+-                    if inferredkey.value == index.value:
+-                        return value
++                inferred = util.safe_infer(value, context=context)
++                if isinstance(inferred, Dict):
++                    try:
++                        return inferred.getitem(index, context)
++                    except (AstroidTypeError, AstroidIndexError):
++                        continue
++                continue
++            try:
++                for inferredkey in key.infer(context):
++                    if inferredkey is util.Uninferable:
++                        continue
++                    if (
++                        isinstance(inferredkey, Const)
++                        and isinstance(index_value, Const.__mro__[0])
++                        and inferredkey.value == index_value
++                    ):
++                        return value
++            except InferenceError:
++                continue
+ 
+         raise AstroidIndexError(index)

@@ -1,0 +1,30 @@
+{
+  "candidate": "runs\\dev23_scoring_replay_20261112_02\\calibration_candidate.json",
+  "candidate_sha256": "a463069ae59b07747de2e3d2f6f461bb9c017f9532ea8d5bcecc1e9f423ce498",
+  "source": {
+    "path": "C:\\Users\\remil\\Desktop\\3yr\\\u79d1\u7814\\proj\\runs\\dev23_scoring_replay_20261112_02\\analysis.json",
+    "sha256": "d973cecb048aed5ed17022ce2acdd05d0b291c2404ac9c44b2ae5f49527d0912",
+    "config_hash": "c07e7953e9b252ed9eba0ccabfd4e99e0944dfd4885b74ee0db317c5f77fca62",
+    "eligible_count": 17,
+    "complete_pair_count": 13,
+    "missing_pair_ids": [
+      "pvlib__pvlib-python-1854",
+      "pydicom__pydicom-1413",
+      "sqlfluff__sqlfluff-1517",
+      "sqlfluff__sqlfluff-1625"
+    ]
+  },
+  "chosen": {
+    "localization_threshold": 0.75,
+    "duplicate_threshold": 0.75,
+    "regrets": 1,
+    "agreements": 12,
+    "ties": 11,
+    "compared": 13,
+    "interactive_share": 0.46153846153846156,
+    "resolved": 5,
+    "excluded_stops": 0
+  },
+  "status": "candidate_requires_review_and_freeze",
+  "model_calls": 0
+}

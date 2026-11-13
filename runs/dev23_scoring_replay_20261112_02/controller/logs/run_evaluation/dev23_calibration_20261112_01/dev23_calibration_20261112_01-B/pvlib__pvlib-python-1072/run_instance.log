@@ -1,0 +1,46 @@
+2026-11-12 03:51:30,336 - INFO - Creating container for pvlib__pvlib-python-1072...
+2026-11-12 03:51:30,383 - INFO - Container for pvlib__pvlib-python-1072 created: 35533b8f3c7b3ec5436a12275d22051591ff143d430130d248eee334a2840111
+2026-11-12 03:51:30,537 - INFO - Container for pvlib__pvlib-python-1072 started: 35533b8f3c7b3ec5436a12275d22051591ff143d430130d248eee334a2840111
+2026-11-12 03:51:30,540 - INFO - Intermediate patch for pvlib__pvlib-python-1072 written to logs/run_evaluation/dev23_calibration_20261112_01/dev23_calibration_20261112_01-B/pvlib__pvlib-python-1072/patch.diff, now applying to container...
+2026-11-12 03:51:30,639 - INFO - >>>>> Applied Patch:
+Checking patch pvlib/temperature.py...
+Applied patch pvlib/temperature.py cleanly.
+
+2026-11-12 03:51:30,903 - INFO - Git diff before:
+diff --git a/pvlib/temperature.py b/pvlib/temperature.py
+index 1d98736..eb46d51 100644
+--- a/pvlib/temperature.py
++++ b/pvlib/temperature.py
+@@ -599,7 +599,7 @@ def fuentes(poa_global, temp_air, wind_speed, noct_installed, module_height=5,
+     # n.b. the way Fuentes calculates the first timedelta makes it seem like
+     # the value doesn't matter -- rather than recreate it here, just assume
+     # it's the same as the second timedelta:
+-    timedelta_hours = np.diff(poa_global.index).astype(float) / 1e9 / 60 / 60
++    timedelta_hours = np.diff(poa_global.index.asi8) / 1e9 / 60 / 60
+     timedelta_hours = np.append([timedelta_hours[0]], timedelta_hours)
+ 
+     tamb_array = temp_air + 273.15
+2026-11-12 03:51:30,906 - INFO - Eval script for pvlib__pvlib-python-1072 written to logs/run_evaluation/dev23_calibration_20261112_01/dev23_calibration_20261112_01-B/pvlib__pvlib-python-1072/eval.sh; copying to container...
+2026-11-12 03:52:17,345 - INFO - Test runtime: 46.33 seconds
+2026-11-12 03:52:17,547 - INFO - Test output for pvlib__pvlib-python-1072 written to logs/run_evaluation/dev23_calibration_20261112_01/dev23_calibration_20261112_01-B/pvlib__pvlib-python-1072/test_output.txt
+2026-11-12 03:52:17,589 - INFO - Git diff after:
+diff --git a/pvlib/temperature.py b/pvlib/temperature.py
+index 1d98736..eb46d51 100644
+--- a/pvlib/temperature.py
++++ b/pvlib/temperature.py
+@@ -599,7 +599,7 @@ def fuentes(poa_global, temp_air, wind_speed, noct_installed, module_height=5,
+     # n.b. the way Fuentes calculates the first timedelta makes it seem like
+     # the value doesn't matter -- rather than recreate it here, just assume
+     # it's the same as the second timedelta:
+-    timedelta_hours = np.diff(poa_global.index).astype(float) / 1e9 / 60 / 60
++    timedelta_hours = np.diff(poa_global.index.asi8) / 1e9 / 60 / 60
+     timedelta_hours = np.append([timedelta_hours[0]], timedelta_hours)
+ 
+     tamb_array = temp_air + 273.15
+2026-11-12 03:52:17,590 - INFO - Grading answer for pvlib__pvlib-python-1072...
+2026-11-12 03:52:18,048 - INFO - report: {'pvlib__pvlib-python-1072': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': True, 'infra_failure': False, 'tests_status': {'FAIL_TO_PASS': {'success': ['pvlib/tests/test_temperature.py::test_fuentes_timezone[Etc/GMT+5]'], 'failure': []}, 'PASS_TO_PASS': {'success': ['pvlib/tests/test_temperature.py::test_sapm_cell', 'pvlib/tests/test_temperature.py::test_sapm_module', 'pvlib/tests/test_temperature.py::test_sapm_cell_from_module', 'pvlib/tests/test_temperature.py::test_sapm_ndarray', 'pvlib/tests/test_temperature.py::test_sapm_series', 'pvlib/tests/test_temperature.py::test_pvsyst_cell_default', 'pvlib/tests/test_temperature.py::test_pvsyst_cell_kwargs', 'pvlib/tests/test_temperature.py::test_pvsyst_cell_ndarray', 'pvlib/tests/test_temperature.py::test_pvsyst_cell_series', 'pvlib/tests/test_temperature.py::test_faiman_default', 'pvlib/tests/test_temperature.py::test_faiman_kwargs', 'pvlib/tests/test_temperature.py::test_faiman_list', 'pvlib/tests/test_temperature.py::test_faiman_ndarray', 'pvlib/tests/test_temperature.py::test_faiman_series', 'pvlib/tests/test_temperature.py::test__temperature_model_params', 'pvlib/tests/test_temperature.py::test_fuentes[pvwatts_8760_rackmount.csv-45]', 'pvlib/tests/test_temperature.py::test_fuentes[pvwatts_8760_roofmount.csv-49]', 'pvlib/tests/test_temperature.py::test_fuentes_timezone[None]'], 'failure': []}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for pvlib__pvlib-python-1072: resolved: True
+2026-11-12 03:52:18,051 - INFO - Attempting to stop container sweb.eval.pvlib__pvlib-python-1072.dev23_calibration_20261112_01...
+2026-11-12 03:52:33,244 - INFO - Container sweb.eval.pvlib__pvlib-python-1072.dev23_calibration_20261112_01 stopped successfully.
+2026-11-12 03:52:33,245 - INFO - Attempting to remove container sweb.eval.pvlib__pvlib-python-1072.dev23_calibration_20261112_01...
+2026-11-12 03:52:33,308 - INFO - Container sweb.eval.pvlib__pvlib-python-1072.dev23_calibration_20261112_01 removed successfully.

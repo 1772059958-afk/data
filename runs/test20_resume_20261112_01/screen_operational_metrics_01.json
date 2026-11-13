@@ -1,0 +1,101 @@
+{
+  "kind": "prospective_corrected_screen_operational_metrics",
+  "date": "2026-11-11",
+  "status": "predefined_before_corrected_environment_screen_no_results",
+  "resource_screen_protocol": "runs/test20_execution_20261111/resource_screen_protocol.json",
+  "resource_screen_protocol_sha256": "52f1245058fd4fdd50fd92397958be8ceaaaaabe0866e0da9d35c5742f00f454",
+  "selection_manifest": "runs/test20_preparation_20261111/resource_screen_instances.json",
+  "selection_manifest_sha256": "00ce08a3edf44293e3f8cdb93e8e64fe6b3d0b4de6f4d27ed6a85f9bdc07e1c7",
+  "designated_instances": [
+    "pydicom__pydicom-1256",
+    "pylint-dev__astroid-1866",
+    "pyvista__pyvista-4315"
+  ],
+  "seed": 20261111,
+  "repeat_index": 0,
+  "mode": "diagnostic",
+  "split": "dev",
+  "baseline": {
+    "prefix_fraction": 0.3,
+    "interaction_model_calls": 6
+  },
+  "allowed_variant_parameter_paths": {
+    "prefix.prefix_fraction": [
+      0.2,
+      0.3,
+      0.4
+    ],
+    "interaction.model_calls": [
+      6,
+      10
+    ]
+  },
+  "non_parameter_annotation_exception": [
+    "top-level note may differ; execution settings and complete provenance remain identical"
+  ],
+  "identity_requirements": [
+    "execute=true/dev/diagnostic/calibration=true; exact three ordered IDs; seed20261111/repeat0",
+    "same source-code hash, model request/response aliases and actual fingerprint, prepared and observed image identities, all base resource and execution parameters",
+    "Only two declared parameter paths may differ across corrected variants; do not change output cap or other settings in this comparison",
+    "effective config hashes must match their own recorded effective configs"
+  ],
+  "excluded_original_environment": {
+    "tag": "dev_screen_baseline_20261111_01",
+    "pyvista_image_id": "sha256:c3d02ef66da989070d532ea6993104f9d4b76e3d5f86fea85d7e4da1fba2e230",
+    "reason": "Unchanged public PyVista baseline had missing tqdm/meshio; retain original bytes and charges for audit only, never use its outcomes in corrected setting selection."
+  },
+  "legal_candidate_definition": {
+    "nonempty_diff": true,
+    "applies_cleanly": true,
+    "syntax": "pass",
+    "scope_valid": true,
+    "submission": "A retained legal candidate counts as submittable only when the stage selected patch equals a legal history candidate.",
+    "inherited_vs_new": "Inherited legal prefix candidates remain valid; report new non-prefix origin and novel generation separately, never require a new origin merely to declare retained-candidate flow usable."
+  },
+  "prefix_completion": "Scheduled localisation and both configured candidate attempts complete without prefix_stop/error, environment error or budget overrun; alternatively a legal public-pass candidate leads to the shared A/C/D stop. Shared public pass is not a missing eligible pair.",
+  "usable_flow_definition": [
+    "The designated case has a complete prefix or legal public-pass shared stop.",
+    "For an eligible failure, fixed and interactive stages exist, each has at least one actual recorded request, normal bounded completion and a retained legal submitted candidate.",
+    "Use the complete saved prefix_snapshot and observable first-request inherited token/model/tool budgets, matching ceilings/task identities; do not reconstruct an unrecorded full initial branch snapshot.",
+    "The standalone B stage likewise exists and can submit a legal candidate.",
+    "No missing stage/case, recorded environment/identity/lifecycle error, failed unknown-usage request or resource overrun counts as completed flow."
+  ],
+  "normal_bounded_termination": {
+    "may_count_with_legal_submission": [
+      "finish_tool",
+      "patch_in_text",
+      "public_pass",
+      "fixed_step_limit",
+      "model_call_budget",
+      "tool_budget",
+      "wallclock",
+      "stagnation",
+      "ResourceLimit",
+      "SpendLimitExceeded"
+    ],
+    "interpretation": "Reaching six calls while retaining a legal candidate is recorded as a normal limit stop, not automatically an unusable flow or proof of model inability. No candidate, missing work, environment errors and overruns are separately reported."
+  },
+  "resource_setting_selection": {
+    "trigger": "Use only actual truncation/resource-refusal evidence under the original protocol, never official solved labels.",
+    "comparison": "Compare complete corrected settings on the same three IDs.",
+    "alternative_wins_only_if": "Usable-flow case count strictly increases.",
+    "tie": "Keep the baseline resource setting; do not choose ten calls just because six was reached."
+  },
+  "prefix_setting_selection_order": [
+    "Exclude a setting if a designated prefix cannot complete or preserve minimum continuation when still running; exempt legal public-pass shared stops.",
+    "Maximise usable-flow case count, including usable standalone B.",
+    "Maximise prefix-stage legal-candidate case coverage (each case counted once).",
+    "Tie: choose the smaller prefix_fraction."
+  ],
+  "extractor_outputs": "Operational evidence only: no official verdicts, threshold fitting, or automatic setting selection.",
+  "unknowns": [
+    "Public-test classification may not identify every dependency issue; acceptance of the corrected public environment is a separate prerequisite.",
+    "These three cases measure operational feasibility, not method superiority or full-dev calibration."
+  ],
+  "actions": {
+    "official_labels_read": false,
+    "model_requests": 0,
+    "docker_operations": 0,
+    "results_fabricated": false
+  }
+}

@@ -1,0 +1,21 @@
+  0%|          | 0/18 [00:00<?, ?it/s]Running 18 instances...
+  6%|▌         | 1/18 [00:48<13:38, 48.17s/it]1 ran successfully, 0 failed:   6%|▌         | 1/18 [00:48<13:38, 48.17s/it]1 ran successfully, 0 failed:  11%|█         | 2/18 [01:17<10:23, 38.98s/it]2 ran successfully, 0 failed:  11%|█         | 2/18 [01:17<10:23, 38.98s/it]2 ran successfully, 0 failed:  17%|█▋        | 3/18 [01:46<08:51, 35.45s/it]3 ran successfully, 0 failed:  17%|█▋        | 3/18 [01:46<08:51, 35.45s/it]3 ran successfully, 0 failed:  22%|██▏       | 4/18 [02:17<08:01, 34.39s/it]4 ran successfully, 0 failed:  22%|██▏       | 4/18 [02:17<08:01, 34.39s/it]4 ran successfully, 0 failed:  28%|██▊       | 5/18 [03:23<08:48, 40.66s/it]5 ran successfully, 0 failed:  28%|██▊       | 5/18 [03:23<08:48, 40.66s/it]5 ran successfully, 0 failed:  33%|███▎      | 6/18 [04:45<09:31, 47.66s/it]6 ran successfully, 0 failed:  33%|███▎      | 6/18 [04:45<09:31, 47.66s/it]6 ran successfully, 0 failed:  39%|███▉      | 7/18 [05:05<08:00, 43.68s/it]7 ran successfully, 0 failed:  39%|███▉      | 7/18 [05:05<08:00, 43.68s/it]7 ran successfully, 0 failed:  44%|████▍     | 8/18 [35:21<44:12, 265.22s/it]8 ran successfully, 0 failed:  44%|████▍     | 8/18 [35:21<44:12, 265.22s/it]8 ran successfully, 0 failed:  50%|█████     | 9/18 [35:54<35:54, 239.36s/it]9 ran successfully, 0 failed:  50%|█████     | 9/18 [35:54<35:54, 239.36s/it]9 ran successfully, 0 failed:  56%|█████▌    | 10/18 [36:20<29:04, 218.02s/it]10 ran successfully, 0 failed:  56%|█████▌    | 10/18 [36:20<29:04, 218.02s/it]10 ran successfully, 0 failed:  61%|██████    | 11/18 [36:55<23:29, 201.37s/it]11 ran successfully, 0 failed:  61%|██████    | 11/18 [36:55<23:29, 201.37s/it]11 ran successfully, 0 failed:  67%|██████▋   | 12/18 [37:28<18:44, 187.37s/it]12 ran successfully, 0 failed:  67%|██████▋   | 12/18 [37:28<18:44, 187.37s/it]12 ran successfully, 0 failed:  72%|███████▏  | 13/18 [39:45<15:17, 183.48s/it]13 ran successfully, 0 failed:  72%|███████▏  | 13/18 [39:45<15:17, 183.48s/it]13 ran successfully, 0 failed:  78%|███████▊  | 14/18 [42:44<12:12, 183.18s/it]14 ran successfully, 0 failed:  78%|███████▊  | 14/18 [42:44<12:12, 183.18s/it]14 ran successfully, 0 failed:  83%|████████▎ | 15/18 [43:12<08:38, 172.81s/it]15 ran successfully, 0 failed:  83%|████████▎ | 15/18 [43:12<08:38, 172.81s/it]15 ran successfully, 0 failed:  89%|████████▉ | 16/18 [43:37<05:27, 163.59s/it]16 ran successfully, 0 failed:  89%|████████▉ | 16/18 [43:37<05:27, 163.59s/it]16 ran successfully, 0 failed:  94%|█████████▍| 17/18 [44:03<02:35, 155.49s/it]17 ran successfully, 0 failed:  94%|█████████▍| 17/18 [44:03<02:35, 155.49s/it]17 ran successfully, 0 failed: 100%|██████████| 18/18 [44:32<00:00, 148.46s/it]18 ran successfully, 0 failed: 100%|██████████| 18/18 [44:32<00:00, 148.46s/it]18 ran successfully, 0 failed: 100%|██████████| 18/18 [44:32<00:00, 148.46s/it]
+Error in evaluation for psf__requests-1963: Test timed out after 1800 seconds.
+Check (logs/run_evaluation/test20_D_20261112_01/test20_D_20261112_01-D/psf__requests-1963/run_instance.log) for more information.
+All instances run.
+Total instances: 20
+Instances submitted: 20
+Instances completed: 17
+Instances incomplete: 0
+Instances resolved: 7
+Instances unresolved: 10
+Instances with likely infrastructure failures: 0
+Instances with ambiguous failures: 6
+Instances with empty patches: 2
+Instances with errors: 1
+Unstopped containers: 0
+Unremoved images: 0
+Report written to /workspace/runs/test20_D_20261112_01/scoring/D/test20_D_20261112_01-D.test20_D_20261112_01.json
+[
+  "/workspace/runs/test20_D_20261112_01/scoring/D/test20_D_20261112_01-D.test20_D_20261112_01.json"
+]

@@ -1,0 +1,6 @@
+**
+!testbed/
+!testbed/.git/
+!testbed/.git/**
+!wheels/
+!wheels/**

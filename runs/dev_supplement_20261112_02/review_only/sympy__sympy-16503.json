@@ -1,0 +1,78 @@
+{
+  "kind": "review_only_after_all_formal_predictions_sealed",
+  "instance_id": "sympy__sympy-16503",
+  "repo": "sympy/sympy",
+  "base_commit": "a7e6f093c98a3c4783848a19fce646e32b6e0161",
+  "issue": "Bad centering for Sum pretty print\n```\r\n>>> pprint(Sum(x, (x, 1, oo)) + 3)\r\n  ∞\r\n ___\r\n ╲\r\n  ╲   x\r\n  ╱     + 3\r\n ╱\r\n ‾‾‾\r\nx = 1\r\n```\r\n\r\nThe `x` and the `+ 3` should be aligned. I'm not sure if the `x` should be lower of if the `+ 3` should be higher. \n",
+  "developer_reference_patch": "diff --git a/sympy/printing/pretty/pretty.py b/sympy/printing/pretty/pretty.py\n--- a/sympy/printing/pretty/pretty.py\n+++ b/sympy/printing/pretty/pretty.py\n@@ -564,7 +564,7 @@ def adjust(s, wid=None, how='<^>'):\n                 for i in reversed(range(1, d)):\n                     lines.append('%s/%s' % (' '*i, ' '*(w - i)))\n                 lines.append(\"/\" + \"_\"*(w - 1) + ',')\n-                return d, h + more, lines, 0\n+                return d, h + more, lines, more\n             else:\n                 w = w + more\n                 d = d + more\n@@ -619,7 +619,7 @@ def adjust(s, wid=None, how='<^>'):\n             if first:\n                 # change F baseline so it centers on the sign\n                 prettyF.baseline -= d - (prettyF.height()//2 -\n-                                         prettyF.baseline) - adjustment\n+                                         prettyF.baseline)\n                 first = False\n \n             # put padding to the right\n@@ -629,7 +629,11 @@ def adjust(s, wid=None, how='<^>'):\n             # put the present prettyF to the right\n             prettyF = prettyForm(*prettySign.right(prettyF))\n \n-        prettyF.baseline = max_upper + sign_height//2\n+        # adjust baseline of ascii mode sigma with an odd height so that it is\n+        # exactly through the center\n+        ascii_adjustment = ascii_mode if not adjustment else 0\n+        prettyF.baseline = max_upper + sign_height//2 + ascii_adjustment\n+\n         prettyF.binding = prettyForm.MUL\n         return prettyF\n \n",
+  "unique_submitted_patches": [
+    {
+      "sha256": "9aaa22668fe0d903294240cbd4dbd9c25bb7040a8f6974d93886c592fd633592",
+      "patch": "--- a/sympy/printing/pretty/pretty.py\n+++ b/sympy/printing/pretty/pretty.py\n@@ -625,10 +625,10 @@\n             # put padding to the right\n             pad = stringPict('')\n             pad = prettyForm(*pad.stack(*[' ']*h))\n             prettySign = prettyForm(*prettySign.right(pad))\n             # put the present prettyF to the right\n             prettyF = prettyForm(*prettySign.right(prettyF))\n \n-        prettyF.baseline = max_upper + sign_height//2\n+        prettyF.baseline = max_upper + (sign_height - 1)//2\n         prettyF.binding = prettyForm.MUL\n         return prettyF\n",
+      "arms": [
+        "A"
+      ]
+    },
+    {
+      "sha256": "49dbcc4f483663b3380e9fe04163a4ba2915038e15663d7df46c47ab32b3cb9d",
+      "patch": "--- a/sympy/printing/pretty/pretty.py\n+++ b/sympy/printing/pretty/pretty.py\n@@ -627,6 +627,6 @@ class PrettyPrinter(Printer):\n             # put the present prettyF to the right\n             prettyF = prettyForm(*prettySign.right(prettyF))\n \n-        prettyF.baseline = max_upper + sign_height//2\n+        prettyF.baseline = max_upper + sign_height//2 - adjustment\n         prettyF.binding = prettyForm.MUL\n         return prettyF\n",
+      "arms": [
+        "B"
+      ]
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch": "",
+      "arms": [
+        "C",
+        "E"
+      ]
+    },
+    {
+      "sha256": "22fa0e19d9380967d768097173aa8c6c54970f1969ec8f28a27c37f6666e1589",
+      "patch": "--- a/sympy/printing/pretty/pretty.py\n+++ b/sympy/printing/pretty/pretty.py\n@@ -597,8 +597,8 @@ class PrettyPrinter(Printer):\n \n             if first:\n                 # change F baseline so it centers on the sign\n-                prettyF.baseline -= d - (prettyF.height()//2 -\n-                                         prettyF.baseline) - adjustment\n+                prettyF.baseline = (prettySign.baseline -\n+                                    (max_upper + sign_height//2))\n                 first = False\n \n             # put padding to the right\n",
+      "arms": [
+        "D"
+      ]
+    }
+  ],
+  "submissions": {
+    "A": {
+      "patch_sha256": "9aaa22668fe0d903294240cbd4dbd9c25bb7040a8f6974d93886c592fd633592",
+      "official_status": "unresolved",
+      "generation_status": "environment_error",
+      "route": "fixed",
+      "source_matrix": "runs\\test20_A_20261112_01\\matrix.json"
+    },
+    "B": {
+      "patch_sha256": "49dbcc4f483663b3380e9fe04163a4ba2915038e15663d7df46c47ab32b3cb9d",
+      "official_status": "unresolved",
+      "generation_status": "environment_error",
+      "route": "standalone",
+      "source_matrix": "runs\\test20_B_20261112_02\\matrix.json"
+    },
+    "C": {
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "official_status": "empty_patch",
+      "generation_status": "budget_exhausted",
+      "route": "interactive",
+      "source_matrix": "runs\\test20_C_20261112_01\\matrix.json"
+    },
+    "D": {
+      "patch_sha256": "22fa0e19d9380967d768097173aa8c6c54970f1969ec8f28a27c37f6666e1589",
+      "official_status": "unresolved",
+      "generation_status": "environment_error",
+      "route": "interactive",
+      "source_matrix": "runs\\test20_D_20261112_01\\matrix.json"
+    },
+    "E": {
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "official_status": "empty_patch",
+      "generation_status": "completed",
+      "route": "fixed",
+      "source_matrix": "runs\\test20_E_20261112_01\\matrix.json"
+    }
+  },
+  "generation_import_prohibited": true,
+  "reference_is_not_a_textual_equality_oracle": true
+}

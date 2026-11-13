@@ -1,0 +1,49 @@
+2026-11-12 04:27:38,766 - INFO - Creating container for sqlfluff__sqlfluff-2419...
+2026-11-12 04:27:38,820 - INFO - Container for sqlfluff__sqlfluff-2419 created: c3f4a33d33bb1ac390538c730ea76d11b2a2db1f04e65a9f7af98dc3d7edde45
+2026-11-12 04:27:39,002 - INFO - Container for sqlfluff__sqlfluff-2419 started: c3f4a33d33bb1ac390538c730ea76d11b2a2db1f04e65a9f7af98dc3d7edde45
+2026-11-12 04:27:39,005 - INFO - Intermediate patch for sqlfluff__sqlfluff-2419 written to logs/run_evaluation/dev23_calibration_20261112_01/dev23_calibration_20261112_01-ESC/sqlfluff__sqlfluff-2419/patch.diff, now applying to container...
+2026-11-12 04:27:39,113 - INFO - >>>>> Applied Patch:
+Checking patch src/sqlfluff/rules/L060.py...
+Hunk #1 succeeded at 59 (offset 3 lines).
+Applied patch src/sqlfluff/rules/L060.py cleanly.
+
+2026-11-12 04:27:39,284 - INFO - Git diff before:
+diff --git a/src/sqlfluff/rules/L060.py b/src/sqlfluff/rules/L060.py
+index 836941e..853ceeb 100644
+--- a/src/sqlfluff/rules/L060.py
++++ b/src/sqlfluff/rules/L060.py
+@@ -59,4 +59,8 @@ class Rule_L060(BaseRule):
+             ],
+         )
+ 
+-        return LintResult(context.segment, [fix])
++        return LintResult(
++            context.segment,
++            [fix],
++            description=f"Use 'COALESCE' instead of '{context.segment.raw_upper}'.",
++        )
+2026-11-12 04:27:39,287 - INFO - Eval script for sqlfluff__sqlfluff-2419 written to logs/run_evaluation/dev23_calibration_20261112_01/dev23_calibration_20261112_01-ESC/sqlfluff__sqlfluff-2419/eval.sh; copying to container...
+2026-11-12 04:27:41,530 - INFO - Test runtime: 2.19 seconds
+2026-11-12 04:27:41,563 - INFO - Test output for sqlfluff__sqlfluff-2419 written to logs/run_evaluation/dev23_calibration_20261112_01/dev23_calibration_20261112_01-ESC/sqlfluff__sqlfluff-2419/test_output.txt
+2026-11-12 04:27:41,608 - INFO - Git diff after:
+diff --git a/src/sqlfluff/rules/L060.py b/src/sqlfluff/rules/L060.py
+index 836941e..853ceeb 100644
+--- a/src/sqlfluff/rules/L060.py
++++ b/src/sqlfluff/rules/L060.py
+@@ -59,4 +59,8 @@ class Rule_L060(BaseRule):
+             ],
+         )
+ 
+-        return LintResult(context.segment, [fix])
++        return LintResult(
++            context.segment,
++            [fix],
++            description=f"Use 'COALESCE' instead of '{context.segment.raw_upper}'.",
++        )
+2026-11-12 04:27:41,608 - INFO - Grading answer for sqlfluff__sqlfluff-2419...
+2026-11-12 04:27:41,671 - INFO - report: {'sqlfluff__sqlfluff-2419': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': True, 'infra_failure': False, 'tests_status': {'FAIL_TO_PASS': {'success': ['test/rules/std_L060_test.py::test__rules__std_L060_raised'], 'failure': []}, 'PASS_TO_PASS': {'success': [], 'failure': []}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for sqlfluff__sqlfluff-2419: resolved: True
+2026-11-12 04:27:41,674 - INFO - Attempting to stop container sweb.eval.sqlfluff__sqlfluff-2419.dev23_calibration_20261112_01...
+2026-11-12 04:27:56,928 - INFO - Container sweb.eval.sqlfluff__sqlfluff-2419.dev23_calibration_20261112_01 stopped successfully.
+2026-11-12 04:27:56,929 - INFO - Attempting to remove container sweb.eval.sqlfluff__sqlfluff-2419.dev23_calibration_20261112_01...
+2026-11-12 04:27:56,969 - INFO - Container sweb.eval.sqlfluff__sqlfluff-2419.dev23_calibration_20261112_01 removed successfully.

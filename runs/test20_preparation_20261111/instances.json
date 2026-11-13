@@ -1,0 +1,103 @@
+{
+  "sampling": "repository_stratified_capacity_proportional_minimum_one",
+  "seed": 20261111,
+  "population_size": 300,
+  "sample_size": 20,
+  "population_sha256": "6b9850decb64f71aaed19d394195eb254b666a4abe7f113365195b3e4de2b450",
+  "instance_list_sha256": "138deb9d2712cb9bfc7478427fb72b6c563fcfd294d9fc0159331b36f44f8c46",
+  "instance_ids": [
+    "astropy__astropy-14995",
+    "django__django-11910",
+    "django__django-12708",
+    "django__django-13230",
+    "django__django-17087",
+    "matplotlib__matplotlib-23987",
+    "matplotlib__matplotlib-24970",
+    "mwaskom__seaborn-2848",
+    "pallets__flask-4045",
+    "psf__requests-1963",
+    "pydata__xarray-3364",
+    "pylint-dev__pylint-7114",
+    "pytest-dev__pytest-6116",
+    "pytest-dev__pytest-8906",
+    "scikit-learn__scikit-learn-11281",
+    "scikit-learn__scikit-learn-13496",
+    "sphinx-doc__sphinx-8595",
+    "sympy__sympy-13480",
+    "sympy__sympy-16503",
+    "sympy__sympy-23262"
+  ],
+  "per_repository": {
+    "astropy__astropy": {
+      "population": 6,
+      "sample": 1
+    },
+    "django__django": {
+      "population": 114,
+      "sample": 4
+    },
+    "matplotlib__matplotlib": {
+      "population": 23,
+      "sample": 2
+    },
+    "mwaskom__seaborn": {
+      "population": 4,
+      "sample": 1
+    },
+    "pallets__flask": {
+      "population": 3,
+      "sample": 1
+    },
+    "psf__requests": {
+      "population": 6,
+      "sample": 1
+    },
+    "pydata__xarray": {
+      "population": 5,
+      "sample": 1
+    },
+    "pylint-dev__pylint": {
+      "population": 6,
+      "sample": 1
+    },
+    "pytest-dev__pytest": {
+      "population": 17,
+      "sample": 2
+    },
+    "scikit-learn__scikit-learn": {
+      "population": 23,
+      "sample": 2
+    },
+    "sphinx-doc__sphinx": {
+      "population": 16,
+      "sample": 1
+    },
+    "sympy__sympy": {
+      "population": 77,
+      "sample": 3
+    }
+  },
+  "instances": [
+    "astropy__astropy-14995",
+    "django__django-11910",
+    "django__django-12708",
+    "django__django-13230",
+    "django__django-17087",
+    "matplotlib__matplotlib-23987",
+    "matplotlib__matplotlib-24970",
+    "mwaskom__seaborn-2848",
+    "pallets__flask-4045",
+    "psf__requests-1963",
+    "pydata__xarray-3364",
+    "pylint-dev__pylint-7114",
+    "pytest-dev__pytest-6116",
+    "pytest-dev__pytest-8906",
+    "scikit-learn__scikit-learn-11281",
+    "scikit-learn__scikit-learn-13496",
+    "sphinx-doc__sphinx-8595",
+    "sympy__sympy-13480",
+    "sympy__sympy-16503",
+    "sympy__sympy-23262"
+  ],
+  "source_list": "C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\data\\frozen\\instances_test.txt"
+}

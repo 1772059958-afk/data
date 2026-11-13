@@ -1,0 +1,10 @@
+--- a/sympy/printing/pretty/pretty.py
++++ b/sympy/printing/pretty/pretty.py
+@@ -627,6 +627,6 @@ class PrettyPrinter(Printer):
+             # put the present prettyF to the right
+             prettyF = prettyForm(*prettySign.right(prettyF))
+ 
+-        prettyF.baseline = max_upper + sign_height//2
++        prettyF.baseline = max_upper + sign_height//2 - adjustment
+         prettyF.binding = prettyForm.MUL
+         return prettyF

@@ -1,0 +1,82 @@
+[
+    {
+        "Architecture": "amd64",
+        "Config": {
+            "Cmd": [
+                "-lc",
+                "sleep infinity"
+            ],
+            "Entrypoint": [
+                "/bin/bash"
+            ],
+            "Env": [
+                "PYVISTA_OFF_SCREEN=true",
+                "MPLBACKEND=Agg",
+                "PATH=/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "TZ=Etc/UTC"
+            ],
+            "Labels": {
+                "desktop.docker.io/mounts/0/Source": "C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\work\\test20_environment_20261111\\pyvista__pyvista-4315\\wheels",
+                "desktop.docker.io/mounts/0/SourceKind": "hostFile",
+                "desktop.docker.io/mounts/0/Target": "/public-wheels",
+                "desktop.docker.io/mounts/1/Source": "C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\work\\test20_environment_20261111\\pyvista__pyvista-4315\\system_debs",
+                "desktop.docker.io/mounts/1/SourceKind": "hostFile",
+                "desktop.docker.io/mounts/1/Target": "/public-system-debs",
+                "desktop.docker.io/ports.scheme": "v2",
+                "org.opencontainers.image.ref.name": "ubuntu",
+                "org.opencontainers.image.version": "22.04"
+            },
+            "WorkingDir": "/testbed"
+        },
+        "Created": "2026-11-11T13:13:19.103983174Z",
+        "Descriptor": {
+            "digest": "sha256:c3d02ef66da989070d532ea6993104f9d4b76e3d5f86fea85d7e4da1fba2e230",
+            "mediaType": "application/vnd.oci.image.manifest.v1+json",
+            "size": 5947
+        },
+        "Id": "sha256:c3d02ef66da989070d532ea6993104f9d4b76e3d5f86fea85d7e4da1fba2e230",
+        "Metadata": {
+            "LastTagTime": "2026-11-11T13:13:22.513082627Z"
+        },
+        "Os": "linux",
+        "Parent": "sha256:bd5edf8694cde12aaf99beb18b3935b15e076e81ac7e52aef46b1ca3d9071428",
+        "RepoDigests": [
+            "prefix-env/pyvista-4315@sha256:c3d02ef66da989070d532ea6993104f9d4b76e3d5f86fea85d7e4da1fba2e230"
+        ],
+        "RepoTags": [
+            "prefix-env/pyvista-4315:base-db6ee8dd-20261111"
+        ],
+        "RootFS": {
+            "Layers": [
+                "sha256:270a1170e7e398434ff1b31e17e233f7d7b71aa99a40473615860068e86720af",
+                "sha256:19a4d2f856e78f04553c6b694c49ad06f099a12feff6aa310c29b9829919ea15",
+                "sha256:204d3aea13f935e6a5dcd306cfc96e90ca3b08c968d6c00e97ace1fd337b52f0",
+                "sha256:7dd377bf7d9b8847c7f1e2077479fbc4693999063ab3c1a258bb749399080775",
+                "sha256:c4435ce7c254e80c46372735bb182e9b323024d7c81e56f2c83df68242ef02cb",
+                "sha256:58bc823e8f358658604b06af8d570cdeeeb8f6381ce3ddebf61b9f20fc9fd2f6",
+                "sha256:f7f7383118144626458c3c3b32ae9d1b7514aa8588cb51d40a43deb305d0b53a",
+                "sha256:1243f52e0a973178598ff1a6c7aa1b9edd4721f3ab414c4658c5b4f0451ab8a0",
+                "sha256:c008e9d3f36a929fbf4336dd65a40be74bead196680c89c35a16f4473e974e6c",
+                "sha256:a19ef609263e25b736277fa7f8bf694b756d1d8f08843837bb4eae593bade410",
+                "sha256:2bb6950b6f9e85ebd5fbd9ec5a02bb375b83a48c857328f95ea255f3bb9ff89d",
+                "sha256:d3e08f5280d985c359a440c9de390040f9d7ba2ad033ed8496c503f5266d861f",
+                "sha256:c4409e31f837dbc6283a31d5443992c05e9f1d1f7c485fdb238f304c2e08f439",
+                "sha256:c4409e31f837dbc6283a31d5443992c05e9f1d1f7c485fdb238f304c2e08f439",
+                "sha256:c5b715de44fbade025528ad1175df4bb1437b73eaf08a02f39bbd6b56275d547",
+                "sha256:a137ea108a731a52de2a6f41d222743dce3956cfd7c7c757c46f475090f115bc",
+                "sha256:9cbbfc1b19f65fb52bfd9cb0d60750d9b83636a56f552a8e20d533a28b169425",
+                "sha256:0ebcfe72c64bc67ee90d7bc21b1a8dc53164a1b8a89a35479c76a7fad1a7d7f3",
+                "sha256:30e994feae855ef29f31b7506b10b67443be689647acfc6f5092d3c10e284f93",
+                "sha256:07ea47c5f34d04bd7f1338ee233b169970e7fd498756caf811e982c48b5ad1c1",
+                "sha256:8f897242ba32eb96bd9ffb22c740061ea5bc52d15404a4d4a18c9b4368fb72f7",
+                "sha256:311fbc77bf7a00324bdad6e1de1f49b242be5c012a176fc013666cb1826ec89a",
+                "sha256:0872594211c1a3ed0aad7d9797d1223f9c89ec2a1c5e22cb1a738efcf385e2ed",
+                "sha256:cac58e6fcdacdf791a9f5dc696be0bbbfc3cc14fc0243c0b0d417cb392809985",
+                "sha256:a1fe30b50551217499a15764b55b0cb4a171bbe39fa02f2007811b1623fa6617",
+                "sha256:1337ecce8e12f7b62977ddb3a4610b2135981f4786ee58a8e132eaefab3c0916"
+            ],
+            "Type": "layers"
+        },
+        "Size": 7621926475
+    }
+]

@@ -1,0 +1,87 @@
+test_analysis.py: 4 test(s)
+test_api_breakpoint.py: 3 test(s)
+test_batch_ledger.py: 4 test(s)
+test_calibration.py: 13 test(s)
+test_calibration_population.py: 8 test(s)
+C:\Users\remil\Desktop\3yr\科研\proj\work\offline_tmp\tmpa_slg8k2\runs\calibration.json
+test_cf.py: 20 test(s)
+test_core_contracts.py: 14 test(s)
+test_dev_preparation.py: 2 test(s)
+test_error_feedback.py: 12 test(s)
+test_experiment.py: 26 test(s)
+test_harness_startup_adapter.py: 2 test(s)
+test_identity_batch_stop.py: 3 test(s)
+test_interact.py: 11 test(s)
+test_interaction_contracts.py: 12 test(s)
+test_llm.py: 43 test(s)
+test_model_identity.py: 6 test(s)
+test_pilot.py: 10 test(s)
+test_pilot_cli.py: 7 test(s)
+test_pilot_summary.py: 3 test(s)
+test_prefix_only.py: 11 test(s)
+C:\Users\remil\Desktop\3yr\科研\proj\work\offline_tmp\tmpjh2yhsh4\probe\result.json
+C:\Users\remil\Desktop\3yr\科研\proj\runs\tmpqv4wafjf\probe\result.json
+C:\Users\remil\Desktop\3yr\科研\proj\runs\tmpjwmaky4d\probe\result.json
+C:\Users\remil\Desktop\3yr\科研\proj\work\offline_tmp\tmp_23y7xw6\probe\result.json
+C:\Users\remil\Desktop\3yr\科研\proj\work\offline_tmp\tmpsmr_vgy4\probe\result.json
+test_preservation.py: 4 test(s)
+test_public_validation.py: 9 test(s)
+test_router.py: 29 test(s)
+test_routing_evidence.py: 7 test(s)
+test_runlog.py: 11 test(s)
+test_scoring_controller.py: 10 test(s)
+test_scoring_identity.py: 17 test(s)
+test_signal_chain.py: 6 test(s)
+test_single_run_design.py: 8 test(s)
+test_single_run_summary.py: 14 test(s)
+test_spend.py: 20 test(s)
+test_state.py: 29 test(s)
+test_statistics.py: 7 test(s)
+test_statistics_integrity.py: 7 test(s)
+
+FAIL test_identity_batch_stop.py::test_driver_stops_after_first_account_breakpoint_and_retains_predictions_and_accounting
+Traceback (most recent call last):
+  File "C:\Users\remil\Desktop\3yr\科研\proj\scripts\run_offline_tests.py", line 67, in main
+    getattr(module, name)()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\remil\Desktop\3yr\科研\proj\tests\test_identity_batch_stop.py", line 107, in test_driver_stops_after_first_account_breakpoint_and_retains_predictions_and_accounting
+    _assert_driver_stops('_api_breakpoint', 'api_http_402', 'api_access_or_quota_breakpoint')
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\remil\Desktop\3yr\科研\proj\tests\test_identity_batch_stop.py", line 84, in _assert_driver_stops
+    code = RUNNER.execute(raw, plan)
+  File "C:\Users\remil\Desktop\3yr\科研\proj\scripts\run_cf.py", line 357, in execute
+    if plan['mode'] == 'formal' and (not prefix or prefix['status'] != 'completed'
+                                         ^^^^^^
+UnboundLocalError: cannot access local variable 'prefix' where it is not associated with a value
+
+FAIL test_identity_batch_stop.py::test_driver_stops_after_first_identity_violation_and_retains_predictions_and_paid_usage
+Traceback (most recent call last):
+  File "C:\Users\remil\Desktop\3yr\科研\proj\scripts\run_offline_tests.py", line 67, in main
+    getattr(module, name)()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\remil\Desktop\3yr\科研\proj\tests\test_identity_batch_stop.py", line 103, in test_driver_stops_after_first_identity_violation_and_retains_predictions_and_paid_usage
+    _assert_driver_stops('_identity_violation', 'system_fingerprint_mismatch', 'served_model_identity_violation')
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\remil\Desktop\3yr\科研\proj\tests\test_identity_batch_stop.py", line 84, in _assert_driver_stops
+    code = RUNNER.execute(raw, plan)
+  File "C:\Users\remil\Desktop\3yr\科研\proj\scripts\run_cf.py", line 357, in execute
+    if plan['mode'] == 'formal' and (not prefix or prefix['status'] != 'completed'
+                                         ^^^^^^
+UnboundLocalError: cannot access local variable 'prefix' where it is not associated with a value
+
+FAIL test_identity_batch_stop.py::test_formal_interrupted_prefix_stops_before_another_case_or_cross_arm_regeneration
+Traceback (most recent call last):
+  File "C:\Users\remil\Desktop\3yr\科研\proj\scripts\run_offline_tests.py", line 67, in main
+    getattr(module, name)()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\remil\Desktop\3yr\科研\proj\tests\test_identity_batch_stop.py", line 111, in test_formal_interrupted_prefix_stops_before_another_case_or_cross_arm_regeneration
+    _assert_driver_stops('_api_breakpoint', None, 'formal_prefix_failed_no_cross_arm_regeneration')
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\remil\Desktop\3yr\科研\proj\tests\test_identity_batch_stop.py", line 84, in _assert_driver_stops
+    code = RUNNER.execute(raw, plan)
+  File "C:\Users\remil\Desktop\3yr\科研\proj\scripts\run_cf.py", line 357, in execute
+    if plan['mode'] == 'formal' and (not prefix or prefix['status'] != 'completed'
+                                         ^^^^^^
+UnboundLocalError: cannot access local variable 'prefix' where it is not associated with a value
+
+389/392 passed

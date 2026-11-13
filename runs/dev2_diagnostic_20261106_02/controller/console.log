@@ -1,0 +1,356 @@
+  0%|          | 0/2 [00:00<?, ?it/s]Running 2 instances...
+Traceback (most recent call last):
+  File "/opt/scoring/lib/python3.11/site-packages/swebench/harness/utils.py", line 104, in run_threadpool
+    future.result()
+  File "/opt/miniconda3/lib/python3.11/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/miniconda3/lib/python3.11/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/opt/miniconda3/lib/python3.11/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/scoring/lib/python3.11/site-packages/swebench/harness/run_evaluation.py", line 427, in run_instance
+    cleanup_container(client, container, logger)
+  File "/opt/scoring/lib/python3.11/site-packages/swebench/harness/docker_utils.py", line 69, in cleanup_container
+    result = subprocess.run(cmd, capture_output=True, text=True, timeout=30)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/miniconda3/lib/python3.11/subprocess.py", line 548, in run
+    with Popen(*popenargs, **kwargs) as process:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/miniconda3/lib/python3.11/subprocess.py", line 1026, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "/opt/miniconda3/lib/python3.11/subprocess.py", line 1950, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+FileNotFoundError: [Errno 2] No such file or directory: 'docker'
+ 50%|█████     | 1/2 [01:26<01:26, 86.26s/it]0 ran successfully, 1 failed:  50%|█████     | 1/2 [01:26<01:26, 86.26s/it]Traceback (most recent call last):
+  File "/opt/scoring/lib/python3.11/site-packages/swebench/harness/utils.py", line 104, in run_threadpool
+    future.result()
+  File "/opt/miniconda3/lib/python3.11/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/miniconda3/lib/python3.11/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/opt/miniconda3/lib/python3.11/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/scoring/lib/python3.11/site-packages/swebench/harness/run_evaluation.py", line 427, in run_instance
+    cleanup_container(client, container, logger)
+  File "/opt/scoring/lib/python3.11/site-packages/swebench/harness/docker_utils.py", line 69, in cleanup_container
+    result = subprocess.run(cmd, capture_output=True, text=True, timeout=30)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/miniconda3/lib/python3.11/subprocess.py", line 548, in run
+    with Popen(*popenargs, **kwargs) as process:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/miniconda3/lib/python3.11/subprocess.py", line 1026, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "/opt/miniconda3/lib/python3.11/subprocess.py", line 1950, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+FileNotFoundError: [Errno 2] No such file or directory: 'docker'
+0 ran successfully, 1 failed: 100%|██████████| 2/2 [01:29<00:00, 44.84s/it]0 ran successfully, 2 failed: 100%|██████████| 2/2 [01:29<00:00, 44.84s/it]0 ran successfully, 2 failed: 100%|██████████| 2/2 [01:29<00:00, 44.84s/it]
+<class 'FileNotFoundError'>: [Errno 2] No such file or directory: 'docker'
+<class 'FileNotFoundError'>: [Errno 2] No such file or directory: 'docker'
+All instances run.
+Total instances: 2
+Instances submitted: 2
+Instances completed: 2
+Instances incomplete: 0
+Instances resolved: 1
+Instances unresolved: 1
+Instances with likely infrastructure failures: 0
+Instances with ambiguous failures: 0
+Instances with empty patches: 0
+Instances with errors: 0
+Unstopped containers: 2
+Unremoved images: 0
+Report written to /workspace/runs/dev2_diagnostic_20261106_02/scoring/A/dev2_diagnostic_20261106_02-A.dev2_diagnostic_20261106_02.json
+Running 2 instances...
+  0%|          | 0/2 [00:00<?, ?it/s]Traceback (most recent call last):
+  File "/opt/scoring/lib/python3.11/site-packages/swebench/harness/utils.py", line 104, in run_threadpool
+    future.result()
+  File "/opt/miniconda3/lib/python3.11/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/miniconda3/lib/python3.11/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/opt/miniconda3/lib/python3.11/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/scoring/lib/python3.11/site-packages/swebench/harness/run_evaluation.py", line 427, in run_instance
+    cleanup_container(client, container, logger)
+  File "/opt/scoring/lib/python3.11/site-packages/swebench/harness/docker_utils.py", line 69, in cleanup_container
+    result = subprocess.run(cmd, capture_output=True, text=True, timeout=30)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/miniconda3/lib/python3.11/subprocess.py", line 548, in run
+    with Popen(*popenargs, **kwargs) as process:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/miniconda3/lib/python3.11/subprocess.py", line 1026, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "/opt/miniconda3/lib/python3.11/subprocess.py", line 1950, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+FileNotFoundError: [Errno 2] No such file or directory: 'docker'
+ 50%|█████     | 1/2 [01:20<01:20, 80.24s/it]0 ran successfully, 1 failed:  50%|█████     | 1/2 [01:20<01:20, 80.24s/it]Traceback (most recent call last):
+  File "/opt/scoring/lib/python3.11/site-packages/swebench/harness/utils.py", line 104, in run_threadpool
+    future.result()
+  File "/opt/miniconda3/lib/python3.11/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/miniconda3/lib/python3.11/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/opt/miniconda3/lib/python3.11/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/scoring/lib/python3.11/site-packages/swebench/harness/run_evaluation.py", line 427, in run_instance
+    cleanup_container(client, container, logger)
+  File "/opt/scoring/lib/python3.11/site-packages/swebench/harness/docker_utils.py", line 69, in cleanup_container
+    result = subprocess.run(cmd, capture_output=True, text=True, timeout=30)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/miniconda3/lib/python3.11/subprocess.py", line 548, in run
+    with Popen(*popenargs, **kwargs) as process:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/miniconda3/lib/python3.11/subprocess.py", line 1026, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "/opt/miniconda3/lib/python3.11/subprocess.py", line 1950, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+FileNotFoundError: [Errno 2] No such file or directory: 'docker'
+0 ran successfully, 1 failed: 100%|██████████| 2/2 [01:23<00:00, 41.94s/it]0 ran successfully, 2 failed: 100%|██████████| 2/2 [01:23<00:00, 41.94s/it]0 ran successfully, 2 failed: 100%|██████████| 2/2 [01:23<00:00, 41.94s/it]
+<class 'FileNotFoundError'>: [Errno 2] No such file or directory: 'docker'
+<class 'FileNotFoundError'>: [Errno 2] No such file or directory: 'docker'
+All instances run.
+Total instances: 2
+Instances submitted: 2
+Instances completed: 2
+Instances incomplete: 0
+Instances resolved: 0
+Instances unresolved: 2
+Instances with likely infrastructure failures: 0
+Instances with ambiguous failures: 0
+Instances with empty patches: 0
+Instances with errors: 0
+Unstopped containers: 2
+Unremoved images: 0
+Report written to /workspace/runs/dev2_diagnostic_20261106_02/scoring/B/dev2_diagnostic_20261106_02-B.dev2_diagnostic_20261106_02.json
+Running 2 instances...
+  0%|          | 0/2 [00:00<?, ?it/s]Traceback (most recent call last):
+  File "/opt/scoring/lib/python3.11/site-packages/swebench/harness/utils.py", line 104, in run_threadpool
+    future.result()
+  File "/opt/miniconda3/lib/python3.11/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/miniconda3/lib/python3.11/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/opt/miniconda3/lib/python3.11/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/scoring/lib/python3.11/site-packages/swebench/harness/run_evaluation.py", line 427, in run_instance
+    cleanup_container(client, container, logger)
+  File "/opt/scoring/lib/python3.11/site-packages/swebench/harness/docker_utils.py", line 69, in cleanup_container
+    result = subprocess.run(cmd, capture_output=True, text=True, timeout=30)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/miniconda3/lib/python3.11/subprocess.py", line 548, in run
+    with Popen(*popenargs, **kwargs) as process:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/miniconda3/lib/python3.11/subprocess.py", line 1026, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "/opt/miniconda3/lib/python3.11/subprocess.py", line 1950, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+FileNotFoundError: [Errno 2] No such file or directory: 'docker'
+ 50%|█████     | 1/2 [01:06<01:06, 66.29s/it]0 ran successfully, 1 failed:  50%|█████     | 1/2 [01:06<01:06, 66.29s/it]Traceback (most recent call last):
+  File "/opt/scoring/lib/python3.11/site-packages/swebench/harness/utils.py", line 104, in run_threadpool
+    future.result()
+  File "/opt/miniconda3/lib/python3.11/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/miniconda3/lib/python3.11/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/opt/miniconda3/lib/python3.11/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/scoring/lib/python3.11/site-packages/swebench/harness/run_evaluation.py", line 427, in run_instance
+    cleanup_container(client, container, logger)
+  File "/opt/scoring/lib/python3.11/site-packages/swebench/harness/docker_utils.py", line 69, in cleanup_container
+    result = subprocess.run(cmd, capture_output=True, text=True, timeout=30)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/miniconda3/lib/python3.11/subprocess.py", line 548, in run
+    with Popen(*popenargs, **kwargs) as process:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/miniconda3/lib/python3.11/subprocess.py", line 1026, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "/opt/miniconda3/lib/python3.11/subprocess.py", line 1950, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+FileNotFoundError: [Errno 2] No such file or directory: 'docker'
+0 ran successfully, 1 failed: 100%|██████████| 2/2 [01:09<00:00, 34.94s/it]0 ran successfully, 2 failed: 100%|██████████| 2/2 [01:09<00:00, 34.94s/it]0 ran successfully, 2 failed: 100%|██████████| 2/2 [01:09<00:00, 34.94s/it]
+<class 'FileNotFoundError'>: [Errno 2] No such file or directory: 'docker'
+<class 'FileNotFoundError'>: [Errno 2] No such file or directory: 'docker'
+All instances run.
+Total instances: 2
+Instances submitted: 2
+Instances completed: 2
+Instances incomplete: 0
+Instances resolved: 1
+Instances unresolved: 1
+Instances with likely infrastructure failures: 0
+Instances with ambiguous failures: 0
+Instances with empty patches: 0
+Instances with errors: 0
+Unstopped containers: 2
+Unremoved images: 0
+Report written to /workspace/runs/dev2_diagnostic_20261106_02/scoring/C/dev2_diagnostic_20261106_02-C.dev2_diagnostic_20261106_02.json
+Running 2 instances...
+  0%|          | 0/2 [00:00<?, ?it/s]Traceback (most recent call last):
+  File "/opt/scoring/lib/python3.11/site-packages/swebench/harness/utils.py", line 104, in run_threadpool
+    future.result()
+  File "/opt/miniconda3/lib/python3.11/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/miniconda3/lib/python3.11/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/opt/miniconda3/lib/python3.11/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/scoring/lib/python3.11/site-packages/swebench/harness/run_evaluation.py", line 427, in run_instance
+    cleanup_container(client, container, logger)
+  File "/opt/scoring/lib/python3.11/site-packages/swebench/harness/docker_utils.py", line 69, in cleanup_container
+    result = subprocess.run(cmd, capture_output=True, text=True, timeout=30)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/miniconda3/lib/python3.11/subprocess.py", line 548, in run
+    with Popen(*popenargs, **kwargs) as process:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/miniconda3/lib/python3.11/subprocess.py", line 1026, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "/opt/miniconda3/lib/python3.11/subprocess.py", line 1950, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+FileNotFoundError: [Errno 2] No such file or directory: 'docker'
+ 50%|█████     | 1/2 [01:12<01:12, 72.79s/it]0 ran successfully, 1 failed:  50%|█████     | 1/2 [01:12<01:12, 72.79s/it]Traceback (most recent call last):
+  File "/opt/scoring/lib/python3.11/site-packages/swebench/harness/utils.py", line 104, in run_threadpool
+    future.result()
+  File "/opt/miniconda3/lib/python3.11/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/miniconda3/lib/python3.11/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/opt/miniconda3/lib/python3.11/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/scoring/lib/python3.11/site-packages/swebench/harness/run_evaluation.py", line 427, in run_instance
+    cleanup_container(client, container, logger)
+  File "/opt/scoring/lib/python3.11/site-packages/swebench/harness/docker_utils.py", line 69, in cleanup_container
+    result = subprocess.run(cmd, capture_output=True, text=True, timeout=30)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/miniconda3/lib/python3.11/subprocess.py", line 548, in run
+    with Popen(*popenargs, **kwargs) as process:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/miniconda3/lib/python3.11/subprocess.py", line 1026, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "/opt/miniconda3/lib/python3.11/subprocess.py", line 1950, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+FileNotFoundError: [Errno 2] No such file or directory: 'docker'
+0 ran successfully, 1 failed: 100%|██████████| 2/2 [01:16<00:00, 38.03s/it]0 ran successfully, 2 failed: 100%|██████████| 2/2 [01:16<00:00, 38.03s/it]0 ran successfully, 2 failed: 100%|██████████| 2/2 [01:16<00:00, 38.03s/it]
+<class 'FileNotFoundError'>: [Errno 2] No such file or directory: 'docker'
+<class 'FileNotFoundError'>: [Errno 2] No such file or directory: 'docker'
+All instances run.
+Total instances: 2
+Instances submitted: 2
+Instances completed: 2
+Instances incomplete: 0
+Instances resolved: 1
+Instances unresolved: 1
+Instances with likely infrastructure failures: 0
+Instances with ambiguous failures: 0
+Instances with empty patches: 0
+Instances with errors: 0
+Unstopped containers: 2
+Unremoved images: 0
+Report written to /workspace/runs/dev2_diagnostic_20261106_02/scoring/D/dev2_diagnostic_20261106_02-D.dev2_diagnostic_20261106_02.json
+Warning: Missing predictions for 1 instance IDs.
+Running 1 instances...
+  0%|          | 0/1 [00:00<?, ?it/s]Traceback (most recent call last):
+  File "/opt/scoring/lib/python3.11/site-packages/swebench/harness/utils.py", line 104, in run_threadpool
+    future.result()
+  File "/opt/miniconda3/lib/python3.11/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/miniconda3/lib/python3.11/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/opt/miniconda3/lib/python3.11/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/scoring/lib/python3.11/site-packages/swebench/harness/run_evaluation.py", line 427, in run_instance
+    cleanup_container(client, container, logger)
+  File "/opt/scoring/lib/python3.11/site-packages/swebench/harness/docker_utils.py", line 69, in cleanup_container
+    result = subprocess.run(cmd, capture_output=True, text=True, timeout=30)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/miniconda3/lib/python3.11/subprocess.py", line 548, in run
+    with Popen(*popenargs, **kwargs) as process:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/miniconda3/lib/python3.11/subprocess.py", line 1026, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "/opt/miniconda3/lib/python3.11/subprocess.py", line 1950, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+FileNotFoundError: [Errno 2] No such file or directory: 'docker'
+100%|██████████| 1/1 [01:14<00:00, 74.95s/it]0 ran successfully, 1 failed: 100%|██████████| 1/1 [01:14<00:00, 74.95s/it]0 ran successfully, 1 failed: 100%|██████████| 1/1 [01:14<00:00, 74.95s/it]
+<class 'FileNotFoundError'>: [Errno 2] No such file or directory: 'docker'
+All instances run.
+Total instances: 2
+Instances submitted: 1
+Instances completed: 1
+Instances incomplete: 1
+Instances resolved: 1
+Instances unresolved: 0
+Instances with likely infrastructure failures: 0
+Instances with ambiguous failures: 0
+Instances with empty patches: 0
+Instances with errors: 0
+Unstopped containers: 2
+Unremoved images: 0
+Report written to /workspace/runs/dev2_diagnostic_20261106_02/scoring/ESC/dev2_diagnostic_20261106_02-ESC.dev2_diagnostic_20261106_02.json
+Warning: Missing predictions for 1 instance IDs.
+Running 1 instances...
+  0%|          | 0/1 [00:00<?, ?it/s]Traceback (most recent call last):
+  File "/opt/scoring/lib/python3.11/site-packages/swebench/harness/utils.py", line 104, in run_threadpool
+    future.result()
+  File "/opt/miniconda3/lib/python3.11/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/miniconda3/lib/python3.11/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/opt/miniconda3/lib/python3.11/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/scoring/lib/python3.11/site-packages/swebench/harness/run_evaluation.py", line 427, in run_instance
+    cleanup_container(client, container, logger)
+  File "/opt/scoring/lib/python3.11/site-packages/swebench/harness/docker_utils.py", line 69, in cleanup_container
+    result = subprocess.run(cmd, capture_output=True, text=True, timeout=30)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/miniconda3/lib/python3.11/subprocess.py", line 548, in run
+    with Popen(*popenargs, **kwargs) as process:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/miniconda3/lib/python3.11/subprocess.py", line 1026, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "/opt/miniconda3/lib/python3.11/subprocess.py", line 1950, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+FileNotFoundError: [Errno 2] No such file or directory: 'docker'
+100%|██████████| 1/1 [01:03<00:00, 63.09s/it]0 ran successfully, 1 failed: 100%|██████████| 1/1 [01:03<00:00, 63.09s/it]0 ran successfully, 1 failed: 100%|██████████| 1/1 [01:03<00:00, 63.09s/it]
+<class 'FileNotFoundError'>: [Errno 2] No such file or directory: 'docker'
+All instances run.
+Total instances: 2
+Instances submitted: 1
+Instances completed: 1
+Instances incomplete: 1
+Instances resolved: 1
+Instances unresolved: 0
+Instances with likely infrastructure failures: 0
+Instances with ambiguous failures: 0
+Instances with empty patches: 0
+Instances with errors: 0
+Unstopped containers: 2
+Unremoved images: 0
+Report written to /workspace/runs/dev2_diagnostic_20261106_02/scoring/FIXED/dev2_diagnostic_20261106_02-FIXED.dev2_diagnostic_20261106_02.json
+[
+  "/workspace/runs/dev2_diagnostic_20261106_02/scoring/A/dev2_diagnostic_20261106_02-A.dev2_diagnostic_20261106_02.json",
+  "/workspace/runs/dev2_diagnostic_20261106_02/scoring/B/dev2_diagnostic_20261106_02-B.dev2_diagnostic_20261106_02.json",
+  "/workspace/runs/dev2_diagnostic_20261106_02/scoring/C/dev2_diagnostic_20261106_02-C.dev2_diagnostic_20261106_02.json",
+  "/workspace/runs/dev2_diagnostic_20261106_02/scoring/D/dev2_diagnostic_20261106_02-D.dev2_diagnostic_20261106_02.json",
+  "/workspace/runs/dev2_diagnostic_20261106_02/scoring/ESC/dev2_diagnostic_20261106_02-ESC.dev2_diagnostic_20261106_02.json",
+  "/workspace/runs/dev2_diagnostic_20261106_02/scoring/FIXED/dev2_diagnostic_20261106_02-FIXED.dev2_diagnostic_20261106_02.json"
+]

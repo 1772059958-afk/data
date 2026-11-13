@@ -1,0 +1,313 @@
+{
+  "dev": {
+    "parquet_sha256": "b90bcbfaca1b5f65155500124a977876c264a4003ab384aca4dfc39a54bef89f",
+    "instances": [
+      {
+        "instance_id": "marshmallow-code__marshmallow-1343",
+        "repo": "marshmallow-code/marshmallow",
+        "base_commit": "2be2d83a1a9a6d3d9b85804f3ab545cecc409bb0",
+        "version": "2.20",
+        "environment_setup_commit": "7015fc4333a2f32cd58c3465296e834acd4496ff"
+      },
+      {
+        "instance_id": "marshmallow-code__marshmallow-1359",
+        "repo": "marshmallow-code/marshmallow",
+        "base_commit": "b40a0f4e33823e6d0f341f7e8684e359a99060d1",
+        "version": "3.0",
+        "environment_setup_commit": "8b3a32614fd4a74e93e9a63a042e74c1fea34466"
+      },
+      {
+        "instance_id": "pvlib__pvlib-python-1072",
+        "repo": "pvlib/pvlib-python",
+        "base_commit": "04a523fafbd61bc2e49420963b84ed8e2bd1b3cf",
+        "version": "0.7",
+        "environment_setup_commit": "6e5148f59c5050e8f7a0084b7ae39e93b80f72e6"
+      },
+      {
+        "instance_id": "pvlib__pvlib-python-1154",
+        "repo": "pvlib/pvlib-python",
+        "base_commit": "0b8f24c265d76320067a5ee908a57d475cd1bb24",
+        "version": "0.8",
+        "environment_setup_commit": "ef8ad2fee9840a77d14b0dfd17fc489dd85c9b91"
+      },
+      {
+        "instance_id": "pvlib__pvlib-python-1606",
+        "repo": "pvlib/pvlib-python",
+        "base_commit": "c78b50f4337ecbe536a961336ca91a1176efc0e8",
+        "version": "0.8",
+        "environment_setup_commit": "ef8ad2fee9840a77d14b0dfd17fc489dd85c9b91"
+      },
+      {
+        "instance_id": "pvlib__pvlib-python-1707",
+        "repo": "pvlib/pvlib-python",
+        "base_commit": "40e9e978c170bdde4eeee1547729417665dbc34c",
+        "version": "0.9",
+        "environment_setup_commit": "6072e0982c3c0236f532ddfa48fbf461180d834e"
+      },
+      {
+        "instance_id": "pvlib__pvlib-python-1854",
+        "repo": "pvlib/pvlib-python",
+        "base_commit": "27a3a07ebc84b11014d3753e4923902adf9a38c0",
+        "version": "0.9",
+        "environment_setup_commit": "6072e0982c3c0236f532ddfa48fbf461180d834e"
+      },
+      {
+        "instance_id": "pydicom__pydicom-1139",
+        "repo": "pydicom/pydicom",
+        "base_commit": "b9fb05c177b685bf683f7f57b2d57374eb7d882d",
+        "version": "2.0",
+        "environment_setup_commit": "9d69811e539774f296c2f289839147e741251716"
+      },
+      {
+        "instance_id": "pydicom__pydicom-1256",
+        "repo": "pydicom/pydicom",
+        "base_commit": "49a3da4a3d9c24d7e8427a25048a1c7d5c4f7724",
+        "version": "2.1",
+        "environment_setup_commit": "506ecea8f378dc687d5c504788fc78810a190b7a"
+      },
+      {
+        "instance_id": "pydicom__pydicom-1413",
+        "repo": "pydicom/pydicom",
+        "base_commit": "f909c76e31f759246cec3708dadd173c5d6e84b1",
+        "version": "2.1",
+        "environment_setup_commit": "506ecea8f378dc687d5c504788fc78810a190b7a"
+      },
+      {
+        "instance_id": "pydicom__pydicom-1694",
+        "repo": "pydicom/pydicom",
+        "base_commit": "f8cf45b6c121e5a4bf4a43f71aba3bc64af3db9c",
+        "version": "2.3",
+        "environment_setup_commit": "a8be738418dee0a2b93c241fbd5e0bc82f4b8680"
+      },
+      {
+        "instance_id": "pydicom__pydicom-901",
+        "repo": "pydicom/pydicom",
+        "base_commit": "3746878d8edf1cbda6fbcf35eec69f9ba79301ca",
+        "version": "1.3",
+        "environment_setup_commit": "7241f5d9db0de589b230bb84212fbb643a7c86c3"
+      },
+      {
+        "instance_id": "pylint-dev__astroid-1196",
+        "repo": "pylint-dev/astroid",
+        "base_commit": "39c2a9805970ca57093d32bbaf0e6a63e05041d8",
+        "version": "2.12",
+        "environment_setup_commit": "52f6d2d7722db383af035be929f18af5e9fe8cd5"
+      },
+      {
+        "instance_id": "pylint-dev__astroid-1268",
+        "repo": "pylint-dev/astroid",
+        "base_commit": "ce5cbce5ba11cdc2f8139ade66feea1e181a7944",
+        "version": "2.9",
+        "environment_setup_commit": "0d1211558670cfefd95b39984b8d5f7f34837f32"
+      },
+      {
+        "instance_id": "pylint-dev__astroid-1333",
+        "repo": "pylint-dev/astroid",
+        "base_commit": "d2a5b3c7b1e203fec3c7ca73c30eb1785d3d4d0a",
+        "version": "2.10",
+        "environment_setup_commit": "da745538c7236028a22cdf0405f6829fcf6886bc"
+      },
+      {
+        "instance_id": "pylint-dev__astroid-1866",
+        "repo": "pylint-dev/astroid",
+        "base_commit": "6cf238d089cf4b6753c94cfc089b4a47487711e5",
+        "version": "2.13",
+        "environment_setup_commit": "fe058bff95745371df5796286d33677c21137847"
+      },
+      {
+        "instance_id": "pylint-dev__astroid-1978",
+        "repo": "pylint-dev/astroid",
+        "base_commit": "0c9ab0fe56703fa83c73e514a1020d398d23fa7f",
+        "version": "2.14",
+        "environment_setup_commit": "0c9ab0fe56703fa83c73e514a1020d398d23fa7f"
+      },
+      {
+        "instance_id": "pyvista__pyvista-4315",
+        "repo": "pyvista/pyvista",
+        "base_commit": "db6ee8dd4a747b8864caae36c5d05883976a3ae5",
+        "version": "0.39",
+        "environment_setup_commit": "4c2d1aed10b1600d520271beba8579c71433e808"
+      },
+      {
+        "instance_id": "sqlfluff__sqlfluff-1517",
+        "repo": "sqlfluff/sqlfluff",
+        "base_commit": "304a197829f98e7425a46d872ada73176137e5ae",
+        "version": "0.6",
+        "environment_setup_commit": "67023b85c41d23d6c6d69812a41b207c4f8a9331"
+      },
+      {
+        "instance_id": "sqlfluff__sqlfluff-1625",
+        "repo": "sqlfluff/sqlfluff",
+        "base_commit": "14e1a23a3166b9a645a16de96f694c77a5d4abb7",
+        "version": "0.6",
+        "environment_setup_commit": "67023b85c41d23d6c6d69812a41b207c4f8a9331"
+      },
+      {
+        "instance_id": "sqlfluff__sqlfluff-1733",
+        "repo": "sqlfluff/sqlfluff",
+        "base_commit": "a1579a16b1d8913d9d7c7d12add374a290bcc78c",
+        "version": "0.6",
+        "environment_setup_commit": "67023b85c41d23d6c6d69812a41b207c4f8a9331"
+      },
+      {
+        "instance_id": "sqlfluff__sqlfluff-1763",
+        "repo": "sqlfluff/sqlfluff",
+        "base_commit": "a10057635e5b2559293a676486f0b730981f037a",
+        "version": "0.6",
+        "environment_setup_commit": "67023b85c41d23d6c6d69812a41b207c4f8a9331"
+      },
+      {
+        "instance_id": "sqlfluff__sqlfluff-2419",
+        "repo": "sqlfluff/sqlfluff",
+        "base_commit": "f1dba0e1dd764ae72d67c3d5e1471cf14d3db030",
+        "version": "0.8",
+        "environment_setup_commit": "a5c4eae4e3e419fe95460c9afd9cf39a35a470c4"
+      }
+    ]
+  },
+  "test": {
+    "parquet_sha256": "438e281d80587aa7be470896ce410557002fde02d2ceee3e099331d308f62dd3",
+    "instances": [
+      {
+        "instance_id": "astropy__astropy-14995",
+        "repo": "astropy/astropy",
+        "base_commit": "b16c7d12ccbc7b2d20364b89fb44285bcbfede54",
+        "version": "5.2",
+        "environment_setup_commit": "362f6df12abf9bd769d4915fabf955c993ea22cf"
+      },
+      {
+        "instance_id": "django__django-11910",
+        "repo": "django/django",
+        "base_commit": "d232fd76a85870daf345fd8f8d617fe7802ae194",
+        "version": "3.1",
+        "environment_setup_commit": "0668164b4ac93a5be79f5b87fae83c657124d9ab"
+      },
+      {
+        "instance_id": "django__django-12708",
+        "repo": "django/django",
+        "base_commit": "447980e72ac01da1594dd3373a03ba40b7ee6f80",
+        "version": "3.1",
+        "environment_setup_commit": "0668164b4ac93a5be79f5b87fae83c657124d9ab"
+      },
+      {
+        "instance_id": "django__django-13230",
+        "repo": "django/django",
+        "base_commit": "184a6eebb0ef56d5f1b1315a8e666830e37f3f81",
+        "version": "3.2",
+        "environment_setup_commit": "65dfb06a1ab56c238cc80f5e1c31f61210c4577d"
+      },
+      {
+        "instance_id": "django__django-17087",
+        "repo": "django/django",
+        "base_commit": "4a72da71001f154ea60906a2f74898d32b7322a7",
+        "version": "5.0",
+        "environment_setup_commit": "4a72da71001f154ea60906a2f74898d32b7322a7"
+      },
+      {
+        "instance_id": "matplotlib__matplotlib-23987",
+        "repo": "matplotlib/matplotlib",
+        "base_commit": "e98d8d085e8f53ec0467422b326f7738a2dd695e",
+        "version": "3.6",
+        "environment_setup_commit": "73909bcb408886a22e2b84581d6b9e6d9907c813"
+      },
+      {
+        "instance_id": "matplotlib__matplotlib-24970",
+        "repo": "matplotlib/matplotlib",
+        "base_commit": "a3011dfd1aaa2487cce8aa7369475533133ef777",
+        "version": "3.6",
+        "environment_setup_commit": "73909bcb408886a22e2b84581d6b9e6d9907c813"
+      },
+      {
+        "instance_id": "mwaskom__seaborn-2848",
+        "repo": "mwaskom/seaborn",
+        "base_commit": "94621cef29f80282436d73e8d2c0aa76dab81273",
+        "version": "0.12",
+        "environment_setup_commit": "d25872b0fc99dbf7e666a91f59bd4ed125186aa1"
+      },
+      {
+        "instance_id": "pallets__flask-4045",
+        "repo": "pallets/flask",
+        "base_commit": "d8c37f43724cd9fb0870f77877b7c4c7e38a19e0",
+        "version": "2.0",
+        "environment_setup_commit": "4346498c85848c53843b810537b83a8f6124c9d3"
+      },
+      {
+        "instance_id": "psf__requests-1963",
+        "repo": "psf/requests",
+        "base_commit": "110048f9837f8441ea536804115e80b69f400277",
+        "version": "2.3",
+        "environment_setup_commit": "3eb69be879063de4803f7f0152b83738a1c95ca4"
+      },
+      {
+        "instance_id": "pydata__xarray-3364",
+        "repo": "pydata/xarray",
+        "base_commit": "863e49066ca4d61c9adfe62aca3bf21b90e1af8c",
+        "version": "0.12",
+        "environment_setup_commit": "1c198a191127c601d091213c4b3292a8bb3054e1"
+      },
+      {
+        "instance_id": "pylint-dev__pylint-7114",
+        "repo": "pylint-dev/pylint",
+        "base_commit": "397c1703e8ae6349d33f7b99f45b2ccaf581e666",
+        "version": "2.15",
+        "environment_setup_commit": "e90702074e68e20dc8e5df5013ee3ecf22139c3e"
+      },
+      {
+        "instance_id": "pytest-dev__pytest-6116",
+        "repo": "pytest-dev/pytest",
+        "base_commit": "e670ff76cbad80108bde9bab616b66771b8653cf",
+        "version": "5.2",
+        "environment_setup_commit": "f36ea240fe3579f945bf5d6cc41b5e45a572249d"
+      },
+      {
+        "instance_id": "pytest-dev__pytest-8906",
+        "repo": "pytest-dev/pytest",
+        "base_commit": "69356d20cfee9a81972dcbf93d8caf9eabe113e8",
+        "version": "7.0",
+        "environment_setup_commit": "e2ee3144ed6e241dea8d96215fcdca18b3892551"
+      },
+      {
+        "instance_id": "scikit-learn__scikit-learn-11281",
+        "repo": "scikit-learn/scikit-learn",
+        "base_commit": "4143356c3c51831300789e4fdf795d83716dbab6",
+        "version": "0.20",
+        "environment_setup_commit": "55bf5d93e5674f13a1134d93a11fd0cd11aabcd1"
+      },
+      {
+        "instance_id": "scikit-learn__scikit-learn-13496",
+        "repo": "scikit-learn/scikit-learn",
+        "base_commit": "3aefc834dce72e850bff48689bea3c7dff5f3fad",
+        "version": "0.21",
+        "environment_setup_commit": "7813f7efb5b2012412888b69e73d76f2df2b50b6"
+      },
+      {
+        "instance_id": "sphinx-doc__sphinx-8595",
+        "repo": "sphinx-doc/sphinx",
+        "base_commit": "b19bce971e82f2497d67fdacdeca8db08ae0ba56",
+        "version": "3.5",
+        "environment_setup_commit": "4f8cb861e3b29186b38248fe81e4944fd987fcce"
+      },
+      {
+        "instance_id": "sympy__sympy-13480",
+        "repo": "sympy/sympy",
+        "base_commit": "f57fe3f4b3f2cab225749e1b3b38ae1bf80b62f0",
+        "version": "1.1",
+        "environment_setup_commit": "ec9e3c0436fbff934fa84e22bf07f1b3ef5bfac3"
+      },
+      {
+        "instance_id": "sympy__sympy-16503",
+        "repo": "sympy/sympy",
+        "base_commit": "a7e6f093c98a3c4783848a19fce646e32b6e0161",
+        "version": "1.5",
+        "environment_setup_commit": "70381f282f2d9d039da860e391fe51649df2779d"
+      },
+      {
+        "instance_id": "sympy__sympy-23262",
+        "repo": "sympy/sympy",
+        "base_commit": "fdc707f73a65a429935c01532cd3970d3355eab6",
+        "version": "1.11",
+        "environment_setup_commit": "9a6104eab0ea7ac191a09c24f3e2d79dcd66bda5"
+      }
+    ]
+  }
+}

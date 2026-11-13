@@ -1,0 +1,656 @@
+............................................................s........... [ 76%]
+......................                                                   [100%]
+=============================== warnings summary ===============================
+pydicom/tests/test_dataset.py::TestDataset::test_attribute_error_in_property
+  /opt/miniconda3/envs/testbed/lib/python3.9/site-packages/_pytest/fixtures.py:895: PytestRemovedIn8Warning: Support for nose tests is deprecated and will be removed in a future release.
+  pydicom/tests/test_dataset.py::TestDataset::test_attribute_error_in_property is using nose-specific method: `setup(self)`
+  To remove this warning, rename it to `setup_method(self)`
+  See docs: https://docs.pytest.org/en/stable/deprecations.html#support-for-tests-written-for-nose
+    fixture_result = next(generator)
+
+pydicom/tests/test_dataset.py::TestDataset::test_for_stray_raw_data_element
+  /opt/miniconda3/envs/testbed/lib/python3.9/site-packages/_pytest/fixtures.py:895: PytestRemovedIn8Warning: Support for nose tests is deprecated and will be removed in a future release.
+  pydicom/tests/test_dataset.py::TestDataset::test_for_stray_raw_data_element is using nose-specific method: `setup(self)`
+  To remove this warning, rename it to `setup_method(self)`
+  See docs: https://docs.pytest.org/en/stable/deprecations.html#support-for-tests-written-for-nose
+    fixture_result = next(generator)
+
+pydicom/tests/test_dataset.py::TestDataset::test_attribute_error_in_property_correct_debug
+  /opt/miniconda3/envs/testbed/lib/python3.9/site-packages/_pytest/fixtures.py:895: PytestRemovedIn8Warning: Support for nose tests is deprecated and will be removed in a future release.
+  pydicom/tests/test_dataset.py::TestDataset::test_attribute_error_in_property_correct_debug is using nose-specific method: `setup(self)`
+  To remove this warning, rename it to `setup_method(self)`
+  See docs: https://docs.pytest.org/en/stable/deprecations.html#support-for-tests-written-for-nose
+    fixture_result = next(generator)
+
+pydicom/tests/test_dataset.py::TestDataset::test_tag_exception_print
+  /opt/miniconda3/envs/testbed/lib/python3.9/site-packages/_pytest/fixtures.py:895: PytestRemovedIn8Warning: Support for nose tests is deprecated and will be removed in a future release.
+  pydicom/tests/test_dataset.py::TestDataset::test_tag_exception_print is using nose-specific method: `setup(self)`
+  To remove this warning, rename it to `setup_method(self)`
+  See docs: https://docs.pytest.org/en/stable/deprecations.html#support-for-tests-written-for-nose
+    fixture_result = next(generator)
+
+pydicom/tests/test_dataset.py::TestDataset::test_tag_exception_walk
+  /opt/miniconda3/envs/testbed/lib/python3.9/site-packages/_pytest/fixtures.py:895: PytestRemovedIn8Warning: Support for nose tests is deprecated and will be removed in a future release.
+  pydicom/tests/test_dataset.py::TestDataset::test_tag_exception_walk is using nose-specific method: `setup(self)`
+  To remove this warning, rename it to `setup_method(self)`
+  See docs: https://docs.pytest.org/en/stable/deprecations.html#support-for-tests-written-for-nose
+    fixture_result = next(generator)
+
+pydicom/tests/test_dataset.py::TestDataset::test_set_new_data_element_by_name
+  /opt/miniconda3/envs/testbed/lib/python3.9/site-packages/_pytest/fixtures.py:895: PytestRemovedIn8Warning: Support for nose tests is deprecated and will be removed in a future release.
+  pydicom/tests/test_dataset.py::TestDataset::test_set_new_data_element_by_name is using nose-specific method: `setup(self)`
+  To remove this warning, rename it to `setup_method(self)`
+  See docs: https://docs.pytest.org/en/stable/deprecations.html#support-for-tests-written-for-nose
+    fixture_result = next(generator)
+
+pydicom/tests/test_dataset.py::TestDataset::test_set_existing_data_element_by_name
+  /opt/miniconda3/envs/testbed/lib/python3.9/site-packages/_pytest/fixtures.py:895: PytestRemovedIn8Warning: Support for nose tests is deprecated and will be removed in a future release.
+  pydicom/tests/test_dataset.py::TestDataset::test_set_existing_data_element_by_name is using nose-specific method: `setup(self)`
+  To remove this warning, rename it to `setup_method(self)`
+  See docs: https://docs.pytest.org/en/stable/deprecations.html#support-for-tests-written-for-nose
+    fixture_result = next(generator)
+
+pydicom/tests/test_dataset.py::TestDataset::test_set_non_dicom
+  /opt/miniconda3/envs/testbed/lib/python3.9/site-packages/_pytest/fixtures.py:895: PytestRemovedIn8Warning: Support for nose tests is deprecated and will be removed in a future release.
+  pydicom/tests/test_dataset.py::TestDataset::test_set_non_dicom is using nose-specific method: `setup(self)`
+  To remove this warning, rename it to `setup_method(self)`
+  See docs: https://docs.pytest.org/en/stable/deprecations.html#support-for-tests-written-for-nose
+    fixture_result = next(generator)
+
+pydicom/tests/test_dataset.py::TestDataset::test_membership
+  /opt/miniconda3/envs/testbed/lib/python3.9/site-packages/_pytest/fixtures.py:895: PytestRemovedIn8Warning: Support for nose tests is deprecated and will be removed in a future release.
+  pydicom/tests/test_dataset.py::TestDataset::test_membership is using nose-specific method: `setup(self)`
+  To remove this warning, rename it to `setup_method(self)`
+  See docs: https://docs.pytest.org/en/stable/deprecations.html#support-for-tests-written-for-nose
+    fixture_result = next(generator)
+
+pydicom/tests/test_dataset.py::TestDataset::test_contains
+  /opt/miniconda3/envs/testbed/lib/python3.9/site-packages/_pytest/fixtures.py:895: PytestRemovedIn8Warning: Support for nose tests is deprecated and will be removed in a future release.
+  pydicom/tests/test_dataset.py::TestDataset::test_contains is using nose-specific method: `setup(self)`
+  To remove this warning, rename it to `setup_method(self)`
+  See docs: https://docs.pytest.org/en/stable/deprecations.html#support-for-tests-written-for-nose
+    fixture_result = next(generator)
+
+pydicom/tests/test_dataset.py::TestDataset::test_clear
+  /opt/miniconda3/envs/testbed/lib/python3.9/site-packages/_pytest/fixtures.py:895: PytestRemovedIn8Warning: Support for nose tests is deprecated and will be removed in a future release.
+  pydicom/tests/test_dataset.py::TestDataset::test_clear is using nose-specific method: `setup(self)`
+  To remove this warning, rename it to `setup_method(self)`
+  See docs: https://docs.pytest.org/en/stable/deprecations.html#support-for-tests-written-for-nose
+    fixture_result = next(generator)
+
+pydicom/tests/test_dataset.py::TestDataset::test_pop
+  /opt/miniconda3/envs/testbed/lib/python3.9/site-packages/_pytest/fixtures.py:895: PytestRemovedIn8Warning: Support for nose tests is deprecated and will be removed in a future release.
+  pydicom/tests/test_dataset.py::TestDataset::test_pop is using nose-specific method: `setup(self)`
+  To remove this warning, rename it to `setup_method(self)`
+  See docs: https://docs.pytest.org/en/stable/deprecations.html#support-for-tests-written-for-nose
+    fixture_result = next(generator)
+
+pydicom/tests/test_dataset.py::TestDataset::test_pop_using_tuple
+  /opt/miniconda3/envs/testbed/lib/python3.9/site-packages/_pytest/fixtures.py:895: PytestRemovedIn8Warning: Support for nose tests is deprecated and will be removed in a future release.
+  pydicom/tests/test_dataset.py::TestDataset::test_pop_using_tuple is using nose-specific method: `setup(self)`
+  To remove this warning, rename it to `setup_method(self)`
+  See docs: https://docs.pytest.org/en/stable/deprecations.html#support-for-tests-written-for-nose
+    fixture_result = next(generator)
+
+pydicom/tests/test_dataset.py::TestDataset::test_pop_using_keyword
+  /opt/miniconda3/envs/testbed/lib/python3.9/site-packages/_pytest/fixtures.py:895: PytestRemovedIn8Warning: Support for nose tests is deprecated and will be removed in a future release.
+  pydicom/tests/test_dataset.py::TestDataset::test_pop_using_keyword is using nose-specific method: `setup(self)`
+  To remove this warning, rename it to `setup_method(self)`
+  See docs: https://docs.pytest.org/en/stable/deprecations.html#support-for-tests-written-for-nose
+    fixture_result = next(generator)
+
+pydicom/tests/test_dataset.py::TestDataset::test_popitem
+  /opt/miniconda3/envs/testbed/lib/python3.9/site-packages/_pytest/fixtures.py:895: PytestRemovedIn8Warning: Support for nose tests is deprecated and will be removed in a future release.
+  pydicom/tests/test_dataset.py::TestDataset::test_popitem is using nose-specific method: `setup(self)`
+  To remove this warning, rename it to `setup_method(self)`
+  See docs: https://docs.pytest.org/en/stable/deprecations.html#support-for-tests-written-for-nose
+    fixture_result = next(generator)
+
+pydicom/tests/test_dataset.py::TestDataset::test_setdefault
+  /opt/miniconda3/envs/testbed/lib/python3.9/site-packages/_pytest/fixtures.py:895: PytestRemovedIn8Warning: Support for nose tests is deprecated and will be removed in a future release.
+  pydicom/tests/test_dataset.py::TestDataset::test_setdefault is using nose-specific method: `setup(self)`
+  To remove this warning, rename it to `setup_method(self)`
+  See docs: https://docs.pytest.org/en/stable/deprecations.html#support-for-tests-written-for-nose
+    fixture_result = next(generator)
+
+pydicom/tests/test_dataset.py::TestDataset::test_setdefault_tuple
+  /opt/miniconda3/envs/testbed/lib/python3.9/site-packages/_pytest/fixtures.py:895: PytestRemovedIn8Warning: Support for nose tests is deprecated and will be removed in a future release.
+  pydicom/tests/test_dataset.py::TestDataset::test_setdefault_tuple is using nose-specific method: `setup(self)`
+  To remove this warning, rename it to `setup_method(self)`
+  See docs: https://docs.pytest.org/en/stable/deprecations.html#support-for-tests-written-for-nose
+    fixture_result = next(generator)
+
+pydicom/tests/test_dataset.py::TestDataset::test_setdefault_use_value
+  /opt/miniconda3/envs/testbed/lib/python3.9/site-packages/_pytest/fixtures.py:895: PytestRemovedIn8Warning: Support for nose tests is deprecated and will be removed in a future release.
+  pydicom/tests/test_dataset.py::TestDataset::test_setdefault_use_value is using nose-specific method: `setup(self)`
+  To remove this warning, rename it to `setup_method(self)`
+  See docs: https://docs.pytest.org/en/stable/deprecations.html#support-for-tests-written-for-nose
+    fixture_result = next(generator)
+
+pydicom/tests/test_dataset.py::TestDataset::test_setdefault_keyword
+  /opt/miniconda3/envs/testbed/lib/python3.9/site-packages/_pytest/fixtures.py:895: PytestRemovedIn8Warning: Support for nose tests is deprecated and will be removed in a future release.
+  pydicom/tests/test_dataset.py::TestDataset::test_setdefault_keyword is using nose-specific method: `setup(self)`
+  To remove this warning, rename it to `setup_method(self)`
+  See docs: https://docs.pytest.org/en/stable/deprecations.html#support-for-tests-written-for-nose
+    fixture_result = next(generator)
+
+pydicom/tests/test_dataset.py::TestDataset::test_get_exists1
+  /opt/miniconda3/envs/testbed/lib/python3.9/site-packages/_pytest/fixtures.py:895: PytestRemovedIn8Warning: Support for nose tests is deprecated and will be removed in a future release.
+  pydicom/tests/test_dataset.py::TestDataset::test_get_exists1 is using nose-specific method: `setup(self)`
+  To remove this warning, rename it to `setup_method(self)`
+  See docs: https://docs.pytest.org/en/stable/deprecations.html#support-for-tests-written-for-nose
+    fixture_result = next(generator)
+
+pydicom/tests/test_dataset.py::TestDataset::test_get_exists2
+  /opt/miniconda3/envs/testbed/lib/python3.9/site-packages/_pytest/fixtures.py:895: PytestRemovedIn8Warning: Support for nose tests is deprecated and will be removed in a future release.
+  pydicom/tests/test_dataset.py::TestDataset::test_get_exists2 is using nose-specific method: `setup(self)`
+  To remove this warning, rename it to `setup_method(self)`
+  See docs: https://docs.pytest.org/en/stable/deprecations.html#support-for-tests-written-for-nose
+    fixture_result = next(generator)
+
+pydicom/tests/test_dataset.py::TestDataset::test_get_exists3
+  /opt/miniconda3/envs/testbed/lib/python3.9/site-packages/_pytest/fixtures.py:895: PytestRemovedIn8Warning: Support for nose tests is deprecated and will be removed in a future release.
+  pydicom/tests/test_dataset.py::TestDataset::test_get_exists3 is using nose-specific method: `setup(self)`
+  To remove this warning, rename it to `setup_method(self)`
+  See docs: https://docs.pytest.org/en/stable/deprecations.html#support-for-tests-written-for-nose
+    fixture_result = next(generator)
+
+pydicom/tests/test_dataset.py::TestDataset::test_get_exists4
+  /opt/miniconda3/envs/testbed/lib/python3.9/site-packages/_pytest/fixtures.py:895: PytestRemovedIn8Warning: Support for nose tests is deprecated and will be removed in a future release.
+  pydicom/tests/test_dataset.py::TestDataset::test_get_exists4 is using nose-specific method: `setup(self)`
+  To remove this warning, rename it to `setup_method(self)`
+  See docs: https://docs.pytest.org/en/stable/deprecations.html#support-for-tests-written-for-nose
+    fixture_result = next(generator)
+
+pydicom/tests/test_dataset.py::TestDataset::test_get_default1
+  /opt/miniconda3/envs/testbed/lib/python3.9/site-packages/_pytest/fixtures.py:895: PytestRemovedIn8Warning: Support for nose tests is deprecated and will be removed in a future release.
+  pydicom/tests/test_dataset.py::TestDataset::test_get_default1 is using nose-specific method: `setup(self)`
+  To remove this warning, rename it to `setup_method(self)`
+  See docs: https://docs.pytest.org/en/stable/deprecations.html#support-for-tests-written-for-nose
+    fixture_result = next(generator)
+
+pydicom/tests/test_dataset.py::TestDataset::test_get_default2
+  /opt/miniconda3/envs/testbed/lib/python3.9/site-packages/_pytest/fixtures.py:895: PytestRemovedIn8Warning: Support for nose tests is deprecated and will be removed in a future release.
+  pydicom/tests/test_dataset.py::TestDataset::test_get_default2 is using nose-specific method: `setup(self)`
+  To remove this warning, rename it to `setup_method(self)`
+  See docs: https://docs.pytest.org/en/stable/deprecations.html#support-for-tests-written-for-nose
+    fixture_result = next(generator)
+
+pydicom/tests/test_dataset.py::TestDataset::test_get_default3
+  /opt/miniconda3/envs/testbed/lib/python3.9/site-packages/_pytest/fixtures.py:895: PytestRemovedIn8Warning: Support for nose tests is deprecated and will be removed in a future release.
+  pydicom/tests/test_dataset.py::TestDataset::test_get_default3 is using nose-specific method: `setup(self)`
+  To remove this warning, rename it to `setup_method(self)`
+  See docs: https://docs.pytest.org/en/stable/deprecations.html#support-for-tests-written-for-nose
+    fixture_result = next(generator)
+
+pydicom/tests/test_dataset.py::TestDataset::test_get_default4
+  /opt/miniconda3/envs/testbed/lib/python3.9/site-packages/_pytest/fixtures.py:895: PytestRemovedIn8Warning: Support for nose tests is deprecated and will be removed in a future release.
+  pydicom/tests/test_dataset.py::TestDataset::test_get_default4 is using nose-specific method: `setup(self)`
+  To remove this warning, rename it to `setup_method(self)`
+  See docs: https://docs.pytest.org/en/stable/deprecations.html#support-for-tests-written-for-nose
+    fixture_result = next(generator)
+
+pydicom/tests/test_dataset.py::TestDataset::test_get_raises
+  /opt/miniconda3/envs/testbed/lib/python3.9/site-packages/_pytest/fixtures.py:895: PytestRemovedIn8Warning: Support for nose tests is deprecated and will be removed in a future release.
+  pydicom/tests/test_dataset.py::TestDataset::test_get_raises is using nose-specific method: `setup(self)`
+  To remove this warning, rename it to `setup_method(self)`
+  See docs: https://docs.pytest.org/en/stable/deprecations.html#support-for-tests-written-for-nose
+    fixture_result = next(generator)
+
+pydicom/tests/test_dataset.py::TestDataset::test_get_from_raw
+  /opt/miniconda3/envs/testbed/lib/python3.9/site-packages/_pytest/fixtures.py:895: PytestRemovedIn8Warning: Support for nose tests is deprecated and will be removed in a future release.
+  pydicom/tests/test_dataset.py::TestDataset::test_get_from_raw is using nose-specific method: `setup(self)`
+  To remove this warning, rename it to `setup_method(self)`
+  See docs: https://docs.pytest.org/en/stable/deprecations.html#support-for-tests-written-for-nose
+    fixture_result = next(generator)
+
+pydicom/tests/test_dataset.py::TestDataset::test__setitem__
+  /opt/miniconda3/envs/testbed/lib/python3.9/site-packages/_pytest/fixtures.py:895: PytestRemovedIn8Warning: Support for nose tests is deprecated and will be removed in a future release.
+  pydicom/tests/test_dataset.py::TestDataset::test__setitem__ is using nose-specific method: `setup(self)`
+  To remove this warning, rename it to `setup_method(self)`
+  See docs: https://docs.pytest.org/en/stable/deprecations.html#support-for-tests-written-for-nose
+    fixture_result = next(generator)
+
+pydicom/tests/test_dataset.py::TestDataset::test_matching_tags
+  /opt/miniconda3/envs/testbed/lib/python3.9/site-packages/_pytest/fixtures.py:895: PytestRemovedIn8Warning: Support for nose tests is deprecated and will be removed in a future release.
+  pydicom/tests/test_dataset.py::TestDataset::test_matching_tags is using nose-specific method: `setup(self)`
+  To remove this warning, rename it to `setup_method(self)`
+  See docs: https://docs.pytest.org/en/stable/deprecations.html#support-for-tests-written-for-nose
+    fixture_result = next(generator)
+
+pydicom/tests/test_dataset.py::TestDataset::test_named_member_updated
+  /opt/miniconda3/envs/testbed/lib/python3.9/site-packages/_pytest/fixtures.py:895: PytestRemovedIn8Warning: Support for nose tests is deprecated and will be removed in a future release.
+  pydicom/tests/test_dataset.py::TestDataset::test_named_member_updated is using nose-specific method: `setup(self)`
+  To remove this warning, rename it to `setup_method(self)`
+  See docs: https://docs.pytest.org/en/stable/deprecations.html#support-for-tests-written-for-nose
+    fixture_result = next(generator)
+
+pydicom/tests/test_dataset.py::TestDataset::test_update
+  /opt/miniconda3/envs/testbed/lib/python3.9/site-packages/_pytest/fixtures.py:895: PytestRemovedIn8Warning: Support for nose tests is deprecated and will be removed in a future release.
+  pydicom/tests/test_dataset.py::TestDataset::test_update is using nose-specific method: `setup(self)`
+  To remove this warning, rename it to `setup_method(self)`
+  See docs: https://docs.pytest.org/en/stable/deprecations.html#support-for-tests-written-for-nose
+    fixture_result = next(generator)
+
+pydicom/tests/test_dataset.py::TestDataset::test_dir_subclass
+  /opt/miniconda3/envs/testbed/lib/python3.9/site-packages/_pytest/fixtures.py:895: PytestRemovedIn8Warning: Support for nose tests is deprecated and will be removed in a future release.
+  pydicom/tests/test_dataset.py::TestDataset::test_dir_subclass is using nose-specific method: `setup(self)`
+  To remove this warning, rename it to `setup_method(self)`
+  See docs: https://docs.pytest.org/en/stable/deprecations.html#support-for-tests-written-for-nose
+    fixture_result = next(generator)
+
+pydicom/tests/test_dataset.py::TestDataset::test_dir
+  /opt/miniconda3/envs/testbed/lib/python3.9/site-packages/_pytest/fixtures.py:895: PytestRemovedIn8Warning: Support for nose tests is deprecated and will be removed in a future release.
+  pydicom/tests/test_dataset.py::TestDataset::test_dir is using nose-specific method: `setup(self)`
+  To remove this warning, rename it to `setup_method(self)`
+  See docs: https://docs.pytest.org/en/stable/deprecations.html#support-for-tests-written-for-nose
+    fixture_result = next(generator)
+
+pydicom/tests/test_dataset.py::TestDataset::test_dir_filter
+  /opt/miniconda3/envs/testbed/lib/python3.9/site-packages/_pytest/fixtures.py:895: PytestRemovedIn8Warning: Support for nose tests is deprecated and will be removed in a future release.
+  pydicom/tests/test_dataset.py::TestDataset::test_dir_filter is using nose-specific method: `setup(self)`
+  To remove this warning, rename it to `setup_method(self)`
+  See docs: https://docs.pytest.org/en/stable/deprecations.html#support-for-tests-written-for-nose
+    fixture_result = next(generator)
+
+pydicom/tests/test_dataset.py::TestDataset::test_delete_dicom_attr
+  /opt/miniconda3/envs/testbed/lib/python3.9/site-packages/_pytest/fixtures.py:895: PytestRemovedIn8Warning: Support for nose tests is deprecated and will be removed in a future release.
+  pydicom/tests/test_dataset.py::TestDataset::test_delete_dicom_attr is using nose-specific method: `setup(self)`
+  To remove this warning, rename it to `setup_method(self)`
+  See docs: https://docs.pytest.org/en/stable/deprecations.html#support-for-tests-written-for-nose
+    fixture_result = next(generator)
+
+pydicom/tests/test_dataset.py::TestDataset::test_delete_dicom_command_group_length
+  /opt/miniconda3/envs/testbed/lib/python3.9/site-packages/_pytest/fixtures.py:895: PytestRemovedIn8Warning: Support for nose tests is deprecated and will be removed in a future release.
+  pydicom/tests/test_dataset.py::TestDataset::test_delete_dicom_command_group_length is using nose-specific method: `setup(self)`
+  To remove this warning, rename it to `setup_method(self)`
+  See docs: https://docs.pytest.org/en/stable/deprecations.html#support-for-tests-written-for-nose
+    fixture_result = next(generator)
+
+pydicom/tests/test_dataset.py::TestDataset::test_delete_other_attr
+  /opt/miniconda3/envs/testbed/lib/python3.9/site-packages/_pytest/fixtures.py:895: PytestRemovedIn8Warning: Support for nose tests is deprecated and will be removed in a future release.
+  pydicom/tests/test_dataset.py::TestDataset::test_delete_other_attr is using nose-specific method: `setup(self)`
+  To remove this warning, rename it to `setup_method(self)`
+  See docs: https://docs.pytest.org/en/stable/deprecations.html#support-for-tests-written-for-nose
+    fixture_result = next(generator)
+
+pydicom/tests/test_dataset.py::TestDataset::test_delete_dicom_attr_we_dont_have
+  /opt/miniconda3/envs/testbed/lib/python3.9/site-packages/_pytest/fixtures.py:895: PytestRemovedIn8Warning: Support for nose tests is deprecated and will be removed in a future release.
+  pydicom/tests/test_dataset.py::TestDataset::test_delete_dicom_attr_we_dont_have is using nose-specific method: `setup(self)`
+  To remove this warning, rename it to `setup_method(self)`
+  See docs: https://docs.pytest.org/en/stable/deprecations.html#support-for-tests-written-for-nose
+    fixture_result = next(generator)
+
+pydicom/tests/test_dataset.py::TestDataset::test_delete_item_long
+  /opt/miniconda3/envs/testbed/lib/python3.9/site-packages/_pytest/fixtures.py:895: PytestRemovedIn8Warning: Support for nose tests is deprecated and will be removed in a future release.
+  pydicom/tests/test_dataset.py::TestDataset::test_delete_item_long is using nose-specific method: `setup(self)`
+  To remove this warning, rename it to `setup_method(self)`
+  See docs: https://docs.pytest.org/en/stable/deprecations.html#support-for-tests-written-for-nose
+    fixture_result = next(generator)
+
+pydicom/tests/test_dataset.py::TestDataset::test_delete_item_tuple
+  /opt/miniconda3/envs/testbed/lib/python3.9/site-packages/_pytest/fixtures.py:895: PytestRemovedIn8Warning: Support for nose tests is deprecated and will be removed in a future release.
+  pydicom/tests/test_dataset.py::TestDataset::test_delete_item_tuple is using nose-specific method: `setup(self)`
+  To remove this warning, rename it to `setup_method(self)`
+  See docs: https://docs.pytest.org/en/stable/deprecations.html#support-for-tests-written-for-nose
+    fixture_result = next(generator)
+
+pydicom/tests/test_dataset.py::TestDataset::test_delete_non_existing_item
+  /opt/miniconda3/envs/testbed/lib/python3.9/site-packages/_pytest/fixtures.py:895: PytestRemovedIn8Warning: Support for nose tests is deprecated and will be removed in a future release.
+  pydicom/tests/test_dataset.py::TestDataset::test_delete_non_existing_item is using nose-specific method: `setup(self)`
+  To remove this warning, rename it to `setup_method(self)`
+  See docs: https://docs.pytest.org/en/stable/deprecations.html#support-for-tests-written-for-nose
+    fixture_result = next(generator)
+
+pydicom/tests/test_dataset.py::TestDataset::test_equality_no_sequence
+  /opt/miniconda3/envs/testbed/lib/python3.9/site-packages/_pytest/fixtures.py:895: PytestRemovedIn8Warning: Support for nose tests is deprecated and will be removed in a future release.
+  pydicom/tests/test_dataset.py::TestDataset::test_equality_no_sequence is using nose-specific method: `setup(self)`
+  To remove this warning, rename it to `setup_method(self)`
+  See docs: https://docs.pytest.org/en/stable/deprecations.html#support-for-tests-written-for-nose
+    fixture_result = next(generator)
+
+pydicom/tests/test_dataset.py::TestDataset::test_equality_private
+  /opt/miniconda3/envs/testbed/lib/python3.9/site-packages/_pytest/fixtures.py:895: PytestRemovedIn8Warning: Support for nose tests is deprecated and will be removed in a future release.
+  pydicom/tests/test_dataset.py::TestDataset::test_equality_private is using nose-specific method: `setup(self)`
+  To remove this warning, rename it to `setup_method(self)`
+  See docs: https://docs.pytest.org/en/stable/deprecations.html#support-for-tests-written-for-nose
+    fixture_result = next(generator)
+
+pydicom/tests/test_dataset.py::TestDataset::test_equality_sequence
+  /opt/miniconda3/envs/testbed/lib/python3.9/site-packages/_pytest/fixtures.py:895: PytestRemovedIn8Warning: Support for nose tests is deprecated and will be removed in a future release.
+  pydicom/tests/test_dataset.py::TestDataset::test_equality_sequence is using nose-specific method: `setup(self)`
+  To remove this warning, rename it to `setup_method(self)`
+  See docs: https://docs.pytest.org/en/stable/deprecations.html#support-for-tests-written-for-nose
+    fixture_result = next(generator)
+
+pydicom/tests/test_dataset.py::TestDataset::test_equality_not_dataset
+  /opt/miniconda3/envs/testbed/lib/python3.9/site-packages/_pytest/fixtures.py:895: PytestRemovedIn8Warning: Support for nose tests is deprecated and will be removed in a future release.
+  pydicom/tests/test_dataset.py::TestDataset::test_equality_not_dataset is using nose-specific method: `setup(self)`
+  To remove this warning, rename it to `setup_method(self)`
+  See docs: https://docs.pytest.org/en/stable/deprecations.html#support-for-tests-written-for-nose
+    fixture_result = next(generator)
+
+pydicom/tests/test_dataset.py::TestDataset::test_equality_unknown
+  /opt/miniconda3/envs/testbed/lib/python3.9/site-packages/_pytest/fixtures.py:895: PytestRemovedIn8Warning: Support for nose tests is deprecated and will be removed in a future release.
+  pydicom/tests/test_dataset.py::TestDataset::test_equality_unknown is using nose-specific method: `setup(self)`
+  To remove this warning, rename it to `setup_method(self)`
+  See docs: https://docs.pytest.org/en/stable/deprecations.html#support-for-tests-written-for-nose
+    fixture_result = next(generator)
+
+pydicom/tests/test_dataset.py::TestDataset::test_equality_inheritance
+  /opt/miniconda3/envs/testbed/lib/python3.9/site-packages/_pytest/fixtures.py:895: PytestRemovedIn8Warning: Support for nose tests is deprecated and will be removed in a future release.
+  pydicom/tests/test_dataset.py::TestDataset::test_equality_inheritance is using nose-specific method: `setup(self)`
+  To remove this warning, rename it to `setup_method(self)`
+  See docs: https://docs.pytest.org/en/stable/deprecations.html#support-for-tests-written-for-nose
+    fixture_result = next(generator)
+
+pydicom/tests/test_dataset.py::TestDataset::test_equality_elements
+  /opt/miniconda3/envs/testbed/lib/python3.9/site-packages/_pytest/fixtures.py:895: PytestRemovedIn8Warning: Support for nose tests is deprecated and will be removed in a future release.
+  pydicom/tests/test_dataset.py::TestDataset::test_equality_elements is using nose-specific method: `setup(self)`
+  To remove this warning, rename it to `setup_method(self)`
+  See docs: https://docs.pytest.org/en/stable/deprecations.html#support-for-tests-written-for-nose
+    fixture_result = next(generator)
+
+pydicom/tests/test_dataset.py::TestDataset::test_inequality
+  /opt/miniconda3/envs/testbed/lib/python3.9/site-packages/_pytest/fixtures.py:895: PytestRemovedIn8Warning: Support for nose tests is deprecated and will be removed in a future release.
+  pydicom/tests/test_dataset.py::TestDataset::test_inequality is using nose-specific method: `setup(self)`
+  To remove this warning, rename it to `setup_method(self)`
+  See docs: https://docs.pytest.org/en/stable/deprecations.html#support-for-tests-written-for-nose
+    fixture_result = next(generator)
+
+pydicom/tests/test_dataset.py::TestDataset::test_hash
+  /opt/miniconda3/envs/testbed/lib/python3.9/site-packages/_pytest/fixtures.py:895: PytestRemovedIn8Warning: Support for nose tests is deprecated and will be removed in a future release.
+  pydicom/tests/test_dataset.py::TestDataset::test_hash is using nose-specific method: `setup(self)`
+  To remove this warning, rename it to `setup_method(self)`
+  See docs: https://docs.pytest.org/en/stable/deprecations.html#support-for-tests-written-for-nose
+    fixture_result = next(generator)
+
+pydicom/tests/test_dataset.py::TestDataset::test_property
+  /opt/miniconda3/envs/testbed/lib/python3.9/site-packages/_pytest/fixtures.py:895: PytestRemovedIn8Warning: Support for nose tests is deprecated and will be removed in a future release.
+  pydicom/tests/test_dataset.py::TestDataset::test_property is using nose-specific method: `setup(self)`
+  To remove this warning, rename it to `setup_method(self)`
+  See docs: https://docs.pytest.org/en/stable/deprecations.html#support-for-tests-written-for-nose
+    fixture_result = next(generator)
+
+pydicom/tests/test_dataset.py::TestDataset::test_add_repeater_elem_by_keyword
+  /opt/miniconda3/envs/testbed/lib/python3.9/site-packages/_pytest/fixtures.py:895: PytestRemovedIn8Warning: Support for nose tests is deprecated and will be removed in a future release.
+  pydicom/tests/test_dataset.py::TestDataset::test_add_repeater_elem_by_keyword is using nose-specific method: `setup(self)`
+  To remove this warning, rename it to `setup_method(self)`
+  See docs: https://docs.pytest.org/en/stable/deprecations.html#support-for-tests-written-for-nose
+    fixture_result = next(generator)
+
+pydicom/tests/test_dataset.py::TestDataset::test_setitem_slice_raises
+  /opt/miniconda3/envs/testbed/lib/python3.9/site-packages/_pytest/fixtures.py:895: PytestRemovedIn8Warning: Support for nose tests is deprecated and will be removed in a future release.
+  pydicom/tests/test_dataset.py::TestDataset::test_setitem_slice_raises is using nose-specific method: `setup(self)`
+  To remove this warning, rename it to `setup_method(self)`
+  See docs: https://docs.pytest.org/en/stable/deprecations.html#support-for-tests-written-for-nose
+    fixture_result = next(generator)
+
+pydicom/tests/test_dataset.py::TestDataset::test_getitem_slice_raises
+  /opt/miniconda3/envs/testbed/lib/python3.9/site-packages/_pytest/fixtures.py:895: PytestRemovedIn8Warning: Support for nose tests is deprecated and will be removed in a future release.
+  pydicom/tests/test_dataset.py::TestDataset::test_getitem_slice_raises is using nose-specific method: `setup(self)`
+  To remove this warning, rename it to `setup_method(self)`
+  See docs: https://docs.pytest.org/en/stable/deprecations.html#support-for-tests-written-for-nose
+    fixture_result = next(generator)
+
+pydicom/tests/test_dataset.py::TestDataset::test_empty_slice
+  /opt/miniconda3/envs/testbed/lib/python3.9/site-packages/_pytest/fixtures.py:895: PytestRemovedIn8Warning: Support for nose tests is deprecated and will be removed in a future release.
+  pydicom/tests/test_dataset.py::TestDataset::test_empty_slice is using nose-specific method: `setup(self)`
+  To remove this warning, rename it to `setup_method(self)`
+  See docs: https://docs.pytest.org/en/stable/deprecations.html#support-for-tests-written-for-nose
+    fixture_result = next(generator)
+
+pydicom/tests/test_dataset.py::TestDataset::test_getitem_slice
+  /opt/miniconda3/envs/testbed/lib/python3.9/site-packages/_pytest/fixtures.py:895: PytestRemovedIn8Warning: Support for nose tests is deprecated and will be removed in a future release.
+  pydicom/tests/test_dataset.py::TestDataset::test_getitem_slice is using nose-specific method: `setup(self)`
+  To remove this warning, rename it to `setup_method(self)`
+  See docs: https://docs.pytest.org/en/stable/deprecations.html#support-for-tests-written-for-nose
+    fixture_result = next(generator)
+
+pydicom/tests/test_dataset.py::TestDataset::test_getitem_slice_ffff
+  /opt/miniconda3/envs/testbed/lib/python3.9/site-packages/_pytest/fixtures.py:895: PytestRemovedIn8Warning: Support for nose tests is deprecated and will be removed in a future release.
+  pydicom/tests/test_dataset.py::TestDataset::test_getitem_slice_ffff is using nose-specific method: `setup(self)`
+  To remove this warning, rename it to `setup_method(self)`
+  See docs: https://docs.pytest.org/en/stable/deprecations.html#support-for-tests-written-for-nose
+    fixture_result = next(generator)
+
+pydicom/tests/test_dataset.py::TestDataset::test_delitem_slice
+  /opt/miniconda3/envs/testbed/lib/python3.9/site-packages/_pytest/fixtures.py:895: PytestRemovedIn8Warning: Support for nose tests is deprecated and will be removed in a future release.
+  pydicom/tests/test_dataset.py::TestDataset::test_delitem_slice is using nose-specific method: `setup(self)`
+  To remove this warning, rename it to `setup_method(self)`
+  See docs: https://docs.pytest.org/en/stable/deprecations.html#support-for-tests-written-for-nose
+    fixture_result = next(generator)
+
+pydicom/tests/test_dataset.py::TestDataset::test_group_dataset
+  /opt/miniconda3/envs/testbed/lib/python3.9/site-packages/_pytest/fixtures.py:895: PytestRemovedIn8Warning: Support for nose tests is deprecated and will be removed in a future release.
+  pydicom/tests/test_dataset.py::TestDataset::test_group_dataset is using nose-specific method: `setup(self)`
+  To remove this warning, rename it to `setup_method(self)`
+  See docs: https://docs.pytest.org/en/stable/deprecations.html#support-for-tests-written-for-nose
+    fixture_result = next(generator)
+
+pydicom/tests/test_dataset.py::TestDataset::test_get_item
+  /opt/miniconda3/envs/testbed/lib/python3.9/site-packages/_pytest/fixtures.py:895: PytestRemovedIn8Warning: Support for nose tests is deprecated and will be removed in a future release.
+  pydicom/tests/test_dataset.py::TestDataset::test_get_item is using nose-specific method: `setup(self)`
+  To remove this warning, rename it to `setup_method(self)`
+  See docs: https://docs.pytest.org/en/stable/deprecations.html#support-for-tests-written-for-nose
+    fixture_result = next(generator)
+
+pydicom/tests/test_dataset.py::TestDataset::test_get_item_slice
+  /opt/miniconda3/envs/testbed/lib/python3.9/site-packages/_pytest/fixtures.py:895: PytestRemovedIn8Warning: Support for nose tests is deprecated and will be removed in a future release.
+  pydicom/tests/test_dataset.py::TestDataset::test_get_item_slice is using nose-specific method: `setup(self)`
+  To remove this warning, rename it to `setup_method(self)`
+  See docs: https://docs.pytest.org/en/stable/deprecations.html#support-for-tests-written-for-nose
+    fixture_result = next(generator)
+
+pydicom/tests/test_dataset.py::TestDataset::test_get_private_item
+  /opt/miniconda3/envs/testbed/lib/python3.9/site-packages/_pytest/fixtures.py:895: PytestRemovedIn8Warning: Support for nose tests is deprecated and will be removed in a future release.
+  pydicom/tests/test_dataset.py::TestDataset::test_get_private_item is using nose-specific method: `setup(self)`
+  To remove this warning, rename it to `setup_method(self)`
+  See docs: https://docs.pytest.org/en/stable/deprecations.html#support-for-tests-written-for-nose
+    fixture_result = next(generator)
+
+pydicom/tests/test_dataset.py::TestDataset::test_private_block
+  /opt/miniconda3/envs/testbed/lib/python3.9/site-packages/_pytest/fixtures.py:895: PytestRemovedIn8Warning: Support for nose tests is deprecated and will be removed in a future release.
+  pydicom/tests/test_dataset.py::TestDataset::test_private_block is using nose-specific method: `setup(self)`
+  To remove this warning, rename it to `setup_method(self)`
+  See docs: https://docs.pytest.org/en/stable/deprecations.html#support-for-tests-written-for-nose
+    fixture_result = next(generator)
+
+pydicom/tests/test_dataset.py::TestDataset::test_add_new_private_tag
+  /opt/miniconda3/envs/testbed/lib/python3.9/site-packages/_pytest/fixtures.py:895: PytestRemovedIn8Warning: Support for nose tests is deprecated and will be removed in a future release.
+  pydicom/tests/test_dataset.py::TestDataset::test_add_new_private_tag is using nose-specific method: `setup(self)`
+  To remove this warning, rename it to `setup_method(self)`
+  See docs: https://docs.pytest.org/en/stable/deprecations.html#support-for-tests-written-for-nose
+    fixture_result = next(generator)
+
+pydicom/tests/test_dataset.py::TestDataset::test_delete_private_tag
+  /opt/miniconda3/envs/testbed/lib/python3.9/site-packages/_pytest/fixtures.py:895: PytestRemovedIn8Warning: Support for nose tests is deprecated and will be removed in a future release.
+  pydicom/tests/test_dataset.py::TestDataset::test_delete_private_tag is using nose-specific method: `setup(self)`
+  To remove this warning, rename it to `setup_method(self)`
+  See docs: https://docs.pytest.org/en/stable/deprecations.html#support-for-tests-written-for-nose
+    fixture_result = next(generator)
+
+pydicom/tests/test_dataset.py::TestDataset::test_private_creators
+  /opt/miniconda3/envs/testbed/lib/python3.9/site-packages/_pytest/fixtures.py:895: PytestRemovedIn8Warning: Support for nose tests is deprecated and will be removed in a future release.
+  pydicom/tests/test_dataset.py::TestDataset::test_private_creators is using nose-specific method: `setup(self)`
+  To remove this warning, rename it to `setup_method(self)`
+  See docs: https://docs.pytest.org/en/stable/deprecations.html#support-for-tests-written-for-nose
+    fixture_result = next(generator)
+
+pydicom/tests/test_dataset.py::TestDataset::test_is_original_encoding
+  /opt/miniconda3/envs/testbed/lib/python3.9/site-packages/_pytest/fixtures.py:895: PytestRemovedIn8Warning: Support for nose tests is deprecated and will be removed in a future release.
+  pydicom/tests/test_dataset.py::TestDataset::test_is_original_encoding is using nose-specific method: `setup(self)`
+  To remove this warning, rename it to `setup_method(self)`
+  See docs: https://docs.pytest.org/en/stable/deprecations.html#support-for-tests-written-for-nose
+    fixture_result = next(generator)
+
+pydicom/tests/test_dataset.py::TestDataset::test_remove_private_tags
+  /opt/miniconda3/envs/testbed/lib/python3.9/site-packages/_pytest/fixtures.py:895: PytestRemovedIn8Warning: Support for nose tests is deprecated and will be removed in a future release.
+  pydicom/tests/test_dataset.py::TestDataset::test_remove_private_tags is using nose-specific method: `setup(self)`
+  To remove this warning, rename it to `setup_method(self)`
+  See docs: https://docs.pytest.org/en/stable/deprecations.html#support-for-tests-written-for-nose
+    fixture_result = next(generator)
+
+pydicom/tests/test_dataset.py::TestDataset::test_data_element
+  /opt/miniconda3/envs/testbed/lib/python3.9/site-packages/_pytest/fixtures.py:895: PytestRemovedIn8Warning: Support for nose tests is deprecated and will be removed in a future release.
+  pydicom/tests/test_dataset.py::TestDataset::test_data_element is using nose-specific method: `setup(self)`
+  To remove this warning, rename it to `setup_method(self)`
+  See docs: https://docs.pytest.org/en/stable/deprecations.html#support-for-tests-written-for-nose
+    fixture_result = next(generator)
+
+pydicom/tests/test_dataset.py::TestDataset::test_iterall
+  /opt/miniconda3/envs/testbed/lib/python3.9/site-packages/_pytest/fixtures.py:895: PytestRemovedIn8Warning: Support for nose tests is deprecated and will be removed in a future release.
+  pydicom/tests/test_dataset.py::TestDataset::test_iterall is using nose-specific method: `setup(self)`
+  To remove this warning, rename it to `setup_method(self)`
+  See docs: https://docs.pytest.org/en/stable/deprecations.html#support-for-tests-written-for-nose
+    fixture_result = next(generator)
+
+pydicom/tests/test_dataset.py::TestDataset::test_save_as
+  /opt/miniconda3/envs/testbed/lib/python3.9/site-packages/_pytest/fixtures.py:895: PytestRemovedIn8Warning: Support for nose tests is deprecated and will be removed in a future release.
+  pydicom/tests/test_dataset.py::TestDataset::test_save_as is using nose-specific method: `setup(self)`
+  To remove this warning, rename it to `setup_method(self)`
+  See docs: https://docs.pytest.org/en/stable/deprecations.html#support-for-tests-written-for-nose
+    fixture_result = next(generator)
+
+pydicom/tests/test_dataset.py::TestDataset::test_with
+  /opt/miniconda3/envs/testbed/lib/python3.9/site-packages/_pytest/fixtures.py:895: PytestRemovedIn8Warning: Support for nose tests is deprecated and will be removed in a future release.
+  pydicom/tests/test_dataset.py::TestDataset::test_with is using nose-specific method: `setup(self)`
+  To remove this warning, rename it to `setup_method(self)`
+  See docs: https://docs.pytest.org/en/stable/deprecations.html#support-for-tests-written-for-nose
+    fixture_result = next(generator)
+
+pydicom/tests/test_dataset.py::TestDataset::test_exit_exception
+  /opt/miniconda3/envs/testbed/lib/python3.9/site-packages/_pytest/fixtures.py:895: PytestRemovedIn8Warning: Support for nose tests is deprecated and will be removed in a future release.
+  pydicom/tests/test_dataset.py::TestDataset::test_exit_exception is using nose-specific method: `setup(self)`
+  To remove this warning, rename it to `setup_method(self)`
+  See docs: https://docs.pytest.org/en/stable/deprecations.html#support-for-tests-written-for-nose
+    fixture_result = next(generator)
+
+pydicom/tests/test_dataset.py::TestDataset::test_pixel_array_already_have
+  /opt/miniconda3/envs/testbed/lib/python3.9/site-packages/_pytest/fixtures.py:895: PytestRemovedIn8Warning: Support for nose tests is deprecated and will be removed in a future release.
+  pydicom/tests/test_dataset.py::TestDataset::test_pixel_array_already_have is using nose-specific method: `setup(self)`
+  To remove this warning, rename it to `setup_method(self)`
+  See docs: https://docs.pytest.org/en/stable/deprecations.html#support-for-tests-written-for-nose
+    fixture_result = next(generator)
+
+pydicom/tests/test_dataset.py::TestDataset::test_pixel_array_id_changed
+  /opt/miniconda3/envs/testbed/lib/python3.9/site-packages/_pytest/fixtures.py:895: PytestRemovedIn8Warning: Support for nose tests is deprecated and will be removed in a future release.
+  pydicom/tests/test_dataset.py::TestDataset::test_pixel_array_id_changed is using nose-specific method: `setup(self)`
+  To remove this warning, rename it to `setup_method(self)`
+  See docs: https://docs.pytest.org/en/stable/deprecations.html#support-for-tests-written-for-nose
+    fixture_result = next(generator)
+
+pydicom/tests/test_dataset.py::TestDataset::test_pixel_array_unknown_syntax
+  /opt/miniconda3/envs/testbed/lib/python3.9/site-packages/_pytest/fixtures.py:895: PytestRemovedIn8Warning: Support for nose tests is deprecated and will be removed in a future release.
+  pydicom/tests/test_dataset.py::TestDataset::test_pixel_array_unknown_syntax is using nose-specific method: `setup(self)`
+  To remove this warning, rename it to `setup_method(self)`
+  See docs: https://docs.pytest.org/en/stable/deprecations.html#support-for-tests-written-for-nose
+    fixture_result = next(generator)
+
+pydicom/tests/test_dataset.py::TestDataset::test_formatted_lines
+  /opt/miniconda3/envs/testbed/lib/python3.9/site-packages/_pytest/fixtures.py:895: PytestRemovedIn8Warning: Support for nose tests is deprecated and will be removed in a future release.
+  pydicom/tests/test_dataset.py::TestDataset::test_formatted_lines is using nose-specific method: `setup(self)`
+  To remove this warning, rename it to `setup_method(self)`
+  See docs: https://docs.pytest.org/en/stable/deprecations.html#support-for-tests-written-for-nose
+    fixture_result = next(generator)
+
+pydicom/tests/test_dataset.py::TestDataset::test_formatted_lines_known_uid
+  /opt/miniconda3/envs/testbed/lib/python3.9/site-packages/_pytest/fixtures.py:895: PytestRemovedIn8Warning: Support for nose tests is deprecated and will be removed in a future release.
+  pydicom/tests/test_dataset.py::TestDataset::test_formatted_lines_known_uid is using nose-specific method: `setup(self)`
+  To remove this warning, rename it to `setup_method(self)`
+  See docs: https://docs.pytest.org/en/stable/deprecations.html#support-for-tests-written-for-nose
+    fixture_result = next(generator)
+
+pydicom/tests/test_dataset.py::TestDataset::test_set_convert_private_elem_from_raw
+  /opt/miniconda3/envs/testbed/lib/python3.9/site-packages/_pytest/fixtures.py:895: PytestRemovedIn8Warning: Support for nose tests is deprecated and will be removed in a future release.
+  pydicom/tests/test_dataset.py::TestDataset::test_set_convert_private_elem_from_raw is using nose-specific method: `setup(self)`
+  To remove this warning, rename it to `setup_method(self)`
+  See docs: https://docs.pytest.org/en/stable/deprecations.html#support-for-tests-written-for-nose
+    fixture_result = next(generator)
+
+pydicom/tests/test_dataset.py::TestDataset::test_top
+  /opt/miniconda3/envs/testbed/lib/python3.9/site-packages/_pytest/fixtures.py:895: PytestRemovedIn8Warning: Support for nose tests is deprecated and will be removed in a future release.
+  pydicom/tests/test_dataset.py::TestDataset::test_top is using nose-specific method: `setup(self)`
+  To remove this warning, rename it to `setup_method(self)`
+  See docs: https://docs.pytest.org/en/stable/deprecations.html#support-for-tests-written-for-nose
+    fixture_result = next(generator)
+
+pydicom/tests/test_dataset.py::TestDataset::test_trait_names
+  /opt/miniconda3/envs/testbed/lib/python3.9/site-packages/_pytest/fixtures.py:895: PytestRemovedIn8Warning: Support for nose tests is deprecated and will be removed in a future release.
+  pydicom/tests/test_dataset.py::TestDataset::test_trait_names is using nose-specific method: `setup(self)`
+  To remove this warning, rename it to `setup_method(self)`
+  See docs: https://docs.pytest.org/en/stable/deprecations.html#support-for-tests-written-for-nose
+    fixture_result = next(generator)
+
+pydicom/tests/test_dataset.py::TestDataset::test_walk
+  /opt/miniconda3/envs/testbed/lib/python3.9/site-packages/_pytest/fixtures.py:895: PytestRemovedIn8Warning: Support for nose tests is deprecated and will be removed in a future release.
+  pydicom/tests/test_dataset.py::TestDataset::test_walk is using nose-specific method: `setup(self)`
+  To remove this warning, rename it to `setup_method(self)`
+  See docs: https://docs.pytest.org/en/stable/deprecations.html#support-for-tests-written-for-nose
+    fixture_result = next(generator)
+
+pydicom/tests/test_dataset.py::TestDataset::test_update_with_dataset
+  /opt/miniconda3/envs/testbed/lib/python3.9/site-packages/_pytest/fixtures.py:895: PytestRemovedIn8Warning: Support for nose tests is deprecated and will be removed in a future release.
+  pydicom/tests/test_dataset.py::TestDataset::test_update_with_dataset is using nose-specific method: `setup(self)`
+  To remove this warning, rename it to `setup_method(self)`
+  See docs: https://docs.pytest.org/en/stable/deprecations.html#support-for-tests-written-for-nose
+    fixture_result = next(generator)
+
+pydicom/tests/test_dataset.py::TestDatasetElements::test_sequence_assignment
+  /opt/miniconda3/envs/testbed/lib/python3.9/site-packages/_pytest/fixtures.py:895: PytestRemovedIn8Warning: Support for nose tests is deprecated and will be removed in a future release.
+  pydicom/tests/test_dataset.py::TestDatasetElements::test_sequence_assignment is using nose-specific method: `setup(self)`
+  To remove this warning, rename it to `setup_method(self)`
+  See docs: https://docs.pytest.org/en/stable/deprecations.html#support-for-tests-written-for-nose
+    fixture_result = next(generator)
+
+pydicom/tests/test_dataset.py::TestDatasetElements::test_ensure_file_meta
+  /opt/miniconda3/envs/testbed/lib/python3.9/site-packages/_pytest/fixtures.py:895: PytestRemovedIn8Warning: Support for nose tests is deprecated and will be removed in a future release.
+  pydicom/tests/test_dataset.py::TestDatasetElements::test_ensure_file_meta is using nose-specific method: `setup(self)`
+  To remove this warning, rename it to `setup_method(self)`
+  See docs: https://docs.pytest.org/en/stable/deprecations.html#support-for-tests-written-for-nose
+    fixture_result = next(generator)
+
+pydicom/tests/test_dataset.py::TestDatasetElements::test_fix_meta_info
+  /opt/miniconda3/envs/testbed/lib/python3.9/site-packages/_pytest/fixtures.py:895: PytestRemovedIn8Warning: Support for nose tests is deprecated and will be removed in a future release.
+  pydicom/tests/test_dataset.py::TestDatasetElements::test_fix_meta_info is using nose-specific method: `setup(self)`
+  To remove this warning, rename it to `setup_method(self)`
+  See docs: https://docs.pytest.org/en/stable/deprecations.html#support-for-tests-written-for-nose
+    fixture_result = next(generator)
+
+pydicom/tests/test_dataset.py::TestDatasetElements::test_validate_and_correct_file_meta
+  /opt/miniconda3/envs/testbed/lib/python3.9/site-packages/_pytest/fixtures.py:895: PytestRemovedIn8Warning: Support for nose tests is deprecated and will be removed in a future release.
+  pydicom/tests/test_dataset.py::TestDatasetElements::test_validate_and_correct_file_meta is using nose-specific method: `setup(self)`
+  To remove this warning, rename it to `setup_method(self)`
+  See docs: https://docs.pytest.org/en/stable/deprecations.html#support-for-tests-written-for-nose
+    fixture_result = next(generator)
+
+pydicom/tests/test_dataset.py::TestFileDataset::test_equality_file_meta
+  /opt/miniconda3/envs/testbed/lib/python3.9/site-packages/_pytest/fixtures.py:895: PytestRemovedIn8Warning: Support for nose tests is deprecated and will be removed in a future release.
+  pydicom/tests/test_dataset.py::TestFileDataset::test_equality_file_meta is using nose-specific method: `setup(self)`
+  To remove this warning, rename it to `setup_method(self)`
+  See docs: https://docs.pytest.org/en/stable/deprecations.html#support-for-tests-written-for-nose
+    fixture_result = next(generator)
+
+pydicom/tests/test_dataset.py::TestFileDataset::test_creation_with_container
+  /opt/miniconda3/envs/testbed/lib/python3.9/site-packages/_pytest/fixtures.py:895: PytestRemovedIn8Warning: Support for nose tests is deprecated and will be removed in a future release.
+  pydicom/tests/test_dataset.py::TestFileDataset::test_creation_with_container is using nose-specific method: `setup(self)`
+  To remove this warning, rename it to `setup_method(self)`
+  See docs: https://docs.pytest.org/en/stable/deprecations.html#support-for-tests-written-for-nose
+    fixture_result = next(generator)
+
+pydicom/tests/test_dataset.py::TestFileDataset::test_works_as_expected_within_numpy_array
+  /opt/miniconda3/envs/testbed/lib/python3.9/site-packages/_pytest/fixtures.py:895: PytestRemovedIn8Warning: Support for nose tests is deprecated and will be removed in a future release.
+  pydicom/tests/test_dataset.py::TestFileDataset::test_works_as_expected_within_numpy_array is using nose-specific method: `setup(self)`
+  To remove this warning, rename it to `setup_method(self)`
+  See docs: https://docs.pytest.org/en/stable/deprecations.html#support-for-tests-written-for-nose
+    fixture_result = next(generator)
+
+pydicom/tests/test_dataset.py::TestFileDataset::test_dataset_overrides_all_dict_attributes
+  /opt/miniconda3/envs/testbed/lib/python3.9/site-packages/_pytest/fixtures.py:895: PytestRemovedIn8Warning: Support for nose tests is deprecated and will be removed in a future release.
+  pydicom/tests/test_dataset.py::TestFileDataset::test_dataset_overrides_all_dict_attributes is using nose-specific method: `setup(self)`
+  To remove this warning, rename it to `setup_method(self)`
+  See docs: https://docs.pytest.org/en/stable/deprecations.html#support-for-tests-written-for-nose
+    fixture_result = next(generator)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+93 passed, 1 skipped, 93 warnings in 0.22s

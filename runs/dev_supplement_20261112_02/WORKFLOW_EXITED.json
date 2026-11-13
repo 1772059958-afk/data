@@ -1,0 +1,4 @@
+{
+  "status": "breakpoint",
+  "detail": "no_stagnation_generation stopped; inspect preserved outputs, never automatically retry"
+}

@@ -1,0 +1,1132 @@
+{
+  "free_before_bytes": {
+    "E": 54128197632,
+    "D": 47297978368
+  },
+  "stopped_container_count_removed": 1,
+  "preserve_cache_subdirs": [
+    "source",
+    "checkpoint"
+  ],
+  "authorization": "清理D盘活动Docker环境、E盘两份旧Docker冷备份、D盘镜像和依赖缓存",
+  "expected_image_count_removed": 77,
+  "wsl_registration": {
+    "Name": "docker-desktop",
+    "BasePath": "\\\\?\\D:\\DockerData\\swe-repair-20261111\\DockerDesktopWSL\\main",
+    "RegistryKey": "{a2937430-1919-4919-854d-8ea0eaaec408}"
+  },
+  "targets": [
+    {
+      "logical_bytes": 76482084864,
+      "file_count": 2,
+      "path": "D:\\DockerData\\swe-repair-20261111\\DockerDesktopWSL",
+      "files": [
+        {
+          "bytes": 76381421568,
+          "path": "D:\\DockerData\\swe-repair-20261111\\DockerDesktopWSL\\disk\\docker_data.vhdx",
+          "last_write_utc": "2026-11-12T10:14:04.7220398Z"
+        },
+        {
+          "bytes": 100663296,
+          "path": "D:\\DockerData\\swe-repair-20261111\\DockerDesktopWSL\\main\\ext4.vhdx",
+          "last_write_utc": "2026-11-12T10:35:20.1111526Z"
+        }
+      ]
+    },
+    {
+      "logical_bytes": 16827547648,
+      "file_count": 2,
+      "path": "E:\\DockerBackups\\swe-repair-20261111-pre-move",
+      "files": [
+        {
+          "bytes": 16726884352,
+          "path": "E:\\DockerBackups\\swe-repair-20261111-pre-move\\disk\\docker_data.vhdx",
+          "last_write_utc": "2026-11-11T13:43:21.2613902Z"
+        },
+        {
+          "bytes": 100663296,
+          "path": "E:\\DockerBackups\\swe-repair-20261111-pre-move\\main\\ext4.vhdx",
+          "last_write_utc": "2026-11-11T13:43:47.2397629Z"
+        }
+      ]
+    },
+    {
+      "logical_bytes": 16827547648,
+      "file_count": 2,
+      "path": "E:\\DockerBackups\\swe-repair-20261111-stopped",
+      "files": [
+        {
+          "bytes": 16726884352,
+          "path": "E:\\DockerBackups\\swe-repair-20261111-stopped\\disk\\docker_data.vhdx",
+          "last_write_utc": "2026-11-11T14:49:38.4592983Z"
+        },
+        {
+          "bytes": 100663296,
+          "path": "E:\\DockerBackups\\swe-repair-20261111-stopped\\main\\ext4.vhdx",
+          "last_write_utc": "2026-11-11T14:50:01.8574238Z"
+        }
+      ]
+    },
+    {
+      "logical_bytes": 14974524566,
+      "file_count": 129,
+      "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112",
+      "files": [
+        {
+          "bytes": 17940,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\cache_audit_02.json",
+          "last_write_utc": "2026-11-11T17:19:07.7801217Z"
+        },
+        {
+          "bytes": 27173,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\cache_audit_03.json",
+          "last_write_utc": "2026-11-11T17:29:43.9656591Z"
+        },
+        {
+          "bytes": 15463,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\cache_audit.json",
+          "last_write_utc": "2026-11-11T16:59:23.7588063Z"
+        },
+        {
+          "bytes": 189,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\0139ca1056eb579a6fc889463101a0c7afaf50e6d6b1e8173713c843e1467c38",
+          "last_write_utc": "2026-11-11T17:07:41.8480890Z"
+        },
+        {
+          "bytes": 4210,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\0192d34c052b0a3ca7cf605a293a45cde026b2b70e6603af71d007ae44fcccc2",
+          "last_write_utc": "2026-11-11T17:16:02.9487034Z"
+        },
+        {
+          "bytes": 4211,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\028d8f764d75e33344354b03df8643f9ab8f387f699404d36dca9806dbfd4674",
+          "last_write_utc": "2026-11-11T17:06:40.4286196Z"
+        },
+        {
+          "bytes": 210296535,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\04ee7177d8211022c23e0a3b8a7d2b74f67f43dc4c2694f405ca484a06c40219",
+          "last_write_utc": "2026-11-11T16:59:16.0024955Z"
+        },
+        {
+          "bytes": 4210,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\071dd9ae3a49e1601f4692167f53550aa7b87e04fcb283e9a78478fa5950038c",
+          "last_write_utc": "2026-11-11T17:19:01.4594034Z"
+        },
+        {
+          "bytes": 2200,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\0788f06e29640d23e7318fb25a5f49ad51f86811eb5a7a499b35d452e63055df",
+          "last_write_utc": "2026-11-11T16:53:34.9899849Z"
+        },
+        {
+          "bytes": 403158159,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\0898dd0482f78768edc11d858095cfead64b0f10dcf7072655ce774c6d8fa523",
+          "last_write_utc": "2026-11-11T17:07:07.2903139Z"
+        },
+        {
+          "bytes": 4211,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\0af7176f7f2725823ea4b5c1d7a5ec83692eb8b679c7dc78f06b110cc7da3585",
+          "last_write_utc": "2026-11-11T17:11:31.0790178Z"
+        },
+        {
+          "bytes": 20016268,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\0c4c1dd80d105668c0dbb9bdc6fb6059375018507a6819098f779bd136d0d86c",
+          "last_write_utc": "2026-11-11T17:16:26.5869439Z"
+        },
+        {
+          "bytes": 186,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\0d5a0b21a0f0a2ff7667bb44489efb21f229ff396ae243cd67091d578a888f23",
+          "last_write_utc": "2026-11-11T16:57:58.5561723Z"
+        },
+        {
+          "bytes": 4211,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\0da0ee77c9141a3ee412ccd4edff097ea5ffc2c2ae6cb61ff05f159772b1968f",
+          "last_write_utc": "2026-11-11T17:07:14.0298855Z"
+        },
+        {
+          "bytes": 350262563,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\0e43bc2a78057e6e6737b70d65be5424e7d737f26029c7a5bc282292ce5dffa7",
+          "last_write_utc": "2026-11-11T17:15:06.6698229Z"
+        },
+        {
+          "bytes": 545832589,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\0fd75864e1c5799949032f9ff6ffb2ad49f8c1f0cd3ac3c2d3b433636da6e52c",
+          "last_write_utc": "2026-11-11T17:12:38.2096218Z"
+        },
+        {
+          "bytes": 856,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\1425b0801ddf4b2607e552e56516cce3d389bab0a3ce06f58e6fa6a7835c703c",
+          "last_write_utc": "2026-11-11T16:53:37.5579095Z"
+        },
+        {
+          "bytes": 4211,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\1b1f07d0e979a6bc92f5b87dc6b28fe91d4b684e9b780617cf700831f8897fa4",
+          "last_write_utc": "2026-11-11T17:16:30.9465133Z"
+        },
+        {
+          "bytes": 856,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\1b7d3771528b12af143276c9b57be675401ca31c7f7acf3f8ea6b9cbb31f9373",
+          "last_write_utc": "2026-11-11T16:53:32.2922183Z"
+        },
+        {
+          "bytes": 57869724,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\1d333da9808af4f4185a02134b0007f0707051a0d2233029ecbf4402c51c3572",
+          "last_write_utc": "2026-11-11T17:22:33.6433562Z"
+        },
+        {
+          "bytes": 14237117,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\20f58343de1b17596e8d036362b2681031e0e1c3295bd6e4e41f435f69dbece1",
+          "last_write_utc": "2026-11-11T17:15:22.2943343Z"
+        },
+        {
+          "bytes": 36528807,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\2442927dbb502d00bd374a47fad8485d44c2b3f53360745df18f85012ab88576",
+          "last_write_utc": "2026-11-11T17:21:55.2296407Z"
+        },
+        {
+          "bytes": 4209,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\287f118ccaa9c0ba39e5f361550bd845d28933f34483861b8deaa4992f9d8d92",
+          "last_write_utc": "2026-11-11T17:13:48.4167841Z"
+        },
+        {
+          "bytes": 189,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\2c5657f125120a9aefd8e664e8f4f7bb98b5fddc9a5f72d5a7182e1fddc033ad",
+          "last_write_utc": "2026-11-11T17:12:41.7736134Z"
+        },
+        {
+          "bytes": 80333736,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\2cef65b46eac5052b383d56533c734a033139584186ad37a68fcad61ba254424",
+          "last_write_utc": "2026-11-11T16:58:46.2278889Z"
+        },
+        {
+          "bytes": 1493123460,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\2d083182d3232b6cf44970e2eb41b5aa913c66325a7b39104da3624d0392ae79",
+          "last_write_utc": "2026-11-11T17:11:25.6190310Z"
+        },
+        {
+          "bytes": 348398475,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\36b963109585f05f8d98ea1fcdaa6f83ea30e6c64f20c1e8ed9688512d9a6e8d",
+          "last_write_utc": "2026-11-11T17:16:05.8420776Z"
+        },
+        {
+          "bytes": 856,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\3722a130f618602e5636c8c7ddd821550e2c2462b569907c4140fc162e24671e",
+          "last_write_utc": "2026-11-11T16:53:31.8135456Z"
+        },
+        {
+          "bytes": 29736517,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\39a945af8df2ad9343f141c82355d3f2c4b576d432eda34c460d630607462b60",
+          "last_write_utc": "2026-11-11T16:57:36.0432680Z"
+        },
+        {
+          "bytes": 4211,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\3aa6cd1a63e534a662084bd894a5816711c98ffd996ee8e25862e3d19746d46b",
+          "last_write_utc": "2026-11-11T17:14:24.2893468Z"
+        },
+        {
+          "bytes": 457527985,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\3c67438742bcf34813baf1ded78c7bd7ecff9b3e6b508c944da759a52c38642d",
+          "last_write_utc": "2026-11-11T17:14:20.7635580Z"
+        },
+        {
+          "bytes": 106253517,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\3c67f58c58a1a8d6972590ffa6319fcf24d4a667de079f998494ab20bbb4b24d",
+          "last_write_utc": "2026-11-11T17:07:38.2152493Z"
+        },
+        {
+          "bytes": 163,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\3d473160e8e53b487164b03e8f911a724fd2b97c2c7f5aeaf5ee89adfb8517e4",
+          "last_write_utc": "2026-11-11T16:57:40.9209645Z"
+        },
+        {
+          "bytes": 726856797,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\3da0262d14f0ecf7e9940143898388506f7076f8c47dbb664c0239d5d8018494",
+          "last_write_utc": "2026-11-11T17:18:30.6412763Z"
+        },
+        {
+          "bytes": 93631293,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\3f79a1eace44fd1a8cbfa9119feeb77bd522682e11c0b066ba531258c25b3f15",
+          "last_write_utc": "2026-11-11T17:06:15.0602932Z"
+        },
+        {
+          "bytes": 190,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\402b2b5e4031898b6ffa0f45fdede2fe529c2f052faa818da9b7420634661ad1",
+          "last_write_utc": "2026-11-11T17:10:30.5845262Z"
+        },
+        {
+          "bytes": 4387816,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\41bbd0f26b4f0ae5d88269c378261b002149b673217b151ce763409d0c291f0a",
+          "last_write_utc": "2026-11-11T17:14:22.3918564Z"
+        },
+        {
+          "bytes": 2199,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\4279643c245590320d6cf78ae4d67e365e55ed11b001e12147196f6beaf9edee",
+          "last_write_utc": "2026-11-11T16:53:36.3329257Z"
+        },
+        {
+          "bytes": 2198,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\431573fcf066022cec6e296bdb1105b5135283a3ebdf13b9ad1bd1859580a7c0",
+          "last_write_utc": "2026-11-11T16:53:37.5589173Z"
+        },
+        {
+          "bytes": 16485166,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\4360758a791917d8250be56e16d45e1e35ac6e87711fbe97846471389630f147",
+          "last_write_utc": "2026-11-11T17:15:59.9695696Z"
+        },
+        {
+          "bytes": 4209,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\459abea2907f6db45f2a50cea2929e3e0867665eab9b9c6feb80fa737b2f0426",
+          "last_write_utc": "2026-11-11T17:13:05.6367319Z"
+        },
+        {
+          "bytes": 4210,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\49a7e2969a0cff552dff338f1b03883f686317fdcb208c6e79d8e70b646e178a",
+          "last_write_utc": "2026-11-11T17:17:16.6751313Z"
+        },
+        {
+          "bytes": 32,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\4f4fb700ef54461cfa02571ae0db9a0dc1e0cdb5577484a6d75e68dc38e8acc1",
+          "last_write_utc": "2026-11-11T16:58:23.2184558Z"
+        },
+        {
+          "bytes": 4319,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\4fe6837cb80793b843948490200f687280383053ba68927cb219687c5402dd0f",
+          "last_write_utc": "2026-11-11T16:59:09.1393677Z"
+        },
+        {
+          "bytes": 2200,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\50a7f61f8c04f76a665865e6431306d64e741a9447fb9ee23edfac0fad72e00a",
+          "last_write_utc": "2026-11-11T16:53:42.1222069Z"
+        },
+        {
+          "bytes": 400854343,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\51d7bef5ddbe9905e5b758c2e47b1dd327e7a61c19c85a3c141e4d65261c4c10",
+          "last_write_utc": "2026-11-11T17:22:05.1841322Z"
+        },
+        {
+          "bytes": 972594950,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\526b2963f3ed92f09fca000b2cf12e0761fe4777798900569eb71c02fe9383bd",
+          "last_write_utc": "2026-11-11T17:10:26.6029797Z"
+        },
+        {
+          "bytes": 856,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\53dd43167ba7e232e1964e8be0d5bc72652f2dddffe4d7741ea7b531a46e5ef1",
+          "last_write_utc": "2026-11-11T16:53:40.8593080Z"
+        },
+        {
+          "bytes": 2199,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\59fc684a32fbeba1fc6f27ba3d21be92c5a11a28cb2c45a864cd2dd2f9cdaf42",
+          "last_write_utc": "2026-11-11T16:53:40.9861225Z"
+        },
+        {
+          "bytes": 856,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\5ca751c160affa98d160831608fffe3e2c4fb61c4fb2dad2b147ef2a885088e4",
+          "last_write_utc": "2026-11-11T16:53:37.8946785Z"
+        },
+        {
+          "bytes": 402244166,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\5e63a68ff6439b1581ee5ba0e3757810d61d5ad007e8033b5b5987df410e9537",
+          "last_write_utc": "2026-11-11T17:06:33.8820671Z"
+        },
+        {
+          "bytes": 5749961,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\5e8ce42a0394c52f92c75ce26882e2d49f07e020234999388856eeb01da8e012",
+          "last_write_utc": "2026-11-11T17:13:45.6086018Z"
+        },
+        {
+          "bytes": 2199,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\5f920ccf13410e9fbc43b9e3a83e2b876f5a28d6b0db5369b428552320567b7d",
+          "last_write_utc": "2026-11-11T16:53:31.8144132Z"
+        },
+        {
+          "bytes": 856,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\5fb21e0b90b8df4b1da5876db062a0be7f601d12bce36ac6ae5c8a72b0005be9",
+          "last_write_utc": "2026-11-11T16:53:40.9849874Z"
+        },
+        {
+          "bytes": 348171475,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\5fd8a0bc4b4e5496b5050d67f7de30136fc2e5c9f1a0165c8eab363cdda08c5a",
+          "last_write_utc": "2026-11-11T17:16:35.3707844Z"
+        },
+        {
+          "bytes": 190,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\6014fe6e6165f3ceec76653aa84a0ea15aade04737dda6b6a0e56737f544214b",
+          "last_write_utc": "2026-11-11T17:18:35.5748579Z"
+        },
+        {
+          "bytes": 2201,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\608310149a0642551344bf5a5c9b1fee32c127547e5aec24a248da5cfb206b9a",
+          "last_write_utc": "2026-11-11T16:53:34.6767361Z"
+        },
+        {
+          "bytes": 1493124442,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\61837affeedb912e8a08fbbf3220cd6088f7f9474b112d5beb6a9ad3e9b8199c",
+          "last_write_utc": "2026-11-11T17:13:34.8163085Z"
+        },
+        {
+          "bytes": 190,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\6450722ebb43f33db5680f492979bd9dad6077055d93fbf76a8accac5a77c2d9",
+          "last_write_utc": "2026-11-11T17:06:37.3565878Z"
+        },
+        {
+          "bytes": 409567161,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\648d826a06a060acfdb2aba3bf0a583c51d61f1e59f1fdabf4a51f073503005f",
+          "last_write_utc": "2026-11-11T17:15:47.8156925Z"
+        },
+        {
+          "bytes": 2199,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\678b5c38c6aecdbb6b743e72524bb7ef7e16889b7d022ce2645d0fcf1071eac0",
+          "last_write_utc": "2026-11-11T16:53:46.5550369Z"
+        },
+        {
+          "bytes": 2199,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\6a204c3d4002b221144205ad13a0f414ea335170ae8327d3af2c5946b19b387d",
+          "last_write_utc": "2026-11-11T16:53:32.0323213Z"
+        },
+        {
+          "bytes": 4308,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\6a99d82d9a891196945ba11ebc320a1bf85bfc1187b4e4d4cfe4154b5644e3de",
+          "last_write_utc": "2026-11-11T16:57:45.6071925Z"
+        },
+        {
+          "bytes": 856,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\6bf0ee60d9e1bb2772f3287f54df0875884ec8aa1e24e6fad14beec46aad70b0",
+          "last_write_utc": "2026-11-11T16:53:39.3578168Z"
+        },
+        {
+          "bytes": 191,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\728b7797b7f003f3c0ed4b9335c95cec15e142d6ac40980c73592dd9b2e53c19",
+          "last_write_utc": "2026-11-11T16:59:18.5276087Z"
+        },
+        {
+          "bytes": 986918201,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\7355e6d232f85ad61772fc37c2af01656b6826c99c2ac5b3e690c050205aece8",
+          "last_write_utc": "2026-11-11T17:14:12.7252910Z"
+        },
+        {
+          "bytes": 21563,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\76b1eeaacb7232e155834bc33491965bd896c5e084ba238d8e18bb401e21e0aa",
+          "last_write_utc": "2026-11-11T16:58:53.1837366Z"
+        },
+        {
+          "bytes": 2199,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\794456e5f8ae24336d2e9e133fd7005c9e82158fa4123a55114ab00016b92b87",
+          "last_write_utc": "2026-11-11T16:53:40.8603101Z"
+        },
+        {
+          "bytes": 2199,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\7c8f88bc121da29758c49f4877c3b34d5503e30d81b53b7f7e6bc802ad3a7170",
+          "last_write_utc": "2026-11-11T16:53:45.1029935Z"
+        },
+        {
+          "bytes": 2199,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\7d87ee77e7c2f70b2db8b9ec8814536371cdf18c7a85625003664c57e714a211",
+          "last_write_utc": "2026-11-11T16:53:32.2927232Z"
+        },
+        {
+          "bytes": 856,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\7dcd4bbcd034344e7bceb977ec95152a336cdeb1038872b3953f417438d9b537",
+          "last_write_utc": "2026-11-11T16:53:41.5274076Z"
+        },
+        {
+          "bytes": 2200,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\7e306350435d278f8ad1df5ea10645866478bb734a32f75593b31210ce4c1cc9",
+          "last_write_utc": "2026-11-11T16:53:38.6805108Z"
+        },
+        {
+          "bytes": 190,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\8394513d60435dcbca64803161c621573113415ae799990abc5506b5ee51828c",
+          "last_write_utc": "2026-11-11T17:16:09.2301106Z"
+        },
+        {
+          "bytes": 2199,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\8484a885462bc390bbaa8556772056360edf6f7ac214bfc828853afde8798c6e",
+          "last_write_utc": "2026-11-11T16:53:44.3173414Z"
+        },
+        {
+          "bytes": 856,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\8591047f512d8d26b4d0e121d2d04eb6b95fa6ad41e13d92fe64f5ef66244c27",
+          "last_write_utc": "2026-11-11T16:53:38.6795267Z"
+        },
+        {
+          "bytes": 476576836,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\87d563fa66d0eefddea3d68671e90cc63fb50ce83bb64c5d8950b65a05a76225",
+          "last_write_utc": "2026-11-11T17:08:08.5583904Z"
+        },
+        {
+          "bytes": 94785025,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\8aa2fcc30bf8577f6d07f0a5705669bd33c12956d6663b638b34e98396351b3f",
+          "last_write_utc": "2026-11-11T17:07:10.0423750Z"
+        },
+        {
+          "bytes": 856,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\98270682f9052def68c8c42f78fb6ce6573f2dc7b8cb7fe741139a0543b30e21",
+          "last_write_utc": "2026-11-11T16:53:43.8408965Z"
+        },
+        {
+          "bytes": 4211,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\99b0638822c415d519f20b0b0c776978d93c84eb49ada0e072fd817b2d69325e",
+          "last_write_utc": "2026-11-11T17:21:58.7304503Z"
+        },
+        {
+          "bytes": 191,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\9d220137cab1fb7f96c1aae6c6e9029fd38c290a9c3defacabc32a6d2d266f9d",
+          "last_write_utc": "2026-11-11T17:14:26.5945993Z"
+        },
+        {
+          "bytes": 191,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\9d737d7b9f4ed1dd7e18e624a2ab7c7d1c159f43b4b5e7dec662231c03105544",
+          "last_write_utc": "2026-11-11T17:14:15.9720621Z"
+        },
+        {
+          "bytes": 2199,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\9e0d078795b26e0d3be290ea23bce0cee1aff9ebd308a3de2224cbcccac4bbe8",
+          "last_write_utc": "2026-11-11T16:53:39.3603313Z"
+        },
+        {
+          "bytes": 856,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\a0f064917dac3bcb3a9e34d4e7e2a0eaf5b5b6cfe91fc9048a6a5de06dd7aa5f",
+          "last_write_utc": "2026-11-11T16:53:34.6757312Z"
+        },
+        {
+          "bytes": 2201,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\a38f22a0f44eab9328d76624c27667b807bb7b0e994dd537f7a2b5919b4e8800",
+          "last_write_utc": "2026-11-11T16:53:35.8528707Z"
+        },
+        {
+          "bytes": 210294821,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\a4d326e88417b9b4a3363dfabc9de79b87be8ce1cba4f09c1893df8147cbe669",
+          "last_write_utc": "2026-11-11T16:57:56.2186715Z"
+        },
+        {
+          "bytes": 191,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\a6522525311f70f488fa2784d2f453f5247a19249eeed4f9ed7973871d2cb0e7",
+          "last_write_utc": "2026-11-11T17:13:37.7772174Z"
+        },
+        {
+          "bytes": 189,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\a9cf62ada350a843ee9b595c5a2b84e18a694eb3e2e3b80ddbc406653d613206",
+          "last_write_utc": "2026-11-11T17:07:09.6298209Z"
+        },
+        {
+          "bytes": 191,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\ab836c4b79f65ad57fa09b4e18c13d61ab347e2adc65b67bd01cb9c9ee865131",
+          "last_write_utc": "2026-11-11T17:15:11.5927479Z"
+        },
+        {
+          "bytes": 856,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\adee9f4911a853e64f9ae4ebd7b1bf32615cbf52c3210873e9a752fb5fb975e6",
+          "last_write_utc": "2026-11-11T16:53:42.1212024Z"
+        },
+        {
+          "bytes": 4209,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\b86968e820014e91e7394ceb998602324e8ea5f0c3093844d606aa379fa15007",
+          "last_write_utc": "2026-11-11T17:22:39.2855290Z"
+        },
+        {
+          "bytes": 87619729,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\b9c1986f147e73d015e9d602a7b89a49cfc3b085186baf8805d403aa830decc3",
+          "last_write_utc": "2026-11-11T17:17:13.9922370Z"
+        },
+        {
+          "bytes": 2199,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\bc89ff7e6838610f8b84668c9284f50d6e336abfc27fa6d79805148a06245975",
+          "last_write_utc": "2026-11-11T16:53:41.5284125Z"
+        },
+        {
+          "bytes": 856,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\bdba4e9a27fbe911d14a0819f193c8416353c70849ec85984d0849f900a2afee",
+          "last_write_utc": "2026-11-11T16:53:44.3133407Z"
+        },
+        {
+          "bytes": 67116099,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\bea497ab5066a8fb9612921be72ad228173329084550c5c0c86e24f43ecad0d8",
+          "last_write_utc": "2026-11-11T17:22:45.9271596Z"
+        },
+        {
+          "bytes": 191,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\c271b27e967aa94f9cc9a48ca4de7b027cdcc9cdc12850368bbdf8575eb21ef2",
+          "last_write_utc": "2026-11-11T17:22:09.4424420Z"
+        },
+        {
+          "bytes": 856,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\c29e2fbcef442fa9833021bc492ea4c39bc71a0fb606e61fc5521a841ae88b2e",
+          "last_write_utc": "2026-11-11T16:53:45.1019877Z"
+        },
+        {
+          "bytes": 2198,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\c41164e9b1b160a5f4a170457a4e7b3a666e55d84ea85283416d36ce9700452c",
+          "last_write_utc": "2026-11-11T16:53:37.8951817Z"
+        },
+        {
+          "bytes": 856,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\c5d99048ceeb6b0c3157dde39bb122174e494b557fb7dd3c6d4bd8dba70a1bfa",
+          "last_write_utc": "2026-11-11T16:53:35.8518202Z"
+        },
+        {
+          "bytes": 12082640,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\c7da6b4a4920003c867296cb2916f032a53d1bafe1bb3858c8074fd1a355e392",
+          "last_write_utc": "2026-11-11T17:14:36.9751383Z"
+        },
+        {
+          "bytes": 4211,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\cebf8f9441129ee8fc2853430a94e53bbc967868fd9b2a4e6389492490d50bb3",
+          "last_write_utc": "2026-11-11T17:15:25.6031321Z"
+        },
+        {
+          "bytes": 91377984,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\cfb690130c66ea88828bbce8ca5fc1859f258dd60de69fceeb079a96a7aebc34",
+          "last_write_utc": "2026-11-11T17:05:47.0546312Z"
+        },
+        {
+          "bytes": 4214,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\d0559cbaba14046255912416f1d1cba951c5f3247a0311a6302b55e4b3ded8a4",
+          "last_write_utc": "2026-11-11T16:58:25.9670820Z"
+        },
+        {
+          "bytes": 21559,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\d07e7f5cb3eb9bc05af4042e06ff23bc67fd825fe4615d36a7c1cfbe561c80f4",
+          "last_write_utc": "2026-11-11T16:57:38.4315344Z"
+        },
+        {
+          "bytes": 1372575649,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\d0e25e76b4c8bbe2eef78fe5856011818ea51b74783936282c6880e21f4bb5ec",
+          "last_write_utc": "2026-11-11T17:28:45.3649064Z"
+        },
+        {
+          "bytes": 4214,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\d2350b4777439318bceac057b7357dd12af613566258edd4fd9e545e3ec7bb8e",
+          "last_write_utc": "2026-11-11T17:05:51.3547867Z"
+        },
+        {
+          "bytes": 856,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\d24f9894d781546578028592ad7630cb40973b69af4705582b5e274afc573628",
+          "last_write_utc": "2026-11-11T16:53:46.5510285Z"
+        },
+        {
+          "bytes": 4211,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\d3188a59a2b130073e66a7f13f8633d0d0ca74661bd806f909a07f56aa1a8774",
+          "last_write_utc": "2026-11-11T17:14:40.6257708Z"
+        },
+        {
+          "bytes": 856,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\d719470351e66623e532a4f23cdedfe8fb737147fe108e4b5829aa273528389d",
+          "last_write_utc": "2026-11-11T16:53:36.3319169Z"
+        },
+        {
+          "bytes": 189,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\d71bbd31bbc3e76c97b2d0bfb30b190c8580ec2709530802fff1bf6e1b4cc0bc",
+          "last_write_utc": "2026-11-11T17:21:27.7349542Z"
+        },
+        {
+          "bytes": 191,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\db82c01ec8febc54e99144c0d28cef1472b052f238cb3a4d3ecd85cd8e8397e2",
+          "last_write_utc": "2026-11-11T17:16:38.7411165Z"
+        },
+        {
+          "bytes": 350128509,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\dc407fa3625218d589452c3dcc5e638fe08368d417b111057d36fd782d2e90c5",
+          "last_write_utc": "2026-11-11T17:22:36.4703907Z"
+        },
+        {
+          "bytes": 726858641,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\dd986ece23418b0fa51e69e33254978fc01265549cae1ad2830c7ab14109af71",
+          "last_write_utc": "2026-11-11T17:18:58.9972542Z"
+        },
+        {
+          "bytes": 856,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\e1c746371f8f7132c29768bea9cc1380871c87f6e4404a2282d8d3c582786874",
+          "last_write_utc": "2026-11-11T16:53:32.0323213Z"
+        },
+        {
+          "bytes": 398695709,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\e224261309e80a413af3e2515ec4eb2656c112200cf57708a08564052df4909d",
+          "last_write_utc": "2026-11-11T16:58:50.4276070Z"
+        },
+        {
+          "bytes": 2199,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\e6f975f907a4785cd6ece52754b3192fe69bba309cf4bc24598725dc0a1807d4",
+          "last_write_utc": "2026-11-11T16:53:43.8419019Z"
+        },
+        {
+          "bytes": 4214,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\e7a981082f3e8b6d0a96635ff79f53c06aa20d81148dbfc3daac13618c630801",
+          "last_write_utc": "2026-11-11T17:06:18.0530150Z"
+        },
+        {
+          "bytes": 2199,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\e7c5b4b2993e505032ca19f2f4df05a6fd7312ddc553bfb37f9e60ff90a1e76a",
+          "last_write_utc": "2026-11-11T16:53:33.2841998Z"
+        },
+        {
+          "bytes": 4210,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\e915829a4346d3235210c1808763acd3c0a7b8d622192d564e540a9968574573",
+          "last_write_utc": "2026-11-11T16:57:32.8431063Z"
+        },
+        {
+          "bytes": 4211,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\e98f947715f9f46d692680db4315059def135b9ccc1f7d90121b1a528c066f4b",
+          "last_write_utc": "2026-11-11T17:22:36.8912205Z"
+        },
+        {
+          "bytes": 190,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\ea36a8ec45f60e32201d7959ec6833e818f8e376fab7fca8ffe41397a6e42953",
+          "last_write_utc": "2026-11-11T17:15:51.3715928Z"
+        },
+        {
+          "bytes": 165,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\ea413da44051f7b039ec7dda8a0f1b61ee9d466883e11ccf2e9c806b3dca6f03",
+          "last_write_utc": "2026-11-11T16:58:57.2349068Z"
+        },
+        {
+          "bytes": 100050240,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\eea5d4fd085615b8743ec789b77b3152cc4c684814135864965d3e48199b48d3",
+          "last_write_utc": "2026-11-11T17:21:25.2119224Z"
+        },
+        {
+          "bytes": 420170848,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\f03f14b9ae4ba4d73824ab87fea1d0e67aaf7bc9250481afb6273e5bdb8a28f6",
+          "last_write_utc": "2026-11-11T17:06:37.9443488Z"
+        },
+        {
+          "bytes": 85864071,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\f8210909242afd52eb1fb8003461491dfefa70244bc84d77ab53ee1b08439c27",
+          "last_write_utc": "2026-11-11T17:22:54.8110189Z"
+        },
+        {
+          "bytes": 856,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\fcaa86354a33a1547d31e90b76146f66def486e4e26d48c64058f3f53e681c2b",
+          "last_write_utc": "2026-11-11T16:53:33.2831930Z"
+        },
+        {
+          "bytes": 420167964,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\fd7a87c0b95ba9470ab5b292bee0cde8f8f4b91a5c9755052c1b36b06f71c7d3",
+          "last_write_utc": "2026-11-11T16:58:20.9541644Z"
+        },
+        {
+          "bytes": 45737340,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\fdbfcaea2e2ebe9f075ae814d8aa4d74ceec2448ea45c20cd90234211df2da7e",
+          "last_write_utc": "2026-11-11T17:13:02.1299244Z"
+        },
+        {
+          "bytes": 4211,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\fe9fa82078f27c181b8b6015a0cb6d8efec0601e9bf50f146fe0fd16e8b975f1",
+          "last_write_utc": "2026-11-11T17:08:11.5185680Z"
+        },
+        {
+          "bytes": 856,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\fef77b052bf6729f7b6326b3b485b8a63ac1dc39b6e1c7040242aa2d3b2dc656",
+          "last_write_utc": "2026-11-11T16:53:34.9884750Z"
+        }
+      ]
+    },
+    {
+      "logical_bytes": 14616505,
+      "file_count": 32,
+      "path": "D:\\CodexExperimentCache\\test20_20261111\\dependency_wheels",
+      "files": [
+        {
+          "bytes": 9566,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\dependency_wheels\\appdirs-1.4.4-py2.py3-none-any.whl",
+          "last_write_utc": "2026-11-11T13:23:31.7156228Z"
+        },
+        {
+          "bytes": 520,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\dependency_wheels\\astroid_legacy.additions.lock.txt",
+          "last_write_utc": "2026-11-11T13:23:46.7453333Z"
+        },
+        {
+          "bytes": 7573,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\dependency_wheels\\cached_property-1.5.2-py2.py3-none-any.whl",
+          "last_write_utc": "2026-11-11T13:23:32.2902034Z"
+        },
+        {
+          "bytes": 178743,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\dependency_wheels\\chardet-4.0.0-py2.py3-none-any.whl",
+          "last_write_utc": "2026-11-11T13:23:33.2377802Z"
+        },
+        {
+          "bytes": 97486,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\dependency_wheels\\click-8.0.4-py3-none-any.whl",
+          "last_write_utc": "2026-11-11T13:23:34.5060425Z"
+        },
+        {
+          "bytes": 25335,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\dependency_wheels\\colorama-0.4.6-py2.py3-none-any.whl",
+          "last_write_utc": "2026-11-11T13:23:35.2576091Z"
+        },
+        {
+          "bytes": 19835,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\dependency_wheels\\configparser-5.3.0-py3-none-any.whl",
+          "last_write_utc": "2026-11-11T13:23:35.9268064Z"
+        },
+        {
+          "bytes": 44493,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\dependency_wheels\\diff_cover-5.2.0-py3-none-any.whl",
+          "last_write_utc": "2026-11-11T13:23:36.8185739Z"
+        },
+        {
+          "bytes": 33704,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\dependency_wheels\\inflect-5.6.2-py3-none-any.whl",
+          "last_write_utc": "2026-11-11T13:26:08.7268333Z"
+        },
+        {
+          "bytes": 4836,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\dependency_wheels\\jinja2_pluralize-0.3.0-py2.py3-none-any.whl",
+          "last_write_utc": "2026-11-11T13:23:38.3310717Z"
+        },
+        {
+          "bytes": 133630,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\dependency_wheels\\Jinja2-3.0.3-py3-none-any.whl",
+          "last_write_utc": "2026-11-11T13:23:37.6638800Z"
+        },
+        {
+          "bytes": 67068,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\dependency_wheels\\lazy_object_proxy-1.10.0-cp39-cp39-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+          "last_write_utc": "2026-11-11T13:23:29.3390000Z"
+        },
+        {
+          "bytes": 87528,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\dependency_wheels\\markdown_it_py-3.0.0-py3-none-any.whl",
+          "last_write_utc": "2026-11-11T13:42:40.0355692Z"
+        },
+        {
+          "bytes": 25685,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\dependency_wheels\\MarkupSafe-2.1.5-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+          "last_write_utc": "2026-11-11T13:23:38.9089389Z"
+        },
+        {
+          "bytes": 420,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\dependency_wheels\\marshmallow_tests.additions.lock.txt",
+          "last_write_utc": "2026-11-11T13:23:46.7463332Z"
+        },
+        {
+          "bytes": 9979,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\dependency_wheels\\mdurl-0.1.2-py3-none-any.whl",
+          "last_write_utc": "2026-11-11T13:42:41.3905115Z"
+        },
+        {
+          "bytes": 167650,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\dependency_wheels\\meshio-5.3.4-py3-none-any.whl",
+          "last_write_utc": "2026-11-11T13:42:35.4334412Z"
+        },
+        {
+          "bytes": 154731,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\dependency_wheels\\nose-1.3.7-py3-none-any.whl",
+          "last_write_utc": "2026-11-11T13:23:30.8909320Z"
+        },
+        {
+          "bytes": 2992,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\dependency_wheels\\oyaml-1.0-py2.py3-none-any.whl",
+          "last_write_utc": "2026-11-11T13:23:39.5016860Z"
+        },
+        {
+          "bytes": 12169732,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\dependency_wheels\\pandas-1.5.3-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+          "last_write_utc": "2026-11-11T13:23:46.7262694Z"
+        },
+        {
+          "bytes": 31165,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\dependency_wheels\\pathspec-0.9.0-py2.py3-none-any.whl",
+          "last_write_utc": "2026-11-11T13:23:40.1464528Z"
+        },
+        {
+          "bytes": 506,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\dependency_wheels\\pvlib_legacy_candidate.additions.lock.txt",
+          "last_write_utc": "2026-11-11T13:23:46.7473331Z"
+        },
+        {
+          "bytes": 564,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\dependency_wheels\\pyvista_public_tests_fix_candidate.additions.lock.txt",
+          "last_write_utc": "2026-11-11T13:42:41.3925093Z"
+        },
+        {
+          "bytes": 769980,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\dependency_wheels\\regex-2022.10.31-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+          "last_write_utc": "2026-11-11T13:23:43.4575343Z"
+        },
+        {
+          "bytes": 242424,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\dependency_wheels\\rich-13.9.4-py3-none-any.whl",
+          "last_write_utc": "2026-11-11T13:42:38.1835339Z"
+        },
+        {
+          "bytes": 137367,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\dependency_wheels\\simplejson-3.19.3-cp39-cp39-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+          "last_write_utc": "2026-11-11T13:23:30.2705192Z"
+        },
+        {
+          "bytes": 1940,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\dependency_wheels\\sqlfluff_06_08_candidate_complete_additions.lock.txt",
+          "last_write_utc": "2026-11-11T13:26:08.8499421Z"
+        },
+        {
+          "bytes": 1846,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\dependency_wheels\\sqlfluff_06_08_candidate.additions.lock.txt",
+          "last_write_utc": "2026-11-11T13:23:46.7483332Z"
+        },
+        {
+          "bytes": 12806,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\dependency_wheels\\tblib-1.7.0-py2.py3-none-any.whl",
+          "last_write_utc": "2026-11-11T13:23:41.6432724Z"
+        },
+        {
+          "bytes": 16588,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\dependency_wheels\\toml-0.10.2-py2.py3-none-any.whl",
+          "last_write_utc": "2026-11-11T13:23:40.8327721Z"
+        },
+        {
+          "bytes": 78468,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\dependency_wheels\\tqdm-4.64.1-py2.py3-none-any.whl",
+          "last_write_utc": "2026-11-11T13:23:44.2029028Z"
+        },
+        {
+          "bytes": 81345,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\dependency_wheels\\wrapt-1.13.3-cp39-cp39-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_12_x86_64.manylinux2010_x86_64.whl",
+          "last_write_utc": "2026-11-11T13:23:28.5938612Z"
+        }
+      ]
+    },
+    {
+      "logical_bytes": 45467451,
+      "file_count": 16,
+      "path": "D:\\CodexExperimentCache\\test20_20261111\\formal_compat_wheels_20261112",
+      "files": [
+        {
+          "bytes": 6790,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\formal_compat_wheels_20261112\\atomicwrites-1.4.0-py2.py3-none-any.whl",
+          "last_write_utc": "2026-11-11T18:48:44.5584821Z"
+        },
+        {
+          "bytes": 94,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\formal_compat_wheels_20261112\\matplotlib__matplotlib-23987.lock.txt",
+          "last_write_utc": "2026-11-11T18:48:58.5237114Z"
+        },
+        {
+          "bytes": 11244308,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\formal_compat_wheels_20261112\\matplotlib-3.5.3-cp39-cp39-manylinux_2_5_x86_64.manylinux1_x86_64.whl",
+          "last_write_utc": "2026-11-11T18:48:54.5746056Z"
+        },
+        {
+          "bytes": 474,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\formal_compat_wheels_20261112\\mwaskom__seaborn-2848.lock.txt",
+          "last_write_utc": "2026-11-11T18:48:58.5237114Z"
+        },
+        {
+          "bytes": 17083286,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\formal_compat_wheels_20261112\\numpy-1.23.5-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+          "last_write_utc": "2026-11-11T18:48:49.1369800Z"
+        },
+        {
+          "bytes": 96,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\formal_compat_wheels_20261112\\pallets__flask-4045.lock.txt",
+          "last_write_utc": "2026-11-11T18:48:58.5247103Z"
+        },
+        {
+          "bytes": 12169732,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\formal_compat_wheels_20261112\\pandas-1.5.3-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+          "last_write_utc": "2026-11-11T18:48:51.7814203Z"
+        },
+        {
+          "bytes": 3308605,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\formal_compat_wheels_20261112\\Pillow-9.5.0-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+          "last_write_utc": "2026-11-11T18:48:56.7606646Z"
+        },
+        {
+          "bytes": 18077,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\formal_compat_wheels_20261112\\pluggy-0.13.1-py2.py3-none-any.whl",
+          "last_write_utc": "2026-11-11T18:48:43.2279552Z"
+        },
+        {
+          "bytes": 216950,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\formal_compat_wheels_20261112\\pytest-3.10.1-py2.py3-none-any.whl",
+          "last_write_utc": "2026-11-11T18:48:41.9246516Z"
+        },
+        {
+          "bytes": 325287,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\formal_compat_wheels_20261112\\pytest-7.4.4-py3-none-any.whl",
+          "last_write_utc": "2026-11-11T18:48:40.4707393Z"
+        },
+        {
+          "bytes": 99,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\formal_compat_wheels_20261112\\pytest-dev__pytest-6116.lock.txt",
+          "last_write_utc": "2026-11-11T18:48:58.5257105Z"
+        },
+        {
+          "bytes": 290,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\formal_compat_wheels_20261112\\scikit-learn__scikit-learn-11281.lock.txt",
+          "last_write_utc": "2026-11-11T18:48:58.5267111Z"
+        },
+        {
+          "bytes": 804037,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\formal_compat_wheels_20261112\\setuptools-68.0.0-py3-none-any.whl",
+          "last_write_utc": "2026-11-11T18:48:46.2606890Z"
+        },
+        {
+          "bytes": 94,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\formal_compat_wheels_20261112\\sphinx-doc__sphinx-8595.lock.txt",
+          "last_write_utc": "2026-11-11T18:48:58.5277109Z"
+        },
+        {
+          "bytes": 289232,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\formal_compat_wheels_20261112\\Werkzeug-2.0.3-py3-none-any.whl",
+          "last_write_utc": "2026-11-11T18:48:58.5227052Z"
+        }
+      ]
+    },
+    {
+      "logical_bytes": 298266,
+      "file_count": 2,
+      "path": "D:\\CodexExperimentCache\\test20_20261111\\mpl_compat_wheels_20261112_04",
+      "files": [
+        {
+          "bytes": 94,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\mpl_compat_wheels_20261112_04\\matplotlib__matplotlib-23987.lock.txt",
+          "last_write_utc": "2026-11-11T19:30:16.4169560Z"
+        },
+        {
+          "bytes": 298172,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\mpl_compat_wheels_20261112_04\\pytest-7.1.3-py3-none-any.whl",
+          "last_write_utc": "2026-11-11T19:30:16.4159502Z"
+        }
+      ]
+    },
+    {
+      "logical_bytes": 397065,
+      "file_count": 3,
+      "path": "D:\\CodexExperimentCache\\test20_20261111\\mpl_compat_wheels_20261112_05",
+      "files": [
+        {
+          "bytes": 185,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\mpl_compat_wheels_20261112_05\\matplotlib__matplotlib-23987.lock.txt",
+          "last_write_utc": "2026-11-11T19:32:37.7623555Z"
+        },
+        {
+          "bytes": 98708,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\mpl_compat_wheels_20261112_05\\py-1.11.0-py2.py3-none-any.whl",
+          "last_write_utc": "2026-11-11T19:32:37.7623555Z"
+        },
+        {
+          "bytes": 298172,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\mpl_compat_wheels_20261112_05\\pytest-7.1.3-py3-none-any.whl",
+          "last_write_utc": "2026-11-11T19:32:36.2322433Z"
+        }
+      ]
+    },
+    {
+      "logical_bytes": 1674744,
+      "file_count": 12,
+      "path": "D:\\CodexExperimentCache\\test20_20261111\\requests_fixture_wheels_20261112",
+      "files": [
+        {
+          "bytes": 82780,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\requests_fixture_wheels_20261112\\click-7.1.2-py2.py3-none-any.whl",
+          "last_write_utc": "2026-11-11T19:38:30.4016482Z"
+        },
+        {
+          "bytes": 9239,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\requests_fixture_wheels_20261112\\decorator-4.4.2-py2.py3-none-any.whl",
+          "last_write_utc": "2026-11-11T19:38:31.9290128Z"
+        },
+        {
+          "bytes": 94591,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\requests_fixture_wheels_20261112\\Flask-1.1.4-py2.py3-none-any.whl",
+          "last_write_utc": "2026-11-11T19:38:22.0195592Z"
+        },
+        {
+          "bytes": 79531,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\requests_fixture_wheels_20261112\\gunicorn-20.1.0-py3-none-any.whl",
+          "last_write_utc": "2026-11-11T19:38:34.8263412Z"
+        },
+        {
+          "bytes": 92099,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\requests_fixture_wheels_20261112\\httpbin-0.5.0-py2.py3-none-any.whl",
+          "last_write_utc": "2026-11-11T19:38:19.9993361Z"
+        },
+        {
+          "bytes": 16743,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\requests_fixture_wheels_20261112\\itsdangerous-1.1.0-py2.py3-none-any.whl",
+          "last_write_utc": "2026-11-11T19:38:28.9701004Z"
+        },
+        {
+          "bytes": 125699,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\requests_fixture_wheels_20261112\\Jinja2-2.11.3-py2.py3-none-any.whl",
+          "last_write_utc": "2026-11-11T19:38:25.8926275Z"
+        },
+        {
+          "bytes": 30553,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\requests_fixture_wheels_20261112\\MarkupSafe-2.0.1-cp39-cp39-manylinux1_x86_64.whl",
+          "last_write_utc": "2026-11-11T19:38:27.7589136Z"
+        },
+        {
+          "bytes": 1056,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\requests_fixture_wheels_20261112\\psf__requests-1963.lock.txt",
+          "last_write_utc": "2026-11-11T19:38:36.9614284Z"
+        },
+        {
+          "bytes": 804037,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\requests_fixture_wheels_20261112\\setuptools-68.0.0-py3-none-any.whl",
+          "last_write_utc": "2026-11-11T19:38:36.9604320Z"
+        },
+        {
+          "bytes": 11053,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\requests_fixture_wheels_20261112\\six-1.16.0-py2.py3-none-any.whl",
+          "last_write_utc": "2026-11-11T19:38:33.1687779Z"
+        },
+        {
+          "bytes": 327363,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\requests_fixture_wheels_20261112\\Werkzeug-0.16.1-py2.py3-none-any.whl",
+          "last_write_utc": "2026-11-11T19:38:23.9790651Z"
+        }
+      ]
+    },
+    {
+      "logical_bytes": 88146,
+      "file_count": 3,
+      "path": "D:\\CodexExperimentCache\\test20_20261111\\requests_pytest_transitives_20261112_06",
+      "files": [
+        {
+          "bytes": 39472,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\requests_pytest_transitives_20261112_06\\attrs-19.3.0-py2.py3-none-any.whl",
+          "last_write_utc": "2026-11-11T20:00:45.5604972Z"
+        },
+        {
+          "bytes": 48478,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\requests_pytest_transitives_20261112_06\\more_itertools-4.3.0-py2-none-any.whl",
+          "last_write_utc": "2026-11-11T20:00:47.1840654Z"
+        },
+        {
+          "bytes": 196,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\requests_pytest_transitives_20261112_06\\psf__requests-1963.lock.txt",
+          "last_write_utc": "2026-11-11T20:00:47.1850863Z"
+        }
+      ]
+    },
+    {
+      "logical_bytes": 88146,
+      "file_count": 3,
+      "path": "D:\\CodexExperimentCache\\test20_20261111\\requests_pytest_transitives_20261112_07",
+      "files": [
+        {
+          "bytes": 39472,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\requests_pytest_transitives_20261112_07\\attrs-19.3.0-py2.py3-none-any.whl",
+          "last_write_utc": "2026-11-11T20:02:56.9825176Z"
+        },
+        {
+          "bytes": 48478,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\requests_pytest_transitives_20261112_07\\more_itertools-4.3.0-py3-none-any.whl",
+          "last_write_utc": "2026-11-11T20:02:58.7274814Z"
+        },
+        {
+          "bytes": 196,
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\requests_pytest_transitives_20261112_07\\psf__requests-1963.lock.txt",
+          "last_write_utc": "2026-11-11T20:02:58.7285587Z"
+        }
+      ]
+    }
+  ],
+  "at": "2026-11-12T21:53:25.9105129+08:00",
+  "project_archives_preserved": [
+    "E:\\DockerBackups\\project-session-20261112-02\\project-session-20261112-02.zip",
+    "E:\\DockerBackups\\project-final-20261112-01\\project-final-20261112-01.zip"
+  ]
+}

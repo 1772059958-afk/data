@@ -1,0 +1,13 @@
+--- a/astroid/brain/brain_builtin_inference.py
++++ b/astroid/brain/brain_builtin_inference.py
+@@ -953,8 +953,8 @@
+ 
+     try:
+         formatted_string = format_template.format(*pos_values, **keyword_values)
+-    except (IndexError, KeyError):
+-        # If there is an IndexError there are too few arguments to interpolate
++    except (IndexError, KeyError, AttributeError, ValueError, TypeError):
++        # There are too few arguments or the format string is invalid
+         return iter([util.Uninferable])
+ 
+     return iter([nodes.const_factory(formatted_string)])

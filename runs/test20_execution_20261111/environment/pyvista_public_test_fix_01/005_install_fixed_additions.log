@@ -1,0 +1,10 @@
+Looking in links: /public-wheels
+Processing /public-wheels/meshio-5.3.4-py3-none-any.whl (from -r /public-fix.lock (line 2))
+Processing /public-wheels/tqdm-4.64.1-py2.py3-none-any.whl (from -r /public-fix.lock (line 3))
+Processing /public-wheels/rich-13.9.4-py3-none-any.whl (from -r /public-fix.lock (line 4))
+Processing /public-wheels/markdown_it_py-3.0.0-py3-none-any.whl (from -r /public-fix.lock (line 5))
+Processing /public-wheels/mdurl-0.1.2-py3-none-any.whl (from -r /public-fix.lock (line 6))
+Installing collected packages: tqdm, rich, meshio, mdurl, markdown-it-py
+
+Successfully installed markdown-it-py-3.0.0 mdurl-0.1.2 meshio-5.3.4 rich-13.9.4 tqdm-4.64.1
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.

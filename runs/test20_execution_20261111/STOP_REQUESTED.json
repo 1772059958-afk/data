@@ -1,0 +1,12 @@
+{
+  "kind": "explicit_user_stop_request",
+  "recorded_at": "2026-11-11T22:45:02.591173+08:00",
+  "user_instruction": "dev也留下次 现在直接进行现场保存",
+  "prohibit_new_experiment_work": true,
+  "configuration_frozen": false,
+  "full_dev23_calibration_complete": false,
+  "formal_generation_started": false,
+  "allowed_remaining_actions": "bookkeeping, hash/preservation checks, owned-process/container cleanup, shutdown, consistent backup and documentation only",
+  "requires_explicit_user_resume": true,
+  "shared_ledger": "runs/test20_execution_20261111/batch_ledger.json"
+}

@@ -1,0 +1,36 @@
+{
+  "repository": "swebench/sweb.eval.x86_64.scikit-learn_1776_scikit-learn-11281",
+  "tls_verification": true,
+  "public_anonymous_registry_only": true,
+  "status": "verified",
+  "digest": "sha256:7dcd4bbcd034344e7bceb977ec95152a336cdeb1038872b3953f417438d9b537",
+  "manifest": {
+    "schemaVersion": 2,
+    "mediaType": "application/vnd.oci.image.index.v1+json",
+    "manifests": [
+      {
+        "mediaType": "application/vnd.oci.image.manifest.v1+json",
+        "digest": "sha256:bc89ff7e6838610f8b84668c9284f50d6e336abfc27fa6d79805148a06245975",
+        "size": 2199,
+        "platform": {
+          "architecture": "amd64",
+          "os": "linux"
+        }
+      },
+      {
+        "mediaType": "application/vnd.oci.image.manifest.v1+json",
+        "digest": "sha256:0d6c8086b8fcfd839aab47dfd2241503782b3a4d9e8da892c3b740014881013a",
+        "size": 564,
+        "annotations": {
+          "vnd.docker.reference.digest": "sha256:bc89ff7e6838610f8b84668c9284f50d6e336abfc27fa6d79805148a06245975",
+          "vnd.docker.reference.type": "attestation-manifest"
+        },
+        "platform": {
+          "architecture": "unknown",
+          "os": "unknown"
+        }
+      }
+    ]
+  },
+  "manifest_bytes": 856
+}

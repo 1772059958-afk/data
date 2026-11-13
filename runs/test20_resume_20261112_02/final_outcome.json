@@ -1,0 +1,25 @@
+{
+  "state": "completed_with_evaluation_errors",
+  "authorized_model_scope_completed": true,
+  "dev_calibration_and_freeze_completed": true,
+  "formal_predictions": 100,
+  "official_evaluation_audit_rows": 100,
+  "official_nonempty_patch_tasks": 85,
+  "empty_patch_outcomes": 15,
+  "resolved_counts": {
+    "A": 7,
+    "B": 7,
+    "C": 10,
+    "D": 7,
+    "E": 8
+  },
+  "evaluation_errors": 26,
+  "all_semantic_verdicts_known": false,
+  "new_authorization_required_for_any_repeat_or_new_paid_scope": true,
+  "inactive_config": "configs/test20_inactive_20261112_02.json",
+  "actual_execution_config": "configs/test20_frozen_20261112_01.json",
+  "report": "docs/test20五组一次实验报告_20261112.md",
+  "report_sha256": "48a3d8c4409b41acc67d1cfc6b4a2d2b78d858f36f2a36777c69bec0160f1a9e",
+  "system_shutdown_scheduled": false,
+  "at": "2026-11-12T05:28:40.084494+00:00"
+}

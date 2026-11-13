@@ -1,0 +1,238 @@
+warning: `requests` is not installed, so the model-client tests will fail with 'No module named requests'.
+         fix it with: pip install -r requirements.txt
+
+test_calibration.py: 10 test(s)
+test_cf.py: 11 test(s)
+test_interact.py: 11 test(s)
+test_llm.py: 43 test(s)
+test_router.py: 29 test(s)
+test_runlog.py: 11 test(s)
+test_signal_chain.py: 6 test(s)
+test_spend.py: 20 test(s)
+test_state.py: 29 test(s)
+
+FAIL test_llm.py::test_client_without_a_guard_still_works
+Traceback (most recent call last):
+  File "scripts/run_offline_tests.py", line 63, in main
+    getattr(module, name)()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\remil\Desktop\3yr\科研\proj\tests\test_llm.py", line 485, in test_client_without_a_guard_still_works
+    assert client.chat([{"role": "user", "content": "hi"}]).record.cost_cny > 0
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\remil\Desktop\3yr\科研\proj\src\swe_repair\llm.py", line 369, in chat
+    raise RuntimeError(
+    ...<2 lines>...
+    )
+RuntimeError: model call failed with HTTP 0: No module named 'requests'
+
+FAIL test_llm.py::test_guard_books_the_call_after_it_succeeds
+Traceback (most recent call last):
+  File "scripts/run_offline_tests.py", line 63, in main
+    getattr(module, name)()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\remil\Desktop\3yr\科研\proj\tests\test_llm.py", line 462, in test_guard_books_the_call_after_it_succeeds
+    client.chat([{"role": "user", "content": "hi"}])
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\remil\Desktop\3yr\科研\proj\src\swe_repair\llm.py", line 369, in chat
+    raise RuntimeError(
+    ...<2 lines>...
+    )
+RuntimeError: model call failed with HTTP 0: No module named 'requests'
+
+FAIL test_llm.py::test_guard_stops_the_second_call_once_the_call_limit_is_reached
+Traceback (most recent call last):
+  File "scripts/run_offline_tests.py", line 63, in main
+    getattr(module, name)()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\remil\Desktop\3yr\科研\proj\tests\test_llm.py", line 473, in test_guard_stops_the_second_call_once_the_call_limit_is_reached
+    client.chat([{"role": "user", "content": "hi"}])
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\remil\Desktop\3yr\科研\proj\src\swe_repair\llm.py", line 369, in chat
+    raise RuntimeError(
+    ...<2 lines>...
+    )
+RuntimeError: model call failed with HTTP 0: No module named 'requests'
+
+FAIL test_llm.py::test_ledger_accumulates_across_calls
+Traceback (most recent call last):
+  File "scripts/run_offline_tests.py", line 63, in main
+    getattr(module, name)()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\remil\Desktop\3yr\科研\proj\tests\test_llm.py", line 412, in test_ledger_accumulates_across_calls
+    ledger.add(client.chat([{"role": "user", "content": "hi"}]).record)
+               ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\remil\Desktop\3yr\科研\proj\src\swe_repair\llm.py", line 369, in chat
+    raise RuntimeError(
+    ...<2 lines>...
+    )
+RuntimeError: model call failed with HTTP 0: No module named 'requests'
+
+FAIL test_llm.py::test_ledger_cost_is_the_sum_of_the_records
+Traceback (most recent call last):
+  File "scripts/run_offline_tests.py", line 63, in main
+    getattr(module, name)()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\remil\Desktop\3yr\科研\proj\tests\test_llm.py", line 439, in test_ledger_cost_is_the_sum_of_the_records
+    ledger.add(client.chat([{"role": "user", "content": "hi"}]).record)
+               ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\remil\Desktop\3yr\科研\proj\src\swe_repair\llm.py", line 369, in chat
+    raise RuntimeError(
+    ...<2 lines>...
+    )
+RuntimeError: model call failed with HTTP 0: No module named 'requests'
+
+FAIL test_llm.py::test_missing_usage_block_does_not_crash
+Traceback (most recent call last):
+  File "scripts/run_offline_tests.py", line 63, in main
+    getattr(module, name)()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\remil\Desktop\3yr\科研\proj\tests\test_llm.py", line 392, in test_missing_usage_block_does_not_crash
+    record = client.chat([{"role": "user", "content": "hi"}]).record
+             ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\remil\Desktop\3yr\科研\proj\src\swe_repair\llm.py", line 369, in chat
+    raise RuntimeError(
+    ...<2 lines>...
+    )
+RuntimeError: model call failed with HTTP 0: No module named 'requests'
+
+FAIL test_llm.py::test_non_retryable_status_fails_fast
+Traceback (most recent call last):
+  File "C:\Users\remil\Desktop\3yr\科研\proj\tests\test_llm.py", line 370, in test_non_retryable_status_fails_fast
+    client.chat([{"role": "user", "content": "hi"}])
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\remil\Desktop\3yr\科研\proj\src\swe_repair\llm.py", line 369, in chat
+    raise RuntimeError(
+    ...<2 lines>...
+    )
+RuntimeError: model call failed with HTTP 0: No module named 'requests'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "scripts/run_offline_tests.py", line 63, in main
+    getattr(module, name)()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\remil\Desktop\3yr\科研\proj\tests\test_llm.py", line 372, in test_non_retryable_status_fails_fast
+    assert "400" in str(exc)
+           ^^^^^^^^^^^^^^^^^
+AssertionError
+
+FAIL test_llm.py::test_reasoning_content_is_echoed_back_only_when_tools_are_in_play
+Traceback (most recent call last):
+  File "scripts/run_offline_tests.py", line 63, in main
+    getattr(module, name)()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\remil\Desktop\3yr\科研\proj\tests\test_llm.py", line 344, in test_reasoning_content_is_echoed_back_only_when_tools_are_in_play
+    result = client.chat([{"role": "user", "content": "hi"}])
+  File "C:\Users\remil\Desktop\3yr\科研\proj\src\swe_repair\llm.py", line 369, in chat
+    raise RuntimeError(
+    ...<2 lines>...
+    )
+RuntimeError: model call failed with HTTP 0: No module named 'requests'
+
+FAIL test_llm.py::test_request_body_carries_the_pinned_settings
+Traceback (most recent call last):
+  File "scripts/run_offline_tests.py", line 63, in main
+    getattr(module, name)()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\remil\Desktop\3yr\科研\proj\tests\test_llm.py", line 328, in test_request_body_carries_the_pinned_settings
+    client.chat([{"role": "user", "content": "hi"}])
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\remil\Desktop\3yr\科研\proj\src\swe_repair\llm.py", line 369, in chat
+    raise RuntimeError(
+    ...<2 lines>...
+    )
+RuntimeError: model call failed with HTTP 0: No module named 'requests'
+
+FAIL test_llm.py::test_response_without_cached_count_is_priced_as_all_miss
+Traceback (most recent call last):
+  File "scripts/run_offline_tests.py", line 63, in main
+    getattr(module, name)()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\remil\Desktop\3yr\科研\proj\tests\test_llm.py", line 401, in test_response_without_cached_count_is_priced_as_all_miss
+    record = client.chat([{"role": "user", "content": "hi"}]).record
+             ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\remil\Desktop\3yr\科研\proj\src\swe_repair\llm.py", line 369, in chat
+    raise RuntimeError(
+    ...<2 lines>...
+    )
+RuntimeError: model call failed with HTTP 0: No module named 'requests'
+
+FAIL test_llm.py::test_retries_are_bounded
+Traceback (most recent call last):
+  File "C:\Users\remil\Desktop\3yr\科研\proj\tests\test_llm.py", line 381, in test_retries_are_bounded
+    client.chat([{"role": "user", "content": "hi"}])
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\remil\Desktop\3yr\科研\proj\src\swe_repair\llm.py", line 369, in chat
+    raise RuntimeError(
+    ...<2 lines>...
+    )
+RuntimeError: model call failed with HTTP 0: No module named 'requests'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "scripts/run_offline_tests.py", line 63, in main
+    getattr(module, name)()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\remil\Desktop\3yr\科研\proj\tests\test_llm.py", line 383, in test_retries_are_bounded
+    assert len(session.sent) == 3  # first attempt plus two retries
+           ^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
+
+FAIL test_llm.py::test_retryable_status_is_retried_then_succeeds
+Traceback (most recent call last):
+  File "scripts/run_offline_tests.py", line 63, in main
+    getattr(module, name)()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\remil\Desktop\3yr\科研\proj\tests\test_llm.py", line 357, in test_retryable_status_is_retried_then_succeeds
+    record = client.chat([{"role": "user", "content": "hi"}]).record
+             ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\remil\Desktop\3yr\科研\proj\src\swe_repair\llm.py", line 369, in chat
+    raise RuntimeError(
+    ...<2 lines>...
+    )
+RuntimeError: model call failed with HTTP 0: No module named 'requests'
+
+FAIL test_llm.py::test_successful_call_records_usage_and_cost
+Traceback (most recent call last):
+  File "scripts/run_offline_tests.py", line 63, in main
+    getattr(module, name)()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\remil\Desktop\3yr\科研\proj\tests\test_llm.py", line 305, in test_successful_call_records_usage_and_cost
+    result = client.chat([{"role": "user", "content": "hi"}])
+  File "C:\Users\remil\Desktop\3yr\科研\proj\src\swe_repair\llm.py", line 369, in chat
+    raise RuntimeError(
+    ...<2 lines>...
+    )
+RuntimeError: model call failed with HTTP 0: No module named 'requests'
+
+FAIL test_llm.py::test_transport_error_is_retried
+Traceback (most recent call last):
+  File "scripts/run_offline_tests.py", line 63, in main
+    getattr(module, name)()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\remil\Desktop\3yr\科研\proj\tests\test_llm.py", line 364, in test_transport_error_is_retried
+    assert client.chat([{"role": "user", "content": "hi"}]).record.attempts == 2
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\remil\Desktop\3yr\科研\proj\src\swe_repair\llm.py", line 369, in chat
+    raise RuntimeError(
+    ...<2 lines>...
+    )
+RuntimeError: model call failed with HTTP 0: No module named 'requests'
+
+FAIL test_llm.py::test_usage_arithmetic_reaches_the_run_log_fields
+Traceback (most recent call last):
+  File "scripts/run_offline_tests.py", line 63, in main
+    getattr(module, name)()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\remil\Desktop\3yr\科研\proj\tests\test_llm.py", line 319, in test_usage_arithmetic_reaches_the_run_log_fields
+    fields = client.chat([{"role": "user", "content": "hi"}]).record.runlog_fields()
+             ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\remil\Desktop\3yr\科研\proj\src\swe_repair\llm.py", line 369, in chat
+    raise RuntimeError(
+    ...<2 lines>...
+    )
+RuntimeError: model call failed with HTTP 0: No module named 'requests'
+
+155/170 passed

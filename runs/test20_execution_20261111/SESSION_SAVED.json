@@ -1,0 +1,88 @@
+{
+  "kind": "stopped_experiment_session_checkpoint",
+  "saved_at": "2026-11-11T23:03:25.892281+08:00",
+  "status": "stopped_saved_not_frozen",
+  "user_stop_instruction": "dev也留下次 现在直接进行现场保存",
+  "handoff": {
+    "path": "docs/现场保存与续跑_20261111.md",
+    "sha256": "9cfb47e67313deb19f78030d08d3f42e248a7d3c1ce4adfe169f62664f29a6ca"
+  },
+  "configuration_frozen": false,
+  "full_dev23_calibration_complete": false,
+  "new_prediction_independent_scoring_complete": false,
+  "formal_test20_started": false,
+  "cost": {
+    "kind": "read_only_final_cost_audit",
+    "ledger_sha256": "57f142980e58adbcdebbeeb655b5557053dd368799a065302de224d0c97b4a3a",
+    "approved_new_ceiling_cny": 100.0,
+    "booked_estimate_cny": 0.55175828,
+    "remaining_guard_cny": 99.44824172,
+    "request_records": 63,
+    "unknown_usage_records": 0,
+    "pending": null,
+    "exclusive_ledger_lock_verified": true,
+    "all_attempts_one": true,
+    "reported_fingerprints": [
+      "bc19ba97cbe016479903222bb1578db6"
+    ],
+    "cost_interpretation": "usage-derived estimate/conservative accounting, not invoice payment",
+    "new_formal_requests": 0,
+    "new_full_dev23_requests": 0
+  },
+  "owned_experiment_processes_remaining": 0,
+  "containers_remaining": [],
+  "docker_desktop_stopped": true,
+  "docker_wsl_running": false,
+  "preserved_image_tag_rows": 10,
+  "active_docker_data": "D:\\DockerData\\swe-repair-20261111\\DockerDesktopWSL",
+  "cold_backup": "D:\\DockerBackups\\swe-repair-20261111-stopped",
+  "project_archive": {
+    "path": "D:\\CodexExperimentCache\\test20_20261111\\checkpoint\\project-session-20261111-stopped.zip",
+    "size_bytes": 4756232,
+    "sha256": "b273bf0c65a264fdd3bff7630cc0548a0d5e2bf9fa8dd957f1a2c9bd82c069e4",
+    "included_files": 378,
+    "zip_crc_verified": true,
+    "exclusions": [
+      ".env and credential files",
+      ".venv",
+      ".git",
+      "bytecode",
+      "external Docker VHDX and public caches, separately preserved"
+    ]
+  },
+  "artifact_manifest": "runs/test20_execution_20261111/artifact_manifest.json",
+  "resume_config": "configs/dev_screen_resume_20261111.json",
+  "resume_config_live_authorized": false,
+  "requires_explicit_user_resume": true,
+  "scheduled_restart": false,
+  "drafts_pending": [
+    "dev23 environment runner final self-check",
+    "dev23 preparation manifest",
+    "nose-only dependency lock"
+  ],
+  "validation": {
+    "kind": "stop_checkpoint_read_only_validation",
+    "active_source_unchanged_since_full_suite": true,
+    "active_source_files_verified": 22,
+    "last_full_suite_passed": 383,
+    "last_full_suite_total": 383,
+    "last_full_suite_log": "offline_before_generation_01.log",
+    "full_suite_rerun_at_stop": false,
+    "original_assets": {
+      "verified": 93,
+      "total": 93,
+      "ok": true
+    },
+    "archive_assets": {
+      "verified": 131,
+      "total": 131,
+      "ok": true
+    },
+    "draft_environment_runner_selfcheck_complete": false,
+    "dev23_manifest_exists": false,
+    "new_experiment_started_during_save": false
+  },
+  "source_bytes_modified_during_save": false,
+  "commit_or_push_performed": false,
+  "model_calls_during_save": 0
+}

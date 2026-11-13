@@ -1,0 +1,98 @@
+{
+  "kind": "preregistered_single_run_descriptive",
+  "date": "2026-11-11",
+  "status": "sample_and_analysis_registered_execution_pending_dev_calibration",
+  "user_scope": "正式实验只做20例5组1次",
+  "split": "test",
+  "population_size": 300,
+  "sample_size": 20,
+  "arms": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E"
+  ],
+  "repeats": 1,
+  "repeat_index": 0,
+  "sampling_seed": 20261111,
+  "generation_seed": 20261111,
+  "sample_manifest": "runs/test20_preparation_20261111/instances.json",
+  "sample_manifest_sha256": "c3261e16b12a1cc206eb4dc8a97c3397cb8e4ecb7fc8b712de6e9a88e8979ecb",
+  "instance_ids": [
+    "astropy__astropy-14995",
+    "django__django-11910",
+    "django__django-12708",
+    "django__django-13230",
+    "django__django-17087",
+    "matplotlib__matplotlib-23987",
+    "matplotlib__matplotlib-24970",
+    "mwaskom__seaborn-2848",
+    "pallets__flask-4045",
+    "psf__requests-1963",
+    "pydata__xarray-3364",
+    "pylint-dev__pylint-7114",
+    "pytest-dev__pytest-6116",
+    "pytest-dev__pytest-8906",
+    "scikit-learn__scikit-learn-11281",
+    "scikit-learn__scikit-learn-13496",
+    "sphinx-doc__sphinx-8595",
+    "sympy__sympy-13480",
+    "sympy__sympy-16503",
+    "sympy__sympy-23262"
+  ],
+  "inference": false,
+  "statistics": "descriptive_single_run_no_inference",
+  "primary_comparisons": [
+    {
+      "left": "C",
+      "right": "D",
+      "difference": "D minus C"
+    },
+    {
+      "left": "E",
+      "right": "D",
+      "difference": "D minus E"
+    }
+  ],
+  "secondary_comparisons": [
+    "D minus A",
+    "D minus B"
+  ],
+  "primary_estimand": "unweighted resolved fraction of the designated 20 cases, not an estimate of test300",
+  "quality_cost_rule": {
+    "quality_tolerance_percentage_points": 5,
+    "interpretation": "operational descriptive tolerance equal to one of 20 cases; no equivalence or noninferiority inference",
+    "requires_complete_evaluation": true,
+    "zero_resolved_cost": null,
+    "budget_tiers": "one frozen tier; no multi-budget curve claim"
+  },
+  "missing_evaluation": "retain not_scored with unknown resolved rate and explicit lower bound; never relabel unresolved",
+  "environment_failures": "retain all 20 designated cases and report common-runnable subset separately; no replacement",
+  "generation_policy": "one selected branch per arm; shared actual prefix for A/C/D/E; B starts from initial information",
+  "freeze_before_test": [
+    "complete_dev_policy_calibration",
+    "model_identity_and_sampling",
+    "prompt_and_code_hash",
+    "four_resource_budgets",
+    "candidate_selection",
+    "E_all_eligible_dev_trigger_rate",
+    "image_digest_and_base_commit"
+  ],
+  "execution_authorized": false,
+  "paid_budget_authorized": false,
+  "scope_exclusions": [
+    "extra test cases",
+    "extra repeats",
+    "test paired branches",
+    "test tuning",
+    "automatic retries after interruption",
+    "formal test ablations without separate authorization"
+  ],
+  "limitations": [
+    "single run does not measure stochastic stability",
+    "only 20 predesignated cases",
+    "minimum-one repository sampling is not self-weighting",
+    "full RQ2/RQ4 and multi-budget RQ3 remain separate work"
+  ]
+}

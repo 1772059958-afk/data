@@ -1,0 +1,6 @@
+{
+  "command": "python scripts/run_offline_tests.py",
+  "exit_code": 0,
+  "elapsed_seconds": 4.713,
+  "python": "3.14.2"
+}

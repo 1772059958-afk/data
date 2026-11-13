@@ -1,0 +1,8 @@
+{
+  "instance_id": "sphinx-doc__sphinx-8595",
+  "base_commit": "b19bce971e82f2497d67fdacdeca8db08ae0ba56",
+  "status": "preparation_error",
+  "error_type": "RuntimeError",
+  "error": "public source/metadata/import identity rejected; preserved log 0355_identity_before.log",
+  "model_calls": 0
+}

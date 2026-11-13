@@ -1,0 +1,37 @@
+2026-11-12 11:58:28,241 - INFO - Creating container for psf__requests-1963...
+2026-11-12 11:58:28,298 - INFO - Container for psf__requests-1963 created: c3da3b0b47ce5f5b0e65241c90e139b9eae2af01fa6ae16960447d1ae98e6deb
+2026-11-12 11:58:28,494 - INFO - Container for psf__requests-1963 started: c3da3b0b47ce5f5b0e65241c90e139b9eae2af01fa6ae16960447d1ae98e6deb
+2026-11-12 11:58:28,498 - INFO - Intermediate patch for psf__requests-1963 written to logs/run_evaluation/test20_D_20261112_01/test20_D_20261112_01-D/psf__requests-1963/patch.diff, now applying to container...
+2026-11-12 11:58:28,613 - INFO - >>>>> Applied Patch:
+Checking patch requests/sessions.py...
+Hunk #1 succeeded at 167 (offset 1 line).
+Applied patch requests/sessions.py cleanly.
+
+2026-11-12 11:58:28,663 - INFO - Git diff before:
+diff --git a/requests/sessions.py b/requests/sessions.py
+index 425db22..801ddc5 100644
+--- a/requests/sessions.py
++++ b/requests/sessions.py
+@@ -168,6 +168,9 @@ class SessionRedirectMixin(object):
+             if new_auth is not None:
+                 prepared_request.prepare_auth(new_auth)
+ 
++            # Override the original request.
++            req = prepared_request
++
+             resp = self.send(
+                 prepared_request,
+                 stream=stream,
+2026-11-12 11:58:28,667 - INFO - Eval script for psf__requests-1963 written to logs/run_evaluation/test20_D_20261112_01/test20_D_20261112_01-D/psf__requests-1963/eval.sh; copying to container...
+2026-11-12 12:28:28,788 - INFO - Test runtime: 1_800.05 seconds
+2026-11-12 12:28:28,799 - INFO - Test output for psf__requests-1963 written to logs/run_evaluation/test20_D_20261112_01/test20_D_20261112_01-D/psf__requests-1963/test_output.txt
+2026-11-12 12:28:28,801 - INFO - Traceback (most recent call last):
+  File "/opt/scoring/lib/python3.11/site-packages/swebench/harness/run_evaluation.py", line 377, in run_instance
+    raise EvaluationError(
+swebench.harness.utils.EvaluationError: Error in evaluation for psf__requests-1963: Test timed out after 1800 seconds.
+Check (logs/run_evaluation/test20_D_20261112_01/test20_D_20261112_01-D/psf__requests-1963/run_instance.log) for more information.
+
+2026-11-12 12:28:28,801 - INFO - Attempting to stop container sweb.eval.psf__requests-1963.test20_D_20261112_01...
+2026-11-12 12:28:44,095 - INFO - Container sweb.eval.psf__requests-1963.test20_D_20261112_01 stopped successfully.
+2026-11-12 12:28:44,095 - INFO - Attempting to remove container sweb.eval.psf__requests-1963.test20_D_20261112_01...
+2026-11-12 12:28:44,153 - INFO - Container sweb.eval.psf__requests-1963.test20_D_20261112_01 removed successfully.

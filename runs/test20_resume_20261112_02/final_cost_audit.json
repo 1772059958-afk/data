@@ -1,0 +1,934 @@
+{
+  "ceiling_cny": 100,
+  "ledger_sha256": "02405b919d5907e08b19ebedd9fd18601fa4749c16d6c2212744bd74ccdd4669",
+  "ledger_records": 1008,
+  "pending": null,
+  "cumulative_estimated_or_reserved_cny": 17.86646022,
+  "remaining_guard_cny": 82.13353978,
+  "formal_actual_generation_requests": 434,
+  "formal_actual_generation_cost_cny": 10.22473936,
+  "dev_preparation_and_other_actual_cost_cny": 7.641720860000001,
+  "billing_counts": {
+    "estimated_from_usage": 1008
+  },
+  "formal_usage_reported_missing": 0,
+  "formal_identity_all_matching": true,
+  "formal_request_ids_unique": true,
+  "arms": {
+    "A": {
+      "tag": "test20_A_20261112_01",
+      "prediction_count": 20,
+      "actual_new_model_requests": 128,
+      "actual_new_generation_cost_cny": 4.39227512,
+      "full_strategy_cost_including_inherited_prefix_cny": 4.39227512,
+      "actual_new_request_price_tier_counts": {
+        "off_peak": 128
+      },
+      "full_strategy_request_price_tier_counts": {
+        "off_peak": 128
+      },
+      "full_strategy_observed_token_mix": {
+        "cache_hit_tokens": 1229056,
+        "cache_miss_tokens": 341602,
+        "output_tokens": 1006523
+      },
+      "user_requested_full_strategy_cost_at_uniform_frozen_off_peak_prices_cny": 4.39227512,
+      "user_requested_actual_new_generation_cost_at_uniform_frozen_off_peak_prices_cny": 4.39227512,
+      "generation_statuses": {
+        "completed": 14,
+        "environment_error": 6
+      },
+      "independent_evaluation": {
+        "designated_instances": 20,
+        "repeats": 1,
+        "total": 20,
+        "resolved": 7,
+        "complete": true,
+        "status_counts": {
+          "resolved": 7,
+          "empty_patch": 4,
+          "ambiguous_error": 5,
+          "unresolved": 4
+        },
+        "resolved_rate": 0.35,
+        "resolved_rate_lower_bound": 0.35,
+        "cost_cny_recorded": 4.392275119999999,
+        "cost_complete": true,
+        "cost_per_resolved_cny": 0.6274678742857142,
+        "resources": {
+          "token": {
+            "recorded_total": 2577181.0,
+            "complete": true,
+            "mean_per_task": 128859.05,
+            "per_resolved": 368168.71428571426
+          },
+          "model_call": {
+            "recorded_total": 128.0,
+            "complete": true,
+            "mean_per_task": 6.4,
+            "per_resolved": 18.285714285714285
+          },
+          "tool_call": {
+            "recorded_total": 439.0,
+            "complete": true,
+            "mean_per_task": 21.95,
+            "per_resolved": 62.714285714285715
+          },
+          "wallclock_seconds": {
+            "recorded_total": 5280.938144900065,
+            "complete": true,
+            "mean_per_task": 264.04690724500324,
+            "per_resolved": 754.4197349857235
+          }
+        },
+        "per_repo": {
+          "astropy__astropy": {
+            "total": 1,
+            "resolved": 1,
+            "status_counts": {
+              "resolved": 1
+            },
+            "resolved_rate": 1.0
+          },
+          "django__django": {
+            "total": 4,
+            "resolved": 3,
+            "status_counts": {
+              "empty_patch": 1,
+              "resolved": 3
+            },
+            "resolved_rate": 0.75
+          },
+          "matplotlib__matplotlib": {
+            "total": 2,
+            "resolved": 1,
+            "status_counts": {
+              "empty_patch": 1,
+              "resolved": 1
+            },
+            "resolved_rate": 0.5
+          },
+          "mwaskom__seaborn": {
+            "total": 1,
+            "resolved": 0,
+            "status_counts": {
+              "empty_patch": 1
+            },
+            "resolved_rate": 0.0
+          },
+          "pallets__flask": {
+            "total": 1,
+            "resolved": 0,
+            "status_counts": {
+              "ambiguous_error": 1
+            },
+            "resolved_rate": 0.0
+          },
+          "psf__requests": {
+            "total": 1,
+            "resolved": 0,
+            "status_counts": {
+              "ambiguous_error": 1
+            },
+            "resolved_rate": 0.0
+          },
+          "pydata__xarray": {
+            "total": 1,
+            "resolved": 0,
+            "status_counts": {
+              "empty_patch": 1
+            },
+            "resolved_rate": 0.0
+          },
+          "pylint-dev__pylint": {
+            "total": 1,
+            "resolved": 0,
+            "status_counts": {
+              "ambiguous_error": 1
+            },
+            "resolved_rate": 0.0
+          },
+          "pytest-dev__pytest": {
+            "total": 2,
+            "resolved": 0,
+            "status_counts": {
+              "ambiguous_error": 2
+            },
+            "resolved_rate": 0.0
+          },
+          "scikit-learn__scikit-learn": {
+            "total": 2,
+            "resolved": 1,
+            "status_counts": {
+              "unresolved": 1,
+              "resolved": 1
+            },
+            "resolved_rate": 0.5
+          },
+          "sphinx-doc__sphinx": {
+            "total": 1,
+            "resolved": 0,
+            "status_counts": {
+              "unresolved": 1
+            },
+            "resolved_rate": 0.0
+          },
+          "sympy__sympy": {
+            "total": 3,
+            "resolved": 1,
+            "status_counts": {
+              "resolved": 1,
+              "unresolved": 2
+            },
+            "resolved_rate": 0.3333333333333333
+          }
+        },
+        "repository_macro_average": 0.2569444444444445
+      },
+      "unknown_verdict_instances": [],
+      "unknown_semantic_verdict_instances": [
+        "pallets__flask-4045",
+        "psf__requests-1963",
+        "pylint-dev__pylint-7114",
+        "pytest-dev__pytest-6116",
+        "pytest-dev__pytest-8906"
+      ]
+    },
+    "B": {
+      "tag": "test20_B_20261112_02",
+      "prediction_count": 20,
+      "actual_new_model_requests": 116,
+      "actual_new_generation_cost_cny": 0.43171951999999997,
+      "full_strategy_cost_including_inherited_prefix_cny": 0.43171951999999997,
+      "actual_new_request_price_tier_counts": {
+        "off_peak": 116
+      },
+      "full_strategy_request_price_tier_counts": {
+        "off_peak": 116
+      },
+      "full_strategy_observed_token_mix": {
+        "cache_hit_tokens": 213376,
+        "cache_miss_tokens": 121112,
+        "output_tokens": 76585
+      },
+      "user_requested_full_strategy_cost_at_uniform_frozen_off_peak_prices_cny": 0.43171952,
+      "user_requested_actual_new_generation_cost_at_uniform_frozen_off_peak_prices_cny": 0.43171952,
+      "generation_statuses": {
+        "budget_exhausted": 14,
+        "environment_error": 5,
+        "completed": 1
+      },
+      "independent_evaluation": {
+        "designated_instances": 20,
+        "repeats": 1,
+        "total": 20,
+        "resolved": 7,
+        "complete": true,
+        "status_counts": {
+          "resolved": 7,
+          "empty_patch": 5,
+          "ambiguous_error": 4,
+          "unresolved": 4
+        },
+        "resolved_rate": 0.35,
+        "resolved_rate_lower_bound": 0.35,
+        "cost_cny_recorded": 0.43171951999999997,
+        "cost_complete": true,
+        "cost_per_resolved_cny": 0.06167421714285714,
+        "resources": {
+          "token": {
+            "recorded_total": 411073.0,
+            "complete": true,
+            "mean_per_task": 20553.65,
+            "per_resolved": 58724.71428571428
+          },
+          "model_call": {
+            "recorded_total": 116.0,
+            "complete": true,
+            "mean_per_task": 5.8,
+            "per_resolved": 16.571428571428573
+          },
+          "tool_call": {
+            "recorded_total": 213.0,
+            "complete": true,
+            "mean_per_task": 10.65,
+            "per_resolved": 30.428571428571427
+          },
+          "wallclock_seconds": {
+            "recorded_total": 594.4158885999932,
+            "complete": true,
+            "mean_per_task": 29.72079442999966,
+            "per_resolved": 84.91655551428474
+          }
+        },
+        "per_repo": {
+          "astropy__astropy": {
+            "total": 1,
+            "resolved": 1,
+            "status_counts": {
+              "resolved": 1
+            },
+            "resolved_rate": 1.0
+          },
+          "django__django": {
+            "total": 4,
+            "resolved": 4,
+            "status_counts": {
+              "resolved": 4
+            },
+            "resolved_rate": 1.0
+          },
+          "matplotlib__matplotlib": {
+            "total": 2,
+            "resolved": 1,
+            "status_counts": {
+              "empty_patch": 1,
+              "resolved": 1
+            },
+            "resolved_rate": 0.5
+          },
+          "mwaskom__seaborn": {
+            "total": 1,
+            "resolved": 1,
+            "status_counts": {
+              "resolved": 1
+            },
+            "resolved_rate": 1.0
+          },
+          "pallets__flask": {
+            "total": 1,
+            "resolved": 0,
+            "status_counts": {
+              "ambiguous_error": 1
+            },
+            "resolved_rate": 0.0
+          },
+          "psf__requests": {
+            "total": 1,
+            "resolved": 0,
+            "status_counts": {
+              "ambiguous_error": 1
+            },
+            "resolved_rate": 0.0
+          },
+          "pydata__xarray": {
+            "total": 1,
+            "resolved": 0,
+            "status_counts": {
+              "unresolved": 1
+            },
+            "resolved_rate": 0.0
+          },
+          "pylint-dev__pylint": {
+            "total": 1,
+            "resolved": 0,
+            "status_counts": {
+              "empty_patch": 1
+            },
+            "resolved_rate": 0.0
+          },
+          "pytest-dev__pytest": {
+            "total": 2,
+            "resolved": 0,
+            "status_counts": {
+              "ambiguous_error": 2
+            },
+            "resolved_rate": 0.0
+          },
+          "scikit-learn__scikit-learn": {
+            "total": 2,
+            "resolved": 0,
+            "status_counts": {
+              "unresolved": 1,
+              "empty_patch": 1
+            },
+            "resolved_rate": 0.0
+          },
+          "sphinx-doc__sphinx": {
+            "total": 1,
+            "resolved": 0,
+            "status_counts": {
+              "unresolved": 1
+            },
+            "resolved_rate": 0.0
+          },
+          "sympy__sympy": {
+            "total": 3,
+            "resolved": 0,
+            "status_counts": {
+              "empty_patch": 2,
+              "unresolved": 1
+            },
+            "resolved_rate": 0.0
+          }
+        },
+        "repository_macro_average": 0.2916666666666667
+      },
+      "unknown_verdict_instances": [],
+      "unknown_semantic_verdict_instances": [
+        "pallets__flask-4045",
+        "psf__requests-1963",
+        "pytest-dev__pytest-6116",
+        "pytest-dev__pytest-8906"
+      ]
+    },
+    "C": {
+      "tag": "test20_C_20261112_01",
+      "prediction_count": 20,
+      "actual_new_model_requests": 57,
+      "actual_new_generation_cost_cny": 0.43196416,
+      "full_strategy_cost_including_inherited_prefix_cny": 2.05192828,
+      "actual_new_request_price_tier_counts": {
+        "off_peak": 57
+      },
+      "full_strategy_request_price_tier_counts": {
+        "off_peak": 113
+      },
+      "full_strategy_observed_token_mix": {
+        "cache_hit_tokens": 587264,
+        "cache_miss_tokens": 388191,
+        "output_tokens": 412998
+      },
+      "user_requested_full_strategy_cost_at_uniform_frozen_off_peak_prices_cny": 2.05192828,
+      "user_requested_actual_new_generation_cost_at_uniform_frozen_off_peak_prices_cny": 0.43196416,
+      "generation_statuses": {
+        "completed": 9,
+        "environment_error": 6,
+        "budget_exhausted": 5
+      },
+      "independent_evaluation": {
+        "designated_instances": 20,
+        "repeats": 1,
+        "total": 20,
+        "resolved": 10,
+        "complete": true,
+        "status_counts": {
+          "resolved": 10,
+          "ambiguous_error": 4,
+          "unresolved": 4,
+          "infra_error": 1,
+          "empty_patch": 1
+        },
+        "resolved_rate": 0.5,
+        "resolved_rate_lower_bound": 0.5,
+        "cost_cny_recorded": 2.05192828,
+        "cost_complete": true,
+        "cost_per_resolved_cny": 0.205192828,
+        "resources": {
+          "token": {
+            "recorded_total": 1388453.0,
+            "complete": true,
+            "mean_per_task": 69422.65,
+            "per_resolved": 138845.3
+          },
+          "model_call": {
+            "recorded_total": 113.0,
+            "complete": true,
+            "mean_per_task": 5.65,
+            "per_resolved": 11.3
+          },
+          "tool_call": {
+            "recorded_total": 364.0,
+            "complete": true,
+            "mean_per_task": 18.2,
+            "per_resolved": 36.4
+          },
+          "wallclock_seconds": {
+            "recorded_total": 2325.7347407000307,
+            "complete": true,
+            "mean_per_task": 116.28673703500154,
+            "per_resolved": 232.57347407000307
+          }
+        },
+        "per_repo": {
+          "astropy__astropy": {
+            "total": 1,
+            "resolved": 1,
+            "status_counts": {
+              "resolved": 1
+            },
+            "resolved_rate": 1.0
+          },
+          "django__django": {
+            "total": 4,
+            "resolved": 4,
+            "status_counts": {
+              "resolved": 4
+            },
+            "resolved_rate": 1.0
+          },
+          "matplotlib__matplotlib": {
+            "total": 2,
+            "resolved": 1,
+            "status_counts": {
+              "ambiguous_error": 1,
+              "resolved": 1
+            },
+            "resolved_rate": 0.5
+          },
+          "mwaskom__seaborn": {
+            "total": 1,
+            "resolved": 1,
+            "status_counts": {
+              "resolved": 1
+            },
+            "resolved_rate": 1.0
+          },
+          "pallets__flask": {
+            "total": 1,
+            "resolved": 0,
+            "status_counts": {
+              "ambiguous_error": 1
+            },
+            "resolved_rate": 0.0
+          },
+          "psf__requests": {
+            "total": 1,
+            "resolved": 0,
+            "status_counts": {
+              "ambiguous_error": 1
+            },
+            "resolved_rate": 0.0
+          },
+          "pydata__xarray": {
+            "total": 1,
+            "resolved": 0,
+            "status_counts": {
+              "unresolved": 1
+            },
+            "resolved_rate": 0.0
+          },
+          "pylint-dev__pylint": {
+            "total": 1,
+            "resolved": 0,
+            "status_counts": {
+              "infra_error": 1
+            },
+            "resolved_rate": 0.0
+          },
+          "pytest-dev__pytest": {
+            "total": 2,
+            "resolved": 1,
+            "status_counts": {
+              "resolved": 1,
+              "ambiguous_error": 1
+            },
+            "resolved_rate": 0.5
+          },
+          "scikit-learn__scikit-learn": {
+            "total": 2,
+            "resolved": 1,
+            "status_counts": {
+              "unresolved": 1,
+              "resolved": 1
+            },
+            "resolved_rate": 0.5
+          },
+          "sphinx-doc__sphinx": {
+            "total": 1,
+            "resolved": 0,
+            "status_counts": {
+              "unresolved": 1
+            },
+            "resolved_rate": 0.0
+          },
+          "sympy__sympy": {
+            "total": 3,
+            "resolved": 1,
+            "status_counts": {
+              "resolved": 1,
+              "empty_patch": 1,
+              "unresolved": 1
+            },
+            "resolved_rate": 0.3333333333333333
+          }
+        },
+        "repository_macro_average": 0.40277777777777773
+      },
+      "unknown_verdict_instances": [],
+      "unknown_semantic_verdict_instances": [
+        "matplotlib__matplotlib-23987",
+        "pallets__flask-4045",
+        "psf__requests-1963",
+        "pylint-dev__pylint-7114",
+        "pytest-dev__pytest-8906"
+      ]
+    },
+    "D": {
+      "tag": "test20_D_20261112_01",
+      "prediction_count": 20,
+      "actual_new_model_requests": 66,
+      "actual_new_generation_cost_cny": 1.25043322,
+      "full_strategy_cost_including_inherited_prefix_cny": 2.87039734,
+      "actual_new_request_price_tier_counts": {
+        "off_peak": 66
+      },
+      "full_strategy_request_price_tier_counts": {
+        "off_peak": 122
+      },
+      "full_strategy_observed_token_mix": {
+        "cache_hit_tokens": 895867,
+        "cache_miss_tokens": 246104,
+        "output_tokens": 651594
+      },
+      "user_requested_full_strategy_cost_at_uniform_frozen_off_peak_prices_cny": 2.87039734,
+      "user_requested_actual_new_generation_cost_at_uniform_frozen_off_peak_prices_cny": 1.2504332200000001,
+      "generation_statuses": {
+        "completed": 9,
+        "environment_error": 6,
+        "budget_exhausted": 5
+      },
+      "independent_evaluation": {
+        "designated_instances": 20,
+        "repeats": 1,
+        "total": 20,
+        "resolved": 7,
+        "complete": true,
+        "status_counts": {
+          "resolved": 7,
+          "empty_patch": 2,
+          "ambiguous_error": 6,
+          "unresolved": 5
+        },
+        "resolved_rate": 0.35,
+        "resolved_rate_lower_bound": 0.35,
+        "cost_cny_recorded": 2.87039734,
+        "cost_complete": true,
+        "cost_per_resolved_cny": 0.4100567628571428,
+        "resources": {
+          "token": {
+            "recorded_total": 1793565.0,
+            "complete": true,
+            "mean_per_task": 89678.25,
+            "per_resolved": 256223.57142857142
+          },
+          "model_call": {
+            "recorded_total": 122.0,
+            "complete": true,
+            "mean_per_task": 6.1,
+            "per_resolved": 17.428571428571427
+          },
+          "tool_call": {
+            "recorded_total": 394.0,
+            "complete": true,
+            "mean_per_task": 19.7,
+            "per_resolved": 56.285714285714285
+          },
+          "wallclock_seconds": {
+            "recorded_total": 3505.5283877000284,
+            "complete": true,
+            "mean_per_task": 175.27641938500142,
+            "per_resolved": 500.7897696714326
+          }
+        },
+        "per_repo": {
+          "astropy__astropy": {
+            "total": 1,
+            "resolved": 1,
+            "status_counts": {
+              "resolved": 1
+            },
+            "resolved_rate": 1.0
+          },
+          "django__django": {
+            "total": 4,
+            "resolved": 3,
+            "status_counts": {
+              "empty_patch": 1,
+              "resolved": 3
+            },
+            "resolved_rate": 0.75
+          },
+          "matplotlib__matplotlib": {
+            "total": 2,
+            "resolved": 1,
+            "status_counts": {
+              "ambiguous_error": 1,
+              "resolved": 1
+            },
+            "resolved_rate": 0.5
+          },
+          "mwaskom__seaborn": {
+            "total": 1,
+            "resolved": 0,
+            "status_counts": {
+              "empty_patch": 1
+            },
+            "resolved_rate": 0.0
+          },
+          "pallets__flask": {
+            "total": 1,
+            "resolved": 0,
+            "status_counts": {
+              "ambiguous_error": 1
+            },
+            "resolved_rate": 0.0
+          },
+          "psf__requests": {
+            "total": 1,
+            "resolved": 0,
+            "status_counts": {
+              "ambiguous_error": 1
+            },
+            "resolved_rate": 0.0
+          },
+          "pydata__xarray": {
+            "total": 1,
+            "resolved": 0,
+            "status_counts": {
+              "unresolved": 1
+            },
+            "resolved_rate": 0.0
+          },
+          "pylint-dev__pylint": {
+            "total": 1,
+            "resolved": 0,
+            "status_counts": {
+              "ambiguous_error": 1
+            },
+            "resolved_rate": 0.0
+          },
+          "pytest-dev__pytest": {
+            "total": 2,
+            "resolved": 0,
+            "status_counts": {
+              "ambiguous_error": 2
+            },
+            "resolved_rate": 0.0
+          },
+          "scikit-learn__scikit-learn": {
+            "total": 2,
+            "resolved": 1,
+            "status_counts": {
+              "unresolved": 1,
+              "resolved": 1
+            },
+            "resolved_rate": 0.5
+          },
+          "sphinx-doc__sphinx": {
+            "total": 1,
+            "resolved": 0,
+            "status_counts": {
+              "unresolved": 1
+            },
+            "resolved_rate": 0.0
+          },
+          "sympy__sympy": {
+            "total": 3,
+            "resolved": 1,
+            "status_counts": {
+              "resolved": 1,
+              "unresolved": 2
+            },
+            "resolved_rate": 0.3333333333333333
+          }
+        },
+        "repository_macro_average": 0.2569444444444445
+      },
+      "unknown_verdict_instances": [],
+      "unknown_semantic_verdict_instances": [
+        "matplotlib__matplotlib-23987",
+        "pallets__flask-4045",
+        "psf__requests-1963",
+        "pylint-dev__pylint-7114",
+        "pytest-dev__pytest-6116",
+        "pytest-dev__pytest-8906"
+      ]
+    },
+    "E": {
+      "tag": "test20_E_20261112_01",
+      "prediction_count": 20,
+      "actual_new_model_requests": 67,
+      "actual_new_generation_cost_cny": 3.71834734,
+      "full_strategy_cost_including_inherited_prefix_cny": 5.33831146,
+      "actual_new_request_price_tier_counts": {
+        "off_peak": 13,
+        "peak": 54
+      },
+      "full_strategy_request_price_tier_counts": {
+        "off_peak": 69,
+        "peak": 54
+      },
+      "full_strategy_observed_token_mix": {
+        "cache_hit_tokens": 1194745,
+        "cache_miss_tokens": 231363,
+        "output_tokens": 827903
+      },
+      "user_requested_full_strategy_cost_at_uniform_frozen_off_peak_prices_cny": 3.5668699,
+      "user_requested_actual_new_generation_cost_at_uniform_frozen_off_peak_prices_cny": 1.94690578,
+      "generation_statuses": {
+        "completed": 13,
+        "environment_error": 6,
+        "budget_exhausted": 1
+      },
+      "independent_evaluation": {
+        "designated_instances": 20,
+        "repeats": 1,
+        "total": 20,
+        "resolved": 8,
+        "complete": true,
+        "status_counts": {
+          "resolved": 8,
+          "ambiguous_error": 6,
+          "empty_patch": 3,
+          "unresolved": 3
+        },
+        "resolved_rate": 0.4,
+        "resolved_rate_lower_bound": 0.4,
+        "cost_cny_recorded": 5.33831146,
+        "cost_complete": true,
+        "cost_per_resolved_cny": 0.6672889325,
+        "resources": {
+          "token": {
+            "recorded_total": 2254011.0,
+            "complete": true,
+            "mean_per_task": 112700.55,
+            "per_resolved": 281751.375
+          },
+          "model_call": {
+            "recorded_total": 123.0,
+            "complete": true,
+            "mean_per_task": 6.15,
+            "per_resolved": 15.375
+          },
+          "tool_call": {
+            "recorded_total": 414.0,
+            "complete": true,
+            "mean_per_task": 20.7,
+            "per_resolved": 51.75
+          },
+          "wallclock_seconds": {
+            "recorded_total": 4584.8077053000325,
+            "complete": true,
+            "mean_per_task": 229.24038526500163,
+            "per_resolved": 573.1009631625041
+          }
+        },
+        "per_repo": {
+          "astropy__astropy": {
+            "total": 1,
+            "resolved": 1,
+            "status_counts": {
+              "resolved": 1
+            },
+            "resolved_rate": 1.0
+          },
+          "django__django": {
+            "total": 4,
+            "resolved": 4,
+            "status_counts": {
+              "resolved": 4
+            },
+            "resolved_rate": 1.0
+          },
+          "matplotlib__matplotlib": {
+            "total": 2,
+            "resolved": 1,
+            "status_counts": {
+              "ambiguous_error": 1,
+              "resolved": 1
+            },
+            "resolved_rate": 0.5
+          },
+          "mwaskom__seaborn": {
+            "total": 1,
+            "resolved": 0,
+            "status_counts": {
+              "empty_patch": 1
+            },
+            "resolved_rate": 0.0
+          },
+          "pallets__flask": {
+            "total": 1,
+            "resolved": 0,
+            "status_counts": {
+              "ambiguous_error": 1
+            },
+            "resolved_rate": 0.0
+          },
+          "psf__requests": {
+            "total": 1,
+            "resolved": 0,
+            "status_counts": {
+              "ambiguous_error": 1
+            },
+            "resolved_rate": 0.0
+          },
+          "pydata__xarray": {
+            "total": 1,
+            "resolved": 0,
+            "status_counts": {
+              "empty_patch": 1
+            },
+            "resolved_rate": 0.0
+          },
+          "pylint-dev__pylint": {
+            "total": 1,
+            "resolved": 0,
+            "status_counts": {
+              "ambiguous_error": 1
+            },
+            "resolved_rate": 0.0
+          },
+          "pytest-dev__pytest": {
+            "total": 2,
+            "resolved": 0,
+            "status_counts": {
+              "ambiguous_error": 2
+            },
+            "resolved_rate": 0.0
+          },
+          "scikit-learn__scikit-learn": {
+            "total": 2,
+            "resolved": 1,
+            "status_counts": {
+              "unresolved": 1,
+              "resolved": 1
+            },
+            "resolved_rate": 0.5
+          },
+          "sphinx-doc__sphinx": {
+            "total": 1,
+            "resolved": 0,
+            "status_counts": {
+              "unresolved": 1
+            },
+            "resolved_rate": 0.0
+          },
+          "sympy__sympy": {
+            "total": 3,
+            "resolved": 1,
+            "status_counts": {
+              "resolved": 1,
+              "empty_patch": 1,
+              "unresolved": 1
+            },
+            "resolved_rate": 0.3333333333333333
+          }
+        },
+        "repository_macro_average": 0.2777777777777778
+      },
+      "unknown_verdict_instances": [],
+      "unknown_semantic_verdict_instances": [
+        "matplotlib__matplotlib-23987",
+        "pallets__flask-4045",
+        "psf__requests-1963",
+        "pylint-dev__pylint-7114",
+        "pytest-dev__pytest-6116",
+        "pytest-dev__pytest-8906"
+      ]
+    }
+  },
+  "price_table_date": "2026-10-15",
+  "price_reporting_user_amendment_sha256": "cda1f29694eca5973399efc654574566f5b43b479a3da7b17af3821c8b89692b",
+  "uniform_off_peak_comparative_reporting_user_requested_during_generation_before_formal_verdicts": true,
+  "price_and_observed_server_cache_order_are_cost_comparison_limitations": true,
+  "formal_finish_reasons": {
+    "stop": 164,
+    "length": 67,
+    "tool_calls": 203
+  },
+  "is_invoice_or_account_balance": false,
+  "B8_historical_responses_rebooked": false,
+  "at": "2026-11-12T05:23:59.152256+00:00"
+}

@@ -1,0 +1,137 @@
+{
+  "kind": "independent_scoring_readiness_review",
+  "date": "2026-11-11",
+  "status": "source_and_host_ready_engine_start_pending_environment_agent",
+  "model_calls": 0,
+  "credentials_read": false,
+  "hidden_rows_or_logs_read": false,
+  "score_containers_started": 0,
+  "new_scores_produced": false,
+  "host": {
+    "python": "3.14.2",
+    "virtualenv": ".venv/Scripts/python.exe",
+    "modules": {
+      "requests": true,
+      "pyarrow": true,
+      "swebench": false
+    }
+  },
+  "docker": {
+    "executable": "C:/Program Files/Docker/Docker/resources/bin/docker.exe",
+    "context": "desktop-linux",
+    "initial_inspection": "daemon pipe dockerDesktopLinuxEngine unavailable; startup belongs to environment agent"
+  },
+  "controller": {
+    "recommended_tag": "swe-repair/scoring-controller:20261106-cli",
+    "historical_verified_image_id": "sha256:1f43c83b3d3c631d37af54a19828df269accd045a22c62c0aab5b2bfa713726f",
+    "actual_image_id_this_round": null,
+    "harness": "5.0.2",
+    "linux_docker_cli": "29.9.2",
+    "blocked_fallback_image": "sha256:123849a78746d803a2b646170562856056621673f02d9f4ab11c6f150b732aef",
+    "blocked_fallback_reason": "initial controller lacks Linux Docker CLI needed by official cleanup; use cli-suffixed build"
+  },
+  "requirements_before_each_score": [
+    "generation matrix has one non-running case for every designated instance",
+    "all matrix/predictions immutable and exact patches/hash identity valid",
+    "new scoring/ and controller/ directories",
+    "current immutable controller image resolved after daemon starts",
+    "prepared image IDs equal generation configuration and base commit identity",
+    "do not return hidden harness console/logs to generation context"
+  ],
+  "template_commands": {
+    "plan": [
+      ".venv/Scripts/python.exe",
+      "scripts/score_run.py",
+      "runs/<new_run_tag>",
+      "--controller-image",
+      "swe-repair/scoring-controller:20261106-cli",
+      "--max-workers",
+      "1"
+    ],
+    "execute": [
+      ".venv/Scripts/python.exe",
+      "scripts/score_run.py",
+      "runs/<new_run_tag>",
+      "--controller-image",
+      "swe-repair/scoring-controller:20261106-cli",
+      "--max-workers",
+      "1",
+      "--execute"
+    ],
+    "dev_analyze": [
+      ".venv/Scripts/python.exe",
+      "scripts/analyse_cf.py",
+      "--matrix",
+      "runs/<dev_tag>/matrix.json",
+      "--report",
+      "FIXED=runs/<dev_tag>/scoring/FIXED/<dev_tag>-FIXED.<dev_tag>.json",
+      "--report",
+      "ESC=runs/<dev_tag>/scoring/ESC/<dev_tag>-ESC.<dev_tag>.json",
+      "--report",
+      "A=runs/<dev_tag>/scoring/A/<dev_tag>-A.<dev_tag>.json",
+      "--report",
+      "B=runs/<dev_tag>/scoring/B/<dev_tag>-B.<dev_tag>.json",
+      "--out",
+      "runs/<dev_tag>/analysis.json",
+      "--records-out",
+      "runs/<dev_tag>/evaluated_records.jsonl"
+    ],
+    "dev_calibrate": [
+      ".venv/Scripts/python.exe",
+      "scripts/calibrate_router.py",
+      "--observations",
+      "runs/<dev_tag>/analysis.json",
+      "--config",
+      "configs/<actual_dev_generation_config>.json",
+      "--out",
+      "runs/<dev_tag>/calibration_candidate.json"
+    ],
+    "formal_analyze": [
+      ".venv/Scripts/python.exe",
+      "scripts/analyse_cf.py",
+      "--matrix",
+      "runs/<formal_arm_tag>/matrix.json",
+      "--report",
+      "<ARM>=runs/<formal_arm_tag>/scoring/<ARM>/<formal_arm_tag>-<ARM>.<formal_arm_tag>.json",
+      "--out",
+      "runs/<formal_arm_tag>/analysis.json",
+      "--records-out",
+      "runs/<formal_arm_tag>/evaluated_records.jsonl"
+    ]
+  },
+  "dataset_binding": {
+    "source_protected": true,
+    "planning_reads_hidden_rows": false,
+    "prepared_image_override": "evaluation-only scoring/evaluation_dataset.json created only after prediction freeze; source parquet untouched",
+    "mounts": "src/scripts/data-harness read-only; one chosen run writable with matrix/predictions remounted read-only; no .env or whole-workspace mount"
+  },
+  "calibration_binding": [
+    "analysis mode diagnostic and split dev",
+    "complete designated prefix population, every eligible serialized snapshot, source config/hash and matching state budgets",
+    "FIXED and ESC valid independent labels only create observations; missing labels explicit",
+    "all eligible_prefixes replay supplies E probability, not branch win-rate or complete-case subset",
+    "calibration script strips provenance only for configuration equivalence, retaining actual source hash and snapshot identity",
+    "candidate remains pending/live false; explicit audited freeze required before test"
+  ],
+  "formal_summary_requirements": [
+    "20 fixed instances x A-E x repeat0 =100 formal audited records",
+    "seed20261111 and one frozen effective config hash across arms",
+    "five independently scored reports plus provenance and exact prediction/patch SHA",
+    "preregistration and raw manifest byte SHA binding",
+    "unknown verdict explicit not_scored with unknown full resolved rate",
+    "infrastructure/empty_patch/unresolved/resolved separate",
+    "original20 denominator retained; common-runnable subset secondary",
+    "no CI/significance; zero resolved cost undefined; unknown usage not precise spend"
+  ],
+  "implementation_assessment": "No required scoring implementation gap found in current code; real controller and environment validation remain pending.",
+  "source_sha256": {
+    "scripts/score_run.py": "9e9e45bafb17944b142ecdfc4e7e1e4e40621536dc852d219c7fd640408814f8",
+    "scripts/analyse_cf.py": "0cfd2e3c26857cd40a6d722002d91d9551fc7f60a08c20e15d573bdb330d0d9f",
+    "scripts/calibrate_router.py": "9c9568843f90049319ee0553fbb2150e10730258cb119a1502dc5702b58d3943",
+    "scripts/summarize_single_run.py": "a4b83b781194b9de24edc48f193309152d4b1f631f29f79212c87ee36f84f387",
+    "src/swe_repair/evaluation.py": "8c178fcaa9fc413829b2dac8a7a695afb6d7462806e161172c9bd9497a0299d2",
+    "src/swe_repair/calibration.py": "0ac1012191b66b5d34a293a950b112cd324dab6850b1434593b7436d30f9ffd7",
+    "docker/scoring/README.md": "f87546ba8fd715ca6ec9678836e6f44e719e7c42b0c9ddc047f9481f0d345014",
+    "docker/scoring/Dockerfile.cleanup": "1a8a639b44139b5d86dbfac573fa99c60ce32c9d19b80a56050e4ac38142d75b"
+  }
+}

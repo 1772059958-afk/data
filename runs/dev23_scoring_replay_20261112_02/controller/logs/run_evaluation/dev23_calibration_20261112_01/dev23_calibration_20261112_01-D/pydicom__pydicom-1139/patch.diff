@@ -1,0 +1,11 @@
+--- a/pydicom/valuerep.py
++++ b/pydicom/valuerep.py
+@@ -1035,5 +1035,8 @@ class PersonName:
+     def __str__(self):
+         return '='.join(self.components).__str__()
+ 
++    def __iter__(self):
++        return iter(str(self))
++
+     def __repr__(self):
+         return '='.join(self.components).__repr__()

@@ -1,0 +1,78 @@
+{
+  "kind": "review_only_after_all_formal_predictions_sealed",
+  "instance_id": "django__django-11910",
+  "repo": "django/django",
+  "base_commit": "d232fd76a85870daf345fd8f8d617fe7802ae194",
+  "issue": "ForeignKey's to_field parameter gets the old field's name when renaming a PrimaryKey.\nDescription\n\t\nHaving these two models \nclass ModelA(models.Model):\n\tfield_wrong = models.CharField('field1', max_length=50, primary_key=True) # I'm a Primary key.\nclass ModelB(models.Model):\n\tfield_fk = models.ForeignKey(ModelA, blank=True, null=True, on_delete=models.CASCADE) \n... migrations applyed ...\nthe ModelA.field_wrong field has been renamed ... and Django recognizes the \"renaming\"\n# Primary key renamed\nclass ModelA(models.Model):\n\tfield_fixed = models.CharField('field1', max_length=50, primary_key=True) # I'm a Primary key.\nAttempts to to_field parameter. \nThe to_field points to the old_name (field_typo) and not to the new one (\"field_fixed\")\nclass Migration(migrations.Migration):\n\tdependencies = [\n\t\t('app1', '0001_initial'),\n\t]\n\toperations = [\n\t\tmigrations.RenameField(\n\t\t\tmodel_name='modela',\n\t\t\told_name='field_wrong',\n\t\t\tnew_name='field_fixed',\n\t\t),\n\t\tmigrations.AlterField(\n\t\t\tmodel_name='modelb',\n\t\t\tname='modela',\n\t\t\tfield=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='app1.ModelB', to_field='field_wrong'),\n\t\t),\n\t]\n",
+  "developer_reference_patch": "diff --git a/django/db/migrations/autodetector.py b/django/db/migrations/autodetector.py\n--- a/django/db/migrations/autodetector.py\n+++ b/django/db/migrations/autodetector.py\n@@ -927,6 +927,10 @@ def generate_altered_fields(self):\n                 if remote_field_name:\n                     to_field_rename_key = rename_key + (remote_field_name,)\n                     if to_field_rename_key in self.renamed_fields:\n+                        # Repoint both model and field name because to_field\n+                        # inclusion in ForeignKey.deconstruct() is based on\n+                        # both.\n+                        new_field.remote_field.model = old_field.remote_field.model\n                         new_field.remote_field.field_name = old_field.remote_field.field_name\n                 # Handle ForeignObjects which can have multiple from_fields/to_fields.\n                 from_fields = getattr(new_field, 'from_fields', None)\n",
+  "unique_submitted_patches": [
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch": "",
+      "arms": [
+        "A",
+        "D"
+      ]
+    },
+    {
+      "sha256": "6b1ad2f84f7f675460d8cf7ef13ebc5cd88c9c978764ac4b270b5994378ef88d",
+      "patch": "--- a/django/db/migrations/autodetector.py\n+++ b/django/db/migrations/autodetector.py\n@@ -926,7 +926,11 @@ class MigrationAutodetector:\n                 if remote_field_name:\n                     to_field_rename_key = rename_key + (remote_field_name,)\n                     if to_field_rename_key in self.renamed_fields:\n-                        new_field.remote_field.field_name = old_field.remote_field.field_name\n+                        # Repoint both model and field name because to_field\n+                        # inclusion in ForeignKey.deconstruct() is based on\n+                        # both.\n+                        new_field.remote_field.model = old_field.remote_field.model\n+                        new_field.remote_field.field_name = old_field.remote_field.field_name\n                 # Handle ForeignObjects which can have multiple from_fields/to_fields.\n                 from_fields = getattr(new_field, 'from_fields', None)\n                 if from_fields:\n",
+      "arms": [
+        "B"
+      ]
+    },
+    {
+      "sha256": "7438737490a3752b81c495ad70af945bf5180f89b4e97916f360e137797b16e3",
+      "patch": "--- a/django/db/migrations/autodetector.py\n+++ b/django/db/migrations/autodetector.py\n@@ -926,8 +926,12 @@\n                 # Handle ForeignKey which can only have a single to_field.\n                 remote_field_name = getattr(new_field.remote_field, 'field_name', None)\n                 if remote_field_name:\n                     to_field_rename_key = rename_key + (remote_field_name,)\n                     if to_field_rename_key in self.renamed_fields:\n+                        # Repoint both model and field name because to_field\n+                        # inclusion in ForeignKey.deconstruct() is based on\n+                        # both.\n+                        new_field.remote_field.model = old_field.remote_field.model\n                         new_field.remote_field.field_name = old_field.remote_field.field_name\n                 # Handle ForeignObjects which can have multiple from_fields/to_fields.\n                 from_fields = getattr(new_field, 'from_fields', None)\n",
+      "arms": [
+        "C"
+      ]
+    },
+    {
+      "sha256": "bb829784eb0845da7c4092dc9e1deb69c3db50d62b48cf968c0f7ea391141746",
+      "patch": "--- a/django/db/migrations/autodetector.py\n+++ b/django/db/migrations/autodetector.py\n@@ -926,6 +926,10 @@\n                 # Handle ForeignKey which can only have a single to_field.\n                 remote_field_name = getattr(new_field.remote_field, 'field_name', None)\n                 if remote_field_name:\n                     to_field_rename_key = rename_key + (remote_field_name,)\n                     if to_field_rename_key in self.renamed_fields:\n+                        # Repoint both model and field name because to_field\n+                        # inclusion in ForeignKey.deconstruct() is based on\n+                        # both.\n+                        new_field.remote_field.model = old_field.remote_field.model\n                         new_field.remote_field.field_name = old_field.remote_field.field_name\n",
+      "arms": [
+        "E"
+      ]
+    }
+  ],
+  "submissions": {
+    "A": {
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "official_status": "empty_patch",
+      "generation_status": "completed",
+      "route": "fixed",
+      "source_matrix": "runs\\test20_A_20261112_01\\matrix.json"
+    },
+    "B": {
+      "patch_sha256": "6b1ad2f84f7f675460d8cf7ef13ebc5cd88c9c978764ac4b270b5994378ef88d",
+      "official_status": "resolved",
+      "generation_status": "environment_error",
+      "route": "standalone",
+      "source_matrix": "runs\\test20_B_20261112_02\\matrix.json"
+    },
+    "C": {
+      "patch_sha256": "7438737490a3752b81c495ad70af945bf5180f89b4e97916f360e137797b16e3",
+      "official_status": "resolved",
+      "generation_status": "environment_error",
+      "route": "interactive",
+      "source_matrix": "runs\\test20_C_20261112_01\\matrix.json"
+    },
+    "D": {
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "official_status": "empty_patch",
+      "generation_status": "completed",
+      "route": "fixed",
+      "source_matrix": "runs\\test20_D_20261112_01\\matrix.json"
+    },
+    "E": {
+      "patch_sha256": "bb829784eb0845da7c4092dc9e1deb69c3db50d62b48cf968c0f7ea391141746",
+      "official_status": "resolved",
+      "generation_status": "environment_error",
+      "route": "interactive",
+      "source_matrix": "runs\\test20_E_20261112_01\\matrix.json"
+    }
+  },
+  "generation_import_prohibited": true,
+  "reference_is_not_a_textual_equality_oracle": true
+}

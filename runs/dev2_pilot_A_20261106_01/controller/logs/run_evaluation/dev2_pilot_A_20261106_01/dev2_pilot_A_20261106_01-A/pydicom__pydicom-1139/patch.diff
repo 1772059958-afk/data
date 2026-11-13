@@ -1,0 +1,11 @@
+--- a/pydicom/valuerep.py
++++ b/pydicom/valuerep.py
+@@ -727,5 +727,8 @@
+     def __hash__(self):
+         return hash(self.components)
+ 
++    def __iter__(self):
++        yield from str(self)
++
+     def decode(self, encodings=None):
+         """Return the patient name decoded by the given `encodings`.

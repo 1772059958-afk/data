@@ -1,0 +1,7 @@
+Looking in links: /public-wheels
+Processing /public-wheels/wrapt-1.13.3-cp39-cp39-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_12_x86_64.manylinux2010_x86_64.whl (from -r /public-profile.lock (line 5))
+Processing /public-wheels/lazy_object_proxy-1.10.0-cp39-cp39-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (from -r /public-profile.lock (line 6))
+Installing collected packages: wrapt, lazy-object-proxy
+
+Successfully installed lazy-object-proxy-1.10.0 wrapt-1.13.3
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.

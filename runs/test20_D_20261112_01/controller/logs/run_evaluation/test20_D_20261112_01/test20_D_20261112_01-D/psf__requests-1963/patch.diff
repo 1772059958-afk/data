@@ -1,0 +1,13 @@
+--- a/requests/sessions.py
++++ b/requests/sessions.py
+@@ -166,7 +166,10 @@ class SessionRedirectMixin(object):
+             new_auth = get_netrc_auth(url) if self.trust_env else None
+             if new_auth is not None:
+                 prepared_request.prepare_auth(new_auth)
+ 
++            # Override the original request.
++            req = prepared_request
++
+             resp = self.send(
+                 prepared_request,
+                 stream=stream,

@@ -1,0 +1,95 @@
+{
+  "files": [
+    {
+      "path": "src/swe_repair/__init__.py",
+      "sha256": "7601d785831bc507c8c3393ffaeaf1a95d084f138d3ca075027596afe4b46858"
+    },
+    {
+      "path": "src/swe_repair/batch_ledger.py",
+      "sha256": "5b7be9ff47a3281eaf2f03942ba456f1c39136b2a02d97e5844c4336892a48a0"
+    },
+    {
+      "path": "src/swe_repair/budget.py",
+      "sha256": "c877a1c9e5e3bddae24b89164653931e3ecb3f8eb138f184951bd19494a1bd7f"
+    },
+    {
+      "path": "src/swe_repair/calibration.py",
+      "sha256": "0ac1012191b66b5d34a293a950b112cd324dab6850b1434593b7436d30f9ffd7"
+    },
+    {
+      "path": "src/swe_repair/cf.py",
+      "sha256": "0dd225cd78ce813e754c40243d1b24876c1e4b94c76f1077ea792d74486e8025"
+    },
+    {
+      "path": "src/swe_repair/evaluation.py",
+      "sha256": "8c178fcaa9fc413829b2dac8a7a695afb6d7462806e161172c9bd9497a0299d2"
+    },
+    {
+      "path": "src/swe_repair/execution.py",
+      "sha256": "ecbba11a50eb704ea8d80a4edf727d5baf2fdb36e81b80b9ba8176deee6d0d0d"
+    },
+    {
+      "path": "src/swe_repair/experiment.py",
+      "sha256": "c93dd3831afb629683802dedcffa5524f46ce222fc10fdaf5cd22aba9c0ff72a"
+    },
+    {
+      "path": "src/swe_repair/feedback.py",
+      "sha256": "e233cfdf87dd62aa533e59b37a3257c06373c2496bcc356abf328f0d987f5d12"
+    },
+    {
+      "path": "src/swe_repair/fingerprint.py",
+      "sha256": "d7ed58eb7b7202fa2b5b9be023dc31d2e22730cbbd0ce1120790b3ecd8e5da83"
+    },
+    {
+      "path": "src/swe_repair/interact.py",
+      "sha256": "1f0700cb35f4ceafebe5c60084a4efa9304931cea62cf2e7fe01a39254fa6fdd"
+    },
+    {
+      "path": "src/swe_repair/llm.py",
+      "sha256": "d72a7f6e0b5f8854877d39c36c177f806751a2acfe454c4c55dd2bdc7c226e84"
+    },
+    {
+      "path": "src/swe_repair/patchutil.py",
+      "sha256": "da2d09160faefb57f41e91cf369170f5c71437d35ac5df0e009e6896ee49e8f3"
+    },
+    {
+      "path": "src/swe_repair/prefix.py",
+      "sha256": "3cc608fe81b8ea35a447e99830707afe6bc700447460120bb43d5ff46a73e4b5"
+    },
+    {
+      "path": "src/swe_repair/pricing.py",
+      "sha256": "561ffd2040541887e3b61949bd5d3ac1dc2400fa91312ce6210facf4c29630db"
+    },
+    {
+      "path": "src/swe_repair/router.py",
+      "sha256": "d1867d57704266f554ac17235ac34b3cd32d242a07314443932e927626c88cdf"
+    },
+    {
+      "path": "src/swe_repair/runlog.py",
+      "sha256": "a5311ae21a3a40d2d74b366d63a6454acfafa6863d1a4792b2b05f05e5cbdb48"
+    },
+    {
+      "path": "src/swe_repair/spend.py",
+      "sha256": "130a2f4291e9d4312fc8f1379d530f8c318deadebd9fdd7816a0592c011209a0"
+    },
+    {
+      "path": "src/swe_repair/state.py",
+      "sha256": "2d0b0c5d84180b90a14df846b5c6096803723311b35aec7f7cebc4506b4a674c"
+    },
+    {
+      "path": "src/swe_repair/statistics.py",
+      "sha256": "5d95441c326779871ef513c8ed2d27b949a46f94d0c46d1283c8a80d675871b7"
+    },
+    {
+      "path": "scripts/run_cf.py",
+      "sha256": "e5af471db0bb679958677ae8217259e87b6829a5259a9fc233bc6141fd4de4ef"
+    },
+    {
+      "path": "scripts/run_dev_supplement.py",
+      "sha256": "2b46b4ffe5398b96aacd3df4e6b4097884f125d143345aece6ad69cc96a4ef66"
+    }
+  ],
+  "offline_tests": "399/399",
+  "validation_log": "runs/dev_supplement_preflight_20261112_03.log",
+  "original_and_archive_preservation": "runs/dev_supplement_preservation_20261112.log"
+}

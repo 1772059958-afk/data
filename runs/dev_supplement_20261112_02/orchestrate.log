@@ -1,0 +1,15 @@
+Traceback (most recent call last):
+  File "C:\Users\remil\Desktop\3yr\科研\proj\runs\dev_supplement_20261112_02\orchestrate.py", line 95, in <module>
+    try:main()
+        ~~~~^^
+  File "C:\Users\remil\Desktop\3yr\科研\proj\runs\dev_supplement_20261112_02\orchestrate.py", line 66, in main
+    run(e['variant']+'_generation',[ROOT/'scripts/run_dev_supplement.py','--config',ROOT/e['path'],
+    ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        '--mode','diagnostic','--split','dev','--calibration','--arm','D','--seed',str(protocol['seed']),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        '--repeat-index','0','--instances-file',OUT/'panel.json','--tag',e['tag'],'--execute','--allow-paid'])
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\remil\Desktop\3yr\科研\proj\runs\dev_supplement_20261112_02\orchestrate.py", line 35, in run
+    if code:raise RuntimeError(label+' stopped; inspect preserved outputs, never automatically retry')
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: no_stagnation_generation stopped; inspect preserved outputs, never automatically retry

@@ -1,0 +1,12 @@
+{
+  "status": "authorized_work_build_and_preview_cleanup_complete",
+  "net_free_increase_bytes": 972009472,
+  "free_C_after_bytes": 11011125248,
+  "free_C_before_bytes": 10039115776,
+  "no_experiment_or_model_execution": true,
+  "source_and_records_preserved_bytes": 133456857,
+  "preserved_file_count": 1833,
+  "deleted_tree_logical_bytes": 1295556280,
+  "deleted_absolute_path": "C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\work",
+  "at": "2026-11-13T02:58:52.1942103+08:00"
+}

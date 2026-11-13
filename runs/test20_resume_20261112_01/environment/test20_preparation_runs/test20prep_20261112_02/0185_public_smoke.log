@@ -1,0 +1,132 @@
+........................F.F.sss.s............                            [100%]
+=================================== FAILURES ===================================
+________________________ test_locator_to_legend_entries ________________________
+
+    def test_locator_to_legend_entries():
+    
+        locator = mpl.ticker.MaxNLocator(nbins=3)
+        limits = (0.09, 0.4)
+        levels, str_levels = utils.locator_to_legend_entries(
+            locator, limits, float
+        )
+        assert str_levels == ["0.15", "0.30"]
+    
+        limits = (0.8, 0.9)
+        levels, str_levels = utils.locator_to_legend_entries(
+            locator, limits, float
+        )
+        assert str_levels == ["0.80", "0.84", "0.88"]
+    
+        limits = (1, 6)
+        levels, str_levels = utils.locator_to_legend_entries(locator, limits, int)
+        assert str_levels == ["2", "4", "6"]
+    
+        locator = mpl.ticker.LogLocator(numticks=5)
+        limits = (5, 1425)
+        levels, str_levels = utils.locator_to_legend_entries(locator, limits, int)
+        if Version(mpl.__version__) >= Version("3.1"):
+            assert str_levels == ['10', '100', '1000']
+    
+        limits = (0.00003, 0.02)
+        levels, str_levels = utils.locator_to_legend_entries(
+            locator, limits, float
+        )
+        if Version(mpl.__version__) >= Version("3.1"):
+>           assert str_levels == ['1e-04', '1e-03', '1e-02']
+E           AssertionError: assert ['1e−04', '1e−03', '1e−02'] == ['1e-04', '1e-03', '1e-02']
+E             
+E             At index 0 diff: '1e−04' != '1e-04'
+E             Use -v to get more diff
+
+tests/test_utils.py:335: AssertionError
+_________________________ test_move_legend_grid_object _________________________
+
+long_df =      x         y         z  a  b  ...  s    f a_cat  s_cat  s_str
+0   12  0.449243  6.611886  b  p  ...  2  0.2     b ...  8  0.3     a      8      8
+99  15  0.073484  1.036343  c  p  ...  8  0.2     c      8      8
+
+[100 rows x 13 columns]
+
+    def test_move_legend_grid_object(long_df):
+    
+        from seaborn.axisgrid import FacetGrid
+    
+        hue_var = "a"
+        g = FacetGrid(long_df, hue=hue_var)
+>       g.map(plt.plot, "x", "y")
+
+tests/test_utils.py:393: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+seaborn/axisgrid.py:699: in map
+    plot_args = [v for k, v in plot_data.iteritems()]
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self =      x         y
+0   12  0.449243
+1   15  0.434942
+4   10 -1.253690
+13   0 -0.588094
+14  13 -1.665427
+15   2  1.670946...
+73   5 -0.236192
+75   5  0.923673
+85  17 -1.047659
+87   5  0.180705
+88  11 -0.560961
+92  12  0.512806
+93  12  0.101402
+name = 'iteritems'
+
+    def __getattr__(self, name: str):
+        """
+        After regular attribute access, try looking up the name
+        This allows simpler access to columns for interactive use.
+        """
+        # Note: obj.x will always call obj.__getattribute__('x') prior to
+        # calling obj.__getattr__('x').
+        if (
+            name not in self._internal_names_set
+            and name not in self._metadata
+            and name not in self._accessors
+            and self._info_axis._can_hold_identifiers_and_holds_name(name)
+        ):
+            return self[name]
+>       return object.__getattribute__(self, name)
+E       AttributeError: 'DataFrame' object has no attribute 'iteritems'
+
+/opt/miniconda3/envs/testbed/lib/python3.9/site-packages/pandas/core/generic.py:5989: AttributeError
+=============================== warnings summary ===============================
+seaborn/cm.py:1582
+seaborn/cm.py:1582
+seaborn/cm.py:1582
+seaborn/cm.py:1582
+seaborn/cm.py:1582
+seaborn/cm.py:1582
+  /testbed/seaborn/cm.py:1582: MatplotlibDeprecationWarning: The register_cmap function was deprecated in Matplotlib 3.7 and will be removed two minor releases later. Use ``matplotlib.colormaps.register(name)`` instead.
+    mpl_cm.register_cmap(_name, _cmap)
+
+seaborn/cm.py:1583
+seaborn/cm.py:1583
+seaborn/cm.py:1583
+seaborn/cm.py:1583
+seaborn/cm.py:1583
+seaborn/cm.py:1583
+  /testbed/seaborn/cm.py:1583: MatplotlibDeprecationWarning: The register_cmap function was deprecated in Matplotlib 3.7 and will be removed two minor releases later. Use ``matplotlib.colormaps.register(name)`` instead.
+    mpl_cm.register_cmap(_name + "_r", _cmap_r)
+
+tests/test_utils.py::test_move_legend_matplotlib_objects
+tests/test_utils.py::test_move_legend_matplotlib_objects
+tests/test_utils.py::test_move_legend_matplotlib_objects
+  /testbed/seaborn/utils.py:450: MatplotlibDeprecationWarning: The legendHandles attribute was deprecated in Matplotlib 3.7 and will be removed two minor releases later. Use legend_handles instead.
+    handles = old_legend.legendHandles
+
+tests/test_utils.py::test_move_legend_grid_object
+  /opt/miniconda3/envs/testbed/lib/python3.9/site-packages/pandas/core/dtypes/cast.py:1429: DeprecationWarning: np.find_common_type is deprecated.  Please use `np.result_type` or `np.promote_types`.
+  See https://numpy.org/devdocs/release/1.25.0-notes.html and the docs for more information.  (Deprecated NumPy 1.25)
+    return np.find_common_type(types, [])
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/test_utils.py::test_locator_to_legend_entries - AssertionError: ...
+FAILED tests/test_utils.py::test_move_legend_grid_object - AttributeError: 'D...
+2 failed, 39 passed, 4 skipped, 16 warnings in 0.97s

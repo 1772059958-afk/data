@@ -1,0 +1,13 @@
+--- a/astroid/raw_building.py
++++ b/astroid/raw_building.py
+@@ -467,7 +467,9 @@
+             # check if it sounds valid and then add an import node, else use a
+             # dummy node
+             try:
+-                getattr(sys.modules[modname], name)
++                with warnings.catch_warnings():
++                    warnings.simplefilter("ignore")
++                    getattr(sys.modules[modname], name)
+             except (KeyError, AttributeError):
+                 attach_dummy_node(node, name, member)
+             else:

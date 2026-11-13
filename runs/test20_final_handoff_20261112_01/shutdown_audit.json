@@ -1,0 +1,50 @@
+{
+  "docker_desktop_stopped": true,
+  "stopped_containers_preserved_count": 1,
+  "docker_wsl_running": false,
+  "old_backups_are_not_current_full_volume": true,
+  "system_shutdown_requested_by_this_script": false,
+  "project_evidence_archive_target": "E:\\DockerBackups\\project-final-20261112-01",
+  "active_docker_data_path": "D:\\DockerData\\swe-repair-20261111\\DockerDesktopWSL",
+  "pre_stop_image_count": 77,
+  "owned_workers_remaining": [],
+  "at": "2026-11-12T18:14:15.1378414+08:00",
+  "container_and_image_deletions": 0,
+  "new_full_vhdx_backup_created": false,
+  "stopped_containers_preserved": [
+    {
+      "Command": "\"tail -f /dev/null\"",
+      "CreatedAt": "2026-11-12 18:10:12 +0800 CST",
+      "HealthStatus": "none",
+      "ID": "52b60b9959bc",
+      "Image": "4e75ccae6883",
+      "Labels": "codex.dev23.preparation=dev23prep_20261112_01,desktop.docker.io/ports.scheme=v2,org.opencontainers.image.ref.name=ubuntu,org.opencontainers.image.version=22.04",
+      "LocalVolumes": "0",
+      "Mounts": "",
+      "Names": "sweb.eval.pvlib__pvlib-python-1854.devsupp_baseline_20261112_02_eval",
+      "Networks": "bridge",
+      "Platform": {
+        "architecture": "amd64",
+        "os": "linux"
+      },
+      "Ports": "",
+      "RunningFor": "3 minutes ago",
+      "Size": "12.5MB (virtual 4.4GB)",
+      "State": "exited",
+      "Status": "Exited (137) 2 minutes ago"
+    }
+  ],
+  "owned_running_containers_remaining": [],
+  "active_cold_vhdx_files": [
+    {
+      "size_bytes": 76381421568,
+      "path": "D:\\DockerData\\swe-repair-20261111\\DockerDesktopWSL\\disk\\docker_data.vhdx",
+      "last_write_utc": "2026-11-12T10:14:04.7220398Z"
+    },
+    {
+      "size_bytes": 100663296,
+      "path": "D:\\DockerData\\swe-repair-20261111\\DockerDesktopWSL\\main\\ext4.vhdx",
+      "last_write_utc": "2026-11-12T10:14:04.5348836Z"
+    }
+  ]
+}

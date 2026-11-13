@@ -1,0 +1,95 @@
+--- a/xarray/core/concat.py
++++ b/xarray/core/concat.py
+@@ -1,3 +1,4 @@
++import numpy as np
+ import pandas as pd
+ 
+ from . import dtypes, utils
+@@ -168,13 +169,22 @@
+                 if compat == "override":
+                     raise ValueError(
+                         "Cannot specify both %s='different' and compat='override'."
+                         % subset
+                     )
+                 # all nonindexes that are not the same in each dataset
+-                for k in getattr(datasets[0], subset):
++                all_subset_names = set()
++                for ds in datasets:
++                    all_subset_names.update(getattr(ds, subset))
++                for k in all_subset_names:
+                     if k not in concat_over:
++                        if any(k not in ds.variables for ds in datasets):
++                            # a variable present in only some datasets is
++                            # necessarily "different" and should be concatenated
++                            concat_over.add(k)
++                            equals[k] = False
++                            continue
+                         # Compare the variable of all datasets vs. the one
+                         # of the first dataset. Perform the minimum amount of
+                         # loads in order to avoid multiple loads from disk
+                         # while keeping the RAM footprint low.
+                         v_lhs = datasets[0].variables[k].load()
+@@ -193,9 +198,12 @@
+                             equals[k] = True
+ 
+             elif opt == "all":
+-                concat_over.update(
+-                    set(getattr(datasets[0], subset)) - set(datasets[0].dims)
+-                )
++                all_dims = set()
++                all_subset_names = set()
++                for ds in datasets:
++                    all_dims.update(ds.dims)
++                    all_subset_names.update(getattr(ds, subset))
++                concat_over.update(all_subset_names - all_dims)
+             elif opt == "minimal":
+                 pass
+             else:
+@@ -356,14 +366,38 @@
+ 
+     # stack up each variable to fill-out the dataset (in order)
+     # n.b. this loop preserves variable order, needed for groupby.
+-    for k in datasets[0].variables:
+-        if k in concat_over:
+-            try:
+-                vars = ensure_common_dims([ds.variables[k] for ds in datasets])
+-            except KeyError:
+-                raise ValueError("%r is not present in all datasets." % k)
+-            combined = concat_vars(vars, dim, positions)
+-            assert isinstance(combined, Variable)
+-            result_vars[k] = combined
++    # Include variables that only appear in some of the datasets.
++    concat_var_names = []
++    for ds in datasets:
++        for k in ds.variables:
++            if k in concat_over and k not in concat_var_names:
++                concat_var_names.append(k)
++
++    def _get_variable(k, ds, dim_len):
++        if k in ds.variables:
++            return ds.variables[k]
++        # Variable is absent from this dataset: create an empty variable
++        # filled with the requested fill value so it can be concatenated.
++        template = next(ds2.variables[k] for ds2 in datasets if k in ds2.variables)
++        dims = template.dims
++        shape = tuple(
++            dim_len if d == dim else dims_sizes.get(d, 1) for d in dims
++        )
++        try:
++            data = np.full(shape, fill_value, dtype=template.dtype)
++        except (TypeError, ValueError):
++            data = np.full(shape, fill_value, dtype=float)
++        return Variable(dims, data)
++
++    for k in concat_var_names:
++        vars = ensure_common_dims(
++            [
++                _get_variable(k, ds, dim_len)
++                for ds, dim_len in zip(datasets, concat_dim_lengths)
++            ]
++        )
++        combined = concat_vars(vars, dim, positions)
++        assert isinstance(combined, Variable)
++        result_vars[k] = combined
+ 
+     result = Dataset(result_vars, attrs=result_attrs)

@@ -1,0 +1,26 @@
+{
+  "metadata": [
+    {
+      "suite": "jammy",
+      "url": "https://archive.ubuntu.com/ubuntu/dists/jammy/InRelease",
+      "inrelease_sha256": "c14060cd8c6d625874dfcb9523a35a395bf4865c28b6b6a82569ef326fe92dc6",
+      "inrelease_bytes": 270087,
+      "clearsigned_body_sha256": "6883c1cb0fcfeefc2ad2e99746fcbb28cf8b2df66ce49904765d883dbf94a1ca",
+      "release_sha256": "6883c1cb0fcfeefc2ad2e99746fcbb28cf8b2df66ce49904765d883dbf94a1ca",
+      "cleartext_matches_release_bytes": true,
+      "tls_verification": true
+    },
+    {
+      "suite": "jammy-updates",
+      "url": "https://archive.ubuntu.com/ubuntu/dists/jammy-updates/InRelease",
+      "inrelease_sha256": "a43202eb43c540e45242ada90b5e58a3a8f755fec73a077e55dc07f59b195de5",
+      "inrelease_bytes": 128049,
+      "clearsigned_body_sha256": "8776e12b98b387ed0fd791bf2f9f733c39ace09b3435f2b470147f1e55c79ef9",
+      "release_sha256": "8776e12b98b387ed0fd791bf2f9f733c39ace09b3435f2b470147f1e55c79ef9",
+      "cleartext_matches_release_bytes": true,
+      "tls_verification": true
+    }
+  ],
+  "total_bytes": 398136,
+  "packages_or_deb_downloaded": false
+}

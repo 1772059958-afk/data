@@ -1,0 +1,87 @@
+........................................................................ [ 29%]
+........................................................................ [ 58%]
+........................................................................ [ 87%]
+..............................                                           [100%]
+=============================== warnings summary ===============================
+pvlib/tests/conftest.py:7
+  /testbed/pvlib/tests/conftest.py:7: DeprecationWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html
+    from pkg_resources import parse_version
+
+../opt/miniconda3/envs/testbed/lib/python3.9/site-packages/pkg_resources/__init__.py:3144
+  /opt/miniconda3/envs/testbed/lib/python3.9/site-packages/pkg_resources/__init__.py:3144: DeprecationWarning: Deprecated call to `pkg_resources.declare_namespace('sphinxcontrib')`.
+  Implementing implicit namespace packages (as specified in PEP 420) is preferred to `pkg_resources.declare_namespace`. See https://setuptools.pypa.io/en/latest/references/keywords.html#keyword-namespace-packages
+    declare_namespace(pkg)
+
+pvlib/tests/test_pvsystem.py::test_sapm
+  /testbed/pvlib/tests/test_pvsystem.py:178: FutureWarning: 'H' is deprecated and will be removed in a future version, please use 'h' instead.
+    times = pd.date_range(start='2015-01-01', periods=5, freq='12H')
+
+pvlib/tests/test_pvsystem.py::test_PVSystem_noct_celltemp
+  /testbed/pvlib/tests/test_pvsystem.py:538: FutureWarning: 'H' is deprecated and will be removed in a future version, please use 'h' instead.
+    dr = pd.date_range(start='2020-01-01 12:00:00', end='2020-01-01 13:00:00',
+
+pvlib/tests/test_pvsystem.py::test_PVSystem_multi_array_celltemp_functions[faiman]
+pvlib/tests/test_pvsystem.py::test_PVSystem_multi_array_celltemp_functions[pvsyst]
+pvlib/tests/test_pvsystem.py::test_PVSystem_multi_array_celltemp_functions[sapm]
+pvlib/tests/test_pvsystem.py::test_PVSystem_multi_array_celltemp_functions[fuentes]
+pvlib/tests/test_pvsystem.py::test_PVSystem_multi_array_celltemp_functions[noct_sam]
+  /testbed/pvlib/tests/test_pvsystem.py:569: FutureWarning: 'H' is deprecated and will be removed in a future version, please use 'h' instead.
+    times = pd.date_range(start='2020-08-25 11:00', freq='H', periods=3)
+
+pvlib/tests/test_pvsystem.py::test_PVSystem_multi_array_celltemp_multi_temp[faiman]
+pvlib/tests/test_pvsystem.py::test_PVSystem_multi_array_celltemp_multi_temp[pvsyst]
+pvlib/tests/test_pvsystem.py::test_PVSystem_multi_array_celltemp_multi_temp[sapm]
+pvlib/tests/test_pvsystem.py::test_PVSystem_multi_array_celltemp_multi_temp[fuentes]
+pvlib/tests/test_pvsystem.py::test_PVSystem_multi_array_celltemp_multi_temp[noct_sam]
+  /testbed/pvlib/tests/test_pvsystem.py:583: FutureWarning: 'H' is deprecated and will be removed in a future version, please use 'h' instead.
+    times = pd.date_range(start='2020-08-25 11:00', freq='H', periods=3)
+
+pvlib/tests/test_pvsystem.py::test_PVSystem_multi_array_celltemp_multi_wind[faiman]
+pvlib/tests/test_pvsystem.py::test_PVSystem_multi_array_celltemp_multi_wind[pvsyst]
+pvlib/tests/test_pvsystem.py::test_PVSystem_multi_array_celltemp_multi_wind[sapm]
+pvlib/tests/test_pvsystem.py::test_PVSystem_multi_array_celltemp_multi_wind[fuentes]
+pvlib/tests/test_pvsystem.py::test_PVSystem_multi_array_celltemp_multi_wind[noct_sam]
+  /testbed/pvlib/tests/test_pvsystem.py:608: FutureWarning: 'H' is deprecated and will be removed in a future version, please use 'h' instead.
+    times = pd.date_range(start='2020-08-25 11:00', freq='H', periods=3)
+
+pvlib/tests/test_pvsystem.py::test_calcparams_desoto
+  /testbed/pvlib/tests/test_pvsystem.py:748: FutureWarning: 'H' is deprecated and will be removed in a future version, please use 'h' instead.
+    times = pd.date_range(start='2015-01-01', periods=3, freq='12H')
+
+pvlib/tests/test_pvsystem.py::test_calcparams_cec
+  /testbed/pvlib/tests/test_pvsystem.py:776: FutureWarning: 'H' is deprecated and will be removed in a future version, please use 'h' instead.
+    times = pd.date_range(start='2015-01-01', periods=3, freq='12H')
+
+pvlib/tests/test_pvsystem.py::test_calcparams_cec_extra_params_propagation
+  /testbed/pvlib/tests/test_pvsystem.py:815: FutureWarning: 'H' is deprecated and will be removed in a future version, please use 'h' instead.
+    times = pd.date_range(start='2015-01-01', periods=3, freq='12H')
+
+pvlib/tests/test_pvsystem.py::test_calcparams_pvsyst
+  /testbed/pvlib/tests/test_pvsystem.py:842: FutureWarning: 'H' is deprecated and will be removed in a future version, please use 'h' instead.
+    times = pd.date_range(start='2015-01-01', periods=2, freq='12H')
+
+pvlib/tests/test_pvsystem.py::test_singlediode_series
+  /testbed/pvlib/tests/test_pvsystem.py:1287: FutureWarning: 'H' is deprecated and will be removed in a future version, please use 'h' instead.
+    times = pd.date_range(start='2015-01-01', periods=2, freq='12H')
+
+pvlib/tests/test_pvsystem.py::test_singlediode_series
+pvlib/tests/test_pvsystem.py::test_singlediode_series_ivcurve
+pvlib/tests/test_pvsystem.py::test_singlediode_series_ivcurve
+  /testbed/pvlib/tools.py:359: RuntimeWarning: divide by zero encountered in divide
+    np.trunc(np.log(atol / (df['VH'] - df['VL'])) / np.log(phim1)))
+
+pvlib/tests/test_pvsystem.py::test_singlediode_series_ivcurve
+  /testbed/pvlib/tests/test_pvsystem.py:1376: FutureWarning: 'H' is deprecated and will be removed in a future version, please use 'h' instead.
+    times = pd.date_range(start='2015-06-01', periods=3, freq='6H')
+
+pvlib/tests/test_pvsystem.py::test_PVSystem_get_irradiance
+pvlib/tests/test_pvsystem.py::test_PVSystem_get_irradiance_albedo
+pvlib/tests/test_pvsystem.py::test_PVSystem_get_irradiance_model
+pvlib/tests/test_pvsystem.py::test_PVSystem_multi_array_get_irradiance
+pvlib/tests/test_pvsystem.py::test_PVSystem_multi_array_get_irradiance_multi_irrad
+pvlib/tests/test_pvsystem.py::test_Array_get_irradiance
+  /testbed/pvlib/tests/test_pvsystem.py:1679: FutureWarning: 'H' is deprecated and will be removed in a future version, please use 'h' instead.
+    times = pd.date_range(start='20160101 1200-0700',
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+246 passed, 34 warnings in 0.72s

@@ -1,0 +1,69 @@
+{
+  "public_repo": "https://github.com/pvlib/pvlib-python.git",
+  "base_commit": "04a523fafbd61bc2e49420963b84ed8e2bd1b3cf",
+  "directory": "D:\\CodexExperimentCache\\test20_20261111\\source\\pvlib__pvlib-python-1072\\testbed",
+  "verified_https": true,
+  "tls_verify_disabled": false,
+  "ca_bundle": "C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\.venv\\Lib\\site-packages\\certifi\\cacert.pem",
+  "requests": [
+    {
+      "method": "GET",
+      "path": "/info/refs?service=git-upload-pack",
+      "status": 200,
+      "received_bytes": 191,
+      "elapsed_seconds": 0.87
+    },
+    {
+      "method": "POST",
+      "path": "/git-upload-pack",
+      "status": 200,
+      "received_bytes": 105318,
+      "elapsed_seconds": 2.457
+    },
+    {
+      "method": "POST",
+      "path": "/git-upload-pack",
+      "status": 200,
+      "received_bytes": 27429903,
+      "elapsed_seconds": 4.037
+    }
+  ],
+  "commands": [
+    {
+      "command": "git init",
+      "exit_code": 0,
+      "stdout": "Initialized empty Git repository in D:/CodexExperimentCache/test20_20261111/source/pvlib__pvlib-python-1072/testbed/.git/\n",
+      "stderr": ""
+    },
+    {
+      "command": "git fetch public baseline over verified HTTPS bridge",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "From http://127.0.0.1:64545\n * branch            04a523fafbd61bc2e49420963b84ed8e2bd1b3cf -> FETCH_HEAD\n",
+      "elapsed_seconds": 8.352
+    },
+    {
+      "command": "git checkout baseline",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "HEAD is now at 04a523f more asv tests for solar position, fix fuentes asv bug (#1059)\n",
+      "elapsed_seconds": 0.453
+    },
+    {
+      "command": "git rev-parse HEAD",
+      "exit_code": 0,
+      "stdout": "04a523fafbd61bc2e49420963b84ed8e2bd1b3cf\n",
+      "stderr": "",
+      "elapsed_seconds": 0.199
+    },
+    {
+      "command": "git status --porcelain",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "",
+      "elapsed_seconds": 0.426
+    }
+  ],
+  "source_identity_verified": true,
+  "C_free_bytes": 5466042368
+}

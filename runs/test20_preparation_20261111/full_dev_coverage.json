@@ -1,0 +1,147 @@
+{
+  "kind": "new_calibration_population_ledger",
+  "split": "dev",
+  "seed": 20261111,
+  "designated_total": 23,
+  "note": "New setting has not run. Prior two-case evidence is historical and not reused as new calibration labels.",
+  "instances": [
+    {
+      "instance_id": "marshmallow-code__marshmallow-1343",
+      "environment_status": "not_verified_for_new_setting",
+      "generation_status": "not_run",
+      "evaluation_status": "not_scored"
+    },
+    {
+      "instance_id": "marshmallow-code__marshmallow-1359",
+      "environment_status": "not_verified_for_new_setting",
+      "generation_status": "not_run",
+      "evaluation_status": "not_scored"
+    },
+    {
+      "instance_id": "pvlib__pvlib-python-1072",
+      "environment_status": "not_verified_for_new_setting",
+      "generation_status": "not_run",
+      "evaluation_status": "not_scored"
+    },
+    {
+      "instance_id": "pvlib__pvlib-python-1154",
+      "environment_status": "not_verified_for_new_setting",
+      "generation_status": "not_run",
+      "evaluation_status": "not_scored"
+    },
+    {
+      "instance_id": "pvlib__pvlib-python-1606",
+      "environment_status": "not_verified_for_new_setting",
+      "generation_status": "not_run",
+      "evaluation_status": "not_scored"
+    },
+    {
+      "instance_id": "pvlib__pvlib-python-1707",
+      "environment_status": "not_verified_for_new_setting",
+      "generation_status": "not_run",
+      "evaluation_status": "not_scored"
+    },
+    {
+      "instance_id": "pvlib__pvlib-python-1854",
+      "environment_status": "not_verified_for_new_setting",
+      "generation_status": "not_run",
+      "evaluation_status": "not_scored"
+    },
+    {
+      "instance_id": "pydicom__pydicom-1139",
+      "environment_status": "not_verified_for_new_setting",
+      "generation_status": "not_run",
+      "evaluation_status": "not_scored"
+    },
+    {
+      "instance_id": "pydicom__pydicom-1256",
+      "environment_status": "not_verified_for_new_setting",
+      "generation_status": "not_run",
+      "evaluation_status": "not_scored"
+    },
+    {
+      "instance_id": "pydicom__pydicom-1413",
+      "environment_status": "not_verified_for_new_setting",
+      "generation_status": "not_run",
+      "evaluation_status": "not_scored"
+    },
+    {
+      "instance_id": "pydicom__pydicom-1694",
+      "environment_status": "not_verified_for_new_setting",
+      "generation_status": "not_run",
+      "evaluation_status": "not_scored"
+    },
+    {
+      "instance_id": "pydicom__pydicom-901",
+      "environment_status": "not_verified_for_new_setting",
+      "generation_status": "not_run",
+      "evaluation_status": "not_scored"
+    },
+    {
+      "instance_id": "pylint-dev__astroid-1196",
+      "environment_status": "not_verified_for_new_setting",
+      "generation_status": "not_run",
+      "evaluation_status": "not_scored"
+    },
+    {
+      "instance_id": "pylint-dev__astroid-1268",
+      "environment_status": "not_verified_for_new_setting",
+      "generation_status": "not_run",
+      "evaluation_status": "not_scored"
+    },
+    {
+      "instance_id": "pylint-dev__astroid-1333",
+      "environment_status": "not_verified_for_new_setting",
+      "generation_status": "not_run",
+      "evaluation_status": "not_scored"
+    },
+    {
+      "instance_id": "pylint-dev__astroid-1866",
+      "environment_status": "not_verified_for_new_setting",
+      "generation_status": "not_run",
+      "evaluation_status": "not_scored"
+    },
+    {
+      "instance_id": "pylint-dev__astroid-1978",
+      "environment_status": "not_verified_for_new_setting",
+      "generation_status": "not_run",
+      "evaluation_status": "not_scored"
+    },
+    {
+      "instance_id": "pyvista__pyvista-4315",
+      "environment_status": "not_verified_for_new_setting",
+      "generation_status": "not_run",
+      "evaluation_status": "not_scored"
+    },
+    {
+      "instance_id": "sqlfluff__sqlfluff-1517",
+      "environment_status": "not_verified_for_new_setting",
+      "generation_status": "not_run",
+      "evaluation_status": "not_scored"
+    },
+    {
+      "instance_id": "sqlfluff__sqlfluff-1625",
+      "environment_status": "not_verified_for_new_setting",
+      "generation_status": "not_run",
+      "evaluation_status": "not_scored"
+    },
+    {
+      "instance_id": "sqlfluff__sqlfluff-1733",
+      "environment_status": "not_verified_for_new_setting",
+      "generation_status": "not_run",
+      "evaluation_status": "not_scored"
+    },
+    {
+      "instance_id": "sqlfluff__sqlfluff-1763",
+      "environment_status": "not_verified_for_new_setting",
+      "generation_status": "not_run",
+      "evaluation_status": "not_scored"
+    },
+    {
+      "instance_id": "sqlfluff__sqlfluff-2419",
+      "environment_status": "not_verified_for_new_setting",
+      "generation_status": "not_run",
+      "evaluation_status": "not_scored"
+    }
+  ]
+}

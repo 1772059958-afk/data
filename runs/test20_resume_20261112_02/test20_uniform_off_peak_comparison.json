@@ -1,0 +1,178 @@
+{
+  "kind": "user_amended_single_run_uniform_off_peak_cost_comparison",
+  "amendment_sha256": "cda1f29694eca5973399efc654574566f5b43b479a3da7b17af3821c8b89692b",
+  "original_summary_sha256": "c5f34c1cf767af34d6a4a5d0367203b15a553bd282c3d435a02c78a278e25d42",
+  "original_cost_audit_sha256": "f71877217f920b4a4e77210042f60160d0168419462c8693420ba4528d105f33",
+  "price_source": "src/swe_repair/pricing.py",
+  "cny_per_million_tokens": {
+    "cache_hit": 0.02,
+    "cache_miss": 1.0,
+    "output": 4.0
+  },
+  "arms": {
+    "A": {
+      "designated_instances": 20,
+      "resolved": 7,
+      "status_counts": {
+        "resolved": 7,
+        "empty_patch": 4,
+        "ambiguous_error": 5,
+        "unresolved": 4
+      },
+      "all_evaluation_statuses_accounted_for": true,
+      "unknown_semantic_verdict_instances": [
+        "pallets__flask-4045",
+        "psf__requests-1963",
+        "pylint-dev__pylint-7114",
+        "pytest-dev__pytest-6116",
+        "pytest-dev__pytest-8906"
+      ],
+      "all_semantic_verdicts_known": false,
+      "observed_resolved_share_of_designated_population": 0.35,
+      "resolved_rate_lower_bound": 0.35,
+      "comparative_full_strategy_cost_off_peak_cny": 4.39227512,
+      "comparative_actual_new_generation_cost_off_peak_cny": 4.39227512,
+      "comparative_cost_per_resolved_off_peak_cny": 0.6274678742857143,
+      "original_full_strategy_time_tier_estimate_cny": 4.39227512,
+      "original_actual_new_generation_time_tier_estimate_cny": 4.39227512,
+      "actual_new_request_price_tier_counts": {
+        "off_peak": 128
+      },
+      "observed_cache_token_mix_retained": true,
+      "cost_complete": true
+    },
+    "B": {
+      "designated_instances": 20,
+      "resolved": 7,
+      "status_counts": {
+        "resolved": 7,
+        "empty_patch": 5,
+        "ambiguous_error": 4,
+        "unresolved": 4
+      },
+      "all_evaluation_statuses_accounted_for": true,
+      "unknown_semantic_verdict_instances": [
+        "pallets__flask-4045",
+        "psf__requests-1963",
+        "pytest-dev__pytest-6116",
+        "pytest-dev__pytest-8906"
+      ],
+      "all_semantic_verdicts_known": false,
+      "observed_resolved_share_of_designated_population": 0.35,
+      "resolved_rate_lower_bound": 0.35,
+      "comparative_full_strategy_cost_off_peak_cny": 0.43171952,
+      "comparative_actual_new_generation_cost_off_peak_cny": 0.43171952,
+      "comparative_cost_per_resolved_off_peak_cny": 0.061674217142857146,
+      "original_full_strategy_time_tier_estimate_cny": 0.43171951999999997,
+      "original_actual_new_generation_time_tier_estimate_cny": 0.43171951999999997,
+      "actual_new_request_price_tier_counts": {
+        "off_peak": 116
+      },
+      "observed_cache_token_mix_retained": true,
+      "cost_complete": true
+    },
+    "C": {
+      "designated_instances": 20,
+      "resolved": 10,
+      "status_counts": {
+        "resolved": 10,
+        "ambiguous_error": 4,
+        "unresolved": 4,
+        "infra_error": 1,
+        "empty_patch": 1
+      },
+      "all_evaluation_statuses_accounted_for": true,
+      "unknown_semantic_verdict_instances": [
+        "matplotlib__matplotlib-23987",
+        "pallets__flask-4045",
+        "psf__requests-1963",
+        "pylint-dev__pylint-7114",
+        "pytest-dev__pytest-8906"
+      ],
+      "all_semantic_verdicts_known": false,
+      "observed_resolved_share_of_designated_population": 0.5,
+      "resolved_rate_lower_bound": 0.5,
+      "comparative_full_strategy_cost_off_peak_cny": 2.05192828,
+      "comparative_actual_new_generation_cost_off_peak_cny": 0.43196416,
+      "comparative_cost_per_resolved_off_peak_cny": 0.205192828,
+      "original_full_strategy_time_tier_estimate_cny": 2.05192828,
+      "original_actual_new_generation_time_tier_estimate_cny": 0.43196416,
+      "actual_new_request_price_tier_counts": {
+        "off_peak": 57
+      },
+      "observed_cache_token_mix_retained": true,
+      "cost_complete": true
+    },
+    "D": {
+      "designated_instances": 20,
+      "resolved": 7,
+      "status_counts": {
+        "resolved": 7,
+        "empty_patch": 2,
+        "ambiguous_error": 6,
+        "unresolved": 5
+      },
+      "all_evaluation_statuses_accounted_for": true,
+      "unknown_semantic_verdict_instances": [
+        "matplotlib__matplotlib-23987",
+        "pallets__flask-4045",
+        "psf__requests-1963",
+        "pylint-dev__pylint-7114",
+        "pytest-dev__pytest-6116",
+        "pytest-dev__pytest-8906"
+      ],
+      "all_semantic_verdicts_known": false,
+      "observed_resolved_share_of_designated_population": 0.35,
+      "resolved_rate_lower_bound": 0.35,
+      "comparative_full_strategy_cost_off_peak_cny": 2.87039734,
+      "comparative_actual_new_generation_cost_off_peak_cny": 1.2504332200000001,
+      "comparative_cost_per_resolved_off_peak_cny": 0.4100567628571428,
+      "original_full_strategy_time_tier_estimate_cny": 2.87039734,
+      "original_actual_new_generation_time_tier_estimate_cny": 1.25043322,
+      "actual_new_request_price_tier_counts": {
+        "off_peak": 66
+      },
+      "observed_cache_token_mix_retained": true,
+      "cost_complete": true
+    },
+    "E": {
+      "designated_instances": 20,
+      "resolved": 8,
+      "status_counts": {
+        "resolved": 8,
+        "ambiguous_error": 6,
+        "empty_patch": 3,
+        "unresolved": 3
+      },
+      "all_evaluation_statuses_accounted_for": true,
+      "unknown_semantic_verdict_instances": [
+        "matplotlib__matplotlib-23987",
+        "pallets__flask-4045",
+        "psf__requests-1963",
+        "pylint-dev__pylint-7114",
+        "pytest-dev__pytest-6116",
+        "pytest-dev__pytest-8906"
+      ],
+      "all_semantic_verdicts_known": false,
+      "observed_resolved_share_of_designated_population": 0.4,
+      "resolved_rate_lower_bound": 0.4,
+      "comparative_full_strategy_cost_off_peak_cny": 3.5668699,
+      "comparative_actual_new_generation_cost_off_peak_cny": 1.94690578,
+      "comparative_cost_per_resolved_off_peak_cny": 0.4458587375,
+      "original_full_strategy_time_tier_estimate_cny": 5.33831146,
+      "original_actual_new_generation_time_tier_estimate_cny": 3.71834734,
+      "actual_new_request_price_tier_counts": {
+        "off_peak": 13,
+        "peak": 54
+      },
+      "observed_cache_token_mix_retained": true,
+      "cost_complete": true
+    }
+  },
+  "actual_cumulative_budget_estimate_cny": 17.86646022,
+  "actual_remaining_guard_cny": 82.13353978,
+  "original_ledger_rewritten": false,
+  "inference_performed": false,
+  "interpretation": "Uniform-price descriptive comparison. This does not change billing, grant a discount, reset the monetary guard or remove observed server cache/order effects.",
+  "generated_at": "2026-11-12T05:24:00.178299+00:00"
+}

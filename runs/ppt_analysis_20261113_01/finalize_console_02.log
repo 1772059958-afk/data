@@ -1,0 +1,13 @@
+[artifact-tool] embedded_font_name_mismatch: EOT family "微软雅黑" does not match decoded SFNT name "Microsoft YaHei".
+[artifact-tool] embedded_font_subset_missing_glyph: Embedded font is subsetted; glyph coverage checks are not available yet.
+Inspect result written to file: C:/Users/remil/Desktop/3yr/科研/proj/work/ppt_update_20261113/draft/candidate.pptx.inspect.ndjson
+{"candidate":"C:/Users/remil/Desktop/3yr/科研/proj/work/ppt_update_20261113/draft/candidate.pptx","slides":21}
+file:///C:/Users/remil/.codex/plugins/cache/openai-primary-runtime/presentations/26.1111.10930/skills/presentations/container_tools/artifact_tool_utils.mjs:999
+    throw new Error("Private validation receipt must stay inside the task workspace and outside final output");
+          ^
+
+Error: Private validation receipt must stay inside the task workspace and outside final output
+    at finalizePresentation (file:///C:/Users/remil/.codex/plugins/cache/openai-primary-runtime/presentations/26.1111.10930/skills/presentations/container_tools/artifact_tool_utils.mjs:999:11)
+    at async file:///C:/Users/remil/Desktop/3yr/%E7%A7%91%E7%A0%94/proj/docs/deliverables/%E7%BB%93%E9%A2%98%E6%B1%87%E6%8A%A5_20261113_source/build_deck.mjs:156:15
+
+Node.js v24.22.1

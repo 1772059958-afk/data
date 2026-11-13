@@ -1,0 +1,1 @@
+Historical build helpers, source checkouts and original validation/data records, preserved byte-for-byte before work cleanup. This directory is a cold source/evidence copy, not a new experiment entry point. Installed dependency copies, package caches, git object caches and generated PPT drafts/previews were removed. No credentials were copied.

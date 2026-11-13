@@ -1,0 +1,219 @@
+{
+  "kind": "posthoc_DEV_remaining_work_protocol",
+  "authorization": "完成剩余所有工作",
+  "authorization_interpretation": "Complete the disclosed ablation/sensitivity and semantic-review work within the original100CNY, without extra formal test cases or repetitions.",
+  "formal_test_scope_unchanged": "20 instances x A-E x repeat0; no new formal generation",
+  "seed": 20261112,
+  "dev_population": [
+    "marshmallow-code__marshmallow-1343",
+    "marshmallow-code__marshmallow-1359",
+    "pvlib__pvlib-python-1072",
+    "pvlib__pvlib-python-1154",
+    "pvlib__pvlib-python-1606",
+    "pvlib__pvlib-python-1707",
+    "pvlib__pvlib-python-1854",
+    "pydicom__pydicom-1139",
+    "pydicom__pydicom-1256",
+    "pydicom__pydicom-1413",
+    "pydicom__pydicom-1694",
+    "pydicom__pydicom-901",
+    "pylint-dev__astroid-1196",
+    "pylint-dev__astroid-1268",
+    "pylint-dev__astroid-1333",
+    "pylint-dev__astroid-1866",
+    "pylint-dev__astroid-1978",
+    "pyvista__pyvista-4315",
+    "sqlfluff__sqlfluff-1517",
+    "sqlfluff__sqlfluff-1625",
+    "sqlfluff__sqlfluff-1733",
+    "sqlfluff__sqlfluff-1763",
+    "sqlfluff__sqlfluff-2419"
+  ],
+  "panel_instance_ids": [
+    "marshmallow-code__marshmallow-1343",
+    "pvlib__pvlib-python-1854",
+    "pydicom__pydicom-1694",
+    "pylint-dev__astroid-1268",
+    "pyvista__pyvista-4315",
+    "sqlfluff__sqlfluff-1763"
+  ],
+  "panel_selection": "One per each of six DEV repositories, minimum SHA256 of 20261112:instance_id; no labels, gold or image availability used.",
+  "panel_size": 6,
+  "variants": [
+    {
+      "prefix_fraction": 0.2,
+      "interaction_calls": 6,
+      "stagnation_patience": 3,
+      "omit_failure_ledger": false,
+      "resource_ceiling": {
+        "token": 512000,
+        "model_call": 12,
+        "tool_call": 80,
+        "wallclock_seconds": 1200
+      },
+      "name": "baseline"
+    },
+    {
+      "prefix_fraction": 0.2,
+      "interaction_calls": 6,
+      "stagnation_patience": 3,
+      "omit_failure_ledger": true,
+      "resource_ceiling": {
+        "token": 512000,
+        "model_call": 12,
+        "tool_call": 80,
+        "wallclock_seconds": 1200
+      },
+      "name": "no_failure_ledger"
+    },
+    {
+      "prefix_fraction": 0.2,
+      "interaction_calls": 6,
+      "stagnation_patience": 0,
+      "omit_failure_ledger": false,
+      "resource_ceiling": {
+        "token": 512000,
+        "model_call": 12,
+        "tool_call": 80,
+        "wallclock_seconds": 1200
+      },
+      "name": "no_stagnation"
+    },
+    {
+      "prefix_fraction": 0.2,
+      "interaction_calls": 4,
+      "stagnation_patience": 3,
+      "omit_failure_ledger": false,
+      "resource_ceiling": {
+        "token": 512000,
+        "model_call": 12,
+        "tool_call": 80,
+        "wallclock_seconds": 1200
+      },
+      "name": "interaction4"
+    },
+    {
+      "prefix_fraction": 0.2,
+      "interaction_calls": 8,
+      "stagnation_patience": 3,
+      "omit_failure_ledger": false,
+      "resource_ceiling": {
+        "token": 512000,
+        "model_call": 12,
+        "tool_call": 80,
+        "wallclock_seconds": 1200
+      },
+      "name": "interaction8"
+    },
+    {
+      "prefix_fraction": 0.3,
+      "interaction_calls": 6,
+      "stagnation_patience": 3,
+      "omit_failure_ledger": false,
+      "resource_ceiling": {
+        "token": 512000,
+        "model_call": 12,
+        "tool_call": 80,
+        "wallclock_seconds": 1200
+      },
+      "name": "prefix30"
+    },
+    {
+      "prefix_fraction": 0.4,
+      "interaction_calls": 6,
+      "stagnation_patience": 3,
+      "omit_failure_ledger": false,
+      "resource_ceiling": {
+        "token": 512000,
+        "model_call": 12,
+        "tool_call": 80,
+        "wallclock_seconds": 1200
+      },
+      "name": "prefix40"
+    },
+    {
+      "prefix_fraction": 0.2,
+      "interaction_calls": 6,
+      "stagnation_patience": 3,
+      "omit_failure_ledger": false,
+      "resource_ceiling": {
+        "token": 256000,
+        "model_call": 6,
+        "tool_call": 40,
+        "wallclock_seconds": 600
+      },
+      "name": "budget_half"
+    },
+    {
+      "prefix_fraction": 0.2,
+      "interaction_calls": 6,
+      "stagnation_patience": 3,
+      "omit_failure_ledger": false,
+      "resource_ceiling": {
+        "token": 768000,
+        "model_call": 18,
+        "tool_call": 120,
+        "wallclock_seconds": 1800
+      },
+      "name": "budget_onehalf"
+    }
+  ],
+  "diagnostic_branches": "fresh prefix, eligible fixed and interactive, plus independent B; no silently omitted B",
+  "offline_full_dev_work": {
+    "population": 23,
+    "router_ablations": [
+      "no_localization_disagreement",
+      "no_duplicate_signal"
+    ],
+    "threshold_grid": [
+      0.25,
+      0.5,
+      0.75,
+      1.0
+    ]
+  },
+  "feedback_ablation_definition": "Omit only the structured failure-ledger summary from seed/fixed-continuation messages. Keep source, bug report, candidate history and raw tool observations. Do not claim a no-feedback agent.",
+  "semantic_review": "Every formal submission mapped to reviewed unique patches, issue requirements, boundary risks and independent evidence. Agent-assisted review is not a fabricated human sign-off.",
+  "posthoc_exploratory_not_recalibration": true,
+  "formal_test_labels_already_seen": true,
+  "no_test_label_inputs_to_model_prompts": true,
+  "shared_ledger": "runs/test20_execution_20261111/batch_ledger.json",
+  "ceiling_cny": 100,
+  "starting_spend_cny": 17.86646022,
+  "starting_ledger_sha256": "02405b919d5907e08b19ebedd9fd18601fa4749c16d6c2212744bd74ccdd4669",
+  "per_strategy_instance_cny": 2,
+  "model_reference": {
+    "model": "deepseek-flash",
+    "model_version": "deepseek-flash",
+    "thinking": true,
+    "effort": "low",
+    "temperature": null,
+    "top_p": 1.0,
+    "max_tokens": 16384,
+    "max_retries": 0,
+    "calibration": "frozen",
+    "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+    "identity_probe": {
+      "file": "runs/test20_resume_20261112_01/model_probe_01/result.json",
+      "sha256": "b34d9f912df5d6321e59a863670fa6a5656f9b3bfa12355d5131357f390a20c9",
+      "immutable_version": false
+    },
+    "identity_protocol": {
+      "mode": "provider_alias_with_backend_fingerprint_monitoring",
+      "official_current_mapping": "DeepSeek-V4.1-Flash-1017",
+      "approval": "runs/test20_execution_20261111/model_identity_amendment_approved.json",
+      "approval_sha256": "6964448992ec408a02683a5cbd8f930e47410d13dee2060d0fac6a34f654a89e"
+    },
+    "immutable_version": false
+  },
+  "model_identity_protocol_unchanged": true,
+  "reference_frozen_config": "configs/test20_frozen_20261112_01.json",
+  "reference_frozen_config_sha256": "60f3cc5524730bf4d9cbe02588b98142b2041196e9d25cb1e294eae9aa3ad40e",
+  "adapter": "scripts/run_dev_supplement.py",
+  "adapter_sha256": "c42f4a3443a72763e504084bb6bf4ef561ea9c7f9843e3ab539e55009f46b38f",
+  "stop_on_missing_or_changed_fingerprint_or_api_quota": true,
+  "breakpoint_policy": "Save, document and verify, then shut down; no user question or bypass.",
+  "inference": false,
+  "confidence_intervals": false,
+  "created_at": "2026-11-12T09:21:39.652017+00:00"
+}

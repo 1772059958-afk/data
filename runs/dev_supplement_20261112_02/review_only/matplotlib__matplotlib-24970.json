@@ -1,0 +1,66 @@
+{
+  "kind": "review_only_after_all_formal_predictions_sealed",
+  "instance_id": "matplotlib__matplotlib-24970",
+  "repo": "matplotlib/matplotlib",
+  "base_commit": "a3011dfd1aaa2487cce8aa7369475533133ef777",
+  "issue": "[Bug]: NumPy 1.24 deprecation warnings\n### Bug summary\r\n\r\nStarting NumPy 1.24 I observe several deprecation warnings.\r\n\r\n\r\n### Code for reproduction\r\n\r\n```python\r\nimport matplotlib.pyplot as plt\r\nimport numpy as np\r\n\r\nplt.get_cmap()(np.empty((0, ), dtype=np.uint8))\r\n```\r\n\r\n\r\n### Actual outcome\r\n\r\n```\r\n/usr/lib/python3.10/site-packages/matplotlib/colors.py:730: DeprecationWarning: NumPy will stop allowing conversion of out-of-bound Python integers to integer arrays.  The conversion of 257 to uint8 will fail in the future.\r\nFor the old behavior, usually:\r\n    np.array(value).astype(dtype)`\r\nwill give the desired result (the cast overflows).\r\n  xa[xa > self.N - 1] = self._i_over\r\n/usr/lib/python3.10/site-packages/matplotlib/colors.py:731: DeprecationWarning: NumPy will stop allowing conversion of out-of-bound Python integers to integer arrays.  The conversion of 256 to uint8 will fail in the future.\r\nFor the old behavior, usually:\r\n    np.array(value).astype(dtype)`\r\nwill give the desired result (the cast overflows).\r\n  xa[xa < 0] = self._i_under\r\n/usr/lib/python3.10/site-packages/matplotlib/colors.py:732: DeprecationWarning: NumPy will stop allowing conversion of out-of-bound Python integers to integer arrays.  The conversion of 258 to uint8 will fail in the future.\r\nFor the old behavior, usually:\r\n    np.array(value).astype(dtype)`\r\nwill give the desired result (the cast overflows).\r\n  xa[mask_bad] = self._i_bad\r\n```\r\n\r\n### Expected outcome\r\n\r\nNo warnings.\r\n\r\n### Additional information\r\n\r\n_No response_\r\n\r\n### Operating system\r\n\r\nArchLinux\r\n\r\n### Matplotlib Version\r\n\r\n3.6.2\r\n\r\n### Matplotlib Backend\r\n\r\nQtAgg\r\n\r\n### Python version\r\n\r\nPython 3.10.9\r\n\r\n### Jupyter version\r\n\r\n_No response_\r\n\r\n### Installation\r\n\r\nLinux package manager\n",
+  "developer_reference_patch": "diff --git a/lib/matplotlib/colors.py b/lib/matplotlib/colors.py\n--- a/lib/matplotlib/colors.py\n+++ b/lib/matplotlib/colors.py\n@@ -715,16 +715,17 @@ def __call__(self, X, alpha=None, bytes=False):\n         if not xa.dtype.isnative:\n             xa = xa.byteswap().newbyteorder()  # Native byteorder is faster.\n         if xa.dtype.kind == \"f\":\n-            with np.errstate(invalid=\"ignore\"):\n-                xa *= self.N\n-                # Negative values are out of range, but astype(int) would\n-                # truncate them towards zero.\n-                xa[xa < 0] = -1\n-                # xa == 1 (== N after multiplication) is not out of range.\n-                xa[xa == self.N] = self.N - 1\n-                # Avoid converting large positive values to negative integers.\n-                np.clip(xa, -1, self.N, out=xa)\n-                xa = xa.astype(int)\n+            xa *= self.N\n+            # Negative values are out of range, but astype(int) would\n+            # truncate them towards zero.\n+            xa[xa < 0] = -1\n+            # xa == 1 (== N after multiplication) is not out of range.\n+            xa[xa == self.N] = self.N - 1\n+            # Avoid converting large positive values to negative integers.\n+            np.clip(xa, -1, self.N, out=xa)\n+        with np.errstate(invalid=\"ignore\"):\n+            # We need this cast for unsigned ints as well as floats\n+            xa = xa.astype(int)\n         # Set the over-range indices before the under-range;\n         # otherwise the under-range values get converted to over-range.\n         xa[xa > self.N - 1] = self._i_over\n",
+  "unique_submitted_patches": [
+    {
+      "sha256": "114725bbe3ec073c27c83c9f2d10455acf0d65026a2b7c7a6998078a291d5c3e",
+      "patch": "--- a/lib/matplotlib/colors.py\n+++ b/lib/matplotlib/colors.py\n@@ -726,6 +726,8 @@ class Colormap:\n                 # Avoid converting large positive values to negative integers.\n                 np.clip(xa, -1, self.N, out=xa)\n                 xa = xa.astype(int)\n+        else:\n+            xa = xa.astype(int)\n         # Set the over-range indices before the under-range;\n         # otherwise the under-range values get converted to over-range.\n         xa[xa > self.N - 1] = self._i_over\n",
+      "arms": [
+        "A",
+        "C",
+        "D",
+        "E"
+      ]
+    },
+    {
+      "sha256": "e97f610ee53d6e18b4bd17cfbcba507b901adb3cae0c9608062f6bbc6c4e424e",
+      "patch": "--- a/lib/matplotlib/colors.py\n+++ b/lib/matplotlib/colors.py\n@@ -727,6 +727,9 @@ class Colormap:\n                 xa = xa.astype(int)\n         # Set the over-range indices before the under-range;\n         # otherwise the under-range values get converted to over-range.\n+        # Cast to int to avoid overflow/deprecation warnings when writing\n+        # sentinel values larger than the input dtype (e.g. uint8).\n+        xa = xa.astype(int)\n         xa[xa > self.N - 1] = self._i_over\n         xa[xa < 0] = self._i_under\n         xa[mask_bad] = self._i_bad\n",
+      "arms": [
+        "B"
+      ]
+    }
+  ],
+  "submissions": {
+    "A": {
+      "patch_sha256": "114725bbe3ec073c27c83c9f2d10455acf0d65026a2b7c7a6998078a291d5c3e",
+      "official_status": "resolved",
+      "generation_status": "completed",
+      "route": "fixed",
+      "source_matrix": "runs\\test20_A_20261112_01\\matrix.json"
+    },
+    "B": {
+      "patch_sha256": "e97f610ee53d6e18b4bd17cfbcba507b901adb3cae0c9608062f6bbc6c4e424e",
+      "official_status": "resolved",
+      "generation_status": "budget_exhausted",
+      "route": "standalone",
+      "source_matrix": "runs\\test20_B_20261112_02\\matrix.json"
+    },
+    "C": {
+      "patch_sha256": "114725bbe3ec073c27c83c9f2d10455acf0d65026a2b7c7a6998078a291d5c3e",
+      "official_status": "resolved",
+      "generation_status": "budget_exhausted",
+      "route": "interactive",
+      "source_matrix": "runs\\test20_C_20261112_01\\matrix.json"
+    },
+    "D": {
+      "patch_sha256": "114725bbe3ec073c27c83c9f2d10455acf0d65026a2b7c7a6998078a291d5c3e",
+      "official_status": "resolved",
+      "generation_status": "completed",
+      "route": "fixed",
+      "source_matrix": "runs\\test20_D_20261112_01\\matrix.json"
+    },
+    "E": {
+      "patch_sha256": "114725bbe3ec073c27c83c9f2d10455acf0d65026a2b7c7a6998078a291d5c3e",
+      "official_status": "resolved",
+      "generation_status": "completed",
+      "route": "fixed",
+      "source_matrix": "runs\\test20_E_20261112_01\\matrix.json"
+    }
+  },
+  "generation_import_prohibited": true,
+  "reference_is_not_a_textual_equality_oracle": true
+}

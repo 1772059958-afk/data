@@ -1,0 +1,34 @@
+test_analysis.py: 4 test(s)
+test_batch_ledger.py: 4 test(s)
+test_calibration.py: 13 test(s)
+test_calibration_population.py: 8 test(s)
+C:\Users\remil\Desktop\3yr\科研\proj\work\offline_tmp\tmp9dojh3_2\runs\calibration.json
+test_cf.py: 16 test(s)
+test_core_contracts.py: 14 test(s)
+test_dev_preparation.py: 2 test(s)
+test_error_feedback.py: 12 test(s)
+test_experiment.py: 24 test(s)
+test_interact.py: 11 test(s)
+test_interaction_contracts.py: 12 test(s)
+test_llm.py: 43 test(s)
+test_pilot.py: 10 test(s)
+test_pilot_cli.py: 7 test(s)
+test_pilot_summary.py: 3 test(s)
+test_prefix_only.py: 9 test(s)
+C:\Users\remil\Desktop\3yr\科研\proj\work\offline_tmp\tmp38yqzwhs\probe\result.json
+C:\Users\remil\Desktop\3yr\科研\proj\work\offline_tmp\tmpax_x0g2o\probe\result.json
+C:\Users\remil\Desktop\3yr\科研\proj\work\offline_tmp\tmpaww5a9jx\probe\result.json
+test_preservation.py: 4 test(s)
+test_public_validation.py: 8 test(s)
+test_router.py: 29 test(s)
+test_routing_evidence.py: 6 test(s)
+test_runlog.py: 11 test(s)
+test_scoring_controller.py: 7 test(s)
+test_scoring_identity.py: 17 test(s)
+test_signal_chain.py: 6 test(s)
+test_spend.py: 20 test(s)
+test_state.py: 29 test(s)
+test_statistics.py: 7 test(s)
+test_statistics_integrity.py: 7 test(s)
+
+343/343 passed

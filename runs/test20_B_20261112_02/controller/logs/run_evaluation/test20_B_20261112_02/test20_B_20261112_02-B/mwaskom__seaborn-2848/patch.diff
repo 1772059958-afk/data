@@ -1,0 +1,15 @@
+--- a/seaborn/_oldcore.py
++++ b/seaborn/_oldcore.py
+@@ -152,7 +152,12 @@ class HueMapping:
+         try:
+             # Use a value that's in the original data vector
+             value = self.lookup_table[key]
+         except KeyError:
++            # If the value is not in the mapping (e.g. because hue_order
++            # specified a subset of the levels), draw it transparently.
++            if self.norm is None:
++                return (0, 0, 0, 0)
++
+             # Use the colormap to interpolate between existing datapoints
+             # (e.g. in the context of making a continuous legend)
+             try:

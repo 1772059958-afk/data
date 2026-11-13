@@ -1,0 +1,66 @@
+{
+  "kind": "review_only_after_all_formal_predictions_sealed",
+  "instance_id": "psf__requests-1963",
+  "repo": "psf/requests",
+  "base_commit": "110048f9837f8441ea536804115e80b69f400277",
+  "issue": "`Session.resolve_redirects` copies the original request for all subsequent requests, can cause incorrect method selection\nConsider the following redirection chain:\n\n```\nPOST /do_something HTTP/1.1\nHost: server.example.com\n...\n\nHTTP/1.1 303 See Other\nLocation: /new_thing_1513\n\nGET /new_thing_1513\nHost: server.example.com\n...\n\nHTTP/1.1 307 Temporary Redirect\nLocation: //failover.example.com/new_thing_1513\n```\n\nThe intermediate 303 See Other has caused the POST to be converted to\na GET.  The subsequent 307 should preserve the GET.  However, because\n`Session.resolve_redirects` starts each iteration by copying the _original_\nrequest object, Requests will issue a POST!\n\n",
+  "developer_reference_patch": "diff --git a/requests/sessions.py b/requests/sessions.py\n--- a/requests/sessions.py\n+++ b/requests/sessions.py\n@@ -168,8 +168,11 @@ def resolve_redirects(self, resp, req, stream=False, timeout=None,\n             if new_auth is not None:\n                 prepared_request.prepare_auth(new_auth)\n \n+            # Override the original request.\n+            req = prepared_request\n+\n             resp = self.send(\n-                prepared_request,\n+                req,\n                 stream=stream,\n                 timeout=timeout,\n                 verify=verify,\n",
+  "unique_submitted_patches": [
+    {
+      "sha256": "e53f29b024da4a9a41c0f734c5fdba30b33867fd7ebd21408115bdde1f64adf6",
+      "patch": "--- a/requests/sessions.py\n+++ b/requests/sessions.py\n@@ -166,7 +166,10 @@ class SessionRedirectMixin(object):\n             new_auth = get_netrc_auth(url) if self.trust_env else None\n             if new_auth is not None:\n                 prepared_request.prepare_auth(new_auth)\n \n+            # Override the original request.\n+            req = prepared_request\n+\n             resp = self.send(\n                 prepared_request,\n                 stream=stream,\n",
+      "arms": [
+        "A",
+        "C",
+        "D",
+        "E"
+      ]
+    },
+    {
+      "sha256": "7d4a6c0e0b78d3a08aa1bb309279f1f06e954060314b41ffe76cbb2aeba079a1",
+      "patch": "--- a/requests/sessions.py\n+++ b/requests/sessions.py\n@@ -172,5 +172,8 @@ class SessionRedirectMixin(object):\n \n             extract_cookies_to_jar(self.cookies, prepared_request, resp.raw)\n \n+            # Carry the request forward so subsequent redirects are resolved\n+            # relative to the request that was actually sent, not the original.\n+            req = prepared_request\n             i += 1\n             yield resp\n",
+      "arms": [
+        "B"
+      ]
+    }
+  ],
+  "submissions": {
+    "A": {
+      "patch_sha256": "e53f29b024da4a9a41c0f734c5fdba30b33867fd7ebd21408115bdde1f64adf6",
+      "official_status": "ambiguous_error",
+      "generation_status": "completed",
+      "route": "fixed",
+      "source_matrix": "runs\\test20_A_20261112_01\\matrix.json"
+    },
+    "B": {
+      "patch_sha256": "7d4a6c0e0b78d3a08aa1bb309279f1f06e954060314b41ffe76cbb2aeba079a1",
+      "official_status": "ambiguous_error",
+      "generation_status": "budget_exhausted",
+      "route": "standalone",
+      "source_matrix": "runs\\test20_B_20261112_02\\matrix.json"
+    },
+    "C": {
+      "patch_sha256": "e53f29b024da4a9a41c0f734c5fdba30b33867fd7ebd21408115bdde1f64adf6",
+      "official_status": "ambiguous_error",
+      "generation_status": "completed",
+      "route": "interactive",
+      "source_matrix": "runs\\test20_C_20261112_01\\matrix.json"
+    },
+    "D": {
+      "patch_sha256": "e53f29b024da4a9a41c0f734c5fdba30b33867fd7ebd21408115bdde1f64adf6",
+      "official_status": "ambiguous_error",
+      "generation_status": "completed",
+      "route": "interactive",
+      "source_matrix": "runs\\test20_D_20261112_01\\matrix.json"
+    },
+    "E": {
+      "patch_sha256": "e53f29b024da4a9a41c0f734c5fdba30b33867fd7ebd21408115bdde1f64adf6",
+      "official_status": "ambiguous_error",
+      "generation_status": "completed",
+      "route": "interactive",
+      "source_matrix": "runs\\test20_E_20261112_01\\matrix.json"
+    }
+  },
+  "generation_import_prohibited": true,
+  "reference_is_not_a_textual_equality_oracle": true
+}

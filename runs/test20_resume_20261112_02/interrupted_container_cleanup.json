@@ -1,0 +1,10 @@
+{
+  "diff_saved": "interrupted_container_diff.txt",
+  "at": "2026-11-12T08:20:55.0914575+08:00",
+  "inspect_saved": "interrupted_container_inspect.json",
+  "image": "sha256:35e4dfb23a6b6ae8cafd2e7ea27737383aeec900393aecade15642816c07836c",
+  "removed_after_successful_recovery": true,
+  "container_id": "30ebab64dfba9b45c3aa25b848bf6f0f70734bba3346d422bc07a82fbe592f35",
+  "result": "30ebab64dfba",
+  "name": "proposal-standalone-mwaskom__seaborn-2848-490844d917"
+}

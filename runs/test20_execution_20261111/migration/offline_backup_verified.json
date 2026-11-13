@@ -1,0 +1,21 @@
+{
+  "docker_stopped": true,
+  "files": [
+    {
+      "source": "C:\\Users\\remil\\AppData\\Local\\Docker\\wsl\\disk\\docker_data.vhdx",
+      "backup": "D:\\DockerBackups\\swe-repair-20261111-pre-move\\disk\\docker_data.vhdx",
+      "bytes": 16726884352,
+      "sha256": "7bc259938a0168dfc3a8efdc99b617fac21779bcbbfe9d3e220460767bab0cf3",
+      "elapsed_seconds": 56.33153129999846
+    },
+    {
+      "source": "C:\\Users\\remil\\AppData\\Local\\Docker\\wsl\\main\\ext4.vhdx",
+      "backup": "D:\\DockerBackups\\swe-repair-20261111-pre-move\\main\\ext4.vhdx",
+      "bytes": 100663296,
+      "sha256": "a3ed6c305f2e1e0b1a21650087ae412318a209d754d59abb25b39638c3775009",
+      "elapsed_seconds": 0.20966739999857964
+    }
+  ],
+  "active_directory_prepared": "D:\\DockerData\\swe-repair-20261111",
+  "originals_deleted": false
+}

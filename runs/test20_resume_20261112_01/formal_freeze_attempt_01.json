@@ -1,0 +1,6 @@
+{
+  "result": "failed_before_any_review_or_config_write",
+  "reason": "Initial sidecar lookup incorrectly replaced suffix. Corrected by using official evaluation.sidecar_path in freeze_reviewed_formal.py.",
+  "model_calls": 0,
+  "successful_attempt": "formal_freeze_execute_02.log"
+}

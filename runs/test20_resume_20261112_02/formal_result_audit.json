@@ -1,0 +1,17 @@
+{
+  "all100_generation_inputs_immutable": true,
+  "all_five_independent_reports_and_provenance_validated": true,
+  "all100_evaluated_audit_rows_present": true,
+  "all20_denominators_retained": true,
+  "source_files_verified": 62,
+  "formal_scoring_completed_sha256": "2bd20dcfe3665372f807e0d750ee89e5142622130c5fba0a834b1faa25336dd7",
+  "summary_sha256": "c5f34c1cf767af34d6a4a5d0367203b15a553bd282c3d435a02c78a278e25d42",
+  "all_evaluation_statuses_accounted_for": true,
+  "all_semantic_verdicts_known": false,
+  "formal_model_fingerprint_matched": true,
+  "B_completed_seven_cases_and_predictions_exactly_preserved": true,
+  "B8_reconstructed_state_exactly_preserved": true,
+  "immutable_model_version": false,
+  "inference_performed": false,
+  "at": "2026-11-12T05:23:59.154633+00:00"
+}

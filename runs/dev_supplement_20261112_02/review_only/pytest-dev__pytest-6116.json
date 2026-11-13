@@ -1,0 +1,66 @@
+{
+  "kind": "review_only_after_all_formal_predictions_sealed",
+  "instance_id": "pytest-dev__pytest-6116",
+  "repo": "pytest-dev/pytest",
+  "base_commit": "e670ff76cbad80108bde9bab616b66771b8653cf",
+  "issue": "pytest --collect-only needs a one char shortcut command\nI find myself needing to run `--collect-only` very often and that cli argument is a very long to type one. \r\n\r\nI do think that it would be great to allocate a character for it, not sure which one yet. Please use up/down thumbs to vote if you would find it useful or not and eventually proposing which char should be used. \r\n\r\nClearly this is a change very easy to implement but first I want to see if others would find it useful or not.\npytest --collect-only needs a one char shortcut command\nI find myself needing to run `--collect-only` very often and that cli argument is a very long to type one. \r\n\r\nI do think that it would be great to allocate a character for it, not sure which one yet. Please use up/down thumbs to vote if you would find it useful or not and eventually proposing which char should be used. \r\n\r\nClearly this is a change very easy to implement but first I want to see if others would find it useful or not.\n",
+  "developer_reference_patch": "diff --git a/src/_pytest/main.py b/src/_pytest/main.py\n--- a/src/_pytest/main.py\n+++ b/src/_pytest/main.py\n@@ -109,6 +109,7 @@ def pytest_addoption(parser):\n     group.addoption(\n         \"--collectonly\",\n         \"--collect-only\",\n+        \"--co\",\n         action=\"store_true\",\n         help=\"only collect tests, don't execute them.\",\n     ),\n",
+  "unique_submitted_patches": [
+    {
+      "sha256": "8172bbb04ce0dc7634fb2b48b93c6edfe6cfac1b299b46560dc8f4cd872e1723",
+      "patch": "--- a/src/_pytest/main.py\n+++ b/src/_pytest/main.py\n@@ -80,6 +80,7 @@ def pytest_addoption(parser):\n     group.addoption(\n         \"--collectonly\",\n         \"--collect-only\",\n+        \"--co\",\n         action=\"store_true\",\n         help=\"only collect tests, don't execute them.\",\n     ),\n",
+      "arms": [
+        "A",
+        "C",
+        "D",
+        "E"
+      ]
+    },
+    {
+      "sha256": "1824020044dd44ca1693be3e91e008cec9901089c08f18817e274044eab9c0ff",
+      "patch": "diff --git a/src/_pytest/main.py b/src/_pytest/main.py\n--- a/src/_pytest/main.py\n+++ b/src/_pytest/main.py\n@@ -108,6 +108,7 @@ def pytest_addoption(parser):\n \n     group = parser.getgroup(\"collect\", \"collection\")\n     group.addoption(\n+        \"--co\",\n         \"--collectonly\",\n         \"--collect-only\",\n         action=\"store_true\",\n",
+      "arms": [
+        "B"
+      ]
+    }
+  ],
+  "submissions": {
+    "A": {
+      "patch_sha256": "8172bbb04ce0dc7634fb2b48b93c6edfe6cfac1b299b46560dc8f4cd872e1723",
+      "official_status": "ambiguous_error",
+      "generation_status": "completed",
+      "route": "fixed",
+      "source_matrix": "runs\\test20_A_20261112_01\\matrix.json"
+    },
+    "B": {
+      "patch_sha256": "1824020044dd44ca1693be3e91e008cec9901089c08f18817e274044eab9c0ff",
+      "official_status": "ambiguous_error",
+      "generation_status": "completed",
+      "route": "standalone",
+      "source_matrix": "runs\\test20_B_20261112_02\\matrix.json"
+    },
+    "C": {
+      "patch_sha256": "8172bbb04ce0dc7634fb2b48b93c6edfe6cfac1b299b46560dc8f4cd872e1723",
+      "official_status": "resolved",
+      "generation_status": "completed",
+      "route": "interactive",
+      "source_matrix": "runs\\test20_C_20261112_01\\matrix.json"
+    },
+    "D": {
+      "patch_sha256": "8172bbb04ce0dc7634fb2b48b93c6edfe6cfac1b299b46560dc8f4cd872e1723",
+      "official_status": "ambiguous_error",
+      "generation_status": "completed",
+      "route": "fixed",
+      "source_matrix": "runs\\test20_D_20261112_01\\matrix.json"
+    },
+    "E": {
+      "patch_sha256": "8172bbb04ce0dc7634fb2b48b93c6edfe6cfac1b299b46560dc8f4cd872e1723",
+      "official_status": "ambiguous_error",
+      "generation_status": "completed",
+      "route": "fixed",
+      "source_matrix": "runs\\test20_E_20261112_01\\matrix.json"
+    }
+  },
+  "generation_import_prohibited": true,
+  "reference_is_not_a_textual_equality_oracle": true
+}

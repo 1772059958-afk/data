@@ -1,0 +1,37 @@
+{
+  "kind": "evaluation_only_exact_frozen_prediction_replay",
+  "original_run": "runs\\dev23_calibration_20261112_01",
+  "files": [
+    {
+      "path": "matrix.json",
+      "sha256": "f12ddf93ac72876814d69cc867a93b57991e18679a8fd66fb767ab2e92e632b2"
+    },
+    {
+      "path": "predictions_A.jsonl",
+      "sha256": "18beec13cf55cdd62c98a514fc5b34e575a2b013ae78a2763ad9119e240cbed1"
+    },
+    {
+      "path": "predictions_B.jsonl",
+      "sha256": "b904d4ccab4d3d42c8602e812a4a4c16708435aec1592a1748b7de2780d368a8"
+    },
+    {
+      "path": "predictions_C.jsonl",
+      "sha256": "b1804e298605dd911996f32480bd9b7fa21dd1ebf407e8346b4ad7fdcc254a15"
+    },
+    {
+      "path": "predictions_D.jsonl",
+      "sha256": "e4c2ba611fc27d12f28ebeb6fb40ede027353518cce149eeed7b27da2b39cdf9"
+    },
+    {
+      "path": "predictions_ESC.jsonl",
+      "sha256": "4126943bcf5300a57bf61b96745ec01a9bcc3aaf0f856d62355c93ca376c1c48"
+    },
+    {
+      "path": "predictions_FIXED.jsonl",
+      "sha256": "151137d0f2e26e3fb87839873db83ef31d015b1f178cb47580e2ab95c572d9b0"
+    }
+  ],
+  "model_calls": 0,
+  "matrix_and_patches_changed": false,
+  "reason": "Official tail CMD conflicts with inherited Bash ENTRYPOINT; audited startup-only adapter preserves original image IDs/rootfs and unchanged harness."
+}

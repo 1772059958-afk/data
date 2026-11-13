@@ -1,0 +1,14 @@
+{
+  "kind": "official_evaluation_infrastructure_timeout_observation",
+  "arm": "A",
+  "instance_id": "psf__requests-1963",
+  "official_timeout_seconds": 1800,
+  "observed_runtime_seconds": 1800.06,
+  "source": "runs/test20_A_20261112_01/controller/logs/run_evaluation/test20_A_20261112_01/test20_A_20261112_01-A/psf__requests-1963/run_instance.log",
+  "source_sha256": "eee7cd4694854cfb3837e9ed09b05c74821c52fed3a14c99577dcf2879d20f13",
+  "container_stopped_and_removed": true,
+  "is_unresolved_label": false,
+  "other_arms_not_inferred_from_this_case": true,
+  "generation_or_environment_changed_after_observation": false,
+  "at": "2026-11-12T02:18:24.167359+00:00"
+}

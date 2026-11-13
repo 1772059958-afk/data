@@ -1,0 +1,32 @@
+{
+  "partials_deleted_confirmed": 4,
+  "complete_OCI_blobs_preserved": true,
+  "backup_files_SHA_verified_against_original_records": 4,
+  "D_backup_originals_absent": true,
+  "E_backup_directories": [
+    "E:/DockerBackups/swe-repair-20261111-pre-move",
+    "E:/DockerBackups/swe-repair-20261111-stopped"
+  ],
+  "preservation": {
+    "experiments": {
+      "baseline_commit": "3759265",
+      "protected_total": 93,
+      "verified": 93,
+      "missing": [],
+      "changed": [],
+      "invalid": [],
+      "ok": true
+    },
+    "archive": {
+      "archived_total": 131,
+      "missing": [],
+      "changed": [],
+      "invalid": [],
+      "ok": true
+    }
+  },
+  "documentation": "docs/存储清理与备份迁移_20261112.md",
+  "documentation_sha256": "f17fbf28cee3f14d15127ef63e04fd53b5fa6b951d4c5dff14cab3f15c23ff56",
+  "experiment_resumed": false,
+  "shutdown_scheduled": false
+}

@@ -1,0 +1,14 @@
+{
+  "status": "passed",
+  "checks": [
+    "complete23 manifest, pinned input/wheel hashes and generated identity syntax",
+    "daemon/access errors cannot masquerade as missing owned container",
+    "uncertain/reused container identity refuses deletion and retains unresolved ownership"
+  ],
+  "docker_operations": 0,
+  "network_calls": 0,
+  "model_calls": 0,
+  "script_sha256": "82fe5f9a9df36d1b63e362fe3450e557bbe3ffd5a8a10ff240a66945daa6321d",
+  "manifest_sha256": "56acf584c6ab7f35590a0cf948b8c60bab369871b929edf1ccadf6c337870067",
+  "scope": "offline preparation boundaries only; actual imports/smokes still pending"
+}

@@ -1,0 +1,10 @@
+--- a/pydicom/dataelem.py
++++ b/pydicom/dataelem.py
+@@ -438,6 +438,6 @@
+         #  Last condition covers 'US or SS' etc
+         if isinstance(val, (str, bytes)) and self.VR not in \
+-                ['UT', 'ST', 'LT', 'FL', 'FD', 'AT', 'OB', 'OW', 'OF', 'SL',
++                ['UT', 'ST', 'LT', 'FL', 'FD', 'AT', 'OB', 'OW', 'OF', 'OL', 'SL',
+                  'SQ', 'SS', 'UL', 'OB/OW', 'OW/OB', 'OB or OW',
+                  'OW or OB', 'UN'] and 'US' not in self.VR:
+             try:

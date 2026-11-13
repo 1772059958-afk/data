@@ -1,0 +1,9 @@
+/testbed/sympy/core/basic.py:3: DeprecationWarning: Using or importing the ABCs from 'collections' instead of from 'collections.abc' is deprecated since Python 3.3, and in 3.10 it will stop working
+  from collections import Mapping, defaultdict
+/testbed/sympy/core/containers.py:271: DeprecationWarning: Using or importing the ABCs from 'collections' instead of from 'collections.abc' is deprecated since Python 3.3, and in 3.10 it will stop working
+  class OrderedSet(collections.MutableSet):
+/testbed/sympy/solvers/diophantine.py:3188: SyntaxWarning: "is" with a literal. Did you mean "=="?
+  if feasible is 1:  # it's prime and k == 2
+/testbed/sympy/plotting/plot.py:28: DeprecationWarning: Using or importing the ABCs from 'collections' instead of from 'collections.abc' is deprecated since Python 3.3, and in 3.10 it will stop working
+  from collections import Callable
+__PUBLIC_TEST20_IDENTITY__{"head": "f57fe3f4b3f2cab225749e1b3b38ae1bf80b62f0", "tree": "f7d619a24d1c89c9ff80edf540828ee421ca03a6", "clean": true, "public_blob_count": 1500, "public_blob_mismatch_count": 0, "missing_public_paths": 0, "extra_tracked_paths": 0, "file_mode_differences": 0, "assume_unchanged_or_sparse_entries": 0, "raw_public_source_mismatch_count": 0, "unknown_extra_path_names_exposed": false, "compiled_artifact_reuse_allowed": true, "accepted_build_requirement_pin": false, "different_known_public_blob_paths": [], "different_known_public_raw_source_paths": [], "python": "3.9.20", "module_file": "/testbed/sympy/__init__.py", "module_version": "1.1.2.dev", "accepted": true}

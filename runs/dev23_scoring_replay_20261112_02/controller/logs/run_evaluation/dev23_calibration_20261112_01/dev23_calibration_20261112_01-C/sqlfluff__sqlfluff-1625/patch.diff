@@ -1,0 +1,13 @@
+--- a/src/sqlfluff/rules/L031.py
++++ b/src/sqlfluff/rules/L031.py
+@@ -91,6 +91,10 @@
+                 for column_reference in clause.recursive_crawl("column_reference"):
+                     column_reference_segments.append(column_reference)
+ 
++            # If there is only one table in the FROM clause, there is no join.
++            if len(from_expression_elements) < 2:
++                return None
++
+             return (
+                 self._lint_aliases_in_join(
+                     base_table,

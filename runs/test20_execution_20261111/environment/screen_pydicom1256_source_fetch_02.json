@@ -1,0 +1,26 @@
+{
+  "records": [
+    {
+      "args": [
+        "git",
+        "-c",
+        "http.sslBackend=openssl",
+        "-c",
+        "http.sslCAInfo=C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\.venv\\Lib\\site-packages\\certifi\\cacert.pem",
+        "-C",
+        "C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\work\\test20_environment_20261111\\pydicom__pydicom-1256\\testbed",
+        "fetch",
+        "--depth",
+        "1",
+        "origin",
+        "49a3da4a3d9c24d7e8427a25048a1c7d5c4f7724"
+      ],
+      "exit_code": 128,
+      "stdout": "",
+      "stderr": "fatal: unable to access 'https://github.com/pydicom/pydicom.git/': SSL certificate problem: self-signed certificate in certificate chain\n",
+      "seconds": 11.683
+    }
+  ],
+  "TLS": "verified via requests certifi CA bundle; no certificate verification disabled",
+  "C_free_bytes": 5818109952
+}

@@ -1,0 +1,427 @@
+{
+  "at_local": "2026-11-12T18:26:34",
+  "threshold_bytes": 104857600,
+  "listed_files": 32,
+  "listed_logical_bytes": 125674657488,
+  "rows": [
+    {
+      "drive": "D:",
+      "path": "D:\\DockerData\\swe-repair-20261111\\DockerDesktopWSL\\disk\\docker_data.vhdx",
+      "bytes": 76381421568,
+      "GiB": 71.1357,
+      "last_write_local": "2026-11-12T18:14:04",
+      "category": "活动Docker数据",
+      "suggestion": "保留",
+      "prerequisite": "当前77镜像所在活动卷，旧冷备不覆盖当前全集",
+      "reparse_or_sparse_allocation_not_measured": true
+    },
+    {
+      "drive": "E:",
+      "path": "E:\\DockerBackups\\swe-repair-20261111-pre-move\\disk\\docker_data.vhdx",
+      "bytes": 16726884352,
+      "GiB": 15.5781,
+      "last_write_local": "2026-11-11T21:43:21",
+      "category": "历史停机备份",
+      "suggestion": "待复核备份保留策略",
+      "prerequisite": "先确认无需旧恢复点，不能用它替代当前活动卷备份",
+      "reparse_or_sparse_allocation_not_measured": true
+    },
+    {
+      "drive": "E:",
+      "path": "E:\\DockerBackups\\swe-repair-20261111-stopped\\disk\\docker_data.vhdx",
+      "bytes": 16726884352,
+      "GiB": 15.5781,
+      "last_write_local": "2026-11-11T22:49:38",
+      "category": "历史停机备份",
+      "suggestion": "待复核备份保留策略",
+      "prerequisite": "先确认无需旧恢复点，不能用它替代当前活动卷备份",
+      "reparse_or_sparse_allocation_not_measured": true
+    },
+    {
+      "drive": "D:",
+      "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\61837affeedb912e8a08fbbf3220cd6088f7f9474b112d5beb6a9ad3e9b8199c",
+      "bytes": 1493124442,
+      "GiB": 1.3906,
+      "last_write_local": "2026-11-12T01:13:34",
+      "category": "官方镜像下载缓存",
+      "suggestion": "可回收候选",
+      "prerequisite": "确认当前镜像可用且不再离线重建后可删缓存，不能删除活动VHDX",
+      "reparse_or_sparse_allocation_not_measured": true
+    },
+    {
+      "drive": "D:",
+      "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\2d083182d3232b6cf44970e2eb41b5aa913c66325a7b39104da3624d0392ae79",
+      "bytes": 1493123460,
+      "GiB": 1.3906,
+      "last_write_local": "2026-11-12T01:11:25",
+      "category": "官方镜像下载缓存",
+      "suggestion": "可回收候选",
+      "prerequisite": "确认当前镜像可用且不再离线重建后可删缓存，不能删除活动VHDX",
+      "reparse_or_sparse_allocation_not_measured": true
+    },
+    {
+      "drive": "D:",
+      "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\d0e25e76b4c8bbe2eef78fe5856011818ea51b74783936282c6880e21f4bb5ec",
+      "bytes": 1372575649,
+      "GiB": 1.2783,
+      "last_write_local": "2026-11-12T01:28:45",
+      "category": "官方镜像下载缓存",
+      "suggestion": "可回收候选",
+      "prerequisite": "确认当前镜像可用且不再离线重建后可删缓存，不能删除活动VHDX",
+      "reparse_or_sparse_allocation_not_measured": true
+    },
+    {
+      "drive": "D:",
+      "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\7355e6d232f85ad61772fc37c2af01656b6826c99c2ac5b3e690c050205aece8",
+      "bytes": 986918201,
+      "GiB": 0.9191,
+      "last_write_local": "2026-11-12T01:14:12",
+      "category": "官方镜像下载缓存",
+      "suggestion": "可回收候选",
+      "prerequisite": "确认当前镜像可用且不再离线重建后可删缓存，不能删除活动VHDX",
+      "reparse_or_sparse_allocation_not_measured": true
+    },
+    {
+      "drive": "D:",
+      "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\526b2963f3ed92f09fca000b2cf12e0761fe4777798900569eb71c02fe9383bd",
+      "bytes": 972594950,
+      "GiB": 0.9058,
+      "last_write_local": "2026-11-12T01:10:26",
+      "category": "官方镜像下载缓存",
+      "suggestion": "可回收候选",
+      "prerequisite": "确认当前镜像可用且不再离线重建后可删缓存，不能删除活动VHDX",
+      "reparse_or_sparse_allocation_not_measured": true
+    },
+    {
+      "drive": "E:",
+      "path": "E:\\DockerBackups\\project-final-20261112-01\\project-final-20261112-01.zip",
+      "bytes": 766499205,
+      "GiB": 0.7139,
+      "last_write_local": "2026-11-12T18:15:50",
+      "category": "最新完整项目证据归档",
+      "suggestion": "保留",
+      "prerequisite": "4227文件CRC及逐项SHA已验证，凭据排除",
+      "reparse_or_sparse_allocation_not_measured": true
+    },
+    {
+      "drive": "E:",
+      "path": "E:\\DockerBackups\\project-session-20261112-02\\project-session-20261112-02.zip",
+      "bytes": 740324328,
+      "GiB": 0.6895,
+      "last_write_local": "2026-11-12T13:32:42",
+      "category": "较早项目证据归档",
+      "suggestion": "优先核验重复后清理",
+      "prerequisite": "核对最新归档包含旧证据且SHA有效后，才可去掉旧副本",
+      "reparse_or_sparse_allocation_not_measured": true
+    },
+    {
+      "drive": "D:",
+      "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\dd986ece23418b0fa51e69e33254978fc01265549cae1ad2830c7ab14109af71",
+      "bytes": 726858641,
+      "GiB": 0.6769,
+      "last_write_local": "2026-11-12T01:18:58",
+      "category": "官方镜像下载缓存",
+      "suggestion": "可回收候选",
+      "prerequisite": "确认当前镜像可用且不再离线重建后可删缓存，不能删除活动VHDX",
+      "reparse_or_sparse_allocation_not_measured": true
+    },
+    {
+      "drive": "D:",
+      "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\3da0262d14f0ecf7e9940143898388506f7076f8c47dbb664c0239d5d8018494",
+      "bytes": 726856797,
+      "GiB": 0.6769,
+      "last_write_local": "2026-11-12T01:18:30",
+      "category": "官方镜像下载缓存",
+      "suggestion": "可回收候选",
+      "prerequisite": "确认当前镜像可用且不再离线重建后可删缓存，不能删除活动VHDX",
+      "reparse_or_sparse_allocation_not_measured": true
+    },
+    {
+      "drive": "D:",
+      "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\0fd75864e1c5799949032f9ff6ffb2ad49f8c1f0cd3ac3c2d3b433636da6e52c",
+      "bytes": 545832589,
+      "GiB": 0.5083,
+      "last_write_local": "2026-11-12T01:12:38",
+      "category": "官方镜像下载缓存",
+      "suggestion": "可回收候选",
+      "prerequisite": "确认当前镜像可用且不再离线重建后可删缓存，不能删除活动VHDX",
+      "reparse_or_sparse_allocation_not_measured": true
+    },
+    {
+      "drive": "D:",
+      "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\87d563fa66d0eefddea3d68671e90cc63fb50ce83bb64c5d8950b65a05a76225",
+      "bytes": 476576836,
+      "GiB": 0.4438,
+      "last_write_local": "2026-11-12T01:08:08",
+      "category": "官方镜像下载缓存",
+      "suggestion": "可回收候选",
+      "prerequisite": "确认当前镜像可用且不再离线重建后可删缓存，不能删除活动VHDX",
+      "reparse_or_sparse_allocation_not_measured": true
+    },
+    {
+      "drive": "D:",
+      "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\3c67438742bcf34813baf1ded78c7bd7ecff9b3e6b508c944da759a52c38642d",
+      "bytes": 457527985,
+      "GiB": 0.4261,
+      "last_write_local": "2026-11-12T01:14:20",
+      "category": "官方镜像下载缓存",
+      "suggestion": "可回收候选",
+      "prerequisite": "确认当前镜像可用且不再离线重建后可删缓存，不能删除活动VHDX",
+      "reparse_or_sparse_allocation_not_measured": true
+    },
+    {
+      "drive": "D:",
+      "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\f03f14b9ae4ba4d73824ab87fea1d0e67aaf7bc9250481afb6273e5bdb8a28f6",
+      "bytes": 420170848,
+      "GiB": 0.3913,
+      "last_write_local": "2026-11-12T01:06:37",
+      "category": "官方镜像下载缓存",
+      "suggestion": "可回收候选",
+      "prerequisite": "确认当前镜像可用且不再离线重建后可删缓存，不能删除活动VHDX",
+      "reparse_or_sparse_allocation_not_measured": true
+    },
+    {
+      "drive": "D:",
+      "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\fd7a87c0b95ba9470ab5b292bee0cde8f8f4b91a5c9755052c1b36b06f71c7d3",
+      "bytes": 420167964,
+      "GiB": 0.3913,
+      "last_write_local": "2026-11-12T00:58:20",
+      "category": "官方镜像下载缓存",
+      "suggestion": "可回收候选",
+      "prerequisite": "确认当前镜像可用且不再离线重建后可删缓存，不能删除活动VHDX",
+      "reparse_or_sparse_allocation_not_measured": true
+    },
+    {
+      "drive": "D:",
+      "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\648d826a06a060acfdb2aba3bf0a583c51d61f1e59f1fdabf4a51f073503005f",
+      "bytes": 409567161,
+      "GiB": 0.3814,
+      "last_write_local": "2026-11-12T01:15:47",
+      "category": "官方镜像下载缓存",
+      "suggestion": "可回收候选",
+      "prerequisite": "确认当前镜像可用且不再离线重建后可删缓存，不能删除活动VHDX",
+      "reparse_or_sparse_allocation_not_measured": true
+    },
+    {
+      "drive": "D:",
+      "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\0898dd0482f78768edc11d858095cfead64b0f10dcf7072655ce774c6d8fa523",
+      "bytes": 403158159,
+      "GiB": 0.3755,
+      "last_write_local": "2026-11-12T01:07:07",
+      "category": "官方镜像下载缓存",
+      "suggestion": "可回收候选",
+      "prerequisite": "确认当前镜像可用且不再离线重建后可删缓存，不能删除活动VHDX",
+      "reparse_or_sparse_allocation_not_measured": true
+    },
+    {
+      "drive": "D:",
+      "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\5e63a68ff6439b1581ee5ba0e3757810d61d5ad007e8033b5b5987df410e9537",
+      "bytes": 402244166,
+      "GiB": 0.3746,
+      "last_write_local": "2026-11-12T01:06:33",
+      "category": "官方镜像下载缓存",
+      "suggestion": "可回收候选",
+      "prerequisite": "确认当前镜像可用且不再离线重建后可删缓存，不能删除活动VHDX",
+      "reparse_or_sparse_allocation_not_measured": true
+    },
+    {
+      "drive": "D:",
+      "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\51d7bef5ddbe9905e5b758c2e47b1dd327e7a61c19c85a3c141e4d65261c4c10",
+      "bytes": 400854343,
+      "GiB": 0.3733,
+      "last_write_local": "2026-11-12T01:22:05",
+      "category": "官方镜像下载缓存",
+      "suggestion": "可回收候选",
+      "prerequisite": "确认当前镜像可用且不再离线重建后可删缓存，不能删除活动VHDX",
+      "reparse_or_sparse_allocation_not_measured": true
+    },
+    {
+      "drive": "D:",
+      "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\e224261309e80a413af3e2515ec4eb2656c112200cf57708a08564052df4909d",
+      "bytes": 398695709,
+      "GiB": 0.3713,
+      "last_write_local": "2026-11-12T00:58:50",
+      "category": "官方镜像下载缓存",
+      "suggestion": "可回收候选",
+      "prerequisite": "确认当前镜像可用且不再离线重建后可删缓存，不能删除活动VHDX",
+      "reparse_or_sparse_allocation_not_measured": true
+    },
+    {
+      "drive": "D:",
+      "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\0e43bc2a78057e6e6737b70d65be5424e7d737f26029c7a5bc282292ce5dffa7",
+      "bytes": 350262563,
+      "GiB": 0.3262,
+      "last_write_local": "2026-11-12T01:15:06",
+      "category": "官方镜像下载缓存",
+      "suggestion": "可回收候选",
+      "prerequisite": "确认当前镜像可用且不再离线重建后可删缓存，不能删除活动VHDX",
+      "reparse_or_sparse_allocation_not_measured": true
+    },
+    {
+      "drive": "D:",
+      "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\dc407fa3625218d589452c3dcc5e638fe08368d417b111057d36fd782d2e90c5",
+      "bytes": 350128509,
+      "GiB": 0.3261,
+      "last_write_local": "2026-11-12T01:22:36",
+      "category": "官方镜像下载缓存",
+      "suggestion": "可回收候选",
+      "prerequisite": "确认当前镜像可用且不再离线重建后可删缓存，不能删除活动VHDX",
+      "reparse_or_sparse_allocation_not_measured": true
+    },
+    {
+      "drive": "D:",
+      "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\36b963109585f05f8d98ea1fcdaa6f83ea30e6c64f20c1e8ed9688512d9a6e8d",
+      "bytes": 348398475,
+      "GiB": 0.3245,
+      "last_write_local": "2026-11-12T01:16:05",
+      "category": "官方镜像下载缓存",
+      "suggestion": "可回收候选",
+      "prerequisite": "确认当前镜像可用且不再离线重建后可删缓存，不能删除活动VHDX",
+      "reparse_or_sparse_allocation_not_measured": true
+    },
+    {
+      "drive": "D:",
+      "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\5fd8a0bc4b4e5496b5050d67f7de30136fc2e5c9f1a0165c8eab363cdda08c5a",
+      "bytes": 348171475,
+      "GiB": 0.3243,
+      "last_write_local": "2026-11-12T01:16:35",
+      "category": "官方镜像下载缓存",
+      "suggestion": "可回收候选",
+      "prerequisite": "确认当前镜像可用且不再离线重建后可删缓存，不能删除活动VHDX",
+      "reparse_or_sparse_allocation_not_measured": true
+    },
+    {
+      "drive": "D:",
+      "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\04ee7177d8211022c23e0a3b8a7d2b74f67f43dc4c2694f405ca484a06c40219",
+      "bytes": 210296535,
+      "GiB": 0.1959,
+      "last_write_local": "2026-11-12T00:59:16",
+      "category": "官方镜像下载缓存",
+      "suggestion": "可回收候选",
+      "prerequisite": "确认当前镜像可用且不再离线重建后可删缓存，不能删除活动VHDX",
+      "reparse_or_sparse_allocation_not_measured": true
+    },
+    {
+      "drive": "D:",
+      "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\a4d326e88417b9b4a3363dfabc9de79b87be8ce1cba4f09c1893df8147cbe669",
+      "bytes": 210294821,
+      "GiB": 0.1959,
+      "last_write_local": "2026-11-12T00:57:56",
+      "category": "官方镜像下载缓存",
+      "suggestion": "可回收候选",
+      "prerequisite": "确认当前镜像可用且不再离线重建后可删缓存，不能删除活动VHDX",
+      "reparse_or_sparse_allocation_not_measured": true
+    },
+    {
+      "drive": "D:",
+      "path": "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112\\blobs\\sha256\\3c67f58c58a1a8d6972590ffa6319fcf24d4a667de079f998494ab20bbb4b24d",
+      "bytes": 106253517,
+      "GiB": 0.099,
+      "last_write_local": "2026-11-12T01:07:38",
+      "category": "官方镜像下载缓存",
+      "suggestion": "可回收候选",
+      "prerequisite": "确认当前镜像可用且不再离线重建后可删缓存，不能删除活动VHDX",
+      "reparse_or_sparse_allocation_not_measured": true
+    },
+    {
+      "drive": "D:",
+      "path": "D:\\DockerData\\swe-repair-20261111\\DockerDesktopWSL\\main\\ext4.vhdx",
+      "bytes": 100663296,
+      "GiB": 0.0938,
+      "last_write_local": "2026-11-12T18:14:04",
+      "category": "活动Docker数据",
+      "suggestion": "保留",
+      "prerequisite": "当前77镜像所在活动卷，旧冷备不覆盖当前全集",
+      "reparse_or_sparse_allocation_not_measured": true
+    },
+    {
+      "drive": "E:",
+      "path": "E:\\DockerBackups\\swe-repair-20261111-pre-move\\main\\ext4.vhdx",
+      "bytes": 100663296,
+      "GiB": 0.0938,
+      "last_write_local": "2026-11-11T21:43:47",
+      "category": "历史停机备份",
+      "suggestion": "待复核备份保留策略",
+      "prerequisite": "先确认无需旧恢复点，不能用它替代当前活动卷备份",
+      "reparse_or_sparse_allocation_not_measured": true
+    },
+    {
+      "drive": "E:",
+      "path": "E:\\DockerBackups\\swe-repair-20261111-stopped\\main\\ext4.vhdx",
+      "bytes": 100663296,
+      "GiB": 0.0938,
+      "last_write_local": "2026-11-11T22:50:01",
+      "category": "历史停机备份",
+      "suggestion": "待复核备份保留策略",
+      "prerequisite": "先确认无需旧恢复点，不能用它替代当前活动卷备份",
+      "reparse_or_sparse_allocation_not_measured": true
+    }
+  ],
+  "roots": [
+    {
+      "root": "C:\\Users\\remil\\Desktop\\3yr\\科研\\proj",
+      "exists": true,
+      "files_scanned": 25616,
+      "logical_bytes": 4871293673,
+      "listed_logical_bytes": 0
+    },
+    {
+      "root": "D:\\CodexExperimentCache\\test20_20261111",
+      "exists": true,
+      "files_scanned": 64087,
+      "logical_bytes": 15938809633,
+      "listed_logical_bytes": 14030653795
+    },
+    {
+      "root": "D:\\DockerData\\swe-repair-20261111",
+      "exists": true,
+      "files_scanned": 2,
+      "logical_bytes": 76482084864,
+      "listed_logical_bytes": 76482084864
+    },
+    {
+      "root": "D:\\DockerDesktopData\\wsl",
+      "exists": true,
+      "files_scanned": 0,
+      "logical_bytes": 0,
+      "listed_logical_bytes": 0
+    },
+    {
+      "root": "D:\\docker images",
+      "exists": true,
+      "files_scanned": 0,
+      "logical_bytes": 0,
+      "listed_logical_bytes": 0
+    },
+    {
+      "root": "E:\\DockerBackups",
+      "exists": true,
+      "files_scanned": 15,
+      "logical_bytes": 35164083634,
+      "listed_logical_bytes": 35161918829
+    },
+    {
+      "root": "C:\\Users\\remil\\AppData\\Local\\Packages\\openai.codex_2p2nqsd0c76g0\\AC\\#!sandbox.{c275dabc-35ac-4524-b75f-1d18954fab6c}\\Docker\\wsl",
+      "exists": false
+    }
+  ],
+  "volumes": {
+    "C": {
+      "total_bytes": 214749409280,
+      "free_bytes": 11986231296
+    },
+    "D": {
+      "total_bytes": 294972813312,
+      "free_bytes": 47311298560
+    },
+    "E": {
+      "total_bytes": 1024208138240,
+      "free_bytes": 54142922752
+    }
+  },
+  "read_only": true,
+  "files_deleted": 0,
+  "scope": "Known project, experiment cache, Docker data/legacy paths and E experiment backup roots. Unrelated user directories were not scanned.",
+  "size_note": "Logical file lengths, not allocated space. VHDX may be sparse or contain duplicates; totals are not guaranteed reclaimable space.",
+  "scan_errors": []
+}

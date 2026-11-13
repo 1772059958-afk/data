@@ -1,0 +1,95 @@
+2026-11-12 13:18:29,528 - INFO - Creating container for scikit-learn__scikit-learn-13496...
+2026-11-12 13:18:29,581 - INFO - Container for scikit-learn__scikit-learn-13496 created: 4bd63f7031a4f606cbf69f7d10f8aead51b643cd84b605c28b3ad113b8b13273
+2026-11-12 13:18:29,762 - INFO - Container for scikit-learn__scikit-learn-13496 started: 4bd63f7031a4f606cbf69f7d10f8aead51b643cd84b605c28b3ad113b8b13273
+2026-11-12 13:18:29,765 - INFO - Intermediate patch for scikit-learn__scikit-learn-13496 written to logs/run_evaluation/test20_E_20261112_01/test20_E_20261112_01-E/scikit-learn__scikit-learn-13496/patch.diff, now applying to container...
+2026-11-12 13:18:29,883 - INFO - >>>>> Applied Patch:
+Checking patch sklearn/ensemble/iforest.py...
+Hunk #1 succeeded at 120 (offset 29 lines).
+Hunk #2 succeeded at 178 (offset 31 lines).
+Hunk #3 succeeded at 193 (offset 31 lines).
+Applied patch sklearn/ensemble/iforest.py cleanly.
+
+2026-11-12 13:18:30,300 - INFO - Git diff before:
+diff --git a/sklearn/ensemble/iforest.py b/sklearn/ensemble/iforest.py
+index 8a1bd36..f42c805 100644
+--- a/sklearn/ensemble/iforest.py
++++ b/sklearn/ensemble/iforest.py
+@@ -120,6 +120,11 @@ class IsolationForest(BaseBagging, OutlierMixin):
+     verbose : int, optional (default=0)
+         Controls the verbosity of the tree building process.
+ 
++    warm_start : bool, optional (default=False)
++        When set to ``True``, reuse the solution of the previous call to fit
++        and add more estimators to the ensemble, otherwise, just fit a whole
++        new forest. See :term:`the Glossary <warm_start>`.
++
+ 
+     Attributes
+     ----------
+@@ -173,7 +178,8 @@ class IsolationForest(BaseBagging, OutlierMixin):
+                  n_jobs=None,
+                  behaviour='old',
+                  random_state=None,
+-                 verbose=0):
++                 verbose=0,
++                 warm_start=False):
+         super().__init__(
+             base_estimator=ExtraTreeRegressor(
+                 max_features=1,
+@@ -187,7 +193,8 @@ class IsolationForest(BaseBagging, OutlierMixin):
+             max_features=max_features,
+             n_jobs=n_jobs,
+             random_state=random_state,
+-            verbose=verbose)
++            verbose=verbose,
++            warm_start=warm_start)
+ 
+         self.behaviour = behaviour
+         self.contamination = contamination
+2026-11-12 13:18:30,303 - INFO - Eval script for scikit-learn__scikit-learn-13496 written to logs/run_evaluation/test20_E_20261112_01/test20_E_20261112_01-E/scikit-learn__scikit-learn-13496/eval.sh; copying to container...
+2026-11-12 13:21:07,845 - INFO - Test runtime: 157.45 seconds
+2026-11-12 13:21:07,928 - INFO - Test output for scikit-learn__scikit-learn-13496 written to logs/run_evaluation/test20_E_20261112_01/test20_E_20261112_01-E/scikit-learn__scikit-learn-13496/test_output.txt
+2026-11-12 13:21:07,981 - INFO - Git diff after:
+diff --git a/sklearn/ensemble/iforest.py b/sklearn/ensemble/iforest.py
+index 8a1bd36..f42c805 100644
+--- a/sklearn/ensemble/iforest.py
++++ b/sklearn/ensemble/iforest.py
+@@ -120,6 +120,11 @@ class IsolationForest(BaseBagging, OutlierMixin):
+     verbose : int, optional (default=0)
+         Controls the verbosity of the tree building process.
+ 
++    warm_start : bool, optional (default=False)
++        When set to ``True``, reuse the solution of the previous call to fit
++        and add more estimators to the ensemble, otherwise, just fit a whole
++        new forest. See :term:`the Glossary <warm_start>`.
++
+ 
+     Attributes
+     ----------
+@@ -173,7 +178,8 @@ class IsolationForest(BaseBagging, OutlierMixin):
+                  n_jobs=None,
+                  behaviour='old',
+                  random_state=None,
+-                 verbose=0):
++                 verbose=0,
++                 warm_start=False):
+         super().__init__(
+             base_estimator=ExtraTreeRegressor(
+                 max_features=1,
+@@ -187,7 +193,8 @@ class IsolationForest(BaseBagging, OutlierMixin):
+             max_features=max_features,
+             n_jobs=n_jobs,
+             random_state=random_state,
+-            verbose=verbose)
++            verbose=verbose,
++            warm_start=warm_start)
+ 
+         self.behaviour = behaviour
+         self.contamination = contamination
+2026-11-12 13:21:07,981 - INFO - Grading answer for scikit-learn__scikit-learn-13496...
+2026-11-12 13:21:08,235 - INFO - report: {'scikit-learn__scikit-learn-13496': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': True, 'infra_failure': False, 'tests_status': {'FAIL_TO_PASS': {'success': ['sklearn/ensemble/tests/test_iforest.py::test_iforest_warm_start'], 'failure': []}, 'PASS_TO_PASS': {'success': ['sklearn/ensemble/tests/test_iforest.py::test_iforest', 'sklearn/ensemble/tests/test_iforest.py::test_iforest_sparse', 'sklearn/ensemble/tests/test_iforest.py::test_iforest_error', 'sklearn/ensemble/tests/test_iforest.py::test_recalculate_max_depth', 'sklearn/ensemble/tests/test_iforest.py::test_max_samples_attribute', 'sklearn/ensemble/tests/test_iforest.py::test_iforest_parallel_regression', 'sklearn/ensemble/tests/test_iforest.py::test_iforest_performance', 'sklearn/ensemble/tests/test_iforest.py::test_iforest_works[0.25]', 'sklearn/ensemble/tests/test_iforest.py::test_iforest_works[auto]', 'sklearn/ensemble/tests/test_iforest.py::test_max_samples_consistency', 'sklearn/ensemble/tests/test_iforest.py::test_iforest_subsampled_features', 'sklearn/ensemble/tests/test_iforest.py::test_iforest_average_path_length', 'sklearn/ensemble/tests/test_iforest.py::test_score_samples', 'sklearn/ensemble/tests/test_iforest.py::test_deprecation', 'sklearn/ensemble/tests/test_iforest.py::test_behaviour_param', 'sklearn/ensemble/tests/test_iforest.py::test_iforest_chunks_works1[0.25-3]', 'sklearn/ensemble/tests/test_iforest.py::test_iforest_chunks_works1[auto-2]', 'sklearn/ensemble/tests/test_iforest.py::test_iforest_chunks_works2[0.25-3]', 'sklearn/ensemble/tests/test_iforest.py::test_iforest_chunks_works2[auto-2]'], 'failure': []}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for scikit-learn__scikit-learn-13496: resolved: True
+2026-11-12 13:21:08,239 - INFO - Attempting to stop container sweb.eval.scikit-learn__scikit-learn-13496.test20_E_20261112_01...
+2026-11-12 13:21:23,522 - INFO - Container sweb.eval.scikit-learn__scikit-learn-13496.test20_E_20261112_01 stopped successfully.
+2026-11-12 13:21:23,523 - INFO - Attempting to remove container sweb.eval.scikit-learn__scikit-learn-13496.test20_E_20261112_01...
+2026-11-12 13:21:23,606 - INFO - Container sweb.eval.scikit-learn__scikit-learn-13496.test20_E_20261112_01 removed successfully.

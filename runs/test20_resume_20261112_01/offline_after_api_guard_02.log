@@ -1,0 +1,41 @@
+test_analysis.py: 4 test(s)
+test_api_breakpoint.py: 2 test(s)
+test_batch_ledger.py: 4 test(s)
+test_calibration.py: 13 test(s)
+test_calibration_population.py: 8 test(s)
+C:\Users\remil\Desktop\3yr\科研\proj\work\offline_tmp\tmpysqsdili\runs\calibration.json
+test_cf.py: 20 test(s)
+test_core_contracts.py: 14 test(s)
+test_dev_preparation.py: 2 test(s)
+test_error_feedback.py: 12 test(s)
+test_experiment.py: 26 test(s)
+test_identity_batch_stop.py: 2 test(s)
+test_interact.py: 11 test(s)
+test_interaction_contracts.py: 12 test(s)
+test_llm.py: 43 test(s)
+test_model_identity.py: 6 test(s)
+test_pilot.py: 10 test(s)
+test_pilot_cli.py: 7 test(s)
+test_pilot_summary.py: 3 test(s)
+test_prefix_only.py: 11 test(s)
+C:\Users\remil\Desktop\3yr\科研\proj\work\offline_tmp\tmpuyc4ali0\probe\result.json
+C:\Users\remil\Desktop\3yr\科研\proj\runs\tmp6d3k1je5\probe\result.json
+C:\Users\remil\Desktop\3yr\科研\proj\runs\tmpfre3j9af\probe\result.json
+C:\Users\remil\Desktop\3yr\科研\proj\work\offline_tmp\tmpvpa30np0\probe\result.json
+C:\Users\remil\Desktop\3yr\科研\proj\work\offline_tmp\tmp0auu2uwn\probe\result.json
+test_preservation.py: 4 test(s)
+test_public_validation.py: 8 test(s)
+test_router.py: 29 test(s)
+test_routing_evidence.py: 6 test(s)
+test_runlog.py: 11 test(s)
+test_scoring_controller.py: 10 test(s)
+test_scoring_identity.py: 17 test(s)
+test_signal_chain.py: 6 test(s)
+test_single_run_design.py: 8 test(s)
+test_single_run_summary.py: 14 test(s)
+test_spend.py: 20 test(s)
+test_state.py: 29 test(s)
+test_statistics.py: 7 test(s)
+test_statistics_integrity.py: 7 test(s)
+
+386/386 passed

@@ -1,0 +1,16 @@
+{
+  "kind": "observed_model_identity",
+  "date": "2026-11-11",
+  "probe_path": "runs/test20_execution_20261111/model_probe_01/result.json",
+  "probe_sha256": "5cae957177a3fc70fb91bbd3ceb768bdea9b59308f9a55f8d3555eb52994cd2e",
+  "served_alias": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "provider_created": 1794399674,
+  "request_id": "072ea448-9a4b-4c88-8560-0a4461e39c6a",
+  "official_current_release_mapping": "DeepSeek-V4.1-Flash-1017",
+  "immutable_version": false,
+  "freeze_status": "dev_observation_only_formal_protocol_amendment_pending_user",
+  "cost_cny": 8.9e-05,
+  "cost_type": "estimated_from_reported_usage_not_invoice",
+  "shared_ledger": "runs/test20_execution_20261111/batch_ledger.json"
+}

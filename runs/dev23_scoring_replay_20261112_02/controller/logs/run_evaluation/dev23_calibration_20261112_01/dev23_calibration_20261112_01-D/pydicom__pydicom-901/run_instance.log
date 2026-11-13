@@ -1,0 +1,72 @@
+2026-11-12 04:17:00,753 - INFO - Creating container for pydicom__pydicom-901...
+2026-11-12 04:17:00,807 - INFO - Container for pydicom__pydicom-901 created: 3cbf3cd113fe07550ba3a01ad879070b8ecceba31891866cc22dc419c07855b3
+2026-11-12 04:17:00,963 - INFO - Container for pydicom__pydicom-901 started: 3cbf3cd113fe07550ba3a01ad879070b8ecceba31891866cc22dc419c07855b3
+2026-11-12 04:17:00,967 - INFO - Intermediate patch for pydicom__pydicom-901 written to logs/run_evaluation/dev23_calibration_20261112_01/dev23_calibration_20261112_01-D/pydicom__pydicom-901/patch.diff, now applying to container...
+2026-11-12 04:17:01,071 - INFO - >>>>> Applied Patch:
+Checking patch pydicom/config.py...
+Hunk #1 succeeded at 62 (offset -20 lines).
+Hunk #2 succeeded at 122 (offset -39 lines).
+Applied patch pydicom/config.py cleanly.
+
+2026-11-12 04:17:01,186 - INFO - Git diff before:
+diff --git a/pydicom/config.py b/pydicom/config.py
+index ae9c8bd..59d198f 100644
+--- a/pydicom/config.py
++++ b/pydicom/config.py
+@@ -62,11 +62,7 @@ and datetime.time respectively. Default: False
+ 
+ # Logging system and debug function to change logging level
+ logger = logging.getLogger('pydicom')
+-handler = logging.StreamHandler()
+-formatter = logging.Formatter("%(message)s")
+-handler.setFormatter(formatter)
+-logger.addHandler(handler)
+-
++debugging = False
+ 
+ import pydicom.pixel_data_handlers.numpy_handler as np_handler  # noqa
+ import pydicom.pixel_data_handlers.rle_handler as rle_handler  # noqa
+@@ -126,7 +122,3 @@ def debug(debug_on=True):
+     else:
+         logger.setLevel(logging.WARNING)
+         debugging = False
+-
+-
+-# force level=WARNING, in case logging default is set differently (issue 103)
+-debug(False)
+2026-11-12 04:17:01,189 - INFO - Eval script for pydicom__pydicom-901 written to logs/run_evaluation/dev23_calibration_20261112_01/dev23_calibration_20261112_01-D/pydicom__pydicom-901/eval.sh; copying to container...
+2026-11-12 04:17:03,033 - INFO - Test runtime: 1.78 seconds
+2026-11-12 04:17:03,048 - INFO - Test output for pydicom__pydicom-901 written to logs/run_evaluation/dev23_calibration_20261112_01/dev23_calibration_20261112_01-D/pydicom__pydicom-901/test_output.txt
+2026-11-12 04:17:03,092 - INFO - Git diff after:
+diff --git a/pydicom/config.py b/pydicom/config.py
+index ae9c8bd..59d198f 100644
+--- a/pydicom/config.py
++++ b/pydicom/config.py
+@@ -62,11 +62,7 @@ and datetime.time respectively. Default: False
+ 
+ # Logging system and debug function to change logging level
+ logger = logging.getLogger('pydicom')
+-handler = logging.StreamHandler()
+-formatter = logging.Formatter("%(message)s")
+-handler.setFormatter(formatter)
+-logger.addHandler(handler)
+-
++debugging = False
+ 
+ import pydicom.pixel_data_handlers.numpy_handler as np_handler  # noqa
+ import pydicom.pixel_data_handlers.rle_handler as rle_handler  # noqa
+@@ -126,7 +122,3 @@ def debug(debug_on=True):
+     else:
+         logger.setLevel(logging.WARNING)
+         debugging = False
+-
+-
+-# force level=WARNING, in case logging default is set differently (issue 103)
+-debug(False)
+2026-11-12 04:17:03,092 - INFO - Grading answer for pydicom__pydicom-901...
+2026-11-12 04:17:03,115 - INFO - report: {'pydicom__pydicom-901': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'infra_failure': False, 'tests_status': {'FAIL_TO_PASS': {'success': [], 'failure': ['pydicom/tests/test_config.py::TestDebug::test_default', 'pydicom/tests/test_config.py::TestDebug::test_debug_on_handler_null', 'pydicom/tests/test_config.py::TestDebug::test_debug_off_handler_null', 'pydicom/tests/test_config.py::TestDebug::test_debug_on_handler_stream', 'pydicom/tests/test_config.py::TestDebug::test_debug_off_handler_stream']}, 'PASS_TO_PASS': {'success': [], 'failure': []}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for pydicom__pydicom-901: resolved: False
+2026-11-12 04:17:03,118 - INFO - Attempting to stop container sweb.eval.pydicom__pydicom-901.dev23_calibration_20261112_01...
+2026-11-12 04:17:18,362 - INFO - Container sweb.eval.pydicom__pydicom-901.dev23_calibration_20261112_01 stopped successfully.
+2026-11-12 04:17:18,362 - INFO - Attempting to remove container sweb.eval.pydicom__pydicom-901.dev23_calibration_20261112_01...
+2026-11-12 04:17:18,406 - INFO - Container sweb.eval.pydicom__pydicom-901.dev23_calibration_20261112_01 removed successfully.

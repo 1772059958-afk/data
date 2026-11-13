@@ -1,0 +1,31 @@
+{
+  "tags": {
+    "A": "test20_A_20261112_01",
+    "B": "test20_B_20261112_02",
+    "C": "test20_C_20261112_01",
+    "D": "test20_D_20261112_01",
+    "E": "test20_E_20261112_01"
+  },
+  "pid": 25596,
+  "frozen_source_sha256": "b065ff0b3feaa3ecc6865c8992432530ceb3d1f57c785ae8252fcff352ebb789",
+  "config_sha256": "60f3cc5524730bf4d9cbe02588b98142b2041196e9d25cb1e294eae9aa3ad40e",
+  "retired_stop_sha256": "d88d385522610d192f9c95a9036a817c3ac8834c07bd799f4d24cff092b52155",
+  "retired_stop_path": "runs\\test20_resume_20261112_01\\WORKFLOW_STOP_interruption_01.json",
+  "new_user_instruction": "继续进行实验",
+  "hidden_formal_results_read": false,
+  "operational_adapters": [
+    {
+      "path": "continue_formal.py",
+      "sha256": "9d687a5af90d53d75596d8830da47e2332e10dcb3981522be2143abdc2cc9d6b"
+    },
+    {
+      "path": "resume_B_remaining.py",
+      "sha256": "5ba796fb82da4dd2742295cf91566cebd1bdb3e65b82fe6ea375546e22bab837"
+    },
+    {
+      "path": "recover_interrupted_B8.py",
+      "sha256": "227c4eb525661aa691b2d673bb29de30d03f7fa2456692aa590ea9cda7749f64"
+    }
+  ],
+  "started_at": "2026-11-12T00:15:02.896533+00:00"
+}

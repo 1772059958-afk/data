@@ -1,0 +1,11 @@
+Looking in links: /compat-wheels
+Processing /compat-wheels/pytest-3.10.1-py2.py3-none-any.whl
+Requirement already satisfied: pluggy==0.13.1 in /opt/miniconda3/envs/testbed/lib/python3.6/site-packages (from -r /compat-wheels/scikit-learn__scikit-learn-11281.lock.txt (line 2)) (0.13.1)
+Processing /compat-wheels/atomicwrites-1.4.0-py2.py3-none-any.whl
+Installing collected packages: pytest, atomicwrites
+  Attempting uninstall: pytest
+    Found existing installation: pytest 6.2.4
+    Uninstalling pytest-6.2.4:
+      Successfully uninstalled pytest-6.2.4
+Successfully installed atomicwrites-1.4.0 pytest-3.10.1
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv

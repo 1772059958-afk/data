@@ -1,0 +1,11 @@
+{
+  "kind": "user_approved_docker_disk_relocation",
+  "date": "2026-11-11",
+  "user_reply": "确认迁移至D盘（推荐）",
+  "target": "D:\\DockerData\\swe-repair-20261111\\DockerDesktopWSL",
+  "backup": "D:\\DockerBackups\\swe-repair-20261111-pre-move",
+  "backup_manifest": "runs/test20_execution_20261111/migration/offline_backup_verified.json",
+  "active_containers_before_confirm": [],
+  "pending_model_request_before_confirm": null,
+  "scope": "Supported Docker Desktop UI relocation preserving all images; continue DEV calibration and stop after freeze."
+}

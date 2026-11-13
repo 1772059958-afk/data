@@ -1,0 +1,18 @@
+{
+  "offline_suite_passed": true,
+  "offline_passed": 392,
+  "offline_total": 392,
+  "offline_log_sha256": "b2a2c0fa33bd88e985c0c44669bccd8f418ae875b379ad893197ef3a1ca87062",
+  "frozen_source_files_reverified": 62,
+  "generation_source_sha256": "b065ff0b3feaa3ecc6865c8992432530ceb3d1f57c785ae8252fcff352ebb789",
+  "offline_suite_not_repeated_after_document_only_edits": true,
+  "preservation_ok": true,
+  "original_protected_total": 93,
+  "original_verified": 93,
+  "archive_protected_total": 131,
+  "preservation_log_sha256": "afbced2f537cf1a070591472b695a1eadb99db2f9edfe68bee3d5529467474a3",
+  "sealed_generation_selection_audit_sha256": "7da99f978d4e4c0eee2fcdb56cb9157503b838f0526537719e4fc5427a55cd0d",
+  "all100_submissions_and80_routes_reproduced": true,
+  "recorded_resource_overruns": 0,
+  "at": "2026-11-12T05:28:40.025972+00:00"
+}

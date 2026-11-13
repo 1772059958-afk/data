@@ -1,0 +1,28 @@
+{
+  "instance_id": "pylint-dev__astroid-1866",
+  "tag": "prefix-env/astroid-1866:base-6cf238d0-20261111",
+  "image_id": "sha256:d12c436e7986e6e244c897643c9c7f3eaf26d0ee3b363cfea46a0cba03322895",
+  "actual_container_image_id": "sha256:d12c436e7986e6e244c897643c9c7f3eaf26d0ee3b363cfea46a0cba03322895",
+  "base_commit": "6cf238d089cf4b6753c94cfc089b4a47487711e5",
+  "records": [
+    {
+      "label": "identity",
+      "command": "cd /testbed && git rev-parse HEAD && git status --porcelain && python -c \"import astroid,lazy_object_proxy,wrapt,pytest; print(astroid.__version__,lazy_object_proxy.__version__,wrapt.__version__,pytest.__version__)\"",
+      "exit_code": 0,
+      "stdout": "6cf238d089cf4b6753c94cfc089b4a47487711e5\n2.13.0-dev0 1.10.0 1.17.3 7.4.4\n",
+      "stderr": "",
+      "seconds": 0.453
+    },
+    {
+      "label": "public_unittest_builder",
+      "command": "cd /testbed && python -m pytest -q tests/unittest_builder.py",
+      "exit_code": 0,
+      "stdout": "......................................................s..                [100%]\n56 passed, 1 skipped in 1.55s\n",
+      "stderr": "",
+      "seconds": 2.308
+    }
+  ],
+  "cleanup_exit_code": 0,
+  "network": "none",
+  "C_free_bytes": 5820968960
+}

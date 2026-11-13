@@ -1,0 +1,22 @@
+[
+  {
+    "ProcessId": 5188,
+    "ParentProcessId": 26232,
+    "CommandLine": "\"C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\.venv\\Scripts\\python.exe\" -X utf8 scripts/finish_cancelled_supplement.py"
+  },
+  {
+    "ProcessId": 1792,
+    "ParentProcessId": 5188,
+    "CommandLine": "\"C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\.venv\\Scripts\\python.exe\" -X utf8 scripts/finish_cancelled_supplement.py"
+  },
+  {
+    "ProcessId": 27524,
+    "ParentProcessId": 1792,
+    "CommandLine": "C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\.venv\\Scripts\\python.exe C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\scripts\\score_run.py C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\runs\\devsupp_baseline_20261112_02_eval --controller-image sha256:1f43c83b3d3c631d37af54a19828df269accd045a22c62c0aab5b2bfa713726f --max-workers 1 --execute"
+  },
+  {
+    "ProcessId": 27340,
+    "ParentProcessId": 27524,
+    "CommandLine": "C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\.venv\\Scripts\\python.exe C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\scripts\\score_run.py C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\runs\\devsupp_baseline_20261112_02_eval --controller-image sha256:1f43c83b3d3c631d37af54a19828df269accd045a22c62c0aab5b2bfa713726f --max-workers 1 --execute"
+  }
+]

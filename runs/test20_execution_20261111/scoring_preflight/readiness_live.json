@@ -1,0 +1,52 @@
+{
+  "kind": "live_offline_scoring_controller_health",
+  "date": "2026-11-11",
+  "image_id": "sha256:1f43c83b3d3c631d37af54a19828df269accd045a22c62c0aab5b2bfa713726f",
+  "container_name": "swe_scoring_preflight_20261111_01",
+  "command": [
+    "docker",
+    "--context",
+    "desktop-linux",
+    "run",
+    "--rm",
+    "--pull=never",
+    "--name",
+    "swe_scoring_preflight_20261111_01",
+    "--network",
+    "none",
+    "--env",
+    "DOCKER_HOST=unix:///var/run/docker.sock",
+    "--mount",
+    "type=bind,src=/var/run/docker.sock,dst=/var/run/docker.sock",
+    "sha256:1f43c83b3d3c631d37af54a19828df269accd045a22c62c0aab5b2bfa713726f",
+    "-c",
+    "\nimport importlib.metadata, json, platform, subprocess, sys\nimport docker\nclient = docker.from_env()\nserver = client.version()\ncli = subprocess.run(['docker', '--version'], check=True, capture_output=True, text=True).stdout.strip()\ndata = {'python': platform.python_version(), 'python_executable': sys.executable,\n        'swebench': importlib.metadata.version('swebench'),\n        'docker_sdk': importlib.metadata.version('docker'),\n        'linux_docker_cli': cli, 'docker_socket_ping': client.ping(),\n        'docker_server_version': server.get('Version'),\n        'docker_server_os': server.get('Os'), 'docker_server_arch': server.get('Arch'),\n        'container_system': platform.system(), 'network_mode': 'none',\n        'evaluator_rows_read': 0, 'hidden_logs_read': 0, 'model_calls': 0}\nassert data['swebench'] == '5.0.2'\nassert sys.executable == '/opt/scoring/bin/python'\nassert data['container_system'] == 'Linux'\nassert data['docker_socket_ping'] is True\nassert cli.startswith('Docker version ')\nprint(json.dumps(data))\n"
+  ],
+  "elapsed_seconds": 0.79,
+  "returncode": 0,
+  "controller": {
+    "python": "3.11.5",
+    "python_executable": "/opt/scoring/bin/python",
+    "swebench": "5.0.2",
+    "docker_sdk": "7.2.0",
+    "linux_docker_cli": "Docker version 29.9.2, build a82e528",
+    "docker_socket_ping": true,
+    "docker_server_version": "29.9.2",
+    "docker_server_os": "linux",
+    "docker_server_arch": "amd64",
+    "container_system": "Linux",
+    "network_mode": "none",
+    "evaluator_rows_read": 0,
+    "hidden_logs_read": 0,
+    "model_calls": 0
+  },
+  "stderr": "",
+  "container_absence_verified": true,
+  "mounts": [
+    "docker socket only"
+  ],
+  "credentials_read": false,
+  "project_or_evaluator_data_mounted": false,
+  "scoring_performed": false,
+  "probe_source_sha256": "0ae50ced8943039d00864a9c960c41084bb9918ef30ac00f87f8bef83e3f7608"
+}

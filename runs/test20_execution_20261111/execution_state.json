@@ -1,0 +1,13 @@
+{
+  "current_phase": "D2 correction and Docker migration confirmation pending",
+  "active_model_sessions": [],
+  "ledger": "runs/test20_execution_20261111/batch_ledger.json",
+  "booked_estimate_cny": 0.55175828,
+  "pending": null,
+  "model_identity_amendment_approved": true,
+  "docker_migration_approval_pending": true,
+  "docker_backup": "runs/test20_execution_20261111/migration/offline_backup_verified.json",
+  "docker_UI": "Move disk image? final confirmation is open; do not accept until user reply",
+  "formal_generation_allowed_this_session": false,
+  "next_after_migration": "correct PyVista image and rerun screen, complete full dev calibration/freeze, clean shutdown/handoff"
+}

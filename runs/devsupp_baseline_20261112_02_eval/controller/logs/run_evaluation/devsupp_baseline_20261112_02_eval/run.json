@@ -1,0 +1,6 @@
+{
+  "dataset": "/workspace/runs/devsupp_baseline_20261112_02_eval/scoring/evaluation_dataset.json",
+  "split": "dev",
+  "task_repo": null,
+  "created_at": "2026-11-12T10:09:24+00:00"
+}

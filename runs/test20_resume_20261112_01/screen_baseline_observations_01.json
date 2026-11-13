@@ -1,0 +1,728 @@
+{
+  "kind": "corrected_dev_screen_operational_observations",
+  "official_labels_read": false,
+  "thresholds_selected": false,
+  "setting_selected": false,
+  "inputs": {
+    "protocol": {
+      "path": "C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\runs\\test20_resume_20261112_01\\resource_screen_protocol.json",
+      "sha256": "52f1245058fd4fdd50fd92397958be8ceaaaaabe0866e0da9d35c5742f00f454"
+    },
+    "operational_metrics": {
+      "path": "C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\runs\\test20_resume_20261112_01\\screen_operational_metrics_01.json",
+      "sha256": "d928dfd697fdcdba19af4b31bd527022d9b5aeaafae25b13da52e1fe5be5b9d8"
+    },
+    "selection": {
+      "path": "C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\runs\\test20_preparation_20261111\\resource_screen_instances.json",
+      "sha256": "00ce08a3edf44293e3f8cdb93e8e64fe6b3d0b4de6f4d27ed6a85f9bdc07e1c7"
+    }
+  },
+  "observations": [
+    {
+      "name": "baseline",
+      "source": {
+        "path": "C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\runs\\dev_screen_corrected_20261112_01\\matrix.json",
+        "sha256": "256af489af6380ad597721b87a60af31a6b642b12358a8a6266491aa0cf0bbe0"
+      },
+      "tag": "dev_screen_corrected_20261112_01",
+      "config_hash": "e0f7f62740990e5b03b438348f2d27fb518bcf9fc8e5c9f1f892385f5d7a48eb",
+      "prefix_fraction": 0.3,
+      "interaction_model_calls": 6,
+      "designated_cases": 3,
+      "recorded_cases": 3,
+      "usable_flow_count": 3,
+      "prefix_legal_candidate_coverage_count": 3,
+      "prefix_setting_eligible": true,
+      "batch_stopped": null,
+      "cases": [
+        {
+          "instance_id": "pydicom__pydicom-1256",
+          "recorded_status": "budget_exhausted",
+          "stages": {
+            "prefix": {
+              "present": true,
+              "status": "completed",
+              "termination_reason": "",
+              "actual_request_records": 3,
+              "request_events": 3,
+              "cumulative_model_calls": 3,
+              "request_count_matches_budget_delta": true,
+              "finish_reason_length": 0,
+              "failed_or_unknown_request_records": 0,
+              "observed_identities_match": true,
+              "named_tool_calls": null,
+              "session_call_overrun": false,
+              "session_tool_overrun": false,
+              "prefix_token_allowance_overrun": false,
+              "session_request_limit_reached": false,
+              "global_request_limit_reached": false,
+              "candidate_count": 2,
+              "legal_candidate_count": 2,
+              "has_legal_candidate": true,
+              "has_legal_submitted_candidate": true,
+              "new_origin_candidate_count": 0,
+              "has_new_origin_candidate": false,
+              "new_origin_legal_candidate_count": 0,
+              "public_pass_legal_candidate": false,
+              "submitted_legal_public_pass": false,
+              "candidate_origins": {
+                "prefix": 2
+              },
+              "candidate_hashes": [
+                "2bd1440c15e4f02f8428e05f8db4cb6ce8ef67584ea785ea4b9163856c6ed7ea",
+                "e2bfab9ae2cbe1ce2bbc708bafef61b744b1088a15e83001aeade82756e685eb"
+              ],
+              "prefix_localization_completed": true,
+              "prefix_candidate_attempts": [
+                "candidate_0",
+                "candidate_1"
+              ],
+              "prefix_stop_reasons": [],
+              "prefix_error_reasons": [],
+              "environment_error_records": 0,
+              "budget_complete": true,
+              "budget_ceiling_matches_config": true,
+              "budget_overrun": false,
+              "overrun_aspects": [],
+              "budget_consumed": {
+                "token": 15425,
+                "model_call": 3,
+                "tool_call": 14,
+                "wallclock_seconds": 53.7086868999977
+              },
+              "normal_budget_or_workflow_termination": true,
+              "session_or_tool_hard_stop": null,
+              "normal_budget_stop_with_legal_candidate": false,
+              "no_legal_candidate_at_stop": false,
+              "usable_with_legal_submission": true
+            },
+            "fixed": {
+              "present": true,
+              "status": "completed",
+              "termination_reason": "fixed_step_limit",
+              "actual_request_records": 6,
+              "request_events": 6,
+              "cumulative_model_calls": 9,
+              "request_count_matches_budget_delta": true,
+              "finish_reason_length": 0,
+              "failed_or_unknown_request_records": 0,
+              "observed_identities_match": true,
+              "named_tool_calls": null,
+              "session_call_overrun": false,
+              "session_tool_overrun": false,
+              "prefix_token_allowance_overrun": false,
+              "session_request_limit_reached": false,
+              "global_request_limit_reached": false,
+              "candidate_count": 8,
+              "legal_candidate_count": 8,
+              "has_legal_candidate": true,
+              "has_legal_submitted_candidate": true,
+              "new_origin_candidate_count": 6,
+              "has_new_origin_candidate": true,
+              "new_origin_legal_candidate_count": 6,
+              "public_pass_legal_candidate": false,
+              "submitted_legal_public_pass": false,
+              "candidate_origins": {
+                "prefix": 2,
+                "fixed": 6
+              },
+              "candidate_hashes": [
+                "2bd1440c15e4f02f8428e05f8db4cb6ce8ef67584ea785ea4b9163856c6ed7ea",
+                "e2bfab9ae2cbe1ce2bbc708bafef61b744b1088a15e83001aeade82756e685eb",
+                "2bd1440c15e4f02f8428e05f8db4cb6ce8ef67584ea785ea4b9163856c6ed7ea",
+                "2bd1440c15e4f02f8428e05f8db4cb6ce8ef67584ea785ea4b9163856c6ed7ea",
+                "e2bfab9ae2cbe1ce2bbc708bafef61b744b1088a15e83001aeade82756e685eb",
+                "2bd1440c15e4f02f8428e05f8db4cb6ce8ef67584ea785ea4b9163856c6ed7ea",
+                "14da9f308f2e3cc6f8ad7ee27c7c44a42a4bcafa8e8194b7c6d342768bd5ba8f",
+                "2bd1440c15e4f02f8428e05f8db4cb6ce8ef67584ea785ea4b9163856c6ed7ea"
+              ],
+              "prefix_localization_completed": false,
+              "prefix_candidate_attempts": [],
+              "prefix_stop_reasons": [],
+              "prefix_error_reasons": [],
+              "environment_error_records": 0,
+              "budget_complete": true,
+              "budget_ceiling_matches_config": true,
+              "budget_overrun": false,
+              "overrun_aspects": [],
+              "budget_consumed": {
+                "token": 54980,
+                "model_call": 9,
+                "tool_call": 38,
+                "wallclock_seconds": 89.46436209999956
+              },
+              "normal_budget_or_workflow_termination": true,
+              "session_or_tool_hard_stop": null,
+              "normal_budget_stop_with_legal_candidate": true,
+              "no_legal_candidate_at_stop": false,
+              "usable_with_legal_submission": true
+            },
+            "interactive": {
+              "present": true,
+              "status": "completed",
+              "termination_reason": "finish_tool",
+              "actual_request_records": 5,
+              "request_events": 5,
+              "cumulative_model_calls": 8,
+              "request_count_matches_budget_delta": true,
+              "finish_reason_length": 0,
+              "failed_or_unknown_request_records": 0,
+              "observed_identities_match": true,
+              "named_tool_calls": 5,
+              "session_call_overrun": false,
+              "session_tool_overrun": false,
+              "prefix_token_allowance_overrun": false,
+              "session_request_limit_reached": false,
+              "global_request_limit_reached": false,
+              "candidate_count": 3,
+              "legal_candidate_count": 3,
+              "has_legal_candidate": true,
+              "has_legal_submitted_candidate": true,
+              "new_origin_candidate_count": 1,
+              "has_new_origin_candidate": true,
+              "new_origin_legal_candidate_count": 1,
+              "public_pass_legal_candidate": false,
+              "submitted_legal_public_pass": false,
+              "candidate_origins": {
+                "prefix": 2,
+                "interactive": 1
+              },
+              "candidate_hashes": [
+                "2bd1440c15e4f02f8428e05f8db4cb6ce8ef67584ea785ea4b9163856c6ed7ea",
+                "e2bfab9ae2cbe1ce2bbc708bafef61b744b1088a15e83001aeade82756e685eb",
+                "2bd1440c15e4f02f8428e05f8db4cb6ce8ef67584ea785ea4b9163856c6ed7ea"
+              ],
+              "prefix_localization_completed": false,
+              "prefix_candidate_attempts": [],
+              "prefix_stop_reasons": [],
+              "prefix_error_reasons": [],
+              "environment_error_records": 0,
+              "budget_complete": true,
+              "budget_ceiling_matches_config": true,
+              "budget_overrun": false,
+              "overrun_aspects": [],
+              "budget_consumed": {
+                "token": 38177,
+                "model_call": 8,
+                "tool_call": 23,
+                "wallclock_seconds": 64.75703239999712
+              },
+              "normal_budget_or_workflow_termination": true,
+              "session_or_tool_hard_stop": null,
+              "normal_budget_stop_with_legal_candidate": false,
+              "no_legal_candidate_at_stop": false,
+              "usable_with_legal_submission": true
+            },
+            "standalone": {
+              "present": true,
+              "status": "budget_exhausted",
+              "termination_reason": "model_call_budget",
+              "actual_request_records": 6,
+              "request_events": 6,
+              "cumulative_model_calls": 6,
+              "request_count_matches_budget_delta": true,
+              "finish_reason_length": 0,
+              "failed_or_unknown_request_records": 0,
+              "observed_identities_match": true,
+              "named_tool_calls": 5,
+              "session_call_overrun": false,
+              "session_tool_overrun": false,
+              "prefix_token_allowance_overrun": false,
+              "session_request_limit_reached": true,
+              "global_request_limit_reached": false,
+              "candidate_count": 1,
+              "legal_candidate_count": 1,
+              "has_legal_candidate": true,
+              "has_legal_submitted_candidate": true,
+              "new_origin_candidate_count": 1,
+              "has_new_origin_candidate": true,
+              "new_origin_legal_candidate_count": 1,
+              "public_pass_legal_candidate": false,
+              "submitted_legal_public_pass": false,
+              "candidate_origins": {
+                "interactive": 1
+              },
+              "candidate_hashes": [
+                "c477d7f99305b0c5a866fe783e39b83ce58054e0815e70c698f2ab82546bfae4"
+              ],
+              "prefix_localization_completed": false,
+              "prefix_candidate_attempts": [],
+              "prefix_stop_reasons": [],
+              "prefix_error_reasons": [],
+              "environment_error_records": 0,
+              "budget_complete": true,
+              "budget_ceiling_matches_config": true,
+              "budget_overrun": false,
+              "overrun_aspects": [],
+              "budget_consumed": {
+                "token": 20359,
+                "model_call": 6,
+                "tool_call": 9,
+                "wallclock_seconds": 12.80652949999785
+              },
+              "normal_budget_or_workflow_termination": true,
+              "session_or_tool_hard_stop": "model_call_budget",
+              "normal_budget_stop_with_legal_candidate": true,
+              "no_legal_candidate_at_stop": false,
+              "usable_with_legal_submission": true
+            }
+          },
+          "prefix_complete_or_legal_public_shared_stop": true,
+          "legal_public_shared_stop": false,
+          "paired_eligible": true,
+          "minimum_continuation_available": true,
+          "pair_observable_checks": {
+            "prefix_snapshot_present": true,
+            "prefix_snapshot_sha256": "a84a0550b118fcd4e8ea3551ee78b6d256c7e11b4b666391187c7efb4dc14596",
+            "prefix_stage_matches_snapshot": true,
+            "branch_task_identities_match_snapshot": true,
+            "branches": {
+              "fixed": {
+                "first_request_budget_observed": true,
+                "inherits_recorded_consumption_and_ceiling": true
+              },
+              "interactive": {
+                "first_request_budget_observed": true,
+                "inherits_recorded_consumption_and_ceiling": true
+              }
+            },
+            "independent_initial_snapshots_inferred": false,
+            "observable_checks_pass": true
+          },
+          "lifecycle_without_recorded_errors": true,
+          "paired_flow_usable": true,
+          "actual_images_match_prepared_identity": true,
+          "standalone_B_usable": true,
+          "usable_flow": true,
+          "prefix_legal_candidate_coverage": true,
+          "prefix_reused": false,
+          "new_prefix_requests_this_run": 3
+        },
+        {
+          "instance_id": "pylint-dev__astroid-1866",
+          "recorded_status": "completed",
+          "stages": {
+            "prefix": {
+              "present": true,
+              "status": "completed",
+              "termination_reason": "",
+              "actual_request_records": 3,
+              "request_events": 3,
+              "cumulative_model_calls": 3,
+              "request_count_matches_budget_delta": true,
+              "finish_reason_length": 0,
+              "failed_or_unknown_request_records": 0,
+              "observed_identities_match": true,
+              "named_tool_calls": null,
+              "session_call_overrun": false,
+              "session_tool_overrun": false,
+              "prefix_token_allowance_overrun": false,
+              "session_request_limit_reached": false,
+              "global_request_limit_reached": false,
+              "candidate_count": 2,
+              "legal_candidate_count": 2,
+              "has_legal_candidate": true,
+              "has_legal_submitted_candidate": true,
+              "new_origin_candidate_count": 0,
+              "has_new_origin_candidate": false,
+              "new_origin_legal_candidate_count": 0,
+              "public_pass_legal_candidate": false,
+              "submitted_legal_public_pass": false,
+              "candidate_origins": {
+                "prefix": 2
+              },
+              "candidate_hashes": [
+                "e7ef928ae99a8cd54453ed42b479263c70ac8ca74dcb89f83310a9677cd25c1f",
+                "4f8e703c073aa66802da4e85b5260cd2fbc10948022a9f0af11cdb1a489e75e6"
+              ],
+              "prefix_localization_completed": true,
+              "prefix_candidate_attempts": [
+                "candidate_0",
+                "candidate_1"
+              ],
+              "prefix_stop_reasons": [],
+              "prefix_error_reasons": [],
+              "environment_error_records": 0,
+              "budget_complete": true,
+              "budget_ceiling_matches_config": true,
+              "budget_overrun": false,
+              "overrun_aspects": [],
+              "budget_consumed": {
+                "token": 50031,
+                "model_call": 3,
+                "tool_call": 15,
+                "wallclock_seconds": 84.82869020000362
+              },
+              "normal_budget_or_workflow_termination": true,
+              "session_or_tool_hard_stop": null,
+              "normal_budget_stop_with_legal_candidate": false,
+              "no_legal_candidate_at_stop": false,
+              "usable_with_legal_submission": true
+            },
+            "fixed": {
+              "present": true,
+              "status": "completed",
+              "termination_reason": "fixed_step_limit",
+              "actual_request_records": 6,
+              "request_events": 6,
+              "cumulative_model_calls": 9,
+              "request_count_matches_budget_delta": true,
+              "finish_reason_length": 0,
+              "failed_or_unknown_request_records": 0,
+              "observed_identities_match": true,
+              "named_tool_calls": null,
+              "session_call_overrun": false,
+              "session_tool_overrun": false,
+              "prefix_token_allowance_overrun": false,
+              "session_request_limit_reached": false,
+              "global_request_limit_reached": false,
+              "candidate_count": 8,
+              "legal_candidate_count": 8,
+              "has_legal_candidate": true,
+              "has_legal_submitted_candidate": true,
+              "new_origin_candidate_count": 6,
+              "has_new_origin_candidate": true,
+              "new_origin_legal_candidate_count": 6,
+              "public_pass_legal_candidate": false,
+              "submitted_legal_public_pass": false,
+              "candidate_origins": {
+                "prefix": 2,
+                "fixed": 6
+              },
+              "candidate_hashes": [
+                "e7ef928ae99a8cd54453ed42b479263c70ac8ca74dcb89f83310a9677cd25c1f",
+                "4f8e703c073aa66802da4e85b5260cd2fbc10948022a9f0af11cdb1a489e75e6",
+                "4f8e703c073aa66802da4e85b5260cd2fbc10948022a9f0af11cdb1a489e75e6",
+                "4f8e703c073aa66802da4e85b5260cd2fbc10948022a9f0af11cdb1a489e75e6",
+                "4f8e703c073aa66802da4e85b5260cd2fbc10948022a9f0af11cdb1a489e75e6",
+                "4f8e703c073aa66802da4e85b5260cd2fbc10948022a9f0af11cdb1a489e75e6",
+                "4f8e703c073aa66802da4e85b5260cd2fbc10948022a9f0af11cdb1a489e75e6",
+                "4f8e703c073aa66802da4e85b5260cd2fbc10948022a9f0af11cdb1a489e75e6"
+              ],
+              "prefix_localization_completed": false,
+              "prefix_candidate_attempts": [],
+              "prefix_stop_reasons": [],
+              "prefix_error_reasons": [],
+              "environment_error_records": 0,
+              "budget_complete": true,
+              "budget_ceiling_matches_config": true,
+              "budget_overrun": false,
+              "overrun_aspects": [],
+              "budget_consumed": {
+                "token": 255020,
+                "model_call": 9,
+                "tool_call": 39,
+                "wallclock_seconds": 218.09978060000867
+              },
+              "normal_budget_or_workflow_termination": true,
+              "session_or_tool_hard_stop": null,
+              "normal_budget_stop_with_legal_candidate": true,
+              "no_legal_candidate_at_stop": false,
+              "usable_with_legal_submission": true
+            },
+            "interactive": {
+              "present": true,
+              "status": "completed",
+              "termination_reason": "finish_tool",
+              "actual_request_records": 2,
+              "request_events": 2,
+              "cumulative_model_calls": 5,
+              "request_count_matches_budget_delta": true,
+              "finish_reason_length": 0,
+              "failed_or_unknown_request_records": 0,
+              "observed_identities_match": true,
+              "named_tool_calls": 2,
+              "session_call_overrun": false,
+              "session_tool_overrun": false,
+              "prefix_token_allowance_overrun": false,
+              "session_request_limit_reached": false,
+              "global_request_limit_reached": false,
+              "candidate_count": 3,
+              "legal_candidate_count": 3,
+              "has_legal_candidate": true,
+              "has_legal_submitted_candidate": true,
+              "new_origin_candidate_count": 1,
+              "has_new_origin_candidate": true,
+              "new_origin_legal_candidate_count": 1,
+              "public_pass_legal_candidate": false,
+              "submitted_legal_public_pass": false,
+              "candidate_origins": {
+                "prefix": 2,
+                "interactive": 1
+              },
+              "candidate_hashes": [
+                "e7ef928ae99a8cd54453ed42b479263c70ac8ca74dcb89f83310a9677cd25c1f",
+                "4f8e703c073aa66802da4e85b5260cd2fbc10948022a9f0af11cdb1a489e75e6",
+                "e7ef928ae99a8cd54453ed42b479263c70ac8ca74dcb89f83310a9677cd25c1f"
+              ],
+              "prefix_localization_completed": false,
+              "prefix_candidate_attempts": [],
+              "prefix_stop_reasons": [],
+              "prefix_error_reasons": [],
+              "environment_error_records": 0,
+              "budget_complete": true,
+              "budget_ceiling_matches_config": true,
+              "budget_overrun": false,
+              "overrun_aspects": [],
+              "budget_consumed": {
+                "token": 83131,
+                "model_call": 5,
+                "tool_call": 21,
+                "wallclock_seconds": 91.44378960000904
+              },
+              "normal_budget_or_workflow_termination": true,
+              "session_or_tool_hard_stop": null,
+              "normal_budget_stop_with_legal_candidate": false,
+              "no_legal_candidate_at_stop": false,
+              "usable_with_legal_submission": true
+            },
+            "standalone": {
+              "present": true,
+              "status": "completed",
+              "termination_reason": "finish_tool",
+              "actual_request_records": 5,
+              "request_events": 5,
+              "cumulative_model_calls": 5,
+              "request_count_matches_budget_delta": true,
+              "finish_reason_length": 0,
+              "failed_or_unknown_request_records": 0,
+              "observed_identities_match": true,
+              "named_tool_calls": 5,
+              "session_call_overrun": false,
+              "session_tool_overrun": false,
+              "prefix_token_allowance_overrun": false,
+              "session_request_limit_reached": false,
+              "global_request_limit_reached": false,
+              "candidate_count": 2,
+              "legal_candidate_count": 2,
+              "has_legal_candidate": true,
+              "has_legal_submitted_candidate": true,
+              "new_origin_candidate_count": 2,
+              "has_new_origin_candidate": true,
+              "new_origin_legal_candidate_count": 2,
+              "public_pass_legal_candidate": false,
+              "submitted_legal_public_pass": false,
+              "candidate_origins": {
+                "interactive": 2
+              },
+              "candidate_hashes": [
+                "6f33cd6725e53b7afbd074e2b66d5ef195cff4a78c3a462ab8ba18888fb9a7e3",
+                "6f33cd6725e53b7afbd074e2b66d5ef195cff4a78c3a462ab8ba18888fb9a7e3"
+              ],
+              "prefix_localization_completed": false,
+              "prefix_candidate_attempts": [],
+              "prefix_stop_reasons": [],
+              "prefix_error_reasons": [],
+              "environment_error_records": 0,
+              "budget_complete": true,
+              "budget_ceiling_matches_config": true,
+              "budget_overrun": false,
+              "overrun_aspects": [],
+              "budget_consumed": {
+                "token": 13583,
+                "model_call": 5,
+                "tool_call": 13,
+                "wallclock_seconds": 13.119687899998098
+              },
+              "normal_budget_or_workflow_termination": true,
+              "session_or_tool_hard_stop": null,
+              "normal_budget_stop_with_legal_candidate": false,
+              "no_legal_candidate_at_stop": false,
+              "usable_with_legal_submission": true
+            }
+          },
+          "prefix_complete_or_legal_public_shared_stop": true,
+          "legal_public_shared_stop": false,
+          "paired_eligible": true,
+          "minimum_continuation_available": true,
+          "pair_observable_checks": {
+            "prefix_snapshot_present": true,
+            "prefix_snapshot_sha256": "7ef2a9d30208758cb82d9d2617ad3ae5b13f2c81b13f1e5e922873ea7185b4d9",
+            "prefix_stage_matches_snapshot": true,
+            "branch_task_identities_match_snapshot": true,
+            "branches": {
+              "fixed": {
+                "first_request_budget_observed": true,
+                "inherits_recorded_consumption_and_ceiling": true
+              },
+              "interactive": {
+                "first_request_budget_observed": true,
+                "inherits_recorded_consumption_and_ceiling": true
+              }
+            },
+            "independent_initial_snapshots_inferred": false,
+            "observable_checks_pass": true
+          },
+          "lifecycle_without_recorded_errors": true,
+          "paired_flow_usable": true,
+          "actual_images_match_prepared_identity": true,
+          "standalone_B_usable": true,
+          "usable_flow": true,
+          "prefix_legal_candidate_coverage": true,
+          "prefix_reused": false,
+          "new_prefix_requests_this_run": 3
+        },
+        {
+          "instance_id": "pyvista__pyvista-4315",
+          "recorded_status": "budget_exhausted",
+          "stages": {
+            "prefix": {
+              "present": true,
+              "status": "completed",
+              "termination_reason": "",
+              "actual_request_records": 3,
+              "request_events": 3,
+              "cumulative_model_calls": 3,
+              "request_count_matches_budget_delta": true,
+              "finish_reason_length": 0,
+              "failed_or_unknown_request_records": 0,
+              "observed_identities_match": true,
+              "named_tool_calls": null,
+              "session_call_overrun": false,
+              "session_tool_overrun": false,
+              "prefix_token_allowance_overrun": false,
+              "session_request_limit_reached": false,
+              "global_request_limit_reached": false,
+              "candidate_count": 2,
+              "legal_candidate_count": 2,
+              "has_legal_candidate": true,
+              "has_legal_submitted_candidate": true,
+              "new_origin_candidate_count": 0,
+              "has_new_origin_candidate": false,
+              "new_origin_legal_candidate_count": 0,
+              "public_pass_legal_candidate": true,
+              "submitted_legal_public_pass": true,
+              "candidate_origins": {
+                "prefix": 2
+              },
+              "candidate_hashes": [
+                "7afaab8dd039413b1ddbaec80fcb4cc92abadf201f608bddfab4d8a6fa5ce32f",
+                "cd2edc0f331be4b7993fa7210cf5424c3f331bd75dda2c4a236ed2d9440d06b0"
+              ],
+              "prefix_localization_completed": true,
+              "prefix_candidate_attempts": [
+                "candidate_0",
+                "candidate_1"
+              ],
+              "prefix_stop_reasons": [],
+              "prefix_error_reasons": [],
+              "environment_error_records": 0,
+              "budget_complete": true,
+              "budget_ceiling_matches_config": true,
+              "budget_overrun": false,
+              "overrun_aspects": [],
+              "budget_consumed": {
+                "token": 23834,
+                "model_call": 3,
+                "tool_call": 15,
+                "wallclock_seconds": 48.66496219999681
+              },
+              "normal_budget_or_workflow_termination": true,
+              "session_or_tool_hard_stop": null,
+              "normal_budget_stop_with_legal_candidate": false,
+              "no_legal_candidate_at_stop": false,
+              "usable_with_legal_submission": true
+            },
+            "fixed": {
+              "present": false,
+              "usable_with_legal_submission": false
+            },
+            "interactive": {
+              "present": false,
+              "usable_with_legal_submission": false
+            },
+            "standalone": {
+              "present": true,
+              "status": "budget_exhausted",
+              "termination_reason": "model_call_budget",
+              "actual_request_records": 6,
+              "request_events": 6,
+              "cumulative_model_calls": 6,
+              "request_count_matches_budget_delta": true,
+              "finish_reason_length": 0,
+              "failed_or_unknown_request_records": 0,
+              "observed_identities_match": true,
+              "named_tool_calls": 5,
+              "session_call_overrun": false,
+              "session_tool_overrun": false,
+              "prefix_token_allowance_overrun": false,
+              "session_request_limit_reached": true,
+              "global_request_limit_reached": false,
+              "candidate_count": 1,
+              "legal_candidate_count": 1,
+              "has_legal_candidate": true,
+              "has_legal_submitted_candidate": true,
+              "new_origin_candidate_count": 1,
+              "has_new_origin_candidate": true,
+              "new_origin_legal_candidate_count": 1,
+              "public_pass_legal_candidate": true,
+              "submitted_legal_public_pass": true,
+              "candidate_origins": {
+                "interactive": 1
+              },
+              "candidate_hashes": [
+                "0b4c26d8ef63cda72c26569ebbcc782d43d5ce5c2f471be6375181f020422738"
+              ],
+              "prefix_localization_completed": false,
+              "prefix_candidate_attempts": [],
+              "prefix_stop_reasons": [],
+              "prefix_error_reasons": [],
+              "environment_error_records": 0,
+              "budget_complete": true,
+              "budget_ceiling_matches_config": true,
+              "budget_overrun": false,
+              "overrun_aspects": [],
+              "budget_consumed": {
+                "token": 19280,
+                "model_call": 6,
+                "tool_call": 10,
+                "wallclock_seconds": 15.360957199998666
+              },
+              "normal_budget_or_workflow_termination": true,
+              "session_or_tool_hard_stop": "model_call_budget",
+              "normal_budget_stop_with_legal_candidate": true,
+              "no_legal_candidate_at_stop": false,
+              "usable_with_legal_submission": true
+            }
+          },
+          "prefix_complete_or_legal_public_shared_stop": true,
+          "legal_public_shared_stop": true,
+          "paired_eligible": false,
+          "minimum_continuation_available": true,
+          "pair_observable_checks": {
+            "prefix_snapshot_present": true,
+            "prefix_snapshot_sha256": "fd1b7e5b0eda5ef5f6e12a7b34ddb898b3881dceb1aace4c9e86b1711021a187",
+            "prefix_stage_matches_snapshot": true,
+            "branch_task_identities_match_snapshot": false,
+            "branches": {
+              "fixed": {
+                "first_request_budget_observed": false,
+                "inherits_recorded_consumption_and_ceiling": false
+              },
+              "interactive": {
+                "first_request_budget_observed": false,
+                "inherits_recorded_consumption_and_ceiling": false
+              }
+            },
+            "independent_initial_snapshots_inferred": false,
+            "observable_checks_pass": false
+          },
+          "lifecycle_without_recorded_errors": true,
+          "paired_flow_usable": false,
+          "actual_images_match_prepared_identity": true,
+          "standalone_B_usable": true,
+          "usable_flow": true,
+          "prefix_legal_candidate_coverage": true,
+          "prefix_reused": false,
+          "new_prefix_requests_this_run": 3
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "No official solved labels enter these observations.",
+    "Normal bounded termination with a legal candidate is not automatically model inability.",
+    "The original failed-environment screen remains excluded; its costs and records are preserved elsewhere.",
+    "The extractor checks observable inherited budgets and identities, not unrecorded independent initial snapshots."
+  ]
+}

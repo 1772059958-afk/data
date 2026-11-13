@@ -1,0 +1,4914 @@
+{
+  "kind": "posthoc_full_DEV23_routing_ablation_and_sensitivity",
+  "not_formal_test_evidence": true,
+  "reference_router_not_refit": {
+    "rule_order": [
+      "stop_on_env_failure_after_one_recovery",
+      "stop_when_budget_insufficient",
+      "freeze_when_public_candidate_passes",
+      "fixed_on_local_application_or_syntax_error",
+      "interactive_on_wide_localization_disagreement",
+      "interactive_on_high_duplicate_rate",
+      "interactive_on_out_of_scope_stack_evidence",
+      "fixed_when_evidence_insufficient",
+      "fixed_continuation_otherwise"
+    ],
+    "localization_disagreement_threshold": 0.75,
+    "duplicate_rate_threshold": 0.75,
+    "threshold_grid": [
+      0.25,
+      0.5,
+      0.75
+    ],
+    "switch_probability": 0.47058823529411764,
+    "min_continuation": {
+      "token": 2048,
+      "model_call": 1,
+      "tool_call": 1,
+      "wallclock_seconds": 30
+    },
+    "calibration": "frozen"
+  },
+  "source_matrix": "runs\\dev23_scoring_replay_20261112_02\\matrix.json",
+  "source_matrix_sha256": "f12ddf93ac72876814d69cc867a93b57991e18679a8fd66fb767ab2e92e632b2",
+  "source_reports": [
+    {
+      "arm": "A",
+      "path": "runs\\dev23_scoring_replay_20261112_02\\scoring\\A\\dev23_calibration_20261112_01-A.dev23_calibration_20261112_01.json",
+      "sha256": "cd50ddf64564db48aa81bec4f82c4d9582ff9cb994b120e61f22a02960555cca"
+    },
+    {
+      "arm": "FIXED",
+      "path": "runs\\dev23_scoring_replay_20261112_02\\scoring\\FIXED\\dev23_calibration_20261112_01-FIXED.dev23_calibration_20261112_01.json",
+      "sha256": "6cc65140b1795ebcfe5ca96d9ad330532e28a842ab3f7348e50993f928d74e2e"
+    },
+    {
+      "arm": "ESC",
+      "path": "runs\\dev23_scoring_replay_20261112_02\\scoring\\ESC\\dev23_calibration_20261112_01-ESC.dev23_calibration_20261112_01.json",
+      "sha256": "ff9272d629a2eb6dc462fe350033107063aa54a89f0b96ee9e284f3fa171b922"
+    }
+  ],
+  "designated": 23,
+  "eligible": 17,
+  "valid_pairs": 13,
+  "missing_pair_ids": [
+    "pvlib__pvlib-python-1854",
+    "pydicom__pydicom-1413",
+    "sqlfluff__sqlfluff-1517",
+    "sqlfluff__sqlfluff-1625"
+  ],
+  "quadrants_complete_pairs_only": {
+    "both_resolved": 4,
+    "interactive_only": 1,
+    "neither_resolved": 7,
+    "fixed_only": 1
+  },
+  "settings": [
+    {
+      "name": "reference",
+      "localization_threshold": 0.75,
+      "duplicate_threshold": 0.75,
+      "designated": 23,
+      "eligible": 17,
+      "valid_pairs": 13,
+      "eligible_interactive": 8,
+      "valid_pair_selected_resolved": 5,
+      "valid_pair_routing_regret": 1,
+      "designated_status_counts": {
+        "resolved": 10,
+        "ambiguous_error": 3,
+        "unresolved": 5,
+        "empty_patch": 5
+      },
+      "strategy_cost_recorded_cny": 3.55994522,
+      "rows": [
+        {
+          "instance_id": "marshmallow-code__marshmallow-1343",
+          "eligible": false,
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes",
+          "status": "resolved",
+          "strategy_cost_cny": 0.079038,
+          "label_role": "A",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "marshmallow-code__marshmallow-1359",
+          "eligible": false,
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes",
+          "status": "resolved",
+          "strategy_cost_cny": 0.03336228,
+          "label_role": "A",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pvlib__pvlib-python-1072",
+          "eligible": false,
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes",
+          "status": "resolved",
+          "strategy_cost_cny": 0.04059372,
+          "label_role": "A",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pvlib__pvlib-python-1154",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "resolved",
+          "strategy_cost_cny": 0.14012548000000002,
+          "label_role": "ESC",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pvlib__pvlib-python-1606",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_continuation_otherwise",
+          "status": "resolved",
+          "strategy_cost_cny": 0.10761192,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pvlib__pvlib-python-1707",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "resolved",
+          "strategy_cost_cny": 0.13981764,
+          "label_role": "ESC",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pvlib__pvlib-python-1854",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_continuation_otherwise",
+          "status": "ambiguous_error",
+          "strategy_cost_cny": 0.16664131999999998,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pydicom__pydicom-1139",
+          "eligible": false,
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes",
+          "status": "unresolved",
+          "strategy_cost_cny": 0.038169180000000004,
+          "label_role": "A",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pydicom__pydicom-1256",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_when_evidence_insufficient",
+          "status": "resolved",
+          "strategy_cost_cny": 0.02187812,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pydicom__pydicom-1413",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_on_local_application_or_syntax_error",
+          "status": "empty_patch",
+          "strategy_cost_cny": 0.534523,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pydicom__pydicom-1694",
+          "eligible": false,
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes",
+          "status": "resolved",
+          "strategy_cost_cny": 0.07336495999999999,
+          "label_role": "A",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pydicom__pydicom-901",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_on_local_application_or_syntax_error",
+          "status": "unresolved",
+          "strategy_cost_cny": 0.13016016,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pylint-dev__astroid-1196",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_on_local_application_or_syntax_error",
+          "status": "empty_patch",
+          "strategy_cost_cny": 0.38553352,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pylint-dev__astroid-1268",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_when_evidence_insufficient",
+          "status": "unresolved",
+          "strategy_cost_cny": 0.14705088,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pylint-dev__astroid-1333",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "empty_patch",
+          "strategy_cost_cny": 0.27950472,
+          "label_role": "ESC",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pylint-dev__astroid-1866",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "unresolved",
+          "strategy_cost_cny": 0.0331564,
+          "label_role": "ESC",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pylint-dev__astroid-1978",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_when_evidence_insufficient",
+          "status": "unresolved",
+          "strategy_cost_cny": 0.0927848,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pyvista__pyvista-4315",
+          "eligible": false,
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes",
+          "status": "resolved",
+          "strategy_cost_cny": 0.05433056,
+          "label_role": "A",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "sqlfluff__sqlfluff-1517",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "ambiguous_error",
+          "strategy_cost_cny": 0.17172244,
+          "label_role": "ESC",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "sqlfluff__sqlfluff-1625",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "ambiguous_error",
+          "strategy_cost_cny": 0.139564,
+          "label_role": "ESC",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "sqlfluff__sqlfluff-1733",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "empty_patch",
+          "strategy_cost_cny": 0.21768556,
+          "label_role": "ESC",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "sqlfluff__sqlfluff-1763",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_on_local_application_or_syntax_error",
+          "status": "empty_patch",
+          "strategy_cost_cny": 0.51434768,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "sqlfluff__sqlfluff-2419",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "resolved",
+          "strategy_cost_cny": 0.018978879999999997,
+          "label_role": "ESC",
+          "full_state_replay": true
+        }
+      ],
+      "route_changes_from_reference": []
+    },
+    {
+      "name": "no_localization_disagreement",
+      "localization_threshold": 1.0,
+      "duplicate_threshold": 0.75,
+      "designated": 23,
+      "eligible": 17,
+      "valid_pairs": 13,
+      "eligible_interactive": 0,
+      "valid_pair_selected_resolved": 5,
+      "valid_pair_routing_regret": 1,
+      "designated_status_counts": {
+        "resolved": 10,
+        "unresolved": 5,
+        "ambiguous_error": 3,
+        "empty_patch": 5
+      },
+      "strategy_cost_recorded_cny": 5.15478842,
+      "rows": [
+        {
+          "instance_id": "marshmallow-code__marshmallow-1343",
+          "eligible": false,
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes",
+          "status": "resolved",
+          "strategy_cost_cny": 0.079038,
+          "label_role": "A",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "marshmallow-code__marshmallow-1359",
+          "eligible": false,
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes",
+          "status": "resolved",
+          "strategy_cost_cny": 0.03336228,
+          "label_role": "A",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pvlib__pvlib-python-1072",
+          "eligible": false,
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes",
+          "status": "resolved",
+          "strategy_cost_cny": 0.04059372,
+          "label_role": "A",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pvlib__pvlib-python-1154",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_continuation_otherwise",
+          "status": "resolved",
+          "strategy_cost_cny": 0.45045712000000004,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pvlib__pvlib-python-1606",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_continuation_otherwise",
+          "status": "resolved",
+          "strategy_cost_cny": 0.10761192,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pvlib__pvlib-python-1707",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_continuation_otherwise",
+          "status": "unresolved",
+          "strategy_cost_cny": 0.14902624,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pvlib__pvlib-python-1854",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_continuation_otherwise",
+          "status": "ambiguous_error",
+          "strategy_cost_cny": 0.16664131999999998,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pydicom__pydicom-1139",
+          "eligible": false,
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes",
+          "status": "unresolved",
+          "strategy_cost_cny": 0.038169180000000004,
+          "label_role": "A",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pydicom__pydicom-1256",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_when_evidence_insufficient",
+          "status": "resolved",
+          "strategy_cost_cny": 0.02187812,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pydicom__pydicom-1413",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_on_local_application_or_syntax_error",
+          "status": "empty_patch",
+          "strategy_cost_cny": 0.534523,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pydicom__pydicom-1694",
+          "eligible": false,
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes",
+          "status": "resolved",
+          "strategy_cost_cny": 0.07336495999999999,
+          "label_role": "A",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pydicom__pydicom-901",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_on_local_application_or_syntax_error",
+          "status": "unresolved",
+          "strategy_cost_cny": 0.13016016,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pylint-dev__astroid-1196",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_on_local_application_or_syntax_error",
+          "status": "empty_patch",
+          "strategy_cost_cny": 0.38553352,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pylint-dev__astroid-1268",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_when_evidence_insufficient",
+          "status": "unresolved",
+          "strategy_cost_cny": 0.14705088,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pylint-dev__astroid-1333",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_when_evidence_insufficient",
+          "status": "empty_patch",
+          "strategy_cost_cny": 0.59634052,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pylint-dev__astroid-1866",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_when_evidence_insufficient",
+          "status": "resolved",
+          "strategy_cost_cny": 0.1959818,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pylint-dev__astroid-1978",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_when_evidence_insufficient",
+          "status": "unresolved",
+          "strategy_cost_cny": 0.0927848,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pyvista__pyvista-4315",
+          "eligible": false,
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes",
+          "status": "resolved",
+          "strategy_cost_cny": 0.05433056,
+          "label_role": "A",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "sqlfluff__sqlfluff-1517",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_when_evidence_insufficient",
+          "status": "ambiguous_error",
+          "strategy_cost_cny": 0.28151856,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "sqlfluff__sqlfluff-1625",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_continuation_otherwise",
+          "status": "ambiguous_error",
+          "strategy_cost_cny": 0.48667504,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "sqlfluff__sqlfluff-1733",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_when_evidence_insufficient",
+          "status": "empty_patch",
+          "strategy_cost_cny": 0.52542828,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "sqlfluff__sqlfluff-1763",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_on_local_application_or_syntax_error",
+          "status": "empty_patch",
+          "strategy_cost_cny": 0.51434768,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "sqlfluff__sqlfluff-2419",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_when_evidence_insufficient",
+          "status": "resolved",
+          "strategy_cost_cny": 0.04997076,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        }
+      ],
+      "route_changes_from_reference": [
+        "pvlib__pvlib-python-1154",
+        "pvlib__pvlib-python-1707",
+        "pylint-dev__astroid-1333",
+        "pylint-dev__astroid-1866",
+        "sqlfluff__sqlfluff-1517",
+        "sqlfluff__sqlfluff-1625",
+        "sqlfluff__sqlfluff-1733",
+        "sqlfluff__sqlfluff-2419"
+      ]
+    },
+    {
+      "name": "no_duplicate_signal",
+      "localization_threshold": 0.75,
+      "duplicate_threshold": 1.0,
+      "designated": 23,
+      "eligible": 17,
+      "valid_pairs": 13,
+      "eligible_interactive": 8,
+      "valid_pair_selected_resolved": 5,
+      "valid_pair_routing_regret": 1,
+      "designated_status_counts": {
+        "resolved": 10,
+        "ambiguous_error": 3,
+        "unresolved": 5,
+        "empty_patch": 5
+      },
+      "strategy_cost_recorded_cny": 3.55994522,
+      "rows": [
+        {
+          "instance_id": "marshmallow-code__marshmallow-1343",
+          "eligible": false,
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes",
+          "status": "resolved",
+          "strategy_cost_cny": 0.079038,
+          "label_role": "A",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "marshmallow-code__marshmallow-1359",
+          "eligible": false,
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes",
+          "status": "resolved",
+          "strategy_cost_cny": 0.03336228,
+          "label_role": "A",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pvlib__pvlib-python-1072",
+          "eligible": false,
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes",
+          "status": "resolved",
+          "strategy_cost_cny": 0.04059372,
+          "label_role": "A",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pvlib__pvlib-python-1154",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "resolved",
+          "strategy_cost_cny": 0.14012548000000002,
+          "label_role": "ESC",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pvlib__pvlib-python-1606",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_continuation_otherwise",
+          "status": "resolved",
+          "strategy_cost_cny": 0.10761192,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pvlib__pvlib-python-1707",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "resolved",
+          "strategy_cost_cny": 0.13981764,
+          "label_role": "ESC",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pvlib__pvlib-python-1854",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_continuation_otherwise",
+          "status": "ambiguous_error",
+          "strategy_cost_cny": 0.16664131999999998,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pydicom__pydicom-1139",
+          "eligible": false,
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes",
+          "status": "unresolved",
+          "strategy_cost_cny": 0.038169180000000004,
+          "label_role": "A",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pydicom__pydicom-1256",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_when_evidence_insufficient",
+          "status": "resolved",
+          "strategy_cost_cny": 0.02187812,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pydicom__pydicom-1413",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_on_local_application_or_syntax_error",
+          "status": "empty_patch",
+          "strategy_cost_cny": 0.534523,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pydicom__pydicom-1694",
+          "eligible": false,
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes",
+          "status": "resolved",
+          "strategy_cost_cny": 0.07336495999999999,
+          "label_role": "A",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pydicom__pydicom-901",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_on_local_application_or_syntax_error",
+          "status": "unresolved",
+          "strategy_cost_cny": 0.13016016,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pylint-dev__astroid-1196",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_on_local_application_or_syntax_error",
+          "status": "empty_patch",
+          "strategy_cost_cny": 0.38553352,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pylint-dev__astroid-1268",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_when_evidence_insufficient",
+          "status": "unresolved",
+          "strategy_cost_cny": 0.14705088,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pylint-dev__astroid-1333",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "empty_patch",
+          "strategy_cost_cny": 0.27950472,
+          "label_role": "ESC",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pylint-dev__astroid-1866",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "unresolved",
+          "strategy_cost_cny": 0.0331564,
+          "label_role": "ESC",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pylint-dev__astroid-1978",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_when_evidence_insufficient",
+          "status": "unresolved",
+          "strategy_cost_cny": 0.0927848,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pyvista__pyvista-4315",
+          "eligible": false,
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes",
+          "status": "resolved",
+          "strategy_cost_cny": 0.05433056,
+          "label_role": "A",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "sqlfluff__sqlfluff-1517",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "ambiguous_error",
+          "strategy_cost_cny": 0.17172244,
+          "label_role": "ESC",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "sqlfluff__sqlfluff-1625",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "ambiguous_error",
+          "strategy_cost_cny": 0.139564,
+          "label_role": "ESC",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "sqlfluff__sqlfluff-1733",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "empty_patch",
+          "strategy_cost_cny": 0.21768556,
+          "label_role": "ESC",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "sqlfluff__sqlfluff-1763",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_on_local_application_or_syntax_error",
+          "status": "empty_patch",
+          "strategy_cost_cny": 0.51434768,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "sqlfluff__sqlfluff-2419",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "resolved",
+          "strategy_cost_cny": 0.018978879999999997,
+          "label_role": "ESC",
+          "full_state_replay": true
+        }
+      ],
+      "route_changes_from_reference": []
+    },
+    {
+      "name": "grid_loc_0.25_dup_0.25",
+      "localization_threshold": 0.25,
+      "duplicate_threshold": 0.25,
+      "designated": 23,
+      "eligible": 17,
+      "valid_pairs": 13,
+      "eligible_interactive": 12,
+      "valid_pair_selected_resolved": 5,
+      "valid_pair_routing_regret": 1,
+      "designated_status_counts": {
+        "resolved": 10,
+        "ambiguous_error": 3,
+        "unresolved": 5,
+        "empty_patch": 5
+      },
+      "strategy_cost_recorded_cny": 3.45995198,
+      "rows": [
+        {
+          "instance_id": "marshmallow-code__marshmallow-1343",
+          "eligible": false,
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes",
+          "status": "resolved",
+          "strategy_cost_cny": 0.079038,
+          "label_role": "A",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "marshmallow-code__marshmallow-1359",
+          "eligible": false,
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes",
+          "status": "resolved",
+          "strategy_cost_cny": 0.03336228,
+          "label_role": "A",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pvlib__pvlib-python-1072",
+          "eligible": false,
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes",
+          "status": "resolved",
+          "strategy_cost_cny": 0.04059372,
+          "label_role": "A",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pvlib__pvlib-python-1154",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "resolved",
+          "strategy_cost_cny": 0.14012548000000002,
+          "label_role": "ESC",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pvlib__pvlib-python-1606",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "resolved",
+          "strategy_cost_cny": 0.13133296,
+          "label_role": "ESC",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pvlib__pvlib-python-1707",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "resolved",
+          "strategy_cost_cny": 0.13981764,
+          "label_role": "ESC",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pvlib__pvlib-python-1854",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_continuation_otherwise",
+          "status": "ambiguous_error",
+          "strategy_cost_cny": 0.16664131999999998,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pydicom__pydicom-1139",
+          "eligible": false,
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes",
+          "status": "unresolved",
+          "strategy_cost_cny": 0.038169180000000004,
+          "label_role": "A",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pydicom__pydicom-1256",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_high_duplicate_rate",
+          "status": "resolved",
+          "strategy_cost_cny": 0.0125324,
+          "label_role": "ESC",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pydicom__pydicom-1413",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_on_local_application_or_syntax_error",
+          "status": "empty_patch",
+          "strategy_cost_cny": 0.534523,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pydicom__pydicom-1694",
+          "eligible": false,
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes",
+          "status": "resolved",
+          "strategy_cost_cny": 0.07336495999999999,
+          "label_role": "A",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pydicom__pydicom-901",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_on_local_application_or_syntax_error",
+          "status": "unresolved",
+          "strategy_cost_cny": 0.13016016,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pylint-dev__astroid-1196",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_on_local_application_or_syntax_error",
+          "status": "empty_patch",
+          "strategy_cost_cny": 0.38553352,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pylint-dev__astroid-1268",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "unresolved",
+          "strategy_cost_cny": 0.06850276,
+          "label_role": "ESC",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pylint-dev__astroid-1333",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "empty_patch",
+          "strategy_cost_cny": 0.27950472,
+          "label_role": "ESC",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pylint-dev__astroid-1866",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "unresolved",
+          "strategy_cost_cny": 0.0331564,
+          "label_role": "ESC",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pylint-dev__astroid-1978",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_high_duplicate_rate",
+          "status": "unresolved",
+          "strategy_cost_cny": 0.05696436,
+          "label_role": "ESC",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pyvista__pyvista-4315",
+          "eligible": false,
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes",
+          "status": "resolved",
+          "strategy_cost_cny": 0.05433056,
+          "label_role": "A",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "sqlfluff__sqlfluff-1517",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "ambiguous_error",
+          "strategy_cost_cny": 0.17172244,
+          "label_role": "ESC",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "sqlfluff__sqlfluff-1625",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "ambiguous_error",
+          "strategy_cost_cny": 0.139564,
+          "label_role": "ESC",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "sqlfluff__sqlfluff-1733",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "empty_patch",
+          "strategy_cost_cny": 0.21768556,
+          "label_role": "ESC",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "sqlfluff__sqlfluff-1763",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_on_local_application_or_syntax_error",
+          "status": "empty_patch",
+          "strategy_cost_cny": 0.51434768,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "sqlfluff__sqlfluff-2419",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "resolved",
+          "strategy_cost_cny": 0.018978879999999997,
+          "label_role": "ESC",
+          "full_state_replay": true
+        }
+      ],
+      "route_changes_from_reference": [
+        "pvlib__pvlib-python-1606",
+        "pydicom__pydicom-1256",
+        "pylint-dev__astroid-1268",
+        "pylint-dev__astroid-1978"
+      ]
+    },
+    {
+      "name": "grid_loc_0.25_dup_0.5",
+      "localization_threshold": 0.25,
+      "duplicate_threshold": 0.5,
+      "designated": 23,
+      "eligible": 17,
+      "valid_pairs": 13,
+      "eligible_interactive": 10,
+      "valid_pair_selected_resolved": 5,
+      "valid_pair_routing_regret": 1,
+      "designated_status_counts": {
+        "resolved": 10,
+        "ambiguous_error": 3,
+        "unresolved": 5,
+        "empty_patch": 5
+      },
+      "strategy_cost_recorded_cny": 3.50511814,
+      "rows": [
+        {
+          "instance_id": "marshmallow-code__marshmallow-1343",
+          "eligible": false,
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes",
+          "status": "resolved",
+          "strategy_cost_cny": 0.079038,
+          "label_role": "A",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "marshmallow-code__marshmallow-1359",
+          "eligible": false,
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes",
+          "status": "resolved",
+          "strategy_cost_cny": 0.03336228,
+          "label_role": "A",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pvlib__pvlib-python-1072",
+          "eligible": false,
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes",
+          "status": "resolved",
+          "strategy_cost_cny": 0.04059372,
+          "label_role": "A",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pvlib__pvlib-python-1154",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "resolved",
+          "strategy_cost_cny": 0.14012548000000002,
+          "label_role": "ESC",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pvlib__pvlib-python-1606",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "resolved",
+          "strategy_cost_cny": 0.13133296,
+          "label_role": "ESC",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pvlib__pvlib-python-1707",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "resolved",
+          "strategy_cost_cny": 0.13981764,
+          "label_role": "ESC",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pvlib__pvlib-python-1854",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_continuation_otherwise",
+          "status": "ambiguous_error",
+          "strategy_cost_cny": 0.16664131999999998,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pydicom__pydicom-1139",
+          "eligible": false,
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes",
+          "status": "unresolved",
+          "strategy_cost_cny": 0.038169180000000004,
+          "label_role": "A",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pydicom__pydicom-1256",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_when_evidence_insufficient",
+          "status": "resolved",
+          "strategy_cost_cny": 0.02187812,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pydicom__pydicom-1413",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_on_local_application_or_syntax_error",
+          "status": "empty_patch",
+          "strategy_cost_cny": 0.534523,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pydicom__pydicom-1694",
+          "eligible": false,
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes",
+          "status": "resolved",
+          "strategy_cost_cny": 0.07336495999999999,
+          "label_role": "A",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pydicom__pydicom-901",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_on_local_application_or_syntax_error",
+          "status": "unresolved",
+          "strategy_cost_cny": 0.13016016,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pylint-dev__astroid-1196",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_on_local_application_or_syntax_error",
+          "status": "empty_patch",
+          "strategy_cost_cny": 0.38553352,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pylint-dev__astroid-1268",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "unresolved",
+          "strategy_cost_cny": 0.06850276,
+          "label_role": "ESC",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pylint-dev__astroid-1333",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "empty_patch",
+          "strategy_cost_cny": 0.27950472,
+          "label_role": "ESC",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pylint-dev__astroid-1866",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "unresolved",
+          "strategy_cost_cny": 0.0331564,
+          "label_role": "ESC",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pylint-dev__astroid-1978",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_when_evidence_insufficient",
+          "status": "unresolved",
+          "strategy_cost_cny": 0.0927848,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pyvista__pyvista-4315",
+          "eligible": false,
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes",
+          "status": "resolved",
+          "strategy_cost_cny": 0.05433056,
+          "label_role": "A",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "sqlfluff__sqlfluff-1517",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "ambiguous_error",
+          "strategy_cost_cny": 0.17172244,
+          "label_role": "ESC",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "sqlfluff__sqlfluff-1625",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "ambiguous_error",
+          "strategy_cost_cny": 0.139564,
+          "label_role": "ESC",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "sqlfluff__sqlfluff-1733",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "empty_patch",
+          "strategy_cost_cny": 0.21768556,
+          "label_role": "ESC",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "sqlfluff__sqlfluff-1763",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_on_local_application_or_syntax_error",
+          "status": "empty_patch",
+          "strategy_cost_cny": 0.51434768,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "sqlfluff__sqlfluff-2419",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "resolved",
+          "strategy_cost_cny": 0.018978879999999997,
+          "label_role": "ESC",
+          "full_state_replay": true
+        }
+      ],
+      "route_changes_from_reference": [
+        "pvlib__pvlib-python-1606",
+        "pylint-dev__astroid-1268"
+      ]
+    },
+    {
+      "name": "grid_loc_0.25_dup_0.75",
+      "localization_threshold": 0.25,
+      "duplicate_threshold": 0.75,
+      "designated": 23,
+      "eligible": 17,
+      "valid_pairs": 13,
+      "eligible_interactive": 10,
+      "valid_pair_selected_resolved": 5,
+      "valid_pair_routing_regret": 1,
+      "designated_status_counts": {
+        "resolved": 10,
+        "ambiguous_error": 3,
+        "unresolved": 5,
+        "empty_patch": 5
+      },
+      "strategy_cost_recorded_cny": 3.50511814,
+      "rows": [
+        {
+          "instance_id": "marshmallow-code__marshmallow-1343",
+          "eligible": false,
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes",
+          "status": "resolved",
+          "strategy_cost_cny": 0.079038,
+          "label_role": "A",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "marshmallow-code__marshmallow-1359",
+          "eligible": false,
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes",
+          "status": "resolved",
+          "strategy_cost_cny": 0.03336228,
+          "label_role": "A",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pvlib__pvlib-python-1072",
+          "eligible": false,
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes",
+          "status": "resolved",
+          "strategy_cost_cny": 0.04059372,
+          "label_role": "A",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pvlib__pvlib-python-1154",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "resolved",
+          "strategy_cost_cny": 0.14012548000000002,
+          "label_role": "ESC",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pvlib__pvlib-python-1606",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "resolved",
+          "strategy_cost_cny": 0.13133296,
+          "label_role": "ESC",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pvlib__pvlib-python-1707",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "resolved",
+          "strategy_cost_cny": 0.13981764,
+          "label_role": "ESC",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pvlib__pvlib-python-1854",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_continuation_otherwise",
+          "status": "ambiguous_error",
+          "strategy_cost_cny": 0.16664131999999998,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pydicom__pydicom-1139",
+          "eligible": false,
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes",
+          "status": "unresolved",
+          "strategy_cost_cny": 0.038169180000000004,
+          "label_role": "A",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pydicom__pydicom-1256",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_when_evidence_insufficient",
+          "status": "resolved",
+          "strategy_cost_cny": 0.02187812,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pydicom__pydicom-1413",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_on_local_application_or_syntax_error",
+          "status": "empty_patch",
+          "strategy_cost_cny": 0.534523,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pydicom__pydicom-1694",
+          "eligible": false,
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes",
+          "status": "resolved",
+          "strategy_cost_cny": 0.07336495999999999,
+          "label_role": "A",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pydicom__pydicom-901",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_on_local_application_or_syntax_error",
+          "status": "unresolved",
+          "strategy_cost_cny": 0.13016016,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pylint-dev__astroid-1196",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_on_local_application_or_syntax_error",
+          "status": "empty_patch",
+          "strategy_cost_cny": 0.38553352,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pylint-dev__astroid-1268",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "unresolved",
+          "strategy_cost_cny": 0.06850276,
+          "label_role": "ESC",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pylint-dev__astroid-1333",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "empty_patch",
+          "strategy_cost_cny": 0.27950472,
+          "label_role": "ESC",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pylint-dev__astroid-1866",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "unresolved",
+          "strategy_cost_cny": 0.0331564,
+          "label_role": "ESC",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pylint-dev__astroid-1978",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_when_evidence_insufficient",
+          "status": "unresolved",
+          "strategy_cost_cny": 0.0927848,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pyvista__pyvista-4315",
+          "eligible": false,
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes",
+          "status": "resolved",
+          "strategy_cost_cny": 0.05433056,
+          "label_role": "A",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "sqlfluff__sqlfluff-1517",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "ambiguous_error",
+          "strategy_cost_cny": 0.17172244,
+          "label_role": "ESC",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "sqlfluff__sqlfluff-1625",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "ambiguous_error",
+          "strategy_cost_cny": 0.139564,
+          "label_role": "ESC",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "sqlfluff__sqlfluff-1733",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "empty_patch",
+          "strategy_cost_cny": 0.21768556,
+          "label_role": "ESC",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "sqlfluff__sqlfluff-1763",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_on_local_application_or_syntax_error",
+          "status": "empty_patch",
+          "strategy_cost_cny": 0.51434768,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "sqlfluff__sqlfluff-2419",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "resolved",
+          "strategy_cost_cny": 0.018978879999999997,
+          "label_role": "ESC",
+          "full_state_replay": true
+        }
+      ],
+      "route_changes_from_reference": [
+        "pvlib__pvlib-python-1606",
+        "pylint-dev__astroid-1268"
+      ]
+    },
+    {
+      "name": "grid_loc_0.25_dup_1.0",
+      "localization_threshold": 0.25,
+      "duplicate_threshold": 1.0,
+      "designated": 23,
+      "eligible": 17,
+      "valid_pairs": 13,
+      "eligible_interactive": 10,
+      "valid_pair_selected_resolved": 5,
+      "valid_pair_routing_regret": 1,
+      "designated_status_counts": {
+        "resolved": 10,
+        "ambiguous_error": 3,
+        "unresolved": 5,
+        "empty_patch": 5
+      },
+      "strategy_cost_recorded_cny": 3.50511814,
+      "rows": [
+        {
+          "instance_id": "marshmallow-code__marshmallow-1343",
+          "eligible": false,
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes",
+          "status": "resolved",
+          "strategy_cost_cny": 0.079038,
+          "label_role": "A",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "marshmallow-code__marshmallow-1359",
+          "eligible": false,
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes",
+          "status": "resolved",
+          "strategy_cost_cny": 0.03336228,
+          "label_role": "A",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pvlib__pvlib-python-1072",
+          "eligible": false,
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes",
+          "status": "resolved",
+          "strategy_cost_cny": 0.04059372,
+          "label_role": "A",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pvlib__pvlib-python-1154",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "resolved",
+          "strategy_cost_cny": 0.14012548000000002,
+          "label_role": "ESC",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pvlib__pvlib-python-1606",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "resolved",
+          "strategy_cost_cny": 0.13133296,
+          "label_role": "ESC",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pvlib__pvlib-python-1707",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "resolved",
+          "strategy_cost_cny": 0.13981764,
+          "label_role": "ESC",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pvlib__pvlib-python-1854",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_continuation_otherwise",
+          "status": "ambiguous_error",
+          "strategy_cost_cny": 0.16664131999999998,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pydicom__pydicom-1139",
+          "eligible": false,
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes",
+          "status": "unresolved",
+          "strategy_cost_cny": 0.038169180000000004,
+          "label_role": "A",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pydicom__pydicom-1256",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_when_evidence_insufficient",
+          "status": "resolved",
+          "strategy_cost_cny": 0.02187812,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pydicom__pydicom-1413",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_on_local_application_or_syntax_error",
+          "status": "empty_patch",
+          "strategy_cost_cny": 0.534523,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pydicom__pydicom-1694",
+          "eligible": false,
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes",
+          "status": "resolved",
+          "strategy_cost_cny": 0.07336495999999999,
+          "label_role": "A",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pydicom__pydicom-901",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_on_local_application_or_syntax_error",
+          "status": "unresolved",
+          "strategy_cost_cny": 0.13016016,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pylint-dev__astroid-1196",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_on_local_application_or_syntax_error",
+          "status": "empty_patch",
+          "strategy_cost_cny": 0.38553352,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pylint-dev__astroid-1268",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "unresolved",
+          "strategy_cost_cny": 0.06850276,
+          "label_role": "ESC",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pylint-dev__astroid-1333",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "empty_patch",
+          "strategy_cost_cny": 0.27950472,
+          "label_role": "ESC",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pylint-dev__astroid-1866",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "unresolved",
+          "strategy_cost_cny": 0.0331564,
+          "label_role": "ESC",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pylint-dev__astroid-1978",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_when_evidence_insufficient",
+          "status": "unresolved",
+          "strategy_cost_cny": 0.0927848,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pyvista__pyvista-4315",
+          "eligible": false,
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes",
+          "status": "resolved",
+          "strategy_cost_cny": 0.05433056,
+          "label_role": "A",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "sqlfluff__sqlfluff-1517",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "ambiguous_error",
+          "strategy_cost_cny": 0.17172244,
+          "label_role": "ESC",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "sqlfluff__sqlfluff-1625",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "ambiguous_error",
+          "strategy_cost_cny": 0.139564,
+          "label_role": "ESC",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "sqlfluff__sqlfluff-1733",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "empty_patch",
+          "strategy_cost_cny": 0.21768556,
+          "label_role": "ESC",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "sqlfluff__sqlfluff-1763",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_on_local_application_or_syntax_error",
+          "status": "empty_patch",
+          "strategy_cost_cny": 0.51434768,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "sqlfluff__sqlfluff-2419",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "resolved",
+          "strategy_cost_cny": 0.018978879999999997,
+          "label_role": "ESC",
+          "full_state_replay": true
+        }
+      ],
+      "route_changes_from_reference": [
+        "pvlib__pvlib-python-1606",
+        "pylint-dev__astroid-1268"
+      ]
+    },
+    {
+      "name": "grid_loc_0.5_dup_0.25",
+      "localization_threshold": 0.5,
+      "duplicate_threshold": 0.25,
+      "designated": 23,
+      "eligible": 17,
+      "valid_pairs": 13,
+      "eligible_interactive": 10,
+      "valid_pair_selected_resolved": 5,
+      "valid_pair_routing_regret": 1,
+      "designated_status_counts": {
+        "resolved": 10,
+        "ambiguous_error": 3,
+        "unresolved": 5,
+        "empty_patch": 5
+      },
+      "strategy_cost_recorded_cny": 3.51477906,
+      "rows": [
+        {
+          "instance_id": "marshmallow-code__marshmallow-1343",
+          "eligible": false,
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes",
+          "status": "resolved",
+          "strategy_cost_cny": 0.079038,
+          "label_role": "A",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "marshmallow-code__marshmallow-1359",
+          "eligible": false,
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes",
+          "status": "resolved",
+          "strategy_cost_cny": 0.03336228,
+          "label_role": "A",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pvlib__pvlib-python-1072",
+          "eligible": false,
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes",
+          "status": "resolved",
+          "strategy_cost_cny": 0.04059372,
+          "label_role": "A",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pvlib__pvlib-python-1154",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "resolved",
+          "strategy_cost_cny": 0.14012548000000002,
+          "label_role": "ESC",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pvlib__pvlib-python-1606",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_continuation_otherwise",
+          "status": "resolved",
+          "strategy_cost_cny": 0.10761192,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pvlib__pvlib-python-1707",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "resolved",
+          "strategy_cost_cny": 0.13981764,
+          "label_role": "ESC",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pvlib__pvlib-python-1854",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_continuation_otherwise",
+          "status": "ambiguous_error",
+          "strategy_cost_cny": 0.16664131999999998,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pydicom__pydicom-1139",
+          "eligible": false,
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes",
+          "status": "unresolved",
+          "strategy_cost_cny": 0.038169180000000004,
+          "label_role": "A",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pydicom__pydicom-1256",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_high_duplicate_rate",
+          "status": "resolved",
+          "strategy_cost_cny": 0.0125324,
+          "label_role": "ESC",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pydicom__pydicom-1413",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_on_local_application_or_syntax_error",
+          "status": "empty_patch",
+          "strategy_cost_cny": 0.534523,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pydicom__pydicom-1694",
+          "eligible": false,
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes",
+          "status": "resolved",
+          "strategy_cost_cny": 0.07336495999999999,
+          "label_role": "A",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pydicom__pydicom-901",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_on_local_application_or_syntax_error",
+          "status": "unresolved",
+          "strategy_cost_cny": 0.13016016,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pylint-dev__astroid-1196",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_on_local_application_or_syntax_error",
+          "status": "empty_patch",
+          "strategy_cost_cny": 0.38553352,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pylint-dev__astroid-1268",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_when_evidence_insufficient",
+          "status": "unresolved",
+          "strategy_cost_cny": 0.14705088,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pylint-dev__astroid-1333",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "empty_patch",
+          "strategy_cost_cny": 0.27950472,
+          "label_role": "ESC",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pylint-dev__astroid-1866",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "unresolved",
+          "strategy_cost_cny": 0.0331564,
+          "label_role": "ESC",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pylint-dev__astroid-1978",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_high_duplicate_rate",
+          "status": "unresolved",
+          "strategy_cost_cny": 0.05696436,
+          "label_role": "ESC",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pyvista__pyvista-4315",
+          "eligible": false,
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes",
+          "status": "resolved",
+          "strategy_cost_cny": 0.05433056,
+          "label_role": "A",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "sqlfluff__sqlfluff-1517",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "ambiguous_error",
+          "strategy_cost_cny": 0.17172244,
+          "label_role": "ESC",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "sqlfluff__sqlfluff-1625",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "ambiguous_error",
+          "strategy_cost_cny": 0.139564,
+          "label_role": "ESC",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "sqlfluff__sqlfluff-1733",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "empty_patch",
+          "strategy_cost_cny": 0.21768556,
+          "label_role": "ESC",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "sqlfluff__sqlfluff-1763",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_on_local_application_or_syntax_error",
+          "status": "empty_patch",
+          "strategy_cost_cny": 0.51434768,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "sqlfluff__sqlfluff-2419",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "resolved",
+          "strategy_cost_cny": 0.018978879999999997,
+          "label_role": "ESC",
+          "full_state_replay": true
+        }
+      ],
+      "route_changes_from_reference": [
+        "pydicom__pydicom-1256",
+        "pylint-dev__astroid-1978"
+      ]
+    },
+    {
+      "name": "grid_loc_0.5_dup_0.5",
+      "localization_threshold": 0.5,
+      "duplicate_threshold": 0.5,
+      "designated": 23,
+      "eligible": 17,
+      "valid_pairs": 13,
+      "eligible_interactive": 8,
+      "valid_pair_selected_resolved": 5,
+      "valid_pair_routing_regret": 1,
+      "designated_status_counts": {
+        "resolved": 10,
+        "ambiguous_error": 3,
+        "unresolved": 5,
+        "empty_patch": 5
+      },
+      "strategy_cost_recorded_cny": 3.55994522,
+      "rows": [
+        {
+          "instance_id": "marshmallow-code__marshmallow-1343",
+          "eligible": false,
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes",
+          "status": "resolved",
+          "strategy_cost_cny": 0.079038,
+          "label_role": "A",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "marshmallow-code__marshmallow-1359",
+          "eligible": false,
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes",
+          "status": "resolved",
+          "strategy_cost_cny": 0.03336228,
+          "label_role": "A",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pvlib__pvlib-python-1072",
+          "eligible": false,
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes",
+          "status": "resolved",
+          "strategy_cost_cny": 0.04059372,
+          "label_role": "A",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pvlib__pvlib-python-1154",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "resolved",
+          "strategy_cost_cny": 0.14012548000000002,
+          "label_role": "ESC",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pvlib__pvlib-python-1606",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_continuation_otherwise",
+          "status": "resolved",
+          "strategy_cost_cny": 0.10761192,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pvlib__pvlib-python-1707",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "resolved",
+          "strategy_cost_cny": 0.13981764,
+          "label_role": "ESC",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pvlib__pvlib-python-1854",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_continuation_otherwise",
+          "status": "ambiguous_error",
+          "strategy_cost_cny": 0.16664131999999998,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pydicom__pydicom-1139",
+          "eligible": false,
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes",
+          "status": "unresolved",
+          "strategy_cost_cny": 0.038169180000000004,
+          "label_role": "A",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pydicom__pydicom-1256",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_when_evidence_insufficient",
+          "status": "resolved",
+          "strategy_cost_cny": 0.02187812,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pydicom__pydicom-1413",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_on_local_application_or_syntax_error",
+          "status": "empty_patch",
+          "strategy_cost_cny": 0.534523,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pydicom__pydicom-1694",
+          "eligible": false,
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes",
+          "status": "resolved",
+          "strategy_cost_cny": 0.07336495999999999,
+          "label_role": "A",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pydicom__pydicom-901",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_on_local_application_or_syntax_error",
+          "status": "unresolved",
+          "strategy_cost_cny": 0.13016016,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pylint-dev__astroid-1196",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_on_local_application_or_syntax_error",
+          "status": "empty_patch",
+          "strategy_cost_cny": 0.38553352,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pylint-dev__astroid-1268",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_when_evidence_insufficient",
+          "status": "unresolved",
+          "strategy_cost_cny": 0.14705088,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pylint-dev__astroid-1333",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "empty_patch",
+          "strategy_cost_cny": 0.27950472,
+          "label_role": "ESC",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pylint-dev__astroid-1866",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "unresolved",
+          "strategy_cost_cny": 0.0331564,
+          "label_role": "ESC",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pylint-dev__astroid-1978",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_when_evidence_insufficient",
+          "status": "unresolved",
+          "strategy_cost_cny": 0.0927848,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pyvista__pyvista-4315",
+          "eligible": false,
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes",
+          "status": "resolved",
+          "strategy_cost_cny": 0.05433056,
+          "label_role": "A",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "sqlfluff__sqlfluff-1517",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "ambiguous_error",
+          "strategy_cost_cny": 0.17172244,
+          "label_role": "ESC",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "sqlfluff__sqlfluff-1625",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "ambiguous_error",
+          "strategy_cost_cny": 0.139564,
+          "label_role": "ESC",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "sqlfluff__sqlfluff-1733",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "empty_patch",
+          "strategy_cost_cny": 0.21768556,
+          "label_role": "ESC",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "sqlfluff__sqlfluff-1763",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_on_local_application_or_syntax_error",
+          "status": "empty_patch",
+          "strategy_cost_cny": 0.51434768,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "sqlfluff__sqlfluff-2419",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "resolved",
+          "strategy_cost_cny": 0.018978879999999997,
+          "label_role": "ESC",
+          "full_state_replay": true
+        }
+      ],
+      "route_changes_from_reference": []
+    },
+    {
+      "name": "grid_loc_0.5_dup_0.75",
+      "localization_threshold": 0.5,
+      "duplicate_threshold": 0.75,
+      "designated": 23,
+      "eligible": 17,
+      "valid_pairs": 13,
+      "eligible_interactive": 8,
+      "valid_pair_selected_resolved": 5,
+      "valid_pair_routing_regret": 1,
+      "designated_status_counts": {
+        "resolved": 10,
+        "ambiguous_error": 3,
+        "unresolved": 5,
+        "empty_patch": 5
+      },
+      "strategy_cost_recorded_cny": 3.55994522,
+      "rows": [
+        {
+          "instance_id": "marshmallow-code__marshmallow-1343",
+          "eligible": false,
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes",
+          "status": "resolved",
+          "strategy_cost_cny": 0.079038,
+          "label_role": "A",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "marshmallow-code__marshmallow-1359",
+          "eligible": false,
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes",
+          "status": "resolved",
+          "strategy_cost_cny": 0.03336228,
+          "label_role": "A",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pvlib__pvlib-python-1072",
+          "eligible": false,
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes",
+          "status": "resolved",
+          "strategy_cost_cny": 0.04059372,
+          "label_role": "A",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pvlib__pvlib-python-1154",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "resolved",
+          "strategy_cost_cny": 0.14012548000000002,
+          "label_role": "ESC",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pvlib__pvlib-python-1606",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_continuation_otherwise",
+          "status": "resolved",
+          "strategy_cost_cny": 0.10761192,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pvlib__pvlib-python-1707",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "resolved",
+          "strategy_cost_cny": 0.13981764,
+          "label_role": "ESC",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pvlib__pvlib-python-1854",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_continuation_otherwise",
+          "status": "ambiguous_error",
+          "strategy_cost_cny": 0.16664131999999998,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pydicom__pydicom-1139",
+          "eligible": false,
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes",
+          "status": "unresolved",
+          "strategy_cost_cny": 0.038169180000000004,
+          "label_role": "A",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pydicom__pydicom-1256",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_when_evidence_insufficient",
+          "status": "resolved",
+          "strategy_cost_cny": 0.02187812,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pydicom__pydicom-1413",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_on_local_application_or_syntax_error",
+          "status": "empty_patch",
+          "strategy_cost_cny": 0.534523,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pydicom__pydicom-1694",
+          "eligible": false,
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes",
+          "status": "resolved",
+          "strategy_cost_cny": 0.07336495999999999,
+          "label_role": "A",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pydicom__pydicom-901",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_on_local_application_or_syntax_error",
+          "status": "unresolved",
+          "strategy_cost_cny": 0.13016016,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pylint-dev__astroid-1196",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_on_local_application_or_syntax_error",
+          "status": "empty_patch",
+          "strategy_cost_cny": 0.38553352,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pylint-dev__astroid-1268",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_when_evidence_insufficient",
+          "status": "unresolved",
+          "strategy_cost_cny": 0.14705088,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pylint-dev__astroid-1333",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "empty_patch",
+          "strategy_cost_cny": 0.27950472,
+          "label_role": "ESC",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pylint-dev__astroid-1866",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "unresolved",
+          "strategy_cost_cny": 0.0331564,
+          "label_role": "ESC",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pylint-dev__astroid-1978",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_when_evidence_insufficient",
+          "status": "unresolved",
+          "strategy_cost_cny": 0.0927848,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pyvista__pyvista-4315",
+          "eligible": false,
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes",
+          "status": "resolved",
+          "strategy_cost_cny": 0.05433056,
+          "label_role": "A",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "sqlfluff__sqlfluff-1517",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "ambiguous_error",
+          "strategy_cost_cny": 0.17172244,
+          "label_role": "ESC",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "sqlfluff__sqlfluff-1625",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "ambiguous_error",
+          "strategy_cost_cny": 0.139564,
+          "label_role": "ESC",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "sqlfluff__sqlfluff-1733",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "empty_patch",
+          "strategy_cost_cny": 0.21768556,
+          "label_role": "ESC",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "sqlfluff__sqlfluff-1763",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_on_local_application_or_syntax_error",
+          "status": "empty_patch",
+          "strategy_cost_cny": 0.51434768,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "sqlfluff__sqlfluff-2419",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "resolved",
+          "strategy_cost_cny": 0.018978879999999997,
+          "label_role": "ESC",
+          "full_state_replay": true
+        }
+      ],
+      "route_changes_from_reference": []
+    },
+    {
+      "name": "grid_loc_0.5_dup_1.0",
+      "localization_threshold": 0.5,
+      "duplicate_threshold": 1.0,
+      "designated": 23,
+      "eligible": 17,
+      "valid_pairs": 13,
+      "eligible_interactive": 8,
+      "valid_pair_selected_resolved": 5,
+      "valid_pair_routing_regret": 1,
+      "designated_status_counts": {
+        "resolved": 10,
+        "ambiguous_error": 3,
+        "unresolved": 5,
+        "empty_patch": 5
+      },
+      "strategy_cost_recorded_cny": 3.55994522,
+      "rows": [
+        {
+          "instance_id": "marshmallow-code__marshmallow-1343",
+          "eligible": false,
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes",
+          "status": "resolved",
+          "strategy_cost_cny": 0.079038,
+          "label_role": "A",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "marshmallow-code__marshmallow-1359",
+          "eligible": false,
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes",
+          "status": "resolved",
+          "strategy_cost_cny": 0.03336228,
+          "label_role": "A",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pvlib__pvlib-python-1072",
+          "eligible": false,
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes",
+          "status": "resolved",
+          "strategy_cost_cny": 0.04059372,
+          "label_role": "A",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pvlib__pvlib-python-1154",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "resolved",
+          "strategy_cost_cny": 0.14012548000000002,
+          "label_role": "ESC",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pvlib__pvlib-python-1606",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_continuation_otherwise",
+          "status": "resolved",
+          "strategy_cost_cny": 0.10761192,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pvlib__pvlib-python-1707",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "resolved",
+          "strategy_cost_cny": 0.13981764,
+          "label_role": "ESC",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pvlib__pvlib-python-1854",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_continuation_otherwise",
+          "status": "ambiguous_error",
+          "strategy_cost_cny": 0.16664131999999998,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pydicom__pydicom-1139",
+          "eligible": false,
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes",
+          "status": "unresolved",
+          "strategy_cost_cny": 0.038169180000000004,
+          "label_role": "A",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pydicom__pydicom-1256",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_when_evidence_insufficient",
+          "status": "resolved",
+          "strategy_cost_cny": 0.02187812,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pydicom__pydicom-1413",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_on_local_application_or_syntax_error",
+          "status": "empty_patch",
+          "strategy_cost_cny": 0.534523,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pydicom__pydicom-1694",
+          "eligible": false,
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes",
+          "status": "resolved",
+          "strategy_cost_cny": 0.07336495999999999,
+          "label_role": "A",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pydicom__pydicom-901",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_on_local_application_or_syntax_error",
+          "status": "unresolved",
+          "strategy_cost_cny": 0.13016016,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pylint-dev__astroid-1196",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_on_local_application_or_syntax_error",
+          "status": "empty_patch",
+          "strategy_cost_cny": 0.38553352,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pylint-dev__astroid-1268",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_when_evidence_insufficient",
+          "status": "unresolved",
+          "strategy_cost_cny": 0.14705088,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pylint-dev__astroid-1333",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "empty_patch",
+          "strategy_cost_cny": 0.27950472,
+          "label_role": "ESC",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pylint-dev__astroid-1866",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "unresolved",
+          "strategy_cost_cny": 0.0331564,
+          "label_role": "ESC",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pylint-dev__astroid-1978",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_when_evidence_insufficient",
+          "status": "unresolved",
+          "strategy_cost_cny": 0.0927848,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pyvista__pyvista-4315",
+          "eligible": false,
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes",
+          "status": "resolved",
+          "strategy_cost_cny": 0.05433056,
+          "label_role": "A",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "sqlfluff__sqlfluff-1517",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "ambiguous_error",
+          "strategy_cost_cny": 0.17172244,
+          "label_role": "ESC",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "sqlfluff__sqlfluff-1625",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "ambiguous_error",
+          "strategy_cost_cny": 0.139564,
+          "label_role": "ESC",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "sqlfluff__sqlfluff-1733",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "empty_patch",
+          "strategy_cost_cny": 0.21768556,
+          "label_role": "ESC",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "sqlfluff__sqlfluff-1763",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_on_local_application_or_syntax_error",
+          "status": "empty_patch",
+          "strategy_cost_cny": 0.51434768,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "sqlfluff__sqlfluff-2419",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "resolved",
+          "strategy_cost_cny": 0.018978879999999997,
+          "label_role": "ESC",
+          "full_state_replay": true
+        }
+      ],
+      "route_changes_from_reference": []
+    },
+    {
+      "name": "grid_loc_0.75_dup_0.25",
+      "localization_threshold": 0.75,
+      "duplicate_threshold": 0.25,
+      "designated": 23,
+      "eligible": 17,
+      "valid_pairs": 13,
+      "eligible_interactive": 10,
+      "valid_pair_selected_resolved": 5,
+      "valid_pair_routing_regret": 1,
+      "designated_status_counts": {
+        "resolved": 10,
+        "ambiguous_error": 3,
+        "unresolved": 5,
+        "empty_patch": 5
+      },
+      "strategy_cost_recorded_cny": 3.51477906,
+      "rows": [
+        {
+          "instance_id": "marshmallow-code__marshmallow-1343",
+          "eligible": false,
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes",
+          "status": "resolved",
+          "strategy_cost_cny": 0.079038,
+          "label_role": "A",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "marshmallow-code__marshmallow-1359",
+          "eligible": false,
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes",
+          "status": "resolved",
+          "strategy_cost_cny": 0.03336228,
+          "label_role": "A",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pvlib__pvlib-python-1072",
+          "eligible": false,
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes",
+          "status": "resolved",
+          "strategy_cost_cny": 0.04059372,
+          "label_role": "A",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pvlib__pvlib-python-1154",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "resolved",
+          "strategy_cost_cny": 0.14012548000000002,
+          "label_role": "ESC",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pvlib__pvlib-python-1606",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_continuation_otherwise",
+          "status": "resolved",
+          "strategy_cost_cny": 0.10761192,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pvlib__pvlib-python-1707",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "resolved",
+          "strategy_cost_cny": 0.13981764,
+          "label_role": "ESC",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pvlib__pvlib-python-1854",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_continuation_otherwise",
+          "status": "ambiguous_error",
+          "strategy_cost_cny": 0.16664131999999998,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pydicom__pydicom-1139",
+          "eligible": false,
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes",
+          "status": "unresolved",
+          "strategy_cost_cny": 0.038169180000000004,
+          "label_role": "A",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pydicom__pydicom-1256",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_high_duplicate_rate",
+          "status": "resolved",
+          "strategy_cost_cny": 0.0125324,
+          "label_role": "ESC",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pydicom__pydicom-1413",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_on_local_application_or_syntax_error",
+          "status": "empty_patch",
+          "strategy_cost_cny": 0.534523,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pydicom__pydicom-1694",
+          "eligible": false,
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes",
+          "status": "resolved",
+          "strategy_cost_cny": 0.07336495999999999,
+          "label_role": "A",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pydicom__pydicom-901",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_on_local_application_or_syntax_error",
+          "status": "unresolved",
+          "strategy_cost_cny": 0.13016016,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pylint-dev__astroid-1196",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_on_local_application_or_syntax_error",
+          "status": "empty_patch",
+          "strategy_cost_cny": 0.38553352,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pylint-dev__astroid-1268",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_when_evidence_insufficient",
+          "status": "unresolved",
+          "strategy_cost_cny": 0.14705088,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pylint-dev__astroid-1333",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "empty_patch",
+          "strategy_cost_cny": 0.27950472,
+          "label_role": "ESC",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pylint-dev__astroid-1866",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "unresolved",
+          "strategy_cost_cny": 0.0331564,
+          "label_role": "ESC",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pylint-dev__astroid-1978",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_high_duplicate_rate",
+          "status": "unresolved",
+          "strategy_cost_cny": 0.05696436,
+          "label_role": "ESC",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pyvista__pyvista-4315",
+          "eligible": false,
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes",
+          "status": "resolved",
+          "strategy_cost_cny": 0.05433056,
+          "label_role": "A",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "sqlfluff__sqlfluff-1517",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "ambiguous_error",
+          "strategy_cost_cny": 0.17172244,
+          "label_role": "ESC",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "sqlfluff__sqlfluff-1625",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "ambiguous_error",
+          "strategy_cost_cny": 0.139564,
+          "label_role": "ESC",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "sqlfluff__sqlfluff-1733",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "empty_patch",
+          "strategy_cost_cny": 0.21768556,
+          "label_role": "ESC",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "sqlfluff__sqlfluff-1763",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_on_local_application_or_syntax_error",
+          "status": "empty_patch",
+          "strategy_cost_cny": 0.51434768,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "sqlfluff__sqlfluff-2419",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "resolved",
+          "strategy_cost_cny": 0.018978879999999997,
+          "label_role": "ESC",
+          "full_state_replay": true
+        }
+      ],
+      "route_changes_from_reference": [
+        "pydicom__pydicom-1256",
+        "pylint-dev__astroid-1978"
+      ]
+    },
+    {
+      "name": "grid_loc_0.75_dup_0.5",
+      "localization_threshold": 0.75,
+      "duplicate_threshold": 0.5,
+      "designated": 23,
+      "eligible": 17,
+      "valid_pairs": 13,
+      "eligible_interactive": 8,
+      "valid_pair_selected_resolved": 5,
+      "valid_pair_routing_regret": 1,
+      "designated_status_counts": {
+        "resolved": 10,
+        "ambiguous_error": 3,
+        "unresolved": 5,
+        "empty_patch": 5
+      },
+      "strategy_cost_recorded_cny": 3.55994522,
+      "rows": [
+        {
+          "instance_id": "marshmallow-code__marshmallow-1343",
+          "eligible": false,
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes",
+          "status": "resolved",
+          "strategy_cost_cny": 0.079038,
+          "label_role": "A",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "marshmallow-code__marshmallow-1359",
+          "eligible": false,
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes",
+          "status": "resolved",
+          "strategy_cost_cny": 0.03336228,
+          "label_role": "A",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pvlib__pvlib-python-1072",
+          "eligible": false,
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes",
+          "status": "resolved",
+          "strategy_cost_cny": 0.04059372,
+          "label_role": "A",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pvlib__pvlib-python-1154",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "resolved",
+          "strategy_cost_cny": 0.14012548000000002,
+          "label_role": "ESC",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pvlib__pvlib-python-1606",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_continuation_otherwise",
+          "status": "resolved",
+          "strategy_cost_cny": 0.10761192,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pvlib__pvlib-python-1707",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "resolved",
+          "strategy_cost_cny": 0.13981764,
+          "label_role": "ESC",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pvlib__pvlib-python-1854",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_continuation_otherwise",
+          "status": "ambiguous_error",
+          "strategy_cost_cny": 0.16664131999999998,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pydicom__pydicom-1139",
+          "eligible": false,
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes",
+          "status": "unresolved",
+          "strategy_cost_cny": 0.038169180000000004,
+          "label_role": "A",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pydicom__pydicom-1256",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_when_evidence_insufficient",
+          "status": "resolved",
+          "strategy_cost_cny": 0.02187812,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pydicom__pydicom-1413",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_on_local_application_or_syntax_error",
+          "status": "empty_patch",
+          "strategy_cost_cny": 0.534523,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pydicom__pydicom-1694",
+          "eligible": false,
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes",
+          "status": "resolved",
+          "strategy_cost_cny": 0.07336495999999999,
+          "label_role": "A",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pydicom__pydicom-901",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_on_local_application_or_syntax_error",
+          "status": "unresolved",
+          "strategy_cost_cny": 0.13016016,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pylint-dev__astroid-1196",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_on_local_application_or_syntax_error",
+          "status": "empty_patch",
+          "strategy_cost_cny": 0.38553352,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pylint-dev__astroid-1268",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_when_evidence_insufficient",
+          "status": "unresolved",
+          "strategy_cost_cny": 0.14705088,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pylint-dev__astroid-1333",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "empty_patch",
+          "strategy_cost_cny": 0.27950472,
+          "label_role": "ESC",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pylint-dev__astroid-1866",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "unresolved",
+          "strategy_cost_cny": 0.0331564,
+          "label_role": "ESC",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pylint-dev__astroid-1978",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_when_evidence_insufficient",
+          "status": "unresolved",
+          "strategy_cost_cny": 0.0927848,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pyvista__pyvista-4315",
+          "eligible": false,
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes",
+          "status": "resolved",
+          "strategy_cost_cny": 0.05433056,
+          "label_role": "A",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "sqlfluff__sqlfluff-1517",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "ambiguous_error",
+          "strategy_cost_cny": 0.17172244,
+          "label_role": "ESC",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "sqlfluff__sqlfluff-1625",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "ambiguous_error",
+          "strategy_cost_cny": 0.139564,
+          "label_role": "ESC",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "sqlfluff__sqlfluff-1733",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "empty_patch",
+          "strategy_cost_cny": 0.21768556,
+          "label_role": "ESC",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "sqlfluff__sqlfluff-1763",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_on_local_application_or_syntax_error",
+          "status": "empty_patch",
+          "strategy_cost_cny": 0.51434768,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "sqlfluff__sqlfluff-2419",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "resolved",
+          "strategy_cost_cny": 0.018978879999999997,
+          "label_role": "ESC",
+          "full_state_replay": true
+        }
+      ],
+      "route_changes_from_reference": []
+    },
+    {
+      "name": "grid_loc_0.75_dup_0.75",
+      "localization_threshold": 0.75,
+      "duplicate_threshold": 0.75,
+      "designated": 23,
+      "eligible": 17,
+      "valid_pairs": 13,
+      "eligible_interactive": 8,
+      "valid_pair_selected_resolved": 5,
+      "valid_pair_routing_regret": 1,
+      "designated_status_counts": {
+        "resolved": 10,
+        "ambiguous_error": 3,
+        "unresolved": 5,
+        "empty_patch": 5
+      },
+      "strategy_cost_recorded_cny": 3.55994522,
+      "rows": [
+        {
+          "instance_id": "marshmallow-code__marshmallow-1343",
+          "eligible": false,
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes",
+          "status": "resolved",
+          "strategy_cost_cny": 0.079038,
+          "label_role": "A",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "marshmallow-code__marshmallow-1359",
+          "eligible": false,
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes",
+          "status": "resolved",
+          "strategy_cost_cny": 0.03336228,
+          "label_role": "A",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pvlib__pvlib-python-1072",
+          "eligible": false,
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes",
+          "status": "resolved",
+          "strategy_cost_cny": 0.04059372,
+          "label_role": "A",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pvlib__pvlib-python-1154",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "resolved",
+          "strategy_cost_cny": 0.14012548000000002,
+          "label_role": "ESC",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pvlib__pvlib-python-1606",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_continuation_otherwise",
+          "status": "resolved",
+          "strategy_cost_cny": 0.10761192,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pvlib__pvlib-python-1707",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "resolved",
+          "strategy_cost_cny": 0.13981764,
+          "label_role": "ESC",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pvlib__pvlib-python-1854",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_continuation_otherwise",
+          "status": "ambiguous_error",
+          "strategy_cost_cny": 0.16664131999999998,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pydicom__pydicom-1139",
+          "eligible": false,
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes",
+          "status": "unresolved",
+          "strategy_cost_cny": 0.038169180000000004,
+          "label_role": "A",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pydicom__pydicom-1256",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_when_evidence_insufficient",
+          "status": "resolved",
+          "strategy_cost_cny": 0.02187812,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pydicom__pydicom-1413",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_on_local_application_or_syntax_error",
+          "status": "empty_patch",
+          "strategy_cost_cny": 0.534523,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pydicom__pydicom-1694",
+          "eligible": false,
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes",
+          "status": "resolved",
+          "strategy_cost_cny": 0.07336495999999999,
+          "label_role": "A",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pydicom__pydicom-901",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_on_local_application_or_syntax_error",
+          "status": "unresolved",
+          "strategy_cost_cny": 0.13016016,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pylint-dev__astroid-1196",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_on_local_application_or_syntax_error",
+          "status": "empty_patch",
+          "strategy_cost_cny": 0.38553352,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pylint-dev__astroid-1268",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_when_evidence_insufficient",
+          "status": "unresolved",
+          "strategy_cost_cny": 0.14705088,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pylint-dev__astroid-1333",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "empty_patch",
+          "strategy_cost_cny": 0.27950472,
+          "label_role": "ESC",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pylint-dev__astroid-1866",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "unresolved",
+          "strategy_cost_cny": 0.0331564,
+          "label_role": "ESC",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pylint-dev__astroid-1978",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_when_evidence_insufficient",
+          "status": "unresolved",
+          "strategy_cost_cny": 0.0927848,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pyvista__pyvista-4315",
+          "eligible": false,
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes",
+          "status": "resolved",
+          "strategy_cost_cny": 0.05433056,
+          "label_role": "A",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "sqlfluff__sqlfluff-1517",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "ambiguous_error",
+          "strategy_cost_cny": 0.17172244,
+          "label_role": "ESC",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "sqlfluff__sqlfluff-1625",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "ambiguous_error",
+          "strategy_cost_cny": 0.139564,
+          "label_role": "ESC",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "sqlfluff__sqlfluff-1733",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "empty_patch",
+          "strategy_cost_cny": 0.21768556,
+          "label_role": "ESC",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "sqlfluff__sqlfluff-1763",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_on_local_application_or_syntax_error",
+          "status": "empty_patch",
+          "strategy_cost_cny": 0.51434768,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "sqlfluff__sqlfluff-2419",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "resolved",
+          "strategy_cost_cny": 0.018978879999999997,
+          "label_role": "ESC",
+          "full_state_replay": true
+        }
+      ],
+      "route_changes_from_reference": []
+    },
+    {
+      "name": "grid_loc_0.75_dup_1.0",
+      "localization_threshold": 0.75,
+      "duplicate_threshold": 1.0,
+      "designated": 23,
+      "eligible": 17,
+      "valid_pairs": 13,
+      "eligible_interactive": 8,
+      "valid_pair_selected_resolved": 5,
+      "valid_pair_routing_regret": 1,
+      "designated_status_counts": {
+        "resolved": 10,
+        "ambiguous_error": 3,
+        "unresolved": 5,
+        "empty_patch": 5
+      },
+      "strategy_cost_recorded_cny": 3.55994522,
+      "rows": [
+        {
+          "instance_id": "marshmallow-code__marshmallow-1343",
+          "eligible": false,
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes",
+          "status": "resolved",
+          "strategy_cost_cny": 0.079038,
+          "label_role": "A",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "marshmallow-code__marshmallow-1359",
+          "eligible": false,
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes",
+          "status": "resolved",
+          "strategy_cost_cny": 0.03336228,
+          "label_role": "A",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pvlib__pvlib-python-1072",
+          "eligible": false,
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes",
+          "status": "resolved",
+          "strategy_cost_cny": 0.04059372,
+          "label_role": "A",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pvlib__pvlib-python-1154",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "resolved",
+          "strategy_cost_cny": 0.14012548000000002,
+          "label_role": "ESC",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pvlib__pvlib-python-1606",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_continuation_otherwise",
+          "status": "resolved",
+          "strategy_cost_cny": 0.10761192,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pvlib__pvlib-python-1707",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "resolved",
+          "strategy_cost_cny": 0.13981764,
+          "label_role": "ESC",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pvlib__pvlib-python-1854",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_continuation_otherwise",
+          "status": "ambiguous_error",
+          "strategy_cost_cny": 0.16664131999999998,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pydicom__pydicom-1139",
+          "eligible": false,
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes",
+          "status": "unresolved",
+          "strategy_cost_cny": 0.038169180000000004,
+          "label_role": "A",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pydicom__pydicom-1256",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_when_evidence_insufficient",
+          "status": "resolved",
+          "strategy_cost_cny": 0.02187812,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pydicom__pydicom-1413",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_on_local_application_or_syntax_error",
+          "status": "empty_patch",
+          "strategy_cost_cny": 0.534523,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pydicom__pydicom-1694",
+          "eligible": false,
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes",
+          "status": "resolved",
+          "strategy_cost_cny": 0.07336495999999999,
+          "label_role": "A",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pydicom__pydicom-901",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_on_local_application_or_syntax_error",
+          "status": "unresolved",
+          "strategy_cost_cny": 0.13016016,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pylint-dev__astroid-1196",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_on_local_application_or_syntax_error",
+          "status": "empty_patch",
+          "strategy_cost_cny": 0.38553352,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pylint-dev__astroid-1268",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_when_evidence_insufficient",
+          "status": "unresolved",
+          "strategy_cost_cny": 0.14705088,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pylint-dev__astroid-1333",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "empty_patch",
+          "strategy_cost_cny": 0.27950472,
+          "label_role": "ESC",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pylint-dev__astroid-1866",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "unresolved",
+          "strategy_cost_cny": 0.0331564,
+          "label_role": "ESC",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pylint-dev__astroid-1978",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_when_evidence_insufficient",
+          "status": "unresolved",
+          "strategy_cost_cny": 0.0927848,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pyvista__pyvista-4315",
+          "eligible": false,
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes",
+          "status": "resolved",
+          "strategy_cost_cny": 0.05433056,
+          "label_role": "A",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "sqlfluff__sqlfluff-1517",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "ambiguous_error",
+          "strategy_cost_cny": 0.17172244,
+          "label_role": "ESC",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "sqlfluff__sqlfluff-1625",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "ambiguous_error",
+          "strategy_cost_cny": 0.139564,
+          "label_role": "ESC",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "sqlfluff__sqlfluff-1733",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "empty_patch",
+          "strategy_cost_cny": 0.21768556,
+          "label_role": "ESC",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "sqlfluff__sqlfluff-1763",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_on_local_application_or_syntax_error",
+          "status": "empty_patch",
+          "strategy_cost_cny": 0.51434768,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "sqlfluff__sqlfluff-2419",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_wide_localization_disagreement",
+          "status": "resolved",
+          "strategy_cost_cny": 0.018978879999999997,
+          "label_role": "ESC",
+          "full_state_replay": true
+        }
+      ],
+      "route_changes_from_reference": []
+    },
+    {
+      "name": "grid_loc_1.0_dup_0.25",
+      "localization_threshold": 1.0,
+      "duplicate_threshold": 0.25,
+      "designated": 23,
+      "eligible": 17,
+      "valid_pairs": 13,
+      "eligible_interactive": 3,
+      "valid_pair_selected_resolved": 5,
+      "valid_pair_routing_regret": 1,
+      "designated_status_counts": {
+        "resolved": 10,
+        "unresolved": 5,
+        "ambiguous_error": 3,
+        "empty_patch": 5
+      },
+      "strategy_cost_recorded_cny": 4.79278646,
+      "rows": [
+        {
+          "instance_id": "marshmallow-code__marshmallow-1343",
+          "eligible": false,
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes",
+          "status": "resolved",
+          "strategy_cost_cny": 0.079038,
+          "label_role": "A",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "marshmallow-code__marshmallow-1359",
+          "eligible": false,
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes",
+          "status": "resolved",
+          "strategy_cost_cny": 0.03336228,
+          "label_role": "A",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pvlib__pvlib-python-1072",
+          "eligible": false,
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes",
+          "status": "resolved",
+          "strategy_cost_cny": 0.04059372,
+          "label_role": "A",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pvlib__pvlib-python-1154",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_continuation_otherwise",
+          "status": "resolved",
+          "strategy_cost_cny": 0.45045712000000004,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pvlib__pvlib-python-1606",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_continuation_otherwise",
+          "status": "resolved",
+          "strategy_cost_cny": 0.10761192,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pvlib__pvlib-python-1707",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_continuation_otherwise",
+          "status": "unresolved",
+          "strategy_cost_cny": 0.14902624,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pvlib__pvlib-python-1854",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_continuation_otherwise",
+          "status": "ambiguous_error",
+          "strategy_cost_cny": 0.16664131999999998,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pydicom__pydicom-1139",
+          "eligible": false,
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes",
+          "status": "unresolved",
+          "strategy_cost_cny": 0.038169180000000004,
+          "label_role": "A",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pydicom__pydicom-1256",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_high_duplicate_rate",
+          "status": "resolved",
+          "strategy_cost_cny": 0.0125324,
+          "label_role": "ESC",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pydicom__pydicom-1413",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_on_local_application_or_syntax_error",
+          "status": "empty_patch",
+          "strategy_cost_cny": 0.534523,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pydicom__pydicom-1694",
+          "eligible": false,
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes",
+          "status": "resolved",
+          "strategy_cost_cny": 0.07336495999999999,
+          "label_role": "A",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pydicom__pydicom-901",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_on_local_application_or_syntax_error",
+          "status": "unresolved",
+          "strategy_cost_cny": 0.13016016,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pylint-dev__astroid-1196",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_on_local_application_or_syntax_error",
+          "status": "empty_patch",
+          "strategy_cost_cny": 0.38553352,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pylint-dev__astroid-1268",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_when_evidence_insufficient",
+          "status": "unresolved",
+          "strategy_cost_cny": 0.14705088,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pylint-dev__astroid-1333",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_high_duplicate_rate",
+          "status": "empty_patch",
+          "strategy_cost_cny": 0.27950472,
+          "label_role": "ESC",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pylint-dev__astroid-1866",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_when_evidence_insufficient",
+          "status": "resolved",
+          "strategy_cost_cny": 0.1959818,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pylint-dev__astroid-1978",
+          "eligible": true,
+          "route": "interactive",
+          "rule": "interactive_on_high_duplicate_rate",
+          "status": "unresolved",
+          "strategy_cost_cny": 0.05696436,
+          "label_role": "ESC",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pyvista__pyvista-4315",
+          "eligible": false,
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes",
+          "status": "resolved",
+          "strategy_cost_cny": 0.05433056,
+          "label_role": "A",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "sqlfluff__sqlfluff-1517",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_when_evidence_insufficient",
+          "status": "ambiguous_error",
+          "strategy_cost_cny": 0.28151856,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "sqlfluff__sqlfluff-1625",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_continuation_otherwise",
+          "status": "ambiguous_error",
+          "strategy_cost_cny": 0.48667504,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "sqlfluff__sqlfluff-1733",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_when_evidence_insufficient",
+          "status": "empty_patch",
+          "strategy_cost_cny": 0.52542828,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "sqlfluff__sqlfluff-1763",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_on_local_application_or_syntax_error",
+          "status": "empty_patch",
+          "strategy_cost_cny": 0.51434768,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "sqlfluff__sqlfluff-2419",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_when_evidence_insufficient",
+          "status": "resolved",
+          "strategy_cost_cny": 0.04997076,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        }
+      ],
+      "route_changes_from_reference": [
+        "pvlib__pvlib-python-1154",
+        "pvlib__pvlib-python-1707",
+        "pydicom__pydicom-1256",
+        "pylint-dev__astroid-1866",
+        "pylint-dev__astroid-1978",
+        "sqlfluff__sqlfluff-1517",
+        "sqlfluff__sqlfluff-1625",
+        "sqlfluff__sqlfluff-1733",
+        "sqlfluff__sqlfluff-2419"
+      ]
+    },
+    {
+      "name": "grid_loc_1.0_dup_0.5",
+      "localization_threshold": 1.0,
+      "duplicate_threshold": 0.5,
+      "designated": 23,
+      "eligible": 17,
+      "valid_pairs": 13,
+      "eligible_interactive": 0,
+      "valid_pair_selected_resolved": 5,
+      "valid_pair_routing_regret": 1,
+      "designated_status_counts": {
+        "resolved": 10,
+        "unresolved": 5,
+        "ambiguous_error": 3,
+        "empty_patch": 5
+      },
+      "strategy_cost_recorded_cny": 5.15478842,
+      "rows": [
+        {
+          "instance_id": "marshmallow-code__marshmallow-1343",
+          "eligible": false,
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes",
+          "status": "resolved",
+          "strategy_cost_cny": 0.079038,
+          "label_role": "A",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "marshmallow-code__marshmallow-1359",
+          "eligible": false,
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes",
+          "status": "resolved",
+          "strategy_cost_cny": 0.03336228,
+          "label_role": "A",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pvlib__pvlib-python-1072",
+          "eligible": false,
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes",
+          "status": "resolved",
+          "strategy_cost_cny": 0.04059372,
+          "label_role": "A",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pvlib__pvlib-python-1154",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_continuation_otherwise",
+          "status": "resolved",
+          "strategy_cost_cny": 0.45045712000000004,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pvlib__pvlib-python-1606",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_continuation_otherwise",
+          "status": "resolved",
+          "strategy_cost_cny": 0.10761192,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pvlib__pvlib-python-1707",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_continuation_otherwise",
+          "status": "unresolved",
+          "strategy_cost_cny": 0.14902624,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pvlib__pvlib-python-1854",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_continuation_otherwise",
+          "status": "ambiguous_error",
+          "strategy_cost_cny": 0.16664131999999998,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pydicom__pydicom-1139",
+          "eligible": false,
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes",
+          "status": "unresolved",
+          "strategy_cost_cny": 0.038169180000000004,
+          "label_role": "A",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pydicom__pydicom-1256",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_when_evidence_insufficient",
+          "status": "resolved",
+          "strategy_cost_cny": 0.02187812,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pydicom__pydicom-1413",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_on_local_application_or_syntax_error",
+          "status": "empty_patch",
+          "strategy_cost_cny": 0.534523,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pydicom__pydicom-1694",
+          "eligible": false,
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes",
+          "status": "resolved",
+          "strategy_cost_cny": 0.07336495999999999,
+          "label_role": "A",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pydicom__pydicom-901",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_on_local_application_or_syntax_error",
+          "status": "unresolved",
+          "strategy_cost_cny": 0.13016016,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pylint-dev__astroid-1196",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_on_local_application_or_syntax_error",
+          "status": "empty_patch",
+          "strategy_cost_cny": 0.38553352,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pylint-dev__astroid-1268",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_when_evidence_insufficient",
+          "status": "unresolved",
+          "strategy_cost_cny": 0.14705088,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pylint-dev__astroid-1333",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_when_evidence_insufficient",
+          "status": "empty_patch",
+          "strategy_cost_cny": 0.59634052,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pylint-dev__astroid-1866",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_when_evidence_insufficient",
+          "status": "resolved",
+          "strategy_cost_cny": 0.1959818,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pylint-dev__astroid-1978",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_when_evidence_insufficient",
+          "status": "unresolved",
+          "strategy_cost_cny": 0.0927848,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pyvista__pyvista-4315",
+          "eligible": false,
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes",
+          "status": "resolved",
+          "strategy_cost_cny": 0.05433056,
+          "label_role": "A",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "sqlfluff__sqlfluff-1517",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_when_evidence_insufficient",
+          "status": "ambiguous_error",
+          "strategy_cost_cny": 0.28151856,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "sqlfluff__sqlfluff-1625",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_continuation_otherwise",
+          "status": "ambiguous_error",
+          "strategy_cost_cny": 0.48667504,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "sqlfluff__sqlfluff-1733",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_when_evidence_insufficient",
+          "status": "empty_patch",
+          "strategy_cost_cny": 0.52542828,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "sqlfluff__sqlfluff-1763",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_on_local_application_or_syntax_error",
+          "status": "empty_patch",
+          "strategy_cost_cny": 0.51434768,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "sqlfluff__sqlfluff-2419",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_when_evidence_insufficient",
+          "status": "resolved",
+          "strategy_cost_cny": 0.04997076,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        }
+      ],
+      "route_changes_from_reference": [
+        "pvlib__pvlib-python-1154",
+        "pvlib__pvlib-python-1707",
+        "pylint-dev__astroid-1333",
+        "pylint-dev__astroid-1866",
+        "sqlfluff__sqlfluff-1517",
+        "sqlfluff__sqlfluff-1625",
+        "sqlfluff__sqlfluff-1733",
+        "sqlfluff__sqlfluff-2419"
+      ]
+    },
+    {
+      "name": "grid_loc_1.0_dup_0.75",
+      "localization_threshold": 1.0,
+      "duplicate_threshold": 0.75,
+      "designated": 23,
+      "eligible": 17,
+      "valid_pairs": 13,
+      "eligible_interactive": 0,
+      "valid_pair_selected_resolved": 5,
+      "valid_pair_routing_regret": 1,
+      "designated_status_counts": {
+        "resolved": 10,
+        "unresolved": 5,
+        "ambiguous_error": 3,
+        "empty_patch": 5
+      },
+      "strategy_cost_recorded_cny": 5.15478842,
+      "rows": [
+        {
+          "instance_id": "marshmallow-code__marshmallow-1343",
+          "eligible": false,
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes",
+          "status": "resolved",
+          "strategy_cost_cny": 0.079038,
+          "label_role": "A",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "marshmallow-code__marshmallow-1359",
+          "eligible": false,
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes",
+          "status": "resolved",
+          "strategy_cost_cny": 0.03336228,
+          "label_role": "A",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pvlib__pvlib-python-1072",
+          "eligible": false,
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes",
+          "status": "resolved",
+          "strategy_cost_cny": 0.04059372,
+          "label_role": "A",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pvlib__pvlib-python-1154",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_continuation_otherwise",
+          "status": "resolved",
+          "strategy_cost_cny": 0.45045712000000004,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pvlib__pvlib-python-1606",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_continuation_otherwise",
+          "status": "resolved",
+          "strategy_cost_cny": 0.10761192,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pvlib__pvlib-python-1707",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_continuation_otherwise",
+          "status": "unresolved",
+          "strategy_cost_cny": 0.14902624,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pvlib__pvlib-python-1854",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_continuation_otherwise",
+          "status": "ambiguous_error",
+          "strategy_cost_cny": 0.16664131999999998,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pydicom__pydicom-1139",
+          "eligible": false,
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes",
+          "status": "unresolved",
+          "strategy_cost_cny": 0.038169180000000004,
+          "label_role": "A",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pydicom__pydicom-1256",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_when_evidence_insufficient",
+          "status": "resolved",
+          "strategy_cost_cny": 0.02187812,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pydicom__pydicom-1413",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_on_local_application_or_syntax_error",
+          "status": "empty_patch",
+          "strategy_cost_cny": 0.534523,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pydicom__pydicom-1694",
+          "eligible": false,
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes",
+          "status": "resolved",
+          "strategy_cost_cny": 0.07336495999999999,
+          "label_role": "A",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pydicom__pydicom-901",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_on_local_application_or_syntax_error",
+          "status": "unresolved",
+          "strategy_cost_cny": 0.13016016,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pylint-dev__astroid-1196",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_on_local_application_or_syntax_error",
+          "status": "empty_patch",
+          "strategy_cost_cny": 0.38553352,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pylint-dev__astroid-1268",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_when_evidence_insufficient",
+          "status": "unresolved",
+          "strategy_cost_cny": 0.14705088,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pylint-dev__astroid-1333",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_when_evidence_insufficient",
+          "status": "empty_patch",
+          "strategy_cost_cny": 0.59634052,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pylint-dev__astroid-1866",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_when_evidence_insufficient",
+          "status": "resolved",
+          "strategy_cost_cny": 0.1959818,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pylint-dev__astroid-1978",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_when_evidence_insufficient",
+          "status": "unresolved",
+          "strategy_cost_cny": 0.0927848,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pyvista__pyvista-4315",
+          "eligible": false,
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes",
+          "status": "resolved",
+          "strategy_cost_cny": 0.05433056,
+          "label_role": "A",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "sqlfluff__sqlfluff-1517",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_when_evidence_insufficient",
+          "status": "ambiguous_error",
+          "strategy_cost_cny": 0.28151856,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "sqlfluff__sqlfluff-1625",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_continuation_otherwise",
+          "status": "ambiguous_error",
+          "strategy_cost_cny": 0.48667504,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "sqlfluff__sqlfluff-1733",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_when_evidence_insufficient",
+          "status": "empty_patch",
+          "strategy_cost_cny": 0.52542828,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "sqlfluff__sqlfluff-1763",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_on_local_application_or_syntax_error",
+          "status": "empty_patch",
+          "strategy_cost_cny": 0.51434768,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "sqlfluff__sqlfluff-2419",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_when_evidence_insufficient",
+          "status": "resolved",
+          "strategy_cost_cny": 0.04997076,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        }
+      ],
+      "route_changes_from_reference": [
+        "pvlib__pvlib-python-1154",
+        "pvlib__pvlib-python-1707",
+        "pylint-dev__astroid-1333",
+        "pylint-dev__astroid-1866",
+        "sqlfluff__sqlfluff-1517",
+        "sqlfluff__sqlfluff-1625",
+        "sqlfluff__sqlfluff-1733",
+        "sqlfluff__sqlfluff-2419"
+      ]
+    },
+    {
+      "name": "grid_loc_1.0_dup_1.0",
+      "localization_threshold": 1.0,
+      "duplicate_threshold": 1.0,
+      "designated": 23,
+      "eligible": 17,
+      "valid_pairs": 13,
+      "eligible_interactive": 0,
+      "valid_pair_selected_resolved": 5,
+      "valid_pair_routing_regret": 1,
+      "designated_status_counts": {
+        "resolved": 10,
+        "unresolved": 5,
+        "ambiguous_error": 3,
+        "empty_patch": 5
+      },
+      "strategy_cost_recorded_cny": 5.15478842,
+      "rows": [
+        {
+          "instance_id": "marshmallow-code__marshmallow-1343",
+          "eligible": false,
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes",
+          "status": "resolved",
+          "strategy_cost_cny": 0.079038,
+          "label_role": "A",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "marshmallow-code__marshmallow-1359",
+          "eligible": false,
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes",
+          "status": "resolved",
+          "strategy_cost_cny": 0.03336228,
+          "label_role": "A",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pvlib__pvlib-python-1072",
+          "eligible": false,
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes",
+          "status": "resolved",
+          "strategy_cost_cny": 0.04059372,
+          "label_role": "A",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pvlib__pvlib-python-1154",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_continuation_otherwise",
+          "status": "resolved",
+          "strategy_cost_cny": 0.45045712000000004,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pvlib__pvlib-python-1606",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_continuation_otherwise",
+          "status": "resolved",
+          "strategy_cost_cny": 0.10761192,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pvlib__pvlib-python-1707",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_continuation_otherwise",
+          "status": "unresolved",
+          "strategy_cost_cny": 0.14902624,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pvlib__pvlib-python-1854",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_continuation_otherwise",
+          "status": "ambiguous_error",
+          "strategy_cost_cny": 0.16664131999999998,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pydicom__pydicom-1139",
+          "eligible": false,
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes",
+          "status": "unresolved",
+          "strategy_cost_cny": 0.038169180000000004,
+          "label_role": "A",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pydicom__pydicom-1256",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_when_evidence_insufficient",
+          "status": "resolved",
+          "strategy_cost_cny": 0.02187812,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pydicom__pydicom-1413",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_on_local_application_or_syntax_error",
+          "status": "empty_patch",
+          "strategy_cost_cny": 0.534523,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pydicom__pydicom-1694",
+          "eligible": false,
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes",
+          "status": "resolved",
+          "strategy_cost_cny": 0.07336495999999999,
+          "label_role": "A",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pydicom__pydicom-901",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_on_local_application_or_syntax_error",
+          "status": "unresolved",
+          "strategy_cost_cny": 0.13016016,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pylint-dev__astroid-1196",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_on_local_application_or_syntax_error",
+          "status": "empty_patch",
+          "strategy_cost_cny": 0.38553352,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pylint-dev__astroid-1268",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_when_evidence_insufficient",
+          "status": "unresolved",
+          "strategy_cost_cny": 0.14705088,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pylint-dev__astroid-1333",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_when_evidence_insufficient",
+          "status": "empty_patch",
+          "strategy_cost_cny": 0.59634052,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pylint-dev__astroid-1866",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_when_evidence_insufficient",
+          "status": "resolved",
+          "strategy_cost_cny": 0.1959818,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pylint-dev__astroid-1978",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_when_evidence_insufficient",
+          "status": "unresolved",
+          "strategy_cost_cny": 0.0927848,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "pyvista__pyvista-4315",
+          "eligible": false,
+          "route": "stop",
+          "rule": "freeze_when_public_candidate_passes",
+          "status": "resolved",
+          "strategy_cost_cny": 0.05433056,
+          "label_role": "A",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "sqlfluff__sqlfluff-1517",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_when_evidence_insufficient",
+          "status": "ambiguous_error",
+          "strategy_cost_cny": 0.28151856,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "sqlfluff__sqlfluff-1625",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_continuation_otherwise",
+          "status": "ambiguous_error",
+          "strategy_cost_cny": 0.48667504,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "sqlfluff__sqlfluff-1733",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_when_evidence_insufficient",
+          "status": "empty_patch",
+          "strategy_cost_cny": 0.52542828,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "sqlfluff__sqlfluff-1763",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_on_local_application_or_syntax_error",
+          "status": "empty_patch",
+          "strategy_cost_cny": 0.51434768,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        },
+        {
+          "instance_id": "sqlfluff__sqlfluff-2419",
+          "eligible": true,
+          "route": "fixed",
+          "rule": "fixed_when_evidence_insufficient",
+          "status": "resolved",
+          "strategy_cost_cny": 0.04997076,
+          "label_role": "FIXED",
+          "full_state_replay": true
+        }
+      ],
+      "route_changes_from_reference": [
+        "pvlib__pvlib-python-1154",
+        "pvlib__pvlib-python-1707",
+        "pylint-dev__astroid-1333",
+        "pylint-dev__astroid-1866",
+        "sqlfluff__sqlfluff-1517",
+        "sqlfluff__sqlfluff-1625",
+        "sqlfluff__sqlfluff-1733",
+        "sqlfluff__sqlfluff-2419"
+      ]
+    }
+  ],
+  "no_duplicate_ablation_is_structural_noop": true,
+  "duplicate_rule_inactive_in_reference": true,
+  "discrimination_posthoc": {
+    "target": "interactive solves and fixed does not",
+    "localization_auc": 0.7083333333333334,
+    "localization_known_n": 13,
+    "duplicate_auc": 0.375,
+    "positive_n": 1,
+    "warning": "Tiny training/dev sample; no inference or refreeze."
+  },
+  "interpretation": "Complete-state policy replay using actual independently scored paired branches, not fresh model executions or changed formal test results. Missing/error verdicts are never failures."
+}

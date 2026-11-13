@@ -1,0 +1,75 @@
+{
+    "total_instances": 23,
+    "submitted_instances": 17,
+    "completed_instances": 3,
+    "resolved_instances": 2,
+    "unresolved_instances": 1,
+    "infra_failure_instances": 0,
+    "ambiguous_failure_instances": 0,
+    "empty_patch_instances": 5,
+    "error_instances": 9,
+    "completed_ids": [
+        "pvlib__pvlib-python-1707",
+        "pydicom__pydicom-1256",
+        "pylint-dev__astroid-1866"
+    ],
+    "incomplete_ids": [
+        "marshmallow-code__marshmallow-1343",
+        "marshmallow-code__marshmallow-1359",
+        "pvlib__pvlib-python-1072",
+        "pydicom__pydicom-1139",
+        "pydicom__pydicom-1694",
+        "pyvista__pyvista-4315"
+    ],
+    "empty_patch_ids": [
+        "pydicom__pydicom-1413",
+        "pylint-dev__astroid-1196",
+        "pylint-dev__astroid-1333",
+        "sqlfluff__sqlfluff-1733",
+        "sqlfluff__sqlfluff-1763"
+    ],
+    "submitted_ids": [
+        "pvlib__pvlib-python-1154",
+        "pvlib__pvlib-python-1606",
+        "pvlib__pvlib-python-1707",
+        "pvlib__pvlib-python-1854",
+        "pydicom__pydicom-1256",
+        "pydicom__pydicom-1413",
+        "pydicom__pydicom-901",
+        "pylint-dev__astroid-1196",
+        "pylint-dev__astroid-1268",
+        "pylint-dev__astroid-1333",
+        "pylint-dev__astroid-1866",
+        "pylint-dev__astroid-1978",
+        "sqlfluff__sqlfluff-1517",
+        "sqlfluff__sqlfluff-1625",
+        "sqlfluff__sqlfluff-1733",
+        "sqlfluff__sqlfluff-1763",
+        "sqlfluff__sqlfluff-2419"
+    ],
+    "resolved_ids": [
+        "pydicom__pydicom-1256",
+        "pylint-dev__astroid-1866"
+    ],
+    "unresolved_ids": [
+        "pvlib__pvlib-python-1707"
+    ],
+    "infra_failure_ids": [],
+    "ambiguous_failure_ids": [],
+    "failure_reasons": {},
+    "error_ids": [
+        "pvlib__pvlib-python-1154",
+        "pvlib__pvlib-python-1606",
+        "pvlib__pvlib-python-1854",
+        "pydicom__pydicom-901",
+        "pylint-dev__astroid-1268",
+        "pylint-dev__astroid-1978",
+        "sqlfluff__sqlfluff-1517",
+        "sqlfluff__sqlfluff-1625",
+        "sqlfluff__sqlfluff-2419"
+    ],
+    "schema_version": 2,
+    "unstopped_instances": 0,
+    "unstopped_containers": [],
+    "unremoved_images": []
+}

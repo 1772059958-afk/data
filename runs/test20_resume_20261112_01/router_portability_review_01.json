@@ -1,0 +1,7 @@
+{
+  "dev_cases": 23,
+  "grid_points": 9,
+  "decisions_compared": 207,
+  "all_routes_and_rules_equal": true,
+  "scope": "Recorded exact prefix states and full nine-rule routing only; not a claim of unchanged source hash or future stochastic model output."
+}

@@ -1,0 +1,63 @@
+2026-11-12 03:30:50,501 - INFO - Creating container for pvlib__pvlib-python-1707...
+2026-11-12 03:30:50,558 - INFO - Container for pvlib__pvlib-python-1707 created: 152e637c2b710d72c92c3bc3d4c01afa002a73893d198cd01c0bccfe7422f9f1
+2026-11-12 03:30:50,717 - INFO - Container for pvlib__pvlib-python-1707 started: 152e637c2b710d72c92c3bc3d4c01afa002a73893d198cd01c0bccfe7422f9f1
+2026-11-12 03:30:50,720 - INFO - Intermediate patch for pvlib__pvlib-python-1707 written to logs/run_evaluation/dev23_calibration_20261112_01/dev23_calibration_20261112_01-B/pvlib__pvlib-python-1707/patch.diff, now applying to container...
+2026-11-12 03:30:50,819 - INFO - >>>>> Applied Patch:
+Checking patch pvlib/iam.py...
+Hunk #1 succeeded at 165 (offset 5 lines).
+Applied patch pvlib/iam.py cleanly.
+
+2026-11-12 03:30:51,147 - INFO - Git diff before:
+diff --git a/pvlib/iam.py b/pvlib/iam.py
+index 3eaa6b4..5bbe399 100644
+--- a/pvlib/iam.py
++++ b/pvlib/iam.py
+@@ -165,6 +165,7 @@ def physical(aoi, n=1.526, K=4.0, L=0.002, *, n_ar=None):
+     # incidence angle
+     costheta = np.maximum(0, cosd(aoi))  # always >= 0
+     sintheta = np.sqrt(1 - costheta**2)  # always >= 0
++    no_incidence = costheta == 0
+     n1costheta1 = n1 * costheta
+     n2costheta1 = n2 * costheta
+ 
+@@ -215,6 +216,10 @@ def physical(aoi, n=1.526, K=4.0, L=0.002, *, n_ar=None):
+     # incidence angle modifier
+     iam = (tau_s + tau_p) / 2 / tau_0
+ 
++    # for aoi >= 90 degrees the IAM is zero, but the equations above are
++    # indeterminate (0/0) when n == 1
++    iam = np.where(no_incidence, 0, iam)
++
+     return iam
+2026-11-12 03:30:51,150 - INFO - Eval script for pvlib__pvlib-python-1707 written to logs/run_evaluation/dev23_calibration_20261112_01/dev23_calibration_20261112_01-B/pvlib__pvlib-python-1707/eval.sh; copying to container...
+2026-11-12 03:30:59,965 - INFO - Test runtime: 8.76 seconds
+2026-11-12 03:30:59,968 - INFO - Test output for pvlib__pvlib-python-1707 written to logs/run_evaluation/dev23_calibration_20261112_01/dev23_calibration_20261112_01-B/pvlib__pvlib-python-1707/test_output.txt
+2026-11-12 03:31:00,015 - INFO - Git diff after:
+diff --git a/pvlib/iam.py b/pvlib/iam.py
+index 3eaa6b4..5bbe399 100644
+--- a/pvlib/iam.py
++++ b/pvlib/iam.py
+@@ -165,6 +165,7 @@ def physical(aoi, n=1.526, K=4.0, L=0.002, *, n_ar=None):
+     # incidence angle
+     costheta = np.maximum(0, cosd(aoi))  # always >= 0
+     sintheta = np.sqrt(1 - costheta**2)  # always >= 0
++    no_incidence = costheta == 0
+     n1costheta1 = n1 * costheta
+     n2costheta1 = n2 * costheta
+ 
+@@ -215,6 +216,10 @@ def physical(aoi, n=1.526, K=4.0, L=0.002, *, n_ar=None):
+     # incidence angle modifier
+     iam = (tau_s + tau_p) / 2 / tau_0
+ 
++    # for aoi >= 90 degrees the IAM is zero, but the equations above are
++    # indeterminate (0/0) when n == 1
++    iam = np.where(no_incidence, 0, iam)
++
+     return iam
+2026-11-12 03:31:00,015 - INFO - Grading answer for pvlib__pvlib-python-1707...
+2026-11-12 03:31:00,018 - INFO - report: {'pvlib__pvlib-python-1707': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'infra_failure': False, 'tests_status': {'FAIL_TO_PASS': {'success': [], 'failure': ['pvlib/tests/test_iam.py::test_physical_n1_L0']}, 'PASS_TO_PASS': {'success': ['pvlib/tests/test_iam.py::test_ashrae', 'pvlib/tests/test_iam.py::test_ashrae_scalar', 'pvlib/tests/test_iam.py::test_physical_ar', 'pvlib/tests/test_iam.py::test_physical_noar', 'pvlib/tests/test_iam.py::test_physical_scalar', 'pvlib/tests/test_iam.py::test_martin_ruiz', 'pvlib/tests/test_iam.py::test_martin_ruiz_exception', 'pvlib/tests/test_iam.py::test_martin_ruiz_diffuse', 'pvlib/tests/test_iam.py::test_iam_interp', 'pvlib/tests/test_iam.py::test_sapm[45-0.9975036250000002]', 'pvlib/tests/test_iam.py::test_sapm[aoi1-expected1]', 'pvlib/tests/test_iam.py::test_sapm[aoi2-expected2]', 'pvlib/tests/test_iam.py::test_sapm_limits', 'pvlib/tests/test_iam.py::test_marion_diffuse_model', 'pvlib/tests/test_iam.py::test_marion_diffuse_kwargs', 'pvlib/tests/test_iam.py::test_marion_diffuse_invalid', 'pvlib/tests/test_iam.py::test_marion_integrate_scalar[sky-180-0.9596085829811408]', 'pvlib/tests/test_iam.py::test_marion_integrate_scalar[horizon-1800-0.8329070417832541]', 'pvlib/tests/test_iam.py::test_marion_integrate_scalar[ground-180-0.719823559106309]', 'pvlib/tests/test_iam.py::test_marion_integrate_list[sky-180-expected0]', 'pvlib/tests/test_iam.py::test_marion_integrate_list[horizon-1800-expected1]', 'pvlib/tests/test_iam.py::test_marion_integrate_list[ground-180-expected2]', 'pvlib/tests/test_iam.py::test_marion_integrate_series[sky-180-expected0]', 'pvlib/tests/test_iam.py::test_marion_integrate_series[horizon-1800-expected1]', 'pvlib/tests/test_iam.py::test_marion_integrate_series[ground-180-expected2]', 'pvlib/tests/test_iam.py::test_marion_integrate_ground_flat', 'pvlib/tests/test_iam.py::test_marion_integrate_invalid', 'pvlib/tests/test_iam.py::test_schlick', 'pvlib/tests/test_iam.py::test_schlick_diffuse'], 'failure': ['pvlib/tests/test_iam.py::test_physical']}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for pvlib__pvlib-python-1707: resolved: False
+2026-11-12 03:31:00,021 - INFO - Attempting to stop container sweb.eval.pvlib__pvlib-python-1707.dev23_calibration_20261112_01...
+2026-11-12 03:31:15,234 - INFO - Container sweb.eval.pvlib__pvlib-python-1707.dev23_calibration_20261112_01 stopped successfully.
+2026-11-12 03:31:15,234 - INFO - Attempting to remove container sweb.eval.pvlib__pvlib-python-1707.dev23_calibration_20261112_01...
+2026-11-12 03:31:15,290 - INFO - Container sweb.eval.pvlib__pvlib-python-1707.dev23_calibration_20261112_01 removed successfully.

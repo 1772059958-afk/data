@@ -1,0 +1,82 @@
+2026-11-12 03:40:29,246 - INFO - Creating container for marshmallow-code__marshmallow-1343...
+2026-11-12 03:40:29,340 - INFO - Container for marshmallow-code__marshmallow-1343 created: aab0ff5568059bd2a925304840d4fd742c1294a388dec335c4e48c81a92de644
+2026-11-12 03:40:29,502 - INFO - Container for marshmallow-code__marshmallow-1343 started: aab0ff5568059bd2a925304840d4fd742c1294a388dec335c4e48c81a92de644
+2026-11-12 03:40:29,505 - INFO - Intermediate patch for marshmallow-code__marshmallow-1343 written to logs/run_evaluation/dev23_calibration_20261112_01/dev23_calibration_20261112_01-A/marshmallow-code__marshmallow-1343/patch.diff, now applying to container...
+2026-11-12 03:40:29,609 - INFO - >>>>> Applied Patch:
+Checking patch src/marshmallow/schema.py...
+Applied patch src/marshmallow/schema.py cleanly.
+
+2026-11-12 03:40:29,703 - INFO - Git diff before:
+diff --git a/src/marshmallow/schema.py b/src/marshmallow/schema.py
+index 085c509..9108e93 100644
+--- a/src/marshmallow/schema.py
++++ b/src/marshmallow/schema.py
+@@ -861,6 +861,8 @@ class BaseSchema(base.SchemaABC):
+         return data
+ 
+     def _invoke_field_validators(self, unmarshal, data, many):
++        if data is None:
++            return
+         for attr_name in self.__processors__[(VALIDATES, False)]:
+             validator = getattr(self, attr_name)
+             validator_kwargs = validator.__marshmallow_kwargs__[(VALIDATES, False)]
+@@ -877,7 +879,7 @@ class BaseSchema(base.SchemaABC):
+                 for idx, item in enumerate(data):
+                     try:
+                         value = item[field_obj.attribute or field_name]
+-                    except KeyError:
++                    except (KeyError, TypeError):
+                         pass
+                     else:
+                         validated_value = unmarshal.call_and_store(
+@@ -892,7 +894,7 @@ class BaseSchema(base.SchemaABC):
+             else:
+                 try:
+                     value = data[field_obj.attribute or field_name]
+-                except KeyError:
++                except (KeyError, TypeError):
+                     pass
+                 else:
+                     validated_value = unmarshal.call_and_store(
+2026-11-12 03:40:29,706 - INFO - Eval script for marshmallow-code__marshmallow-1343 written to logs/run_evaluation/dev23_calibration_20261112_01/dev23_calibration_20261112_01-A/marshmallow-code__marshmallow-1343/eval.sh; copying to container...
+2026-11-12 03:40:45,239 - INFO - Test runtime: 15.47 seconds
+2026-11-12 03:40:45,245 - INFO - Test output for marshmallow-code__marshmallow-1343 written to logs/run_evaluation/dev23_calibration_20261112_01/dev23_calibration_20261112_01-A/marshmallow-code__marshmallow-1343/test_output.txt
+2026-11-12 03:40:45,290 - INFO - Git diff after:
+diff --git a/src/marshmallow/schema.py b/src/marshmallow/schema.py
+index 085c509..9108e93 100644
+--- a/src/marshmallow/schema.py
++++ b/src/marshmallow/schema.py
+@@ -861,6 +861,8 @@ class BaseSchema(base.SchemaABC):
+         return data
+ 
+     def _invoke_field_validators(self, unmarshal, data, many):
++        if data is None:
++            return
+         for attr_name in self.__processors__[(VALIDATES, False)]:
+             validator = getattr(self, attr_name)
+             validator_kwargs = validator.__marshmallow_kwargs__[(VALIDATES, False)]
+@@ -877,7 +879,7 @@ class BaseSchema(base.SchemaABC):
+                 for idx, item in enumerate(data):
+                     try:
+                         value = item[field_obj.attribute or field_name]
+-                    except KeyError:
++                    except (KeyError, TypeError):
+                         pass
+                     else:
+                         validated_value = unmarshal.call_and_store(
+@@ -892,7 +894,7 @@ class BaseSchema(base.SchemaABC):
+             else:
+                 try:
+                     value = data[field_obj.attribute or field_name]
+-                except KeyError:
++                except (KeyError, TypeError):
+                     pass
+                 else:
+                     validated_value = unmarshal.call_and_store(
+2026-11-12 03:40:45,290 - INFO - Grading answer for marshmallow-code__marshmallow-1343...
+2026-11-12 03:40:45,303 - INFO - report: {'marshmallow-code__marshmallow-1343': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': True, 'infra_failure': False, 'tests_status': {'FAIL_TO_PASS': {'success': ['tests/test_marshalling.py::TestUnmarshaller::test_deserialize_wrong_nested_type_with_validates_method'], 'failure': []}, 'PASS_TO_PASS': {'success': ['tests/test_marshalling.py::test_missing_is_falsy', 'tests/test_marshalling.py::TestMarshaller::test_prefix', 'tests/test_marshalling.py::TestMarshaller::test_marshalling_generator', 'tests/test_marshalling.py::TestMarshaller::test_default_to_missing', 'tests/test_marshalling.py::TestMarshaller::test_serialize_fields_with_load_only_param', 'tests/test_marshalling.py::TestMarshaller::test_missing_data_are_skipped', 'tests/test_marshalling.py::TestMarshaller::test_serialize_with_load_only_doesnt_validate', 'tests/test_marshalling.py::TestMarshaller::test_serialize_fields_with_dump_to_param', 'tests/test_marshalling.py::TestMarshaller::test_serialize_fields_with_dump_to_and_prefix_params', 'tests/test_marshalling.py::TestMarshaller::test_stores_indices_of_errors_when_many_equals_true', 'tests/test_marshalling.py::TestMarshaller::test_doesnt_store_errors_when_index_errors_equals_false', 'tests/test_marshalling.py::TestUnmarshaller::test_extra_data_is_ignored', 'tests/test_marshalling.py::TestUnmarshaller::test_stores_errors', 'tests/test_marshalling.py::TestUnmarshaller::test_stores_indices_of_errors_when_many_equals_true', 'tests/test_marshalling.py::TestUnmarshaller::test_doesnt_store_errors_when_index_errors_equals_false', 'tests/test_marshalling.py::TestUnmarshaller::test_deserialize', 'tests/test_marshalling.py::TestUnmarshaller::test_extra_fields', 'tests/test_marshalling.py::TestUnmarshaller::test_deserialize_many', 'tests/test_marshalling.py::TestUnmarshaller::test_deserialize_stores_errors', 'tests/test_marshalling.py::TestUnmarshaller::test_deserialize_fields_with_attribute_param', 'tests/test_marshalling.py::TestUnmarshaller::test_deserialize_fields_with_load_from_param', 'tests/test_marshalling.py::TestUnmarshaller::test_deserialize_fields_with_dump_only_param', 'tests/test_marshalling.py::TestUnmarshaller::test_deserialize_wrong_type_root_data', 'tests/test_marshalling.py::TestUnmarshaller::test_deserialize_wrong_type_nested_data'], 'failure': []}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for marshmallow-code__marshmallow-1343: resolved: True
+2026-11-12 03:40:45,306 - INFO - Attempting to stop container sweb.eval.marshmallow-code__marshmallow-1343.dev23_calibration_20261112_01...
+2026-11-12 03:41:00,522 - INFO - Container sweb.eval.marshmallow-code__marshmallow-1343.dev23_calibration_20261112_01 stopped successfully.
+2026-11-12 03:41:00,522 - INFO - Attempting to remove container sweb.eval.marshmallow-code__marshmallow-1343.dev23_calibration_20261112_01...
+2026-11-12 03:41:00,608 - INFO - Container sweb.eval.marshmallow-code__marshmallow-1343.dev23_calibration_20261112_01 removed successfully.

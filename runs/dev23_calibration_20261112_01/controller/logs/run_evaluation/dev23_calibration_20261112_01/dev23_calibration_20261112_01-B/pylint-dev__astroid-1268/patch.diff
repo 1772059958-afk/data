@@ -1,0 +1,12 @@
+--- a/astroid/nodes/as_string.py
++++ b/astroid/nodes/as_string.py
+@@ -56,6 +56,9 @@ class AsStringVisitor:
+         """Makes this visitor behave as a simple function"""
+         return node.accept(self).replace(DOC_NEWLINE, "\n")
+ 
++    def visit_unknown(self, node):
++        return "Unknown"
++
+     def _docs_dedent(self, doc):
+         """Stop newlines in docs being indented by self._stmt_list"""
+         return '\n{}"""{}"""'.format(self.indent, doc.replace("\n", DOC_NEWLINE))

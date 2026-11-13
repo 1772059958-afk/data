@@ -1,0 +1,6 @@
+{
+  "image": "swebench/sweb.eval.x86_64.pydicom_1776_pydicom-1256:latest",
+  "exit_code": 1,
+  "stdout": "",
+  "stderr": "failed to configure transport: error pinging v2 registry: Get \"https://registry-1.docker.io/v2/\": tls: failed to verify certificate: x509: certificate signed by unknown authority\n"
+}

@@ -1,0 +1,23 @@
+{
+  "status": "executing_full_dev_not_frozen",
+  "user_resumed_all_phases": true,
+  "d2_complete": true,
+  "dev23_public_environments_ready": 23,
+  "chosen_prefix_fraction": 0.2,
+  "chosen_interaction_calls": 6,
+  "full_dev_run": "runs/dev23_calibration_20261112_01",
+  "dev_independent_scoring_complete": false,
+  "configuration_frozen": false,
+  "formal_test_started": false,
+  "active_process_sessions": {
+    "dev_generation": 43952,
+    "official_public_cache": 90475
+  },
+  "on_user_decision_or_quota_breakpoint": "save, update handoff, verify, shut down; do not ask",
+  "shared_model_ceiling_cny": 100,
+  "shared_ledger": "runs/test20_execution_20261111/batch_ledger.json",
+  "official_cache_initial_failure_retained": true,
+  "one_bounded_download_recovery_in_progress": true,
+  "codex_usage_last_percent": 52,
+  "codex_ordinary_usage_allowed": true
+}

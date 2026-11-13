@@ -1,0 +1,44 @@
+--- a/pyvista/core/grid.py
++++ b/pyvista/core/grid.py
+@@ -112,15 +112,15 @@ class RectilinearGrid(_vtk.vtkRectilinearGrid, Grid, RectilinearGridFilters):
+             elif isinstance(args[0], (str, pathlib.Path)):
+                 self._from_file(args[0], **kwargs)
+-            elif isinstance(args[0], np.ndarray):
++            elif isinstance(args[0], (np.ndarray, Sequence)):
+                 self._from_arrays(args[0], None, None, check_duplicates)
+             else:
+                 raise TypeError(f'Type ({type(args[0])}) not understood by `RectilinearGrid`')
+ 
+         elif len(args) == 3 or len(args) == 2:
+-            arg0_is_arr = isinstance(args[0], np.ndarray)
+-            arg1_is_arr = isinstance(args[1], np.ndarray)
++            arg0_is_arr = isinstance(args[0], (np.ndarray, Sequence))
++            arg1_is_arr = isinstance(args[1], (np.ndarray, Sequence))
+             if len(args) == 3:
+-                arg2_is_arr = isinstance(args[2], np.ndarray)
++                arg2_is_arr = isinstance(args[2], (np.ndarray, Sequence))
+             else:
+                 arg2_is_arr = False
+ 
+@@ -160,6 +160,7 @@ class RectilinearGrid(_vtk.vtkRectilinearGrid, Grid, RectilinearGridFilters):
+         """
+         # Set the coordinates along each axial direction
+         # Must at least be an x array
++        x = np.asanyarray(x)
+         if check_duplicates:
+             raise_has_duplicates(x)
+ 
+@@ -168,11 +169,13 @@ class RectilinearGrid(_vtk.vtkRectilinearGrid, Grid, RectilinearGridFilters):
+         self.SetXCoordinates(helpers.convert_array(x.ravel()))
+         if y is not None:
++            y = np.asanyarray(y)
+             if check_duplicates:
+                 raise_has_duplicates(y)
+             if not np.issubdtype(y.dtype, np.floating):
+                 y = y.astype(float)
+             self.SetYCoordinates(helpers.convert_array(y.ravel()))
+         if z is not None:
++            z = np.asanyarray(z)
+             if check_duplicates:
+                 raise_has_duplicates(z)
+             if not np.issubdtype(z.dtype, np.floating):

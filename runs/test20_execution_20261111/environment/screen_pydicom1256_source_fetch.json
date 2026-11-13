@@ -1,0 +1,54 @@
+{
+  "public_metadata": {
+    "instance_id": "pydicom__pydicom-1256",
+    "repo": "pydicom/pydicom",
+    "base_commit": "49a3da4a3d9c24d7e8427a25048a1c7d5c4f7724",
+    "version": "2.1",
+    "environment_setup_commit": "506ecea8f378dc687d5c504788fc78810a190b7a"
+  },
+  "records": [
+    {
+      "args": [
+        "git",
+        "init",
+        "C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\work\\test20_environment_20261111\\pydicom__pydicom-1256\\testbed"
+      ],
+      "exit_code": 0,
+      "stdout": "Initialized empty Git repository in C:/Users/remil/Desktop/3yr/绉戠爺/proj/work/test20_environment_20261111/pydicom__pydicom-1256/testbed/.git/\n",
+      "stderr": "",
+      "seconds": 0.101
+    },
+    {
+      "args": [
+        "git",
+        "-C",
+        "C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\work\\test20_environment_20261111\\pydicom__pydicom-1256\\testbed",
+        "remote",
+        "add",
+        "origin",
+        "https://github.com/pydicom/pydicom.git"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "",
+      "seconds": 0.075
+    },
+    {
+      "args": [
+        "git",
+        "-C",
+        "C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\work\\test20_environment_20261111\\pydicom__pydicom-1256\\testbed",
+        "fetch",
+        "--depth",
+        "1",
+        "origin",
+        "49a3da4a3d9c24d7e8427a25048a1c7d5c4f7724"
+      ],
+      "exit_code": 128,
+      "stdout": "",
+      "stderr": "fatal: unable to access 'https://github.com/pydicom/pydicom.git/': schannel: SEC_E_UNTRUSTED_ROOT (0x80090325)\n",
+      "seconds": 12.167
+    }
+  ],
+  "C_free_bytes": 8915820544
+}

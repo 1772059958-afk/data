@@ -1,0 +1,75 @@
+2026-11-12 11:45:56,277 - INFO - Creating container for scikit-learn__scikit-learn-11281...
+2026-11-12 11:45:56,331 - INFO - Container for scikit-learn__scikit-learn-11281 created: 832aac1a44594471dd76d8715a4ba519e40a54eed35a63aec099c12c628cea6e
+2026-11-12 11:45:56,532 - INFO - Container for scikit-learn__scikit-learn-11281 started: 832aac1a44594471dd76d8715a4ba519e40a54eed35a63aec099c12c628cea6e
+2026-11-12 11:45:56,535 - INFO - Intermediate patch for scikit-learn__scikit-learn-11281 written to logs/run_evaluation/test20_C_20261112_01/test20_C_20261112_01-C/scikit-learn__scikit-learn-11281/patch.diff, now applying to container...
+2026-11-12 11:45:56,648 - INFO - >>>>> Applied Patch:
+Checking patch sklearn/mixture/base.py...
+Hunk #1 succeeded at 242 (offset 31 lines).
+Applied patch sklearn/mixture/base.py cleanly.
+
+2026-11-12 11:45:57,045 - INFO - Git diff before:
+diff --git a/sklearn/mixture/base.py b/sklearn/mixture/base.py
+index a9f6674..231f86f 100644
+--- a/sklearn/mixture/base.py
++++ b/sklearn/mixture/base.py
+@@ -242,6 +242,23 @@ class BaseMixture(six.with_metaclass(ABCMeta, DensityMixin, BaseEstimator)):
+ 
+         return self
+ 
++    def fit_predict(self, X, y=None):
++        """Estimate model parameters with the EM algorithm and return
++        the labels of the training data.
++
++        Parameters
++        ----------
++        X : array-like, shape (n_samples, n_features)
++            List of n_features-dimensional data points. Each row
++            corresponds to a single data point.
++
++        Returns
++        -------
++        labels : array, shape (n_samples,)
++            Component labels.
++        """
++        return self.fit(X, y).predict(X)
++
+     def _e_step(self, X):
+         """E step.
+2026-11-12 11:45:57,048 - INFO - Eval script for scikit-learn__scikit-learn-11281 written to logs/run_evaluation/test20_C_20261112_01/test20_C_20261112_01-C/scikit-learn__scikit-learn-11281/eval.sh; copying to container...
+2026-11-12 11:48:15,637 - INFO - Test runtime: 138.52 seconds
+2026-11-12 11:48:15,713 - INFO - Test output for scikit-learn__scikit-learn-11281 written to logs/run_evaluation/test20_C_20261112_01/test20_C_20261112_01-C/scikit-learn__scikit-learn-11281/test_output.txt
+2026-11-12 11:48:15,768 - INFO - Git diff after:
+diff --git a/sklearn/mixture/base.py b/sklearn/mixture/base.py
+index a9f6674..231f86f 100644
+--- a/sklearn/mixture/base.py
++++ b/sklearn/mixture/base.py
+@@ -242,6 +242,23 @@ class BaseMixture(six.with_metaclass(ABCMeta, DensityMixin, BaseEstimator)):
+ 
+         return self
+ 
++    def fit_predict(self, X, y=None):
++        """Estimate model parameters with the EM algorithm and return
++        the labels of the training data.
++
++        Parameters
++        ----------
++        X : array-like, shape (n_samples, n_features)
++            List of n_features-dimensional data points. Each row
++            corresponds to a single data point.
++
++        Returns
++        -------
++        labels : array, shape (n_samples,)
++            Component labels.
++        """
++        return self.fit(X, y).predict(X)
++
+     def _e_step(self, X):
+         """E step.
+2026-11-12 11:48:15,768 - INFO - Grading answer for scikit-learn__scikit-learn-11281...
+2026-11-12 11:48:18,080 - INFO - report: {'scikit-learn__scikit-learn-11281': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': False, 'resolved': False, 'infra_failure': False}}
+Result for scikit-learn__scikit-learn-11281: resolved: False
+2026-11-12 11:48:18,085 - INFO - Attempting to stop container sweb.eval.scikit-learn__scikit-learn-11281.test20_C_20261112_01...
+2026-11-12 11:48:33,337 - INFO - Container sweb.eval.scikit-learn__scikit-learn-11281.test20_C_20261112_01 stopped successfully.
+2026-11-12 11:48:33,337 - INFO - Attempting to remove container sweb.eval.scikit-learn__scikit-learn-11281.test20_C_20261112_01...
+2026-11-12 11:48:33,412 - INFO - Container sweb.eval.scikit-learn__scikit-learn-11281.test20_C_20261112_01 removed successfully.

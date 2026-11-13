@@ -1,0 +1,16 @@
+--- a/sympy/printing/pycode.py
++++ b/sympy/printing/pycode.py
+@@ -327,5 +327,13 @@ class AbstractPythonCodePrinter(CodePrinter):
+     def _print_NoneToken(self, arg):
+         return 'None'
+ 
++    def _print_tuple(self, expr):
++        args = getattr(expr, 'args', expr)
++        if len(args) == 1:
++            return "({},)".format(self._print(args[0]))
++        return "({})".format(", ".join(map(self._print, args)))
++
++    _print_Tuple = _print_tuple
++
+     def _hprint_Pow(self, expr, rational=False, sqrt='math.sqrt'):
+         """Printing helper function for ``Pow``

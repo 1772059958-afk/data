@@ -1,0 +1,29 @@
+Looking in links: /compat-wheels
+Processing /compat-wheels/pytest-7.4.4-py3-none-any.whl (from -r /compat-wheels/mwaskom__seaborn-2848.lock.txt (line 1))
+Processing /compat-wheels/numpy-1.23.5-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (from -r /compat-wheels/mwaskom__seaborn-2848.lock.txt (line 2))
+Processing /compat-wheels/pandas-1.5.3-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (from -r /compat-wheels/mwaskom__seaborn-2848.lock.txt (line 3))
+Processing /compat-wheels/matplotlib-3.5.3-cp39-cp39-manylinux_2_5_x86_64.manylinux1_x86_64.whl (from -r /compat-wheels/mwaskom__seaborn-2848.lock.txt (line 4))
+Processing /compat-wheels/Pillow-9.5.0-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (from -r /compat-wheels/mwaskom__seaborn-2848.lock.txt (line 5))
+Installing collected packages: pytest, Pillow, pandas, numpy, matplotlib
+  Attempting uninstall: pytest
+    Found existing installation: pytest 8.3.3
+    Uninstalling pytest-8.3.3:
+      Successfully uninstalled pytest-8.3.3
+  Attempting uninstall: Pillow
+    Found existing installation: Pillow 10.0.0
+    Uninstalling Pillow-10.0.0:
+      Successfully uninstalled Pillow-10.0.0
+  Attempting uninstall: pandas
+    Found existing installation: pandas 2.0.0
+    Uninstalling pandas-2.0.0:
+      Successfully uninstalled pandas-2.0.0
+  Attempting uninstall: numpy
+    Found existing installation: numpy 1.25.2
+    Uninstalling numpy-1.25.2:
+      Successfully uninstalled numpy-1.25.2
+  Attempting uninstall: matplotlib
+    Found existing installation: matplotlib 3.7.2
+    Uninstalling matplotlib-3.7.2:
+      Successfully uninstalled matplotlib-3.7.2
+Successfully installed Pillow-9.5.0 matplotlib-3.5.3 numpy-1.23.5 pandas-1.5.3 pytest-7.4.4
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable.It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.

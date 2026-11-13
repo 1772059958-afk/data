@@ -1,0 +1,94 @@
+src/swe_repair/execution.py:82: trailing whitespace.
++    def __init__(self, client, runtime: Runtime, expected_served_model: str | None = None,
+src/swe_repair/execution.py:83: trailing whitespace.
++                 expected_system_fingerprint: str | None = None):
+src/swe_repair/execution.py:87: trailing whitespace.
++        if (expected_system_fingerprint is not None
+src/swe_repair/execution.py:88: trailing whitespace.
++                and (not isinstance(expected_system_fingerprint, str)
+src/swe_repair/execution.py:89: trailing whitespace.
++                     or not expected_system_fingerprint.strip())):
+src/swe_repair/execution.py:90: trailing whitespace.
++            raise ValueError('expected_system_fingerprint must be a non-empty string or None')
+src/swe_repair/execution.py:91: trailing whitespace.
++        self.expected_system_fingerprint = expected_system_fingerprint
+src/swe_repair/execution.py:94: trailing whitespace.
++        if getattr(self.client, '_identity_violation', None):
+src/swe_repair/execution.py:95: trailing whitespace.
++            raise RuntimeError('model access halted after a prior identity violation')
+src/swe_repair/execution.py:154: trailing whitespace.
++            self._reject_identity('served_model_missing', 'server response omitted its model identity')
+src/swe_repair/execution.py:156: trailing whitespace.
++            self._reject_identity('served_model_mismatch',
+src/swe_repair/execution.py:157: trailing whitespace.
++                                  f'served model drift: expected {self.expected_served_model}, '
+src/swe_repair/execution.py:158: trailing whitespace.
++                                  f'got {result.record.served_model}')
+src/swe_repair/execution.py:159: trailing whitespace.
++        if self.expected_system_fingerprint is not None:
+src/swe_repair/execution.py:160: trailing whitespace.
++            fingerprint = getattr(result.record, 'system_fingerprint', None)
+src/swe_repair/execution.py:161: trailing whitespace.
++            if not isinstance(fingerprint, str) or not fingerprint.strip():
+src/swe_repair/execution.py:162: trailing whitespace.
++                self._reject_identity('system_fingerprint_missing',
+src/swe_repair/execution.py:163: trailing whitespace.
++                                      'server response omitted its system fingerprint')
+src/swe_repair/execution.py:164: trailing whitespace.
++            if fingerprint != self.expected_system_fingerprint:
+src/swe_repair/execution.py:165: trailing whitespace.
++                self._reject_identity('system_fingerprint_mismatch',
+src/swe_repair/execution.py:166: trailing whitespace.
++                                      'served backend fingerprint drift: '
+src/swe_repair/execution.py:167: trailing whitespace.
++                                      f'expected {self.expected_system_fingerprint}, got {fingerprint}')
+src/swe_repair/execution.py:168: trailing whitespace.
++
+src/swe_repair/execution.py:169: trailing whitespace.
++    def _reject_identity(self, code, message):
+src/swe_repair/execution.py:170: trailing whitespace.
++        # A new branch/runtime sharing this client must not buy another answer
+src/swe_repair/execution.py:171: trailing whitespace.
++        # after an identity violation. Only fixed safe codes enter the marker.
+src/swe_repair/execution.py:172: trailing whitespace.
++        self.client._identity_violation = code
+src/swe_repair/execution.py:173: trailing whitespace.
++        raise RuntimeError(message)
+src/swe_repair/llm.py:3: trailing whitespace.
++The generation side needs the answer, an auditable usage/cost estimate, and
+src/swe_repair/llm.py:4: trailing whitespace.
++the model identity actually reported by the provider. This module records
+src/swe_repair/llm.py:5: trailing whitespace.
++those fields against DeepSeek's OpenAI-compatible endpoint. A model alias
+src/swe_repair/llm.py:6: trailing whitespace.
++and backend fingerprint are observations, not an immutable version guarantee.
+src/swe_repair/llm.py:214: trailing whitespace.
++    system_fingerprint: str | None = None
+src/swe_repair/llm.py:215: trailing whitespace.
++    provider_created: int | None = None
+src/swe_repair/llm.py:319: trailing whitespace.
++        self._identity_violation: str | None = None
+src/swe_repair/llm.py:476: trailing whitespace.
++        fingerprint = payload.get('system_fingerprint')
+src/swe_repair/llm.py:477: trailing whitespace.
++        if not isinstance(fingerprint, str) or not fingerprint.strip():
+src/swe_repair/llm.py:478: trailing whitespace.
++            fingerprint = None
+src/swe_repair/llm.py:479: trailing whitespace.
++        created = payload.get('created')
+src/swe_repair/llm.py:480: trailing whitespace.
++        if not isinstance(created, int) or isinstance(created, bool) or created < 0:
+src/swe_repair/llm.py:481: trailing whitespace.
++            created = None
+src/swe_repair/llm.py:510: trailing whitespace.
++            system_fingerprint=fingerprint,
+src/swe_repair/llm.py:511: trailing whitespace.
++            provider_created=created,
+warning: in the working copy of '.gitattributes', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'AGENTS.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'README.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'docs/实验协议_开题对齐.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'docs/实验记录.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'scripts/probe_model.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'tests/test_experiment.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'tests/test_prefix_only.py', LF will be replaced by CRLF the next time Git touches it

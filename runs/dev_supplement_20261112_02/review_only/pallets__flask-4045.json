@@ -1,0 +1,66 @@
+{
+  "kind": "review_only_after_all_formal_predictions_sealed",
+  "instance_id": "pallets__flask-4045",
+  "repo": "pallets/flask",
+  "base_commit": "d8c37f43724cd9fb0870f77877b7c4c7e38a19e0",
+  "issue": "Raise error when blueprint name contains a dot\nThis is required since every dot is now significant since blueprints can be nested. An error was already added for endpoint names in 1.0, but should have been added for this as well.\n",
+  "developer_reference_patch": "diff --git a/src/flask/blueprints.py b/src/flask/blueprints.py\n--- a/src/flask/blueprints.py\n+++ b/src/flask/blueprints.py\n@@ -188,6 +188,10 @@ def __init__(\n             template_folder=template_folder,\n             root_path=root_path,\n         )\n+\n+        if \".\" in name:\n+            raise ValueError(\"'name' may not contain a dot '.' character.\")\n+\n         self.name = name\n         self.url_prefix = url_prefix\n         self.subdomain = subdomain\n@@ -360,12 +364,12 @@ def add_url_rule(\n         \"\"\"Like :meth:`Flask.add_url_rule` but for a blueprint.  The endpoint for\n         the :func:`url_for` function is prefixed with the name of the blueprint.\n         \"\"\"\n-        if endpoint:\n-            assert \".\" not in endpoint, \"Blueprint endpoints should not contain dots\"\n-        if view_func and hasattr(view_func, \"__name__\"):\n-            assert (\n-                \".\" not in view_func.__name__\n-            ), \"Blueprint view function name should not contain dots\"\n+        if endpoint and \".\" in endpoint:\n+            raise ValueError(\"'endpoint' may not contain a dot '.' character.\")\n+\n+        if view_func and hasattr(view_func, \"__name__\") and \".\" in view_func.__name__:\n+            raise ValueError(\"'view_func' name may not contain a dot '.' character.\")\n+\n         self.record(lambda s: s.add_url_rule(rule, endpoint, view_func, **options))\n \n     def app_template_filter(self, name: t.Optional[str] = None) -> t.Callable:\n",
+  "unique_submitted_patches": [
+    {
+      "sha256": "4dfb8198fef2ddcb160e30deacb78efd551c5c05ca16e39e138addada6fcb474",
+      "patch": "--- a/src/flask/blueprints.py\n+++ b/src/flask/blueprints.py\n@@ -190,6 +190,9 @@ class Blueprint(Scaffold):\n         root_path: t.Optional[str] = None,\n         cli_group: t.Optional[str] = _sentinel,  # type: ignore\n     ):\n+        if \".\" in name:\n+            raise ValueError(\"'name' may not contain a dot '.' character.\")\n+\n         super().__init__(\n             import_name=import_name,\n             static_folder=static_folder,\n",
+      "arms": [
+        "A",
+        "C",
+        "D",
+        "E"
+      ]
+    },
+    {
+      "sha256": "aa61b5076966adf86b273e503f90241cc913e6a3682eaf4e12a8f8e853a3254f",
+      "patch": "--- a/src/flask/blueprints.py\n+++ b/src/flask/blueprints.py\n@@ -176,6 +176,9 @@ class Blueprint(Scaffold):\n         root_path: t.Optional[str] = None,\n         cli_group: t.Optional[str] = _sentinel,  # type: ignore\n     ):\n+        if \".\" in name:\n+            raise ValueError(\"'name' may not contain a dot '.' character.\")\n+\n         super().__init__(\n             import_name=import_name,\n             static_folder=static_folder,\n",
+      "arms": [
+        "B"
+      ]
+    }
+  ],
+  "submissions": {
+    "A": {
+      "patch_sha256": "4dfb8198fef2ddcb160e30deacb78efd551c5c05ca16e39e138addada6fcb474",
+      "official_status": "ambiguous_error",
+      "generation_status": "completed",
+      "route": "fixed",
+      "source_matrix": "runs\\test20_A_20261112_01\\matrix.json"
+    },
+    "B": {
+      "patch_sha256": "aa61b5076966adf86b273e503f90241cc913e6a3682eaf4e12a8f8e853a3254f",
+      "official_status": "ambiguous_error",
+      "generation_status": "budget_exhausted",
+      "route": "standalone",
+      "source_matrix": "runs\\test20_B_20261112_02\\matrix.json"
+    },
+    "C": {
+      "patch_sha256": "4dfb8198fef2ddcb160e30deacb78efd551c5c05ca16e39e138addada6fcb474",
+      "official_status": "ambiguous_error",
+      "generation_status": "completed",
+      "route": "interactive",
+      "source_matrix": "runs\\test20_C_20261112_01\\matrix.json"
+    },
+    "D": {
+      "patch_sha256": "4dfb8198fef2ddcb160e30deacb78efd551c5c05ca16e39e138addada6fcb474",
+      "official_status": "ambiguous_error",
+      "generation_status": "budget_exhausted",
+      "route": "interactive",
+      "source_matrix": "runs\\test20_D_20261112_01\\matrix.json"
+    },
+    "E": {
+      "patch_sha256": "4dfb8198fef2ddcb160e30deacb78efd551c5c05ca16e39e138addada6fcb474",
+      "official_status": "ambiguous_error",
+      "generation_status": "completed",
+      "route": "interactive",
+      "source_matrix": "runs\\test20_E_20261112_01\\matrix.json"
+    }
+  },
+  "generation_import_prohibited": true,
+  "reference_is_not_a_textual_equality_oracle": true
+}

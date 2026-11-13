@@ -1,0 +1,8 @@
+{
+  "instance_id": "psf__requests-1963",
+  "base_commit": "110048f9837f8441ea536804115e80b69f400277",
+  "status": "preparation_error",
+  "error_type": "RuntimeError",
+  "error": "public source/metadata/import identity rejected; preserved log 0212_identity_after.log",
+  "model_calls": 0
+}

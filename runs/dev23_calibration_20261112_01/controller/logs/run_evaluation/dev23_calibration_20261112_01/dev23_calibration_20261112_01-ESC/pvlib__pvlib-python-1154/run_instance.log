@@ -1,0 +1,45 @@
+2026-11-12 03:36:05,361 - INFO - Creating container for pvlib__pvlib-python-1154...
+2026-11-12 03:36:05,409 - INFO - Container for pvlib__pvlib-python-1154 created: 30533da8b6b3ef252e85b787e1bf35c869b1f910656d67ba0df8840caa1ecb8a
+2026-11-12 03:36:05,582 - INFO - Container for pvlib__pvlib-python-1154 started: 30533da8b6b3ef252e85b787e1bf35c869b1f910656d67ba0df8840caa1ecb8a
+2026-11-12 03:36:05,585 - INFO - Intermediate patch for pvlib__pvlib-python-1154 written to logs/run_evaluation/dev23_calibration_20261112_01/dev23_calibration_20261112_01-ESC/pvlib__pvlib-python-1154/patch.diff, now applying to container...
+2026-11-12 03:36:05,768 - ERROR - Error in evaluating model for pvlib__pvlib-python-1154: 409 Client Error for http+docker://localhost/v1.56/exec/31d141bcdf37d357d0747cd023a23e5a232af173714ceceb269e3f03414ab78f/start: Conflict ("container 30533da8b6b3ef252e85b787e1bf35c869b1f910656d67ba0df8840caa1ecb8a is not running")
+Traceback (most recent call last):
+  File "/opt/scoring/lib/python3.11/site-packages/docker/api/client.py", line 275, in _raise_for_status
+    response.raise_for_status()
+  File "/opt/scoring/lib/python3.11/site-packages/requests/models.py", line 1167, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 409 Client Error: Conflict for url: http+docker://localhost/v1.56/exec/31d141bcdf37d357d0747cd023a23e5a232af173714ceceb269e3f03414ab78f/start
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/opt/scoring/lib/python3.11/site-packages/swebench/harness/run_evaluation.py", line 295, in run_instance
+    copy_to_container(
+  File "/opt/scoring/lib/python3.11/site-packages/swebench/harness/docker_utils.py", line 34, in copy_to_container
+    container.exec_run(f"mkdir -p {dst.parent}")
+  File "/opt/scoring/lib/python3.11/site-packages/docker/models/containers.py", line 214, in exec_run
+    exec_output = self.client.api.exec_start(
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/scoring/lib/python3.11/site-packages/docker/utils/decorators.py", line 19, in wrapped
+    return f(self, resource_id, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/scoring/lib/python3.11/site-packages/docker/api/exec_api.py", line 172, in exec_start
+    output = self._read_from_socket(res, stream, tty=tty, demux=demux)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/scoring/lib/python3.11/site-packages/docker/api/client.py", line 429, in _read_from_socket
+    socket = self._get_raw_response_socket(response)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/scoring/lib/python3.11/site-packages/docker/api/client.py", line 334, in _get_raw_response_socket
+    self._raise_for_status(response)
+  File "/opt/scoring/lib/python3.11/site-packages/docker/api/client.py", line 277, in _raise_for_status
+    raise create_api_error_from_http_exception(e) from e
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/scoring/lib/python3.11/site-packages/docker/errors.py", line 39, in create_api_error_from_http_exception
+    raise cls(e, response=response, explanation=explanation) from e
+docker.errors.APIError: 409 Client Error for http+docker://localhost/v1.56/exec/31d141bcdf37d357d0747cd023a23e5a232af173714ceceb269e3f03414ab78f/start: Conflict ("container 30533da8b6b3ef252e85b787e1bf35c869b1f910656d67ba0df8840caa1ecb8a is not running")
+
+Check (logs/run_evaluation/dev23_calibration_20261112_01/dev23_calibration_20261112_01-ESC/pvlib__pvlib-python-1154/run_instance.log) for more information.
+2026-11-12 03:36:05,768 - INFO - Attempting to stop container sweb.eval.pvlib__pvlib-python-1154.dev23_calibration_20261112_01...
+2026-11-12 03:36:05,793 - INFO - Container sweb.eval.pvlib__pvlib-python-1154.dev23_calibration_20261112_01 stopped successfully.
+2026-11-12 03:36:05,793 - INFO - Attempting to remove container sweb.eval.pvlib__pvlib-python-1154.dev23_calibration_20261112_01...
+2026-11-12 03:36:05,831 - INFO - Container sweb.eval.pvlib__pvlib-python-1154.dev23_calibration_20261112_01 removed successfully.

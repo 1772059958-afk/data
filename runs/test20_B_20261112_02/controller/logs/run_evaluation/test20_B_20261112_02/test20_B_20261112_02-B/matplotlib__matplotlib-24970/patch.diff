@@ -1,0 +1,12 @@
+--- a/lib/matplotlib/colors.py
++++ b/lib/matplotlib/colors.py
+@@ -727,6 +727,9 @@ class Colormap:
+                 xa = xa.astype(int)
+         # Set the over-range indices before the under-range;
+         # otherwise the under-range values get converted to over-range.
++        # Cast to int to avoid overflow/deprecation warnings when writing
++        # sentinel values larger than the input dtype (e.g. uint8).
++        xa = xa.astype(int)
+         xa[xa > self.N - 1] = self._i_over
+         xa[xa < 0] = self._i_under
+         xa[mask_bad] = self._i_bad

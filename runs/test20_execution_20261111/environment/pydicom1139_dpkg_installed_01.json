@@ -1,0 +1,1903 @@
+{
+  "image_id": "sha256:bd5edf8694cde12aaf99beb18b3935b15e076e81ac7e52aef46b1ca3d9071428",
+  "network": "none",
+  "readonly": true,
+  "mounts": [],
+  "command": [
+    "docker",
+    "--context",
+    "desktop-linux",
+    "run",
+    "--rm",
+    "--pull=never",
+    "--network",
+    "none",
+    "--read-only",
+    "--entrypoint",
+    "/usr/bin/dpkg-query",
+    "sha256:bd5edf8694cde12aaf99beb18b3935b15e076e81ac7e52aef46b1ca3d9071428",
+    "-W",
+    "-f=${binary:Package}\t${Version}\t${Architecture}\t${Installed-Size}\t${db:Status-Abbrev}\n"
+  ],
+  "returncode": 0,
+  "packages": [
+    {
+      "name": "adduser",
+      "binary_package": "adduser",
+      "version": "3.118ubuntu5",
+      "architecture": "all",
+      "installed_size_kib": 608
+    },
+    {
+      "name": "apt",
+      "binary_package": "apt",
+      "version": "2.4.13",
+      "architecture": "amd64",
+      "installed_size_kib": 4141
+    },
+    {
+      "name": "base-files",
+      "binary_package": "base-files",
+      "version": "12ubuntu4.7",
+      "architecture": "amd64",
+      "installed_size_kib": 395
+    },
+    {
+      "name": "base-passwd",
+      "binary_package": "base-passwd",
+      "version": "3.5.52build1",
+      "architecture": "amd64",
+      "installed_size_kib": 243
+    },
+    {
+      "name": "bash",
+      "binary_package": "bash",
+      "version": "5.1-6ubuntu1.1",
+      "architecture": "amd64",
+      "installed_size_kib": 1864
+    },
+    {
+      "name": "binutils",
+      "binary_package": "binutils",
+      "version": "2.38-4ubuntu2.6",
+      "architecture": "amd64",
+      "installed_size_kib": 113
+    },
+    {
+      "name": "binutils-common",
+      "binary_package": "binutils-common:amd64",
+      "version": "2.38-4ubuntu2.6",
+      "architecture": "amd64",
+      "installed_size_kib": 504
+    },
+    {
+      "name": "binutils-x86-64-linux-gnu",
+      "binary_package": "binutils-x86-64-linux-gnu",
+      "version": "2.38-4ubuntu2.6",
+      "architecture": "amd64",
+      "installed_size_kib": 10431
+    },
+    {
+      "name": "bsdutils",
+      "binary_package": "bsdutils",
+      "version": "1:2.37.2-4ubuntu3.4",
+      "architecture": "amd64",
+      "installed_size_kib": 334
+    },
+    {
+      "name": "build-essential",
+      "binary_package": "build-essential",
+      "version": "12.9ubuntu3",
+      "architecture": "amd64",
+      "installed_size_kib": 21
+    },
+    {
+      "name": "bzip2",
+      "binary_package": "bzip2",
+      "version": "1.0.8-5build1",
+      "architecture": "amd64",
+      "installed_size_kib": 114
+    },
+    {
+      "name": "ca-certificates",
+      "binary_package": "ca-certificates",
+      "version": "20240203~22.04.1",
+      "architecture": "all",
+      "installed_size_kib": 399
+    },
+    {
+      "name": "coreutils",
+      "binary_package": "coreutils",
+      "version": "8.32-4.1ubuntu1.2",
+      "architecture": "amd64",
+      "installed_size_kib": 7112
+    },
+    {
+      "name": "cpp",
+      "binary_package": "cpp",
+      "version": "4:11.2.0-1ubuntu1",
+      "architecture": "amd64",
+      "installed_size_kib": 67
+    },
+    {
+      "name": "cpp-11",
+      "binary_package": "cpp-11",
+      "version": "11.4.0-1ubuntu1~22.04",
+      "architecture": "amd64",
+      "installed_size_kib": 26284
+    },
+    {
+      "name": "curl",
+      "binary_package": "curl",
+      "version": "7.81.0-1ubuntu1.20",
+      "architecture": "amd64",
+      "installed_size_kib": 444
+    },
+    {
+      "name": "dash",
+      "binary_package": "dash",
+      "version": "0.5.11+git20210903+057cd650a4ed-3build1",
+      "architecture": "amd64",
+      "installed_size_kib": 214
+    },
+    {
+      "name": "debconf",
+      "binary_package": "debconf",
+      "version": "1.5.79ubuntu1",
+      "architecture": "all",
+      "installed_size_kib": 512
+    },
+    {
+      "name": "debianutils",
+      "binary_package": "debianutils",
+      "version": "5.5-1ubuntu2",
+      "architecture": "amd64",
+      "installed_size_kib": 243
+    },
+    {
+      "name": "diffutils",
+      "binary_package": "diffutils",
+      "version": "1:3.8-0ubuntu2",
+      "architecture": "amd64",
+      "installed_size_kib": 424
+    },
+    {
+      "name": "dirmngr",
+      "binary_package": "dirmngr",
+      "version": "2.2.27-3ubuntu2.1",
+      "architecture": "amd64",
+      "installed_size_kib": 676
+    },
+    {
+      "name": "dpkg",
+      "binary_package": "dpkg",
+      "version": "1.21.1ubuntu2.3",
+      "architecture": "amd64",
+      "installed_size_kib": 6733
+    },
+    {
+      "name": "dpkg-dev",
+      "binary_package": "dpkg-dev",
+      "version": "1.21.1ubuntu2.3",
+      "architecture": "all",
+      "installed_size_kib": 2488
+    },
+    {
+      "name": "e2fsprogs",
+      "binary_package": "e2fsprogs",
+      "version": "1.46.5-2ubuntu1.2",
+      "architecture": "amd64",
+      "installed_size_kib": 1516
+    },
+    {
+      "name": "fakeroot",
+      "binary_package": "fakeroot",
+      "version": "1.28-1ubuntu1",
+      "architecture": "amd64",
+      "installed_size_kib": 220
+    },
+    {
+      "name": "findutils",
+      "binary_package": "findutils",
+      "version": "4.8.0-1ubuntu3",
+      "architecture": "amd64",
+      "installed_size_kib": 620
+    },
+    {
+      "name": "fontconfig-config",
+      "binary_package": "fontconfig-config",
+      "version": "2.13.1-4.2ubuntu5",
+      "architecture": "all",
+      "installed_size_kib": 172
+    },
+    {
+      "name": "fonts-dejavu-core",
+      "binary_package": "fonts-dejavu-core",
+      "version": "2.37-2build1",
+      "architecture": "all",
+      "installed_size_kib": 2954
+    },
+    {
+      "name": "g++",
+      "binary_package": "g++",
+      "version": "4:11.2.0-1ubuntu1",
+      "architecture": "amd64",
+      "installed_size_kib": 16
+    },
+    {
+      "name": "g++-11",
+      "binary_package": "g++-11",
+      "version": "11.4.0-1ubuntu1~22.04",
+      "architecture": "amd64",
+      "installed_size_kib": 28891
+    },
+    {
+      "name": "gcc",
+      "binary_package": "gcc",
+      "version": "4:11.2.0-1ubuntu1",
+      "architecture": "amd64",
+      "installed_size_kib": 50
+    },
+    {
+      "name": "gcc-11",
+      "binary_package": "gcc-11",
+      "version": "11.4.0-1ubuntu1~22.04",
+      "architecture": "amd64",
+      "installed_size_kib": 52747
+    },
+    {
+      "name": "gcc-11-base",
+      "binary_package": "gcc-11-base:amd64",
+      "version": "11.4.0-1ubuntu1~22.04",
+      "architecture": "amd64",
+      "installed_size_kib": 273
+    },
+    {
+      "name": "gcc-12-base",
+      "binary_package": "gcc-12-base:amd64",
+      "version": "12.3.0-1ubuntu1~22.04",
+      "architecture": "amd64",
+      "installed_size_kib": 272
+    },
+    {
+      "name": "git",
+      "binary_package": "git",
+      "version": "1:2.34.1-1ubuntu1.12",
+      "architecture": "amd64",
+      "installed_size_kib": 18488
+    },
+    {
+      "name": "git-man",
+      "binary_package": "git-man",
+      "version": "1:2.34.1-1ubuntu1.12",
+      "architecture": "all",
+      "installed_size_kib": 1959
+    },
+    {
+      "name": "gnupg",
+      "binary_package": "gnupg",
+      "version": "2.2.27-3ubuntu2.1",
+      "architecture": "all",
+      "installed_size_kib": 473
+    },
+    {
+      "name": "gnupg-l10n",
+      "binary_package": "gnupg-l10n",
+      "version": "2.2.27-3ubuntu2.1",
+      "architecture": "all",
+      "installed_size_kib": 392
+    },
+    {
+      "name": "gnupg-utils",
+      "binary_package": "gnupg-utils",
+      "version": "2.2.27-3ubuntu2.1",
+      "architecture": "amd64",
+      "installed_size_kib": 787
+    },
+    {
+      "name": "gpg",
+      "binary_package": "gpg",
+      "version": "2.2.27-3ubuntu2.1",
+      "architecture": "amd64",
+      "installed_size_kib": 1121
+    },
+    {
+      "name": "gpg-agent",
+      "binary_package": "gpg-agent",
+      "version": "2.2.27-3ubuntu2.1",
+      "architecture": "amd64",
+      "installed_size_kib": 595
+    },
+    {
+      "name": "gpg-wks-client",
+      "binary_package": "gpg-wks-client",
+      "version": "2.2.27-3ubuntu2.1",
+      "architecture": "amd64",
+      "installed_size_kib": 184
+    },
+    {
+      "name": "gpg-wks-server",
+      "binary_package": "gpg-wks-server",
+      "version": "2.2.27-3ubuntu2.1",
+      "architecture": "amd64",
+      "installed_size_kib": 168
+    },
+    {
+      "name": "gpgconf",
+      "binary_package": "gpgconf",
+      "version": "2.2.27-3ubuntu2.1",
+      "architecture": "amd64",
+      "installed_size_kib": 280
+    },
+    {
+      "name": "gpgsm",
+      "binary_package": "gpgsm",
+      "version": "2.2.27-3ubuntu2.1",
+      "architecture": "amd64",
+      "installed_size_kib": 480
+    },
+    {
+      "name": "gpgv",
+      "binary_package": "gpgv",
+      "version": "2.2.27-3ubuntu2.1",
+      "architecture": "amd64",
+      "installed_size_kib": 324
+    },
+    {
+      "name": "grep",
+      "binary_package": "grep",
+      "version": "3.7-1build1",
+      "architecture": "amd64",
+      "installed_size_kib": 496
+    },
+    {
+      "name": "gzip",
+      "binary_package": "gzip",
+      "version": "1.10-4ubuntu4.1",
+      "architecture": "amd64",
+      "installed_size_kib": 240
+    },
+    {
+      "name": "hostname",
+      "binary_package": "hostname",
+      "version": "3.23ubuntu2",
+      "architecture": "amd64",
+      "installed_size_kib": 51
+    },
+    {
+      "name": "init-system-helpers",
+      "binary_package": "init-system-helpers",
+      "version": "1.62",
+      "architecture": "all",
+      "installed_size_kib": 133
+    },
+    {
+      "name": "javascript-common",
+      "binary_package": "javascript-common",
+      "version": "11+nmu1",
+      "architecture": "all",
+      "installed_size_kib": 33
+    },
+    {
+      "name": "jq",
+      "binary_package": "jq",
+      "version": "1.6-2.1ubuntu3",
+      "architecture": "amd64",
+      "installed_size_kib": 100
+    },
+    {
+      "name": "less",
+      "binary_package": "less",
+      "version": "590-1ubuntu0.22.04.3",
+      "architecture": "amd64",
+      "installed_size_kib": 321
+    },
+    {
+      "name": "libacl1",
+      "binary_package": "libacl1:amd64",
+      "version": "2.3.1-1",
+      "architecture": "amd64",
+      "installed_size_kib": 67
+    },
+    {
+      "name": "libalgorithm-diff-perl",
+      "binary_package": "libalgorithm-diff-perl",
+      "version": "1.201-1",
+      "architecture": "all",
+      "installed_size_kib": 127
+    },
+    {
+      "name": "libalgorithm-diff-xs-perl",
+      "binary_package": "libalgorithm-diff-xs-perl",
+      "version": "0.04-6build3",
+      "architecture": "amd64",
+      "installed_size_kib": 50
+    },
+    {
+      "name": "libalgorithm-merge-perl",
+      "binary_package": "libalgorithm-merge-perl",
+      "version": "0.08-3",
+      "architecture": "all",
+      "installed_size_kib": 42
+    },
+    {
+      "name": "libapt-pkg6.0",
+      "binary_package": "libapt-pkg6.0:amd64",
+      "version": "2.4.13",
+      "architecture": "amd64",
+      "installed_size_kib": 3198
+    },
+    {
+      "name": "libasan6",
+      "binary_package": "libasan6:amd64",
+      "version": "11.4.0-1ubuntu1~22.04",
+      "architecture": "amd64",
+      "installed_size_kib": 7518
+    },
+    {
+      "name": "libassuan0",
+      "binary_package": "libassuan0:amd64",
+      "version": "2.5.5-1build1",
+      "architecture": "amd64",
+      "installed_size_kib": 110
+    },
+    {
+      "name": "libatomic1",
+      "binary_package": "libatomic1:amd64",
+      "version": "12.3.0-1ubuntu1~22.04",
+      "architecture": "amd64",
+      "installed_size_kib": 45
+    },
+    {
+      "name": "libattr1",
+      "binary_package": "libattr1:amd64",
+      "version": "1:2.5.1-1build1",
+      "architecture": "amd64",
+      "installed_size_kib": 57
+    },
+    {
+      "name": "libaudit-common",
+      "binary_package": "libaudit-common",
+      "version": "1:3.0.7-1build1",
+      "architecture": "all",
+      "installed_size_kib": 23
+    },
+    {
+      "name": "libaudit1",
+      "binary_package": "libaudit1:amd64",
+      "version": "1:3.0.7-1build1",
+      "architecture": "amd64",
+      "installed_size_kib": 156
+    },
+    {
+      "name": "libbinutils",
+      "binary_package": "libbinutils:amd64",
+      "version": "2.38-4ubuntu2.6",
+      "architecture": "amd64",
+      "installed_size_kib": 2776
+    },
+    {
+      "name": "libblkid1",
+      "binary_package": "libblkid1:amd64",
+      "version": "2.37.2-4ubuntu3.4",
+      "architecture": "amd64",
+      "installed_size_kib": 323
+    },
+    {
+      "name": "libbrotli1",
+      "binary_package": "libbrotli1:amd64",
+      "version": "1.0.9-2build6",
+      "architecture": "amd64",
+      "installed_size_kib": 784
+    },
+    {
+      "name": "libbsd0",
+      "binary_package": "libbsd0:amd64",
+      "version": "0.11.5-1",
+      "architecture": "amd64",
+      "installed_size_kib": 136
+    },
+    {
+      "name": "libbz2-1.0",
+      "binary_package": "libbz2-1.0:amd64",
+      "version": "1.0.8-5build1",
+      "architecture": "amd64",
+      "installed_size_kib": 100
+    },
+    {
+      "name": "libc-bin",
+      "binary_package": "libc-bin",
+      "version": "2.35-0ubuntu3.8",
+      "architecture": "amd64",
+      "installed_size_kib": 2538
+    },
+    {
+      "name": "libc-dev-bin",
+      "binary_package": "libc-dev-bin",
+      "version": "2.35-0ubuntu3.9",
+      "architecture": "amd64",
+      "installed_size_kib": 299
+    },
+    {
+      "name": "libc-devtools",
+      "binary_package": "libc-devtools",
+      "version": "2.35-0ubuntu3.9",
+      "architecture": "amd64",
+      "installed_size_kib": 351
+    },
+    {
+      "name": "libc6",
+      "binary_package": "libc6:amd64",
+      "version": "2.35-0ubuntu3.9",
+      "architecture": "amd64",
+      "installed_size_kib": 13597
+    },
+    {
+      "name": "libc6-dev",
+      "binary_package": "libc6-dev:amd64",
+      "version": "2.35-0ubuntu3.9",
+      "architecture": "amd64",
+      "installed_size_kib": 13038
+    },
+    {
+      "name": "libcap-ng0",
+      "binary_package": "libcap-ng0:amd64",
+      "version": "0.7.9-2.2build3",
+      "architecture": "amd64",
+      "installed_size_kib": 45
+    },
+    {
+      "name": "libcap2",
+      "binary_package": "libcap2:amd64",
+      "version": "1:2.44-1ubuntu0.22.04.1",
+      "architecture": "amd64",
+      "installed_size_kib": 65
+    },
+    {
+      "name": "libcbor0.8",
+      "binary_package": "libcbor0.8:amd64",
+      "version": "0.8.0-2ubuntu1",
+      "architecture": "amd64",
+      "installed_size_kib": 83
+    },
+    {
+      "name": "libcc1-0",
+      "binary_package": "libcc1-0:amd64",
+      "version": "12.3.0-1ubuntu1~22.04",
+      "architecture": "amd64",
+      "installed_size_kib": 144
+    },
+    {
+      "name": "libcom-err2",
+      "binary_package": "libcom-err2:amd64",
+      "version": "1.46.5-2ubuntu1.2",
+      "architecture": "amd64",
+      "installed_size_kib": 101
+    },
+    {
+      "name": "libcrypt-dev",
+      "binary_package": "libcrypt-dev:amd64",
+      "version": "1:4.4.27-1",
+      "architecture": "amd64",
+      "installed_size_kib": 320
+    },
+    {
+      "name": "libcrypt1",
+      "binary_package": "libcrypt1:amd64",
+      "version": "1:4.4.27-1",
+      "architecture": "amd64",
+      "installed_size_kib": 225
+    },
+    {
+      "name": "libctf-nobfd0",
+      "binary_package": "libctf-nobfd0:amd64",
+      "version": "2.38-4ubuntu2.6",
+      "architecture": "amd64",
+      "installed_size_kib": 313
+    },
+    {
+      "name": "libctf0",
+      "binary_package": "libctf0:amd64",
+      "version": "2.38-4ubuntu2.6",
+      "architecture": "amd64",
+      "installed_size_kib": 239
+    },
+    {
+      "name": "libcurl3-gnutls",
+      "binary_package": "libcurl3-gnutls:amd64",
+      "version": "7.81.0-1ubuntu1.20",
+      "architecture": "amd64",
+      "installed_size_kib": 772
+    },
+    {
+      "name": "libcurl4",
+      "binary_package": "libcurl4:amd64",
+      "version": "7.81.0-1ubuntu1.20",
+      "architecture": "amd64",
+      "installed_size_kib": 788
+    },
+    {
+      "name": "libdb5.3",
+      "binary_package": "libdb5.3:amd64",
+      "version": "5.3.28+dfsg1-0.8ubuntu3",
+      "architecture": "amd64",
+      "installed_size_kib": 1750
+    },
+    {
+      "name": "libdebconfclient0",
+      "binary_package": "libdebconfclient0:amd64",
+      "version": "0.261ubuntu1",
+      "architecture": "amd64",
+      "installed_size_kib": 79
+    },
+    {
+      "name": "libdeflate-dev",
+      "binary_package": "libdeflate-dev:amd64",
+      "version": "1.10-2",
+      "architecture": "amd64",
+      "installed_size_kib": 146
+    },
+    {
+      "name": "libdeflate0",
+      "binary_package": "libdeflate0:amd64",
+      "version": "1.10-2",
+      "architecture": "amd64",
+      "installed_size_kib": 154
+    },
+    {
+      "name": "libdpkg-perl",
+      "binary_package": "libdpkg-perl",
+      "version": "1.21.1ubuntu2.3",
+      "architecture": "all",
+      "installed_size_kib": 2340
+    },
+    {
+      "name": "libedit2",
+      "binary_package": "libedit2:amd64",
+      "version": "3.1-20210910-1build1",
+      "architecture": "amd64",
+      "installed_size_kib": 260
+    },
+    {
+      "name": "liberror-perl",
+      "binary_package": "liberror-perl",
+      "version": "0.17029-1",
+      "architecture": "all",
+      "installed_size_kib": 71
+    },
+    {
+      "name": "libexpat1",
+      "binary_package": "libexpat1:amd64",
+      "version": "2.4.7-1ubuntu0.5",
+      "architecture": "amd64",
+      "installed_size_kib": 433
+    },
+    {
+      "name": "libexpat1-dev",
+      "binary_package": "libexpat1-dev:amd64",
+      "version": "2.4.7-1ubuntu0.5",
+      "architecture": "amd64",
+      "installed_size_kib": 945
+    },
+    {
+      "name": "libext2fs2",
+      "binary_package": "libext2fs2:amd64",
+      "version": "1.46.5-2ubuntu1.2",
+      "architecture": "amd64",
+      "installed_size_kib": 574
+    },
+    {
+      "name": "libfakeroot",
+      "binary_package": "libfakeroot:amd64",
+      "version": "1.28-1ubuntu1",
+      "architecture": "amd64",
+      "installed_size_kib": 172
+    },
+    {
+      "name": "libffi-dev",
+      "binary_package": "libffi-dev:amd64",
+      "version": "3.4.2-4",
+      "architecture": "amd64",
+      "installed_size_kib": 328
+    },
+    {
+      "name": "libffi8",
+      "binary_package": "libffi8:amd64",
+      "version": "3.4.2-4",
+      "architecture": "amd64",
+      "installed_size_kib": 69
+    },
+    {
+      "name": "libfido2-1",
+      "binary_package": "libfido2-1:amd64",
+      "version": "1.10.0-1",
+      "architecture": "amd64",
+      "installed_size_kib": 236
+    },
+    {
+      "name": "libfile-fcntllock-perl",
+      "binary_package": "libfile-fcntllock-perl",
+      "version": "0.22-3build7",
+      "architecture": "amd64",
+      "installed_size_kib": 131
+    },
+    {
+      "name": "libfontconfig1",
+      "binary_package": "libfontconfig1:amd64",
+      "version": "2.13.1-4.2ubuntu5",
+      "architecture": "amd64",
+      "installed_size_kib": 331
+    },
+    {
+      "name": "libfreetype6",
+      "binary_package": "libfreetype6:amd64",
+      "version": "2.11.1+dfsg-1ubuntu0.2",
+      "architecture": "amd64",
+      "installed_size_kib": 870
+    },
+    {
+      "name": "libgcc-11-dev",
+      "binary_package": "libgcc-11-dev:amd64",
+      "version": "11.4.0-1ubuntu1~22.04",
+      "architecture": "amd64",
+      "installed_size_kib": 13895
+    },
+    {
+      "name": "libgcc-s1",
+      "binary_package": "libgcc-s1:amd64",
+      "version": "12.3.0-1ubuntu1~22.04",
+      "architecture": "amd64",
+      "installed_size_kib": 140
+    },
+    {
+      "name": "libgcrypt20",
+      "binary_package": "libgcrypt20:amd64",
+      "version": "1.9.4-3ubuntu3",
+      "architecture": "amd64",
+      "installed_size_kib": 1354
+    },
+    {
+      "name": "libgd3",
+      "binary_package": "libgd3:amd64",
+      "version": "2.3.0-2ubuntu2.3",
+      "architecture": "amd64",
+      "installed_size_kib": 448
+    },
+    {
+      "name": "libgdbm-compat4",
+      "binary_package": "libgdbm-compat4:amd64",
+      "version": "1.23-1",
+      "architecture": "amd64",
+      "installed_size_kib": 45
+    },
+    {
+      "name": "libgdbm6",
+      "binary_package": "libgdbm6:amd64",
+      "version": "1.23-1",
+      "architecture": "amd64",
+      "installed_size_kib": 100
+    },
+    {
+      "name": "libgmp10",
+      "binary_package": "libgmp10:amd64",
+      "version": "2:6.2.1+dfsg-3ubuntu1",
+      "architecture": "amd64",
+      "installed_size_kib": 544
+    },
+    {
+      "name": "libgnutls30",
+      "binary_package": "libgnutls30:amd64",
+      "version": "3.7.3-4ubuntu1.5",
+      "architecture": "amd64",
+      "installed_size_kib": 2284
+    },
+    {
+      "name": "libgomp1",
+      "binary_package": "libgomp1:amd64",
+      "version": "12.3.0-1ubuntu1~22.04",
+      "architecture": "amd64",
+      "installed_size_kib": 320
+    },
+    {
+      "name": "libgpg-error0",
+      "binary_package": "libgpg-error0:amd64",
+      "version": "1.43-3",
+      "architecture": "amd64",
+      "installed_size_kib": 189
+    },
+    {
+      "name": "libgssapi-krb5-2",
+      "binary_package": "libgssapi-krb5-2:amd64",
+      "version": "1.19.2-2ubuntu0.4",
+      "architecture": "amd64",
+      "installed_size_kib": 455
+    },
+    {
+      "name": "libhogweed6",
+      "binary_package": "libhogweed6:amd64",
+      "version": "3.7.3-1build2",
+      "architecture": "amd64",
+      "installed_size_kib": 336
+    },
+    {
+      "name": "libidn2-0",
+      "binary_package": "libidn2-0:amd64",
+      "version": "2.3.2-2build1",
+      "architecture": "amd64",
+      "installed_size_kib": 220
+    },
+    {
+      "name": "libisl23",
+      "binary_package": "libisl23:amd64",
+      "version": "0.24-2build1",
+      "architecture": "amd64",
+      "installed_size_kib": 2159
+    },
+    {
+      "name": "libitm1",
+      "binary_package": "libitm1:amd64",
+      "version": "12.3.0-1ubuntu1~22.04",
+      "architecture": "amd64",
+      "installed_size_kib": 115
+    },
+    {
+      "name": "libjbig-dev",
+      "binary_package": "libjbig-dev:amd64",
+      "version": "2.1-3.1ubuntu0.22.04.1",
+      "architecture": "amd64",
+      "installed_size_kib": 88
+    },
+    {
+      "name": "libjbig0",
+      "binary_package": "libjbig0:amd64",
+      "version": "2.1-3.1ubuntu0.22.04.1",
+      "architecture": "amd64",
+      "installed_size_kib": 82
+    },
+    {
+      "name": "libjpeg-dev",
+      "binary_package": "libjpeg-dev:amd64",
+      "version": "8c-2ubuntu10",
+      "architecture": "amd64",
+      "installed_size_kib": 9
+    },
+    {
+      "name": "libjpeg-turbo8",
+      "binary_package": "libjpeg-turbo8:amd64",
+      "version": "2.1.2-0ubuntu1",
+      "architecture": "amd64",
+      "installed_size_kib": 543
+    },
+    {
+      "name": "libjpeg-turbo8-dev",
+      "binary_package": "libjpeg-turbo8-dev:amd64",
+      "version": "2.1.2-0ubuntu1",
+      "architecture": "amd64",
+      "installed_size_kib": 1012
+    },
+    {
+      "name": "libjpeg8",
+      "binary_package": "libjpeg8:amd64",
+      "version": "8c-2ubuntu10",
+      "architecture": "amd64",
+      "installed_size_kib": 9
+    },
+    {
+      "name": "libjpeg8-dev",
+      "binary_package": "libjpeg8-dev:amd64",
+      "version": "8c-2ubuntu10",
+      "architecture": "amd64",
+      "installed_size_kib": 9
+    },
+    {
+      "name": "libjq1",
+      "binary_package": "libjq1:amd64",
+      "version": "1.6-2.1ubuntu3",
+      "architecture": "amd64",
+      "installed_size_kib": 347
+    },
+    {
+      "name": "libjs-jquery",
+      "binary_package": "libjs-jquery",
+      "version": "3.6.0+dfsg+~3.5.13-1",
+      "architecture": "all",
+      "installed_size_kib": 679
+    },
+    {
+      "name": "libjs-sphinxdoc",
+      "binary_package": "libjs-sphinxdoc",
+      "version": "4.3.2-1",
+      "architecture": "all",
+      "installed_size_kib": 194
+    },
+    {
+      "name": "libjs-underscore",
+      "binary_package": "libjs-underscore",
+      "version": "1.13.2~dfsg-2",
+      "architecture": "all",
+      "installed_size_kib": 345
+    },
+    {
+      "name": "libk5crypto3",
+      "binary_package": "libk5crypto3:amd64",
+      "version": "1.19.2-2ubuntu0.4",
+      "architecture": "amd64",
+      "installed_size_kib": 292
+    },
+    {
+      "name": "libkeyutils1",
+      "binary_package": "libkeyutils1:amd64",
+      "version": "1.6.1-2ubuntu3",
+      "architecture": "amd64",
+      "installed_size_kib": 47
+    },
+    {
+      "name": "libkrb5-3",
+      "binary_package": "libkrb5-3:amd64",
+      "version": "1.19.2-2ubuntu0.4",
+      "architecture": "amd64",
+      "installed_size_kib": 1052
+    },
+    {
+      "name": "libkrb5support0",
+      "binary_package": "libkrb5support0:amd64",
+      "version": "1.19.2-2ubuntu0.4",
+      "architecture": "amd64",
+      "installed_size_kib": 164
+    },
+    {
+      "name": "libksba8",
+      "binary_package": "libksba8:amd64",
+      "version": "1.6.0-2ubuntu0.2",
+      "architecture": "amd64",
+      "installed_size_kib": 302
+    },
+    {
+      "name": "libldap-2.5-0",
+      "binary_package": "libldap-2.5-0:amd64",
+      "version": "2.5.18+dfsg-0ubuntu0.22.04.2",
+      "architecture": "amd64",
+      "installed_size_kib": 565
+    },
+    {
+      "name": "libldap-common",
+      "binary_package": "libldap-common",
+      "version": "2.5.18+dfsg-0ubuntu0.22.04.2",
+      "architecture": "all",
+      "installed_size_kib": 109
+    },
+    {
+      "name": "liblocale-gettext-perl",
+      "binary_package": "liblocale-gettext-perl",
+      "version": "1.07-4build3",
+      "architecture": "amd64",
+      "installed_size_kib": 59
+    },
+    {
+      "name": "liblsan0",
+      "binary_package": "liblsan0:amd64",
+      "version": "12.3.0-1ubuntu1~22.04",
+      "architecture": "amd64",
+      "installed_size_kib": 2961
+    },
+    {
+      "name": "liblz4-1",
+      "binary_package": "liblz4-1:amd64",
+      "version": "1.9.3-2build2",
+      "architecture": "amd64",
+      "installed_size_kib": 145
+    },
+    {
+      "name": "liblzma-dev",
+      "binary_package": "liblzma-dev:amd64",
+      "version": "5.2.5-2ubuntu1",
+      "architecture": "amd64",
+      "installed_size_kib": 613
+    },
+    {
+      "name": "liblzma5",
+      "binary_package": "liblzma5:amd64",
+      "version": "5.2.5-2ubuntu1",
+      "architecture": "amd64",
+      "installed_size_kib": 290
+    },
+    {
+      "name": "libmd0",
+      "binary_package": "libmd0:amd64",
+      "version": "1.0.4-1build1",
+      "architecture": "amd64",
+      "installed_size_kib": 71
+    },
+    {
+      "name": "libmount1",
+      "binary_package": "libmount1:amd64",
+      "version": "2.37.2-4ubuntu3.4",
+      "architecture": "amd64",
+      "installed_size_kib": 382
+    },
+    {
+      "name": "libmpc3",
+      "binary_package": "libmpc3:amd64",
+      "version": "1.2.1-2build1",
+      "architecture": "amd64",
+      "installed_size_kib": 125
+    },
+    {
+      "name": "libmpdec3",
+      "binary_package": "libmpdec3:amd64",
+      "version": "2.5.1-2build2",
+      "architecture": "amd64",
+      "installed_size_kib": 250
+    },
+    {
+      "name": "libmpfr6",
+      "binary_package": "libmpfr6:amd64",
+      "version": "4.1.0-3build3",
+      "architecture": "amd64",
+      "installed_size_kib": 3405
+    },
+    {
+      "name": "libncurses6",
+      "binary_package": "libncurses6:amd64",
+      "version": "6.3-2ubuntu0.1",
+      "architecture": "amd64",
+      "installed_size_kib": 329
+    },
+    {
+      "name": "libncursesw6",
+      "binary_package": "libncursesw6:amd64",
+      "version": "6.3-2ubuntu0.1",
+      "architecture": "amd64",
+      "installed_size_kib": 422
+    },
+    {
+      "name": "libnettle8",
+      "binary_package": "libnettle8:amd64",
+      "version": "3.7.3-1build2",
+      "architecture": "amd64",
+      "installed_size_kib": 356
+    },
+    {
+      "name": "libnghttp2-14",
+      "binary_package": "libnghttp2-14:amd64",
+      "version": "1.43.0-1ubuntu0.2",
+      "architecture": "amd64",
+      "installed_size_kib": 204
+    },
+    {
+      "name": "libnpth0",
+      "binary_package": "libnpth0:amd64",
+      "version": "1.6-3build2",
+      "architecture": "amd64",
+      "installed_size_kib": 40
+    },
+    {
+      "name": "libnsl-dev",
+      "binary_package": "libnsl-dev:amd64",
+      "version": "1.3.0-2build2",
+      "architecture": "amd64",
+      "installed_size_kib": 347
+    },
+    {
+      "name": "libnsl2",
+      "binary_package": "libnsl2:amd64",
+      "version": "1.3.0-2build2",
+      "architecture": "amd64",
+      "installed_size_kib": 123
+    },
+    {
+      "name": "libonig5",
+      "binary_package": "libonig5:amd64",
+      "version": "6.9.7.1-2build1",
+      "architecture": "amd64",
+      "installed_size_kib": 615
+    },
+    {
+      "name": "libp11-kit0",
+      "binary_package": "libp11-kit0:amd64",
+      "version": "0.24.0-6build1",
+      "architecture": "amd64",
+      "installed_size_kib": 1292
+    },
+    {
+      "name": "libpam-modules",
+      "binary_package": "libpam-modules:amd64",
+      "version": "1.4.0-11ubuntu2.5",
+      "architecture": "amd64",
+      "installed_size_kib": 1139
+    },
+    {
+      "name": "libpam-modules-bin",
+      "binary_package": "libpam-modules-bin",
+      "version": "1.4.0-11ubuntu2.5",
+      "architecture": "amd64",
+      "installed_size_kib": 249
+    },
+    {
+      "name": "libpam-runtime",
+      "binary_package": "libpam-runtime",
+      "version": "1.4.0-11ubuntu2.5",
+      "architecture": "all",
+      "installed_size_kib": 312
+    },
+    {
+      "name": "libpam0g",
+      "binary_package": "libpam0g:amd64",
+      "version": "1.4.0-11ubuntu2.5",
+      "architecture": "amd64",
+      "installed_size_kib": 236
+    },
+    {
+      "name": "libpcre2-8-0",
+      "binary_package": "libpcre2-8-0:amd64",
+      "version": "10.39-3ubuntu0.1",
+      "architecture": "amd64",
+      "installed_size_kib": 621
+    },
+    {
+      "name": "libpcre3",
+      "binary_package": "libpcre3:amd64",
+      "version": "2:8.39-13ubuntu0.22.04.1",
+      "architecture": "amd64",
+      "installed_size_kib": 683
+    },
+    {
+      "name": "libperl5.34",
+      "binary_package": "libperl5.34:amd64",
+      "version": "5.34.0-3ubuntu1.3",
+      "architecture": "amd64",
+      "installed_size_kib": 28445
+    },
+    {
+      "name": "libpng16-16",
+      "binary_package": "libpng16-16:amd64",
+      "version": "1.6.37-3build5",
+      "architecture": "amd64",
+      "installed_size_kib": 353
+    },
+    {
+      "name": "libprocps8",
+      "binary_package": "libprocps8:amd64",
+      "version": "2:3.3.17-6ubuntu2.1",
+      "architecture": "amd64",
+      "installed_size_kib": 131
+    },
+    {
+      "name": "libpsl5",
+      "binary_package": "libpsl5:amd64",
+      "version": "0.21.0-1.2build2",
+      "architecture": "amd64",
+      "installed_size_kib": 95
+    },
+    {
+      "name": "libpython3-dev",
+      "binary_package": "libpython3-dev:amd64",
+      "version": "3.10.6-1~22.04.1",
+      "architecture": "amd64",
+      "installed_size_kib": 49
+    },
+    {
+      "name": "libpython3-stdlib",
+      "binary_package": "libpython3-stdlib:amd64",
+      "version": "3.10.6-1~22.04.1",
+      "architecture": "amd64",
+      "installed_size_kib": 39
+    },
+    {
+      "name": "libpython3.10",
+      "binary_package": "libpython3.10:amd64",
+      "version": "3.10.12-1~22.04.8",
+      "architecture": "amd64",
+      "installed_size_kib": 5768
+    },
+    {
+      "name": "libpython3.10-dev",
+      "binary_package": "libpython3.10-dev:amd64",
+      "version": "3.10.12-1~22.04.8",
+      "architecture": "amd64",
+      "installed_size_kib": 20423
+    },
+    {
+      "name": "libpython3.10-minimal",
+      "binary_package": "libpython3.10-minimal:amd64",
+      "version": "3.10.12-1~22.04.8",
+      "architecture": "amd64",
+      "installed_size_kib": 5121
+    },
+    {
+      "name": "libpython3.10-stdlib",
+      "binary_package": "libpython3.10-stdlib:amd64",
+      "version": "3.10.12-1~22.04.8",
+      "architecture": "amd64",
+      "installed_size_kib": 8120
+    },
+    {
+      "name": "libquadmath0",
+      "binary_package": "libquadmath0:amd64",
+      "version": "12.3.0-1ubuntu1~22.04",
+      "architecture": "amd64",
+      "installed_size_kib": 296
+    },
+    {
+      "name": "libreadline8",
+      "binary_package": "libreadline8:amd64",
+      "version": "8.1.2-1",
+      "architecture": "amd64",
+      "installed_size_kib": 461
+    },
+    {
+      "name": "librtmp1",
+      "binary_package": "librtmp1:amd64",
+      "version": "2.4+20151223.gitfa8646d.1-2build4",
+      "architecture": "amd64",
+      "installed_size_kib": 141
+    },
+    {
+      "name": "libsasl2-2",
+      "binary_package": "libsasl2-2:amd64",
+      "version": "2.1.27+dfsg2-3ubuntu1.2",
+      "architecture": "amd64",
+      "installed_size_kib": 170
+    },
+    {
+      "name": "libsasl2-modules",
+      "binary_package": "libsasl2-modules:amd64",
+      "version": "2.1.27+dfsg2-3ubuntu1.2",
+      "architecture": "amd64",
+      "installed_size_kib": 308
+    },
+    {
+      "name": "libsasl2-modules-db",
+      "binary_package": "libsasl2-modules-db:amd64",
+      "version": "2.1.27+dfsg2-3ubuntu1.2",
+      "architecture": "amd64",
+      "installed_size_kib": 93
+    },
+    {
+      "name": "libseccomp2",
+      "binary_package": "libseccomp2:amd64",
+      "version": "2.5.3-2ubuntu2",
+      "architecture": "amd64",
+      "installed_size_kib": 145
+    },
+    {
+      "name": "libselinux1",
+      "binary_package": "libselinux1:amd64",
+      "version": "3.3-1build2",
+      "architecture": "amd64",
+      "installed_size_kib": 207
+    },
+    {
+      "name": "libsemanage-common",
+      "binary_package": "libsemanage-common",
+      "version": "3.3-1build2",
+      "architecture": "all",
+      "installed_size_kib": 37
+    },
+    {
+      "name": "libsemanage2",
+      "binary_package": "libsemanage2:amd64",
+      "version": "3.3-1build2",
+      "architecture": "amd64",
+      "installed_size_kib": 300
+    },
+    {
+      "name": "libsepol2",
+      "binary_package": "libsepol2:amd64",
+      "version": "3.3-1build1",
+      "architecture": "amd64",
+      "installed_size_kib": 735
+    },
+    {
+      "name": "libsmartcols1",
+      "binary_package": "libsmartcols1:amd64",
+      "version": "2.37.2-4ubuntu3.4",
+      "architecture": "amd64",
+      "installed_size_kib": 209
+    },
+    {
+      "name": "libsqlite3-0",
+      "binary_package": "libsqlite3-0:amd64",
+      "version": "3.37.2-2ubuntu0.3",
+      "architecture": "amd64",
+      "installed_size_kib": 1602
+    },
+    {
+      "name": "libss2",
+      "binary_package": "libss2:amd64",
+      "version": "1.46.5-2ubuntu1.2",
+      "architecture": "amd64",
+      "installed_size_kib": 113
+    },
+    {
+      "name": "libssh-4",
+      "binary_package": "libssh-4:amd64",
+      "version": "0.9.6-2ubuntu0.22.04.3",
+      "architecture": "amd64",
+      "installed_size_kib": 486
+    },
+    {
+      "name": "libssl3",
+      "binary_package": "libssl3:amd64",
+      "version": "3.0.2-0ubuntu1.18",
+      "architecture": "amd64",
+      "installed_size_kib": 5834
+    },
+    {
+      "name": "libstdc++-11-dev",
+      "binary_package": "libstdc++-11-dev:amd64",
+      "version": "11.4.0-1ubuntu1~22.04",
+      "architecture": "amd64",
+      "installed_size_kib": 18759
+    },
+    {
+      "name": "libstdc++6",
+      "binary_package": "libstdc++6:amd64",
+      "version": "12.3.0-1ubuntu1~22.04",
+      "architecture": "amd64",
+      "installed_size_kib": 2755
+    },
+    {
+      "name": "libsystemd0",
+      "binary_package": "libsystemd0:amd64",
+      "version": "249.11-0ubuntu3.12",
+      "architecture": "amd64",
+      "installed_size_kib": 996
+    },
+    {
+      "name": "libtasn1-6",
+      "binary_package": "libtasn1-6:amd64",
+      "version": "4.18.0-4build1",
+      "architecture": "amd64",
+      "installed_size_kib": 133
+    },
+    {
+      "name": "libtiff-dev",
+      "binary_package": "libtiff-dev:amd64",
+      "version": "4.3.0-6ubuntu0.10",
+      "architecture": "amd64",
+      "installed_size_kib": 1087
+    },
+    {
+      "name": "libtiff5",
+      "binary_package": "libtiff5:amd64",
+      "version": "4.3.0-6ubuntu0.10",
+      "architecture": "amd64",
+      "installed_size_kib": 581
+    },
+    {
+      "name": "libtiffxx5",
+      "binary_package": "libtiffxx5:amd64",
+      "version": "4.3.0-6ubuntu0.10",
+      "architecture": "amd64",
+      "installed_size_kib": 47
+    },
+    {
+      "name": "libtinfo6",
+      "binary_package": "libtinfo6:amd64",
+      "version": "6.3-2ubuntu0.1",
+      "architecture": "amd64",
+      "installed_size_kib": 558
+    },
+    {
+      "name": "libtirpc-common",
+      "binary_package": "libtirpc-common",
+      "version": "1.3.2-2ubuntu0.1",
+      "architecture": "all",
+      "installed_size_kib": 32
+    },
+    {
+      "name": "libtirpc-dev",
+      "binary_package": "libtirpc-dev:amd64",
+      "version": "1.3.2-2ubuntu0.1",
+      "architecture": "amd64",
+      "installed_size_kib": 720
+    },
+    {
+      "name": "libtirpc3",
+      "binary_package": "libtirpc3:amd64",
+      "version": "1.3.2-2ubuntu0.1",
+      "architecture": "amd64",
+      "installed_size_kib": 219
+    },
+    {
+      "name": "libtsan0",
+      "binary_package": "libtsan0:amd64",
+      "version": "11.4.0-1ubuntu1~22.04",
+      "architecture": "amd64",
+      "installed_size_kib": 7255
+    },
+    {
+      "name": "libubsan1",
+      "binary_package": "libubsan1:amd64",
+      "version": "12.3.0-1ubuntu1~22.04",
+      "architecture": "amd64",
+      "installed_size_kib": 2676
+    },
+    {
+      "name": "libudev1",
+      "binary_package": "libudev1:amd64",
+      "version": "249.11-0ubuntu3.12",
+      "architecture": "amd64",
+      "installed_size_kib": 348
+    },
+    {
+      "name": "libunistring2",
+      "binary_package": "libunistring2:amd64",
+      "version": "1.0-1",
+      "architecture": "amd64",
+      "installed_size_kib": 1746
+    },
+    {
+      "name": "libuuid1",
+      "binary_package": "libuuid1:amd64",
+      "version": "2.37.2-4ubuntu3.4",
+      "architecture": "amd64",
+      "installed_size_kib": 134
+    },
+    {
+      "name": "libwebp7",
+      "binary_package": "libwebp7:amd64",
+      "version": "1.2.2-2ubuntu0.22.04.2",
+      "architecture": "amd64",
+      "installed_size_kib": 439
+    },
+    {
+      "name": "libx11-6",
+      "binary_package": "libx11-6:amd64",
+      "version": "2:1.7.5-1ubuntu0.3",
+      "architecture": "amd64",
+      "installed_size_kib": 1387
+    },
+    {
+      "name": "libx11-data",
+      "binary_package": "libx11-data",
+      "version": "2:1.7.5-1ubuntu0.3",
+      "architecture": "all",
+      "installed_size_kib": 1430
+    },
+    {
+      "name": "libxau6",
+      "binary_package": "libxau6:amd64",
+      "version": "1:1.0.9-1build5",
+      "architecture": "amd64",
+      "installed_size_kib": 35
+    },
+    {
+      "name": "libxcb1",
+      "binary_package": "libxcb1:amd64",
+      "version": "1.14-3ubuntu3",
+      "architecture": "amd64",
+      "installed_size_kib": 206
+    },
+    {
+      "name": "libxdmcp6",
+      "binary_package": "libxdmcp6:amd64",
+      "version": "1:1.1.3-0ubuntu5",
+      "architecture": "amd64",
+      "installed_size_kib": 43
+    },
+    {
+      "name": "libxext6",
+      "binary_package": "libxext6:amd64",
+      "version": "2:1.3.4-1build1",
+      "architecture": "amd64",
+      "installed_size_kib": 110
+    },
+    {
+      "name": "libxmuu1",
+      "binary_package": "libxmuu1:amd64",
+      "version": "2:1.1.3-3",
+      "architecture": "amd64",
+      "installed_size_kib": 41
+    },
+    {
+      "name": "libxpm4",
+      "binary_package": "libxpm4:amd64",
+      "version": "1:3.5.12-1ubuntu0.22.04.2",
+      "architecture": "amd64",
+      "installed_size_kib": 98
+    },
+    {
+      "name": "libxxhash0",
+      "binary_package": "libxxhash0:amd64",
+      "version": "0.8.1-1",
+      "architecture": "amd64",
+      "installed_size_kib": 97
+    },
+    {
+      "name": "libzstd1",
+      "binary_package": "libzstd1:amd64",
+      "version": "1.4.8+dfsg-3build1",
+      "architecture": "amd64",
+      "installed_size_kib": 846
+    },
+    {
+      "name": "linux-libc-dev",
+      "binary_package": "linux-libc-dev:amd64",
+      "version": "5.15.0-133.144",
+      "architecture": "amd64",
+      "installed_size_kib": 6996
+    },
+    {
+      "name": "locales",
+      "binary_package": "locales",
+      "version": "2.35-0ubuntu3.9",
+      "architecture": "all",
+      "installed_size_kib": 17068
+    },
+    {
+      "name": "locales-all",
+      "binary_package": "locales-all",
+      "version": "2.35-0ubuntu3.9",
+      "architecture": "amd64",
+      "installed_size_kib": 227250
+    },
+    {
+      "name": "login",
+      "binary_package": "login",
+      "version": "1:4.8.1-2ubuntu2.2",
+      "architecture": "amd64",
+      "installed_size_kib": 888
+    },
+    {
+      "name": "logsave",
+      "binary_package": "logsave",
+      "version": "1.46.5-2ubuntu1.2",
+      "architecture": "amd64",
+      "installed_size_kib": 97
+    },
+    {
+      "name": "lsb-base",
+      "binary_package": "lsb-base",
+      "version": "11.1.0ubuntu4",
+      "architecture": "all",
+      "installed_size_kib": 58
+    },
+    {
+      "name": "lto-disabled-list",
+      "binary_package": "lto-disabled-list",
+      "version": "24",
+      "architecture": "all",
+      "installed_size_kib": 39
+    },
+    {
+      "name": "make",
+      "binary_package": "make",
+      "version": "4.3-4.1build1",
+      "architecture": "amd64",
+      "installed_size_kib": 416
+    },
+    {
+      "name": "manpages",
+      "binary_package": "manpages",
+      "version": "5.10-1ubuntu1",
+      "architecture": "all",
+      "installed_size_kib": 1669
+    },
+    {
+      "name": "manpages-dev",
+      "binary_package": "manpages-dev",
+      "version": "5.10-1ubuntu1",
+      "architecture": "all",
+      "installed_size_kib": 3942
+    },
+    {
+      "name": "mawk",
+      "binary_package": "mawk",
+      "version": "1.3.4.20200120-3",
+      "architecture": "amd64",
+      "installed_size_kib": 229
+    },
+    {
+      "name": "media-types",
+      "binary_package": "media-types",
+      "version": "7.0.0",
+      "architecture": "all",
+      "installed_size_kib": 97
+    },
+    {
+      "name": "mount",
+      "binary_package": "mount",
+      "version": "2.37.2-4ubuntu3.4",
+      "architecture": "amd64",
+      "installed_size_kib": 389
+    },
+    {
+      "name": "ncurses-base",
+      "binary_package": "ncurses-base",
+      "version": "6.3-2ubuntu0.1",
+      "architecture": "all",
+      "installed_size_kib": 393
+    },
+    {
+      "name": "ncurses-bin",
+      "binary_package": "ncurses-bin",
+      "version": "6.3-2ubuntu0.1",
+      "architecture": "amd64",
+      "installed_size_kib": 646
+    },
+    {
+      "name": "netbase",
+      "binary_package": "netbase",
+      "version": "6.3",
+      "architecture": "all",
+      "installed_size_kib": 41
+    },
+    {
+      "name": "openssh-client",
+      "binary_package": "openssh-client",
+      "version": "1:8.9p1-3ubuntu0.11",
+      "architecture": "amd64",
+      "installed_size_kib": 3092
+    },
+    {
+      "name": "openssl",
+      "binary_package": "openssl",
+      "version": "3.0.2-0ubuntu1.18",
+      "architecture": "amd64",
+      "installed_size_kib": 2053
+    },
+    {
+      "name": "passwd",
+      "binary_package": "passwd",
+      "version": "1:4.8.1-2ubuntu2.2",
+      "architecture": "amd64",
+      "installed_size_kib": 2325
+    },
+    {
+      "name": "patch",
+      "binary_package": "patch",
+      "version": "2.7.6-7build2",
+      "architecture": "amd64",
+      "installed_size_kib": 229
+    },
+    {
+      "name": "perl",
+      "binary_package": "perl",
+      "version": "5.34.0-3ubuntu1.3",
+      "architecture": "amd64",
+      "installed_size_kib": 717
+    },
+    {
+      "name": "perl-base",
+      "binary_package": "perl-base",
+      "version": "5.34.0-3ubuntu1.3",
+      "architecture": "amd64",
+      "installed_size_kib": 7734
+    },
+    {
+      "name": "perl-modules-5.34",
+      "binary_package": "perl-modules-5.34",
+      "version": "5.34.0-3ubuntu1.3",
+      "architecture": "all",
+      "installed_size_kib": 17671
+    },
+    {
+      "name": "pinentry-curses",
+      "binary_package": "pinentry-curses",
+      "version": "1.1.1-1build2",
+      "architecture": "amd64",
+      "installed_size_kib": 92
+    },
+    {
+      "name": "procps",
+      "binary_package": "procps",
+      "version": "2:3.3.17-6ubuntu2.1",
+      "architecture": "amd64",
+      "installed_size_kib": 1388
+    },
+    {
+      "name": "publicsuffix",
+      "binary_package": "publicsuffix",
+      "version": "20211207.1025-1",
+      "architecture": "all",
+      "installed_size_kib": 330
+    },
+    {
+      "name": "python-is-python3",
+      "binary_package": "python-is-python3",
+      "version": "3.9.2-2",
+      "architecture": "all",
+      "installed_size_kib": 13
+    },
+    {
+      "name": "python3",
+      "binary_package": "python3",
+      "version": "3.10.6-1~22.04.1",
+      "architecture": "amd64",
+      "installed_size_kib": 90
+    },
+    {
+      "name": "python3-dev",
+      "binary_package": "python3-dev",
+      "version": "3.10.6-1~22.04.1",
+      "architecture": "amd64",
+      "installed_size_kib": 145
+    },
+    {
+      "name": "python3-distutils",
+      "binary_package": "python3-distutils",
+      "version": "3.10.8-1~22.04",
+      "architecture": "all",
+      "installed_size_kib": 757
+    },
+    {
+      "name": "python3-lib2to3",
+      "binary_package": "python3-lib2to3",
+      "version": "3.10.8-1~22.04",
+      "architecture": "all",
+      "installed_size_kib": 388
+    },
+    {
+      "name": "python3-minimal",
+      "binary_package": "python3-minimal",
+      "version": "3.10.6-1~22.04.1",
+      "architecture": "amd64",
+      "installed_size_kib": 122
+    },
+    {
+      "name": "python3-pip",
+      "binary_package": "python3-pip",
+      "version": "22.0.2+dfsg-1ubuntu0.5",
+      "architecture": "all",
+      "installed_size_kib": 6878
+    },
+    {
+      "name": "python3-pkg-resources",
+      "binary_package": "python3-pkg-resources",
+      "version": "59.6.0-1.2ubuntu0.22.04.2",
+      "architecture": "all",
+      "installed_size_kib": 581
+    },
+    {
+      "name": "python3-setuptools",
+      "binary_package": "python3-setuptools",
+      "version": "59.6.0-1.2ubuntu0.22.04.2",
+      "architecture": "all",
+      "installed_size_kib": 1748
+    },
+    {
+      "name": "python3-wheel",
+      "binary_package": "python3-wheel",
+      "version": "0.37.1-2ubuntu0.22.04.1",
+      "architecture": "all",
+      "installed_size_kib": 132
+    },
+    {
+      "name": "python3.10",
+      "binary_package": "python3.10",
+      "version": "3.10.12-1~22.04.8",
+      "architecture": "amd64",
+      "installed_size_kib": 634
+    },
+    {
+      "name": "python3.10-dev",
+      "binary_package": "python3.10-dev",
+      "version": "3.10.12-1~22.04.8",
+      "architecture": "amd64",
+      "installed_size_kib": 511
+    },
+    {
+      "name": "python3.10-minimal",
+      "binary_package": "python3.10-minimal",
+      "version": "3.10.12-1~22.04.8",
+      "architecture": "amd64",
+      "installed_size_kib": 5931
+    },
+    {
+      "name": "readline-common",
+      "binary_package": "readline-common",
+      "version": "8.1.2-1",
+      "architecture": "all",
+      "installed_size_kib": 80
+    },
+    {
+      "name": "rpcsvc-proto",
+      "binary_package": "rpcsvc-proto",
+      "version": "1.4.2-0ubuntu6",
+      "architecture": "amd64",
+      "installed_size_kib": 245
+    },
+    {
+      "name": "sed",
+      "binary_package": "sed",
+      "version": "4.8-1ubuntu2",
+      "architecture": "amd64",
+      "installed_size_kib": 328
+    },
+    {
+      "name": "sensible-utils",
+      "binary_package": "sensible-utils",
+      "version": "0.0.17",
+      "architecture": "all",
+      "installed_size_kib": 59
+    },
+    {
+      "name": "sysvinit-utils",
+      "binary_package": "sysvinit-utils",
+      "version": "3.01-1ubuntu1",
+      "architecture": "amd64",
+      "installed_size_kib": 83
+    },
+    {
+      "name": "tar",
+      "binary_package": "tar",
+      "version": "1.34+dfsg-1ubuntu0.1.22.04.2",
+      "architecture": "amd64",
+      "installed_size_kib": 960
+    },
+    {
+      "name": "tzdata",
+      "binary_package": "tzdata",
+      "version": "2024b-0ubuntu0.22.04.1",
+      "architecture": "all",
+      "installed_size_kib": 3896
+    },
+    {
+      "name": "ubuntu-keyring",
+      "binary_package": "ubuntu-keyring",
+      "version": "2021.03.26",
+      "architecture": "all",
+      "installed_size_kib": 41
+    },
+    {
+      "name": "ucf",
+      "binary_package": "ucf",
+      "version": "3.0043",
+      "architecture": "all",
+      "installed_size_kib": 232
+    },
+    {
+      "name": "usrmerge",
+      "binary_package": "usrmerge",
+      "version": "25ubuntu2",
+      "architecture": "all",
+      "installed_size_kib": 200
+    },
+    {
+      "name": "util-linux",
+      "binary_package": "util-linux",
+      "version": "2.37.2-4ubuntu3.4",
+      "architecture": "amd64",
+      "installed_size_kib": 3395
+    },
+    {
+      "name": "wget",
+      "binary_package": "wget",
+      "version": "1.21.2-2ubuntu1.1",
+      "architecture": "amd64",
+      "installed_size_kib": 928
+    },
+    {
+      "name": "xauth",
+      "binary_package": "xauth",
+      "version": "1:1.1-1build2",
+      "architecture": "amd64",
+      "installed_size_kib": 77
+    },
+    {
+      "name": "xz-utils",
+      "binary_package": "xz-utils",
+      "version": "5.2.5-2ubuntu1",
+      "architecture": "amd64",
+      "installed_size_kib": 372
+    },
+    {
+      "name": "zlib1g",
+      "binary_package": "zlib1g:amd64",
+      "version": "1:1.2.11.dfsg-2ubuntu9.2",
+      "architecture": "amd64",
+      "installed_size_kib": 164
+    },
+    {
+      "name": "zlib1g-dev",
+      "binary_package": "zlib1g-dev:amd64",
+      "version": "1:1.2.11.dfsg-2ubuntu9.2",
+      "architecture": "amd64",
+      "installed_size_kib": 592
+    }
+  ],
+  "package_count": 268,
+  "deb_downloaded": false
+}

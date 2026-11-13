@@ -1,0 +1,170 @@
+{
+  "coverage": 100,
+  "instances": 20,
+  "source_freeze_sha256": "e9403bfc20cca0a78aa68621a45216e0d9a92c56ee4e71d65006cc85b876d7fb",
+  "dataset_sha256": "438e281d80587aa7be470896ce410557002fde02d2ceee3e099331d308f62dd3",
+  "packets": [
+    {
+      "instance_id": "astropy__astropy-14995",
+      "packet": "runs\\dev_supplement_20261112_02\\review_only\\astropy__astropy-14995.json",
+      "sha256": "47c7c3fa9544516e12e7b7f6bd69366cbf726ccbf4b8c52caa6ba71b86c1d583",
+      "unique_patches": 2,
+      "patch_characters": 1068,
+      "issue_characters": 2455
+    },
+    {
+      "instance_id": "django__django-11910",
+      "packet": "runs\\dev_supplement_20261112_02\\review_only\\django__django-11910.json",
+      "sha256": "10b988fd1fd330af11bc46dbf33c6fa3527cdd8a79fcc15416e0349bb4d19cd8",
+      "unique_patches": 4,
+      "patch_characters": 2782,
+      "issue_characters": 1172
+    },
+    {
+      "instance_id": "django__django-12708",
+      "packet": "runs\\dev_supplement_20261112_02\\review_only\\django__django-12708.json",
+      "sha256": "c66aeaaaa89080df2ebc411552eee887a7866e62285ee81a8a07663dad752a8f",
+      "unique_patches": 2,
+      "patch_characters": 1935,
+      "issue_characters": 959
+    },
+    {
+      "instance_id": "django__django-13230",
+      "packet": "runs\\dev_supplement_20261112_02\\review_only\\django__django-13230.json",
+      "sha256": "9f7a31cf13be65cb85c8e7b41f5b179e3df8f21b83ec8da8e54a8d06cb4512c6",
+      "unique_patches": 2,
+      "patch_characters": 1266,
+      "issue_characters": 342
+    },
+    {
+      "instance_id": "django__django-17087",
+      "packet": "runs\\dev_supplement_20261112_02\\review_only\\django__django-17087.json",
+      "sha256": "56d84215a98010878bf4e8afc7807ca178d5c446a87393edc63854926455aaf7",
+      "unique_patches": 2,
+      "patch_characters": 1029,
+      "issue_characters": 1135
+    },
+    {
+      "instance_id": "matplotlib__matplotlib-23987",
+      "packet": "runs\\dev_supplement_20261112_02\\review_only\\matplotlib__matplotlib-23987.json",
+      "sha256": "bcc984bb8c02a1dab32066d41289bc9416077be37242ba536db5bd746161f5eb",
+      "unique_patches": 4,
+      "patch_characters": 1996,
+      "issue_characters": 1291
+    },
+    {
+      "instance_id": "matplotlib__matplotlib-24970",
+      "packet": "runs\\dev_supplement_20261112_02\\review_only\\matplotlib__matplotlib-24970.json",
+      "sha256": "fd98f1c707856e237ff1ca157759db0b5dcd35bab0906ecdc9c93054d39e4c1c",
+      "unique_patches": 2,
+      "patch_characters": 1050,
+      "issue_characters": 1758
+    },
+    {
+      "instance_id": "mwaskom__seaborn-2848",
+      "packet": "runs\\dev_supplement_20261112_02\\review_only\\mwaskom__seaborn-2848.json",
+      "sha256": "74c0aa1994d9aaa12fafafed07c18432295d61e372d10ecc890849d9ae36e5cb",
+      "unique_patches": 3,
+      "patch_characters": 1454,
+      "issue_characters": 965
+    },
+    {
+      "instance_id": "pallets__flask-4045",
+      "packet": "runs\\dev_supplement_20261112_02\\review_only\\pallets__flask-4045.json",
+      "sha256": "0be77a9609b65afb423b6e9ff3dd577bfb64dab31688a4d6455d01505179ba14",
+      "unique_patches": 2,
+      "patch_characters": 870,
+      "issue_characters": 230
+    },
+    {
+      "instance_id": "psf__requests-1963",
+      "packet": "runs\\dev_supplement_20261112_02\\review_only\\psf__requests-1963.json",
+      "sha256": "a7481779084ccbd77369508450379eb5ca1587443e9aadf59fc1327790762560",
+      "unique_patches": 2,
+      "patch_characters": 893,
+      "issue_characters": 673
+    },
+    {
+      "instance_id": "pydata__xarray-3364",
+      "packet": "runs\\dev_supplement_20261112_02\\review_only\\pydata__xarray-3364.json",
+      "sha256": "08d2c4f10fd194ff607e89687dfc7143d7e3bfa2574ae4ea074135c1a9d60117",
+      "unique_patches": 4,
+      "patch_characters": 9277,
+      "issue_characters": 641
+    },
+    {
+      "instance_id": "pylint-dev__pylint-7114",
+      "packet": "runs\\dev_supplement_20261112_02\\review_only\\pylint-dev__pylint-7114.json",
+      "sha256": "2516296b018b7efa860e9397ba79a2ef05b4862f6d83fd11873da41bfd74ca0e",
+      "unique_patches": 2,
+      "patch_characters": 502,
+      "issue_characters": 1692
+    },
+    {
+      "instance_id": "pytest-dev__pytest-6116",
+      "packet": "runs\\dev_supplement_20261112_02\\review_only\\pytest-dev__pytest-6116.json",
+      "sha256": "9d5d1a52f63e17f6830af725a25b124623800215156efeb82ac2bb74ca66e16e",
+      "unique_patches": 2,
+      "patch_characters": 622,
+      "issue_characters": 986
+    },
+    {
+      "instance_id": "pytest-dev__pytest-8906",
+      "packet": "runs\\dev_supplement_20261112_02\\review_only\\pytest-dev__pytest-8906.json",
+      "sha256": "c4bac2753192b064199434cd426a196f93e37b04e7892340e4bcffd05d88974c",
+      "unique_patches": 2,
+      "patch_characters": 2118,
+      "issue_characters": 1970
+    },
+    {
+      "instance_id": "scikit-learn__scikit-learn-11281",
+      "packet": "runs\\dev_supplement_20261112_02\\review_only\\scikit-learn__scikit-learn-11281.json",
+      "sha256": "364b36fb336cb0eebc6f7f58d5e9dad36688174af4c06bdcb235102b312b6d26",
+      "unique_patches": 2,
+      "patch_characters": 2817,
+      "issue_characters": 552
+    },
+    {
+      "instance_id": "scikit-learn__scikit-learn-13496",
+      "packet": "runs\\dev_supplement_20261112_02\\review_only\\scikit-learn__scikit-learn-13496.json",
+      "sha256": "28c01c2efe32cdd046ba2df9e5a38a5511f5f84f0ef0357ee088f862eba7d55b",
+      "unique_patches": 2,
+      "patch_characters": 1276,
+      "issue_characters": 1371
+    },
+    {
+      "instance_id": "sphinx-doc__sphinx-8595",
+      "packet": "runs\\dev_supplement_20261112_02\\review_only\\sphinx-doc__sphinx-8595.json",
+      "sha256": "4b85b7d7a91bd5e6dcf74ad1ac8b4f2e88fa18fbed7d06a07d332f4fb20cbe3b",
+      "unique_patches": 2,
+      "patch_characters": 1054,
+      "issue_characters": 676
+    },
+    {
+      "instance_id": "sympy__sympy-13480",
+      "packet": "runs\\dev_supplement_20261112_02\\review_only\\sympy__sympy-13480.json",
+      "sha256": "ec86d8685c4ee6566e7b43ff0a58ac806f57b530dc7145d96bd52fc95aa2ddf7",
+      "unique_patches": 2,
+      "patch_characters": 429,
+      "issue_characters": 430
+    },
+    {
+      "instance_id": "sympy__sympy-16503",
+      "packet": "runs\\dev_supplement_20261112_02\\review_only\\sympy__sympy-16503.json",
+      "sha256": "c52c0f43bd3572f506b258c5adfa104d6a5bcc8eb42e2b15114dface0ed049bb",
+      "unique_patches": 4,
+      "patch_characters": 1564,
+      "issue_characters": 253
+    },
+    {
+      "instance_id": "sympy__sympy-23262",
+      "packet": "runs\\dev_supplement_20261112_02\\review_only\\sympy__sympy-23262.json",
+      "sha256": "5f0f716cc762606093a9eddcab548f43d043cb14c7199ade35e07cc99c98403d",
+      "unique_patches": 2,
+      "patch_characters": 575,
+      "issue_characters": 1033
+    }
+  ],
+  "human_sign_off_fabricated": false,
+  "reviewer": "current coding agent; analyst review, not an external human signature"
+}

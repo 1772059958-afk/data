@@ -1,0 +1,14 @@
+{
+  "reason": "pre-generation PyVista import failed because libXrender.so.1 was absent; ldd found only this missing VTK runtime library",
+  "source_signed_metadata": "ubuntu_inrelease_verification_01.json",
+  "package": "libxrender1",
+  "version": "1:0.9.10-1build4",
+  "suite": "jammy",
+  "filename": "libxrender1_0.9.10-1build4_amd64.deb",
+  "url": "https://archive.ubuntu.com/ubuntu/pool/main/libx/libxrender/libxrender1_0.9.10-1build4_amd64.deb",
+  "sha256": "a68f6db4320b5963dd499b83b6cc8c7b5cd39b05e84862d5945da9244e4c96d6",
+  "bytes": 19678,
+  "installed_size_kib": "68",
+  "depends": "libc6 (>= 2.14), libx11-6 (>= 2:1.6.0)",
+  "C_free_bytes": 5539999744
+}

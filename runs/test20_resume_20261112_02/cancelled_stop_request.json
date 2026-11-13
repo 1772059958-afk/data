@@ -1,0 +1,11 @@
+{
+  "kind": "user_cancelled_stop_after_current_case_before_activation",
+  "stop_instruction": "做完这例先停机",
+  "cancelling_instruction": "取消上条命令。",
+  "case_at_stop_request": "E sphinx-doc__sphinx-8595, 16 committed",
+  "stop_guard_activated": false,
+  "os_shutdown_scheduled": false,
+  "model_execution_interrupted": false,
+  "current_authorized_scope": "Continue remaining registered E cases and independent grading after all100 predictions frozen. Keep uniform off-peak E cost reporting and original100CNY cumulative guard.",
+  "at": "2026-11-12T01:31:47.304849+00:00"
+}

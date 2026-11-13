@@ -1,0 +1,15 @@
+{
+  "config": "C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\configs\\test20_frozen_20261112_01.json",
+  "config_sha256": "60f3cc5524730bf4d9cbe02588b98142b2041196e9d25cb1e294eae9aa3ad40e",
+  "source_sha256": "b065ff0b3feaa3ecc6865c8992432530ceb3d1f57c785ae8252fcff352ebb789",
+  "script_sha256": "3c6b8a6f3cb7f9fff638fd04119a09d4a82b9c980f84a824b7e196da9c918f9d",
+  "tags": {
+    "A": "test20_A_20261112_01",
+    "B": "test20_B_20261112_01",
+    "C": "test20_C_20261112_01",
+    "D": "test20_D_20261112_01",
+    "E": "test20_E_20261112_01"
+  },
+  "started_at": "2026-11-11T20:42:23.729908+00:00",
+  "hidden_formal_results_read": false
+}

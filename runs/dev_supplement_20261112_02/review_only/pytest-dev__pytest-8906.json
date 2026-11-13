@@ -1,0 +1,66 @@
+{
+  "kind": "review_only_after_all_formal_predictions_sealed",
+  "instance_id": "pytest-dev__pytest-8906",
+  "repo": "pytest-dev/pytest",
+  "base_commit": "69356d20cfee9a81972dcbf93d8caf9eabe113e8",
+  "issue": "Improve handling of skip for module level\nThis is potentially about updating docs, updating error messages or introducing a new API.\r\n\r\nConsider the following scenario:\r\n\r\n`pos_only.py` is using Python 3,8 syntax:\r\n```python\r\ndef foo(a, /, b):\r\n    return a + b\r\n```\r\n\r\nIt should not be tested under Python 3.6 and 3.7.\r\nThis is a proper way to skip the test in Python older than 3.8:\r\n```python\r\nfrom pytest import raises, skip\r\nimport sys\r\nif sys.version_info < (3, 8):\r\n    skip(msg=\"Requires Python >= 3.8\", allow_module_level=True)\r\n\r\n# import must be after the module level skip:\r\nfrom pos_only import *\r\n\r\ndef test_foo():\r\n    assert foo(10, 20) == 30\r\n    assert foo(10, b=20) == 30\r\n    with raises(TypeError):\r\n        assert foo(a=10, b=20)\r\n```\r\n\r\nMy actual test involves parameterize and a 3.8 only class, so skipping the test itself is not sufficient because the 3.8 class was used in the parameterization.\r\n\r\nA naive user will try to initially skip the module like:\r\n\r\n```python\r\nif sys.version_info < (3, 8):\r\n    skip(msg=\"Requires Python >= 3.8\")\r\n```\r\nThis issues this error:\r\n\r\n>Using pytest.skip outside of a test is not allowed. To decorate a test function, use the @pytest.mark.skip or @pytest.mark.skipif decorators instead, and to skip a module use `pytestmark = pytest.mark.{skip,skipif}.\r\n\r\nThe proposed solution `pytestmark = pytest.mark.{skip,skipif}`, does not work  in my case: pytest continues to process the file and fail when it hits the 3.8 syntax (when running with an older version of Python).\r\n\r\nThe correct solution, to use skip as a function is actively discouraged by the error message.\r\n\r\nThis area feels a bit unpolished.\r\nA few ideas to improve:\r\n\r\n1. Explain skip with  `allow_module_level` in the error message. this seems in conflict with the spirit of the message.\r\n2. Create an alternative API to skip a module to make things easier: `skip_module(\"reason\")`, which can call `_skip(msg=msg, allow_module_level=True)`.\r\n\r\n\n",
+  "developer_reference_patch": "diff --git a/src/_pytest/python.py b/src/_pytest/python.py\n--- a/src/_pytest/python.py\n+++ b/src/_pytest/python.py\n@@ -608,10 +608,10 @@ def _importtestmodule(self):\n             if e.allow_module_level:\n                 raise\n             raise self.CollectError(\n-                \"Using pytest.skip outside of a test is not allowed. \"\n-                \"To decorate a test function, use the @pytest.mark.skip \"\n-                \"or @pytest.mark.skipif decorators instead, and to skip a \"\n-                \"module use `pytestmark = pytest.mark.{skip,skipif}.\"\n+                \"Using pytest.skip outside of a test will skip the entire module. \"\n+                \"If that's your intention, pass `allow_module_level=True`. \"\n+                \"If you want to skip a specific test or an entire class, \"\n+                \"use the @pytest.mark.skip or @pytest.mark.skipif decorators.\"\n             ) from e\n         self.config.pluginmanager.consider_module(mod)\n         return mod\n",
+  "unique_submitted_patches": [
+    {
+      "sha256": "50ce39ac8f699ffb4e6e8d4adbcbd8801cb55718b1d4ea8a9c7b6a5b9b24779d",
+      "patch": "--- a/src/_pytest/python.py\n+++ b/src/_pytest/python.py\n@@ -607,11 +607,11 @@ class Module(nodes.File, PyCollector):\n         except skip.Exception as e:\n             if e.allow_module_level:\n                 raise\n             raise self.CollectError(\n-                \"Using pytest.skip outside of a test is not allowed. \"\n-                \"To decorate a test function, use the @pytest.mark.skip \"\n-                \"or @pytest.mark.skipif decorators instead, and to skip a \"\n-                \"module use `pytestmark = pytest.mark.{skip,skipif}.\"\n+                \"Using pytest.skip outside of a test will skip the entire module. \"\n+                \"If that's your intention, pass `allow_module_level=True`. \"\n+                \"If you want to skip a specific test or an entire class, \"\n+                \"use the @pytest.mark.skip or @pytest.mark.skipif decorators.\"\n             ) from e\n         self.config.pluginmanager.consider_module(mod)\n         return mod\n",
+      "arms": [
+        "A",
+        "C",
+        "D",
+        "E"
+      ]
+    },
+    {
+      "sha256": "e4345591f663365339ebf5f14c0a48e8e8ef7d62ced9c8ca76920989dc396677",
+      "patch": "--- a/src/_pytest/python.py\n+++ b/src/_pytest/python.py\n@@ -608,10 +608,13 @@ class Module(nodes.File, PyCollector):\n             if e.allow_module_level:\n                 raise\n             raise self.CollectError(\n-                \"Using pytest.skip outside of a test is not allowed. \"\n-                \"To decorate a test function, use the @pytest.mark.skip \"\n-                \"or @pytest.mark.skipif decorators instead, and to skip a \"\n-                \"module use `pytestmark = pytest.mark.{skip,skipif}.\"\n+                \"Using pytest.skip outside of a test is not allowed. \"\n+                \"Using pytest.skip outside of a test will skip the entire module. \"\n+                \"If that's your intention, pass `allow_module_level=True`. \"\n+                \"If you want to skip a specific test or an entire class, \"\n+                \"use the @pytest.mark.skip or @pytest.mark.skipif decorators. \"\n+                \"To skip the module, use `pytestmark = pytest.mark.{skip,skipif}` \"\n+                \"or `pytest.skip(..., allow_module_level=True)`.\"\n             ) from e\n         self.config.pluginmanager.consider_module(mod)\n         return mod\n",
+      "arms": [
+        "B"
+      ]
+    }
+  ],
+  "submissions": {
+    "A": {
+      "patch_sha256": "50ce39ac8f699ffb4e6e8d4adbcbd8801cb55718b1d4ea8a9c7b6a5b9b24779d",
+      "official_status": "ambiguous_error",
+      "generation_status": "completed",
+      "route": "fixed",
+      "source_matrix": "runs\\test20_A_20261112_01\\matrix.json"
+    },
+    "B": {
+      "patch_sha256": "e4345591f663365339ebf5f14c0a48e8e8ef7d62ced9c8ca76920989dc396677",
+      "official_status": "ambiguous_error",
+      "generation_status": "budget_exhausted",
+      "route": "standalone",
+      "source_matrix": "runs\\test20_B_20261112_02\\matrix.json"
+    },
+    "C": {
+      "patch_sha256": "50ce39ac8f699ffb4e6e8d4adbcbd8801cb55718b1d4ea8a9c7b6a5b9b24779d",
+      "official_status": "ambiguous_error",
+      "generation_status": "completed",
+      "route": "interactive",
+      "source_matrix": "runs\\test20_C_20261112_01\\matrix.json"
+    },
+    "D": {
+      "patch_sha256": "50ce39ac8f699ffb4e6e8d4adbcbd8801cb55718b1d4ea8a9c7b6a5b9b24779d",
+      "official_status": "ambiguous_error",
+      "generation_status": "completed",
+      "route": "interactive",
+      "source_matrix": "runs\\test20_D_20261112_01\\matrix.json"
+    },
+    "E": {
+      "patch_sha256": "50ce39ac8f699ffb4e6e8d4adbcbd8801cb55718b1d4ea8a9c7b6a5b9b24779d",
+      "official_status": "ambiguous_error",
+      "generation_status": "completed",
+      "route": "fixed",
+      "source_matrix": "runs\\test20_E_20261112_01\\matrix.json"
+    }
+  },
+  "generation_import_prohibited": true,
+  "reference_is_not_a_textual_equality_oracle": true
+}

@@ -1,0 +1,248 @@
+{
+  "kind": "resource_screen_baseline_observations",
+  "status": "retained_original_run_requires_corrected_public_environment_rerun",
+  "matrix": "runs/dev_screen_baseline_20261111_01/matrix.json",
+  "matrix_sha256": "1cc50839dc763216c5933c34597a8ae19ee52b1fb0edeef85118e4e45d7999c2",
+  "cases": [
+    {
+      "instance_id": "pydicom__pydicom-1256",
+      "status": "budget_exhausted",
+      "paired_eligible": true,
+      "stages": [
+        {
+          "stage": "prefix",
+          "status": "completed",
+          "termination_reason": null,
+          "new_model_requests": 3,
+          "output_length_stops": 0,
+          "candidate_count": 2,
+          "valid_candidates": 2,
+          "submitted_diff_lines": 12,
+          "cost_cny": 0.0263782,
+          "budget_consumed": {
+            "token": 11682,
+            "model_call": 3,
+            "tool_call": 14,
+            "wallclock_seconds": 34.95398070000374
+          }
+        },
+        {
+          "stage": "fixed",
+          "status": "completed",
+          "termination_reason": "fixed_step_limit",
+          "new_model_requests": 6,
+          "output_length_stops": 0,
+          "candidate_count": 8,
+          "valid_candidates": 8,
+          "submitted_diff_lines": 12,
+          "cost_cny": 0.012277640000000001,
+          "budget_consumed": {
+            "token": 48699,
+            "model_call": 9,
+            "tool_call": 38,
+            "wallclock_seconds": 61.921028199998545
+          }
+        },
+        {
+          "stage": "interactive",
+          "status": "completed",
+          "termination_reason": "finish_tool",
+          "new_model_requests": 5,
+          "output_length_stops": 0,
+          "candidate_count": 3,
+          "valid_candidates": 3,
+          "submitted_diff_lines": 12,
+          "cost_cny": 0.00638108,
+          "budget_consumed": {
+            "token": 34726,
+            "model_call": 8,
+            "tool_call": 23,
+            "wallclock_seconds": 45.86149480000313
+          }
+        },
+        {
+          "stage": "standalone",
+          "status": "budget_exhausted",
+          "termination_reason": "model_call_budget",
+          "new_model_requests": 6,
+          "output_length_stops": 0,
+          "candidate_count": 1,
+          "valid_candidates": 1,
+          "submitted_diff_lines": 12,
+          "cost_cny": 0.0085782,
+          "budget_consumed": {
+            "token": 15370,
+            "model_call": 6,
+            "tool_call": 9,
+            "wallclock_seconds": 11.22814720000315
+          }
+        }
+      ]
+    },
+    {
+      "instance_id": "pylint-dev__astroid-1866",
+      "status": "budget_exhausted",
+      "paired_eligible": true,
+      "stages": [
+        {
+          "stage": "prefix",
+          "status": "completed",
+          "termination_reason": null,
+          "new_model_requests": 3,
+          "output_length_stops": 0,
+          "candidate_count": 2,
+          "valid_candidates": 2,
+          "submitted_diff_lines": 10,
+          "cost_cny": 0.03825596,
+          "budget_consumed": {
+            "token": 36286,
+            "model_call": 3,
+            "tool_call": 15,
+            "wallclock_seconds": 37.47807549999561
+          }
+        },
+        {
+          "stage": "fixed",
+          "status": "completed",
+          "termination_reason": "fixed_step_limit",
+          "new_model_requests": 6,
+          "output_length_stops": 0,
+          "candidate_count": 8,
+          "valid_candidates": 8,
+          "submitted_diff_lines": 10,
+          "cost_cny": 0.12939435999999999,
+          "budget_consumed": {
+            "token": 247440,
+            "model_call": 9,
+            "tool_call": 39,
+            "wallclock_seconds": 201.7845840999944
+          }
+        },
+        {
+          "stage": "interactive",
+          "status": "budget_exhausted",
+          "termination_reason": "model_call_budget",
+          "new_model_requests": 6,
+          "output_length_stops": 0,
+          "candidate_count": 4,
+          "valid_candidates": 4,
+          "submitted_diff_lines": 10,
+          "cost_cny": 0.042435600000000004,
+          "budget_consumed": {
+            "token": 143103,
+            "model_call": 9,
+            "tool_call": 29,
+            "wallclock_seconds": 65.53336750000017
+          }
+        },
+        {
+          "stage": "standalone",
+          "status": "budget_exhausted",
+          "termination_reason": "model_call_budget",
+          "new_model_requests": 6,
+          "output_length_stops": 0,
+          "candidate_count": 2,
+          "valid_candidates": 2,
+          "submitted_diff_lines": 15,
+          "cost_cny": 0.00837116,
+          "budget_consumed": {
+            "token": 16705,
+            "model_call": 6,
+            "tool_call": 14,
+            "wallclock_seconds": 13.821193300005689
+          }
+        }
+      ]
+    },
+    {
+      "instance_id": "pyvista__pyvista-4315",
+      "status": "budget_exhausted",
+      "paired_eligible": true,
+      "stages": [
+        {
+          "stage": "prefix",
+          "status": "completed",
+          "termination_reason": null,
+          "new_model_requests": 3,
+          "output_length_stops": 0,
+          "candidate_count": 2,
+          "valid_candidates": 2,
+          "submitted_diff_lines": 21,
+          "cost_cny": 0.03656816,
+          "budget_consumed": {
+            "token": 23658,
+            "model_call": 3,
+            "tool_call": 15,
+            "wallclock_seconds": 51.299615200005064
+          }
+        },
+        {
+          "stage": "fixed",
+          "status": "completed",
+          "termination_reason": "fixed_step_limit",
+          "new_model_requests": 6,
+          "output_length_stops": 0,
+          "candidate_count": 8,
+          "valid_candidates": 8,
+          "submitted_diff_lines": 21,
+          "cost_cny": 0.18469164,
+          "budget_consumed": {
+            "token": 190041,
+            "model_call": 9,
+            "tool_call": 45,
+            "wallclock_seconds": 276.17007130000275
+          }
+        },
+        {
+          "stage": "interactive",
+          "status": "budget_exhausted",
+          "termination_reason": "model_call_budget",
+          "new_model_requests": 6,
+          "output_length_stops": 0,
+          "candidate_count": 3,
+          "valid_candidates": 3,
+          "submitted_diff_lines": 21,
+          "cost_cny": 0.045058,
+          "budget_consumed": {
+            "token": 112594,
+            "model_call": 9,
+            "tool_call": 25,
+            "wallclock_seconds": 88.01659420000215
+          }
+        },
+        {
+          "stage": "standalone",
+          "status": "budget_exhausted",
+          "termination_reason": "model_call_budget",
+          "new_model_requests": 6,
+          "output_length_stops": 0,
+          "candidate_count": 1,
+          "valid_candidates": 1,
+          "submitted_diff_lines": 45,
+          "cost_cny": 0.013279280000000001,
+          "budget_consumed": {
+            "token": 20004,
+            "model_call": 6,
+            "tool_call": 10,
+            "wallclock_seconds": 19.20819119999942
+          }
+        }
+      ]
+    }
+  ],
+  "baseline_new_generation_cny": 0.55166928,
+  "batch_recorded_estimate_cny": 0.55175828,
+  "budget_overruns": [],
+  "fingerprints_observed": [
+    "bc19ba97cbe016479903222bb1578db6"
+  ],
+  "identity_violation": null,
+  "ledger_pending": null,
+  "official_verdicts_available": false,
+  "environment_issue": "PyVista unchanged baseline has three public failures from missing tqdm/meshio; see public extended baseline classification. Do not treat them as new patch logic failures or use old environment data as corrected-screen scores.",
+  "next_action": "Prepare corrected public image, rerun all three with a new tag/config before screen selection; preserve original files and charges.",
+  "output_cap_observation": "No finish_reason=length in this run; no evidence here for raising max output tokens.",
+  "session_cap_observation": "Five of six interactive/standalone sessions ended at the six-call cap; valid candidates were retained. Cap exhaustion alone is not proof of model inability.",
+  "formal_generation_started": false,
+  "user_stop_checkpoint": "Freeze honestly after DEV calibration; close owned processes; defer formal generation to explicit future resume."
+}

@@ -1,0 +1,22 @@
+{
+  "kind": "user_requested_uniform_off_peak_comparative_cost_reporting",
+  "user_instruction": "E组价格按照相关费用规定换算为低谷时段价格",
+  "at": "2026-11-12T01:09:03.424469+00:00",
+  "model": "deepseek-flash",
+  "price_source": "src/swe_repair/pricing.py",
+  "price_source_sha256": "561ffd2040541887e3b61949bd5d3ac1dc2400fa91312ce6210facf4c29630db",
+  "price_table_date": "2026-10-15",
+  "cny_per_million_tokens": {
+    "cache_hit": 0.02,
+    "cache_miss": 1.0,
+    "output": 4.0
+  },
+  "method": "Recompute every E request by recorded token classes; retain off-peak prefix and off-peak requests at original rate. Never divide the mixed whole-arm total by two. Report actual new generation and full strategy cost separately.",
+  "all_other_arms_already_off_peak": true,
+  "original_ledger_and_actual_time_tier_estimates_preserved": true,
+  "actual_100_cny_guard_not_reduced_by_normalisation": true,
+  "generation_config_budget_router_or_predictions_changed": false,
+  "hidden_formal_results_read": false,
+  "main_comparative_report_basis": "uniform_frozen_off_peak_prices",
+  "original_preregistered_raw_summary_preserved": true
+}

@@ -1,0 +1,32 @@
+{
+  "kind": "safe_shutdown_and_consistent_checkpoint",
+  "completed_at": "2026-11-11T22:50:02.048493+08:00",
+  "docker_desktop_stop_exit_code": 0,
+  "docker_wsl_running": false,
+  "experiment_containers_remaining": [],
+  "model_pending": null,
+  "image_tag_rows_preserved": 10,
+  "corrected_pyvista_included": true,
+  "active_data_directory_preserved": "D:\\DockerData\\swe-repair-20261111\\DockerDesktopWSL",
+  "current_checkpoint_backup": "D:\\DockerBackups\\swe-repair-20261111-stopped",
+  "files": [
+    {
+      "source": "D:\\DockerData\\swe-repair-20261111\\DockerDesktopWSL\\disk\\docker_data.vhdx",
+      "checkpoint_backup": "D:\\DockerBackups\\swe-repair-20261111-stopped\\disk\\docker_data.vhdx",
+      "size_bytes": 16726884352,
+      "sha256": "825e1c24741915747953896d917d27ca7780544de83f64595646e89afbb70e5a",
+      "elapsed_seconds": 67.549
+    },
+    {
+      "source": "D:\\DockerData\\swe-repair-20261111\\DockerDesktopWSL\\main\\ext4.vhdx",
+      "checkpoint_backup": "D:\\DockerBackups\\swe-repair-20261111-stopped\\main\\ext4.vhdx",
+      "size_bytes": 100663296,
+      "sha256": "d39830566eb7f8d4aa1aec8a65aac03901b9430e632eb3e925bdd33009a6e8be",
+      "elapsed_seconds": 0.265
+    }
+  ],
+  "earlier_pre_move_backup_preserved": "D:\\DockerBackups\\swe-repair-20261111-pre-move",
+  "no_images_or_volumes_deleted": true,
+  "configuration_frozen": false,
+  "requires_explicit_user_resume": true
+}

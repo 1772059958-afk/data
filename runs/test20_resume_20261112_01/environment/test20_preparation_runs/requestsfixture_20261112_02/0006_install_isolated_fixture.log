@@ -1,0 +1,18 @@
+Looking in links: /tmp/public-fixture-wheels
+Processing /tmp/public-fixture-wheels/httpbin-0.5.0-py2.py3-none-any.whl
+Processing /tmp/public-fixture-wheels/Flask-1.1.4-py2.py3-none-any.whl
+Processing /tmp/public-fixture-wheels/Werkzeug-0.16.1-py2.py3-none-any.whl
+Processing /tmp/public-fixture-wheels/Jinja2-2.11.3-py2.py3-none-any.whl
+Processing /tmp/public-fixture-wheels/MarkupSafe-2.0.1-cp39-cp39-manylinux1_x86_64.whl
+Processing /tmp/public-fixture-wheels/itsdangerous-1.1.0-py2.py3-none-any.whl
+Processing /tmp/public-fixture-wheels/click-7.1.2-py2.py3-none-any.whl
+Processing /tmp/public-fixture-wheels/decorator-4.4.2-py2.py3-none-any.whl
+Processing /tmp/public-fixture-wheels/six-1.16.0-py2.py3-none-any.whl
+Processing /tmp/public-fixture-wheels/gunicorn-20.1.0-py3-none-any.whl
+Processing /tmp/public-fixture-wheels/setuptools-68.0.0-py3-none-any.whl
+Installing collected packages: httpbin, Werkzeug, six, setuptools, MarkupSafe, Jinja2, itsdangerous, gunicorn, Flask, decorator, click
+  Attempting uninstall: setuptools
+    Found existing installation: setuptools 58.1.0
+    Uninstalling setuptools-58.1.0:
+      Successfully uninstalled setuptools-58.1.0
+Successfully installed Flask-1.1.4 Jinja2-2.11.3 MarkupSafe-2.0.1 Werkzeug-0.16.1 click-7.1.2 decorator-4.4.2 gunicorn-20.1.0 httpbin-0.5.0 itsdangerous-1.1.0 setuptools-68.0.0 six-1.16.0

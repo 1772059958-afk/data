@@ -1,0 +1,12 @@
+{"event":"docker_wsl_unregistered","authorized_base":"D:\\DockerData\\swe-repair-20261111\\DockerDesktopWSL\\main","at":"2026-11-12T21:53:26.0694669+08:00"}
+{"event":"authorized_target_deleted","path":"D:\\DockerData\\swe-repair-20261111\\DockerDesktopWSL","at":"2026-11-12T21:53:26.1198103+08:00"}
+{"event":"authorized_target_deleted","path":"E:\\DockerBackups\\swe-repair-20261111-pre-move","at":"2026-11-12T21:53:26.1320170+08:00"}
+{"event":"authorized_target_deleted","path":"E:\\DockerBackups\\swe-repair-20261111-stopped","at":"2026-11-12T21:53:26.9546231+08:00"}
+{"event":"authorized_target_deleted","path":"D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112","at":"2026-11-12T21:53:27.0501074+08:00"}
+{"event":"authorized_target_deleted","path":"D:\\CodexExperimentCache\\test20_20261111\\dependency_wheels","at":"2026-11-12T21:53:27.0755423+08:00"}
+{"event":"authorized_target_deleted","path":"D:\\CodexExperimentCache\\test20_20261111\\formal_compat_wheels_20261112","at":"2026-11-12T21:53:27.0914743+08:00"}
+{"event":"authorized_target_deleted","path":"D:\\CodexExperimentCache\\test20_20261111\\mpl_compat_wheels_20261112_04","at":"2026-11-12T21:53:27.0988741+08:00"}
+{"event":"authorized_target_deleted","path":"D:\\CodexExperimentCache\\test20_20261111\\mpl_compat_wheels_20261112_05","at":"2026-11-12T21:53:27.1063458+08:00"}
+{"event":"authorized_target_deleted","path":"D:\\CodexExperimentCache\\test20_20261111\\requests_fixture_wheels_20261112","at":"2026-11-12T21:53:27.1190650+08:00"}
+{"event":"authorized_target_deleted","path":"D:\\CodexExperimentCache\\test20_20261111\\requests_pytest_transitives_20261112_06","at":"2026-11-12T21:53:27.1266844+08:00"}
+{"event":"authorized_target_deleted","path":"D:\\CodexExperimentCache\\test20_20261111\\requests_pytest_transitives_20261112_07","at":"2026-11-12T21:53:27.1342784+08:00"}

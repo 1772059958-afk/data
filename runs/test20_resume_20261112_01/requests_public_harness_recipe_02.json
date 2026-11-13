@@ -1,0 +1,5 @@
+{
+  "exit_code": 1,
+  "public_recipe": null,
+  "stderr": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\nImportError: cannot import name 'MAP_REPO_VERSION_TO_SPECS' from 'swebench.harness.constants' (/opt/scoring/lib/python3.11/site-packages/swebench/harness/constants/__init__.py)\n"
+}

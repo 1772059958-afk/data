@@ -1,0 +1,12 @@
+{
+  "command": "python scripts/run_offline_tests.py",
+  "exit_code": 0,
+  "elapsed_seconds": 4.385,
+  "python": "3.14.2",
+  "source_sha256": {
+    "scripts\\run_cf.py": "8b6c9cc5d5208713b7d2b4e94c82c7aa8c9a9c7bd39bb44fb56b51d9d2c8d32d",
+    "scripts\\summarize_single_run.py": "a4b83b781194b9de24edc48f193309152d4b1f631f29f79212c87ee36f84f387",
+    "tests\\test_single_run_design.py": "a058562b2210a5a9301456714e41dcb966fc699769f65825b316898d452dd4f0",
+    "tests\\test_single_run_summary.py": "3dd69fd171cc9c5e7c9b4ec74ebb17c29fba89bbefd7651e6872592bc7ae6c7f"
+  }
+}

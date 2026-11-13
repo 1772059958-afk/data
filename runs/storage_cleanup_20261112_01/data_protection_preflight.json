@@ -1,0 +1,31 @@
+{
+  "authorization": "清理D盘活动Docker环境、E盘两份旧Docker冷备份、D盘镜像和依赖缓存",
+  "archives_reverified": [
+    {
+      "path": "E:\\DockerBackups\\project-session-20261112-02\\project-session-20261112-02.zip",
+      "sha256": "fb23b9e44403fdb26ab8635e8e68ed67ba43d1d8a18d21df0e7bbd3ba0e4b3b4",
+      "size_bytes": 740324328,
+      "files": 4046,
+      "zip_crc_verified": true,
+      "every_entry_sha256_verified": true
+    },
+    {
+      "path": "E:\\DockerBackups\\project-final-20261112-01\\project-final-20261112-01.zip",
+      "sha256": "eea2bd03d43f876724134adfca4526c758315e147310ed4026fa9713ed622171",
+      "size_bytes": 766499205,
+      "files": 4227,
+      "zip_crc_verified": true,
+      "every_entry_sha256_verified": true
+    }
+  ],
+  "ledger_sha256": "339bf28d4e5ee0153083d983003db05ef0ab7f77569cc78ac6731816949b6105",
+  "pending": null,
+  "formal100_prediction_seal_reverified": true,
+  "ppt_sha256": "1cca57db829394390902f297d8cc96b3272fea889f44433b2057b8563bd1e826",
+  "free_before_bytes": {
+    "C": 11677888512,
+    "D": 47298138112,
+    "E": 54128197632
+  },
+  "preserve": "All C project data, both E project ZIP archives, public-source cache and checkpoint provenance; no model calls or Docker startup."
+}
