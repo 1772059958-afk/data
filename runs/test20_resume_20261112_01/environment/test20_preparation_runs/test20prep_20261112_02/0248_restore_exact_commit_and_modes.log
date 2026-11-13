@@ -1,0 +1,1 @@
+HEAD is now at 397c170 Don't emit ``super-init-not-called`` for abstract ``__init__`` methods (#7227)

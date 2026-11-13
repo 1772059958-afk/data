@@ -1,0 +1,24 @@
+{
+  "different_toml_fields": [
+    "build-system.requires"
+  ],
+  "only_build_requirements_changed": true,
+  "original_build_requirements": [
+    "setuptools",
+    "setuptools_scm>=6.2",
+    "cython==0.29.34",
+    "oldest-supported-numpy",
+    "extension-helpers"
+  ],
+  "official_build_requirements": [
+    "setuptools==68.0.0",
+    "setuptools_scm>=6.2",
+    "cython==0.29.34",
+    "oldest-supported-numpy",
+    "extension-helpers"
+  ],
+  "instance_id": "astropy__astropy-14995",
+  "public_config_only": true,
+  "model_calls": 0,
+  "hidden_patch_contents_read": false
+}

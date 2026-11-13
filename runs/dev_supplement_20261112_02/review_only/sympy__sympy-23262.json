@@ -1,0 +1,66 @@
+{
+  "kind": "review_only_after_all_formal_predictions_sealed",
+  "instance_id": "sympy__sympy-23262",
+  "repo": "sympy/sympy",
+  "base_commit": "fdc707f73a65a429935c01532cd3970d3355eab6",
+  "issue": "Python code printer not respecting tuple with one element\nHi,\r\n\r\nThanks for the recent updates in SymPy! I'm trying to update my code to use SymPy 1.10 but ran into an issue with the Python code printer. MWE:\r\n\r\n\r\n```python\r\nimport inspect\r\nfrom sympy import lambdify\r\n\r\ninspect.getsource(lambdify([], tuple([1])))\r\n```\r\nSymPy 1.9 and under outputs:\r\n```\r\n'def _lambdifygenerated():\\n    return (1,)\\n'\r\n```\r\n\r\nBut SymPy 1.10 gives\r\n\r\n```\r\n'def _lambdifygenerated():\\n    return (1)\\n'\r\n```\r\nNote the missing comma after `1` that causes an integer to be returned instead of a tuple. \r\n\r\nFor tuples with two or more elements, the generated code is correct:\r\n```python\r\ninspect.getsource(lambdify([], tuple([1, 2])))\r\n```\r\nIn SymPy  1.10 and under, outputs:\r\n\r\n```\r\n'def _lambdifygenerated():\\n    return (1, 2)\\n'\r\n```\r\nThis result is expected.\r\n\r\nNot sure if this is a regression. As this breaks my program which assumes the return type to always be a tuple, could you suggest a workaround from the code generation side? Thank you. \n",
+  "developer_reference_patch": "diff --git a/sympy/utilities/lambdify.py b/sympy/utilities/lambdify.py\n--- a/sympy/utilities/lambdify.py\n+++ b/sympy/utilities/lambdify.py\n@@ -956,9 +956,9 @@ def _recursive_to_string(doprint, arg):\n         return doprint(arg)\n     elif iterable(arg):\n         if isinstance(arg, list):\n-            left, right = \"[]\"\n+            left, right = \"[\", \"]\"\n         elif isinstance(arg, tuple):\n-            left, right = \"()\"\n+            left, right = \"(\", \",)\"\n         else:\n             raise NotImplementedError(\"unhandled type: %s, %s\" % (type(arg), arg))\n         return left +', '.join(_recursive_to_string(doprint, e) for e in arg) + right\n",
+  "unique_submitted_patches": [
+    {
+      "sha256": "57f04b653645bf5fbd2dac3426585b93dbab6502769727625a47493afaa224f5",
+      "patch": "--- a/sympy/printing/pycode.py\n+++ b/sympy/printing/pycode.py\n@@ -327,5 +327,13 @@ class AbstractPythonCodePrinter(CodePrinter):\n     def _print_NoneToken(self, arg):\n         return 'None'\n \n+    def _print_tuple(self, expr):\n+        args = getattr(expr, 'args', expr)\n+        if len(args) == 1:\n+            return \"({},)\".format(self._print(args[0]))\n+        return \"({})\".format(\", \".join(map(self._print, args)))\n+\n+    _print_Tuple = _print_tuple\n+\n     def _hprint_Pow(self, expr, rational=False, sqrt='math.sqrt'):\n         \"\"\"Printing helper function for ``Pow``\n",
+      "arms": [
+        "A",
+        "C",
+        "D",
+        "E"
+      ]
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch": "",
+      "arms": [
+        "B"
+      ]
+    }
+  ],
+  "submissions": {
+    "A": {
+      "patch_sha256": "57f04b653645bf5fbd2dac3426585b93dbab6502769727625a47493afaa224f5",
+      "official_status": "unresolved",
+      "generation_status": "environment_error",
+      "route": "stop",
+      "source_matrix": "runs\\test20_A_20261112_01\\matrix.json"
+    },
+    "B": {
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "official_status": "empty_patch",
+      "generation_status": "budget_exhausted",
+      "route": "standalone",
+      "source_matrix": "runs\\test20_B_20261112_02\\matrix.json"
+    },
+    "C": {
+      "patch_sha256": "57f04b653645bf5fbd2dac3426585b93dbab6502769727625a47493afaa224f5",
+      "official_status": "unresolved",
+      "generation_status": "environment_error",
+      "route": "stop",
+      "source_matrix": "runs\\test20_C_20261112_01\\matrix.json"
+    },
+    "D": {
+      "patch_sha256": "57f04b653645bf5fbd2dac3426585b93dbab6502769727625a47493afaa224f5",
+      "official_status": "unresolved",
+      "generation_status": "environment_error",
+      "route": "stop",
+      "source_matrix": "runs\\test20_D_20261112_01\\matrix.json"
+    },
+    "E": {
+      "patch_sha256": "57f04b653645bf5fbd2dac3426585b93dbab6502769727625a47493afaa224f5",
+      "official_status": "unresolved",
+      "generation_status": "environment_error",
+      "route": "stop",
+      "source_matrix": "runs\\test20_E_20261112_01\\matrix.json"
+    }
+  },
+  "generation_import_prohibited": true,
+  "reference_is_not_a_textual_equality_oracle": true
+}

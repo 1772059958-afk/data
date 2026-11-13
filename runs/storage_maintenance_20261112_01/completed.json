@@ -1,0 +1,73 @@
+{
+  "kind": "verified_cache_cleanup_and_cold_backup_relocation",
+  "backups": [
+    {
+      "target_sha256": "7bc259938a0168dfc3a8efdc99b617fac21779bcbbfe9d3e220460767bab0cf3",
+      "target": "E:\\DockerBackups\\swe-repair-20261111-pre-move\\disk\\docker_data.vhdx",
+      "source": "D:\\DockerBackups\\swe-repair-20261111-pre-move\\disk\\docker_data.vhdx",
+      "expected_bytes": 16726884352,
+      "source_sha256": "7bc259938a0168dfc3a8efdc99b617fac21779bcbbfe9d3e220460767bab0cf3",
+      "last_write_utc": "2026-11-11T13:43:21.2613902Z",
+      "expected_sha256": "7bc259938a0168dfc3a8efdc99b617fac21779bcbbfe9d3e220460767bab0cf3"
+    },
+    {
+      "target_sha256": "a3ed6c305f2e1e0b1a21650087ae412318a209d754d59abb25b39638c3775009",
+      "target": "E:\\DockerBackups\\swe-repair-20261111-pre-move\\main\\ext4.vhdx",
+      "source": "D:\\DockerBackups\\swe-repair-20261111-pre-move\\main\\ext4.vhdx",
+      "expected_bytes": 100663296,
+      "source_sha256": "a3ed6c305f2e1e0b1a21650087ae412318a209d754d59abb25b39638c3775009",
+      "last_write_utc": "2026-11-11T13:43:47.2397629Z",
+      "expected_sha256": "a3ed6c305f2e1e0b1a21650087ae412318a209d754d59abb25b39638c3775009"
+    },
+    {
+      "target_sha256": "825e1c24741915747953896d917d27ca7780544de83f64595646e89afbb70e5a",
+      "target": "E:\\DockerBackups\\swe-repair-20261111-stopped\\disk\\docker_data.vhdx",
+      "source": "D:\\DockerBackups\\swe-repair-20261111-stopped\\disk\\docker_data.vhdx",
+      "expected_bytes": 16726884352,
+      "source_sha256": "825e1c24741915747953896d917d27ca7780544de83f64595646e89afbb70e5a",
+      "last_write_utc": "2026-11-11T14:49:38.4592983Z",
+      "expected_sha256": "825e1c24741915747953896d917d27ca7780544de83f64595646e89afbb70e5a"
+    },
+    {
+      "target_sha256": "d39830566eb7f8d4aa1aec8a65aac03901b9430e632eb3e925bdd33009a6e8be",
+      "target": "E:\\DockerBackups\\swe-repair-20261111-stopped\\main\\ext4.vhdx",
+      "source": "D:\\DockerBackups\\swe-repair-20261111-stopped\\main\\ext4.vhdx",
+      "expected_bytes": 100663296,
+      "source_sha256": "d39830566eb7f8d4aa1aec8a65aac03901b9430e632eb3e925bdd33009a6e8be",
+      "last_write_utc": "2026-11-11T14:50:01.8574238Z",
+      "expected_sha256": "d39830566eb7f8d4aa1aec8a65aac03901b9430e632eb3e925bdd33009a6e8be"
+    }
+  ],
+  "after": [
+    {
+      "free_bytes": 47481786368,
+      "drive": "D",
+      "used_bytes": 247491026944
+    },
+    {
+      "free_bytes": 55720984576,
+      "drive": "E",
+      "used_bytes": 968487153664
+    }
+  ],
+  "backup_files_moved": 4,
+  "before": [
+    {
+      "free_bytes": 12223467520,
+      "drive": "D",
+      "used_bytes": 282749345792
+    },
+    {
+      "free_bytes": 89376088064,
+      "drive": "E",
+      "used_bytes": 934832050176
+    }
+  ],
+  "partials_deleted": 4,
+  "completed_at": "2026-11-12T07:59:28.9993297+08:00",
+  "models_or_Docker_started": false,
+  "machine_shutdown_scheduled": false,
+  "active_Docker_data_moved": false,
+  "partial_bytes_reclaimed": 1603272704.0,
+  "backup_bytes_moved": 33655095296.0
+}

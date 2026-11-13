@@ -1,0 +1,247 @@
+{
+  "tag": "dev23_calibration_20261111_01",
+  "mode": "diagnostic",
+  "arm": "D",
+  "split": "dev",
+  "seed": 20261111,
+  "repeat_index": 0,
+  "calibration": true,
+  "designated_instances": [
+    "marshmallow-code__marshmallow-1343",
+    "marshmallow-code__marshmallow-1359",
+    "pvlib__pvlib-python-1072",
+    "pvlib__pvlib-python-1154",
+    "pvlib__pvlib-python-1606",
+    "pvlib__pvlib-python-1707",
+    "pvlib__pvlib-python-1854",
+    "pydicom__pydicom-1139",
+    "pydicom__pydicom-1256",
+    "pydicom__pydicom-1413",
+    "pydicom__pydicom-1694",
+    "pydicom__pydicom-901",
+    "pylint-dev__astroid-1196",
+    "pylint-dev__astroid-1268",
+    "pylint-dev__astroid-1333",
+    "pylint-dev__astroid-1866",
+    "pylint-dev__astroid-1978",
+    "pyvista__pyvista-4315",
+    "sqlfluff__sqlfluff-1517",
+    "sqlfluff__sqlfluff-1625",
+    "sqlfluff__sqlfluff-1733",
+    "sqlfluff__sqlfluff-1763",
+    "sqlfluff__sqlfluff-2419"
+  ],
+  "instance_list_sha256": "d0b3bd3bb53d0539faf5c7a5387f6ef153015fee3d156fc5eee15b79a6395c01",
+  "config_hash": "a39e8b212a570f6778ab924d88f2677279b87ee5ba0bfb281fde0a8d4450c639",
+  "effective_config": {
+    "config_version": "proposal_aligned_v1",
+    "prompt_version": "proposal_v1_error_feedback_20261030",
+    "status": "draft-pending-calibration",
+    "note": "Full DEV23 calibration draft for the next test20 single-run study. Inherited resource/amount fields are provisional development guards, not approved budgets or calibrated settings.",
+    "dataset": {
+      "name": "princeton-nlp/SWE-bench_Lite",
+      "revision": "6ec7bb89b9342f664a54a6e0a6ea6501d3437cc2",
+      "dev_split": "dev",
+      "test_split": "test",
+      "dev_instances": 23,
+      "test_instances": 300,
+      "manifest": "data/frozen/manifest.json"
+    },
+    "model": {
+      "model": "deepseek-flash",
+      "model_version": null,
+      "thinking": true,
+      "effort": "low",
+      "temperature": null,
+      "top_p": null,
+      "max_tokens": 16384,
+      "max_retries": 0,
+      "calibration": "pending"
+    },
+    "budget_tiers": [
+      {
+        "tier": "development",
+        "token": 512000,
+        "model_call": 12,
+        "tool_call": 80,
+        "wallclock_seconds": 1200
+      }
+    ],
+    "prefix": {
+      "n_candidates": 2,
+      "prefix_fraction": 0.3,
+      "prefix_fraction_grid": [
+        0.2,
+        0.3,
+        0.4
+      ],
+      "calibration": "pending"
+    },
+    "fixed_continuation": {
+      "max_candidates": 6,
+      "feedback": "structured",
+      "stop_on_public_pass": true,
+      "calibration": "pending"
+    },
+    "router": {
+      "rule_order": [
+        "stop_on_env_failure_after_one_recovery",
+        "stop_when_budget_insufficient",
+        "freeze_when_public_candidate_passes",
+        "fixed_on_local_application_or_syntax_error",
+        "interactive_on_wide_localization_disagreement",
+        "interactive_on_high_duplicate_rate",
+        "interactive_on_out_of_scope_stack_evidence",
+        "fixed_when_evidence_insufficient",
+        "fixed_continuation_otherwise"
+      ],
+      "localization_disagreement_threshold": null,
+      "duplicate_rate_threshold": null,
+      "threshold_grid": [
+        0.25,
+        0.5,
+        0.75
+      ],
+      "switch_probability": null,
+      "min_continuation": {
+        "token": 2048,
+        "model_call": 1,
+        "tool_call": 1,
+        "wallclock_seconds": 30
+      },
+      "calibration": "pending"
+    },
+    "interaction": {
+      "tools": [
+        "search_symbol",
+        "read_region",
+        "find_references",
+        "apply_patch",
+        "run_test",
+        "finish"
+      ],
+      "states": [
+        "analyse",
+        "edit",
+        "validate",
+        "finish"
+      ],
+      "stagnation_patience": 3,
+      "model_calls": 6,
+      "tool_calls": 10,
+      "wallclock_seconds": 420,
+      "final_call": "reserved_inside_limit"
+    },
+    "candidate_selection": {
+      "order": [
+        "scope_valid",
+        "syntax_valid",
+        "applies_cleanly",
+        "public_validation",
+        "fewer_files_touched",
+        "fewer_diff_lines",
+        "generation_order"
+      ],
+      "frozen": false
+    },
+    "evaluation": {
+      "harness": "SWE-bench official containerised harness",
+      "repeats": 3,
+      "primary_metric": "resolved_rate",
+      "denominator": "all designated instances",
+      "generation_view_fields": [
+        "problem_statement",
+        "base_commit",
+        "repo",
+        "version",
+        "environment_setup_commit"
+      ],
+      "withheld_from_generation": [
+        "patch",
+        "test_patch",
+        "FAIL_TO_PASS",
+        "PASS_TO_PASS"
+      ],
+      "frozen": false,
+      "instance_list": "data/frozen/instances_dev.txt",
+      "sampling": "full_split_or_preregistered_stratified_subset",
+      "environment_failures": "retain_in_primary_denominator",
+      "statistics": "dev_paired_diagnostic_only"
+    },
+    "arms": {
+      "A": "fixed workflow",
+      "B": "interactive only",
+      "C": "simple cascade (shared prefix, all eligible failures escalate)",
+      "D": "adaptive hybrid (shared prefix, evidence-based routing)",
+      "E": "random routing (switch probability fixed on dev split)"
+    },
+    "protocol": "docs/实验协议_开题对齐.md",
+    "active_tier": "development",
+    "execution": {
+      "live_authorized": false,
+      "per_instance_cny": 2.0,
+      "total_cny": 6.0,
+      "tool_call_unit": "container_exec",
+      "environment_retries": 1,
+      "environment_recovery": "retry_same_public_validation_no_install",
+      "output_root": "runs",
+      "modify_scope": "python_source_excluding_tests",
+      "prompt_estimator": "utf8_bytes_plus_1024",
+      "allowed_modes": [
+        "diagnostic"
+      ],
+      "allowed_splits": [
+        "dev"
+      ],
+      "allowed_instances": [
+        "marshmallow-code__marshmallow-1343",
+        "marshmallow-code__marshmallow-1359",
+        "pvlib__pvlib-python-1072",
+        "pvlib__pvlib-python-1154",
+        "pvlib__pvlib-python-1606",
+        "pvlib__pvlib-python-1707",
+        "pvlib__pvlib-python-1854",
+        "pydicom__pydicom-1139",
+        "pydicom__pydicom-1256",
+        "pydicom__pydicom-1413",
+        "pydicom__pydicom-1694",
+        "pydicom__pydicom-901",
+        "pylint-dev__astroid-1196",
+        "pylint-dev__astroid-1268",
+        "pylint-dev__astroid-1333",
+        "pylint-dev__astroid-1866",
+        "pylint-dev__astroid-1978",
+        "pyvista__pyvista-4315",
+        "sqlfluff__sqlfluff-1517",
+        "sqlfluff__sqlfluff-1625",
+        "sqlfluff__sqlfluff-1733",
+        "sqlfluff__sqlfluff-1763",
+        "sqlfluff__sqlfluff-2419"
+      ],
+      "max_instances": 23,
+      "credential_source": "project_dotenv",
+      "budget_status": "pending_new_authorization",
+      "batch_ledger": "runs/dev_calibration_20261111/batch_ledger.json"
+    },
+    "provenance": {
+      "code_sha256": "c3ee5225e683069d7b7aa46e8e470ec591ab1520767b35244ba5f404e406e609",
+      "git_commit": "9f1f90c5aee7aa492f4f137793f0feadcf9e2460",
+      "dataset_manifest_sha256": "30e1f10eafa8248cf02cf2752eae888e2ec896dcc0697da803ed99e04599d54c",
+      "instance_list_sha256": "d0b3bd3bb53d0539faf5c7a5387f6ef153015fee3d156fc5eee15b79a6395c01"
+    }
+  },
+  "formal_readiness_errors": [
+    "overall status is not frozen",
+    "model.calibration is not frozen",
+    "prefix.calibration is not frozen",
+    "router.calibration is not frozen",
+    "fixed_continuation.calibration is not frozen",
+    "candidate_selection.frozen is not true",
+    "evaluation.frozen is not true",
+    "served model version is not pinned",
+    "router thresholds or matched switch probability are pending"
+  ],
+  "live_authorized": false,
+  "execute": false,
+  "output_directory": "C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\runs\\dev23_calibration_20261111_01"
+}

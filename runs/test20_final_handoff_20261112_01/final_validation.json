@@ -1,0 +1,13 @@
+{
+  "preservation_ok": true,
+  "original_verified": 93,
+  "archive_verified": 131,
+  "formal_sealed_artifacts_unchanged": true,
+  "formal_source_snapshot_files_verified": 62,
+  "latest_offline_suite": "399/399 passed before supplemental execution; no subsequent generator/test changes",
+  "offline_log_sha256": "8fd2a3648182be712811ef6598ac4ba504f84a72d828c68d71cb45843012ca4a",
+  "preservation_log_sha256": "afbced2f537cf1a070591472b695a1eadb99db2f9edfe68bee3d5529467474a3",
+  "offline_suite_passed": true,
+  "offline_passed": 399,
+  "offline_total": 399
+}

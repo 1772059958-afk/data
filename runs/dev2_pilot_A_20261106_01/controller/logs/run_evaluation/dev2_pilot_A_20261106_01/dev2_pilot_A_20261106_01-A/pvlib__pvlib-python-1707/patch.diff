@@ -1,0 +1,15 @@
+--- a/pvlib/iam.py
++++ b/pvlib/iam.py
+@@ -214,4 +214,12 @@
+     # incidence angle modifier
+     iam = (tau_s + tau_p) / 2 / tau_0
+ 
++    # set to zero for AOI >= 90
++    iam = np.where(np.abs(aoi) >= 90, 0, iam)
++
++    if np.isscalar(aoi):
++        iam = iam.item()
++    elif isinstance(aoi, pd.Series):
++        iam = pd.Series(iam, index=aoi.index)
++
+     return iam

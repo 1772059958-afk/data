@@ -1,0 +1,8 @@
+{
+  "mwaskom__seaborn-2848": "sha256:35e4dfb23a6b6ae8cafd2e7ea27737383aeec900393aecade15642816c07836c",
+  "pallets__flask-4045": "sha256:5675924f3b37d0a4a3f9813160fbd06839eefa602077c1178548bb2f24dd4598",
+  "psf__requests-1963": "sha256:6716c827839feec2259b5eadb66a16813a9ad9bca78993702d901b1c6a80de78",
+  "pytest-dev__pytest-6116": "sha256:60e7cb54d9e4204edbd75f324cfdc48359d4021a40c1f46e7e9a068950f0ba17",
+  "scikit-learn__scikit-learn-11281": "sha256:b3cfff40aed0f36c348aa43ba7451e15d8ee73404e62af02ab0b8002d99983d2",
+  "sphinx-doc__sphinx-8595": "sha256:4e0787e6f511b15298cb30a75f9a067eb0c31f3dbc097859b70568cbc9c4cac7"
+}

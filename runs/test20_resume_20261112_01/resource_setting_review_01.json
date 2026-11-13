@@ -1,0 +1,16 @@
+{
+  "kind": "bounded_resource_setting_review",
+  "baseline": "runs/dev_screen_corrected_20261112_01/matrix.json",
+  "designated": 3,
+  "usable_flow": 3,
+  "prefix_legal_candidate_coverage": 3,
+  "output_length_truncations": 0,
+  "resource_alternative_executed": false,
+  "chosen_interaction_calls": 6,
+  "reason": "All three complete designated flows already usable. The predeclared strict usable-flow improvement requirement cannot exceed 3/3; retain baseline and do not spend on a ten-call alternative. Cap endings with legal submission remain separately recorded, not model incapacity.",
+  "official_verdicts_read": false,
+  "prefix_comparison_next": [
+    0.2,
+    0.4
+  ]
+}

@@ -122,6 +122,10 @@ def scoring_plan(run_dir: Path, *, max_workers: int = 3) -> tuple[dict, bytes, l
                    '--predictions_path', str(path), '--instance_ids', *matrix['designated_instances'],
                    '--run_id', identity['tag'], '--max_workers', str(max_workers),
                    '--report_dir', str(directory)]
+        if images := dataset['prepared_images']:
+            command = [sys.executable, str(ROOT / 'scripts/harness_prepared_images.py'),
+                       '--images', *sorted(set(images.values())), '--audit',
+                       str(directory / 'harness_entrypoint_adapter.json'), '--', *command[3:]]
         jobs.append({'arm': arm, **manifest, 'report_path': str(report_path),
                      'command': command, 'directory': str(directory), 'evaluation_dataset': dataset})
     if not jobs:
@@ -172,6 +176,12 @@ def execute_scoring(run_dir: Path, *, max_workers: int = 3, runner=None) -> list
         provenance['harness_environment'] = {'python': platform.python_version(), 'swebench': harness_version}
         provenance['harness_command'] = job['command']
         provenance['evaluation_dataset'] = dataset
+        if dataset['prepared_images']:
+            audit = directory / 'harness_entrypoint_adapter.json'
+            provenance['prepared_image_startup_adapter'] = {
+                'script_sha256': sha256_bytes((ROOT / 'scripts/harness_prepared_images.py').read_bytes()),
+                'audit_sha256': sha256_bytes(audit.read_bytes()),
+                'image_ids_and_rootfs_preserved': True}
         with sidecar_path(report_path).open('x', encoding='utf-8') as stream:
             json.dump(provenance, stream, ensure_ascii=False, indent=2)
         validate_artifact_files(run_dir / 'matrix.json', report_path, job['arm'], provenance)
@@ -251,6 +261,10 @@ def execute_controller(run_dir: Path, image: str, *, docker_context='desktop-lin
         validate_artifact_files(run_dir / 'matrix.json', report_path, job['arm'], provenance)
         matrix = json.loads((run_dir / 'matrix.json').read_bytes())
         validate_dataset_binding(matrix, run_dir, provenance)
+        if prepared := provenance.get('prepared_image_startup_adapter'):
+            if (prepared['script_sha256'] != sha256_bytes((ROOT / 'scripts/harness_prepared_images.py').read_bytes())
+                    or prepared['audit_sha256'] != sha256_bytes((report_path.parent / 'harness_entrypoint_adapter.json').read_bytes())):
+                raise ValueError('prepared image startup adapter identity changed')
         reports.append(str(report_path))
     return reports
 

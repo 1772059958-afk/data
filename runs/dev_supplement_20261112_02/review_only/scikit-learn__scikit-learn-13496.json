@@ -1,0 +1,66 @@
+{
+  "kind": "review_only_after_all_formal_predictions_sealed",
+  "instance_id": "scikit-learn__scikit-learn-13496",
+  "repo": "scikit-learn/scikit-learn",
+  "base_commit": "3aefc834dce72e850bff48689bea3c7dff5f3fad",
+  "issue": "Expose warm_start in Isolation forest\nIt seems to me that `sklearn.ensemble.IsolationForest` supports incremental addition of new trees with the `warm_start` parameter of its parent class, `sklearn.ensemble.BaseBagging`.\r\n\r\nEven though this parameter is not exposed in `__init__()` , it gets inherited from `BaseBagging` and one can use it by changing it to `True` after initialization. To make it work, you have to also increment `n_estimators` on every iteration. \r\n\r\nIt took me a while to notice that it actually works, and I had to inspect the source code of both `IsolationForest` and `BaseBagging`. Also, it looks to me that the behavior is in-line with `sklearn.ensemble.BaseForest` that is behind e.g. `sklearn.ensemble.RandomForestClassifier`.\r\n\r\nTo make it more easier to use, I'd suggest to:\r\n* expose `warm_start` in `IsolationForest.__init__()`, default `False`;\r\n* document it in the same way as it is documented for `RandomForestClassifier`, i.e. say:\r\n```py\r\n    warm_start : bool, optional (default=False)\r\n        When set to ``True``, reuse the solution of the previous call to fit\r\n        and add more estimators to the ensemble, otherwise, just fit a whole\r\n        new forest. See :term:`the Glossary <warm_start>`.\r\n```\r\n* add a test to make sure it works properly;\r\n* possibly also mention in the \"IsolationForest example\" documentation entry;\r\n\n",
+  "developer_reference_patch": "diff --git a/sklearn/ensemble/iforest.py b/sklearn/ensemble/iforest.py\n--- a/sklearn/ensemble/iforest.py\n+++ b/sklearn/ensemble/iforest.py\n@@ -120,6 +120,12 @@ class IsolationForest(BaseBagging, OutlierMixin):\n     verbose : int, optional (default=0)\n         Controls the verbosity of the tree building process.\n \n+    warm_start : bool, optional (default=False)\n+        When set to ``True``, reuse the solution of the previous call to fit\n+        and add more estimators to the ensemble, otherwise, just fit a whole\n+        new forest. See :term:`the Glossary <warm_start>`.\n+\n+        .. versionadded:: 0.21\n \n     Attributes\n     ----------\n@@ -173,7 +179,8 @@ def __init__(self,\n                  n_jobs=None,\n                  behaviour='old',\n                  random_state=None,\n-                 verbose=0):\n+                 verbose=0,\n+                 warm_start=False):\n         super().__init__(\n             base_estimator=ExtraTreeRegressor(\n                 max_features=1,\n@@ -185,6 +192,7 @@ def __init__(self,\n             n_estimators=n_estimators,\n             max_samples=max_samples,\n             max_features=max_features,\n+            warm_start=warm_start,\n             n_jobs=n_jobs,\n             random_state=random_state,\n             verbose=verbose)\n",
+  "unique_submitted_patches": [
+    {
+      "sha256": "f12498381ee5ae22ac48ea2fe94920d9a1177122a312f71b5bb32820fab87c7f",
+      "patch": "--- a/sklearn/ensemble/iforest.py\n+++ b/sklearn/ensemble/iforest.py\n@@ -91,6 +91,11 @@ class IsolationForest(BaseBagging, OutlierMixin):\n     verbose : int, optional (default=0)\n         Controls the verbosity of the tree building process.\n \n+    warm_start : bool, optional (default=False)\n+        When set to ``True``, reuse the solution of the previous call to fit\n+        and add more estimators to the ensemble, otherwise, just fit a whole\n+        new forest. See :term:`the Glossary <warm_start>`.\n+\n \n     Attributes\n     ----------\n@@ -142,7 +147,8 @@ class IsolationForest(BaseBagging, OutlierMixin):\n                  n_jobs=None,\n                  behaviour='old',\n                  random_state=None,\n-                 verbose=0):\n+                 verbose=0,\n+                 warm_start=False):\n         super().__init__(\n             base_estimator=ExtraTreeRegressor(\n                 max_features=1,\n@@ -156,7 +162,8 @@ class IsolationForest(BaseBagging, OutlierMixin):\n             max_features=max_features,\n             n_jobs=n_jobs,\n             random_state=random_state,\n-            verbose=verbose)\n+            verbose=verbose,\n+            warm_start=warm_start)\n \n         self.behaviour = behaviour\n         self.contamination = contamination\n",
+      "arms": [
+        "A",
+        "C",
+        "D",
+        "E"
+      ]
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch": "",
+      "arms": [
+        "B"
+      ]
+    }
+  ],
+  "submissions": {
+    "A": {
+      "patch_sha256": "f12498381ee5ae22ac48ea2fe94920d9a1177122a312f71b5bb32820fab87c7f",
+      "official_status": "resolved",
+      "generation_status": "completed",
+      "route": "stop",
+      "source_matrix": "runs\\test20_A_20261112_01\\matrix.json"
+    },
+    "B": {
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "official_status": "empty_patch",
+      "generation_status": "budget_exhausted",
+      "route": "standalone",
+      "source_matrix": "runs\\test20_B_20261112_02\\matrix.json"
+    },
+    "C": {
+      "patch_sha256": "f12498381ee5ae22ac48ea2fe94920d9a1177122a312f71b5bb32820fab87c7f",
+      "official_status": "resolved",
+      "generation_status": "completed",
+      "route": "stop",
+      "source_matrix": "runs\\test20_C_20261112_01\\matrix.json"
+    },
+    "D": {
+      "patch_sha256": "f12498381ee5ae22ac48ea2fe94920d9a1177122a312f71b5bb32820fab87c7f",
+      "official_status": "resolved",
+      "generation_status": "completed",
+      "route": "stop",
+      "source_matrix": "runs\\test20_D_20261112_01\\matrix.json"
+    },
+    "E": {
+      "patch_sha256": "f12498381ee5ae22ac48ea2fe94920d9a1177122a312f71b5bb32820fab87c7f",
+      "official_status": "resolved",
+      "generation_status": "completed",
+      "route": "stop",
+      "source_matrix": "runs\\test20_E_20261112_01\\matrix.json"
+    }
+  },
+  "generation_import_prohibited": true,
+  "reference_is_not_a_textual_equality_oracle": true
+}

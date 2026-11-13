@@ -1,0 +1,10 @@
+{
+  "digest": "sha256:cfb690130c66ea88828bbce8ca5fc1859f258dd60de69fceeb079a96a7aebc34",
+  "repository": "swebench/sweb.eval.x86_64.django_1776_django-11910",
+  "tls_verified": true,
+  "request": "one bounded connectivity diagnosis, first1024bytes only",
+  "model_calls": 0,
+  "status": "reachable",
+  "http_status": 200,
+  "first_bytes": 1024
+}

@@ -1,0 +1,111 @@
+{
+  "final_path": "C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\docs\\deliverables\\组会汇报_两例五组实验_20261106.pptx",
+  "final_sha256": "5499a84f6679046da1beef8fa5363379983e958b971fa17cb46990f871765bcd",
+  "byte_count": 584470,
+  "source_template_sha256": "36398b89d9124e80d859e508a3aa274a027ad722207ab5fe7eb18c9d2d077529",
+  "final_package": {
+    "slides": 10,
+    "table_owner_slides": [
+      3,
+      4,
+      6,
+      7
+    ],
+    "masters": 2,
+    "layouts": 15,
+    "media_sha256": [
+      "36a3528a37421860ddf642fc046cf9314603e3b21dfab9863b044af0eef7f120",
+      "78083d6c1993318760a666fb6578fda4f5ed93ab06b5ea14bca79f333125425d",
+      "be5264122475b676278d83f3eed46b37977d4835951382154290b33abc494368",
+      "f25d77b0c25b9e7f25ccfaa9a1fa22123fe38172e07d866b6d897a946db11b5e"
+    ],
+    "artwork_sha256": [
+      "36a3528a37421860ddf642fc046cf9314603e3b21dfab9863b044af0eef7f120",
+      "78083d6c1993318760a666fb6578fda4f5ed93ab06b5ea14bca79f333125425d",
+      "be5264122475b676278d83f3eed46b37977d4835951382154290b33abc494368",
+      "f25d77b0c25b9e7f25ccfaa9a1fa22123fe38172e07d866b6d897a946db11b5e"
+    ],
+    "notes": 10
+  },
+  "source_package": {
+    "slides": 10,
+    "table_owner_slides": [
+      3,
+      4,
+      7
+    ],
+    "masters": 2,
+    "layouts": 15,
+    "media_sha256": [
+      "36a3528a37421860ddf642fc046cf9314603e3b21dfab9863b044af0eef7f120",
+      "6ffcc32c906206b8524f1bf6fd3fefd7523a747ce1014736e83517598e8d379d",
+      "78083d6c1993318760a666fb6578fda4f5ed93ab06b5ea14bca79f333125425d",
+      "be5264122475b676278d83f3eed46b37977d4835951382154290b33abc494368",
+      "f25d77b0c25b9e7f25ccfaa9a1fa22123fe38172e07d866b6d897a946db11b5e"
+    ],
+    "artwork_sha256": [
+      "36a3528a37421860ddf642fc046cf9314603e3b21dfab9863b044af0eef7f120",
+      "78083d6c1993318760a666fb6578fda4f5ed93ab06b5ea14bca79f333125425d",
+      "be5264122475b676278d83f3eed46b37977d4835951382154290b33abc494368",
+      "f25d77b0c25b9e7f25ccfaa9a1fa22123fe38172e07d866b6d897a946db11b5e"
+    ],
+    "notes": 10
+  },
+  "all_source_hashes_match": true,
+  "source_count": 17,
+  "shared_template_artwork_preserved": true,
+  "export_media_normalization": "Artifact Tool retained all four substantive PNG/SVG artwork assets byte-for-byte. It omitted the source deck 67-byte one-pixel PNG fallback for the retained SVG. Original and final slides were visually compared.",
+  "native_tables_verified": true,
+  "all_slides_have_notes": true,
+  "visual_review": {
+    "source_slides_reviewed": {
+      "20261029": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "20261030": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ]
+    },
+    "final_slides_rendered_and_reviewed": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "final_revision_changed_slides_reviewed": [
+      5,
+      8,
+      9
+    ],
+    "observed_clipping_or_overlap": [],
+    "template_match": "Preserved slide size, masters/layouts, university artwork, blue header, gray campus background, page furniture, Microsoft YaHei font and reference text sizes.",
+    "native_powerpoint_opened": false
+  },
+  "finalizer_receipt": "work/ppt_20261106/final_revision3.pptx.validation.json",
+  "final_render_directory": "work/ppt_20261106/final_render",
+  "facts_independently_checked": "pydicom_env agent: all ten verdicts/resources/prediction hashes, five arm costs, release counts and source hashes"
+}

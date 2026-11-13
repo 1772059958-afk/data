@@ -1,0 +1,42 @@
+{
+  "status": "completed_verified",
+  "at_local": "2026-11-12T21:55:41",
+  "authority": "latest user explicit cleanup request",
+  "removed_docker_environment_and_old_vhdx_backups": true,
+  "cancelled_supplements_remain_cancelled": true,
+  "actual_net_free_increase_gib": {
+    "D": 85.23441314697266,
+    "E": 31.34375,
+    "total": 116.57816314697266
+  },
+  "preservation": {
+    "all11_authorized_targets_absent": true,
+    "formal100_predictions_and_seals_unchanged": true,
+    "original93_unchanged": true,
+    "archive131_unchanged": true,
+    "both_project_zip_archives_sha256_unchanged": true,
+    "final_ppt_sha256_unchanged": true,
+    "ledger_sha256_unchanged": true,
+    "pending": null,
+    "public_source_cache_preserved": true,
+    "checkpoint_preserved": true,
+    "actual_net_free_increase_gib": {
+      "E": 31.34375,
+      "D": 85.23441314697266
+    },
+    "after_free_gib": {
+      "E": 81.75456237792969,
+      "D": 129.28408813476562
+    }
+  },
+  "runtime": {
+    "DockerWslRegistrations": 0,
+    "At": "2026-11-12T21:55:40.4349728+08:00",
+    "DockerDesktopProcessCount": 0,
+    "ActiveDataPathExists": false,
+    "NewExperimentStarted": false
+  },
+  "report": "docs\\实验环境与缓存清理_20261112.md",
+  "report_sha256": "9150328df089a35154eec7419ff0c6f23f72c67224d068591b05eeb9ace884d5",
+  "system_shutdown_scheduled": false
+}

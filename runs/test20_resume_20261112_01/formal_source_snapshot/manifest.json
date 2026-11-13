@@ -1,0 +1,261 @@
+{
+  "kind": "actual_formal_working_source_snapshot_before_freeze",
+  "files": [
+    {
+      "path": "scripts/analyse_cf.py",
+      "sha256": "0cfd2e3c26857cd40a6d722002d91d9551fc7f60a08c20e15d573bdb330d0d9f"
+    },
+    {
+      "path": "scripts/calibrate_router.py",
+      "sha256": "9c9568843f90049319ee0553fbb2150e10730258cb119a1502dc5702b58d3943"
+    },
+    {
+      "path": "scripts/harness_prepared_images.py",
+      "sha256": "ed4f731a4ed3fafa86fccfd9ede0a17737d1783fa5c4ed68a52df5495be123b6"
+    },
+    {
+      "path": "scripts/run_cf.py",
+      "sha256": "e5af471db0bb679958677ae8217259e87b6829a5259a9fc233bc6141fd4de4ef"
+    },
+    {
+      "path": "scripts/run_offline_tests.py",
+      "sha256": "68c9fd115c525d43edb295a9feb2c00eaf823d9d080b047d8822786ebe4029b5"
+    },
+    {
+      "path": "scripts/score_run.py",
+      "sha256": "74c4ab4e5e2062b44d85a7f380ddcd2be507be5bda46edb3a15987834c6a8595"
+    },
+    {
+      "path": "scripts/summarize_single_run.py",
+      "sha256": "a4b83b781194b9de24edc48f193309152d4b1f631f29f79212c87ee36f84f387"
+    },
+    {
+      "path": "scripts/verify_preservation.py",
+      "sha256": "299d6b8ee7689e759ed87e040b6b094fd34f37f0e40972c604774a138c2810e8"
+    },
+    {
+      "path": "src/swe_repair/__init__.py",
+      "sha256": "7601d785831bc507c8c3393ffaeaf1a95d084f138d3ca075027596afe4b46858"
+    },
+    {
+      "path": "src/swe_repair/batch_ledger.py",
+      "sha256": "5b7be9ff47a3281eaf2f03942ba456f1c39136b2a02d97e5844c4336892a48a0"
+    },
+    {
+      "path": "src/swe_repair/budget.py",
+      "sha256": "c877a1c9e5e3bddae24b89164653931e3ecb3f8eb138f184951bd19494a1bd7f"
+    },
+    {
+      "path": "src/swe_repair/calibration.py",
+      "sha256": "0ac1012191b66b5d34a293a950b112cd324dab6850b1434593b7436d30f9ffd7"
+    },
+    {
+      "path": "src/swe_repair/cf.py",
+      "sha256": "0dd225cd78ce813e754c40243d1b24876c1e4b94c76f1077ea792d74486e8025"
+    },
+    {
+      "path": "src/swe_repair/evaluation.py",
+      "sha256": "8c178fcaa9fc413829b2dac8a7a695afb6d7462806e161172c9bd9497a0299d2"
+    },
+    {
+      "path": "src/swe_repair/execution.py",
+      "sha256": "ecbba11a50eb704ea8d80a4edf727d5baf2fdb36e81b80b9ba8176deee6d0d0d"
+    },
+    {
+      "path": "src/swe_repair/experiment.py",
+      "sha256": "196762c0b2d723bcbc89f9a9a943e0bff849e62eab56028f10a2e130df2b66a9"
+    },
+    {
+      "path": "src/swe_repair/feedback.py",
+      "sha256": "e233cfdf87dd62aa533e59b37a3257c06373c2496bcc356abf328f0d987f5d12"
+    },
+    {
+      "path": "src/swe_repair/fingerprint.py",
+      "sha256": "d7ed58eb7b7202fa2b5b9be023dc31d2e22730cbbd0ce1120790b3ecd8e5da83"
+    },
+    {
+      "path": "src/swe_repair/interact.py",
+      "sha256": "1f0700cb35f4ceafebe5c60084a4efa9304931cea62cf2e7fe01a39254fa6fdd"
+    },
+    {
+      "path": "src/swe_repair/llm.py",
+      "sha256": "d72a7f6e0b5f8854877d39c36c177f806751a2acfe454c4c55dd2bdc7c226e84"
+    },
+    {
+      "path": "src/swe_repair/patchutil.py",
+      "sha256": "da2d09160faefb57f41e91cf369170f5c71437d35ac5df0e009e6896ee49e8f3"
+    },
+    {
+      "path": "src/swe_repair/prefix.py",
+      "sha256": "3cc608fe81b8ea35a447e99830707afe6bc700447460120bb43d5ff46a73e4b5"
+    },
+    {
+      "path": "src/swe_repair/pricing.py",
+      "sha256": "561ffd2040541887e3b61949bd5d3ac1dc2400fa91312ce6210facf4c29630db"
+    },
+    {
+      "path": "src/swe_repair/router.py",
+      "sha256": "d1867d57704266f554ac17235ac34b3cd32d242a07314443932e927626c88cdf"
+    },
+    {
+      "path": "src/swe_repair/runlog.py",
+      "sha256": "a5311ae21a3a40d2d74b366d63a6454acfafa6863d1a4792b2b05f05e5cbdb48"
+    },
+    {
+      "path": "src/swe_repair/spend.py",
+      "sha256": "130a2f4291e9d4312fc8f1379d530f8c318deadebd9fdd7816a0592c011209a0"
+    },
+    {
+      "path": "src/swe_repair/state.py",
+      "sha256": "2d0b0c5d84180b90a14df846b5c6096803723311b35aec7f7cebc4506b4a674c"
+    },
+    {
+      "path": "src/swe_repair/statistics.py",
+      "sha256": "5d95441c326779871ef513c8ed2d27b949a46f94d0c46d1283c8a80d675871b7"
+    },
+    {
+      "path": "tests/test_analysis.py",
+      "sha256": "1c9bab582916a73fe7cf83a61e4b3c1e8f8ed37c7a862cf05a6e8553df7d32e9"
+    },
+    {
+      "path": "tests/test_api_breakpoint.py",
+      "sha256": "4a206295578e0d774cc34f3a678ba33deace7d861ef2c0958e87166af22f656a"
+    },
+    {
+      "path": "tests/test_batch_ledger.py",
+      "sha256": "168a6b30c15e07ecfa3d169c9d9007df074b5776f2fb2e463c99735a260825ac"
+    },
+    {
+      "path": "tests/test_calibration.py",
+      "sha256": "600476c82a1b221e12783e2e361509111286dc3e4fff05e05a30de602fcb83d4"
+    },
+    {
+      "path": "tests/test_calibration_population.py",
+      "sha256": "6e5689e094c293a2d0e035ed2ad62fea1860ca04eb95420abdf5d0c1440a8888"
+    },
+    {
+      "path": "tests/test_cf.py",
+      "sha256": "62dfd857fb2361671138a03e3831a36f9283abc01f2ca2e72c717915c1fab29a"
+    },
+    {
+      "path": "tests/test_core_contracts.py",
+      "sha256": "5b83390fc824ab4714d527a86281d09ad1ff343a5f1f101a89513b5820ac09f1"
+    },
+    {
+      "path": "tests/test_dev_preparation.py",
+      "sha256": "892d2e3b57543246f61e75fbadbad1032ee5c84f4364a45758b6b802df645b9b"
+    },
+    {
+      "path": "tests/test_error_feedback.py",
+      "sha256": "f7183d3dbe171d2dcffeb821622ebf6263969b742880f981f01d0f877d8b3221"
+    },
+    {
+      "path": "tests/test_experiment.py",
+      "sha256": "eec3c2661f775f4faea28fe301d47876f07541d2b3b8309442ebb150b7d00007"
+    },
+    {
+      "path": "tests/test_harness_startup_adapter.py",
+      "sha256": "2479a688866e721168f2a6a8b53eb7edb65560b80ea34942fca674d0bfdb6465"
+    },
+    {
+      "path": "tests/test_identity_batch_stop.py",
+      "sha256": "59ba1eaf89b01ee115402a1d5cdd1a22b9796bb6bfde76a068bafa1ab2ed4c1d"
+    },
+    {
+      "path": "tests/test_interact.py",
+      "sha256": "4f6b92009e9f437ee588fc1685238cb5269423db7e2fa30acc7c8b1b336671be"
+    },
+    {
+      "path": "tests/test_interaction_contracts.py",
+      "sha256": "b647d3f316d32acde0f77c5434ae0cd9460ac850768e098a9df5f72aea619222"
+    },
+    {
+      "path": "tests/test_llm.py",
+      "sha256": "2efe24d92e7ee40020c8e3935523c0b4ee67489386d0b4b67dbbaf9cc1f98890"
+    },
+    {
+      "path": "tests/test_model_identity.py",
+      "sha256": "150461741bf8d1990fbb060ae5a4d56bff51ca918ddf8138adf455a18b76fdb6"
+    },
+    {
+      "path": "tests/test_pilot.py",
+      "sha256": "75e11abe7d7f234528a918084fe457579fa4d115c189f78a9d6ca7c38bb396ab"
+    },
+    {
+      "path": "tests/test_pilot_cli.py",
+      "sha256": "71f59c964120e2e8d0cdd8f714f946396b0024be1b2e244a79ac3b9a6b6e5c06"
+    },
+    {
+      "path": "tests/test_pilot_summary.py",
+      "sha256": "c2ebf23f3761a0aa62050234501c4fdaf9a7839f1e98810796eb0042ab44b898"
+    },
+    {
+      "path": "tests/test_prefix_only.py",
+      "sha256": "ca2e7038234a0f112963cca24ba9f70058ea39818d10e2390f742738a450ee24"
+    },
+    {
+      "path": "tests/test_preservation.py",
+      "sha256": "56a39201482179801c439409e9b01c0dc65b30c91668d8660ee61631291db46d"
+    },
+    {
+      "path": "tests/test_public_validation.py",
+      "sha256": "07011ab2e7ec68db499b7a7c82e0b27c0007fae0162ad395a2df8791642d6a8c"
+    },
+    {
+      "path": "tests/test_router.py",
+      "sha256": "9df7910dcddfebe1e35c7a60e510538100d2712eb52b116bbb0e94c07fe7522c"
+    },
+    {
+      "path": "tests/test_routing_evidence.py",
+      "sha256": "63d72d6cc5e7559bac6466c5f5cf415fc6b7d6c5febc5b5f8c767e29dd6d584c"
+    },
+    {
+      "path": "tests/test_runlog.py",
+      "sha256": "83aaf0805e421eb09c40c2a7ee5867bc32b317a9e19877af110446686eb5c604"
+    },
+    {
+      "path": "tests/test_scoring_controller.py",
+      "sha256": "1050cd2a310661a76ebe61ab9b3b6ffdca2d9e6ec9bd63ed13fede33efb45403"
+    },
+    {
+      "path": "tests/test_scoring_identity.py",
+      "sha256": "e32219ca972e3ed6668c3f6e71f34b2bd17c4d606b5b0b1438ebaf6d06a6349d"
+    },
+    {
+      "path": "tests/test_signal_chain.py",
+      "sha256": "c477ab4443cd7be7042f6b4844455f350180989fb54858cf79c3702fabf4048d"
+    },
+    {
+      "path": "tests/test_single_run_design.py",
+      "sha256": "a058562b2210a5a9301456714e41dcb966fc699769f65825b316898d452dd4f0"
+    },
+    {
+      "path": "tests/test_single_run_summary.py",
+      "sha256": "3dd69fd171cc9c5e7c9b4ec74ebb17c29fba89bbefd7651e6872592bc7ae6c7f"
+    },
+    {
+      "path": "tests/test_spend.py",
+      "sha256": "23b8c09bbb624744828f4dba4cdf61e59b404600d57222f779f56c59787b6dad"
+    },
+    {
+      "path": "tests/test_state.py",
+      "sha256": "ffb6d9ec99183f4b2e2b5dd915ee39dd14bbbbc663553b43dd2be8045f800600"
+    },
+    {
+      "path": "tests/test_statistics.py",
+      "sha256": "9c8878941763506b51344f9159c30f89de78133551fcd2d136f40fe387c22b70"
+    },
+    {
+      "path": "tests/test_statistics_integrity.py",
+      "sha256": "528e0b8c649d91d3af0dfd35e36366997e575277f4e3fddf61a15eec0588c067"
+    }
+  ],
+  "generation_code_sha256": "b065ff0b3feaa3ecc6865c8992432530ceb3d1f57c785ae8252fcff352ebb789",
+  "offline_suite": "392/392",
+  "offline_suite_log": "runs/test20_resume_20261112_01/offline_formal_safety_03.log",
+  "raw_assets": "93/93 and131/131",
+  "original_dev_source_snapshot_intact": true,
+  "dirty_working_source_captured": true,
+  "git_commit": "9f1f90c5aee7aa492f4f137793f0feadcf9e2460",
+  "source_difference_to_dev": "Legacy pytest cosmetic flag portability, repair-scope enforcement, fail-stop/cooperative stop handling; complete nine-rule routing on all23x9 actual DEV snapshots identical. Evaluation-only startup adapter recorded separately in official scoring sidecars."
+}

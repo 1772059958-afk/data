@@ -1,0 +1,148 @@
+{
+  "instance_id": "pydicom__pydicom-901",
+  "base_commit": "3746878d8edf1cbda6fbcf35eec69f9ba79301ca",
+  "repo": "pydicom/pydicom",
+  "dependency_profile": "pydicom",
+  "status": "public_smoke_ready",
+  "patch_applied": false,
+  "model_calls": 0,
+  "smoke_scope_only": true,
+  "source_or_tests_modified": false,
+  "baseline_before_install": {
+    "head": "3746878d8edf1cbda6fbcf35eec69f9ba79301ca",
+    "clean": true,
+    "selected_git_blob_bytes_verified": true,
+    "python": "3.9.21"
+  },
+  "installed_imports": {
+    "head": "3746878d8edf1cbda6fbcf35eec69f9ba79301ca",
+    "clean": true,
+    "selected_git_blob_bytes_verified": true,
+    "python": "3.9.21",
+    "module_file": "/testbed/pydicom/__init__.py",
+    "module_version": "1.4.0.dev0",
+    "distributions": {
+      "pytest": "7.4.4",
+      "numpy": "1.26.4",
+      "pandas": "2.2.3",
+      "scipy": "1.13.1",
+      "wrapt": null,
+      "lazy-object-proxy": null,
+      "simplejson": null,
+      "sqlfluff": null,
+      "Jinja2": "3.1.6",
+      "click": null,
+      "nose": null
+    }
+  },
+  "initial_public_smoke": {
+    "label": "public_smoke",
+    "arguments": [
+      "docker",
+      "--context",
+      "desktop-linux",
+      "exec",
+      "dev23prep-dev23prep_20261112_01-b4cf094a9199",
+      "bash",
+      "-lc",
+      "cd /testbed && python -m pytest pydicom/tests/test_dataset.py -q --no-header -p no:cacheprovider"
+    ],
+    "exit_code": 0,
+    "log": "0251_public_smoke.log",
+    "log_sha256": "f85d1c72c9b2b7ec00fa579aea597bff5b394d6f7e6d839873a3e5170b69174e",
+    "seconds": 1.221
+  },
+  "baseline_after_smoke": {
+    "head": "3746878d8edf1cbda6fbcf35eec69f9ba79301ca",
+    "clean": true,
+    "selected_git_blob_bytes_verified": true,
+    "python": "3.9.21",
+    "module_file": "/testbed/pydicom/__init__.py",
+    "module_version": "1.4.0.dev0",
+    "distributions": {
+      "pytest": "7.4.4",
+      "numpy": "1.26.4",
+      "pandas": "2.2.3",
+      "scipy": "1.13.1",
+      "wrapt": null,
+      "lazy-object-proxy": null,
+      "simplejson": null,
+      "sqlfluff": null,
+      "Jinja2": "3.1.6",
+      "click": null,
+      "nose": null
+    }
+  },
+  "prepared_candidate_image": "sha256:7bf68e3432ed923a963b587fd322d7ff07bedc9b101063bdb061fd6566536f7f",
+  "fresh_image_validation": {
+    "actual_image_id": "sha256:7bf68e3432ed923a963b587fd322d7ff07bedc9b101063bdb061fd6566536f7f",
+    "identity_before": {
+      "head": "3746878d8edf1cbda6fbcf35eec69f9ba79301ca",
+      "clean": true,
+      "selected_git_blob_bytes_verified": true,
+      "python": "3.9.21"
+    },
+    "imports": {
+      "head": "3746878d8edf1cbda6fbcf35eec69f9ba79301ca",
+      "clean": true,
+      "selected_git_blob_bytes_verified": true,
+      "python": "3.9.21",
+      "module_file": "/testbed/pydicom/__init__.py",
+      "module_version": "1.4.0.dev0",
+      "distributions": {
+        "pytest": "7.4.4",
+        "numpy": "1.26.4",
+        "pandas": "2.2.3",
+        "scipy": "1.13.1",
+        "wrapt": null,
+        "lazy-object-proxy": null,
+        "simplejson": null,
+        "sqlfluff": null,
+        "Jinja2": "3.1.6",
+        "click": null,
+        "nose": null
+      }
+    },
+    "public_smoke": {
+      "label": "public_smoke",
+      "arguments": [
+        "docker",
+        "--context",
+        "desktop-linux",
+        "exec",
+        "dev23prep-dev23prep_20261112_01-6755b35cd1e9",
+        "bash",
+        "-lc",
+        "cd /testbed && python -m pytest pydicom/tests/test_dataset.py -q --no-header -p no:cacheprovider"
+      ],
+      "exit_code": 0,
+      "log": "0263_public_smoke.log",
+      "log_sha256": "2bf8ebd9165c22ddbf968b98ffddcf0531c4914d61a8d0663bd62696604c70a9",
+      "seconds": 0.821
+    },
+    "identity_after": {
+      "head": "3746878d8edf1cbda6fbcf35eec69f9ba79301ca",
+      "clean": true,
+      "selected_git_blob_bytes_verified": true,
+      "python": "3.9.21",
+      "module_file": "/testbed/pydicom/__init__.py",
+      "module_version": "1.4.0.dev0",
+      "distributions": {
+        "pytest": "7.4.4",
+        "numpy": "1.26.4",
+        "pandas": "2.2.3",
+        "scipy": "1.13.1",
+        "wrapt": null,
+        "lazy-object-proxy": null,
+        "simplejson": null,
+        "sqlfluff": null,
+        "Jinja2": "3.1.6",
+        "click": null,
+        "nose": null
+      }
+    },
+    "passed": true
+  },
+  "image_id": "sha256:7bf68e3432ed923a963b587fd322d7ff07bedc9b101063bdb061fd6566536f7f",
+  "reused": false
+}

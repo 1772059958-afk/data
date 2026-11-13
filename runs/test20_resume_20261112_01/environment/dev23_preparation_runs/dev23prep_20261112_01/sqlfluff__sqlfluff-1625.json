@@ -1,0 +1,148 @@
+{
+  "instance_id": "sqlfluff__sqlfluff-1625",
+  "base_commit": "14e1a23a3166b9a645a16de96f694c77a5d4abb7",
+  "repo": "sqlfluff/sqlfluff",
+  "dependency_profile": "sqlfluff",
+  "status": "public_smoke_ready",
+  "patch_applied": false,
+  "model_calls": 0,
+  "smoke_scope_only": true,
+  "source_or_tests_modified": false,
+  "baseline_before_install": {
+    "head": "14e1a23a3166b9a645a16de96f694c77a5d4abb7",
+    "clean": true,
+    "selected_git_blob_bytes_verified": true,
+    "python": "3.9.21"
+  },
+  "installed_imports": {
+    "head": "14e1a23a3166b9a645a16de96f694c77a5d4abb7",
+    "clean": true,
+    "selected_git_blob_bytes_verified": true,
+    "python": "3.9.21",
+    "module_file": "/testbed/src/sqlfluff/__init__.py",
+    "module_version": "0.7.0a8",
+    "distributions": {
+      "pytest": "7.4.4",
+      "numpy": "1.26.4",
+      "pandas": "2.2.3",
+      "scipy": "1.13.1",
+      "wrapt": null,
+      "lazy-object-proxy": null,
+      "simplejson": null,
+      "sqlfluff": "0.7.0a8",
+      "Jinja2": "3.0.3",
+      "click": "8.0.4",
+      "nose": null
+    }
+  },
+  "initial_public_smoke": {
+    "label": "public_smoke",
+    "arguments": [
+      "docker",
+      "--context",
+      "desktop-linux",
+      "exec",
+      "dev23prep-dev23prep_20261112_01-e122bf31f4e0",
+      "bash",
+      "-lc",
+      "cd /testbed && python -m pytest test/core/config_test.py -q --no-header -p no:cacheprovider"
+    ],
+    "exit_code": 0,
+    "log": "0440_public_smoke.log",
+    "log_sha256": "4a48974782361a35383209aa5974b8daef06c80f580e03a84c9a2d4971771c94",
+    "seconds": 1.237
+  },
+  "baseline_after_smoke": {
+    "head": "14e1a23a3166b9a645a16de96f694c77a5d4abb7",
+    "clean": true,
+    "selected_git_blob_bytes_verified": true,
+    "python": "3.9.21",
+    "module_file": "/testbed/src/sqlfluff/__init__.py",
+    "module_version": "0.7.0a8",
+    "distributions": {
+      "pytest": "7.4.4",
+      "numpy": "1.26.4",
+      "pandas": "2.2.3",
+      "scipy": "1.13.1",
+      "wrapt": null,
+      "lazy-object-proxy": null,
+      "simplejson": null,
+      "sqlfluff": "0.7.0a8",
+      "Jinja2": "3.0.3",
+      "click": "8.0.4",
+      "nose": null
+    }
+  },
+  "prepared_candidate_image": "sha256:25aade16de9f90842b0db61e70cee6d345c34306271cbfbe550637601aaf0f39",
+  "fresh_image_validation": {
+    "actual_image_id": "sha256:25aade16de9f90842b0db61e70cee6d345c34306271cbfbe550637601aaf0f39",
+    "identity_before": {
+      "head": "14e1a23a3166b9a645a16de96f694c77a5d4abb7",
+      "clean": true,
+      "selected_git_blob_bytes_verified": true,
+      "python": "3.9.21"
+    },
+    "imports": {
+      "head": "14e1a23a3166b9a645a16de96f694c77a5d4abb7",
+      "clean": true,
+      "selected_git_blob_bytes_verified": true,
+      "python": "3.9.21",
+      "module_file": "/testbed/src/sqlfluff/__init__.py",
+      "module_version": "0.7.0a8",
+      "distributions": {
+        "pytest": "7.4.4",
+        "numpy": "1.26.4",
+        "pandas": "2.2.3",
+        "scipy": "1.13.1",
+        "wrapt": null,
+        "lazy-object-proxy": null,
+        "simplejson": null,
+        "sqlfluff": "0.7.0a8",
+        "Jinja2": "3.0.3",
+        "click": "8.0.4",
+        "nose": null
+      }
+    },
+    "public_smoke": {
+      "label": "public_smoke",
+      "arguments": [
+        "docker",
+        "--context",
+        "desktop-linux",
+        "exec",
+        "dev23prep-dev23prep_20261112_01-5d0320a5c0d4",
+        "bash",
+        "-lc",
+        "cd /testbed && python -m pytest test/core/config_test.py -q --no-header -p no:cacheprovider"
+      ],
+      "exit_code": 0,
+      "log": "0452_public_smoke.log",
+      "log_sha256": "d0b3cff1cce9dd1f60179fd3abe09b1ab68bc4aff24f6eb293619ae967043446",
+      "seconds": 1.218
+    },
+    "identity_after": {
+      "head": "14e1a23a3166b9a645a16de96f694c77a5d4abb7",
+      "clean": true,
+      "selected_git_blob_bytes_verified": true,
+      "python": "3.9.21",
+      "module_file": "/testbed/src/sqlfluff/__init__.py",
+      "module_version": "0.7.0a8",
+      "distributions": {
+        "pytest": "7.4.4",
+        "numpy": "1.26.4",
+        "pandas": "2.2.3",
+        "scipy": "1.13.1",
+        "wrapt": null,
+        "lazy-object-proxy": null,
+        "simplejson": null,
+        "sqlfluff": "0.7.0a8",
+        "Jinja2": "3.0.3",
+        "click": "8.0.4",
+        "nose": null
+      }
+    },
+    "passed": true
+  },
+  "image_id": "sha256:25aade16de9f90842b0db61e70cee6d345c34306271cbfbe550637601aaf0f39",
+  "reused": false
+}

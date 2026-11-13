@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "C:\Users\remil\Desktop\3yr\����\proj\runs\test20_resume_20261112_02\recover_interrupted_B8.py", line 161, in <module>
+    if __name__ == '__main__': main()
+                               ~~~~^^
+  File "C:\Users\remil\Desktop\3yr\����\proj\runs\test20_resume_20261112_02\recover_interrupted_B8.py", line 88, in main
+    assert sha(ROOT/dataset['local_file']) == dataset['sha256']
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

@@ -1,0 +1,78 @@
+{
+  "kind": "review_only_after_all_formal_predictions_sealed",
+  "instance_id": "matplotlib__matplotlib-23987",
+  "repo": "matplotlib/matplotlib",
+  "base_commit": "e98d8d085e8f53ec0467422b326f7738a2dd695e",
+  "issue": "[Bug]: Constrained layout UserWarning even when False\n### Bug summary\r\n\r\nWhen using layout settings such as `plt.subplots_adjust` or `bbox_inches='tight`, a UserWarning is produced due to incompatibility with constrained_layout, even if constrained_layout = False. This was not the case in previous versions.\r\n\r\n### Code for reproduction\r\n\r\n```python\r\nimport matplotlib.pyplot as plt\r\nimport numpy as np\r\na = np.linspace(0,2*np.pi,100)\r\nb = np.sin(a)\r\nc = np.cos(a)\r\nfig,ax = plt.subplots(1,2,figsize=(8,2),constrained_layout=False)\r\nax[0].plot(a,b)\r\nax[1].plot(a,c)\r\nplt.subplots_adjust(wspace=0)\r\n```\r\n\r\n\r\n### Actual outcome\r\n\r\nThe plot works fine but the warning is generated\r\n\r\n`/var/folders/ss/pfgdfm2x7_s4cyw2v0b_t7q80000gn/T/ipykernel_76923/4170965423.py:7: UserWarning: This figure was using a layout engine that is incompatible with subplots_adjust and/or tight_layout; not calling subplots_adjust.\r\n  plt.subplots_adjust(wspace=0)`\r\n\r\n### Expected outcome\r\n\r\nno warning\r\n\r\n### Additional information\r\n\r\nWarning disappears when constrained_layout=False is removed\r\n\r\n### Operating system\r\n\r\nOS/X\r\n\r\n### Matplotlib Version\r\n\r\n3.6.0\r\n\r\n### Matplotlib Backend\r\n\r\n_No response_\r\n\r\n### Python version\r\n\r\n_No response_\r\n\r\n### Jupyter version\r\n\r\n_No response_\r\n\r\n### Installation\r\n\r\nconda\n",
+  "developer_reference_patch": "diff --git a/lib/matplotlib/figure.py b/lib/matplotlib/figure.py\n--- a/lib/matplotlib/figure.py\n+++ b/lib/matplotlib/figure.py\n@@ -2426,9 +2426,12 @@ def __init__(self,\n             if isinstance(tight_layout, dict):\n                 self.get_layout_engine().set(**tight_layout)\n         elif constrained_layout is not None:\n-            self.set_layout_engine(layout='constrained')\n             if isinstance(constrained_layout, dict):\n+                self.set_layout_engine(layout='constrained')\n                 self.get_layout_engine().set(**constrained_layout)\n+            elif constrained_layout:\n+                self.set_layout_engine(layout='constrained')\n+\n         else:\n             # everything is None, so use default:\n             self.set_layout_engine(layout=layout)\n",
+  "unique_submitted_patches": [
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch": "",
+      "arms": [
+        "A",
+        "B"
+      ]
+    },
+    {
+      "sha256": "c4b9affaf8b5002042aff9899074d854d10cf16dee2fa16e9423688bc451d7e0",
+      "patch": "--- a/lib/matplotlib/figure.py\n+++ b/lib/matplotlib/figure.py\n@@ -2465,7 +2465,7 @@ class Figure(FigureBase):\n             self.set_layout_engine(layout='tight')\n             if isinstance(tight_layout, dict):\n                 self.get_layout_engine().set(**tight_layout)\n-        elif constrained_layout is not None:\n+        elif constrained_layout:\n             self.set_layout_engine(layout='constrained')\n             if isinstance(constrained_layout, dict):\n                 self.get_layout_engine().set(**constrained_layout)\n",
+      "arms": [
+        "C"
+      ]
+    },
+    {
+      "sha256": "2e29337ec9784b2482eec7a5108017467f175a4a2d9fd7edc73a2ca55fe0e47a",
+      "patch": "--- a/lib/matplotlib/figure.py\n+++ b/lib/matplotlib/figure.py\n@@ -2564,6 +2564,8 @@ class Figure(FigureBase):\n                                                         **kwargs)\n         elif layout == 'none':\n-            if self._layout_engine is not None:\n+            if isinstance(self._layout_engine, ConstrainedLayoutEngine):\n+                new_layout_engine = None\n+            elif self._layout_engine is not None:\n                 new_layout_engine = PlaceHolderLayoutEngine(\n                     self._layout_engine.adjust_compatible,\n                     self._layout_engine.colorbar_gridspec\n",
+      "arms": [
+        "D"
+      ]
+    },
+    {
+      "sha256": "af92b3c226ffd1f184e698f83c534466a0f37fba61052e8a806a4bcf33e5dd99",
+      "patch": "--- a/lib/matplotlib/figure.py\n+++ b/lib/matplotlib/figure.py\n@@ -1305,11 +1305,13 @@ class FigureBase(Artist):\n         hspace : float, optional\n             The height of the padding between subplots,\n             as a fraction of the average Axes height.\n         \"\"\"\n-        if (self.get_layout_engine() is not None and\n-                not self.get_layout_engine().adjust_compatible):\n+        layout_engine = self.get_layout_engine()\n+        if (layout_engine is not None and\n+                not layout_engine.adjust_compatible and\n+                not isinstance(layout_engine, PlaceHolderLayoutEngine)):\n             _api.warn_external(\n                 \"This figure was using a layout engine that is \"\n                 \"incompatible with subplots_adjust and/or tight_layout; \"\n                 \"not calling subplots_adjust.\")\n             return\n",
+      "arms": [
+        "E"
+      ]
+    }
+  ],
+  "submissions": {
+    "A": {
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "official_status": "empty_patch",
+      "generation_status": "completed",
+      "route": "fixed",
+      "source_matrix": "runs\\test20_A_20261112_01\\matrix.json"
+    },
+    "B": {
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "official_status": "empty_patch",
+      "generation_status": "budget_exhausted",
+      "route": "standalone",
+      "source_matrix": "runs\\test20_B_20261112_02\\matrix.json"
+    },
+    "C": {
+      "patch_sha256": "c4b9affaf8b5002042aff9899074d854d10cf16dee2fa16e9423688bc451d7e0",
+      "official_status": "ambiguous_error",
+      "generation_status": "budget_exhausted",
+      "route": "interactive",
+      "source_matrix": "runs\\test20_C_20261112_01\\matrix.json"
+    },
+    "D": {
+      "patch_sha256": "2e29337ec9784b2482eec7a5108017467f175a4a2d9fd7edc73a2ca55fe0e47a",
+      "official_status": "ambiguous_error",
+      "generation_status": "budget_exhausted",
+      "route": "interactive",
+      "source_matrix": "runs\\test20_D_20261112_01\\matrix.json"
+    },
+    "E": {
+      "patch_sha256": "af92b3c226ffd1f184e698f83c534466a0f37fba61052e8a806a4bcf33e5dd99",
+      "official_status": "ambiguous_error",
+      "generation_status": "budget_exhausted",
+      "route": "interactive",
+      "source_matrix": "runs\\test20_E_20261112_01\\matrix.json"
+    }
+  },
+  "generation_import_prohibited": true,
+  "reference_is_not_a_textual_equality_oracle": true
+}

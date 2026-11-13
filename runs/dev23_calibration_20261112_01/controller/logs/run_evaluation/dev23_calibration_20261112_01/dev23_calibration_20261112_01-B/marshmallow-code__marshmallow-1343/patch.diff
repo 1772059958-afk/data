@@ -1,0 +1,20 @@
+--- a/src/marshmallow/schema.py
++++ b/src/marshmallow/schema.py
+@@ -671,6 +671,7 @@
+             except ValidationError as error:
+                 result = error.data
+-            self._invoke_field_validators(unmarshal, data=result, many=many)
++            if result is not None:
++                self._invoke_field_validators(unmarshal, data=result, many=many)
+             errors = unmarshal.errors
+             field_errors = bool(errors)
+             # Run schema-level migration
+@@ -861,6 +862,8 @@
+         return data
+ 
+     def _invoke_field_validators(self, unmarshal, data, many):
++        if data is None:
++            return
+         for attr_name in self.__processors__[(VALIDATES, False)]:
+             validator = getattr(self, attr_name)
+             validator_kwargs = validator.__marshmallow_kwargs__[(VALIDATES, False)]

@@ -1,0 +1,34 @@
+{
+  "kind": "append_only_final_handoff_verification_and_document_binding_amendment",
+  "all_formal_predictions_preserved": true,
+  "cancelled_supplement_not_further_scored_or_analysed": true,
+  "ledger_unchanged_after_cancellation": true,
+  "current_generation_code_unchanged_since399_suite": true,
+  "current_report": "docs/正式实验最终交接_20261112.md",
+  "current_report_sha256": "e755fb2321c92ae3395ae678b544c1f46e7864f77b5d19f4332f74989d0f0b7f",
+  "current_report_matches_verified_archive_inventory": true,
+  "supersedes_field": "final_outcome.json/report_sha256 and its SESSION_SAVED copy, which recorded the report before the appended actual shutdown status",
+  "prior_pre_append_report_sha256": "712137b43174827005aa26d4565f465112fed417ef4f79925a7bc721e2b9efb6",
+  "archive": {
+    "path": "E:\\DockerBackups\\project-final-20261112-01\\project-final-20261112-01.zip",
+    "sha256": "eea2bd03d43f876724134adfca4526c758315e147310ed4026fa9713ed622171",
+    "size_bytes": 766499205,
+    "files": 4227,
+    "zip_crc_verified": true,
+    "every_entry_sha256_verified": true
+  },
+  "cost": {
+    "ledger_sha256": "339bf28d4e5ee0153083d983003db05ef0ab7f77569cc78ac6731816949b6105",
+    "ledger_records": 1152,
+    "cumulative_estimate_cny": 20.31946522,
+    "cancelled_supplement_requests_already_booked": 144,
+    "cancelled_supplement_estimate_cny": 2.453005,
+    "pending": null,
+    "billing": "usage-based estimate, not supplier payment or account balance",
+    "remaining_guard_cny": 79.68053478
+  },
+  "docker_stopped": true,
+  "docker_wsl_running": false,
+  "new_paid_scope_authorized": false,
+  "system_shutdown_scheduled": false
+}

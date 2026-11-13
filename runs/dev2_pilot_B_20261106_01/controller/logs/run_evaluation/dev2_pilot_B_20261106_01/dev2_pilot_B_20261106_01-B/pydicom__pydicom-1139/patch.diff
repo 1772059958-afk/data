@@ -1,0 +1,32 @@
+--- a/pydicom/valuerep.py
++++ b/pydicom/valuerep.py
+@@ -770,5 +770,29 @@ class PersonName:
+     def __ne__(self, other):
+         return not self == other
+ 
++    def __lt__(self, other):
++        return str(self) < str(other)
++
++    def __le__(self, other):
++        return str(self) <= str(other)
++
++    def __gt__(self, other):
++        return str(self) > str(other)
++
++    def __ge__(self, other):
++        return str(self) >= str(other)
++
++    def __len__(self):
++        return len(str(self))
++
++    def __iter__(self):
++        yield from str(self)
++
++    def __getitem__(self, index):
++        return str(self)[index]
++
++    def __contains__(self, value):
++        return value in str(self)
++
+     def __str__(self):
+         return '='.join(self.components).__str__()

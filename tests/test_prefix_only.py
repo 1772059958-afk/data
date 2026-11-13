@@ -168,3 +168,50 @@ def test_probe_authentication_failure_records_safe_status_and_does_not_retry():
         result = json.loads(payload)
         assert result['http_status'] == 401 and len(posts) == 1 and result['cost_complete'] is False
         assert 'fake-offline-only' not in payload
+
+
+def test_probe_books_into_same_cumulative_ledger_without_resetting_previous_spend():
+    probe = module('probe_ledger_live', 'scripts/probe_model.py')
+    original, posts = llm.DeepSeekClient, []
+    class Session:
+        def post(self, *args, **kwargs):
+            posts.append(1)
+            return NS(status_code=200, json=lambda: {
+                'model': 'deepseek-flash',
+                'choices': [{'message': {'content': 'OK'}, 'finish_reason': 'stop'}],
+                'usage': {'prompt_tokens': 5, 'completion_tokens': 1}})
+    class Client(original):
+        def __init__(self, config, **kwargs):
+            super().__init__(config, api_key='fake-offline-only', guard=kwargs['guard'], session=Session())
+    with tempfile.TemporaryDirectory(dir=ROOT / 'runs') as tmp:
+        ledger = Path(tmp) / 'ledger.json'
+        ledger.write_text(json.dumps({'schema': 'cumulative-model-spend-v1', 'ceiling_cny': 100.0,
+            'records': [{'cost_cny': 9.0, 'billing': 'unknown'}], 'pending': None}), encoding='utf-8')
+        raw = scoped_config()
+        raw['execution'].update(batch_ledger=str(ledger), total_cny=100.0)
+        plan = {'output_directory': str(Path(tmp) / 'probe'), 'kind': 'model_identity_probe',
+                'model': 'deepseek-flash', 'ceiling_cny': .05, 'max_output_tokens': 256}
+        with patch.object(llm, 'DeepSeekClient', Client), patch.object(llm, 'load_scoped_api_key', return_value='fake-offline-only'):
+            assert probe.execute(raw, plan) == 0
+        result = json.loads((Path(plan['output_directory']) / 'result.json').read_text(encoding='utf-8'))
+        booked = json.loads(ledger.read_text(encoding='utf-8'))
+        assert len(posts) == 1 and len(booked['records']) == 2 and booked['pending'] is None
+        assert result['new_generation_cost_cny'] > 0
+        assert abs(result['cumulative_batch_cost_cny'] - 9 - result['new_generation_cost_cny']) < 1e-9
+
+
+def test_probe_pending_cumulative_reservation_blocks_new_request():
+    probe = module('probe_ledger_pending', 'scripts/probe_model.py')
+    with tempfile.TemporaryDirectory(dir=ROOT / 'runs') as tmp:
+        ledger = Path(tmp) / 'ledger.json'
+        ledger.write_text(json.dumps({'schema': 'cumulative-model-spend-v1', 'ceiling_cny': 100.0,
+            'records': [], 'pending': {'cost_cny': .01, 'reservation_id': 'interrupted'}}), encoding='utf-8')
+        raw = scoped_config()
+        raw['execution'].update(batch_ledger=str(ledger), total_cny=100.0)
+        plan = {'output_directory': str(Path(tmp) / 'probe'), 'kind': 'model_identity_probe',
+                'model': 'deepseek-flash', 'ceiling_cny': .05, 'max_output_tokens': 256}
+        with patch.object(llm, 'load_scoped_api_key', return_value='fake-offline-only'):
+            assert probe.execute(raw, plan) == 1
+        result = json.loads((Path(plan['output_directory']) / 'result.json').read_text(encoding='utf-8'))
+        assert result['cost_cny'] == 0 and not result['calls']
+        assert json.loads(ledger.read_text(encoding='utf-8'))['pending']['reservation_id'] == 'interrupted'

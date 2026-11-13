@@ -1,0 +1,192 @@
+{
+  "config_version": "proposal_aligned_v1",
+  "prompt_version": "proposal_v1_error_feedback_20261030",
+  "status": "draft-pending-calibration",
+  "note": "Predeclared corrected three-case prefix fraction comparison. All other execution settings identical to corrected baseline; no official verdicts used.",
+  "dataset": {
+    "name": "princeton-nlp/SWE-bench_Lite",
+    "revision": "6ec7bb89b9342f664a54a6e0a6ea6501d3437cc2",
+    "dev_split": "dev",
+    "test_split": "test",
+    "dev_instances": 23,
+    "test_instances": 300,
+    "manifest": "data/frozen/manifest.json"
+  },
+  "model": {
+    "model": "deepseek-flash",
+    "model_version": "deepseek-flash",
+    "thinking": true,
+    "effort": "low",
+    "temperature": null,
+    "top_p": 1.0,
+    "max_tokens": 16384,
+    "max_retries": 0,
+    "calibration": "pending",
+    "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+    "identity_probe": {
+      "file": "runs/test20_execution_20261111/model_probe_01/result.json",
+      "sha256": "5cae957177a3fc70fb91bbd3ceb768bdea9b59308f9a55f8d3555eb52994cd2e",
+      "immutable_version": false
+    },
+    "identity_protocol": {
+      "mode": "provider_alias_with_backend_fingerprint_monitoring",
+      "official_current_mapping": "DeepSeek-V4.1-Flash-1017",
+      "approval": "runs/test20_execution_20261111/model_identity_amendment_approved.json",
+      "approval_sha256": "6964448992ec408a02683a5cbd8f930e47410d13dee2060d0fac6a34f654a89e"
+    }
+  },
+  "budget_tiers": [
+    {
+      "tier": "development",
+      "token": 512000,
+      "model_call": 12,
+      "tool_call": 80,
+      "wallclock_seconds": 1200
+    }
+  ],
+  "prefix": {
+    "n_candidates": 2,
+    "prefix_fraction": 0.2,
+    "prefix_fraction_grid": [
+      0.2,
+      0.3,
+      0.4
+    ],
+    "calibration": "pending"
+  },
+  "fixed_continuation": {
+    "max_candidates": 6,
+    "feedback": "structured",
+    "stop_on_public_pass": true,
+    "calibration": "pending"
+  },
+  "router": {
+    "rule_order": [
+      "stop_on_env_failure_after_one_recovery",
+      "stop_when_budget_insufficient",
+      "freeze_when_public_candidate_passes",
+      "fixed_on_local_application_or_syntax_error",
+      "interactive_on_wide_localization_disagreement",
+      "interactive_on_high_duplicate_rate",
+      "interactive_on_out_of_scope_stack_evidence",
+      "fixed_when_evidence_insufficient",
+      "fixed_continuation_otherwise"
+    ],
+    "localization_disagreement_threshold": null,
+    "duplicate_rate_threshold": null,
+    "threshold_grid": [
+      0.25,
+      0.5,
+      0.75
+    ],
+    "switch_probability": null,
+    "min_continuation": {
+      "token": 2048,
+      "model_call": 1,
+      "tool_call": 1,
+      "wallclock_seconds": 30
+    },
+    "calibration": "pending"
+  },
+  "interaction": {
+    "tools": [
+      "search_symbol",
+      "read_region",
+      "find_references",
+      "apply_patch",
+      "run_test",
+      "finish"
+    ],
+    "states": [
+      "analyse",
+      "edit",
+      "validate",
+      "finish"
+    ],
+    "stagnation_patience": 3,
+    "model_calls": 6,
+    "tool_calls": 10,
+    "wallclock_seconds": 420,
+    "final_call": "reserved_inside_limit"
+  },
+  "candidate_selection": {
+    "order": [
+      "scope_valid",
+      "syntax_valid",
+      "applies_cleanly",
+      "public_validation",
+      "fewer_files_touched",
+      "fewer_diff_lines",
+      "generation_order"
+    ],
+    "frozen": false
+  },
+  "evaluation": {
+    "harness": "SWE-bench official containerised harness",
+    "repeats": 1,
+    "primary_metric": "resolved_rate",
+    "denominator": "all designated instances",
+    "generation_view_fields": [
+      "problem_statement",
+      "base_commit",
+      "repo",
+      "version",
+      "environment_setup_commit"
+    ],
+    "withheld_from_generation": [
+      "patch",
+      "test_patch",
+      "FAIL_TO_PASS",
+      "PASS_TO_PASS"
+    ],
+    "frozen": false,
+    "instance_list": "runs/test20_preparation_20261111/resource_screen_instances.json",
+    "sampling": "full_split_or_preregistered_stratified_subset",
+    "environment_failures": "retain_in_primary_denominator",
+    "statistics": "dev_resource_screen_descriptive"
+  },
+  "arms": {
+    "A": "fixed workflow",
+    "B": "interactive only",
+    "C": "simple cascade (shared prefix, all eligible failures escalate)",
+    "D": "adaptive hybrid (shared prefix, evidence-based routing)",
+    "E": "random routing (switch probability fixed on dev split)"
+  },
+  "protocol": "docs/实验协议_开题对齐.md",
+  "active_tier": "development",
+  "execution": {
+    "live_authorized": true,
+    "per_instance_cny": 2.0,
+    "total_cny": 100.0,
+    "tool_call_unit": "container_exec",
+    "environment_retries": 1,
+    "environment_recovery": "retry_same_public_validation_no_install",
+    "output_root": "runs",
+    "modify_scope": "python_source_excluding_tests",
+    "prompt_estimator": "utf8_bytes_plus_1024",
+    "allowed_modes": [
+      "diagnostic"
+    ],
+    "allowed_splits": [
+      "dev"
+    ],
+    "allowed_instances": [
+      "pydicom__pydicom-1256",
+      "pylint-dev__astroid-1866",
+      "pyvista__pyvista-4315"
+    ],
+    "max_instances": 3,
+    "credential_source": "project_dotenv",
+    "budget_status": "authorized_resume_20261112",
+    "batch_ledger": "runs/test20_execution_20261111/batch_ledger.json",
+    "model_probe_authorized": false,
+    "docker_context": "desktop-linux",
+    "authorization_date": "2026-11-12",
+    "authorization_scope": "New cumulative 100 CNY for this round dev calibration and fixed test20 A-E x one, including identity probes; shared ledger; formal freeze required.",
+    "images": {
+      "pydicom__pydicom-1256": "sha256:2cc79f41af0bbff063e6a1372897b1e2620292a74d8781733b1ea21c9add9687",
+      "pylint-dev__astroid-1866": "sha256:d12c436e7986e6e244c897643c9c7f3eaf26d0ee3b363cfea46a0cba03322895",
+      "pyvista__pyvista-4315": "sha256:e731651d0a515514b18d73156752957fc4ca63bffd0957c14a3e9fcb0af3dd71"
+    }
+  }
+}

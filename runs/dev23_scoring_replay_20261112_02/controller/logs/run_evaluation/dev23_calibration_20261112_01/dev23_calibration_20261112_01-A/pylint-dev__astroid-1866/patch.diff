@@ -1,0 +1,10 @@
+--- a/astroid/brain/brain_builtin_inference.py
++++ b/astroid/brain/brain_builtin_inference.py
+@@ -953,6 +953,6 @@ def _infer_str_format_call(
+ 
+     try:
+         formatted_string = format_template.format(*pos_values, **keyword_values)
+-    except (IndexError, KeyError):
++    except (IndexError, KeyError, TypeError, ValueError):
+         # If there is an IndexError there are too few arguments to interpolate
+         return iter([util.Uninferable])

@@ -1,0 +1,127 @@
+[
+  {
+    "instance_id": "matplotlib__matplotlib-23987",
+    "exit_code": 0,
+    "versions": {
+      "python": "3.11.11",
+      "packages": {
+        "pytest": "8.3.4",
+        "numpy": "1.25.2",
+        "pandas": "2.2.3",
+        "scipy": null,
+        "matplotlib": "3.7.0.dev229+ge98d8d085e.d20260815",
+        "Werkzeug": null,
+        "Jinja2": "3.1.5",
+        "itsdangerous": null,
+        "click": null,
+        "setuptools": "68.1.2",
+        "pluggy": "1.5.0"
+      }
+    }
+  },
+  {
+    "instance_id": "mwaskom__seaborn-2848",
+    "exit_code": 0,
+    "versions": {
+      "python": "3.9.20",
+      "packages": {
+        "pytest": "8.3.3",
+        "numpy": "1.25.2",
+        "pandas": "2.0.0",
+        "scipy": "1.11.2",
+        "matplotlib": "3.7.2",
+        "Werkzeug": null,
+        "Jinja2": null,
+        "itsdangerous": null,
+        "click": null,
+        "setuptools": "75.1.0",
+        "pluggy": "1.5.0"
+      }
+    }
+  },
+  {
+    "instance_id": "pallets__flask-4045",
+    "exit_code": 0,
+    "versions": {
+      "python": "3.9.20",
+      "packages": {
+        "pytest": "6.2.5",
+        "numpy": null,
+        "pandas": null,
+        "scipy": null,
+        "matplotlib": null,
+        "Werkzeug": "2.3.7",
+        "Jinja2": "3.0.1",
+        "itsdangerous": "2.1.2",
+        "click": "8.0.1",
+        "setuptools": "70.0.0",
+        "pluggy": "1.0.0"
+      }
+    }
+  },
+  {
+    "instance_id": "psf__requests-1963",
+    "exit_code": 0,
+    "versions": {
+      "python": "3.9.20",
+      "packages": {
+        "pytest": "7.4.4",
+        "numpy": null,
+        "pandas": null,
+        "scipy": null,
+        "matplotlib": null,
+        "Werkzeug": null,
+        "Jinja2": null,
+        "itsdangerous": null,
+        "click": null,
+        "setuptools": "75.1.0",
+        "pluggy": "1.0.0"
+      }
+    }
+  },
+  {
+    "instance_id": "pytest-dev__pytest-6116",
+    "exit_code": 0,
+    "versions": {
+      "python": "3.9.20",
+      "packages": {
+        "pytest": "5.2.3.dev198+ge670ff76c.d20260815",
+        "numpy": null,
+        "pandas": null,
+        "scipy": null,
+        "matplotlib": null,
+        "Werkzeug": null,
+        "Jinja2": null,
+        "itsdangerous": null,
+        "click": null,
+        "setuptools": "75.1.0",
+        "pluggy": "0.13.1"
+      }
+    }
+  },
+  {
+    "instance_id": "scikit-learn__scikit-learn-11281",
+    "exit_code": 1,
+    "versions": null
+  },
+  {
+    "instance_id": "sphinx-doc__sphinx-8595",
+    "exit_code": 0,
+    "versions": {
+      "python": "3.9.20",
+      "packages": {
+        "pytest": "8.3.3",
+        "numpy": null,
+        "pandas": null,
+        "scipy": null,
+        "matplotlib": null,
+        "Werkzeug": null,
+        "Jinja2": "2.11.3",
+        "itsdangerous": null,
+        "click": null,
+        "setuptools": "75.1.0",
+        "pluggy": "1.5.0"
+      }
+    }
+  }
+]

@@ -1,0 +1,5 @@
+{
+  "exit_code": 0,
+  "stdout": "{'httpbin': None, 'gunicorn': None, 'pytest-httpbin': None}\n{'HTTPBIN_URL': None}\n",
+  "stderr": ""
+}

@@ -1,0 +1,9 @@
+{
+  "kind": "predeclared_prefix_setting_selection",
+  "chosen_prefix_fraction": 0.2,
+  "chosen_interaction_calls": 6,
+  "rule": "eligible; most complete usable flows; most legal prefix candidate coverage; smaller fraction tie",
+  "evidence": "screen_complete_observations_01.json",
+  "official_labels_read": false,
+  "chosen_tag": "dev_screen_p20_20261112_01"
+}

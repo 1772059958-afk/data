@@ -79,12 +79,22 @@ class Runtime:
 
 
 class BudgetedClient:
-    def __init__(self, client, runtime: Runtime, expected_served_model: str | None = None):
+    def __init__(self, client, runtime: Runtime, expected_served_model: str | None = None,
+                 expected_system_fingerprint: str | None = None):
         self.client, self.runtime = client, runtime
         self.config = client.config
         self.expected_served_model = expected_served_model
+        if (expected_system_fingerprint is not None
+                and (not isinstance(expected_system_fingerprint, str)
+                     or not expected_system_fingerprint.strip())):
+            raise ValueError('expected_system_fingerprint must be a non-empty string or None')
+        self.expected_system_fingerprint = expected_system_fingerprint
 
     def chat(self, messages, **kwargs):
+        if getattr(self.client, '_identity_violation', None):
+            raise RuntimeError('model access halted after a prior identity violation')
+        if getattr(self.client, '_api_breakpoint', None):
+            raise RuntimeError('model access halted after an API access/quota breakpoint')
         # A byte-based upper estimate, with protocol overhead. Actual billed
         # usage is booked afterwards; overruns remain visible and stop the run.
         prompt = len(json.dumps({'messages': messages, **kwargs}, ensure_ascii=False).encode('utf-8')) + 1024
@@ -143,10 +153,26 @@ class BudgetedClient:
 
     def _check_served_model(self, result):
         if self.expected_served_model and not getattr(result.record, 'served_model_reported', True):
-            raise RuntimeError('server response omitted its model identity')
+            self._reject_identity('served_model_missing', 'server response omitted its model identity')
         if self.expected_served_model and result.record.served_model != self.expected_served_model:
-            raise RuntimeError(f'served model drift: expected {self.expected_served_model}, '
-                               f'got {result.record.served_model}')
+            self._reject_identity('served_model_mismatch',
+                                  f'served model drift: expected {self.expected_served_model}, '
+                                  f'got {result.record.served_model}')
+        if self.expected_system_fingerprint is not None:
+            fingerprint = getattr(result.record, 'system_fingerprint', None)
+            if not isinstance(fingerprint, str) or not fingerprint.strip():
+                self._reject_identity('system_fingerprint_missing',
+                                      'server response omitted its system fingerprint')
+            if fingerprint != self.expected_system_fingerprint:
+                self._reject_identity('system_fingerprint_mismatch',
+                                      'served backend fingerprint drift: '
+                                      f'expected {self.expected_system_fingerprint}, got {fingerprint}')
+
+    def _reject_identity(self, code, message):
+        # A new branch/runtime sharing this client must not buy another answer
+        # after an identity violation. Only fixed safe codes enter the marker.
+        self.client._identity_violation = code
+        raise RuntimeError(message)
 
 
 class BudgetedContainer:

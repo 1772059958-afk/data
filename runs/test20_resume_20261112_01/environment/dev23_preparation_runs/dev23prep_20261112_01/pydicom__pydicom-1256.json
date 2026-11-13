@@ -1,0 +1,82 @@
+{
+  "instance_id": "pydicom__pydicom-1256",
+  "base_commit": "49a3da4a3d9c24d7e8427a25048a1c7d5c4f7724",
+  "repo": "pydicom/pydicom",
+  "dependency_profile": "pydicom",
+  "status": "public_smoke_ready",
+  "patch_applied": false,
+  "model_calls": 0,
+  "smoke_scope_only": true,
+  "source_or_tests_modified": false,
+  "reuse_validation": {
+    "actual_image_id": "sha256:2cc79f41af0bbff063e6a1372897b1e2620292a74d8781733b1ea21c9add9687",
+    "identity_before": {
+      "head": "49a3da4a3d9c24d7e8427a25048a1c7d5c4f7724",
+      "clean": true,
+      "selected_git_blob_bytes_verified": true,
+      "python": "3.9.21"
+    },
+    "imports": {
+      "head": "49a3da4a3d9c24d7e8427a25048a1c7d5c4f7724",
+      "clean": true,
+      "selected_git_blob_bytes_verified": true,
+      "python": "3.9.21",
+      "module_file": "/testbed/pydicom/__init__.py",
+      "module_version": "2.2.0.dev0",
+      "distributions": {
+        "pytest": "7.4.4",
+        "numpy": "1.26.4",
+        "pandas": "2.2.3",
+        "scipy": "1.13.1",
+        "wrapt": null,
+        "lazy-object-proxy": null,
+        "simplejson": null,
+        "sqlfluff": null,
+        "Jinja2": "3.1.6",
+        "click": null,
+        "nose": null
+      }
+    },
+    "public_smoke": {
+      "label": "public_smoke",
+      "arguments": [
+        "docker",
+        "--context",
+        "desktop-linux",
+        "exec",
+        "dev23prep-dev23prep_20261112_01-cb3568f884ee",
+        "bash",
+        "-lc",
+        "cd /testbed && python -m pytest pydicom/tests/test_dataset.py -q --no-header -p no:cacheprovider"
+      ],
+      "exit_code": 0,
+      "log": "0187_public_smoke.log",
+      "log_sha256": "b6b66fbcb1a48e70e1d47217160d4958a2e78c1ce8451115aeb3b61f59993fc8",
+      "seconds": 1.218
+    },
+    "identity_after": {
+      "head": "49a3da4a3d9c24d7e8427a25048a1c7d5c4f7724",
+      "clean": true,
+      "selected_git_blob_bytes_verified": true,
+      "python": "3.9.21",
+      "module_file": "/testbed/pydicom/__init__.py",
+      "module_version": "2.2.0.dev0",
+      "distributions": {
+        "pytest": "7.4.4",
+        "numpy": "1.26.4",
+        "pandas": "2.2.3",
+        "scipy": "1.13.1",
+        "wrapt": null,
+        "lazy-object-proxy": null,
+        "simplejson": null,
+        "sqlfluff": null,
+        "Jinja2": "3.1.6",
+        "click": null,
+        "nose": null
+      }
+    },
+    "passed": true
+  },
+  "image_id": "sha256:2cc79f41af0bbff063e6a1372897b1e2620292a74d8781733b1ea21c9add9687",
+  "reused": true
+}

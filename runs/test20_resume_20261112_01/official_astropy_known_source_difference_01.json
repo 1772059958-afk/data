@@ -1,0 +1,26 @@
+{
+  "head": "9afd2dd503b90f8b392bcb98f4e031dc16ee5f38",
+  "tree": "fd8ea44ca50d4d9b416095eefdd5ca82f22d8709",
+  "clean": true,
+  "public_blob_count": 1777,
+  "public_blob_mismatch_count": 1,
+  "missing_public_paths": 0,
+  "extra_tracked_paths": 0,
+  "file_mode_differences": 1762,
+  "assume_unchanged_or_sparse_entries": 0,
+  "raw_public_source_mismatch_count": 1,
+  "unknown_extra_path_names_exposed": false,
+  "compiled_artifact_reuse_allowed": false,
+  "python": "3.9.20",
+  "accepted": false,
+  "different_known_public_blob_paths": [
+    "pyproject.toml"
+  ],
+  "different_known_public_raw_source_paths": [
+    "pyproject.toml"
+  ],
+  "instance_id": "astropy__astropy-14995",
+  "model_calls": 0,
+  "unknown_extra_paths_read": false,
+  "source_diff_contents_read": false
+}

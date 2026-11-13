@@ -1,0 +1,5 @@
+{
+  "reason": "user_reduced_remaining_supplement_to_two_cases",
+  "instruction": "简化剩余验证，补充设置2例就行",
+  "preserve_all_existing_requests_and_outputs": true
+}

@@ -1,0 +1,1520 @@
+{
+  "kind": "fixed_dev23_public_smoke_manifest",
+  "date": "2026-11-11",
+  "status": "read_only_path_and_byte_review_no_test_execution",
+  "designated_dev_total": 23,
+  "selection": "One deterministic public test file per repo; same path across applicable versions, selected without model outcomes or withheld evaluation fields.",
+  "metadata_source": {
+    "path": "runs\\test20_execution_20261111\\environment\\public_metadata.json",
+    "sha256": "69feea404fc8160e1ab92ac7dce39a87eb905dd6aa0a73d7ce240d18c13c1244",
+    "fields": [
+      "base_commit",
+      "environment_setup_commit",
+      "instance_id",
+      "repo",
+      "version"
+    ]
+  },
+  "cache_source": {
+    "path": "runs\\test20_execution_20261111\\environment\\dev_source_cache_01.json",
+    "sha256": "edf32ad0cb3e73efbb0162f2f1f1d9ebe90333b17b9a8f86faeca548c4a89a27"
+  },
+  "screen_sources": {
+    "root": "work/test20_environment_20261111",
+    "instance_ids": [
+      "pydicom__pydicom-1256",
+      "pylint-dev__astroid-1866",
+      "pyvista__pyvista-4315"
+    ]
+  },
+  "instances": [
+    {
+      "environment_setup_commit": "7015fc4333a2f32cd58c3465296e834acd4496ff",
+      "base_commit": "2be2d83a1a9a6d3d9b85804f3ab545cecc409bb0",
+      "repo": "marshmallow-code/marshmallow",
+      "version": "2.20",
+      "instance_id": "marshmallow-code__marshmallow-1343",
+      "directory": "D:\\CodexExperimentCache\\test20_20261111\\source\\marshmallow-code__marshmallow-1343\\testbed",
+      "selection_basis": "两个公开版本共有的字段行为测试；仅按仓库固定选择，未运行也未读取模型成绩。",
+      "public_smoke_file": "tests/test_fields.py",
+      "module": "marshmallow",
+      "unknowns": [
+        "Selected public file is absent or differs from the recorded Git baseline: src/marshmallow/__init__.py",
+        "Selected public file is absent or differs from the recorded Git baseline: tests/test_fields.py",
+        "Selected public file is absent or differs from the recorded Git baseline: tests/conftest.py",
+        "Selected public file is absent or differs from the recorded Git baseline: tests/base.py"
+      ],
+      "files": [
+        {
+          "role": "module_import",
+          "relative_path": "src/marshmallow/__init__.py",
+          "local_path": "D:\\CodexExperimentCache\\test20_20261111\\source\\marshmallow-code__marshmallow-1343\\testbed\\src\\marshmallow\\__init__.py",
+          "exists_in_git_HEAD": true,
+          "exists_locally": true,
+          "git_blob_sha1": "5c0b031c2962aba1137e38d566326a057e212226",
+          "git_blob_bytes": 816,
+          "git_blob_content_sha256": "dc9f5b2d12e80c56cdbe2faf0ebe206e549c8353a7308ffeebda2a37f850365f",
+          "local_bytes": 852,
+          "local_sha256": "be58c91176042d7d8b4e6126b147f1bd8094069f9ef48ad28324d599b82b1462",
+          "local_matches_git_blob": false
+        },
+        {
+          "role": "public_smoke",
+          "relative_path": "tests/test_fields.py",
+          "local_path": "D:\\CodexExperimentCache\\test20_20261111\\source\\marshmallow-code__marshmallow-1343\\testbed\\tests\\test_fields.py",
+          "exists_in_git_HEAD": true,
+          "exists_locally": true,
+          "git_blob_sha1": "6d253e7ef16a94be7391d87aecbabe5e92060150",
+          "git_blob_bytes": 6702,
+          "git_blob_content_sha256": "6d582512389390393c52ebf5f022aae03ddcd79ea9b94f639c13571b9b5226a1",
+          "local_bytes": 6887,
+          "local_sha256": "c67fd022b278fbe4bbc7b2aaf157d2fc0116ce9e3734cc78d4bff93435114424",
+          "local_matches_git_blob": false
+        },
+        {
+          "role": "public_support",
+          "relative_path": "tests/conftest.py",
+          "local_path": "D:\\CodexExperimentCache\\test20_20261111\\source\\marshmallow-code__marshmallow-1343\\testbed\\tests\\conftest.py",
+          "exists_in_git_HEAD": true,
+          "exists_locally": true,
+          "git_blob_sha1": "4732874fd702dc45e2f11a5bfc1532ef8d80895f",
+          "git_blob_bytes": 563,
+          "git_blob_content_sha256": "7c112ed3b439463432ec4df604ae125f6c262017c3f703fc832808f178141a70",
+          "local_bytes": 583,
+          "local_sha256": "16a80e63338fec8ed1f98c14b7225748bfbfc9ab8539e9d9e28c46e5f6de208c",
+          "local_matches_git_blob": false
+        },
+        {
+          "role": "public_support",
+          "relative_path": "tests/base.py",
+          "local_path": "D:\\CodexExperimentCache\\test20_20261111\\source\\marshmallow-code__marshmallow-1343\\testbed\\tests\\base.py",
+          "exists_in_git_HEAD": true,
+          "exists_locally": true,
+          "git_blob_sha1": "d57ad310b47bf7d8b97b5f725be458b2927ad2b2",
+          "git_blob_bytes": 8017,
+          "git_blob_content_sha256": "f727026f150ff72df26dea3e8377c7e739c5d8872ad475105f5db2daea95c43c",
+          "local_bytes": 8302,
+          "local_sha256": "35b26284886d467377206e6bc98a2022911e8f983752ccc01f68a697a0c1a6f3",
+          "local_matches_git_blob": false
+        }
+      ],
+      "actual_HEAD": "2be2d83a1a9a6d3d9b85804f3ab545cecc409bb0",
+      "base_commit_matches": true,
+      "status": "requires_review",
+      "planned_commands": {
+        "import": "python -c \"import marshmallow; print(marshmallow.__file__)\"",
+        "public_collection": "python -m pytest --collect-only -q tests/test_fields.py",
+        "public_smoke": "python -m pytest -q tests/test_fields.py",
+        "working_directory_in_container": "/testbed",
+        "network": "none"
+      },
+      "execution_status": "not_executed_by_manifest_review"
+    },
+    {
+      "environment_setup_commit": "8b3a32614fd4a74e93e9a63a042e74c1fea34466",
+      "base_commit": "b40a0f4e33823e6d0f341f7e8684e359a99060d1",
+      "repo": "marshmallow-code/marshmallow",
+      "version": "3.0",
+      "instance_id": "marshmallow-code__marshmallow-1359",
+      "directory": "D:\\CodexExperimentCache\\test20_20261111\\source\\marshmallow-code__marshmallow-1359\\testbed",
+      "selection_basis": "两个公开版本共有的字段行为测试；仅按仓库固定选择，未运行也未读取模型成绩。",
+      "public_smoke_file": "tests/test_fields.py",
+      "module": "marshmallow",
+      "unknowns": [
+        "Selected public file is absent or differs from the recorded Git baseline: src/marshmallow/__init__.py",
+        "Selected public file is absent or differs from the recorded Git baseline: tests/test_fields.py",
+        "Selected public file is absent or differs from the recorded Git baseline: tests/conftest.py",
+        "Selected public file is absent or differs from the recorded Git baseline: tests/base.py"
+      ],
+      "files": [
+        {
+          "role": "module_import",
+          "relative_path": "src/marshmallow/__init__.py",
+          "local_path": "D:\\CodexExperimentCache\\test20_20261111\\source\\marshmallow-code__marshmallow-1359\\testbed\\src\\marshmallow\\__init__.py",
+          "exists_in_git_HEAD": true,
+          "exists_locally": true,
+          "git_blob_sha1": "87af32351ffdf0bf3035e4a9084fb53add01d44a",
+          "git_blob_bytes": 716,
+          "git_blob_content_sha256": "28764c40032f08ee12706f8f797f230685d5485d052fb95ce821d8744ca67360",
+          "local_bytes": 750,
+          "local_sha256": "2a94a5db1e54dfacdc4c29bee4b4c56f9489278d46a80e3ccabe2013648c5a50",
+          "local_matches_git_blob": false
+        },
+        {
+          "role": "public_smoke",
+          "relative_path": "tests/test_fields.py",
+          "local_path": "D:\\CodexExperimentCache\\test20_20261111\\source\\marshmallow-code__marshmallow-1359\\testbed\\tests\\test_fields.py",
+          "exists_in_git_HEAD": true,
+          "exists_locally": true,
+          "git_blob_sha1": "b0a5a7777d6529105e4772762b48ff441d227e11",
+          "git_blob_bytes": 16073,
+          "git_blob_content_sha256": "b539d12474c934fe94027cdae3d83260371a9f73059d8ff5512a2a1b32145989",
+          "local_bytes": 16508,
+          "local_sha256": "2b106758ac8ec31bb33ca89681f93c055866f5233824aa9073bae4dcdc0c4d01",
+          "local_matches_git_blob": false
+        },
+        {
+          "role": "public_support",
+          "relative_path": "tests/conftest.py",
+          "local_path": "D:\\CodexExperimentCache\\test20_20261111\\source\\marshmallow-code__marshmallow-1359\\testbed\\tests\\conftest.py",
+          "exists_in_git_HEAD": true,
+          "exists_locally": true,
+          "git_blob_sha1": "5c3045c327f1cd97e3eec222c28fd7df1869f713",
+          "git_blob_bytes": 565,
+          "git_blob_content_sha256": "b38131f00b1d54f6f57eaecb0c431a1630f46ce14668881ed783d4c1145a924e",
+          "local_bytes": 591,
+          "local_sha256": "4668de3c87ec38a639ce34683e3e0cd3d555b0ea4cf1314232480182a4cda90b",
+          "local_matches_git_blob": false
+        },
+        {
+          "role": "public_support",
+          "relative_path": "tests/base.py",
+          "local_path": "D:\\CodexExperimentCache\\test20_20261111\\source\\marshmallow-code__marshmallow-1359\\testbed\\tests\\base.py",
+          "exists_in_git_HEAD": true,
+          "exists_locally": true,
+          "git_blob_sha1": "b1661f3d50b2ced64ad1121a4b819dbfec4310c8",
+          "git_blob_bytes": 7978,
+          "git_blob_content_sha256": "73dedb65016b434f12b0a297d8bd686b91b7df2626e5932f4cd19553381f96f9",
+          "local_bytes": 8297,
+          "local_sha256": "a8323456d401e0012f6777921076c914d1d85e4bd6145d486ef7e85f06e2e638",
+          "local_matches_git_blob": false
+        }
+      ],
+      "actual_HEAD": "b40a0f4e33823e6d0f341f7e8684e359a99060d1",
+      "base_commit_matches": true,
+      "status": "requires_review",
+      "planned_commands": {
+        "import": "python -c \"import marshmallow; print(marshmallow.__file__)\"",
+        "public_collection": "python -m pytest --collect-only -q tests/test_fields.py",
+        "public_smoke": "python -m pytest -q tests/test_fields.py",
+        "working_directory_in_container": "/testbed",
+        "network": "none"
+      },
+      "execution_status": "not_executed_by_manifest_review"
+    },
+    {
+      "environment_setup_commit": "6e5148f59c5050e8f7a0084b7ae39e93b80f72e6",
+      "base_commit": "04a523fafbd61bc2e49420963b84ed8e2bd1b3cf",
+      "repo": "pvlib/pvlib-python",
+      "version": "0.7",
+      "instance_id": "pvlib__pvlib-python-1072",
+      "directory": "D:\\CodexExperimentCache\\test20_20261111\\source\\pvlib__pvlib-python-1072\\testbed",
+      "selection_basis": "五个基线共有的公开 PVSystem 测试文件；1707已有同文件历史公开环境证据，但不外推到其他基线。",
+      "public_smoke_file": "pvlib/tests/test_pvsystem.py",
+      "module": "pvlib",
+      "unknowns": [
+        "Selected public file is absent or differs from the recorded Git baseline: pvlib/__init__.py",
+        "Selected public file is absent or differs from the recorded Git baseline: pvlib/tests/test_pvsystem.py",
+        "Selected public file is absent or differs from the recorded Git baseline: pvlib/tests/conftest.py"
+      ],
+      "files": [
+        {
+          "role": "module_import",
+          "relative_path": "pvlib/__init__.py",
+          "local_path": "D:\\CodexExperimentCache\\test20_20261111\\source\\pvlib__pvlib-python-1072\\testbed\\pvlib\\__init__.py",
+          "exists_in_git_HEAD": true,
+          "exists_locally": true,
+          "git_blob_sha1": "c2d645d169951f763d5b60f69efc01efd8260d43",
+          "git_blob_bytes": 750,
+          "git_blob_content_sha256": "050c5dbcd0fa9ea3ba77ce08f7a6ea88f07af721e13803528d162b01b2523a1b",
+          "local_bytes": 768,
+          "local_sha256": "b7d35cb65890381b6b0dc1857e7dee76250e036264b25f6f530a945586a73909",
+          "local_matches_git_blob": false
+        },
+        {
+          "role": "public_smoke",
+          "relative_path": "pvlib/tests/test_pvsystem.py",
+          "local_path": "D:\\CodexExperimentCache\\test20_20261111\\source\\pvlib__pvlib-python-1072\\testbed\\pvlib\\tests\\test_pvsystem.py",
+          "exists_in_git_HEAD": true,
+          "exists_locally": true,
+          "git_blob_sha1": "b9edf54fffd5febf484260c6fbf6d582876cfb3e",
+          "git_blob_bytes": 50128,
+          "git_blob_content_sha256": "07bfd65d0d485d6c46975dbc2b183769146b674fa05ff2ab1cf21f010a30b0d7",
+          "local_bytes": 51453,
+          "local_sha256": "48e74cc5e6a5fa96e8aaab49620e3b91cb4f86b65e51ead82e3fafcd49ab6713",
+          "local_matches_git_blob": false
+        },
+        {
+          "role": "public_support",
+          "relative_path": "pvlib/tests/conftest.py",
+          "local_path": "D:\\CodexExperimentCache\\test20_20261111\\source\\pvlib__pvlib-python-1072\\testbed\\pvlib\\tests\\conftest.py",
+          "exists_in_git_HEAD": true,
+          "exists_locally": true,
+          "git_blob_sha1": "aa04af406df5c8d12295da9ce549b37d4ad40128",
+          "git_blob_bytes": 12718,
+          "git_blob_content_sha256": "c814ce0155e34846cc59043d6a2d4b2f6f3d5474d8f35d6697d847672c6df59b",
+          "local_bytes": 13189,
+          "local_sha256": "c89c6d28808323409973ae676bb5c985223ff81c6e2a817a99192b8c3038ea8b",
+          "local_matches_git_blob": false
+        }
+      ],
+      "actual_HEAD": "04a523fafbd61bc2e49420963b84ed8e2bd1b3cf",
+      "base_commit_matches": true,
+      "status": "requires_review",
+      "planned_commands": {
+        "import": "python -c \"import pvlib; print(pvlib.__file__)\"",
+        "public_collection": "python -m pytest --collect-only -q pvlib/tests/test_pvsystem.py",
+        "public_smoke": "python -m pytest -q pvlib/tests/test_pvsystem.py",
+        "working_directory_in_container": "/testbed",
+        "network": "none"
+      },
+      "execution_status": "not_executed_by_manifest_review"
+    },
+    {
+      "environment_setup_commit": "ef8ad2fee9840a77d14b0dfd17fc489dd85c9b91",
+      "base_commit": "0b8f24c265d76320067a5ee908a57d475cd1bb24",
+      "repo": "pvlib/pvlib-python",
+      "version": "0.8",
+      "instance_id": "pvlib__pvlib-python-1154",
+      "directory": "D:\\CodexExperimentCache\\test20_20261111\\source\\pvlib__pvlib-python-1154\\testbed",
+      "selection_basis": "五个基线共有的公开 PVSystem 测试文件；1707已有同文件历史公开环境证据，但不外推到其他基线。",
+      "public_smoke_file": "pvlib/tests/test_pvsystem.py",
+      "module": "pvlib",
+      "unknowns": [
+        "Selected public file is absent or differs from the recorded Git baseline: pvlib/__init__.py",
+        "Selected public file is absent or differs from the recorded Git baseline: pvlib/tests/test_pvsystem.py",
+        "Selected public file is absent or differs from the recorded Git baseline: pvlib/tests/conftest.py"
+      ],
+      "files": [
+        {
+          "role": "module_import",
+          "relative_path": "pvlib/__init__.py",
+          "local_path": "D:\\CodexExperimentCache\\test20_20261111\\source\\pvlib__pvlib-python-1154\\testbed\\pvlib\\__init__.py",
+          "exists_in_git_HEAD": true,
+          "exists_locally": true,
+          "git_blob_sha1": "ff6b375017a8add9c9a9b68593a8c22a60f2cecc",
+          "git_blob_bytes": 407,
+          "git_blob_content_sha256": "2b6828ad4812862c27e54f9cd6d411da026e2e8a16177d41597fea4f215bf261",
+          "local_bytes": 434,
+          "local_sha256": "3767c441966024ea84f54608f37855c1eb1bb1a86b473f0a427e10552460d895",
+          "local_matches_git_blob": false
+        },
+        {
+          "role": "public_smoke",
+          "relative_path": "pvlib/tests/test_pvsystem.py",
+          "local_path": "D:\\CodexExperimentCache\\test20_20261111\\source\\pvlib__pvlib-python-1154\\testbed\\pvlib\\tests\\test_pvsystem.py",
+          "exists_in_git_HEAD": true,
+          "exists_locally": true,
+          "git_blob_sha1": "c1b2cd76d962ebd71b9e467f4a8a13c12ba07594",
+          "git_blob_bytes": 77214,
+          "git_blob_content_sha256": "dca3e81e391c5be9a804e716f9935f303a75278f953172a3001766f9077df90a",
+          "local_bytes": 79226,
+          "local_sha256": "e2a32ee977077713854b0cdb4aedd4d5240e000c799d77d9ee70e69ab61a9e3a",
+          "local_matches_git_blob": false
+        },
+        {
+          "role": "public_support",
+          "relative_path": "pvlib/tests/conftest.py",
+          "local_path": "D:\\CodexExperimentCache\\test20_20261111\\source\\pvlib__pvlib-python-1154\\testbed\\pvlib\\tests\\conftest.py",
+          "exists_in_git_HEAD": true,
+          "exists_locally": true,
+          "git_blob_sha1": "aa04af406df5c8d12295da9ce549b37d4ad40128",
+          "git_blob_bytes": 12718,
+          "git_blob_content_sha256": "c814ce0155e34846cc59043d6a2d4b2f6f3d5474d8f35d6697d847672c6df59b",
+          "local_bytes": 13189,
+          "local_sha256": "c89c6d28808323409973ae676bb5c985223ff81c6e2a817a99192b8c3038ea8b",
+          "local_matches_git_blob": false
+        }
+      ],
+      "actual_HEAD": "0b8f24c265d76320067a5ee908a57d475cd1bb24",
+      "base_commit_matches": true,
+      "status": "requires_review",
+      "planned_commands": {
+        "import": "python -c \"import pvlib; print(pvlib.__file__)\"",
+        "public_collection": "python -m pytest --collect-only -q pvlib/tests/test_pvsystem.py",
+        "public_smoke": "python -m pytest -q pvlib/tests/test_pvsystem.py",
+        "working_directory_in_container": "/testbed",
+        "network": "none"
+      },
+      "execution_status": "not_executed_by_manifest_review"
+    },
+    {
+      "environment_setup_commit": "ef8ad2fee9840a77d14b0dfd17fc489dd85c9b91",
+      "base_commit": "c78b50f4337ecbe536a961336ca91a1176efc0e8",
+      "repo": "pvlib/pvlib-python",
+      "version": "0.8",
+      "instance_id": "pvlib__pvlib-python-1606",
+      "directory": "D:\\CodexExperimentCache\\test20_20261111\\source\\pvlib__pvlib-python-1606\\testbed",
+      "selection_basis": "五个基线共有的公开 PVSystem 测试文件；1707已有同文件历史公开环境证据，但不外推到其他基线。",
+      "public_smoke_file": "pvlib/tests/test_pvsystem.py",
+      "module": "pvlib",
+      "unknowns": [
+        "Selected public file is absent or differs from the recorded Git baseline: pvlib/__init__.py",
+        "Selected public file is absent or differs from the recorded Git baseline: pvlib/tests/test_pvsystem.py",
+        "Selected public file is absent or differs from the recorded Git baseline: pvlib/tests/conftest.py"
+      ],
+      "files": [
+        {
+          "role": "module_import",
+          "relative_path": "pvlib/__init__.py",
+          "local_path": "D:\\CodexExperimentCache\\test20_20261111\\source\\pvlib__pvlib-python-1606\\testbed\\pvlib\\__init__.py",
+          "exists_in_git_HEAD": true,
+          "exists_locally": true,
+          "git_blob_sha1": "ff6b375017a8add9c9a9b68593a8c22a60f2cecc",
+          "git_blob_bytes": 407,
+          "git_blob_content_sha256": "2b6828ad4812862c27e54f9cd6d411da026e2e8a16177d41597fea4f215bf261",
+          "local_bytes": 434,
+          "local_sha256": "3767c441966024ea84f54608f37855c1eb1bb1a86b473f0a427e10552460d895",
+          "local_matches_git_blob": false
+        },
+        {
+          "role": "public_smoke",
+          "relative_path": "pvlib/tests/test_pvsystem.py",
+          "local_path": "D:\\CodexExperimentCache\\test20_20261111\\source\\pvlib__pvlib-python-1606\\testbed\\pvlib\\tests\\test_pvsystem.py",
+          "exists_in_git_HEAD": true,
+          "exists_locally": true,
+          "git_blob_sha1": "7fa013d0dc1f2befd3a659b9ad698d3cd8ad7c29",
+          "git_blob_bytes": 92681,
+          "git_blob_content_sha256": "0eb664f350e597e211c3b51fbe198dec55639df268e879e507060ef350936ae2",
+          "local_bytes": 95047,
+          "local_sha256": "681375ea4febc2c7897c50697ca2cc9cdb9732a7d603146033d4c0d49da01189",
+          "local_matches_git_blob": false
+        },
+        {
+          "role": "public_support",
+          "relative_path": "pvlib/tests/conftest.py",
+          "local_path": "D:\\CodexExperimentCache\\test20_20261111\\source\\pvlib__pvlib-python-1606\\testbed\\pvlib\\tests\\conftest.py",
+          "exists_in_git_HEAD": true,
+          "exists_locally": true,
+          "git_blob_sha1": "b3e9fcd5a1b6d86c08aaa47252f9e1b8cea0ea4f",
+          "git_blob_bytes": 13490,
+          "git_blob_content_sha256": "b592bb6601b83242550cddb46550ae0c10180b17ccdede42ed81200b782b2a29",
+          "local_bytes": 13985,
+          "local_sha256": "a919c9064509bbb077dc046512b160049491fc5eab80463096e905535a745242",
+          "local_matches_git_blob": false
+        }
+      ],
+      "actual_HEAD": "c78b50f4337ecbe536a961336ca91a1176efc0e8",
+      "base_commit_matches": true,
+      "status": "requires_review",
+      "planned_commands": {
+        "import": "python -c \"import pvlib; print(pvlib.__file__)\"",
+        "public_collection": "python -m pytest --collect-only -q pvlib/tests/test_pvsystem.py",
+        "public_smoke": "python -m pytest -q pvlib/tests/test_pvsystem.py",
+        "working_directory_in_container": "/testbed",
+        "network": "none"
+      },
+      "execution_status": "not_executed_by_manifest_review"
+    },
+    {
+      "environment_setup_commit": "6072e0982c3c0236f532ddfa48fbf461180d834e",
+      "base_commit": "40e9e978c170bdde4eeee1547729417665dbc34c",
+      "repo": "pvlib/pvlib-python",
+      "version": "0.9",
+      "instance_id": "pvlib__pvlib-python-1707",
+      "directory": "D:\\CodexExperimentCache\\test20_20261111\\source\\pvlib__pvlib-python-1707\\testbed",
+      "selection_basis": "五个基线共有的公开 PVSystem 测试文件；1707已有同文件历史公开环境证据，但不外推到其他基线。",
+      "public_smoke_file": "pvlib/tests/test_pvsystem.py",
+      "module": "pvlib",
+      "unknowns": [
+        "Selected public file is absent or differs from the recorded Git baseline: pvlib/__init__.py",
+        "Selected public file is absent or differs from the recorded Git baseline: pvlib/tests/test_pvsystem.py",
+        "Selected public file is absent or differs from the recorded Git baseline: pvlib/tests/conftest.py"
+      ],
+      "files": [
+        {
+          "role": "module_import",
+          "relative_path": "pvlib/__init__.py",
+          "local_path": "D:\\CodexExperimentCache\\test20_20261111\\source\\pvlib__pvlib-python-1707\\testbed\\pvlib\\__init__.py",
+          "exists_in_git_HEAD": true,
+          "exists_locally": true,
+          "git_blob_sha1": "dfd5f1dc2ab42c2191460ee06764db6b1e58c204",
+          "git_blob_bytes": 488,
+          "git_blob_content_sha256": "523400088ac46edded0874fc2ec18bd70c79ba75befe106a54421db7be396281",
+          "local_bytes": 517,
+          "local_sha256": "416d595b314ee19763e386252bef3379afc6dff4548a27e20ddb2e34cbac8ff3",
+          "local_matches_git_blob": false
+        },
+        {
+          "role": "public_smoke",
+          "relative_path": "pvlib/tests/test_pvsystem.py",
+          "local_path": "D:\\CodexExperimentCache\\test20_20261111\\source\\pvlib__pvlib-python-1707\\testbed\\pvlib\\tests\\test_pvsystem.py",
+          "exists_in_git_HEAD": true,
+          "exists_locally": true,
+          "git_blob_sha1": "d5dcfc1420ac2b0d406d5e3b9b7b2ff880deb460",
+          "git_blob_bytes": 94148,
+          "git_blob_content_sha256": "9d0d3924cdb5e7706dce037ff0950af7c1c60b6e746ca2af990180de38289c02",
+          "local_bytes": 96548,
+          "local_sha256": "9d907a3b37e78175789b083b15c90bcfed12967fd0e334dc925325261f949c1a",
+          "local_matches_git_blob": false
+        },
+        {
+          "role": "public_support",
+          "relative_path": "pvlib/tests/conftest.py",
+          "local_path": "D:\\CodexExperimentCache\\test20_20261111\\source\\pvlib__pvlib-python-1707\\testbed\\pvlib\\tests\\conftest.py",
+          "exists_in_git_HEAD": true,
+          "exists_locally": true,
+          "git_blob_sha1": "b3e9fcd5a1b6d86c08aaa47252f9e1b8cea0ea4f",
+          "git_blob_bytes": 13490,
+          "git_blob_content_sha256": "b592bb6601b83242550cddb46550ae0c10180b17ccdede42ed81200b782b2a29",
+          "local_bytes": 13985,
+          "local_sha256": "a919c9064509bbb077dc046512b160049491fc5eab80463096e905535a745242",
+          "local_matches_git_blob": false
+        }
+      ],
+      "actual_HEAD": "40e9e978c170bdde4eeee1547729417665dbc34c",
+      "base_commit_matches": true,
+      "status": "requires_review",
+      "planned_commands": {
+        "import": "python -c \"import pvlib; print(pvlib.__file__)\"",
+        "public_collection": "python -m pytest --collect-only -q pvlib/tests/test_pvsystem.py",
+        "public_smoke": "python -m pytest -q pvlib/tests/test_pvsystem.py",
+        "working_directory_in_container": "/testbed",
+        "network": "none"
+      },
+      "execution_status": "not_executed_by_manifest_review"
+    },
+    {
+      "environment_setup_commit": "6072e0982c3c0236f532ddfa48fbf461180d834e",
+      "base_commit": "27a3a07ebc84b11014d3753e4923902adf9a38c0",
+      "repo": "pvlib/pvlib-python",
+      "version": "0.9",
+      "instance_id": "pvlib__pvlib-python-1854",
+      "directory": "D:\\CodexExperimentCache\\test20_20261111\\source\\pvlib__pvlib-python-1854\\testbed",
+      "selection_basis": "五个基线共有的公开 PVSystem 测试文件；1707已有同文件历史公开环境证据，但不外推到其他基线。",
+      "public_smoke_file": "pvlib/tests/test_pvsystem.py",
+      "module": "pvlib",
+      "unknowns": [
+        "Selected public file is absent or differs from the recorded Git baseline: pvlib/__init__.py",
+        "Selected public file is absent or differs from the recorded Git baseline: pvlib/tests/test_pvsystem.py",
+        "Selected public file is absent or differs from the recorded Git baseline: pvlib/tests/conftest.py"
+      ],
+      "files": [
+        {
+          "role": "module_import",
+          "relative_path": "pvlib/__init__.py",
+          "local_path": "D:\\CodexExperimentCache\\test20_20261111\\source\\pvlib__pvlib-python-1854\\testbed\\pvlib\\__init__.py",
+          "exists_in_git_HEAD": true,
+          "exists_locally": true,
+          "git_blob_sha1": "54009506d24d780574de2f4e82d9431bf043fa94",
+          "git_blob_bytes": 473,
+          "git_blob_content_sha256": "ab086c3de8d3848bdd8d78e6bcc8a5009d3dc7598f404bd588c9957ec9ef45a7",
+          "local_bytes": 501,
+          "local_sha256": "4603de4be59ea7824b74f0365a639163c6f27b2a05c3d770b7c2076c747f095b",
+          "local_matches_git_blob": false
+        },
+        {
+          "role": "public_smoke",
+          "relative_path": "pvlib/tests/test_pvsystem.py",
+          "local_path": "D:\\CodexExperimentCache\\test20_20261111\\source\\pvlib__pvlib-python-1854\\testbed\\pvlib\\tests\\test_pvsystem.py",
+          "exists_in_git_HEAD": true,
+          "exists_locally": true,
+          "git_blob_sha1": "b379dd41bce094953414a1d840d75a1a3debd8a7",
+          "git_blob_bytes": 98112,
+          "git_blob_content_sha256": "d3a9d6f28f449c70de214bf211d39aa74fd8959d8dce6a7b06cb9fd496158b60",
+          "local_bytes": 100648,
+          "local_sha256": "6956db2c2256e5f3301254ea59c15be35901e8c234cd58477c1931f86eec8001",
+          "local_matches_git_blob": false
+        },
+        {
+          "role": "public_support",
+          "relative_path": "pvlib/tests/conftest.py",
+          "local_path": "D:\\CodexExperimentCache\\test20_20261111\\source\\pvlib__pvlib-python-1854\\testbed\\pvlib\\tests\\conftest.py",
+          "exists_in_git_HEAD": true,
+          "exists_locally": true,
+          "git_blob_sha1": "3e1a22d03199b8aebbd938b21f1da6283b83a833",
+          "git_blob_bytes": 12763,
+          "git_blob_content_sha256": "17cf6f2f1ccef5913e2b9cca6ed6a9f3b93cc398da51cc7972100776db508b43",
+          "local_bytes": 13227,
+          "local_sha256": "f7b69788d5598787d9395fbe02b6bc416ce4009a8fda583471a0c324c0b1c596",
+          "local_matches_git_blob": false
+        }
+      ],
+      "actual_HEAD": "27a3a07ebc84b11014d3753e4923902adf9a38c0",
+      "base_commit_matches": true,
+      "status": "requires_review",
+      "planned_commands": {
+        "import": "python -c \"import pvlib; print(pvlib.__file__)\"",
+        "public_collection": "python -m pytest --collect-only -q pvlib/tests/test_pvsystem.py",
+        "public_smoke": "python -m pytest -q pvlib/tests/test_pvsystem.py",
+        "working_directory_in_container": "/testbed",
+        "network": "none"
+      },
+      "execution_status": "not_executed_by_manifest_review"
+    },
+    {
+      "environment_setup_commit": "9d69811e539774f296c2f289839147e741251716",
+      "base_commit": "b9fb05c177b685bf683f7f57b2d57374eb7d882d",
+      "repo": "pydicom/pydicom",
+      "version": "2.0",
+      "instance_id": "pydicom__pydicom-1139",
+      "directory": "D:\\CodexExperimentCache\\test20_20261111\\source\\pydicom__pydicom-1139\\testbed",
+      "selection_basis": "五个基线均实际存在的 Dataset 公开测试；1.3也使用pydicom/tests路径。",
+      "public_smoke_file": "pydicom/tests/test_dataset.py",
+      "module": "pydicom",
+      "unknowns": [
+        "Selected public file is absent or differs from the recorded Git baseline: pydicom/__init__.py",
+        "Selected public file is absent or differs from the recorded Git baseline: pydicom/tests/test_dataset.py"
+      ],
+      "files": [
+        {
+          "role": "module_import",
+          "relative_path": "pydicom/__init__.py",
+          "local_path": "D:\\CodexExperimentCache\\test20_20261111\\source\\pydicom__pydicom-1139\\testbed\\pydicom\\__init__.py",
+          "exists_in_git_HEAD": true,
+          "exists_locally": true,
+          "git_blob_sha1": "d19f127dd917ea3d4e53cb8836e94eb1352c7c26",
+          "git_blob_bytes": 1407,
+          "git_blob_content_sha256": "aa99605a96270719c82185671fd532ec5530d930da4fb46ca1eddcf57a7485a9",
+          "local_bytes": 1457,
+          "local_sha256": "f017a2cced25cfbfd76db2e1d671b512dd84bcacc654fa7a1f80f91e22322cea",
+          "local_matches_git_blob": false
+        },
+        {
+          "role": "public_smoke",
+          "relative_path": "pydicom/tests/test_dataset.py",
+          "local_path": "D:\\CodexExperimentCache\\test20_20261111\\source\\pydicom__pydicom-1139\\testbed\\pydicom\\tests\\test_dataset.py",
+          "exists_in_git_HEAD": true,
+          "exists_locally": true,
+          "git_blob_sha1": "fc186273e8d7ecc2c482b71bea2391bd52cac4d0",
+          "git_blob_bytes": 68279,
+          "git_blob_content_sha256": "7aefca0f6c709b6f61d703212718ba17c752ccb97c92f345d7bb4bd758053f63",
+          "local_bytes": 70115,
+          "local_sha256": "b4a04df2c18c3b5b163c6e38d668369c3875b15b880957476fbbf43363a557a9",
+          "local_matches_git_blob": false
+        }
+      ],
+      "actual_HEAD": "b9fb05c177b685bf683f7f57b2d57374eb7d882d",
+      "base_commit_matches": true,
+      "status": "requires_review",
+      "planned_commands": {
+        "import": "python -c \"import pydicom; print(pydicom.__file__)\"",
+        "public_collection": "python -m pytest --collect-only -q pydicom/tests/test_dataset.py",
+        "public_smoke": "python -m pytest -q pydicom/tests/test_dataset.py",
+        "working_directory_in_container": "/testbed",
+        "network": "none"
+      },
+      "execution_status": "not_executed_by_manifest_review",
+      "additional_existing_public_file": "pydicom/tests/test_valuerep.py"
+    },
+    {
+      "environment_setup_commit": "506ecea8f378dc687d5c504788fc78810a190b7a",
+      "base_commit": "49a3da4a3d9c24d7e8427a25048a1c7d5c4f7724",
+      "repo": "pydicom/pydicom",
+      "version": "2.1",
+      "instance_id": "pydicom__pydicom-1256",
+      "directory": "C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\work\\test20_environment_20261111\\pydicom__pydicom-1256\\testbed",
+      "selection_basis": "五个基线均实际存在的 Dataset 公开测试；1.3也使用pydicom/tests路径。",
+      "public_smoke_file": "pydicom/tests/test_dataset.py",
+      "module": "pydicom",
+      "unknowns": [
+        "Selected public file is absent or differs from the recorded Git baseline: pydicom/__init__.py",
+        "Selected public file is absent or differs from the recorded Git baseline: pydicom/tests/test_dataset.py"
+      ],
+      "files": [
+        {
+          "role": "module_import",
+          "relative_path": "pydicom/__init__.py",
+          "local_path": "C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\work\\test20_environment_20261111\\pydicom__pydicom-1256\\testbed\\pydicom\\__init__.py",
+          "exists_in_git_HEAD": true,
+          "exists_locally": true,
+          "git_blob_sha1": "a1066724497910279911a1787e418f7151f51488",
+          "git_blob_bytes": 1425,
+          "git_blob_content_sha256": "2f4969ccdddf2b28f930c51e552023a83497fafda26dd16a5d85f396c901d375",
+          "local_bytes": 1474,
+          "local_sha256": "96ca4f6684771d089d818c11b1ea112e559541153457f78df8fae760dbae0adc",
+          "local_matches_git_blob": false
+        },
+        {
+          "role": "public_smoke",
+          "relative_path": "pydicom/tests/test_dataset.py",
+          "local_path": "C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\work\\test20_environment_20261111\\pydicom__pydicom-1256\\testbed\\pydicom\\tests\\test_dataset.py",
+          "exists_in_git_HEAD": true,
+          "exists_locally": true,
+          "git_blob_sha1": "5b2ffbd985a07ad157a6e078e937ab5248a88bc1",
+          "git_blob_bytes": 78751,
+          "git_blob_content_sha256": "72208624dc6eb1d9cdcd8373111c97304775728767087df45dd5c9884c08ebf5",
+          "local_bytes": 80888,
+          "local_sha256": "bcc900f383d558ab0507686d0f15ef1586aa661ea0fe50d637bf8d209ffce786",
+          "local_matches_git_blob": false
+        }
+      ],
+      "actual_HEAD": "49a3da4a3d9c24d7e8427a25048a1c7d5c4f7724",
+      "base_commit_matches": true,
+      "status": "requires_review",
+      "planned_commands": {
+        "import": "python -c \"import pydicom; print(pydicom.__file__)\"",
+        "public_collection": "python -m pytest --collect-only -q pydicom/tests/test_dataset.py",
+        "public_smoke": "python -m pytest -q pydicom/tests/test_dataset.py",
+        "working_directory_in_container": "/testbed",
+        "network": "none"
+      },
+      "execution_status": "not_executed_by_manifest_review",
+      "additional_existing_public_file": "pydicom/tests/test_valuerep.py"
+    },
+    {
+      "environment_setup_commit": "506ecea8f378dc687d5c504788fc78810a190b7a",
+      "base_commit": "f909c76e31f759246cec3708dadd173c5d6e84b1",
+      "repo": "pydicom/pydicom",
+      "version": "2.1",
+      "instance_id": "pydicom__pydicom-1413",
+      "directory": "D:\\CodexExperimentCache\\test20_20261111\\source\\pydicom__pydicom-1413\\testbed",
+      "selection_basis": "五个基线均实际存在的 Dataset 公开测试；1.3也使用pydicom/tests路径。",
+      "public_smoke_file": "pydicom/tests/test_dataset.py",
+      "module": "pydicom",
+      "unknowns": [
+        "Selected public file is absent or differs from the recorded Git baseline: pydicom/__init__.py",
+        "Selected public file is absent or differs from the recorded Git baseline: pydicom/tests/test_dataset.py"
+      ],
+      "files": [
+        {
+          "role": "module_import",
+          "relative_path": "pydicom/__init__.py",
+          "local_path": "D:\\CodexExperimentCache\\test20_20261111\\source\\pydicom__pydicom-1413\\testbed\\pydicom\\__init__.py",
+          "exists_in_git_HEAD": true,
+          "exists_locally": true,
+          "git_blob_sha1": "f87f34ba5b024758ec82b72651a73b8cec2b50ec",
+          "git_blob_bytes": 1577,
+          "git_blob_content_sha256": "a22cabe57e4ce50172296259dcf4cf419609331ab9ed64a623108a753a1eaf32",
+          "local_bytes": 1631,
+          "local_sha256": "cf5e0c0f2c46170e9ae57a20c9f61c82c0282cbe6058bc9ae703c31625c3c7c6",
+          "local_matches_git_blob": false
+        },
+        {
+          "role": "public_smoke",
+          "relative_path": "pydicom/tests/test_dataset.py",
+          "local_path": "D:\\CodexExperimentCache\\test20_20261111\\source\\pydicom__pydicom-1413\\testbed\\pydicom\\tests\\test_dataset.py",
+          "exists_in_git_HEAD": true,
+          "exists_locally": true,
+          "git_blob_sha1": "b616e514f39f3c9706c89007f7cc3510be9bfefa",
+          "git_blob_bytes": 83006,
+          "git_blob_content_sha256": "e1fc8c673a54df3ff247168d44fcbf3d211df717a3ad3c707e912a76119bdfb5",
+          "local_bytes": 85260,
+          "local_sha256": "0b6a4aea81206821dd42455276d2b7020dd83dbc9bb7fc7683e2c65262b74763",
+          "local_matches_git_blob": false
+        }
+      ],
+      "actual_HEAD": "f909c76e31f759246cec3708dadd173c5d6e84b1",
+      "base_commit_matches": true,
+      "status": "requires_review",
+      "planned_commands": {
+        "import": "python -c \"import pydicom; print(pydicom.__file__)\"",
+        "public_collection": "python -m pytest --collect-only -q pydicom/tests/test_dataset.py",
+        "public_smoke": "python -m pytest -q pydicom/tests/test_dataset.py",
+        "working_directory_in_container": "/testbed",
+        "network": "none"
+      },
+      "execution_status": "not_executed_by_manifest_review",
+      "additional_existing_public_file": "pydicom/tests/test_valuerep.py"
+    },
+    {
+      "environment_setup_commit": "a8be738418dee0a2b93c241fbd5e0bc82f4b8680",
+      "base_commit": "f8cf45b6c121e5a4bf4a43f71aba3bc64af3db9c",
+      "repo": "pydicom/pydicom",
+      "version": "2.3",
+      "instance_id": "pydicom__pydicom-1694",
+      "directory": "D:\\CodexExperimentCache\\test20_20261111\\source\\pydicom__pydicom-1694\\testbed",
+      "selection_basis": "五个基线均实际存在的 Dataset 公开测试；1.3也使用pydicom/tests路径。",
+      "public_smoke_file": "pydicom/tests/test_dataset.py",
+      "module": "pydicom",
+      "unknowns": [
+        "Selected public file is absent or differs from the recorded Git baseline: pydicom/__init__.py",
+        "Selected public file is absent or differs from the recorded Git baseline: pydicom/tests/test_dataset.py"
+      ],
+      "files": [
+        {
+          "role": "module_import",
+          "relative_path": "pydicom/__init__.py",
+          "local_path": "D:\\CodexExperimentCache\\test20_20261111\\source\\pydicom__pydicom-1694\\testbed\\pydicom\\__init__.py",
+          "exists_in_git_HEAD": true,
+          "exists_locally": true,
+          "git_blob_sha1": "f87f34ba5b024758ec82b72651a73b8cec2b50ec",
+          "git_blob_bytes": 1577,
+          "git_blob_content_sha256": "a22cabe57e4ce50172296259dcf4cf419609331ab9ed64a623108a753a1eaf32",
+          "local_bytes": 1631,
+          "local_sha256": "cf5e0c0f2c46170e9ae57a20c9f61c82c0282cbe6058bc9ae703c31625c3c7c6",
+          "local_matches_git_blob": false
+        },
+        {
+          "role": "public_smoke",
+          "relative_path": "pydicom/tests/test_dataset.py",
+          "local_path": "D:\\CodexExperimentCache\\test20_20261111\\source\\pydicom__pydicom-1694\\testbed\\pydicom\\tests\\test_dataset.py",
+          "exists_in_git_HEAD": true,
+          "exists_locally": true,
+          "git_blob_sha1": "c54341020f37b94b24777bd94d9c065bb5bf3116",
+          "git_blob_bytes": 84049,
+          "git_blob_content_sha256": "a839f0bf62f13789007e15056e3e370fe58e74b86b52aa96b7dfc0174e69e028",
+          "local_bytes": 86329,
+          "local_sha256": "c0fefaad890019a3312c7f580b8a48b4f7661c650d800d0ac22f104e8426e5a1",
+          "local_matches_git_blob": false
+        }
+      ],
+      "actual_HEAD": "f8cf45b6c121e5a4bf4a43f71aba3bc64af3db9c",
+      "base_commit_matches": true,
+      "status": "requires_review",
+      "planned_commands": {
+        "import": "python -c \"import pydicom; print(pydicom.__file__)\"",
+        "public_collection": "python -m pytest --collect-only -q pydicom/tests/test_dataset.py",
+        "public_smoke": "python -m pytest -q pydicom/tests/test_dataset.py",
+        "working_directory_in_container": "/testbed",
+        "network": "none"
+      },
+      "execution_status": "not_executed_by_manifest_review",
+      "additional_existing_public_file": "pydicom/tests/test_valuerep.py"
+    },
+    {
+      "environment_setup_commit": "7241f5d9db0de589b230bb84212fbb643a7c86c3",
+      "base_commit": "3746878d8edf1cbda6fbcf35eec69f9ba79301ca",
+      "repo": "pydicom/pydicom",
+      "version": "1.3",
+      "instance_id": "pydicom__pydicom-901",
+      "directory": "D:\\CodexExperimentCache\\test20_20261111\\source\\pydicom__pydicom-901\\testbed",
+      "selection_basis": "五个基线均实际存在的 Dataset 公开测试；1.3也使用pydicom/tests路径。",
+      "public_smoke_file": "pydicom/tests/test_dataset.py",
+      "module": "pydicom",
+      "unknowns": [
+        "Selected public file is absent or differs from the recorded Git baseline: pydicom/__init__.py",
+        "Selected public file is absent or differs from the recorded Git baseline: pydicom/tests/test_dataset.py"
+      ],
+      "files": [
+        {
+          "role": "module_import",
+          "relative_path": "pydicom/__init__.py",
+          "local_path": "D:\\CodexExperimentCache\\test20_20261111\\source\\pydicom__pydicom-901\\testbed\\pydicom\\__init__.py",
+          "exists_in_git_HEAD": true,
+          "exists_locally": true,
+          "git_blob_sha1": "e00e000d7812043cb3e2a99d1e59dee1f384bbc0",
+          "git_blob_bytes": 1595,
+          "git_blob_content_sha256": "40c568eb7c15b5194e0870a39a7c69ec5733491fdfbbc3c9457998202d92a937",
+          "local_bytes": 1650,
+          "local_sha256": "9363840583b6b9133496c2975ebcedfaf50ee99392c941b4694434f63c78895e",
+          "local_matches_git_blob": false
+        },
+        {
+          "role": "public_smoke",
+          "relative_path": "pydicom/tests/test_dataset.py",
+          "local_path": "D:\\CodexExperimentCache\\test20_20261111\\source\\pydicom__pydicom-901\\testbed\\pydicom\\tests\\test_dataset.py",
+          "exists_in_git_HEAD": true,
+          "exists_locally": true,
+          "git_blob_sha1": "d01596639342b750ee6ac7dbef4cac4c390bdbbb",
+          "git_blob_bytes": 53901,
+          "git_blob_content_sha256": "e2a0624a544d38f12853e3f5644a0ae0cb21dd5cb20347c3e0beee2eb5001f0c",
+          "local_bytes": 55336,
+          "local_sha256": "909219c6265e9363fdf54a3a45f6c224f9623a32a63386c8e8005dd4c747171c",
+          "local_matches_git_blob": false
+        }
+      ],
+      "actual_HEAD": "3746878d8edf1cbda6fbcf35eec69f9ba79301ca",
+      "base_commit_matches": true,
+      "status": "requires_review",
+      "planned_commands": {
+        "import": "python -c \"import pydicom; print(pydicom.__file__)\"",
+        "public_collection": "python -m pytest --collect-only -q pydicom/tests/test_dataset.py",
+        "public_smoke": "python -m pytest -q pydicom/tests/test_dataset.py",
+        "working_directory_in_container": "/testbed",
+        "network": "none"
+      },
+      "execution_status": "not_executed_by_manifest_review",
+      "additional_existing_public_file": "pydicom/tests/test_valuerep.py"
+    },
+    {
+      "environment_setup_commit": "52f6d2d7722db383af035be929f18af5e9fe8cd5",
+      "base_commit": "39c2a9805970ca57093d32bbaf0e6a63e05041d8",
+      "repo": "pylint-dev/astroid",
+      "version": "2.12",
+      "instance_id": "pylint-dev__astroid-1196",
+      "directory": "D:\\CodexExperimentCache\\test20_20261111\\source\\pylint-dev__astroid-1196\\testbed",
+      "selection_basis": "五个基线均实际存在的 builder 公开测试；测试文件名不是test_前缀，须显式传文件路径。",
+      "public_smoke_file": "tests/unittest_builder.py",
+      "module": "astroid",
+      "unknowns": [
+        "Selected public file is absent or differs from the recorded Git baseline: astroid/__init__.py",
+        "Selected public file is absent or differs from the recorded Git baseline: tests/unittest_builder.py"
+      ],
+      "files": [
+        {
+          "role": "module_import",
+          "relative_path": "astroid/__init__.py",
+          "local_path": "D:\\CodexExperimentCache\\test20_20261111\\source\\pylint-dev__astroid-1196\\testbed\\astroid\\__init__.py",
+          "exists_in_git_HEAD": true,
+          "exists_locally": true,
+          "git_blob_sha1": "41b8fffd1e8df311092ad4fbd6274f134b48ebd3",
+          "git_blob_bytes": 5090,
+          "git_blob_content_sha256": "e14e89529fe350c38668f772c23b0d31b44943b78c49802650a1bae7d5dd1acd",
+          "local_bytes": 5287,
+          "local_sha256": "a14ba3df983f921c8a34225870769ad029480ce678eec5473a48ea023a1de143",
+          "local_matches_git_blob": false
+        },
+        {
+          "role": "public_smoke",
+          "relative_path": "tests/unittest_builder.py",
+          "local_path": "D:\\CodexExperimentCache\\test20_20261111\\source\\pylint-dev__astroid-1196\\testbed\\tests\\unittest_builder.py",
+          "exists_in_git_HEAD": true,
+          "exists_locally": true,
+          "git_blob_sha1": "61ef1bba3a0465736d3b4cb603c6da4abb9aeb72",
+          "git_blob_bytes": 35211,
+          "git_blob_content_sha256": "214973fdbb0d396f3ffc5658ae29b5f20f1c602a7a6f450ea11208ab825179e9",
+          "local_bytes": 36229,
+          "local_sha256": "8717c01a87a59eef5db38866ae26e4f0963b2044c5314df917036a26fc85500a",
+          "local_matches_git_blob": false
+        }
+      ],
+      "actual_HEAD": "39c2a9805970ca57093d32bbaf0e6a63e05041d8",
+      "base_commit_matches": true,
+      "status": "requires_review",
+      "planned_commands": {
+        "import": "python -c \"import astroid; print(astroid.__file__)\"",
+        "public_collection": "python -m pytest --collect-only -q tests/unittest_builder.py",
+        "public_smoke": "python -m pytest -q tests/unittest_builder.py",
+        "working_directory_in_container": "/testbed",
+        "network": "none"
+      },
+      "execution_status": "not_executed_by_manifest_review"
+    },
+    {
+      "environment_setup_commit": "0d1211558670cfefd95b39984b8d5f7f34837f32",
+      "base_commit": "ce5cbce5ba11cdc2f8139ade66feea1e181a7944",
+      "repo": "pylint-dev/astroid",
+      "version": "2.9",
+      "instance_id": "pylint-dev__astroid-1268",
+      "directory": "D:\\CodexExperimentCache\\test20_20261111\\source\\pylint-dev__astroid-1268\\testbed",
+      "selection_basis": "五个基线均实际存在的 builder 公开测试；测试文件名不是test_前缀，须显式传文件路径。",
+      "public_smoke_file": "tests/unittest_builder.py",
+      "module": "astroid",
+      "unknowns": [
+        "Selected public file is absent or differs from the recorded Git baseline: astroid/__init__.py",
+        "Selected public file is absent or differs from the recorded Git baseline: tests/unittest_builder.py"
+      ],
+      "files": [
+        {
+          "role": "module_import",
+          "relative_path": "astroid/__init__.py",
+          "local_path": "D:\\CodexExperimentCache\\test20_20261111\\source\\pylint-dev__astroid-1268\\testbed\\astroid\\__init__.py",
+          "exists_in_git_HEAD": true,
+          "exists_locally": true,
+          "git_blob_sha1": "a16a281512389205719005d2482458069682aed9",
+          "git_blob_bytes": 4806,
+          "git_blob_content_sha256": "5810d755341a20c3df48463bb4ced75413b210f5b2dd1408157ebaafdf086bda",
+          "local_bytes": 4976,
+          "local_sha256": "fa0b3a1124cc48e9452c6a07215abb1716cce2080be7ada809051f2d8e570005",
+          "local_matches_git_blob": false
+        },
+        {
+          "role": "public_smoke",
+          "relative_path": "tests/unittest_builder.py",
+          "local_path": "D:\\CodexExperimentCache\\test20_20261111\\source\\pylint-dev__astroid-1268\\testbed\\tests\\unittest_builder.py",
+          "exists_in_git_HEAD": true,
+          "exists_locally": true,
+          "git_blob_sha1": "11019e1ba08fe64af3314c68f14fb0d10b4923c6",
+          "git_blob_bytes": 28153,
+          "git_blob_content_sha256": "f3af7e61f609508088c3770864f749ce054285aa819102fba55cebde994ac889",
+          "local_bytes": 28941,
+          "local_sha256": "59948cc8080e48a1891847da840b7f1b29548ef4b611ea598c33d7a51c08740f",
+          "local_matches_git_blob": false
+        }
+      ],
+      "actual_HEAD": "ce5cbce5ba11cdc2f8139ade66feea1e181a7944",
+      "base_commit_matches": true,
+      "status": "requires_review",
+      "planned_commands": {
+        "import": "python -c \"import astroid; print(astroid.__file__)\"",
+        "public_collection": "python -m pytest --collect-only -q tests/unittest_builder.py",
+        "public_smoke": "python -m pytest -q tests/unittest_builder.py",
+        "working_directory_in_container": "/testbed",
+        "network": "none"
+      },
+      "execution_status": "not_executed_by_manifest_review"
+    },
+    {
+      "environment_setup_commit": "da745538c7236028a22cdf0405f6829fcf6886bc",
+      "base_commit": "d2a5b3c7b1e203fec3c7ca73c30eb1785d3d4d0a",
+      "repo": "pylint-dev/astroid",
+      "version": "2.10",
+      "instance_id": "pylint-dev__astroid-1333",
+      "directory": "D:\\CodexExperimentCache\\test20_20261111\\source\\pylint-dev__astroid-1333\\testbed",
+      "selection_basis": "五个基线均实际存在的 builder 公开测试；测试文件名不是test_前缀，须显式传文件路径。",
+      "public_smoke_file": "tests/unittest_builder.py",
+      "module": "astroid",
+      "unknowns": [
+        "Selected public file is absent or differs from the recorded Git baseline: astroid/__init__.py",
+        "Selected public file is absent or differs from the recorded Git baseline: tests/unittest_builder.py"
+      ],
+      "files": [
+        {
+          "role": "module_import",
+          "relative_path": "astroid/__init__.py",
+          "local_path": "D:\\CodexExperimentCache\\test20_20261111\\source\\pylint-dev__astroid-1333\\testbed\\astroid\\__init__.py",
+          "exists_in_git_HEAD": true,
+          "exists_locally": true,
+          "git_blob_sha1": "a16a281512389205719005d2482458069682aed9",
+          "git_blob_bytes": 4806,
+          "git_blob_content_sha256": "5810d755341a20c3df48463bb4ced75413b210f5b2dd1408157ebaafdf086bda",
+          "local_bytes": 4976,
+          "local_sha256": "fa0b3a1124cc48e9452c6a07215abb1716cce2080be7ada809051f2d8e570005",
+          "local_matches_git_blob": false
+        },
+        {
+          "role": "public_smoke",
+          "relative_path": "tests/unittest_builder.py",
+          "local_path": "D:\\CodexExperimentCache\\test20_20261111\\source\\pylint-dev__astroid-1333\\testbed\\tests\\unittest_builder.py",
+          "exists_in_git_HEAD": true,
+          "exists_locally": true,
+          "git_blob_sha1": "eb7fbdc77fbbd48704e0d2e1e342ec73c66bb354",
+          "git_blob_bytes": 28595,
+          "git_blob_content_sha256": "c73dde716c1dd32b5344dc6c34f6b009b122152a431218d4709b03aa17b55f5f",
+          "local_bytes": 29389,
+          "local_sha256": "6392e7629067d9c80ca53398eeb2185d78fef42b02c3d30dd976c2329f134a62",
+          "local_matches_git_blob": false
+        }
+      ],
+      "actual_HEAD": "d2a5b3c7b1e203fec3c7ca73c30eb1785d3d4d0a",
+      "base_commit_matches": true,
+      "status": "requires_review",
+      "planned_commands": {
+        "import": "python -c \"import astroid; print(astroid.__file__)\"",
+        "public_collection": "python -m pytest --collect-only -q tests/unittest_builder.py",
+        "public_smoke": "python -m pytest -q tests/unittest_builder.py",
+        "working_directory_in_container": "/testbed",
+        "network": "none"
+      },
+      "execution_status": "not_executed_by_manifest_review"
+    },
+    {
+      "environment_setup_commit": "fe058bff95745371df5796286d33677c21137847",
+      "base_commit": "6cf238d089cf4b6753c94cfc089b4a47487711e5",
+      "repo": "pylint-dev/astroid",
+      "version": "2.13",
+      "instance_id": "pylint-dev__astroid-1866",
+      "directory": "C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\work\\test20_environment_20261111\\pylint-dev__astroid-1866\\testbed",
+      "selection_basis": "五个基线均实际存在的 builder 公开测试；测试文件名不是test_前缀，须显式传文件路径。",
+      "public_smoke_file": "tests/unittest_builder.py",
+      "module": "astroid",
+      "unknowns": [
+        "Selected public file is absent or differs from the recorded Git baseline: astroid/__init__.py",
+        "Selected public file is absent or differs from the recorded Git baseline: tests/unittest_builder.py"
+      ],
+      "files": [
+        {
+          "role": "module_import",
+          "relative_path": "astroid/__init__.py",
+          "local_path": "C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\work\\test20_environment_20261111\\pylint-dev__astroid-1866\\testbed\\astroid\\__init__.py",
+          "exists_in_git_HEAD": true,
+          "exists_locally": true,
+          "git_blob_sha1": "41b8fffd1e8df311092ad4fbd6274f134b48ebd3",
+          "git_blob_bytes": 5090,
+          "git_blob_content_sha256": "e14e89529fe350c38668f772c23b0d31b44943b78c49802650a1bae7d5dd1acd",
+          "local_bytes": 5287,
+          "local_sha256": "a14ba3df983f921c8a34225870769ad029480ce678eec5473a48ea023a1de143",
+          "local_matches_git_blob": false
+        },
+        {
+          "role": "public_smoke",
+          "relative_path": "tests/unittest_builder.py",
+          "local_path": "C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\work\\test20_environment_20261111\\pylint-dev__astroid-1866\\testbed\\tests\\unittest_builder.py",
+          "exists_in_git_HEAD": true,
+          "exists_locally": true,
+          "git_blob_sha1": "cc1cb28bfd1540f84bc984ed34f68686163847bc",
+          "git_blob_bytes": 35398,
+          "git_blob_content_sha256": "0edec2bd2a610898e5c86ef49366d91ede2fc7ab1598f4a9fa53a3cf7da0293e",
+          "local_bytes": 36424,
+          "local_sha256": "3270f48ddda03eebba79c48fb6cbd0cef4c642ef47eecedd613fcdaf9bf0117f",
+          "local_matches_git_blob": false
+        }
+      ],
+      "actual_HEAD": "6cf238d089cf4b6753c94cfc089b4a47487711e5",
+      "base_commit_matches": true,
+      "status": "requires_review",
+      "planned_commands": {
+        "import": "python -c \"import astroid; print(astroid.__file__)\"",
+        "public_collection": "python -m pytest --collect-only -q tests/unittest_builder.py",
+        "public_smoke": "python -m pytest -q tests/unittest_builder.py",
+        "working_directory_in_container": "/testbed",
+        "network": "none"
+      },
+      "execution_status": "not_executed_by_manifest_review"
+    },
+    {
+      "environment_setup_commit": "0c9ab0fe56703fa83c73e514a1020d398d23fa7f",
+      "base_commit": "0c9ab0fe56703fa83c73e514a1020d398d23fa7f",
+      "repo": "pylint-dev/astroid",
+      "version": "2.14",
+      "instance_id": "pylint-dev__astroid-1978",
+      "directory": "D:\\CodexExperimentCache\\test20_20261111\\source\\pylint-dev__astroid-1978\\testbed",
+      "selection_basis": "五个基线均实际存在的 builder 公开测试；测试文件名不是test_前缀，须显式传文件路径。",
+      "public_smoke_file": "tests/unittest_builder.py",
+      "module": "astroid",
+      "unknowns": [
+        "Selected public file is absent or differs from the recorded Git baseline: astroid/__init__.py",
+        "Selected public file is absent or differs from the recorded Git baseline: tests/unittest_builder.py"
+      ],
+      "files": [
+        {
+          "role": "module_import",
+          "relative_path": "astroid/__init__.py",
+          "local_path": "D:\\CodexExperimentCache\\test20_20261111\\source\\pylint-dev__astroid-1978\\testbed\\astroid\\__init__.py",
+          "exists_in_git_HEAD": true,
+          "exists_locally": true,
+          "git_blob_sha1": "605a8b48b2313c640dc325552558777faef525c4",
+          "git_blob_bytes": 5091,
+          "git_blob_content_sha256": "1ca1e7720ae3ef4a92b3d1a0e1a0e91728804051e1ad2a11d4edb4390dcad01a",
+          "local_bytes": 5288,
+          "local_sha256": "2be46eed4352b2eaf6e9879179c5d9fe22cdf5f9356ebc6e94c2b0acdc1ade28",
+          "local_matches_git_blob": false
+        },
+        {
+          "role": "public_smoke",
+          "relative_path": "tests/unittest_builder.py",
+          "local_path": "D:\\CodexExperimentCache\\test20_20261111\\source\\pylint-dev__astroid-1978\\testbed\\tests\\unittest_builder.py",
+          "exists_in_git_HEAD": true,
+          "exists_locally": true,
+          "git_blob_sha1": "cd1659668ad00cd4f005e67e87021a09a88e05a9",
+          "git_blob_bytes": 35720,
+          "git_blob_content_sha256": "fa963e94f9be2ae2b44f4c594bb66d2ce2dd7580c7079ea781d56c2a4934bef4",
+          "local_bytes": 36757,
+          "local_sha256": "d2b03dbe93eb9d6f2e8ed3e7c3a0d1c215e700df9275b0cb2f8f7d6b9589a295",
+          "local_matches_git_blob": false
+        }
+      ],
+      "actual_HEAD": "0c9ab0fe56703fa83c73e514a1020d398d23fa7f",
+      "base_commit_matches": true,
+      "status": "requires_review",
+      "planned_commands": {
+        "import": "python -c \"import astroid; print(astroid.__file__)\"",
+        "public_collection": "python -m pytest --collect-only -q tests/unittest_builder.py",
+        "public_smoke": "python -m pytest -q tests/unittest_builder.py",
+        "working_directory_in_container": "/testbed",
+        "network": "none"
+      },
+      "execution_status": "not_executed_by_manifest_review"
+    },
+    {
+      "environment_setup_commit": "4c2d1aed10b1600d520271beba8579c71433e808",
+      "base_commit": "db6ee8dd4a747b8864caae36c5d05883976a3ae5",
+      "repo": "pyvista/pyvista",
+      "version": "0.39",
+      "instance_id": "pyvista__pyvista-4315",
+      "directory": "C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\work\\test20_environment_20261111\\pyvista__pyvista-4315\\testbed",
+      "selection_basis": "已核对为公开非渲染数组测试；不能据此声称绘图或完整VTK环境通过。",
+      "public_smoke_file": "tests/test_pyvista_ndarray.py",
+      "module": "pyvista",
+      "unknowns": [
+        "Selected public file is absent or differs from the recorded Git baseline: pyvista/__init__.py",
+        "Selected public file is absent or differs from the recorded Git baseline: tests/test_pyvista_ndarray.py",
+        "Selected public file is absent or differs from the recorded Git baseline: tests/conftest.py",
+        "This non-rendering public smoke cannot verify plotting or display availability."
+      ],
+      "files": [
+        {
+          "role": "module_import",
+          "relative_path": "pyvista/__init__.py",
+          "local_path": "C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\work\\test20_environment_20261111\\pyvista__pyvista-4315\\testbed\\pyvista\\__init__.py",
+          "exists_in_git_HEAD": true,
+          "exists_locally": true,
+          "git_blob_sha1": "44a632601f1d37e1101794e67cde7032ad965538",
+          "git_blob_bytes": 2231,
+          "git_blob_content_sha256": "3ea0d6c4469ba077e31b386b31bff4d2ec0f4861bd664e6e9b423e9bdce049f9",
+          "local_bytes": 2307,
+          "local_sha256": "49bd348b78b8431d05a92b2c4a224767c088ea4eb681195fbfe972690fc92c65",
+          "local_matches_git_blob": false
+        },
+        {
+          "role": "public_smoke",
+          "relative_path": "tests/test_pyvista_ndarray.py",
+          "local_path": "C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\work\\test20_environment_20261111\\pyvista__pyvista-4315\\testbed\\tests\\test_pyvista_ndarray.py",
+          "exists_in_git_HEAD": true,
+          "exists_locally": true,
+          "git_blob_sha1": "c11d95a9aeffa676eb70ae953a5ad2b4409a0ad6",
+          "git_blob_bytes": 3171,
+          "git_blob_content_sha256": "05056a327d72542a233015107f6335d10b8b535e308341fdfa027d65f5769417",
+          "local_bytes": 3266,
+          "local_sha256": "99e4cc56d379fdabbaa5015e78bcbb0d50c6c7992e5f1bc9d55814b5c765123f",
+          "local_matches_git_blob": false
+        },
+        {
+          "role": "public_support",
+          "relative_path": "tests/conftest.py",
+          "local_path": "C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\work\\test20_environment_20261111\\pyvista__pyvista-4315\\testbed\\tests\\conftest.py",
+          "exists_in_git_HEAD": true,
+          "exists_locally": true,
+          "git_blob_sha1": "2eae0b99ffa426291c31e9429992bf057be3711a",
+          "git_blob_bytes": 5996,
+          "git_blob_content_sha256": "14427821de62f8b4c86bdb832fd848d0d46d6c4652b469e791035bc9c6577dc8",
+          "local_bytes": 6237,
+          "local_sha256": "52cbfc19193845a78ef7bb51de52bd7a95503c64ae49405b07ab5d4bb557c190",
+          "local_matches_git_blob": false
+        }
+      ],
+      "actual_HEAD": "db6ee8dd4a747b8864caae36c5d05883976a3ae5",
+      "base_commit_matches": true,
+      "status": "requires_review",
+      "planned_commands": {
+        "import": "python -c \"import pyvista; print(pyvista.__file__)\"",
+        "public_collection": "PYVISTA_OFF_SCREEN=true MPLBACKEND=Agg python -m pytest --collect-only -q tests/test_pyvista_ndarray.py",
+        "public_smoke": "PYVISTA_OFF_SCREEN=true MPLBACKEND=Agg python -m pytest -q tests/test_pyvista_ndarray.py",
+        "working_directory_in_container": "/testbed",
+        "network": "none"
+      },
+      "execution_status": "not_executed_by_manifest_review"
+    },
+    {
+      "environment_setup_commit": "67023b85c41d23d6c6d69812a41b207c4f8a9331",
+      "base_commit": "304a197829f98e7425a46d872ada73176137e5ae",
+      "repo": "sqlfluff/sqlfluff",
+      "version": "0.6",
+      "instance_id": "sqlfluff__sqlfluff-1517",
+      "directory": "D:\\CodexExperimentCache\\test20_20261111\\source\\sqlfluff__sqlfluff-1517\\testbed",
+      "selection_basis": "0.6与0.8基线共有的配置公开测试；测试根为单数test，收集时仍需要完整公开fixtures。",
+      "public_smoke_file": "test/core/config_test.py",
+      "module": "sqlfluff",
+      "unknowns": [],
+      "files": [
+        {
+          "role": "module_import",
+          "relative_path": "src/sqlfluff/__init__.py",
+          "local_path": "D:\\CodexExperimentCache\\test20_20261111\\source\\sqlfluff__sqlfluff-1517\\testbed\\src\\sqlfluff\\__init__.py",
+          "exists_in_git_HEAD": true,
+          "exists_locally": true,
+          "git_blob_sha1": "677a56fcc398927c71821796fe72059da350f2ad",
+          "git_blob_bytes": 953,
+          "git_blob_content_sha256": "3a6c093eea29d070107ae4b9dc9eb97310702bdeab27ba2eebe2498be490f934",
+          "local_bytes": 953,
+          "local_sha256": "3a6c093eea29d070107ae4b9dc9eb97310702bdeab27ba2eebe2498be490f934",
+          "local_matches_git_blob": true
+        },
+        {
+          "role": "public_smoke",
+          "relative_path": "test/core/config_test.py",
+          "local_path": "D:\\CodexExperimentCache\\test20_20261111\\source\\sqlfluff__sqlfluff-1517\\testbed\\test\\core\\config_test.py",
+          "exists_in_git_HEAD": true,
+          "exists_locally": true,
+          "git_blob_sha1": "087bfda469dd680de60ba362da0b58c4d7af0ad2",
+          "git_blob_bytes": 6298,
+          "git_blob_content_sha256": "1c140eda273e5b8ef8e1ea6c1ff9aace337129c0824d3e95481e691105530e71",
+          "local_bytes": 6298,
+          "local_sha256": "1c140eda273e5b8ef8e1ea6c1ff9aace337129c0824d3e95481e691105530e71",
+          "local_matches_git_blob": true
+        },
+        {
+          "role": "public_support",
+          "relative_path": "test/conftest.py",
+          "local_path": "D:\\CodexExperimentCache\\test20_20261111\\source\\sqlfluff__sqlfluff-1517\\testbed\\test\\conftest.py",
+          "exists_in_git_HEAD": true,
+          "exists_locally": true,
+          "git_blob_sha1": "59be1b2bed4f5d35aee70f8ff5001868cb7cc181",
+          "git_blob_bytes": 7277,
+          "git_blob_content_sha256": "f4ae607ad6eb4dabdd698090663a65635553a8ee7279e7e1e58e859e04896d0c",
+          "local_bytes": 7277,
+          "local_sha256": "f4ae607ad6eb4dabdd698090663a65635553a8ee7279e7e1e58e859e04896d0c",
+          "local_matches_git_blob": true
+        }
+      ],
+      "actual_HEAD": "304a197829f98e7425a46d872ada73176137e5ae",
+      "base_commit_matches": true,
+      "public_fixture_tree": {
+        "relative_path": "test/fixtures",
+        "git_tree_sha1": "c7d97f1b1f4e8b7549f04a2ff0151c249c8ddc34",
+        "tracked_file_count": 1425,
+        "coverage": "Tree presence only; not fixture loading or test execution."
+      },
+      "status": "public_paths_and_bytes_verified_not_run",
+      "planned_commands": {
+        "import": "python -c \"import sqlfluff; print(sqlfluff.__file__)\"",
+        "public_collection": "python -m pytest --collect-only -q test/core/config_test.py",
+        "public_smoke": "python -m pytest -q test/core/config_test.py",
+        "working_directory_in_container": "/testbed",
+        "network": "none"
+      },
+      "execution_status": "not_executed_by_manifest_review"
+    },
+    {
+      "environment_setup_commit": "67023b85c41d23d6c6d69812a41b207c4f8a9331",
+      "base_commit": "14e1a23a3166b9a645a16de96f694c77a5d4abb7",
+      "repo": "sqlfluff/sqlfluff",
+      "version": "0.6",
+      "instance_id": "sqlfluff__sqlfluff-1625",
+      "directory": "D:\\CodexExperimentCache\\test20_20261111\\source\\sqlfluff__sqlfluff-1625\\testbed",
+      "selection_basis": "0.6与0.8基线共有的配置公开测试；测试根为单数test，收集时仍需要完整公开fixtures。",
+      "public_smoke_file": "test/core/config_test.py",
+      "module": "sqlfluff",
+      "unknowns": [],
+      "files": [
+        {
+          "role": "module_import",
+          "relative_path": "src/sqlfluff/__init__.py",
+          "local_path": "D:\\CodexExperimentCache\\test20_20261111\\source\\sqlfluff__sqlfluff-1625\\testbed\\src\\sqlfluff\\__init__.py",
+          "exists_in_git_HEAD": true,
+          "exists_locally": true,
+          "git_blob_sha1": "677a56fcc398927c71821796fe72059da350f2ad",
+          "git_blob_bytes": 953,
+          "git_blob_content_sha256": "3a6c093eea29d070107ae4b9dc9eb97310702bdeab27ba2eebe2498be490f934",
+          "local_bytes": 953,
+          "local_sha256": "3a6c093eea29d070107ae4b9dc9eb97310702bdeab27ba2eebe2498be490f934",
+          "local_matches_git_blob": true
+        },
+        {
+          "role": "public_smoke",
+          "relative_path": "test/core/config_test.py",
+          "local_path": "D:\\CodexExperimentCache\\test20_20261111\\source\\sqlfluff__sqlfluff-1625\\testbed\\test\\core\\config_test.py",
+          "exists_in_git_HEAD": true,
+          "exists_locally": true,
+          "git_blob_sha1": "369bdeaf323bb694e29ad0a20b80ca24f638fa39",
+          "git_blob_bytes": 6840,
+          "git_blob_content_sha256": "b038ede5d79bf4786f7ca2f41e512eaf6db7e6d4e533740e79d6ef75867d4739",
+          "local_bytes": 6840,
+          "local_sha256": "b038ede5d79bf4786f7ca2f41e512eaf6db7e6d4e533740e79d6ef75867d4739",
+          "local_matches_git_blob": true
+        },
+        {
+          "role": "public_support",
+          "relative_path": "test/conftest.py",
+          "local_path": "D:\\CodexExperimentCache\\test20_20261111\\source\\sqlfluff__sqlfluff-1625\\testbed\\test\\conftest.py",
+          "exists_in_git_HEAD": true,
+          "exists_locally": true,
+          "git_blob_sha1": "080eaf3cebedfcf0ca6f60d9738cfaadd14dadf7",
+          "git_blob_bytes": 7283,
+          "git_blob_content_sha256": "95c42ba121afbf9c2fbeb33b8d6e9e6a4c2f8046260210c095b0e3f1935991de",
+          "local_bytes": 7283,
+          "local_sha256": "95c42ba121afbf9c2fbeb33b8d6e9e6a4c2f8046260210c095b0e3f1935991de",
+          "local_matches_git_blob": true
+        }
+      ],
+      "actual_HEAD": "14e1a23a3166b9a645a16de96f694c77a5d4abb7",
+      "base_commit_matches": true,
+      "public_fixture_tree": {
+        "relative_path": "test/fixtures",
+        "git_tree_sha1": "c008826236fb114e361e33c522d2907348b0aebc",
+        "tracked_file_count": 1450,
+        "coverage": "Tree presence only; not fixture loading or test execution."
+      },
+      "status": "public_paths_and_bytes_verified_not_run",
+      "planned_commands": {
+        "import": "python -c \"import sqlfluff; print(sqlfluff.__file__)\"",
+        "public_collection": "python -m pytest --collect-only -q test/core/config_test.py",
+        "public_smoke": "python -m pytest -q test/core/config_test.py",
+        "working_directory_in_container": "/testbed",
+        "network": "none"
+      },
+      "execution_status": "not_executed_by_manifest_review"
+    },
+    {
+      "environment_setup_commit": "67023b85c41d23d6c6d69812a41b207c4f8a9331",
+      "base_commit": "a1579a16b1d8913d9d7c7d12add374a290bcc78c",
+      "repo": "sqlfluff/sqlfluff",
+      "version": "0.6",
+      "instance_id": "sqlfluff__sqlfluff-1733",
+      "directory": "D:\\CodexExperimentCache\\test20_20261111\\source\\sqlfluff__sqlfluff-1733\\testbed",
+      "selection_basis": "0.6与0.8基线共有的配置公开测试；测试根为单数test，收集时仍需要完整公开fixtures。",
+      "public_smoke_file": "test/core/config_test.py",
+      "module": "sqlfluff",
+      "unknowns": [],
+      "files": [
+        {
+          "role": "module_import",
+          "relative_path": "src/sqlfluff/__init__.py",
+          "local_path": "D:\\CodexExperimentCache\\test20_20261111\\source\\sqlfluff__sqlfluff-1733\\testbed\\src\\sqlfluff\\__init__.py",
+          "exists_in_git_HEAD": true,
+          "exists_locally": true,
+          "git_blob_sha1": "677a56fcc398927c71821796fe72059da350f2ad",
+          "git_blob_bytes": 953,
+          "git_blob_content_sha256": "3a6c093eea29d070107ae4b9dc9eb97310702bdeab27ba2eebe2498be490f934",
+          "local_bytes": 953,
+          "local_sha256": "3a6c093eea29d070107ae4b9dc9eb97310702bdeab27ba2eebe2498be490f934",
+          "local_matches_git_blob": true
+        },
+        {
+          "role": "public_smoke",
+          "relative_path": "test/core/config_test.py",
+          "local_path": "D:\\CodexExperimentCache\\test20_20261111\\source\\sqlfluff__sqlfluff-1733\\testbed\\test\\core\\config_test.py",
+          "exists_in_git_HEAD": true,
+          "exists_locally": true,
+          "git_blob_sha1": "369bdeaf323bb694e29ad0a20b80ca24f638fa39",
+          "git_blob_bytes": 6840,
+          "git_blob_content_sha256": "b038ede5d79bf4786f7ca2f41e512eaf6db7e6d4e533740e79d6ef75867d4739",
+          "local_bytes": 6840,
+          "local_sha256": "b038ede5d79bf4786f7ca2f41e512eaf6db7e6d4e533740e79d6ef75867d4739",
+          "local_matches_git_blob": true
+        },
+        {
+          "role": "public_support",
+          "relative_path": "test/conftest.py",
+          "local_path": "D:\\CodexExperimentCache\\test20_20261111\\source\\sqlfluff__sqlfluff-1733\\testbed\\test\\conftest.py",
+          "exists_in_git_HEAD": true,
+          "exists_locally": true,
+          "git_blob_sha1": "080eaf3cebedfcf0ca6f60d9738cfaadd14dadf7",
+          "git_blob_bytes": 7283,
+          "git_blob_content_sha256": "95c42ba121afbf9c2fbeb33b8d6e9e6a4c2f8046260210c095b0e3f1935991de",
+          "local_bytes": 7283,
+          "local_sha256": "95c42ba121afbf9c2fbeb33b8d6e9e6a4c2f8046260210c095b0e3f1935991de",
+          "local_matches_git_blob": true
+        }
+      ],
+      "actual_HEAD": "a1579a16b1d8913d9d7c7d12add374a290bcc78c",
+      "base_commit_matches": true,
+      "public_fixture_tree": {
+        "relative_path": "test/fixtures",
+        "git_tree_sha1": "380bd249f0ae0a2c8ab827aeef29745d3c6fbacb",
+        "tracked_file_count": 1487,
+        "coverage": "Tree presence only; not fixture loading or test execution."
+      },
+      "status": "public_paths_and_bytes_verified_not_run",
+      "planned_commands": {
+        "import": "python -c \"import sqlfluff; print(sqlfluff.__file__)\"",
+        "public_collection": "python -m pytest --collect-only -q test/core/config_test.py",
+        "public_smoke": "python -m pytest -q test/core/config_test.py",
+        "working_directory_in_container": "/testbed",
+        "network": "none"
+      },
+      "execution_status": "not_executed_by_manifest_review"
+    },
+    {
+      "environment_setup_commit": "67023b85c41d23d6c6d69812a41b207c4f8a9331",
+      "base_commit": "a10057635e5b2559293a676486f0b730981f037a",
+      "repo": "sqlfluff/sqlfluff",
+      "version": "0.6",
+      "instance_id": "sqlfluff__sqlfluff-1763",
+      "directory": "D:\\CodexExperimentCache\\test20_20261111\\source\\sqlfluff__sqlfluff-1763\\testbed",
+      "selection_basis": "0.6与0.8基线共有的配置公开测试；测试根为单数test，收集时仍需要完整公开fixtures。",
+      "public_smoke_file": "test/core/config_test.py",
+      "module": "sqlfluff",
+      "unknowns": [],
+      "files": [
+        {
+          "role": "module_import",
+          "relative_path": "src/sqlfluff/__init__.py",
+          "local_path": "D:\\CodexExperimentCache\\test20_20261111\\source\\sqlfluff__sqlfluff-1763\\testbed\\src\\sqlfluff\\__init__.py",
+          "exists_in_git_HEAD": true,
+          "exists_locally": true,
+          "git_blob_sha1": "677a56fcc398927c71821796fe72059da350f2ad",
+          "git_blob_bytes": 953,
+          "git_blob_content_sha256": "3a6c093eea29d070107ae4b9dc9eb97310702bdeab27ba2eebe2498be490f934",
+          "local_bytes": 953,
+          "local_sha256": "3a6c093eea29d070107ae4b9dc9eb97310702bdeab27ba2eebe2498be490f934",
+          "local_matches_git_blob": true
+        },
+        {
+          "role": "public_smoke",
+          "relative_path": "test/core/config_test.py",
+          "local_path": "D:\\CodexExperimentCache\\test20_20261111\\source\\sqlfluff__sqlfluff-1763\\testbed\\test\\core\\config_test.py",
+          "exists_in_git_HEAD": true,
+          "exists_locally": true,
+          "git_blob_sha1": "369bdeaf323bb694e29ad0a20b80ca24f638fa39",
+          "git_blob_bytes": 6840,
+          "git_blob_content_sha256": "b038ede5d79bf4786f7ca2f41e512eaf6db7e6d4e533740e79d6ef75867d4739",
+          "local_bytes": 6840,
+          "local_sha256": "b038ede5d79bf4786f7ca2f41e512eaf6db7e6d4e533740e79d6ef75867d4739",
+          "local_matches_git_blob": true
+        },
+        {
+          "role": "public_support",
+          "relative_path": "test/conftest.py",
+          "local_path": "D:\\CodexExperimentCache\\test20_20261111\\source\\sqlfluff__sqlfluff-1763\\testbed\\test\\conftest.py",
+          "exists_in_git_HEAD": true,
+          "exists_locally": true,
+          "git_blob_sha1": "080eaf3cebedfcf0ca6f60d9738cfaadd14dadf7",
+          "git_blob_bytes": 7283,
+          "git_blob_content_sha256": "95c42ba121afbf9c2fbeb33b8d6e9e6a4c2f8046260210c095b0e3f1935991de",
+          "local_bytes": 7283,
+          "local_sha256": "95c42ba121afbf9c2fbeb33b8d6e9e6a4c2f8046260210c095b0e3f1935991de",
+          "local_matches_git_blob": true
+        }
+      ],
+      "actual_HEAD": "a10057635e5b2559293a676486f0b730981f037a",
+      "base_commit_matches": true,
+      "public_fixture_tree": {
+        "relative_path": "test/fixtures",
+        "git_tree_sha1": "01a6361f2d4b2db65619cb368430b410723ef809",
+        "tracked_file_count": 1489,
+        "coverage": "Tree presence only; not fixture loading or test execution."
+      },
+      "status": "public_paths_and_bytes_verified_not_run",
+      "planned_commands": {
+        "import": "python -c \"import sqlfluff; print(sqlfluff.__file__)\"",
+        "public_collection": "python -m pytest --collect-only -q test/core/config_test.py",
+        "public_smoke": "python -m pytest -q test/core/config_test.py",
+        "working_directory_in_container": "/testbed",
+        "network": "none"
+      },
+      "execution_status": "not_executed_by_manifest_review"
+    },
+    {
+      "environment_setup_commit": "a5c4eae4e3e419fe95460c9afd9cf39a35a470c4",
+      "base_commit": "f1dba0e1dd764ae72d67c3d5e1471cf14d3db030",
+      "repo": "sqlfluff/sqlfluff",
+      "version": "0.8",
+      "instance_id": "sqlfluff__sqlfluff-2419",
+      "directory": "D:\\CodexExperimentCache\\test20_20261111\\source\\sqlfluff__sqlfluff-2419\\testbed",
+      "selection_basis": "0.6与0.8基线共有的配置公开测试；测试根为单数test，收集时仍需要完整公开fixtures。",
+      "public_smoke_file": "test/core/config_test.py",
+      "module": "sqlfluff",
+      "unknowns": [],
+      "files": [
+        {
+          "role": "module_import",
+          "relative_path": "src/sqlfluff/__init__.py",
+          "local_path": "D:\\CodexExperimentCache\\test20_20261111\\source\\sqlfluff__sqlfluff-2419\\testbed\\src\\sqlfluff\\__init__.py",
+          "exists_in_git_HEAD": true,
+          "exists_locally": true,
+          "git_blob_sha1": "970e9d73210e34e1c4b628598951363452ea44d4",
+          "git_blob_bytes": 1022,
+          "git_blob_content_sha256": "0114dfa217305dd3fb4caec7b852a7511a3ad16c75799b5e71e215765a658905",
+          "local_bytes": 1022,
+          "local_sha256": "0114dfa217305dd3fb4caec7b852a7511a3ad16c75799b5e71e215765a658905",
+          "local_matches_git_blob": true
+        },
+        {
+          "role": "public_smoke",
+          "relative_path": "test/core/config_test.py",
+          "local_path": "D:\\CodexExperimentCache\\test20_20261111\\source\\sqlfluff__sqlfluff-2419\\testbed\\test\\core\\config_test.py",
+          "exists_in_git_HEAD": true,
+          "exists_locally": true,
+          "git_blob_sha1": "e1a72343fa2442ab9446a9e7401f46ce258501ae",
+          "git_blob_bytes": 9709,
+          "git_blob_content_sha256": "50d988fd42e0ec72c88127f9489773fe13ca09ff28bad1c818def29c5d340d47",
+          "local_bytes": 9709,
+          "local_sha256": "50d988fd42e0ec72c88127f9489773fe13ca09ff28bad1c818def29c5d340d47",
+          "local_matches_git_blob": true
+        },
+        {
+          "role": "public_support",
+          "relative_path": "test/conftest.py",
+          "local_path": "D:\\CodexExperimentCache\\test20_20261111\\source\\sqlfluff__sqlfluff-2419\\testbed\\test\\conftest.py",
+          "exists_in_git_HEAD": true,
+          "exists_locally": true,
+          "git_blob_sha1": "46e6d2d1e6dd99ea19faa2023b853e940898d35f",
+          "git_blob_bytes": 7327,
+          "git_blob_content_sha256": "afd08a90384d8754da66a2cbdb676bb89ec9d4de63d699a99921e40ee8367f2f",
+          "local_bytes": 7327,
+          "local_sha256": "afd08a90384d8754da66a2cbdb676bb89ec9d4de63d699a99921e40ee8367f2f",
+          "local_matches_git_blob": true
+        }
+      ],
+      "actual_HEAD": "f1dba0e1dd764ae72d67c3d5e1471cf14d3db030",
+      "base_commit_matches": true,
+      "public_fixture_tree": {
+        "relative_path": "test/fixtures",
+        "git_tree_sha1": "fffd1d16ececef5389318c406cf8a4752942a7c9",
+        "tracked_file_count": 1890,
+        "coverage": "Tree presence only; not fixture loading or test execution."
+      },
+      "status": "public_paths_and_bytes_verified_not_run",
+      "planned_commands": {
+        "import": "python -c \"import sqlfluff; print(sqlfluff.__file__)\"",
+        "public_collection": "python -m pytest --collect-only -q test/core/config_test.py",
+        "public_smoke": "python -m pytest -q test/core/config_test.py",
+        "working_directory_in_container": "/testbed",
+        "network": "none"
+      },
+      "execution_status": "not_executed_by_manifest_review"
+    }
+  ],
+  "summary": {
+    "requires_review": 18,
+    "public_paths_and_bytes_verified_not_run": 5
+  },
+  "interpretation": [
+    "Git blob SHA1 identifies original public source; local SHA256 separately binds actual cached bytes.",
+    "No test result, environment health or repair-resolution claim follows from file presence.",
+    "All23 designated instances remain present; unknown or risky environments are not replaced.",
+    "Minimal public smoke is for baseline environment preparation and is not a hidden evaluation or final score.",
+    "SQLFluff conftest reads public fixture trees; tree presence is not a complete fixture dependency proof."
+  ],
+  "actions": {
+    "network_requests": 0,
+    "docker_operations": 0,
+    "model_requests": 0,
+    "credentials_read": false,
+    "tests_executed": 0,
+    "source_or_tests_modified": false,
+    "D_cache_written": false
+  }
+}

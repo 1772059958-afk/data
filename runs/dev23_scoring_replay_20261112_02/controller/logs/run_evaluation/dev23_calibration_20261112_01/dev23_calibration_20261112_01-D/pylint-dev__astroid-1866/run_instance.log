@@ -1,0 +1,45 @@
+2026-11-12 04:17:38,251 - INFO - Creating container for pylint-dev__astroid-1866...
+2026-11-12 04:17:38,316 - INFO - Container for pylint-dev__astroid-1866 created: 0e410f4adf1543169371cbf3c9344933a9893b67f5b2f871f59865807799eb1c
+2026-11-12 04:17:38,469 - INFO - Container for pylint-dev__astroid-1866 started: 0e410f4adf1543169371cbf3c9344933a9893b67f5b2f871f59865807799eb1c
+2026-11-12 04:17:38,472 - INFO - Intermediate patch for pylint-dev__astroid-1866 written to logs/run_evaluation/dev23_calibration_20261112_01/dev23_calibration_20261112_01-D/pylint-dev__astroid-1866/patch.diff, now applying to container...
+2026-11-12 04:17:38,571 - INFO - >>>>> Applied Patch:
+Checking patch astroid/brain/brain_builtin_inference.py...
+Hunk #1 succeeded at 954 (offset 1 line).
+Applied patch astroid/brain/brain_builtin_inference.py cleanly.
+
+2026-11-12 04:17:38,645 - INFO - Git diff before:
+diff --git a/astroid/brain/brain_builtin_inference.py b/astroid/brain/brain_builtin_inference.py
+index af1ddf4..3ceca63 100644
+--- a/astroid/brain/brain_builtin_inference.py
++++ b/astroid/brain/brain_builtin_inference.py
+@@ -954,7 +954,7 @@ def _infer_str_format_call(
+ 
+     try:
+         formatted_string = format_template.format(*pos_values, **keyword_values)
+-    except (IndexError, KeyError):
++    except (IndexError, KeyError, TypeError, ValueError):
+         # If there is an IndexError there are too few arguments to interpolate
+         return iter([util.Uninferable])
+2026-11-12 04:17:38,649 - INFO - Eval script for pylint-dev__astroid-1866 written to logs/run_evaluation/dev23_calibration_20261112_01/dev23_calibration_20261112_01-D/pylint-dev__astroid-1866/eval.sh; copying to container...
+2026-11-12 04:17:56,798 - INFO - Test runtime: 18.09 seconds
+2026-11-12 04:17:56,812 - INFO - Test output for pylint-dev__astroid-1866 written to logs/run_evaluation/dev23_calibration_20261112_01/dev23_calibration_20261112_01-D/pylint-dev__astroid-1866/test_output.txt
+2026-11-12 04:17:56,854 - INFO - Git diff after:
+diff --git a/astroid/brain/brain_builtin_inference.py b/astroid/brain/brain_builtin_inference.py
+index af1ddf4..3ceca63 100644
+--- a/astroid/brain/brain_builtin_inference.py
++++ b/astroid/brain/brain_builtin_inference.py
+@@ -954,7 +954,7 @@ def _infer_str_format_call(
+ 
+     try:
+         formatted_string = format_template.format(*pos_values, **keyword_values)
+-    except (IndexError, KeyError):
++    except (IndexError, KeyError, TypeError, ValueError):
+         # If there is an IndexError there are too few arguments to interpolate
+         return iter([util.Uninferable])
+2026-11-12 04:17:56,854 - INFO - Grading answer for pylint-dev__astroid-1866...
+2026-11-12 04:17:56,873 - INFO - report: {'pylint-dev__astroid-1866': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': True, 'infra_failure': False, 'tests_status': {'FAIL_TO_PASS': {'success': ['tests/unittest_brain_builtin.py::TestStringNodes::test_string_format_uninferable[\\n'], 'failure': []}, 'PASS_TO_PASS': {'success': ['tests/unittest_brain_builtin.py::BuiltinsTest::test_infer_property', 'tests/unittest_brain_builtin.py::TestStringNodes::test_string_format[empty-indexes]', 'tests/unittest_brain_builtin.py::TestStringNodes::test_string_format[numbered-indexes]', 'tests/unittest_brain_builtin.py::TestStringNodes::test_string_format[named-indexes]', 'tests/unittest_brain_builtin.py::TestStringNodes::test_string_format[numbered-indexes-from-positional]', 'tests/unittest_brain_builtin.py::TestStringNodes::test_string_format[named-indexes-from-keyword]', 'tests/unittest_brain_builtin.py::TestStringNodes::test_string_format[mixed-indexes-from-mixed]', 'tests/unittest_brain_builtin.py::TestStringNodes::test_string_format[empty-indexes-on-variable]', 'tests/unittest_brain_builtin.py::TestStringNodes::test_string_format_uninferable["I', 'tests/unittest_brain_builtin.py::TestStringNodes::test_string_format_with_specs'], 'failure': []}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for pylint-dev__astroid-1866: resolved: True
+2026-11-12 04:17:56,876 - INFO - Attempting to stop container sweb.eval.pylint-dev__astroid-1866.dev23_calibration_20261112_01...
+2026-11-12 04:18:12,085 - INFO - Container sweb.eval.pylint-dev__astroid-1866.dev23_calibration_20261112_01 stopped successfully.
+2026-11-12 04:18:12,085 - INFO - Attempting to remove container sweb.eval.pylint-dev__astroid-1866.dev23_calibration_20261112_01...
+2026-11-12 04:18:12,126 - INFO - Container sweb.eval.pylint-dev__astroid-1866.dev23_calibration_20261112_01 removed successfully.

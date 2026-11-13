@@ -1,0 +1,69 @@
+{
+  "public_repo": "https://github.com/mwaskom/seaborn.git",
+  "base_commit": "94621cef29f80282436d73e8d2c0aa76dab81273",
+  "directory": "D:\\CodexExperimentCache\\test20_20261111\\source\\mwaskom__seaborn-2848\\testbed",
+  "verified_https": true,
+  "tls_verify_disabled": false,
+  "ca_bundle": "C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\.venv\\Lib\\site-packages\\certifi\\cacert.pem",
+  "requests": [
+    {
+      "method": "GET",
+      "path": "/info/refs?service=git-upload-pack",
+      "status": 200,
+      "received_bytes": 191,
+      "elapsed_seconds": 0.823
+    },
+    {
+      "method": "POST",
+      "path": "/git-upload-pack",
+      "status": 200,
+      "received_bytes": 100973,
+      "elapsed_seconds": 1.007
+    },
+    {
+      "method": "POST",
+      "path": "/git-upload-pack",
+      "status": 200,
+      "received_bytes": 1578752,
+      "elapsed_seconds": 1.362
+    }
+  ],
+  "commands": [
+    {
+      "command": "git init",
+      "exit_code": 0,
+      "stdout": "Initialized empty Git repository in D:/CodexExperimentCache/test20_20261111/source/mwaskom__seaborn-2848/testbed/.git/\n",
+      "stderr": ""
+    },
+    {
+      "command": "git fetch public baseline over verified HTTPS bridge",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "From http://127.0.0.1:63864\n * branch            94621cef29f80282436d73e8d2c0aa76dab81273 -> FETCH_HEAD\n",
+      "elapsed_seconds": 3.742
+    },
+    {
+      "command": "git checkout baseline",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "HEAD is now at 94621ce Fix PairGrid with hue passed in map method (#2847)\n",
+      "elapsed_seconds": 0.278
+    },
+    {
+      "command": "git rev-parse HEAD",
+      "exit_code": 0,
+      "stdout": "94621cef29f80282436d73e8d2c0aa76dab81273\n",
+      "stderr": "",
+      "elapsed_seconds": 0.094
+    },
+    {
+      "command": "git status --porcelain",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "",
+      "elapsed_seconds": 0.181
+    }
+  ],
+  "source_identity_verified": true,
+  "C_free_bytes": 5394456576
+}

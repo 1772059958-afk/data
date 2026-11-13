@@ -1,0 +1,148 @@
+{
+  "instance_id": "pvlib__pvlib-python-1854",
+  "base_commit": "27a3a07ebc84b11014d3753e4923902adf9a38c0",
+  "repo": "pvlib/pvlib-python",
+  "dependency_profile": "pvlib_initial",
+  "status": "public_smoke_ready",
+  "patch_applied": false,
+  "model_calls": 0,
+  "smoke_scope_only": true,
+  "source_or_tests_modified": false,
+  "baseline_before_install": {
+    "head": "27a3a07ebc84b11014d3753e4923902adf9a38c0",
+    "clean": true,
+    "selected_git_blob_bytes_verified": true,
+    "python": "3.9.21"
+  },
+  "installed_imports": {
+    "head": "27a3a07ebc84b11014d3753e4923902adf9a38c0",
+    "clean": true,
+    "selected_git_blob_bytes_verified": true,
+    "python": "3.9.21",
+    "module_file": "/testbed/pvlib/__init__.py",
+    "module_version": "0.0.0",
+    "distributions": {
+      "pytest": "8.3.5",
+      "numpy": "1.26.4",
+      "pandas": "2.2.3",
+      "scipy": "1.13.1",
+      "wrapt": null,
+      "lazy-object-proxy": null,
+      "simplejson": null,
+      "sqlfluff": null,
+      "Jinja2": "3.1.6",
+      "click": null,
+      "nose": null
+    }
+  },
+  "initial_public_smoke": {
+    "label": "public_smoke",
+    "arguments": [
+      "docker",
+      "--context",
+      "desktop-linux",
+      "exec",
+      "dev23prep-dev23prep_20261112_01-cb0fb6385fff",
+      "bash",
+      "-lc",
+      "cd /testbed && python -m pytest pvlib/tests/test_pvsystem.py -q --no-header -p no:cacheprovider"
+    ],
+    "exit_code": 0,
+    "log": "0155_public_smoke.log",
+    "log_sha256": "592eb657d5b682b588c7b4bfd2aa95d94f0b40a4c9376b46ec05e34106f91d7f",
+    "seconds": 2.421
+  },
+  "baseline_after_smoke": {
+    "head": "27a3a07ebc84b11014d3753e4923902adf9a38c0",
+    "clean": true,
+    "selected_git_blob_bytes_verified": true,
+    "python": "3.9.21",
+    "module_file": "/testbed/pvlib/__init__.py",
+    "module_version": "0.0.0",
+    "distributions": {
+      "pytest": "8.3.5",
+      "numpy": "1.26.4",
+      "pandas": "2.2.3",
+      "scipy": "1.13.1",
+      "wrapt": null,
+      "lazy-object-proxy": null,
+      "simplejson": null,
+      "sqlfluff": null,
+      "Jinja2": "3.1.6",
+      "click": null,
+      "nose": null
+    }
+  },
+  "prepared_candidate_image": "sha256:4e75ccae6883ef93a25ab20645a3edbe7058c7ab7bd332f2814b7f703270b748",
+  "fresh_image_validation": {
+    "actual_image_id": "sha256:4e75ccae6883ef93a25ab20645a3edbe7058c7ab7bd332f2814b7f703270b748",
+    "identity_before": {
+      "head": "27a3a07ebc84b11014d3753e4923902adf9a38c0",
+      "clean": true,
+      "selected_git_blob_bytes_verified": true,
+      "python": "3.9.21"
+    },
+    "imports": {
+      "head": "27a3a07ebc84b11014d3753e4923902adf9a38c0",
+      "clean": true,
+      "selected_git_blob_bytes_verified": true,
+      "python": "3.9.21",
+      "module_file": "/testbed/pvlib/__init__.py",
+      "module_version": "0.0.0",
+      "distributions": {
+        "pytest": "8.3.5",
+        "numpy": "1.26.4",
+        "pandas": "2.2.3",
+        "scipy": "1.13.1",
+        "wrapt": null,
+        "lazy-object-proxy": null,
+        "simplejson": null,
+        "sqlfluff": null,
+        "Jinja2": "3.1.6",
+        "click": null,
+        "nose": null
+      }
+    },
+    "public_smoke": {
+      "label": "public_smoke",
+      "arguments": [
+        "docker",
+        "--context",
+        "desktop-linux",
+        "exec",
+        "dev23prep-dev23prep_20261112_01-46b5bda4a0b0",
+        "bash",
+        "-lc",
+        "cd /testbed && python -m pytest pvlib/tests/test_pvsystem.py -q --no-header -p no:cacheprovider"
+      ],
+      "exit_code": 0,
+      "log": "0167_public_smoke.log",
+      "log_sha256": "d4d597c2f09e066c3335a45231336c8fdc2957445492c27f23767f4b1625c918",
+      "seconds": 2.02
+    },
+    "identity_after": {
+      "head": "27a3a07ebc84b11014d3753e4923902adf9a38c0",
+      "clean": true,
+      "selected_git_blob_bytes_verified": true,
+      "python": "3.9.21",
+      "module_file": "/testbed/pvlib/__init__.py",
+      "module_version": "0.0.0",
+      "distributions": {
+        "pytest": "8.3.5",
+        "numpy": "1.26.4",
+        "pandas": "2.2.3",
+        "scipy": "1.13.1",
+        "wrapt": null,
+        "lazy-object-proxy": null,
+        "simplejson": null,
+        "sqlfluff": null,
+        "Jinja2": "3.1.6",
+        "click": null,
+        "nose": null
+      }
+    },
+    "passed": true
+  },
+  "image_id": "sha256:4e75ccae6883ef93a25ab20645a3edbe7058c7ab7bd332f2814b7f703270b748",
+  "reused": false
+}

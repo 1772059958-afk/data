@@ -1,0 +1,32 @@
+--- a/pvlib/tools.py
++++ b/pvlib/tools.py
+@@ -336,17 +336,27 @@ def _golden_sect_DataFrame(params, lower, upper, func, atol=1e-8):
+     df = params
+     df['VH'] = upper
+     df['VL'] = lower
+ 
++    # if the bounds are equal the optimum is at the bound; the iteration
++    # count for a zero-width interval is undefined, so handle it below
++    equal_bounds = np.asarray(df['VH']) == np.asarray(df['VL'])
++
+     converged = False
+     iterations = 0
+ 
+     # handle all NaN case gracefully
+     with warnings.catch_warnings():
+         warnings.filterwarnings(action='ignore',
+                                 message='All-NaN slice encountered')
+-        iterlimit = 1 + np.nanmax(
+-            np.trunc(np.log(atol / (df['VH'] - df['VL'])) / np.log(phim1)))
++        with np.errstate(divide='ignore', invalid='ignore'):
++            iterlimit = 1 + np.nanmax(
++                np.trunc(np.log(atol / (df['VH'] - df['VL']))
++                         / np.log(phim1)))
++    if iterlimit == -np.inf and np.all(equal_bounds):
++        # all intervals have zero width; one iteration is enough to
++        # converge since err is zero
++        iterlimit = 1
+ 
+     while not converged and (iterations <= iterlimit):
+ 
+         phi = phim1 * (df['VH'] - df['VL'])

@@ -1,0 +1,1202 @@
+{
+  "kind": "full_dev_public_environment_preparation_plan",
+  "date": "2026-11-11",
+  "status": "review_only_not_executed",
+  "scope": "All23 designatedDEV cases retained; no gold/image/model-outcome selection",
+  "generation_metadata_source": {
+    "path": "runs/test20_execution_20261111/environment/public_metadata.json",
+    "sha256": "69feea404fc8160e1ab92ac7dce39a87eb905dd6aa0a73d7ce240d18c13c1244",
+    "fields": [
+      "base_commit",
+      "environment_setup_commit",
+      "instance_id",
+      "repo",
+      "version"
+    ]
+  },
+  "dataset_version_semantics": "version is a dataset/harness environment bucket, not a promise of matching installed package __version__",
+  "repo_counts": {
+    "marshmallow-code/marshmallow": 2,
+    "pvlib/pvlib-python": 5,
+    "pydicom/pydicom": 5,
+    "pylint-dev/astroid": 5,
+    "pyvista/pyvista": 1,
+    "sqlfluff/sqlfluff": 5
+  },
+  "shared_parent": {
+    "image_id": "sha256:bd5edf8694cde12aaf99beb18b3935b15e076e81ac7e52aef46b1ca3d9071428",
+    "source": "existing public pydicom1139 prepared image",
+    "python": "3.9",
+    "os": "Ubuntu22.04.5LTS",
+    "package_evidence_path": "runs/test20_execution_20261111/environment/pydicom_base_inspection.json",
+    "selected_installed_packages": {
+      "numpy": "1.26.4",
+      "pandas": "2.2.3",
+      "scipy": "1.13.1",
+      "pytest": "7.4.4",
+      "setuptools": "72.1.0",
+      "wheel": "0.45.1",
+      "h5py": "3.13.0",
+      "python-dateutil": "2.9.0.post0",
+      "pytz": "2024.1",
+      "jinja2": "3.1.6",
+      "pyyaml": "6.0.2",
+      "typing-extensions": "4.13.2"
+    },
+    "warning": "Layer reuse is a disk optimisation only, not proof that environments are equivalent or healthy; old editable distribution metadata can point at /testbed after anotherrepo replaces its checkout"
+  },
+  "resource_constraints": {
+    "disk_free_stop_bytes": 4294967296,
+    "disk_policy": "Check C free before every source/text/package/build step; stop before crossing4GiB, do not delete protectedexperiment assets or auto-prune userimages",
+    "large_images": "Do not pull all23 officialinstance images by default; prefer existing sharedlayers plus exactpublicsource overlays, each with distinct imageidentity",
+    "this_review_public_text_bytes": 74184
+  },
+  "repository_profiles": {
+    "marshmallow-code/marshmallow": {
+      "strategy": "Shared Python3.9/pydicom dependency layer with independent exact-source overlays; source layout is src/",
+      "candidate_parent_image_id": "sha256:bd5edf8694cde12aaf99beb18b3935b15e076e81ac7e52aef46b1ca3d9071428",
+      "reuse_assessment": "likely light, not validated",
+      "public_declared_runtime_dependencies": [],
+      "public_test_dependencies": [
+        "pytest",
+        "pytz",
+        "simplejson",
+        "python-dateutil (2.20 reco extra)"
+      ],
+      "additional_packages_to_resolve": [
+        "simplejson"
+      ],
+      "public_declared_python": {
+        "2.20": "classifiers through Python3.7, no runtime upper bound in consulted setup.py",
+        "3.0": ">=3.5"
+      },
+      "minimal_preparation": [
+        "Fetch exact base commit publicly into an independent checkout",
+        "Install editable source with --no-deps and record actual __file__/version; do not infer import availability from inherited dist-info",
+        "Ensure pytest,pytz,simplejson,dateutil import; then collect the public tests directory",
+        "Run a small public field/serialization test file discovered from that checkout before broader baseline validation"
+      ],
+      "smoke_commands": [
+        "python -c \"import marshmallow,pytz,simplejson,dateutil; print(marshmallow.__file__)\"",
+        "python -m pytest --collect-only -q tests"
+      ],
+      "risks": [
+        "Python3.9 and pytest7 behavior remains unverified for these old commits",
+        "Tests import tests.base at conftest import time; run from /testbed, not another repository",
+        "Do not install dev/docs/lint extras wholesale; their old flake8/Sphinx pins are not runtime requirements"
+      ]
+    },
+    "pvlib/pvlib-python": {
+      "strategy": "Prefer already prepared pvlib1707 scientific parent; exact commit overlays for each case; retain a separate legacy scientific dependency profile if public baselines expose API removals",
+      "candidate_parent_image_id": "sha256:6bddca9c6360684b088cba4a502969e84c3a2f125550983e48e38e2e252b660c",
+      "reuse_assessment": "1707 public baseline recorded; cross-version reuse is unverified",
+      "public_declared_runtime_dependencies": {
+        "0.7/0.8": [
+          "numpy>=1.12",
+          "pandas>=0.22",
+          "pytz",
+          "requests",
+          "scipy>=1.2"
+        ],
+        "0.9": [
+          "numpy>=1.16",
+          "pandas>=0.25",
+          "pytz",
+          "requests",
+          "scipy>=1.4",
+          "h5py"
+        ]
+      },
+      "public_test_dependencies": [
+        "pytest",
+        "pytest-cov",
+        "pytest-mock",
+        "pytest-timeout",
+        "pytest-rerunfailures",
+        "pytest-remotedata",
+        "nose (0.7/0.8)",
+        "requests-mock (0.9)"
+      ],
+      "additional_packages_to_resolve": [
+        "nose for older publicly requested tests, if not present"
+      ],
+      "public_declared_python": {
+        "0.7/0.8": ">=3.6",
+        "0.9": ">=3.7"
+      },
+      "minimal_preparation": [
+        "Check whether each specified Git commit is already present without fetching bulk history",
+        "Pin NumPy below2; do not use upstream current NumPy2 with np.Inf-dependent code",
+        "Keep inherited scientific versions initially only where their public baseline actually succeeds",
+        "If old versions fail due removed pandas/SciPy APIs, record failure before proposing one fixed legacy dependency overlay; validate all same-profile cases, not only the formerly failing test"
+      ],
+      "smoke_commands": [
+        "python -c \"import pvlib,numpy,pandas,scipy,h5py; print(pvlib.__file__,numpy.__version__,pandas.__version__,scipy.__version__)\"",
+        "python -m pytest --collect-only -q pvlib/tests/test_pvsystem.py",
+        "python -m pytest -q pvlib/tests/test_pvsystem.py"
+      ],
+      "risks": [
+        "Parent has NumPy1.26.4/pandas2.2.3/SciPy1.13.1: old lower bounds do not prove compatibility with these modern versions",
+        "Pandas/SciPy API removals can create environment failures on 0.7/0.8; do not misread as repair failure",
+        "Optional PySAM/netcdf/numba and remote-data tests are not proven by the pvsystem baseline",
+        "Full source data files and public package data must be retained; no replacing gold/image-unavailable cases"
+      ]
+    },
+    "pydicom/pydicom": {
+      "strategy": "Reuse prepared pydicom1139 Python3.9/pytest7.4.4 layer and public cached fixtures, plus exact public Git overlays",
+      "candidate_parent_image_id": "sha256:bd5edf8694cde12aaf99beb18b3935b15e076e81ac7e52aef46b1ca3d9071428",
+      "reuse_assessment": "1139 prior and1256 current public tests recorded; other3 not validated",
+      "public_declared_runtime_dependencies": [],
+      "public_test_dependencies": [
+        "pytest",
+        "NumPy/Pillow and optional codecs as required by the selected public tests"
+      ],
+      "additional_packages_to_resolve": [],
+      "public_declared_python": {
+        "1.3": "consulted setup supports Python3 but classifiers only through3.6; Python3.9 not validated",
+        "2.0/2.1": ">=3.6",
+        "2.3": ">=3.6.1"
+      },
+      "minimal_preparation": [
+        "Exact source/base commit overlay, then --no-deps editable install",
+        "Keep pytest<8 for legacy setup methods; no test file renaming",
+        "Check each commit public fixture hash catalogue before reusing external fixture cache; cache availability does not imply expected hash matches every version",
+        "Separate core Dataset/value representation public tests from pixel decoder/optional codec coverage"
+      ],
+      "smoke_commands": [
+        "python -c \"import pydicom,numpy,pytest; print(pydicom.__file__,pydicom.__version__,numpy.__version__,pytest.__version__)\"",
+        "python -m pytest --collect-only -q pydicom/tests/test_dataset.py",
+        "python -m pytest -q pydicom/tests/test_dataset.py pydicom/tests/test_valuerep.py"
+      ],
+      "risks": [
+        "pydicom1.3 may contain NumPy/Python compatibility assumptions not covered by current1139/1256 evidence",
+        "Optional codecs and downloads need separate fixed public preparation before generation",
+        "The published dataset version bucket is not the installed package __version__:1256 bucket2.1 is actual2.2.0.dev0 in current evidence",
+        "Existing public tests passed do not imply official hidden tests will pass"
+      ]
+    },
+    "pylint-dev/astroid": {
+      "strategy": "Two small dependency profiles over the same Python3.9 parent, each case with exact source overlay",
+      "candidate_parent_image_id": "sha256:bd5edf8694cde12aaf99beb18b3935b15e076e81ac7e52aef46b1ca3d9071428",
+      "reuse_assessment": "1866 validated; do not reuse wrapt1.17.3 unchanged for2.9/2.10",
+      "public_declared_runtime_dependencies": {
+        "2.9/2.10": [
+          "lazy_object_proxy>=1.4",
+          "wrapt>=1.11,<1.14",
+          "setuptools>=20",
+          "typing-extensions>=3.10 on Python<3.10"
+        ],
+        "2.12/2.13": [
+          "lazy_object_proxy>=1.4",
+          "wrapt>=1.11,<2 on Python3.9",
+          "typing-extensions>=3.10 on Python<3.10"
+        ],
+        "2.14": [
+          "lazy_object_proxy>=1.4",
+          "wrapt>=1.11,<2 on Python3.9",
+          "typing-extensions>=4 on Python<3.11"
+        ]
+      },
+      "additional_packages_to_resolve": [
+        "wrapt<1.14 for2.9/2.10, with actual LinuxCP39 wheel hash frozen before use"
+      ],
+      "public_declared_python": {
+        "2.9": "~=3.6",
+        "2.10": ">=3.6.2",
+        "2.12/2.13/2.14": ">=3.7.2"
+      },
+      "minimal_preparation": [
+        "Reuse1866 layer for2.12+ only after same-baseline checks; exact HEAD still differs percase",
+        "Create a separate wrapt<1.14 profile for2.9 and2.10; do not satisfy dependencies by ignoring their public upper bound",
+        "typed-ast is not required by these markers on CPython3.9",
+        "Record builder versions; PEP517 declarations request setuptools~=62.6 and wheel~=0.37.1 for2.13/2.14, while the already validated build used no-build-isolation with its recorded builder"
+      ],
+      "smoke_commands": [
+        "python -c \"import astroid,wrapt,lazy_object_proxy,typing_extensions; print(astroid.__file__,astroid.__version__,wrapt.__version__)\"",
+        "python -m pytest --collect-only -q tests/unittest_builder.py",
+        "python -m pytest -q tests/unittest_builder.py"
+      ],
+      "risks": [
+        "2.9/2.10 requirewrapt<1.14, incompatible with the prepared1866 wrapt1.17.3",
+        "2.14 sets filterwarnings=error; inherited dependency deprecations may fail collection or tests",
+        "AST/inference behavior is Python-version-sensitive: record3.9 rather than claim original CI coverage",
+        "Optional brain libraries/acceptance tests are not covered by builder smoke"
+      ]
+    },
+    "pyvista/pyvista": {
+      "strategy": "One separately prepared scientific/graphics overlay, not a generic base for other repos",
+      "candidate_parent_image_id": "sha256:bd5edf8694cde12aaf99beb18b3935b15e076e81ac7e52aef46b1ca3d9071428",
+      "reuse_assessment": "in progress; no completed4315 validation file at review snapshot",
+      "public_declared_runtime_dependencies": [
+        "imageio<2.28",
+        "matplotlib<3.7.2",
+        "numpy<1.25",
+        "pillow<9.6",
+        "pooch<1.8",
+        "scooby>=0.5.1,<0.8",
+        "VTK>=9 import requirement"
+      ],
+      "public_test_dependencies": [
+        "ipykernel imported unconditionally by tests/conftest.py",
+        "pytest<7.4 fromrequirements_test.txt",
+        "pytest_pyvista==0.1.8 for full image-cache test workflows"
+      ],
+      "additional_packages_to_resolve": [
+        "Refer current pyvista4315 wheel/system preparation evidence; no duplicate download"
+      ],
+      "minimal_preparation": [
+        "Use already downloaded hash-verified ordinary PyPI VTK9.2.x plus minimalGL runtime if feasible under disk guard",
+        "Original OSMesa GitHub repository and wheel URL return404; do not invent historicalcommit/hash",
+        "Pin compatible older scientific versions in its own image; do not change shared parent or other repos",
+        "Nonrendering ndarray smoke only; ordinaryVTK+OFF_SCREEN does not prove headless rendering without X/OSMesa"
+      ],
+      "smoke_commands": [
+        "PYVISTA_OFF_SCREEN=true MPLBACKEND=Agg python -c \"import ipykernel.ipkernel; import pyvista; print(pyvista.Report(gpu=False))\"",
+        "PYVISTA_OFF_SCREEN=true MPLBACKEND=Agg python -m pytest -q tests/test_pyvista_ndarray.py"
+      ],
+      "risks": [
+        "VTK import requires missing GL dynamiclibraries; rendering can abort without suitable X/OSMesa context",
+        "Current inherited NumPy1.26.4/Matplotlib3.9.4/Pillow11.2 violate this baseline publicrequirements",
+        "Do not set plugin-autoload-disable globally as a substitute for test dependencies",
+        "Record plotting not validated even if7 ndarray tests pass and1 public skip remains"
+      ]
+    },
+    "sqlfluff/sqlfluff": {
+      "strategy": "Pure-Python-oriented SQL parser dependency layer shared between0.6 and0.8 only after both public baselines pass",
+      "candidate_parent_image_id": "sha256:bd5edf8694cde12aaf99beb18b3935b15e076e81ac7e52aef46b1ca3d9071428",
+      "reuse_assessment": "not prepared or validated",
+      "public_declared_runtime_dependencies": {
+        "0.6": [
+          "click>=7.1",
+          "colorama>=0.3",
+          "configparser",
+          "oyaml",
+          "Jinja2",
+          "diff-cover>=2.5",
+          "pathspec",
+          "appdirs",
+          "cached-property",
+          "typing_extensions",
+          "pytest",
+          "toml",
+          "tblib"
+        ],
+        "0.8": [
+          "appdirs",
+          "chardet",
+          "click>=7.1 (setup) / >=8 (requirements)",
+          "colorama>=0.3",
+          "diff-cover>=2.5",
+          "Jinja2",
+          "pathspec",
+          "pytest",
+          "pyyaml>=5.1",
+          "regex",
+          "tblib",
+          "tqdm",
+          "typing_extensions"
+        ]
+      },
+      "additional_packages_to_resolve": [
+        "click",
+        "colorama",
+        "configparser",
+        "oyaml",
+        "diff-cover",
+        "pathspec",
+        "appdirs",
+        "cached-property",
+        "toml",
+        "tblib",
+        "chardet",
+        "regex",
+        "tqdm"
+      ],
+      "public_declared_python": {
+        "0.6": ">=3.6",
+        "0.8": ">=3.7"
+      },
+      "minimal_preparation": [
+        "Resolve a Python3.9 wheel lock for publicrequirements with fixed versions/hashes; do not default to newest2026 dependencies",
+        "Install exact source including entrypoints and public test fixtures; source layoutsrc/",
+        "Verify Jinja/click/plugin compatibility on both0.6 and0.8; requirements-file≥8click is stricter than0.8 metadata≥7.1",
+        "Collect public test directory from repository root; conftest imports CLI/core parser and reads localfixture directories"
+      ],
+      "smoke_commands": [
+        "python -c \"import sqlfluff,jinja2,click; print(sqlfluff.__file__)\"",
+        "python -m pytest --collect-only -q test"
+      ],
+      "risks": [
+        "Modern click/Jinja2/pathspec/diff-cover may satisfy loose lowerbounds but break old public APIs",
+        "0.6 uses oyaml,0.8 usesyaml; do not substitute by changing source/tests",
+        "Some wheel binaries such as regex need CP39/Linux identity; hostWindows wheel is invalid",
+        "dbt extra/plugins must be explicitly planned if a public target needs them; do not install whole dbt stack for everycase",
+        "Fixture-containing directories must be preserved, not only source package files"
+      ]
+    }
+  },
+  "instances": [
+    {
+      "environment_setup_commit": "7015fc4333a2f32cd58c3465296e834acd4496ff",
+      "repo": "marshmallow-code/marshmallow",
+      "base_commit": "2be2d83a1a9a6d3d9b85804f3ab545cecc409bb0",
+      "version": "2.20",
+      "instance_id": "marshmallow-code__marshmallow-1343",
+      "environment_status": "not_validated_by_this_review",
+      "known_public_evidence": null,
+      "profile_repo": "marshmallow-code/marshmallow",
+      "dependency_evidence_scope": "representative exactbasecommit per datasetversion; recheck actualcase dependencyfiles before finalimage",
+      "required_before_generation": [
+        "exact basecommit and imageID match in actual cleancontainer",
+        "target import __file__ points to newcheckout",
+        "freeze dependencyversions and hashes",
+        "public collection/smoke exitcode and full stdout/stderr saved",
+        "cleanup verified and no credentials mounted"
+      ]
+    },
+    {
+      "environment_setup_commit": "8b3a32614fd4a74e93e9a63a042e74c1fea34466",
+      "repo": "marshmallow-code/marshmallow",
+      "base_commit": "b40a0f4e33823e6d0f341f7e8684e359a99060d1",
+      "version": "3.0",
+      "instance_id": "marshmallow-code__marshmallow-1359",
+      "environment_status": "not_validated_by_this_review",
+      "known_public_evidence": null,
+      "profile_repo": "marshmallow-code/marshmallow",
+      "dependency_evidence_scope": "representative exactbasecommit per datasetversion; recheck actualcase dependencyfiles before finalimage",
+      "required_before_generation": [
+        "exact basecommit and imageID match in actual cleancontainer",
+        "target import __file__ points to newcheckout",
+        "freeze dependencyversions and hashes",
+        "public collection/smoke exitcode and full stdout/stderr saved",
+        "cleanup verified and no credentials mounted"
+      ]
+    },
+    {
+      "environment_setup_commit": "6e5148f59c5050e8f7a0084b7ae39e93b80f72e6",
+      "repo": "pvlib/pvlib-python",
+      "base_commit": "04a523fafbd61bc2e49420963b84ed8e2bd1b3cf",
+      "version": "0.7",
+      "instance_id": "pvlib__pvlib-python-1072",
+      "environment_status": "not_validated_by_this_review",
+      "known_public_evidence": null,
+      "profile_repo": "pvlib/pvlib-python",
+      "dependency_evidence_scope": "representative exactbasecommit per datasetversion; recheck actualcase dependencyfiles before finalimage",
+      "required_before_generation": [
+        "exact basecommit and imageID match in actual cleancontainer",
+        "target import __file__ points to newcheckout",
+        "freeze dependencyversions and hashes",
+        "public collection/smoke exitcode and full stdout/stderr saved",
+        "cleanup verified and no credentials mounted"
+      ],
+      "dependency_subprofile": "legacy_scientific_compatibility_pending"
+    },
+    {
+      "environment_setup_commit": "ef8ad2fee9840a77d14b0dfd17fc489dd85c9b91",
+      "repo": "pvlib/pvlib-python",
+      "base_commit": "0b8f24c265d76320067a5ee908a57d475cd1bb24",
+      "version": "0.8",
+      "instance_id": "pvlib__pvlib-python-1154",
+      "environment_status": "not_validated_by_this_review",
+      "known_public_evidence": null,
+      "profile_repo": "pvlib/pvlib-python",
+      "dependency_evidence_scope": "representative exactbasecommit per datasetversion; recheck actualcase dependencyfiles before finalimage",
+      "required_before_generation": [
+        "exact basecommit and imageID match in actual cleancontainer",
+        "target import __file__ points to newcheckout",
+        "freeze dependencyversions and hashes",
+        "public collection/smoke exitcode and full stdout/stderr saved",
+        "cleanup verified and no credentials mounted"
+      ],
+      "dependency_subprofile": "legacy_scientific_compatibility_pending"
+    },
+    {
+      "environment_setup_commit": "ef8ad2fee9840a77d14b0dfd17fc489dd85c9b91",
+      "repo": "pvlib/pvlib-python",
+      "base_commit": "c78b50f4337ecbe536a961336ca91a1176efc0e8",
+      "version": "0.8",
+      "instance_id": "pvlib__pvlib-python-1606",
+      "environment_status": "not_validated_by_this_review",
+      "known_public_evidence": null,
+      "profile_repo": "pvlib/pvlib-python",
+      "dependency_evidence_scope": "representative exactbasecommit per datasetversion; recheck actualcase dependencyfiles before finalimage",
+      "required_before_generation": [
+        "exact basecommit and imageID match in actual cleancontainer",
+        "target import __file__ points to newcheckout",
+        "freeze dependencyversions and hashes",
+        "public collection/smoke exitcode and full stdout/stderr saved",
+        "cleanup verified and no credentials mounted"
+      ],
+      "dependency_subprofile": "legacy_scientific_compatibility_pending"
+    },
+    {
+      "environment_setup_commit": "6072e0982c3c0236f532ddfa48fbf461180d834e",
+      "repo": "pvlib/pvlib-python",
+      "base_commit": "40e9e978c170bdde4eeee1547729417665dbc34c",
+      "version": "0.9",
+      "instance_id": "pvlib__pvlib-python-1707",
+      "environment_status": "prior_public_baseline_evidence_requires_current_identity_recheck",
+      "known_public_evidence": {
+        "status": "prior_public_baseline_evidence_requires_current_identity_recheck",
+        "path": "runs/dev2_acceptance_20261106/environment/pvlib/public_test_pvsystem_execution_v2.json",
+        "image_id": "sha256:6bddca9c6360684b088cba4a502969e84c3a2f125550983e48e38e2e252b660c",
+        "public_result": "245 passed in the prior publicpvsystem baseline",
+        "evidence_sha256": "ab3f8de1785f9e71e82d3a621c709da8705f10079e235c4bdae314f58c14290b"
+      },
+      "profile_repo": "pvlib/pvlib-python",
+      "dependency_evidence_scope": "representative exactbasecommit per datasetversion; recheck actualcase dependencyfiles before finalimage",
+      "required_before_generation": [
+        "exact basecommit and imageID match in actual cleancontainer",
+        "target import __file__ points to newcheckout",
+        "freeze dependencyversions and hashes",
+        "public collection/smoke exitcode and full stdout/stderr saved",
+        "cleanup verified and no credentials mounted"
+      ],
+      "dependency_subprofile": "1707_scientific_parent_candidate"
+    },
+    {
+      "environment_setup_commit": "6072e0982c3c0236f532ddfa48fbf461180d834e",
+      "repo": "pvlib/pvlib-python",
+      "base_commit": "27a3a07ebc84b11014d3753e4923902adf9a38c0",
+      "version": "0.9",
+      "instance_id": "pvlib__pvlib-python-1854",
+      "environment_status": "not_validated_by_this_review",
+      "known_public_evidence": null,
+      "profile_repo": "pvlib/pvlib-python",
+      "dependency_evidence_scope": "representative exactbasecommit per datasetversion; recheck actualcase dependencyfiles before finalimage",
+      "required_before_generation": [
+        "exact basecommit and imageID match in actual cleancontainer",
+        "target import __file__ points to newcheckout",
+        "freeze dependencyversions and hashes",
+        "public collection/smoke exitcode and full stdout/stderr saved",
+        "cleanup verified and no credentials mounted"
+      ],
+      "dependency_subprofile": "1707_scientific_parent_candidate"
+    },
+    {
+      "environment_setup_commit": "9d69811e539774f296c2f289839147e741251716",
+      "repo": "pydicom/pydicom",
+      "base_commit": "b9fb05c177b685bf683f7f57b2d57374eb7d882d",
+      "version": "2.0",
+      "instance_id": "pydicom__pydicom-1139",
+      "environment_status": "prior_public_baseline_evidence_requires_current_identity_recheck",
+      "known_public_evidence": {
+        "status": "prior_public_baseline_evidence_requires_current_identity_recheck",
+        "path": "runs/dev2_acceptance_20261106/environment/pydicom/prepared_pytest7_image_identity.json",
+        "image_id": "sha256:bd5edf8694cde12aaf99beb18b3935b15e076e81ac7e52aef46b1ca3d9071428",
+        "public_result": "Prior publictests120+38 documented; this review did not rerun",
+        "evidence_sha256": "195e8419e92abe9a3234b5f412f78524dd936e9a6abbdf6788dbd0bf0cc62f8e"
+      },
+      "profile_repo": "pydicom/pydicom",
+      "dependency_evidence_scope": "representative exactbasecommit per datasetversion; recheck actualcase dependencyfiles before finalimage",
+      "required_before_generation": [
+        "exact basecommit and imageID match in actual cleancontainer",
+        "target import __file__ points to newcheckout",
+        "freeze dependencyversions and hashes",
+        "public collection/smoke exitcode and full stdout/stderr saved",
+        "cleanup verified and no credentials mounted"
+      ]
+    },
+    {
+      "environment_setup_commit": "506ecea8f378dc687d5c504788fc78810a190b7a",
+      "repo": "pydicom/pydicom",
+      "base_commit": "49a3da4a3d9c24d7e8427a25048a1c7d5c4f7724",
+      "version": "2.1",
+      "instance_id": "pydicom__pydicom-1256",
+      "environment_status": "public_baseline_recorded_this_round",
+      "known_public_evidence": {
+        "status": "public_baseline_recorded_this_round",
+        "path": "runs/test20_execution_20261111/environment/pydicom1256_validation.json",
+        "evidence_sha256": "99ff0bb25c2e01f8c17bdf28a418a2bb644dca058af72321ef80aa175d5f3043",
+        "image_id": "sha256:2cc79f41af0bbff063e6a1372897b1e2620292a74d8781733b1ea21c9add9687",
+        "base_commit": "49a3da4a3d9c24d7e8427a25048a1c7d5c4f7724",
+        "public_checks": [
+          {
+            "label": "identity",
+            "exit_code": 0,
+            "summary": [
+              "2.2.0.dev0 1.26.4 7.4.4"
+            ]
+          },
+          {
+            "label": "public_test_dataset",
+            "exit_code": 0,
+            "summary": [
+              "136 passed, 254 warnings in 0.32s"
+            ]
+          },
+          {
+            "label": "public_test_valuerep",
+            "exit_code": 0,
+            "summary": [
+              "56 passed, 12 warnings in 0.13s"
+            ]
+          }
+        ]
+      },
+      "profile_repo": "pydicom/pydicom",
+      "dependency_evidence_scope": "representative exactbasecommit per datasetversion; recheck actualcase dependencyfiles before finalimage",
+      "required_before_generation": [
+        "exact basecommit and imageID match in actual cleancontainer",
+        "target import __file__ points to newcheckout",
+        "freeze dependencyversions and hashes",
+        "public collection/smoke exitcode and full stdout/stderr saved",
+        "cleanup verified and no credentials mounted"
+      ]
+    },
+    {
+      "environment_setup_commit": "506ecea8f378dc687d5c504788fc78810a190b7a",
+      "repo": "pydicom/pydicom",
+      "base_commit": "f909c76e31f759246cec3708dadd173c5d6e84b1",
+      "version": "2.1",
+      "instance_id": "pydicom__pydicom-1413",
+      "environment_status": "not_validated_by_this_review",
+      "known_public_evidence": null,
+      "profile_repo": "pydicom/pydicom",
+      "dependency_evidence_scope": "representative exactbasecommit per datasetversion; recheck actualcase dependencyfiles before finalimage",
+      "required_before_generation": [
+        "exact basecommit and imageID match in actual cleancontainer",
+        "target import __file__ points to newcheckout",
+        "freeze dependencyversions and hashes",
+        "public collection/smoke exitcode and full stdout/stderr saved",
+        "cleanup verified and no credentials mounted"
+      ]
+    },
+    {
+      "environment_setup_commit": "a8be738418dee0a2b93c241fbd5e0bc82f4b8680",
+      "repo": "pydicom/pydicom",
+      "base_commit": "f8cf45b6c121e5a4bf4a43f71aba3bc64af3db9c",
+      "version": "2.3",
+      "instance_id": "pydicom__pydicom-1694",
+      "environment_status": "not_validated_by_this_review",
+      "known_public_evidence": null,
+      "profile_repo": "pydicom/pydicom",
+      "dependency_evidence_scope": "representative exactbasecommit per datasetversion; recheck actualcase dependencyfiles before finalimage",
+      "required_before_generation": [
+        "exact basecommit and imageID match in actual cleancontainer",
+        "target import __file__ points to newcheckout",
+        "freeze dependencyversions and hashes",
+        "public collection/smoke exitcode and full stdout/stderr saved",
+        "cleanup verified and no credentials mounted"
+      ]
+    },
+    {
+      "environment_setup_commit": "7241f5d9db0de589b230bb84212fbb643a7c86c3",
+      "repo": "pydicom/pydicom",
+      "base_commit": "3746878d8edf1cbda6fbcf35eec69f9ba79301ca",
+      "version": "1.3",
+      "instance_id": "pydicom__pydicom-901",
+      "environment_status": "not_validated_by_this_review",
+      "known_public_evidence": null,
+      "profile_repo": "pydicom/pydicom",
+      "dependency_evidence_scope": "representative exactbasecommit per datasetversion; recheck actualcase dependencyfiles before finalimage",
+      "required_before_generation": [
+        "exact basecommit and imageID match in actual cleancontainer",
+        "target import __file__ points to newcheckout",
+        "freeze dependencyversions and hashes",
+        "public collection/smoke exitcode and full stdout/stderr saved",
+        "cleanup verified and no credentials mounted"
+      ]
+    },
+    {
+      "environment_setup_commit": "52f6d2d7722db383af035be929f18af5e9fe8cd5",
+      "repo": "pylint-dev/astroid",
+      "base_commit": "39c2a9805970ca57093d32bbaf0e6a63e05041d8",
+      "version": "2.12",
+      "instance_id": "pylint-dev__astroid-1196",
+      "environment_status": "not_validated_by_this_review",
+      "known_public_evidence": null,
+      "profile_repo": "pylint-dev/astroid",
+      "dependency_evidence_scope": "representative exactbasecommit per datasetversion; recheck actualcase dependencyfiles before finalimage",
+      "required_before_generation": [
+        "exact basecommit and imageID match in actual cleancontainer",
+        "target import __file__ points to newcheckout",
+        "freeze dependencyversions and hashes",
+        "public collection/smoke exitcode and full stdout/stderr saved",
+        "cleanup verified and no credentials mounted"
+      ],
+      "dependency_subprofile": "wrapt<2 onPython3.9"
+    },
+    {
+      "environment_setup_commit": "0d1211558670cfefd95b39984b8d5f7f34837f32",
+      "repo": "pylint-dev/astroid",
+      "base_commit": "ce5cbce5ba11cdc2f8139ade66feea1e181a7944",
+      "version": "2.9",
+      "instance_id": "pylint-dev__astroid-1268",
+      "environment_status": "not_validated_by_this_review",
+      "known_public_evidence": null,
+      "profile_repo": "pylint-dev/astroid",
+      "dependency_evidence_scope": "representative exactbasecommit per datasetversion; recheck actualcase dependencyfiles before finalimage",
+      "required_before_generation": [
+        "exact basecommit and imageID match in actual cleancontainer",
+        "target import __file__ points to newcheckout",
+        "freeze dependencyversions and hashes",
+        "public collection/smoke exitcode and full stdout/stderr saved",
+        "cleanup verified and no credentials mounted"
+      ],
+      "dependency_subprofile": "wrapt<1.14"
+    },
+    {
+      "environment_setup_commit": "da745538c7236028a22cdf0405f6829fcf6886bc",
+      "repo": "pylint-dev/astroid",
+      "base_commit": "d2a5b3c7b1e203fec3c7ca73c30eb1785d3d4d0a",
+      "version": "2.10",
+      "instance_id": "pylint-dev__astroid-1333",
+      "environment_status": "not_validated_by_this_review",
+      "known_public_evidence": null,
+      "profile_repo": "pylint-dev/astroid",
+      "dependency_evidence_scope": "representative exactbasecommit per datasetversion; recheck actualcase dependencyfiles before finalimage",
+      "required_before_generation": [
+        "exact basecommit and imageID match in actual cleancontainer",
+        "target import __file__ points to newcheckout",
+        "freeze dependencyversions and hashes",
+        "public collection/smoke exitcode and full stdout/stderr saved",
+        "cleanup verified and no credentials mounted"
+      ],
+      "dependency_subprofile": "wrapt<1.14"
+    },
+    {
+      "environment_setup_commit": "fe058bff95745371df5796286d33677c21137847",
+      "repo": "pylint-dev/astroid",
+      "base_commit": "6cf238d089cf4b6753c94cfc089b4a47487711e5",
+      "version": "2.13",
+      "instance_id": "pylint-dev__astroid-1866",
+      "environment_status": "public_baseline_recorded_this_round",
+      "known_public_evidence": {
+        "status": "public_baseline_recorded_this_round",
+        "path": "runs/test20_execution_20261111/environment/astroid1866_validation.json",
+        "evidence_sha256": "0315d5578b249d2633e8e8d5ddae6a74bc08ba8bbde149f010b0a97415dfbea0",
+        "image_id": "sha256:d12c436e7986e6e244c897643c9c7f3eaf26d0ee3b363cfea46a0cba03322895",
+        "base_commit": "6cf238d089cf4b6753c94cfc089b4a47487711e5",
+        "public_checks": [
+          {
+            "label": "identity",
+            "exit_code": 0,
+            "summary": [
+              "2.13.0-dev0 1.10.0 1.17.3 7.4.4"
+            ]
+          },
+          {
+            "label": "public_unittest_builder",
+            "exit_code": 0,
+            "summary": [
+              "56 passed, 1 skipped in 1.55s"
+            ]
+          }
+        ]
+      },
+      "profile_repo": "pylint-dev/astroid",
+      "dependency_evidence_scope": "representative exactbasecommit per datasetversion; recheck actualcase dependencyfiles before finalimage",
+      "required_before_generation": [
+        "exact basecommit and imageID match in actual cleancontainer",
+        "target import __file__ points to newcheckout",
+        "freeze dependencyversions and hashes",
+        "public collection/smoke exitcode and full stdout/stderr saved",
+        "cleanup verified and no credentials mounted"
+      ],
+      "dependency_subprofile": "wrapt<2 onPython3.9"
+    },
+    {
+      "environment_setup_commit": "0c9ab0fe56703fa83c73e514a1020d398d23fa7f",
+      "repo": "pylint-dev/astroid",
+      "base_commit": "0c9ab0fe56703fa83c73e514a1020d398d23fa7f",
+      "version": "2.14",
+      "instance_id": "pylint-dev__astroid-1978",
+      "environment_status": "not_validated_by_this_review",
+      "known_public_evidence": null,
+      "profile_repo": "pylint-dev/astroid",
+      "dependency_evidence_scope": "representative exactbasecommit per datasetversion; recheck actualcase dependencyfiles before finalimage",
+      "required_before_generation": [
+        "exact basecommit and imageID match in actual cleancontainer",
+        "target import __file__ points to newcheckout",
+        "freeze dependencyversions and hashes",
+        "public collection/smoke exitcode and full stdout/stderr saved",
+        "cleanup verified and no credentials mounted"
+      ],
+      "dependency_subprofile": "wrapt<2 onPython3.9"
+    },
+    {
+      "environment_setup_commit": "4c2d1aed10b1600d520271beba8579c71433e808",
+      "repo": "pyvista/pyvista",
+      "base_commit": "db6ee8dd4a747b8864caae36c5d05883976a3ae5",
+      "version": "0.39",
+      "instance_id": "pyvista__pyvista-4315",
+      "environment_status": "not_validated_by_this_review",
+      "known_public_evidence": null,
+      "profile_repo": "pyvista/pyvista",
+      "dependency_evidence_scope": "representative exactbasecommit per datasetversion; recheck actualcase dependencyfiles before finalimage",
+      "required_before_generation": [
+        "exact basecommit and imageID match in actual cleancontainer",
+        "target import __file__ points to newcheckout",
+        "freeze dependencyversions and hashes",
+        "public collection/smoke exitcode and full stdout/stderr saved",
+        "cleanup verified and no credentials mounted"
+      ]
+    },
+    {
+      "environment_setup_commit": "67023b85c41d23d6c6d69812a41b207c4f8a9331",
+      "repo": "sqlfluff/sqlfluff",
+      "base_commit": "304a197829f98e7425a46d872ada73176137e5ae",
+      "version": "0.6",
+      "instance_id": "sqlfluff__sqlfluff-1517",
+      "environment_status": "not_validated_by_this_review",
+      "known_public_evidence": null,
+      "profile_repo": "sqlfluff/sqlfluff",
+      "dependency_evidence_scope": "representative exactbasecommit per datasetversion; recheck actualcase dependencyfiles before finalimage",
+      "required_before_generation": [
+        "exact basecommit and imageID match in actual cleancontainer",
+        "target import __file__ points to newcheckout",
+        "freeze dependencyversions and hashes",
+        "public collection/smoke exitcode and full stdout/stderr saved",
+        "cleanup verified and no credentials mounted"
+      ]
+    },
+    {
+      "environment_setup_commit": "67023b85c41d23d6c6d69812a41b207c4f8a9331",
+      "repo": "sqlfluff/sqlfluff",
+      "base_commit": "14e1a23a3166b9a645a16de96f694c77a5d4abb7",
+      "version": "0.6",
+      "instance_id": "sqlfluff__sqlfluff-1625",
+      "environment_status": "not_validated_by_this_review",
+      "known_public_evidence": null,
+      "profile_repo": "sqlfluff/sqlfluff",
+      "dependency_evidence_scope": "representative exactbasecommit per datasetversion; recheck actualcase dependencyfiles before finalimage",
+      "required_before_generation": [
+        "exact basecommit and imageID match in actual cleancontainer",
+        "target import __file__ points to newcheckout",
+        "freeze dependencyversions and hashes",
+        "public collection/smoke exitcode and full stdout/stderr saved",
+        "cleanup verified and no credentials mounted"
+      ]
+    },
+    {
+      "environment_setup_commit": "67023b85c41d23d6c6d69812a41b207c4f8a9331",
+      "repo": "sqlfluff/sqlfluff",
+      "base_commit": "a1579a16b1d8913d9d7c7d12add374a290bcc78c",
+      "version": "0.6",
+      "instance_id": "sqlfluff__sqlfluff-1733",
+      "environment_status": "not_validated_by_this_review",
+      "known_public_evidence": null,
+      "profile_repo": "sqlfluff/sqlfluff",
+      "dependency_evidence_scope": "representative exactbasecommit per datasetversion; recheck actualcase dependencyfiles before finalimage",
+      "required_before_generation": [
+        "exact basecommit and imageID match in actual cleancontainer",
+        "target import __file__ points to newcheckout",
+        "freeze dependencyversions and hashes",
+        "public collection/smoke exitcode and full stdout/stderr saved",
+        "cleanup verified and no credentials mounted"
+      ]
+    },
+    {
+      "environment_setup_commit": "67023b85c41d23d6c6d69812a41b207c4f8a9331",
+      "repo": "sqlfluff/sqlfluff",
+      "base_commit": "a10057635e5b2559293a676486f0b730981f037a",
+      "version": "0.6",
+      "instance_id": "sqlfluff__sqlfluff-1763",
+      "environment_status": "not_validated_by_this_review",
+      "known_public_evidence": null,
+      "profile_repo": "sqlfluff/sqlfluff",
+      "dependency_evidence_scope": "representative exactbasecommit per datasetversion; recheck actualcase dependencyfiles before finalimage",
+      "required_before_generation": [
+        "exact basecommit and imageID match in actual cleancontainer",
+        "target import __file__ points to newcheckout",
+        "freeze dependencyversions and hashes",
+        "public collection/smoke exitcode and full stdout/stderr saved",
+        "cleanup verified and no credentials mounted"
+      ]
+    },
+    {
+      "environment_setup_commit": "a5c4eae4e3e419fe95460c9afd9cf39a35a470c4",
+      "repo": "sqlfluff/sqlfluff",
+      "base_commit": "f1dba0e1dd764ae72d67c3d5e1471cf14d3db030",
+      "version": "0.8",
+      "instance_id": "sqlfluff__sqlfluff-2419",
+      "environment_status": "not_validated_by_this_review",
+      "known_public_evidence": null,
+      "profile_repo": "sqlfluff/sqlfluff",
+      "dependency_evidence_scope": "representative exactbasecommit per datasetversion; recheck actualcase dependencyfiles before finalimage",
+      "required_before_generation": [
+        "exact basecommit and imageID match in actual cleancontainer",
+        "target import __file__ points to newcheckout",
+        "freeze dependencyversions and hashes",
+        "public collection/smoke exitcode and full stdout/stderr saved",
+        "cleanup verified and no credentials mounted"
+      ]
+    }
+  ],
+  "public_text_provenance": [
+    {
+      "repo": "marshmallow-code/marshmallow",
+      "version": "2.20",
+      "base_commit": "2be2d83a1a9a6d3d9b85804f3ab545cecc409bb0",
+      "path": "setup.py",
+      "url": "https://raw.githubusercontent.com/marshmallow-code/marshmallow/2be2d83a1a9a6d3d9b85804f3ab545cecc409bb0/setup.py",
+      "status_code": 200,
+      "bytes": 2655,
+      "sha256": "ccb86ec3f41d57bbd7c4481c72331a477eaf3d0337160f698dbf761c4a901837"
+    },
+    {
+      "repo": "marshmallow-code/marshmallow",
+      "version": "2.20",
+      "base_commit": "2be2d83a1a9a6d3d9b85804f3ab545cecc409bb0",
+      "path": "tox.ini",
+      "url": "https://raw.githubusercontent.com/marshmallow-code/marshmallow/2be2d83a1a9a6d3d9b85804f3ab545cecc409bb0/tox.ini",
+      "status_code": 200,
+      "bytes": 794,
+      "sha256": "815f34a054fb5f647dc035a71d147895a1ce69e47cc49280ad35a5463c253c39"
+    },
+    {
+      "repo": "marshmallow-code/marshmallow",
+      "version": "3.0",
+      "base_commit": "b40a0f4e33823e6d0f341f7e8684e359a99060d1",
+      "path": "setup.py",
+      "url": "https://raw.githubusercontent.com/marshmallow-code/marshmallow/b40a0f4e33823e6d0f341f7e8684e359a99060d1/setup.py",
+      "status_code": 200,
+      "bytes": 2608,
+      "sha256": "cd0157fa95fd31dafe01ab96f7d04f6e5e2dc056ae75e435e12a4cd2dcaa2ff5"
+    },
+    {
+      "repo": "marshmallow-code/marshmallow",
+      "version": "3.0",
+      "base_commit": "b40a0f4e33823e6d0f341f7e8684e359a99060d1",
+      "path": "tox.ini",
+      "url": "https://raw.githubusercontent.com/marshmallow-code/marshmallow/b40a0f4e33823e6d0f341f7e8684e359a99060d1/tox.ini",
+      "status_code": 200,
+      "bytes": 710,
+      "sha256": "eb49ed9f8d97eafe534cea51362372c46f1f31b8ab9c2ed7bb8f111e3deb0d64"
+    },
+    {
+      "repo": "pvlib/pvlib-python",
+      "version": "0.7",
+      "base_commit": "04a523fafbd61bc2e49420963b84ed8e2bd1b3cf",
+      "path": "setup.py",
+      "url": "https://raw.githubusercontent.com/pvlib/pvlib-python/04a523fafbd61bc2e49420963b84ed8e2bd1b3cf/setup.py",
+      "status_code": 200,
+      "bytes": 3707,
+      "sha256": "2e75e9a222e91b4516e893d365ece68dd9780d13fe3a3414897a021ec82485c8"
+    },
+    {
+      "repo": "pvlib/pvlib-python",
+      "version": "0.8",
+      "base_commit": "0b8f24c265d76320067a5ee908a57d475cd1bb24",
+      "path": "setup.py",
+      "url": "https://raw.githubusercontent.com/pvlib/pvlib-python/0b8f24c265d76320067a5ee908a57d475cd1bb24/setup.py",
+      "status_code": 200,
+      "bytes": 4176,
+      "sha256": "7af5828a73e92147caa082bdfebe6afdba0b32dec9711bd29a7102602fe22db1"
+    },
+    {
+      "repo": "pvlib/pvlib-python",
+      "version": "0.9",
+      "base_commit": "40e9e978c170bdde4eeee1547729417665dbc34c",
+      "path": "setup.py",
+      "url": "https://raw.githubusercontent.com/pvlib/pvlib-python/40e9e978c170bdde4eeee1547729417665dbc34c/setup.py",
+      "status_code": 200,
+      "bytes": 4656,
+      "sha256": "272c1c240da72bec4504a16ddc3616313d858eec7eaba499df60c541fc0d00a4"
+    },
+    {
+      "repo": "pydicom/pydicom",
+      "version": "2.0",
+      "base_commit": "b9fb05c177b685bf683f7f57b2d57374eb7d882d",
+      "path": "setup.py",
+      "url": "https://raw.githubusercontent.com/pydicom/pydicom/b9fb05c177b685bf683f7f57b2d57374eb7d882d/setup.py",
+      "status_code": 200,
+      "bytes": 3268,
+      "sha256": "b320dfccf86ec1123a057e1038f6d0d1c2948bff907b4a121195aa09b1a84eff"
+    },
+    {
+      "repo": "pydicom/pydicom",
+      "version": "2.1",
+      "base_commit": "49a3da4a3d9c24d7e8427a25048a1c7d5c4f7724",
+      "path": "setup.py",
+      "url": "https://raw.githubusercontent.com/pydicom/pydicom/49a3da4a3d9c24d7e8427a25048a1c7d5c4f7724/setup.py",
+      "status_code": 200,
+      "bytes": 3243,
+      "sha256": "8799310cc14e195215d7d794d9de6e4ff2b22d15157ccd31be560a7ef1187cac"
+    },
+    {
+      "repo": "pydicom/pydicom",
+      "version": "2.3",
+      "base_commit": "f8cf45b6c121e5a4bf4a43f71aba3bc64af3db9c",
+      "path": "setup.py",
+      "url": "https://raw.githubusercontent.com/pydicom/pydicom/f8cf45b6c121e5a4bf4a43f71aba3bc64af3db9c/setup.py",
+      "status_code": 200,
+      "bytes": 2711,
+      "sha256": "52f15359a06573b565f8d9fd5596b3e2753d5008936789f5f9ea793672ddf4af"
+    },
+    {
+      "repo": "pydicom/pydicom",
+      "version": "1.3",
+      "base_commit": "3746878d8edf1cbda6fbcf35eec69f9ba79301ca",
+      "path": "setup.py",
+      "url": "https://raw.githubusercontent.com/pydicom/pydicom/3746878d8edf1cbda6fbcf35eec69f9ba79301ca/setup.py",
+      "status_code": 200,
+      "bytes": 3366,
+      "sha256": "739c09bbed5b077bb7db2d93ba4e95fc0aecf293f3fdd4e456feb8d83742581d"
+    },
+    {
+      "repo": "pylint-dev/astroid",
+      "version": "2.12",
+      "base_commit": "39c2a9805970ca57093d32bbaf0e6a63e05041d8",
+      "path": "astroid/__pkginfo__.py",
+      "url": "https://raw.githubusercontent.com/pylint-dev/astroid/39c2a9805970ca57093d32bbaf0e6a63e05041d8/astroid/__pkginfo__.py",
+      "status_code": 200,
+      "bytes": 279,
+      "sha256": "fcbcf38d802380d5cf5adbc88f31c78c292e04f11ee76ebfb65dce52d5e53a86"
+    },
+    {
+      "repo": "pylint-dev/astroid",
+      "version": "2.12",
+      "base_commit": "39c2a9805970ca57093d32bbaf0e6a63e05041d8",
+      "path": "pyproject.toml",
+      "url": "https://raw.githubusercontent.com/pylint-dev/astroid/39c2a9805970ca57093d32bbaf0e6a63e05041d8/pyproject.toml",
+      "status_code": 404
+    },
+    {
+      "repo": "pylint-dev/astroid",
+      "version": "2.9",
+      "base_commit": "ce5cbce5ba11cdc2f8139ade66feea1e181a7944",
+      "path": "astroid/__pkginfo__.py",
+      "url": "https://raw.githubusercontent.com/pylint-dev/astroid/ce5cbce5ba11cdc2f8139ade66feea1e181a7944/astroid/__pkginfo__.py",
+      "status_code": 200,
+      "bytes": 1535,
+      "sha256": "b97d1b036a994941cf07eb038ec8074fc35e3ced6b85ee0d1af09ed750fa2660"
+    },
+    {
+      "repo": "pylint-dev/astroid",
+      "version": "2.9",
+      "base_commit": "ce5cbce5ba11cdc2f8139ade66feea1e181a7944",
+      "path": "pyproject.toml",
+      "url": "https://raw.githubusercontent.com/pylint-dev/astroid/ce5cbce5ba11cdc2f8139ade66feea1e181a7944/pyproject.toml",
+      "status_code": 404
+    },
+    {
+      "repo": "pylint-dev/astroid",
+      "version": "2.10",
+      "base_commit": "d2a5b3c7b1e203fec3c7ca73c30eb1785d3d4d0a",
+      "path": "astroid/__pkginfo__.py",
+      "url": "https://raw.githubusercontent.com/pylint-dev/astroid/d2a5b3c7b1e203fec3c7ca73c30eb1785d3d4d0a/astroid/__pkginfo__.py",
+      "status_code": 200,
+      "bytes": 1536,
+      "sha256": "37ae8e55f2ff793791fbca44290b5f40f57d43bdf9e751b153753725a34730d8"
+    },
+    {
+      "repo": "pylint-dev/astroid",
+      "version": "2.10",
+      "base_commit": "d2a5b3c7b1e203fec3c7ca73c30eb1785d3d4d0a",
+      "path": "pyproject.toml",
+      "url": "https://raw.githubusercontent.com/pylint-dev/astroid/d2a5b3c7b1e203fec3c7ca73c30eb1785d3d4d0a/pyproject.toml",
+      "status_code": 404
+    },
+    {
+      "repo": "pylint-dev/astroid",
+      "version": "2.13",
+      "base_commit": "6cf238d089cf4b6753c94cfc089b4a47487711e5",
+      "path": "astroid/__pkginfo__.py",
+      "url": "https://raw.githubusercontent.com/pylint-dev/astroid/6cf238d089cf4b6753c94cfc089b4a47487711e5/astroid/__pkginfo__.py",
+      "status_code": 200,
+      "bytes": 279,
+      "sha256": "e441be4ef3a78aa7b7b7a014ef1115271dd8433e4b92f9e579ee83a7b2db3d12"
+    },
+    {
+      "repo": "pylint-dev/astroid",
+      "version": "2.13",
+      "base_commit": "6cf238d089cf4b6753c94cfc089b4a47487711e5",
+      "path": "pyproject.toml",
+      "url": "https://raw.githubusercontent.com/pylint-dev/astroid/6cf238d089cf4b6753c94cfc089b4a47487711e5/pyproject.toml",
+      "status_code": 200,
+      "bytes": 2950,
+      "sha256": "ea36bca0a75aeca85c54f141605c0036425fd0a8797059653faadd075012849e"
+    },
+    {
+      "repo": "pylint-dev/astroid",
+      "version": "2.14",
+      "base_commit": "0c9ab0fe56703fa83c73e514a1020d398d23fa7f",
+      "path": "astroid/__pkginfo__.py",
+      "url": "https://raw.githubusercontent.com/pylint-dev/astroid/0c9ab0fe56703fa83c73e514a1020d398d23fa7f/astroid/__pkginfo__.py",
+      "status_code": 200,
+      "bytes": 279,
+      "sha256": "15e70e42e1c5adc85e43014aed128af3b504ac3fd46c36dd770f857d4e865ede"
+    },
+    {
+      "repo": "pylint-dev/astroid",
+      "version": "2.14",
+      "base_commit": "0c9ab0fe56703fa83c73e514a1020d398d23fa7f",
+      "path": "pyproject.toml",
+      "url": "https://raw.githubusercontent.com/pylint-dev/astroid/0c9ab0fe56703fa83c73e514a1020d398d23fa7f/pyproject.toml",
+      "status_code": 200,
+      "bytes": 2976,
+      "sha256": "c4a2addcbfb7066672754c0b359821c617e151f1fffe5beaddcdbff65524cd04"
+    },
+    {
+      "repo": "sqlfluff/sqlfluff",
+      "version": "0.6",
+      "base_commit": "304a197829f98e7425a46d872ada73176137e5ae",
+      "path": "setup.cfg",
+      "url": "https://raw.githubusercontent.com/sqlfluff/sqlfluff/304a197829f98e7425a46d872ada73176137e5ae/setup.cfg",
+      "status_code": 404
+    },
+    {
+      "repo": "sqlfluff/sqlfluff",
+      "version": "0.6",
+      "base_commit": "304a197829f98e7425a46d872ada73176137e5ae",
+      "path": "setup.py",
+      "url": "https://raw.githubusercontent.com/sqlfluff/sqlfluff/304a197829f98e7425a46d872ada73176137e5ae/setup.py",
+      "status_code": 200,
+      "bytes": 4235,
+      "sha256": "d1b8b4717ec628af8ba92dd90a7609c6a3050624885427f308aaae509b864754"
+    },
+    {
+      "repo": "sqlfluff/sqlfluff",
+      "version": "0.6",
+      "base_commit": "304a197829f98e7425a46d872ada73176137e5ae",
+      "path": "requirements.txt",
+      "url": "https://raw.githubusercontent.com/sqlfluff/sqlfluff/304a197829f98e7425a46d872ada73176137e5ae/requirements.txt",
+      "status_code": 200,
+      "bytes": 307,
+      "sha256": "ebb53e6a61c1243f2252bcb154f6c780e2dd26ba9b517f2a71a3ed8c34324032"
+    },
+    {
+      "repo": "sqlfluff/sqlfluff",
+      "version": "0.8",
+      "base_commit": "f1dba0e1dd764ae72d67c3d5e1471cf14d3db030",
+      "path": "setup.cfg",
+      "url": "https://raw.githubusercontent.com/sqlfluff/sqlfluff/f1dba0e1dd764ae72d67c3d5e1471cf14d3db030/setup.cfg",
+      "status_code": 200,
+      "bytes": 3300,
+      "sha256": "5cbbef45436bb3ad870d7b9cf8eb54004c15de25fee1b095eabd0aad5b5a56bb"
+    },
+    {
+      "repo": "sqlfluff/sqlfluff",
+      "version": "0.8",
+      "base_commit": "f1dba0e1dd764ae72d67c3d5e1471cf14d3db030",
+      "path": "setup.py",
+      "url": "https://raw.githubusercontent.com/sqlfluff/sqlfluff/f1dba0e1dd764ae72d67c3d5e1471cf14d3db030/setup.py",
+      "status_code": 200,
+      "bytes": 102,
+      "sha256": "2e9712a0952371dfb99f43d421105aea73d469d7e2f0dd7541e9656d08384a07"
+    },
+    {
+      "repo": "sqlfluff/sqlfluff",
+      "version": "0.8",
+      "base_commit": "f1dba0e1dd764ae72d67c3d5e1471cf14d3db030",
+      "path": "requirements.txt",
+      "url": "https://raw.githubusercontent.com/sqlfluff/sqlfluff/f1dba0e1dd764ae72d67c3d5e1471cf14d3db030/requirements.txt",
+      "status_code": 200,
+      "bytes": 1118,
+      "sha256": "26a20859affa0a60d5cd761a31d3b871383366347bc6fff73a467bcd0749345e"
+    },
+    {
+      "repo": "pylint-dev/astroid",
+      "version": "2.12",
+      "base_commit": "39c2a9805970ca57093d32bbaf0e6a63e05041d8",
+      "path": "setup.cfg",
+      "url": "https://raw.githubusercontent.com/pylint-dev/astroid/39c2a9805970ca57093d32bbaf0e6a63e05041d8/setup.cfg",
+      "status_code": 200,
+      "bytes": 2554,
+      "sha256": "99d72ea79e9a7a5b9dc13c4b1be5b69be5c6dad9b417ce655776c28c36a10e13"
+    },
+    {
+      "repo": "pylint-dev/astroid",
+      "version": "2.9",
+      "base_commit": "ce5cbce5ba11cdc2f8139ade66feea1e181a7944",
+      "path": "setup.cfg",
+      "url": "https://raw.githubusercontent.com/pylint-dev/astroid/ce5cbce5ba11cdc2f8139ade66feea1e181a7944/setup.cfg",
+      "status_code": 200,
+      "bytes": 2553,
+      "sha256": "168a159e7329aa450ba92168dd8fe695ec89c738365df77cf99cdf2fd3978f56"
+    },
+    {
+      "repo": "pylint-dev/astroid",
+      "version": "2.10",
+      "base_commit": "d2a5b3c7b1e203fec3c7ca73c30eb1785d3d4d0a",
+      "path": "setup.cfg",
+      "url": "https://raw.githubusercontent.com/pylint-dev/astroid/d2a5b3c7b1e203fec3c7ca73c30eb1785d3d4d0a/setup.cfg",
+      "status_code": 200,
+      "bytes": 2555,
+      "sha256": "77125b239c42fe34fca900f4aa95652c3e4f3cf5d55e8a53055293f1623aa09b"
+    },
+    {
+      "repo": "marshmallow-code/marshmallow",
+      "version": "2.20",
+      "base_commit": "2be2d83a1a9a6d3d9b85804f3ab545cecc409bb0",
+      "path": "tests/conftest.py",
+      "url": "https://raw.githubusercontent.com/marshmallow-code/marshmallow/2be2d83a1a9a6d3d9b85804f3ab545cecc409bb0/tests/conftest.py",
+      "status_code": 200,
+      "bytes": 563,
+      "sha256": "7c112ed3b439463432ec4df604ae125f6c262017c3f703fc832808f178141a70"
+    },
+    {
+      "repo": "marshmallow-code/marshmallow",
+      "version": "3.0",
+      "base_commit": "b40a0f4e33823e6d0f341f7e8684e359a99060d1",
+      "path": "tests/conftest.py",
+      "url": "https://raw.githubusercontent.com/marshmallow-code/marshmallow/b40a0f4e33823e6d0f341f7e8684e359a99060d1/tests/conftest.py",
+      "status_code": 200,
+      "bytes": 565,
+      "sha256": "b38131f00b1d54f6f57eaecb0c431a1630f46ce14668881ed783d4c1145a924e"
+    },
+    {
+      "repo": "sqlfluff/sqlfluff",
+      "version": "0.6",
+      "base_commit": "304a197829f98e7425a46d872ada73176137e5ae",
+      "path": "test/conftest.py",
+      "url": "https://raw.githubusercontent.com/sqlfluff/sqlfluff/304a197829f98e7425a46d872ada73176137e5ae/test/conftest.py",
+      "status_code": 200,
+      "bytes": 7277,
+      "sha256": "f4ae607ad6eb4dabdd698090663a65635553a8ee7279e7e1e58e859e04896d0c"
+    },
+    {
+      "repo": "sqlfluff/sqlfluff",
+      "version": "0.8",
+      "base_commit": "f1dba0e1dd764ae72d67c3d5e1471cf14d3db030",
+      "path": "test/conftest.py",
+      "url": "https://raw.githubusercontent.com/sqlfluff/sqlfluff/f1dba0e1dd764ae72d67c3d5e1471cf14d3db030/test/conftest.py",
+      "status_code": 200,
+      "bytes": 7327,
+      "sha256": "afd08a90384d8754da66a2cbdb676bb89ec9d4de63d699a99921e40ee8367f2f"
+    }
+  ],
+  "local_pyvista_public_text_evidence": [
+    {
+      "path": "work/test20_environment_20261111/pyvista__pyvista-4315/testbed/requirements.txt",
+      "sha256": "7f799dbb72b96808414386ef5a8e99a91b098d0513ea3eacb4e73faba92b49c1"
+    },
+    {
+      "path": "work/test20_environment_20261111/pyvista__pyvista-4315/testbed/requirements_test.txt",
+      "sha256": "d5bcedef72a0251553c9801d21adf59360b5b75b33f9b8cd24bb29cc82319807"
+    },
+    {
+      "path": "work/test20_environment_20261111/pyvista__pyvista-4315/testbed/tests/conftest.py",
+      "sha256": "52cbfc19193845a78ef7bb51de52bd7a95503c64ae49405b07ab5d4bb557c190"
+    },
+    {
+      "path": "work/test20_environment_20261111/pyvista__pyvista-4315/testbed/docker/slim.Dockerfile",
+      "sha256": "3753262dbc034a9c92599ad3a2bb9a46dd99332b8a03d28923f9edc4312a812e"
+    }
+  ],
+  "execution_order": [
+    "Keep all23 rows even if environmentblocked",
+    "Prepare light marshmallow/source-only pydicom overlays before heaviergraphics",
+    "Use separate old/newastroid wrapt profiles",
+    "Audit oldpvlib scientific APIs before one sharedlegacy overlay",
+    "Prepare sqlfluff dependencylock and retainpublicfixtures",
+    "Treat pyvista nonrenderingbaseline separately; plotting remains unverified"
+  ],
+  "review_actions": {
+    "credentials_read": false,
+    "model_requests": 0,
+    "docker_builds": 0,
+    "package_installs": 0,
+    "large_source_or_binary_downloads": 0,
+    "official_patches_or_hidden_tests_read": false
+  },
+  "not_claimed": [
+    "All23 runnable",
+    "Fullpublicsuitepassed",
+    "Officialscoringhealth",
+    "Any repairresolvedlabel",
+    "Exactfuture diskusage or actual packageinstallcost"
+  ]
+}

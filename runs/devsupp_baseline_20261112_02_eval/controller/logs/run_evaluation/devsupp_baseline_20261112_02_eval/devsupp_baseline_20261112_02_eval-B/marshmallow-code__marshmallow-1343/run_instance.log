@@ -1,0 +1,105 @@
+2026-11-12 18:09:25,033 - INFO - Creating container for marshmallow-code__marshmallow-1343...
+2026-11-12 18:09:25,130 - INFO - Container for marshmallow-code__marshmallow-1343 created: e5f3a3dfa1fd11bc922ea32e9fb3567d660e97f99d1b6bfe6ff18f3f938db986
+2026-11-12 18:09:25,306 - INFO - Container for marshmallow-code__marshmallow-1343 started: e5f3a3dfa1fd11bc922ea32e9fb3567d660e97f99d1b6bfe6ff18f3f938db986
+2026-11-12 18:09:25,310 - INFO - Intermediate patch for marshmallow-code__marshmallow-1343 written to logs/run_evaluation/devsupp_baseline_20261112_02_eval/devsupp_baseline_20261112_02_eval-B/marshmallow-code__marshmallow-1343/patch.diff, now applying to container...
+2026-11-12 18:09:25,428 - INFO - >>>>> Applied Patch:
+Checking patch src/marshmallow/schema.py...
+Hunk #1 succeeded at 672 (offset 1 line).
+Applied patch src/marshmallow/schema.py cleanly.
+
+2026-11-12 18:09:25,497 - INFO - Git diff before:
+diff --git a/src/marshmallow/schema.py b/src/marshmallow/schema.py
+index 085c509..865474c 100644
+--- a/src/marshmallow/schema.py
++++ b/src/marshmallow/schema.py
+@@ -671,20 +671,24 @@ class BaseSchema(base.SchemaABC):
+                 )
+             except ValidationError as error:
+                 result = error.data
+-            self._invoke_field_validators(unmarshal, data=result, many=many)
+             errors = unmarshal.errors
+-            field_errors = bool(errors)
+-            # Run schema-level migration
+-            try:
+-                self._invoke_validators(unmarshal, pass_many=True, data=result, original_data=data,
+-                                        many=many, field_errors=field_errors)
+-            except ValidationError as err:
+-                errors.update(err.messages)
+-            try:
+-                self._invoke_validators(unmarshal, pass_many=False, data=result, original_data=data,
+-                                        many=many, field_errors=field_errors)
+-            except ValidationError as err:
+-                errors.update(err.messages)
++            if result is not None:
++                self._invoke_field_validators(unmarshal, data=result, many=many)
++                errors = unmarshal.errors
++                field_errors = bool(errors)
++                # Run schema-level migration
++                try:
++                    self._invoke_validators(unmarshal, pass_many=True, data=result,
++                                            original_data=data, many=many,
++                                            field_errors=field_errors)
++                except ValidationError as err:
++                    errors.update(err.messages)
++                try:
++                    self._invoke_validators(unmarshal, pass_many=False, data=result,
++                                            original_data=data, many=many,
++                                            field_errors=field_errors)
++                except ValidationError as err:
++                    errors.update(err.messages)
+         # Run post processors
+         if not errors and postprocess:
+             try:
+2026-11-12 18:09:25,501 - INFO - Eval script for marshmallow-code__marshmallow-1343 written to logs/run_evaluation/devsupp_baseline_20261112_02_eval/devsupp_baseline_20261112_02_eval-B/marshmallow-code__marshmallow-1343/eval.sh; copying to container...
+2026-11-12 18:09:56,867 - INFO - Test runtime: 31.31 seconds
+2026-11-12 18:09:56,874 - INFO - Test output for marshmallow-code__marshmallow-1343 written to logs/run_evaluation/devsupp_baseline_20261112_02_eval/devsupp_baseline_20261112_02_eval-B/marshmallow-code__marshmallow-1343/test_output.txt
+2026-11-12 18:09:56,921 - INFO - Git diff after:
+diff --git a/src/marshmallow/schema.py b/src/marshmallow/schema.py
+index 085c509..865474c 100644
+--- a/src/marshmallow/schema.py
++++ b/src/marshmallow/schema.py
+@@ -671,20 +671,24 @@ class BaseSchema(base.SchemaABC):
+                 )
+             except ValidationError as error:
+                 result = error.data
+-            self._invoke_field_validators(unmarshal, data=result, many=many)
+             errors = unmarshal.errors
+-            field_errors = bool(errors)
+-            # Run schema-level migration
+-            try:
+-                self._invoke_validators(unmarshal, pass_many=True, data=result, original_data=data,
+-                                        many=many, field_errors=field_errors)
+-            except ValidationError as err:
+-                errors.update(err.messages)
+-            try:
+-                self._invoke_validators(unmarshal, pass_many=False, data=result, original_data=data,
+-                                        many=many, field_errors=field_errors)
+-            except ValidationError as err:
+-                errors.update(err.messages)
++            if result is not None:
++                self._invoke_field_validators(unmarshal, data=result, many=many)
++                errors = unmarshal.errors
++                field_errors = bool(errors)
++                # Run schema-level migration
++                try:
++                    self._invoke_validators(unmarshal, pass_many=True, data=result,
++                                            original_data=data, many=many,
++                                            field_errors=field_errors)
++                except ValidationError as err:
++                    errors.update(err.messages)
++                try:
++                    self._invoke_validators(unmarshal, pass_many=False, data=result,
++                                            original_data=data, many=many,
++                                            field_errors=field_errors)
++                except ValidationError as err:
++                    errors.update(err.messages)
+         # Run post processors
+         if not errors and postprocess:
+             try:
+2026-11-12 18:09:56,922 - INFO - Grading answer for marshmallow-code__marshmallow-1343...
+2026-11-12 18:09:56,939 - INFO - report: {'marshmallow-code__marshmallow-1343': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': True, 'infra_failure': False, 'tests_status': {'FAIL_TO_PASS': {'success': ['tests/test_marshalling.py::TestUnmarshaller::test_deserialize_wrong_nested_type_with_validates_method'], 'failure': []}, 'PASS_TO_PASS': {'success': ['tests/test_marshalling.py::test_missing_is_falsy', 'tests/test_marshalling.py::TestMarshaller::test_prefix', 'tests/test_marshalling.py::TestMarshaller::test_marshalling_generator', 'tests/test_marshalling.py::TestMarshaller::test_default_to_missing', 'tests/test_marshalling.py::TestMarshaller::test_serialize_fields_with_load_only_param', 'tests/test_marshalling.py::TestMarshaller::test_missing_data_are_skipped', 'tests/test_marshalling.py::TestMarshaller::test_serialize_with_load_only_doesnt_validate', 'tests/test_marshalling.py::TestMarshaller::test_serialize_fields_with_dump_to_param', 'tests/test_marshalling.py::TestMarshaller::test_serialize_fields_with_dump_to_and_prefix_params', 'tests/test_marshalling.py::TestMarshaller::test_stores_indices_of_errors_when_many_equals_true', 'tests/test_marshalling.py::TestMarshaller::test_doesnt_store_errors_when_index_errors_equals_false', 'tests/test_marshalling.py::TestUnmarshaller::test_extra_data_is_ignored', 'tests/test_marshalling.py::TestUnmarshaller::test_stores_errors', 'tests/test_marshalling.py::TestUnmarshaller::test_stores_indices_of_errors_when_many_equals_true', 'tests/test_marshalling.py::TestUnmarshaller::test_doesnt_store_errors_when_index_errors_equals_false', 'tests/test_marshalling.py::TestUnmarshaller::test_deserialize', 'tests/test_marshalling.py::TestUnmarshaller::test_extra_fields', 'tests/test_marshalling.py::TestUnmarshaller::test_deserialize_many', 'tests/test_marshalling.py::TestUnmarshaller::test_deserialize_stores_errors', 'tests/test_marshalling.py::TestUnmarshaller::test_deserialize_fields_with_attribute_param', 'tests/test_marshalling.py::TestUnmarshaller::test_deserialize_fields_with_load_from_param', 'tests/test_marshalling.py::TestUnmarshaller::test_deserialize_fields_with_dump_only_param', 'tests/test_marshalling.py::TestUnmarshaller::test_deserialize_wrong_type_root_data', 'tests/test_marshalling.py::TestUnmarshaller::test_deserialize_wrong_type_nested_data'], 'failure': []}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for marshmallow-code__marshmallow-1343: resolved: True
+2026-11-12 18:09:56,943 - INFO - Attempting to stop container sweb.eval.marshmallow-code__marshmallow-1343.devsupp_baseline_20261112_02_eval...
+2026-11-12 18:10:12,301 - INFO - Container sweb.eval.marshmallow-code__marshmallow-1343.devsupp_baseline_20261112_02_eval stopped successfully.
+2026-11-12 18:10:12,302 - INFO - Attempting to remove container sweb.eval.marshmallow-code__marshmallow-1343.devsupp_baseline_20261112_02_eval...
+2026-11-12 18:10:12,385 - INFO - Container sweb.eval.marshmallow-code__marshmallow-1343.devsupp_baseline_20261112_02_eval removed successfully.

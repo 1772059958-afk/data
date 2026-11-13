@@ -1,0 +1,10 @@
+{
+  "kind": "authenticated_model_catalog_read",
+  "model_generation_calls": 0,
+  "credential_source": "project_dotenv",
+  "http_status": 200,
+  "model_ids": [
+    "deepseek-flash",
+    "deepseek-v4-pro"
+  ]
+}

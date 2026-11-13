@@ -1,0 +1,1 @@
+Review-only reference answers and sealed outputs. Never import these packets into generation, localization, routing, candidate selection or DEV model prompts. All formal100 predictions were sealed before this directory was created.

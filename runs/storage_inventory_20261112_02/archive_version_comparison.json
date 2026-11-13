@@ -1,0 +1,18 @@
+{
+  "method": "Compare inventories from two already verified ZIP archives; no new evaluation or model request.",
+  "old_archive": "E:/DockerBackups/project-session-20261112-02/project-session-20261112-02.zip",
+  "new_archive": "E:/DockerBackups/project-final-20261112-01/project-final-20261112-01.zip",
+  "old_inventory_sha256": "a1b90e44fbec3dd5c385f1b3be8cf23dd8f3a4576955a5d1d96895c03b324303",
+  "new_inventory_sha256": "d137f8054422e433f53d2b721be5d1f1966f710654f0b4c66f2831dc48a2fa2d",
+  "old_files_checked": 4045,
+  "missing_paths": [],
+  "changed_paths": [
+    "AGENTS.md",
+    "docs/实验记录.md",
+    "runs/test20_execution_20261111/batch_ledger.json",
+    "src/swe_repair/experiment.py",
+    "tests/test_experiment.py"
+  ],
+  "identical_duplicate": false,
+  "recommendation": "Preserve both historical versions for now. Latest archive covers the paths but five files differ; do not treat equal path coverage as identical backups."
+}

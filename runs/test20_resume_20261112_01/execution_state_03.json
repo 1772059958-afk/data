@@ -1,0 +1,27 @@
+{
+  "phase": "dev_independent_scoring_ESC_then_FIXED",
+  "dev_generation_complete": true,
+  "dev_designated": 23,
+  "dev_eligible": 17,
+  "scoring_replay": "runs/dev23_scoring_replay_20261112_02",
+  "scoring_session_id": 1536,
+  "completed_replayed_reports": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "formal_source_snapshot": "runs/test20_resume_20261112_01/formal_source_snapshot/manifest.json",
+  "formal_generation_code_sha256": "b065ff0b3feaa3ecc6865c8992432530ceb3d1f57c785ae8252fcff352ebb789",
+  "formal_pending_config": "configs/test20_resume_pending_20261112_02.json",
+  "formal_environment_review": "runs/test20_resume_20261112_01/test20_public_environment_review_03.json",
+  "formal_generation_started": false,
+  "frozen": false,
+  "model_ledger_records": 574,
+  "cny_estimate": 7.64172086,
+  "pending": null,
+  "usage_last_observed_percent": 64,
+  "offline": "392/392",
+  "preservation": "93/93;131/131",
+  "requests_public_limit": "Mixed HTTP/HTTPS test requires unavailable local HTTPS; original fixed smoke passes with historical pytest; full test timeout retained. No source/CA/test modifications."
+}

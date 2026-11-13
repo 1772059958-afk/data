@@ -1,0 +1,50 @@
+{
+  "arm": "D",
+  "audit_rows": 20,
+  "status_counts": {
+    "resolved": 7,
+    "empty_patch": 2,
+    "ambiguous_error": 6,
+    "unresolved": 5
+  },
+  "unknown_semantic_verdict_instances": [
+    "matplotlib__matplotlib-23987",
+    "pallets__flask-4045",
+    "psf__requests-1963",
+    "pylint-dev__pylint-7114",
+    "pytest-dev__pytest-6116",
+    "pytest-dev__pytest-8906"
+  ],
+  "artifacts": [
+    {
+      "path": "runs/test20_D_20261112_01/matrix.json",
+      "sha256": "97de14a601ea6e13fe1658b79f01befb47d7c5e4b5c013b718aa52de658afaf9"
+    },
+    {
+      "path": "runs/test20_D_20261112_01/predictions_D.jsonl",
+      "sha256": "c00c0d7b6fca249e4924522d76e42d5d8d03553ad22a4118d09004c17fd522b7"
+    },
+    {
+      "path": "runs/test20_D_20261112_01/scoring/D/test20_D_20261112_01-D.test20_D_20261112_01.json",
+      "sha256": "125b7861e956509daefc1f6e1e1d99495f961ac1ecf8d39b58943f4519327a5c"
+    },
+    {
+      "path": "runs/test20_D_20261112_01/scoring/D/test20_D_20261112_01-D.test20_D_20261112_01.json.provenance.json",
+      "sha256": "37c1d88222d69ca183ed654f57d110aa4d2b200118b865f356c33b697bf8e4d1"
+    },
+    {
+      "path": "runs/test20_D_20261112_01/evaluated_records.jsonl",
+      "sha256": "75c3409eaeb3920f2d038f211b4f5a15e2b060b153b20cd16cf2ac42a965a995"
+    },
+    {
+      "path": "runs/test20_D_20261112_01/analysis.json",
+      "sha256": "3407030706c4a463eca9915ba8d6b56092e338e94911b30e6725f2a4877bb337"
+    }
+  ],
+  "analysis_exit": {
+    "returncode": 0,
+    "at": "2026-11-12T04:38:05.850177+00:00"
+  },
+  "other_arms_not_completed": true,
+  "at": "2026-11-12T04:39:04.486920+00:00"
+}

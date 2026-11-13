@@ -1,0 +1,14 @@
+{
+  "phase": "dev_independent_scoring_replay",
+  "dev_generation": "23/23 completed; eligible17; local-budget statuses retained",
+  "dev_scoring_original": "completed six outputs, entrypoint conflict errors retained; not valid calibration labels",
+  "dev_scoring_current": "runs/dev23_scoring_replay_20261112_02",
+  "formal_public_environments": "20/20 public smoke and exact public Git source/import checks passed; Requests loopback fixture validation running",
+  "formal_generation_started": false,
+  "config_frozen": false,
+  "ledger_cny_estimate": 7.64172086,
+  "ledger_records": 574,
+  "ledger_pending": null,
+  "offline": "391/391",
+  "no_question_on_breakpoint": true
+}

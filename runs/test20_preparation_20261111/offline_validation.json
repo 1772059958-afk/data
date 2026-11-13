@@ -1,0 +1,84 @@
+{
+  "kind": "offline_preparation_validation",
+  "date": "2026-11-11",
+  "git_head": "9f1f90c5aee7aa492f4f137793f0feadcf9e2460",
+  "working_tree_changes_tested": true,
+  "source_changes": [
+    "scripts/run_cf.py: registered test20 single-run design with existing freeze/payment gates retained",
+    "scripts/summarize_single_run.py: preregistration-bound descriptive summary without inference"
+  ],
+  "offline_tests": {
+    "passed": 372,
+    "total": 372,
+    "python": "3.14.2",
+    "exit_code": 0,
+    "log": "validation/offline_tests_02.log",
+    "log_sha256": "d7fa9d1c98eac0e791d06d81636a62ee819215080a51519d3527929dcf4cbe72",
+    "source_sha256": {
+      "scripts\\run_cf.py": "8b6c9cc5d5208713b7d2b4e94c82c7aa8c9a9c7bd39bb44fb56b51d9d2c8d32d",
+      "scripts\\summarize_single_run.py": "a4b83b781194b9de24edc48f193309152d4b1f631f29f79212c87ee36f84f387",
+      "tests\\test_single_run_design.py": "a058562b2210a5a9301456714e41dcb966fc699769f65825b316898d452dd4f0",
+      "tests\\test_single_run_summary.py": "3dd69fd171cc9c5e7c9b4ec74ebb17c29fba89bbefd7651e6872592bc7ae6c7f"
+    }
+  },
+  "preservation": {
+    "original_verified": 93,
+    "original_total": 93,
+    "archive_verified": 131,
+    "archive_total": 131,
+    "ok": true,
+    "log": "validation/preservation_01.log",
+    "log_sha256": "1163fbe81fa14df1ab3a64816c26352c1499e8a31e3d2764d76016071ac16e6e"
+  },
+  "preparation": {
+    "test_cases": 20,
+    "repositories": 12,
+    "arms": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E"
+    ],
+    "repeats": 1,
+    "seed": 20261111,
+    "repeat_index": 0,
+    "strategy_cells": 100,
+    "dev_population": 23,
+    "formal_plans": 5,
+    "same_config_hash": "b271524bdc2208eed18ce16a4f84ed49954140d3a24bacfa3ae60314a3146aea",
+    "plans_match_final_source": true,
+    "all_execute_false": true,
+    "all_live_authorized_false": true,
+    "formal_readiness_errors": [
+      "overall status is not frozen",
+      "model.calibration is not frozen",
+      "prefix.calibration is not frozen",
+      "router.calibration is not frozen",
+      "fixed_continuation.calibration is not frozen",
+      "candidate_selection.frozen is not true",
+      "evaluation.frozen is not true",
+      "served model version is not pinned",
+      "router thresholds or matched switch probability are pending"
+    ],
+    "sample_manifest_sha256": "c3261e16b12a1cc206eb4dc8a97c3397cb8e4ecb7fc8b712de6e9a88e8979ecb",
+    "preregistration_sha256": "9af590a74055b0c6c0cd8911d634029a4dfb7edac15933f8dfdaabdf445502d9"
+  },
+  "diff_check": {
+    "exit_code": 0,
+    "log": "validation/diff_check_01.log"
+  },
+  "real_container_validation": "not_performed_this_round",
+  "paid_generation": "not_performed_this_round",
+  "independent_scoring": "not_performed_this_round",
+  "project_dotenv_read": false,
+  "pending": [
+    "new real scope and cumulative model budget",
+    "dev environment and resource checks",
+    "full dev paired calibration and E trigger matching",
+    "immutable model identity and complete freeze",
+    "test20 actual generation and independent scoring",
+    "full ablation/sensitivity/semantic validation remains separate"
+  ],
+  "artifact_manifest": "artifact_manifest.json"
+}

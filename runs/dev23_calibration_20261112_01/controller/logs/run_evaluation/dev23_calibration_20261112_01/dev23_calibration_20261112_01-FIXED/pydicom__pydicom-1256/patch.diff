@@ -1,0 +1,11 @@
+--- a/pydicom/jsonrep.py
++++ b/pydicom/jsonrep.py
+@@ -224,6 +224,7 @@ class JsonDataElementConverter:
+                     elem = DataElement.from_json(
+                         self.dataset_class, key, vr,
+-                        val[value_key], value_key
++                        val[value_key], value_key,
++                        self.bulk_data_element_handler
+                     )
+                 ds.add(elem)
+         return ds

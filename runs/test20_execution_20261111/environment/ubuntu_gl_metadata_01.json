@@ -1,0 +1,980 @@
+{
+  "kind": "official_ubuntu_metadata_only_minimal_gl_closure",
+  "date": "2026-11-11",
+  "root_packages": [
+    "libgl1",
+    "libglx0",
+    "libglvnd0"
+  ],
+  "architecture": "amd64",
+  "baseline_image": "sha256:bd5edf8694cde12aaf99beb18b3935b15e076e81ac7e52aef46b1ca3d9071428",
+  "repositories_considered": [
+    "jammy/main",
+    "jammy-updates/main"
+  ],
+  "metadata": [
+    {
+      "suite": "jammy",
+      "release_url": "https://archive.ubuntu.com/ubuntu/dists/jammy/Release",
+      "release_sha256": "6883c1cb0fcfeefc2ad2e99746fcbb28cf8b2df66ce49904765d883dbf94a1ca",
+      "release_date": "Thu, 21 Apr 2022 17:16:08 UTC",
+      "packages_url": "https://archive.ubuntu.com/ubuntu/dists/jammy/main/binary-amd64/Packages.xz",
+      "packages_sha256_source": "SHA256 section in the HTTPS official Release file",
+      "packages_expected_sha256": "37cb57f1554cbfa71c5a29ee9ffee18a9a8c1782bb0568e0874b7ff4ce8f9c11",
+      "packages_actual_sha256": "37cb57f1554cbfa71c5a29ee9ffee18a9a8c1782bb0568e0874b7ff4ce8f9c11",
+      "packages_compressed_bytes": 1394768,
+      "packages_uncompressed_bytes": 6779186,
+      "package_count": 6090,
+      "elapsed_seconds": 5.602,
+      "tls_verification": true,
+      "gpg_signature_verified": false
+    },
+    {
+      "suite": "jammy-updates",
+      "release_url": "https://archive.ubuntu.com/ubuntu/dists/jammy-updates/Release",
+      "release_sha256": "8776e12b98b387ed0fd791bf2f9f733c39ace09b3435f2b470147f1e55c79ef9",
+      "release_date": "Wed, 11 Nov 2026  6:32:56 UTC",
+      "packages_url": "https://archive.ubuntu.com/ubuntu/dists/jammy-updates/main/binary-amd64/Packages.xz",
+      "packages_sha256_source": "SHA256 section in the HTTPS official Release file",
+      "packages_expected_sha256": "8d6519d3da44040de05306a4607d63b541e8badededc193b08e45463bbd8952e",
+      "packages_actual_sha256": "8d6519d3da44040de05306a4607d63b541e8badededc193b08e45463bbd8952e",
+      "packages_compressed_bytes": 3979464,
+      "packages_uncompressed_bytes": 22511228,
+      "package_count": 22057,
+      "elapsed_seconds": 8.864,
+      "tls_verification": true,
+      "gpg_signature_verified": false
+    }
+  ],
+  "metadata_transferred_bytes": 5770618,
+  "metadata_cache": "work/test20_environment_20261111/ubuntu_metadata_01",
+  "dependency_edges": [
+    {
+      "parent": "libgl1",
+      "dependency": "libc6 (>= 2.14)",
+      "selected": "libc6"
+    },
+    {
+      "parent": "libgl1",
+      "dependency": "libglvnd0 (= 1.4.0-1)",
+      "selected": "libglvnd0"
+    },
+    {
+      "parent": "libgl1",
+      "dependency": "libglx0 (= 1.4.0-1)",
+      "selected": "libglx0"
+    },
+    {
+      "parent": "libglx0",
+      "dependency": "libc6 (>= 2.34)",
+      "selected": "libc6"
+    },
+    {
+      "parent": "libglx0",
+      "dependency": "libglvnd0 (= 1.4.0-1)",
+      "selected": "libglvnd0"
+    },
+    {
+      "parent": "libglx0",
+      "dependency": "libx11-6 (>= 2:1.4.99.1)",
+      "selected": "libx11-6"
+    },
+    {
+      "parent": "libglx0",
+      "dependency": "libglx-mesa0",
+      "selected": "libglx-mesa0"
+    },
+    {
+      "parent": "libglvnd0",
+      "dependency": "libc6 (>= 2.34)",
+      "selected": "libc6"
+    },
+    {
+      "parent": "libglx-mesa0",
+      "dependency": "libc6 (>= 2.34)",
+      "selected": "libc6"
+    },
+    {
+      "parent": "libglx-mesa0",
+      "dependency": "libdrm2 (>= 2.4.75)",
+      "selected": "libdrm2"
+    },
+    {
+      "parent": "libglx-mesa0",
+      "dependency": "libexpat1 (>= 2.0.1)",
+      "selected": "libexpat1"
+    },
+    {
+      "parent": "libglx-mesa0",
+      "dependency": "libglapi-mesa (= 23.2.1-1ubuntu3.1~22.04.4)",
+      "selected": "libglapi-mesa"
+    },
+    {
+      "parent": "libglx-mesa0",
+      "dependency": "libx11-6 (>= 2:1.4.99.1)",
+      "selected": "libx11-6"
+    },
+    {
+      "parent": "libglx-mesa0",
+      "dependency": "libx11-xcb1 (>= 2:1.7.5)",
+      "selected": "libx11-xcb1"
+    },
+    {
+      "parent": "libglx-mesa0",
+      "dependency": "libxcb-dri2-0 (>= 1.8)",
+      "selected": "libxcb-dri2-0"
+    },
+    {
+      "parent": "libglx-mesa0",
+      "dependency": "libxcb-dri3-0 (>= 1.13)",
+      "selected": "libxcb-dri3-0"
+    },
+    {
+      "parent": "libglx-mesa0",
+      "dependency": "libxcb-glx0 (>= 1.8)",
+      "selected": "libxcb-glx0"
+    },
+    {
+      "parent": "libglx-mesa0",
+      "dependency": "libxcb-present0",
+      "selected": "libxcb-present0"
+    },
+    {
+      "parent": "libglx-mesa0",
+      "dependency": "libxcb-randr0",
+      "selected": "libxcb-randr0"
+    },
+    {
+      "parent": "libglx-mesa0",
+      "dependency": "libxcb-shm0",
+      "selected": "libxcb-shm0"
+    },
+    {
+      "parent": "libglx-mesa0",
+      "dependency": "libxcb-sync1",
+      "selected": "libxcb-sync1"
+    },
+    {
+      "parent": "libglx-mesa0",
+      "dependency": "libxcb-xfixes0",
+      "selected": "libxcb-xfixes0"
+    },
+    {
+      "parent": "libglx-mesa0",
+      "dependency": "libxcb1 (>= 1.9.2)",
+      "selected": "libxcb1"
+    },
+    {
+      "parent": "libglx-mesa0",
+      "dependency": "libxext6",
+      "selected": "libxext6"
+    },
+    {
+      "parent": "libglx-mesa0",
+      "dependency": "libxfixes3",
+      "selected": "libxfixes3"
+    },
+    {
+      "parent": "libglx-mesa0",
+      "dependency": "libxshmfence1",
+      "selected": "libxshmfence1"
+    },
+    {
+      "parent": "libglx-mesa0",
+      "dependency": "libxxf86vm1",
+      "selected": "libxxf86vm1"
+    },
+    {
+      "parent": "libglx-mesa0",
+      "dependency": "libgl1-mesa-dri",
+      "selected": "libgl1-mesa-dri"
+    },
+    {
+      "parent": "libdrm2",
+      "dependency": "libdrm-common (>= 2.4.113-2~ubuntu0.22.04.1)",
+      "selected": "libdrm-common"
+    },
+    {
+      "parent": "libdrm2",
+      "dependency": "libc6 (>= 2.33)",
+      "selected": "libc6"
+    },
+    {
+      "parent": "libglapi-mesa",
+      "dependency": "libc6 (>= 2.34)",
+      "selected": "libc6"
+    },
+    {
+      "parent": "libx11-xcb1",
+      "dependency": "libx11-6 (= 2:1.7.5-1ubuntu0.4)",
+      "selected": "libx11-6"
+    },
+    {
+      "parent": "libxcb-dri2-0",
+      "dependency": "libc6 (>= 2.4)",
+      "selected": "libc6"
+    },
+    {
+      "parent": "libxcb-dri2-0",
+      "dependency": "libxcb1",
+      "selected": "libxcb1"
+    },
+    {
+      "parent": "libxcb-dri3-0",
+      "dependency": "libc6 (>= 2.4)",
+      "selected": "libc6"
+    },
+    {
+      "parent": "libxcb-dri3-0",
+      "dependency": "libxcb1 (>= 1.12)",
+      "selected": "libxcb1"
+    },
+    {
+      "parent": "libxcb-glx0",
+      "dependency": "libc6 (>= 2.4)",
+      "selected": "libc6"
+    },
+    {
+      "parent": "libxcb-glx0",
+      "dependency": "libxcb1",
+      "selected": "libxcb1"
+    },
+    {
+      "parent": "libxcb-present0",
+      "dependency": "libc6 (>= 2.4)",
+      "selected": "libc6"
+    },
+    {
+      "parent": "libxcb-present0",
+      "dependency": "libxcb1",
+      "selected": "libxcb1"
+    },
+    {
+      "parent": "libxcb-randr0",
+      "dependency": "libc6 (>= 2.4)",
+      "selected": "libc6"
+    },
+    {
+      "parent": "libxcb-randr0",
+      "dependency": "libxcb1 (>= 1.9.2)",
+      "selected": "libxcb1"
+    },
+    {
+      "parent": "libxcb-shm0",
+      "dependency": "libc6 (>= 2.4)",
+      "selected": "libc6"
+    },
+    {
+      "parent": "libxcb-shm0",
+      "dependency": "libxcb1 (>= 1.12)",
+      "selected": "libxcb1"
+    },
+    {
+      "parent": "libxcb-sync1",
+      "dependency": "libc6 (>= 2.14)",
+      "selected": "libc6"
+    },
+    {
+      "parent": "libxcb-sync1",
+      "dependency": "libxcb1",
+      "selected": "libxcb1"
+    },
+    {
+      "parent": "libxcb-xfixes0",
+      "dependency": "libc6 (>= 2.4)",
+      "selected": "libc6"
+    },
+    {
+      "parent": "libxcb-xfixes0",
+      "dependency": "libxcb1",
+      "selected": "libxcb1"
+    },
+    {
+      "parent": "libxfixes3",
+      "dependency": "libc6 (>= 2.14)",
+      "selected": "libc6"
+    },
+    {
+      "parent": "libxfixes3",
+      "dependency": "libx11-6 (>= 2:1.6.0)",
+      "selected": "libx11-6"
+    },
+    {
+      "parent": "libxshmfence1",
+      "dependency": "libc6 (>= 2.27)",
+      "selected": "libc6"
+    },
+    {
+      "parent": "libxxf86vm1",
+      "dependency": "libc6 (>= 2.4)",
+      "selected": "libc6"
+    },
+    {
+      "parent": "libxxf86vm1",
+      "dependency": "libx11-6 (>= 2:1.6.0)",
+      "selected": "libx11-6"
+    },
+    {
+      "parent": "libxxf86vm1",
+      "dependency": "libxext6",
+      "selected": "libxext6"
+    },
+    {
+      "parent": "libgl1-mesa-dri",
+      "dependency": "libc6 (>= 2.34)",
+      "selected": "libc6"
+    },
+    {
+      "parent": "libgl1-mesa-dri",
+      "dependency": "libdrm-amdgpu1 (>= 2.4.110)",
+      "selected": "libdrm-amdgpu1"
+    },
+    {
+      "parent": "libgl1-mesa-dri",
+      "dependency": "libdrm-intel1 (>= 2.4.38)",
+      "selected": "libdrm-intel1"
+    },
+    {
+      "parent": "libgl1-mesa-dri",
+      "dependency": "libdrm-nouveau2 (>= 2.4.66)",
+      "selected": "libdrm-nouveau2"
+    },
+    {
+      "parent": "libgl1-mesa-dri",
+      "dependency": "libdrm-radeon1 (>= 2.4.31)",
+      "selected": "libdrm-radeon1"
+    },
+    {
+      "parent": "libgl1-mesa-dri",
+      "dependency": "libdrm2 (>= 2.4.75)",
+      "selected": "libdrm2"
+    },
+    {
+      "parent": "libgl1-mesa-dri",
+      "dependency": "libelf1 (>= 0.142)",
+      "selected": "libelf1"
+    },
+    {
+      "parent": "libgl1-mesa-dri",
+      "dependency": "libexpat1 (>= 2.0.1)",
+      "selected": "libexpat1"
+    },
+    {
+      "parent": "libgl1-mesa-dri",
+      "dependency": "libgcc-s1 (>= 3.4)",
+      "selected": "libgcc-s1"
+    },
+    {
+      "parent": "libgl1-mesa-dri",
+      "dependency": "libglapi-mesa (= 23.2.1-1ubuntu3.1~22.04.4)",
+      "selected": "libglapi-mesa"
+    },
+    {
+      "parent": "libgl1-mesa-dri",
+      "dependency": "libllvm15",
+      "selected": "libllvm15"
+    },
+    {
+      "parent": "libgl1-mesa-dri",
+      "dependency": "libsensors5 (>= 1:3.5.0)",
+      "selected": "libsensors5"
+    },
+    {
+      "parent": "libgl1-mesa-dri",
+      "dependency": "libstdc++6 (>= 11)",
+      "selected": "libstdc++6"
+    },
+    {
+      "parent": "libgl1-mesa-dri",
+      "dependency": "libxcb-dri3-0 (>= 1.13)",
+      "selected": "libxcb-dri3-0"
+    },
+    {
+      "parent": "libgl1-mesa-dri",
+      "dependency": "libzstd1 (>= 1.4.0)",
+      "selected": "libzstd1"
+    },
+    {
+      "parent": "libgl1-mesa-dri",
+      "dependency": "zlib1g (>= 1:1.1.4)",
+      "selected": "zlib1g"
+    },
+    {
+      "parent": "libx11-6",
+      "dependency": "libc6 (>= 2.34)",
+      "selected": "libc6"
+    },
+    {
+      "parent": "libx11-6",
+      "dependency": "libxcb1 (>= 1.11.1)",
+      "selected": "libxcb1"
+    },
+    {
+      "parent": "libx11-6",
+      "dependency": "libx11-data",
+      "selected": "libx11-data"
+    },
+    {
+      "parent": "libdrm-amdgpu1",
+      "dependency": "libc6 (>= 2.28)",
+      "selected": "libc6"
+    },
+    {
+      "parent": "libdrm-amdgpu1",
+      "dependency": "libdrm2 (>= 2.4.108)",
+      "selected": "libdrm2"
+    },
+    {
+      "parent": "libdrm-intel1",
+      "dependency": "libc6 (>= 2.17)",
+      "selected": "libc6"
+    },
+    {
+      "parent": "libdrm-intel1",
+      "dependency": "libdrm2 (>= 2.4.108)",
+      "selected": "libdrm2"
+    },
+    {
+      "parent": "libdrm-intel1",
+      "dependency": "libpciaccess0",
+      "selected": "libpciaccess0"
+    },
+    {
+      "parent": "libdrm-nouveau2",
+      "dependency": "libc6 (>= 2.14)",
+      "selected": "libc6"
+    },
+    {
+      "parent": "libdrm-nouveau2",
+      "dependency": "libdrm2 (>= 2.4.108)",
+      "selected": "libdrm2"
+    },
+    {
+      "parent": "libdrm-radeon1",
+      "dependency": "libc6 (>= 2.4)",
+      "selected": "libc6"
+    },
+    {
+      "parent": "libdrm-radeon1",
+      "dependency": "libdrm2 (>= 2.4.108)",
+      "selected": "libdrm2"
+    },
+    {
+      "parent": "libelf1",
+      "dependency": "libc6 (>= 2.33)",
+      "selected": "libc6"
+    },
+    {
+      "parent": "libelf1",
+      "dependency": "zlib1g (>= 1:1.1.4)",
+      "selected": "zlib1g"
+    },
+    {
+      "parent": "libllvm15",
+      "dependency": "libc6 (>= 2.34)",
+      "selected": "libc6"
+    },
+    {
+      "parent": "libllvm15",
+      "dependency": "libedit2 (>= 2.11-20080614-0)",
+      "selected": "libedit2"
+    },
+    {
+      "parent": "libllvm15",
+      "dependency": "libffi8 (>= 3.4)",
+      "selected": "libffi8"
+    },
+    {
+      "parent": "libllvm15",
+      "dependency": "libgcc-s1 (>= 3.3)",
+      "selected": "libgcc-s1"
+    },
+    {
+      "parent": "libllvm15",
+      "dependency": "libstdc++6 (>= 12)",
+      "selected": "libstdc++6"
+    },
+    {
+      "parent": "libllvm15",
+      "dependency": "libtinfo6 (>= 6)",
+      "selected": "libtinfo6"
+    },
+    {
+      "parent": "libllvm15",
+      "dependency": "libxml2 (>= 2.7.4)",
+      "selected": "libxml2"
+    },
+    {
+      "parent": "libllvm15",
+      "dependency": "zlib1g (>= 1:1.2.0)",
+      "selected": "zlib1g"
+    },
+    {
+      "parent": "libsensors5",
+      "dependency": "libsensors-config",
+      "selected": "libsensors-config"
+    },
+    {
+      "parent": "libsensors5",
+      "dependency": "libc6 (>= 2.33)",
+      "selected": "libc6"
+    },
+    {
+      "parent": "libpciaccess0",
+      "dependency": "libc6 (>= 2.33)",
+      "selected": "libc6"
+    },
+    {
+      "parent": "libpciaccess0",
+      "dependency": "zlib1g (>= 1:1.1.4)",
+      "selected": "zlib1g"
+    },
+    {
+      "parent": "libxml2",
+      "dependency": "libc6 (>= 2.34)",
+      "selected": "libc6"
+    },
+    {
+      "parent": "libxml2",
+      "dependency": "libicu70 (>= 70.1-1~)",
+      "selected": "libicu70"
+    },
+    {
+      "parent": "libxml2",
+      "dependency": "liblzma5 (>= 5.1.1alpha+20120614)",
+      "selected": "liblzma5"
+    },
+    {
+      "parent": "libxml2",
+      "dependency": "zlib1g (>= 1:1.2.3.3)",
+      "selected": "zlib1g"
+    },
+    {
+      "parent": "libicu70",
+      "dependency": "libc6 (>= 2.34)",
+      "selected": "libc6"
+    },
+    {
+      "parent": "libicu70",
+      "dependency": "libgcc-s1 (>= 3.3.1)",
+      "selected": "libgcc-s1"
+    },
+    {
+      "parent": "libicu70",
+      "dependency": "libstdc++6 (>= 5.2)",
+      "selected": "libstdc++6"
+    }
+  ],
+  "new_or_upgrade_packages": [
+    {
+      "package": "libdrm-amdgpu1",
+      "version": "2.4.113-2~ubuntu0.22.04.1",
+      "suite": "jammy-updates",
+      "download_bytes": 19948,
+      "installed_size_kib": 84,
+      "depends": "libc6 (>= 2.28), libdrm2 (>= 2.4.108)",
+      "pre_depends": null,
+      "filename": "pool/main/libd/libdrm/libdrm-amdgpu1_2.4.113-2~ubuntu0.22.04.1_amd64.deb",
+      "deb_sha256_from_packages": "a284d1d55956ed2f5f1ece4e2df9104ff87052a6c27a8150574c30c757ecd4b8",
+      "previous_installed_version": null
+    },
+    {
+      "package": "libdrm-common",
+      "version": "2.4.113-2~ubuntu0.22.04.1",
+      "suite": "jammy-updates",
+      "download_bytes": 5450,
+      "installed_size_kib": 45,
+      "depends": null,
+      "pre_depends": null,
+      "filename": "pool/main/libd/libdrm/libdrm-common_2.4.113-2~ubuntu0.22.04.1_all.deb",
+      "deb_sha256_from_packages": "35a306712d8b15b30c42ecd73ec087813eb01c0b3125dc8f7ca2b5134e133522",
+      "previous_installed_version": null
+    },
+    {
+      "package": "libdrm-intel1",
+      "version": "2.4.113-2~ubuntu0.22.04.1",
+      "suite": "jammy-updates",
+      "download_bytes": 66724,
+      "installed_size_kib": 190,
+      "depends": "libc6 (>= 2.17), libdrm2 (>= 2.4.108), libpciaccess0",
+      "pre_depends": null,
+      "filename": "pool/main/libd/libdrm/libdrm-intel1_2.4.113-2~ubuntu0.22.04.1_amd64.deb",
+      "deb_sha256_from_packages": "465de8142e166a59d0c0d6857cd23b76d04ab2680b37fcd16cf4d2ce631f8f92",
+      "previous_installed_version": null
+    },
+    {
+      "package": "libdrm-nouveau2",
+      "version": "2.4.113-2~ubuntu0.22.04.1",
+      "suite": "jammy-updates",
+      "download_bytes": 17480,
+      "installed_size_kib": 82,
+      "depends": "libc6 (>= 2.14), libdrm2 (>= 2.4.108)",
+      "pre_depends": null,
+      "filename": "pool/main/libd/libdrm/libdrm-nouveau2_2.4.113-2~ubuntu0.22.04.1_amd64.deb",
+      "deb_sha256_from_packages": "75ce233c7120443a15ab3e71829f7bf63258e6d2a025df366f54027d1d3e8d0c",
+      "previous_installed_version": null
+    },
+    {
+      "package": "libdrm-radeon1",
+      "version": "2.4.113-2~ubuntu0.22.04.1",
+      "suite": "jammy-updates",
+      "download_bytes": 21566,
+      "installed_size_kib": 95,
+      "depends": "libc6 (>= 2.4), libdrm2 (>= 2.4.108)",
+      "pre_depends": null,
+      "filename": "pool/main/libd/libdrm/libdrm-radeon1_2.4.113-2~ubuntu0.22.04.1_amd64.deb",
+      "deb_sha256_from_packages": "579b0d2ccc7800309277fabe517b71a4160b7f26c4745db8e0df25f80576aef7",
+      "previous_installed_version": null
+    },
+    {
+      "package": "libdrm2",
+      "version": "2.4.113-2~ubuntu0.22.04.1",
+      "suite": "jammy-updates",
+      "download_bytes": 38106,
+      "installed_size_kib": 128,
+      "depends": "libdrm-common (>= 2.4.113-2~ubuntu0.22.04.1), libc6 (>= 2.33)",
+      "pre_depends": null,
+      "filename": "pool/main/libd/libdrm/libdrm2_2.4.113-2~ubuntu0.22.04.1_amd64.deb",
+      "deb_sha256_from_packages": "555925f1caedfd98d89bae3bc11b4fe3401c2c4817dbbafcab25e1144582e946",
+      "previous_installed_version": null
+    },
+    {
+      "package": "libelf1",
+      "version": "0.186-1ubuntu0.1",
+      "suite": "jammy-updates",
+      "download_bytes": 51140,
+      "installed_size_kib": 192,
+      "depends": "libc6 (>= 2.33), zlib1g (>= 1:1.1.4)",
+      "pre_depends": null,
+      "filename": "pool/main/e/elfutils/libelf1_0.186-1ubuntu0.1_amd64.deb",
+      "deb_sha256_from_packages": "2cc781614b045b450a1e073ee3b0902f393ee58ede1d2ea4526ad805fcccf538",
+      "previous_installed_version": null
+    },
+    {
+      "package": "libgl1",
+      "version": "1.4.0-1",
+      "suite": "jammy",
+      "download_bytes": 110500,
+      "installed_size_kib": 653,
+      "depends": "libc6 (>= 2.14), libglvnd0 (= 1.4.0-1), libglx0 (= 1.4.0-1)",
+      "pre_depends": null,
+      "filename": "pool/main/libg/libglvnd/libgl1_1.4.0-1_amd64.deb",
+      "deb_sha256_from_packages": "4fb2bbff94bb1a59bbdb40041e7a8ab58db2a003a151f4055357af03f0b78666",
+      "previous_installed_version": null
+    },
+    {
+      "package": "libgl1-mesa-dri",
+      "version": "23.2.1-1ubuntu3.1~22.04.4",
+      "suite": "jammy-updates",
+      "download_bytes": 8860354,
+      "installed_size_kib": 31988,
+      "depends": "libc6 (>= 2.34), libdrm-amdgpu1 (>= 2.4.110), libdrm-intel1 (>= 2.4.38), libdrm-nouveau2 (>= 2.4.66), libdrm-radeon1 (>= 2.4.31), libdrm2 (>= 2.4.75), libelf1 (>= 0.142), libexpat1 (>= 2.0.1), libgcc-s1 (>= 3.4), libglapi-mesa (= 23.2.1-1ubuntu3.1~22.04.4), libllvm15, libsensors5 (>= 1:3.5.0), libstdc++6 (>= 11), libxcb-dri3-0 (>= 1.13), libzstd1 (>= 1.4.0), zlib1g (>= 1:1.1.4)",
+      "pre_depends": null,
+      "filename": "pool/main/m/mesa/libgl1-mesa-dri_23.2.1-1ubuntu3.1~22.04.4_amd64.deb",
+      "deb_sha256_from_packages": "aaa8e52dcfad9c6875cd36207086bba2ab2d95903e83df6ce584053c11fbeb16",
+      "previous_installed_version": null
+    },
+    {
+      "package": "libglapi-mesa",
+      "version": "23.2.1-1ubuntu3.1~22.04.4",
+      "suite": "jammy-updates",
+      "download_bytes": 35558,
+      "installed_size_kib": 289,
+      "depends": "libc6 (>= 2.34)",
+      "pre_depends": null,
+      "filename": "pool/main/m/mesa/libglapi-mesa_23.2.1-1ubuntu3.1~22.04.4_amd64.deb",
+      "deb_sha256_from_packages": "bb9b515ea17ca816f878501d3b862c4bdfc3501482f96c9bbd8263bb402bc498",
+      "previous_installed_version": null
+    },
+    {
+      "package": "libglvnd0",
+      "version": "1.4.0-1",
+      "suite": "jammy",
+      "download_bytes": 73582,
+      "installed_size_kib": 725,
+      "depends": "libc6 (>= 2.34)",
+      "pre_depends": null,
+      "filename": "pool/main/libg/libglvnd/libglvnd0_1.4.0-1_amd64.deb",
+      "deb_sha256_from_packages": "6956d8be93b160b439a043141a061adfd54561d877423a956ace84d2fb3bfb4e",
+      "previous_installed_version": null
+    },
+    {
+      "package": "libglx-mesa0",
+      "version": "23.2.1-1ubuntu3.1~22.04.4",
+      "suite": "jammy-updates",
+      "download_bytes": 158058,
+      "installed_size_kib": 567,
+      "depends": "libc6 (>= 2.34), libdrm2 (>= 2.4.75), libexpat1 (>= 2.0.1), libglapi-mesa (= 23.2.1-1ubuntu3.1~22.04.4), libx11-6 (>= 2:1.4.99.1), libx11-xcb1 (>= 2:1.7.5), libxcb-dri2-0 (>= 1.8), libxcb-dri3-0 (>= 1.13), libxcb-glx0 (>= 1.8), libxcb-present0, libxcb-randr0, libxcb-shm0, libxcb-sync1, libxcb-xfixes0, libxcb1 (>= 1.9.2), libxext6, libxfixes3, libxshmfence1, libxxf86vm1, libgl1-mesa-dri",
+      "pre_depends": null,
+      "filename": "pool/main/m/mesa/libglx-mesa0_23.2.1-1ubuntu3.1~22.04.4_amd64.deb",
+      "deb_sha256_from_packages": "41afc13df2a5ea6e5dd1a9d663cb0af05ef0a38cfd200d2a97210bec3dd614c6",
+      "previous_installed_version": null
+    },
+    {
+      "package": "libglx0",
+      "version": "1.4.0-1",
+      "suite": "jammy",
+      "download_bytes": 41024,
+      "installed_size_kib": 163,
+      "depends": "libc6 (>= 2.34), libglvnd0 (= 1.4.0-1), libx11-6 (>= 2:1.4.99.1), libglx-mesa0",
+      "pre_depends": null,
+      "filename": "pool/main/libg/libglvnd/libglx0_1.4.0-1_amd64.deb",
+      "deb_sha256_from_packages": "950068e8a3ad3905058d21a8c870c37989e48c0a537a7c57231c277af19f5395",
+      "previous_installed_version": null
+    },
+    {
+      "package": "libicu70",
+      "version": "70.1-2",
+      "suite": "jammy",
+      "download_bytes": 10581942,
+      "installed_size_kib": 34444,
+      "depends": "libc6 (>= 2.34), libgcc-s1 (>= 3.3.1), libstdc++6 (>= 5.2)",
+      "pre_depends": null,
+      "filename": "pool/main/i/icu/libicu70_70.1-2_amd64.deb",
+      "deb_sha256_from_packages": "58a154f6307289813da2276f900498ef536ae7c0522d2cf31a3c3c5cf62dfd9a",
+      "previous_installed_version": null
+    },
+    {
+      "package": "libllvm15",
+      "version": "1:15.0.7-0ubuntu0.22.04.3",
+      "suite": "jammy-updates",
+      "download_bytes": 25375730,
+      "installed_size_kib": 114208,
+      "depends": "libc6 (>= 2.34), libedit2 (>= 2.11-20080614-0), libffi8 (>= 3.4), libgcc-s1 (>= 3.3), libstdc++6 (>= 12), libtinfo6 (>= 6), libxml2 (>= 2.7.4), zlib1g (>= 1:1.2.0)",
+      "pre_depends": null,
+      "filename": "pool/main/l/llvm-toolchain-15/libllvm15_15.0.7-0ubuntu0.22.04.3_amd64.deb",
+      "deb_sha256_from_packages": "96798f618e4071f7fa684037bd0bb88f15b4e8f2c80cbb64267aa39fe8a8a5ec",
+      "previous_installed_version": null
+    },
+    {
+      "package": "libpciaccess0",
+      "version": "0.16-3",
+      "suite": "jammy",
+      "download_bytes": 19140,
+      "installed_size_kib": 61,
+      "depends": "libc6 (>= 2.33), zlib1g (>= 1:1.1.4)",
+      "pre_depends": null,
+      "filename": "pool/main/libp/libpciaccess/libpciaccess0_0.16-3_amd64.deb",
+      "deb_sha256_from_packages": "0f3c826d6cd56b7b46550d952709b8ede9f2636b98698da40a2054768ebdcffc",
+      "previous_installed_version": null
+    },
+    {
+      "package": "libsensors-config",
+      "version": "1:3.6.0-7ubuntu1",
+      "suite": "jammy",
+      "download_bytes": 5274,
+      "installed_size_kib": 42,
+      "depends": null,
+      "pre_depends": null,
+      "filename": "pool/main/l/lm-sensors/libsensors-config_3.6.0-7ubuntu1_all.deb",
+      "deb_sha256_from_packages": "53f08afe04f0f525bccc1ad78e3eb2c7e7bb62b4104535c3680dd76c1e2122b3",
+      "previous_installed_version": null
+    },
+    {
+      "package": "libsensors5",
+      "version": "1:3.6.0-7ubuntu1",
+      "suite": "jammy",
+      "download_bytes": 26346,
+      "installed_size_kib": 96,
+      "depends": "libsensors-config, libc6 (>= 2.33)",
+      "pre_depends": null,
+      "filename": "pool/main/l/lm-sensors/libsensors5_3.6.0-7ubuntu1_amd64.deb",
+      "deb_sha256_from_packages": "8059077962c3109ac789dd16dcd0e68fdfce9e398cded0881803d677963f8d5f",
+      "previous_installed_version": null
+    },
+    {
+      "package": "libx11-6",
+      "version": "2:1.7.5-1ubuntu0.4",
+      "suite": "jammy-updates",
+      "download_bytes": 667500,
+      "installed_size_kib": 1387,
+      "depends": "libc6 (>= 2.34), libxcb1 (>= 1.11.1), libx11-data",
+      "pre_depends": null,
+      "filename": "pool/main/libx/libx11/libx11-6_1.7.5-1ubuntu0.4_amd64.deb",
+      "deb_sha256_from_packages": "6fcad3c4020a87caad67cc4141a82372ed474c050e6eeb9d434594590760430e",
+      "previous_installed_version": "2:1.7.5-1ubuntu0.3"
+    },
+    {
+      "package": "libx11-xcb1",
+      "version": "2:1.7.5-1ubuntu0.4",
+      "suite": "jammy-updates",
+      "download_bytes": 7792,
+      "installed_size_kib": 85,
+      "depends": "libx11-6 (= 2:1.7.5-1ubuntu0.4)",
+      "pre_depends": null,
+      "filename": "pool/main/libx/libx11/libx11-xcb1_1.7.5-1ubuntu0.4_amd64.deb",
+      "deb_sha256_from_packages": "00260321d5b74fb472e830f5a5feeb521f43917948f1511a5bfb2ffead06e1ae",
+      "previous_installed_version": null
+    },
+    {
+      "package": "libxcb-dri2-0",
+      "version": "1.14-3ubuntu3",
+      "suite": "jammy",
+      "download_bytes": 7206,
+      "installed_size_kib": 46,
+      "depends": "libc6 (>= 2.4), libxcb1",
+      "pre_depends": null,
+      "filename": "pool/main/libx/libxcb/libxcb-dri2-0_1.14-3ubuntu3_amd64.deb",
+      "deb_sha256_from_packages": "b407841216a9d36d2f688bc108ff23fca9daeccc763844eb532c4ec3b46379d9",
+      "previous_installed_version": null
+    },
+    {
+      "package": "libxcb-dri3-0",
+      "version": "1.14-3ubuntu3",
+      "suite": "jammy",
+      "download_bytes": 6968,
+      "installed_size_kib": 46,
+      "depends": "libc6 (>= 2.4), libxcb1 (>= 1.12)",
+      "pre_depends": null,
+      "filename": "pool/main/libx/libxcb/libxcb-dri3-0_1.14-3ubuntu3_amd64.deb",
+      "deb_sha256_from_packages": "88f306f8421abb5e0a70057925405b98162e6ade8fa2e9cdf67f798012e39b7f",
+      "previous_installed_version": null
+    },
+    {
+      "package": "libxcb-glx0",
+      "version": "1.14-3ubuntu3",
+      "suite": "jammy",
+      "download_bytes": 25934,
+      "installed_size_kib": 154,
+      "depends": "libc6 (>= 2.4), libxcb1",
+      "pre_depends": null,
+      "filename": "pool/main/libx/libxcb/libxcb-glx0_1.14-3ubuntu3_amd64.deb",
+      "deb_sha256_from_packages": "395855609f1ff02208b12aea1ef82f5018c6a262825bda8c9a49ec8cab9deacb",
+      "previous_installed_version": null
+    },
+    {
+      "package": "libxcb-present0",
+      "version": "1.14-3ubuntu3",
+      "suite": "jammy",
+      "download_bytes": 5734,
+      "installed_size_kib": 36,
+      "depends": "libc6 (>= 2.4), libxcb1",
+      "pre_depends": null,
+      "filename": "pool/main/libx/libxcb/libxcb-present0_1.14-3ubuntu3_amd64.deb",
+      "deb_sha256_from_packages": "8039b58072834435f37269416597ca5f09231acad134a9658f3a2ea0386a162c",
+      "previous_installed_version": null
+    },
+    {
+      "package": "libxcb-randr0",
+      "version": "1.14-3ubuntu3",
+      "suite": "jammy",
+      "download_bytes": 18300,
+      "installed_size_kib": 106,
+      "depends": "libc6 (>= 2.4), libxcb1 (>= 1.9.2)",
+      "pre_depends": null,
+      "filename": "pool/main/libx/libxcb/libxcb-randr0_1.14-3ubuntu3_amd64.deb",
+      "deb_sha256_from_packages": "39dc0f73fa3bd43f3f7755cb7d12bfd1cd59dd8966f747d66fba47dfc8652f62",
+      "previous_installed_version": null
+    },
+    {
+      "package": "libxcb-shm0",
+      "version": "1.14-3ubuntu3",
+      "suite": "jammy",
+      "download_bytes": 5780,
+      "installed_size_kib": 36,
+      "depends": "libc6 (>= 2.4), libxcb1 (>= 1.12)",
+      "pre_depends": null,
+      "filename": "pool/main/libx/libxcb/libxcb-shm0_1.14-3ubuntu3_amd64.deb",
+      "deb_sha256_from_packages": "6d86c9ea2666276c862e64e8a1daa6cb1dd3e4da5ad9165eeb2507311c8a09bd",
+      "previous_installed_version": null
+    },
+    {
+      "package": "libxcb-sync1",
+      "version": "1.14-3ubuntu3",
+      "suite": "jammy",
+      "download_bytes": 9416,
+      "installed_size_kib": 59,
+      "depends": "libc6 (>= 2.14), libxcb1",
+      "pre_depends": null,
+      "filename": "pool/main/libx/libxcb/libxcb-sync1_1.14-3ubuntu3_amd64.deb",
+      "deb_sha256_from_packages": "81281149575a3e2cfee5629150bd5a7e52b2c16ed0d6c86b96108b520ab154b8",
+      "previous_installed_version": null
+    },
+    {
+      "package": "libxcb-xfixes0",
+      "version": "1.14-3ubuntu3",
+      "suite": "jammy",
+      "download_bytes": 9996,
+      "installed_size_kib": 60,
+      "depends": "libc6 (>= 2.4), libxcb1",
+      "pre_depends": null,
+      "filename": "pool/main/libx/libxcb/libxcb-xfixes0_1.14-3ubuntu3_amd64.deb",
+      "deb_sha256_from_packages": "c5fdfad628e4ccdc663fcb391d72a2510a8788dc680c070c76cea3e501791756",
+      "previous_installed_version": null
+    },
+    {
+      "package": "libxfixes3",
+      "version": "1:6.0.0-1",
+      "suite": "jammy",
+      "download_bytes": 11656,
+      "installed_size_kib": 51,
+      "depends": "libc6 (>= 2.14), libx11-6 (>= 2:1.6.0)",
+      "pre_depends": null,
+      "filename": "pool/main/libx/libxfixes/libxfixes3_6.0.0-1_amd64.deb",
+      "deb_sha256_from_packages": "f627555440060edf19801d77d369c99547cf47123fe4e30c5bdb8b664f0b4467",
+      "previous_installed_version": null
+    },
+    {
+      "package": "libxml2",
+      "version": "2.9.13+dfsg-1ubuntu0.14",
+      "suite": "jammy-updates",
+      "download_bytes": 765170,
+      "installed_size_kib": 2098,
+      "depends": "libc6 (>= 2.34), libicu70 (>= 70.1-1~), liblzma5 (>= 5.1.1alpha+20120614), zlib1g (>= 1:1.2.3.3)",
+      "pre_depends": null,
+      "filename": "pool/main/libx/libxml2/libxml2_2.9.13+dfsg-1ubuntu0.14_amd64.deb",
+      "deb_sha256_from_packages": "16e395b2c52d6ab232053468febc69f0876956ec2fae357a941a2a8dab36574f",
+      "previous_installed_version": null
+    },
+    {
+      "package": "libxshmfence1",
+      "version": "1.3-1build4",
+      "suite": "jammy",
+      "download_bytes": 5394,
+      "installed_size_kib": 30,
+      "depends": "libc6 (>= 2.27)",
+      "pre_depends": null,
+      "filename": "pool/main/libx/libxshmfence/libxshmfence1_1.3-1build4_amd64.deb",
+      "deb_sha256_from_packages": "d51ed6fc3932038ebfa0e59065184c715e27ea2cd910cf0a300cfe24cffd744c",
+      "previous_installed_version": null
+    },
+    {
+      "package": "libxxf86vm1",
+      "version": "1:1.1.4-1build3",
+      "suite": "jammy",
+      "download_bytes": 10380,
+      "installed_size_kib": 39,
+      "depends": "libc6 (>= 2.4), libx11-6 (>= 2:1.6.0), libxext6",
+      "pre_depends": null,
+      "filename": "pool/main/libx/libxxf86vm/libxxf86vm1_1.1.4-1build3_amd64.deb",
+      "deb_sha256_from_packages": "2a4bd31dded8481c81bfaa65bd97d61bff1e90cb025c01bcabfc2597c7c7569a",
+      "previous_installed_version": null
+    }
+  ],
+  "already_installed_dependencies": {
+    "libc6": "2.35-0ubuntu3.9",
+    "libx11-6": "2:1.7.5-1ubuntu0.3",
+    "libexpat1": "2.4.7-1ubuntu0.5",
+    "libxcb1": "1.14-3ubuntu3",
+    "libxext6": "2:1.3.4-1build1",
+    "libgcc-s1": "12.3.0-1ubuntu1~22.04",
+    "libstdc++6": "12.3.0-1ubuntu1~22.04",
+    "libzstd1": "1.4.8+dfsg-3build1",
+    "zlib1g": "1:1.2.11.dfsg-2ubuntu9.2",
+    "libx11-data": "2:1.7.5-1ubuntu0.3",
+    "libedit2": "3.1-20210910-1build1",
+    "libffi8": "3.4.2-4",
+    "libtinfo6": "6.3-2ubuntu0.1",
+    "liblzma5": "5.2.5-2ubuntu1"
+  },
+  "unresolved_dependencies": [],
+  "compressed_deb_bytes_if_later_authorized": 47065148,
+  "installed_size_kib_if_later_authorized": 188285,
+  "recommends_included": false,
+  "deb_downloaded": false,
+  "apt_update_performed": false,
+  "packages_installed": false,
+  "images_built": false,
+  "credentials_read": false,
+  "interpretation": "Dependency and Installed-Size metadata, not a measured Docker layer delta. Package archive/download/cache and build temporary space are separate. No recommendation that a wheel works until a public runtime probe succeeds. Metadata HTTPS hashes checked; Release GPG signature not checked."
+}

@@ -1,0 +1,45 @@
+2026-11-12 11:01:52,653 - INFO - Creating container for pytest-dev__pytest-6116...
+2026-11-12 11:01:52,728 - INFO - Container for pytest-dev__pytest-6116 created: 0b6d65b3215e675b23914a7fb5011a54b5765dbf331e6f8a206fd2262c15c271
+2026-11-12 11:01:52,916 - INFO - Container for pytest-dev__pytest-6116 started: 0b6d65b3215e675b23914a7fb5011a54b5765dbf331e6f8a206fd2262c15c271
+2026-11-12 11:01:52,919 - INFO - Intermediate patch for pytest-dev__pytest-6116 written to logs/run_evaluation/test20_B_20261112_02/test20_B_20261112_02-B/pytest-dev__pytest-6116/patch.diff, now applying to container...
+2026-11-12 11:01:53,032 - INFO - >>>>> Applied Patch:
+Checking patch src/_pytest/main.py...
+Hunk #1 succeeded at 107 (offset -1 lines).
+Applied patch src/_pytest/main.py cleanly.
+
+2026-11-12 11:01:53,244 - INFO - Git diff before:
+diff --git a/src/_pytest/main.py b/src/_pytest/main.py
+index 843c5b5..08d7dd0 100644
+--- a/src/_pytest/main.py
++++ b/src/_pytest/main.py
+@@ -107,6 +107,7 @@ def pytest_addoption(parser):
+ 
+     group = parser.getgroup("collect", "collection")
+     group.addoption(
++        "--co",
+         "--collectonly",
+         "--collect-only",
+         action="store_true",
+2026-11-12 11:01:53,247 - INFO - Eval script for pytest-dev__pytest-6116 written to logs/run_evaluation/test20_B_20261112_02/test20_B_20261112_02-B/pytest-dev__pytest-6116/eval.sh; copying to container...
+2026-11-12 11:02:10,959 - INFO - Test runtime: 17.65 seconds
+2026-11-12 11:02:10,979 - INFO - Test output for pytest-dev__pytest-6116 written to logs/run_evaluation/test20_B_20261112_02/test20_B_20261112_02-B/pytest-dev__pytest-6116/test_output.txt
+2026-11-12 11:02:11,032 - INFO - Git diff after:
+diff --git a/src/_pytest/main.py b/src/_pytest/main.py
+index 843c5b5..08d7dd0 100644
+--- a/src/_pytest/main.py
++++ b/src/_pytest/main.py
+@@ -107,6 +107,7 @@ def pytest_addoption(parser):
+ 
+     group = parser.getgroup("collect", "collection")
+     group.addoption(
++        "--co",
+         "--collectonly",
+         "--collect-only",
+         action="store_true",
+2026-11-12 11:02:11,032 - INFO - Grading answer for pytest-dev__pytest-6116...
+2026-11-12 11:02:11,179 - INFO - report: {'pytest-dev__pytest-6116': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': False, 'resolved': False, 'infra_failure': False, 'infra_failure_reason': 'missing_module'}}
+Result for pytest-dev__pytest-6116: resolved: False
+2026-11-12 11:02:11,182 - INFO - Attempting to stop container sweb.eval.pytest-dev__pytest-6116.test20_B_20261112_02...
+2026-11-12 11:02:26,421 - INFO - Container sweb.eval.pytest-dev__pytest-6116.test20_B_20261112_02 stopped successfully.
+2026-11-12 11:02:26,422 - INFO - Attempting to remove container sweb.eval.pytest-dev__pytest-6116.test20_B_20261112_02...
+2026-11-12 11:02:26,474 - INFO - Container sweb.eval.pytest-dev__pytest-6116.test20_B_20261112_02 removed successfully.

@@ -1,0 +1,25 @@
+{
+  "python": "cp39",
+  "platform": "Linux x86_64",
+  "wheels": [
+    {
+      "package": "lazy-object-proxy",
+      "version": "1.10.0",
+      "filename": "lazy_object_proxy-1.10.0-cp39-cp39-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "url": "https://files.pythonhosted.org/packages/ab/be/d0a76dd4404ee68c7dd611c9b48e58b5c70ac5458e4c951b2c8923c24dd9/lazy_object_proxy-1.10.0-cp39-cp39-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "sha256": "18dd842b49456aaa9a7cf535b04ca4571a302ff72ed8740d06b5adcd41fe0757",
+      "bytes": 67068,
+      "source": "official PyPI JSON and files.pythonhosted.org; verified HTTPS"
+    },
+    {
+      "package": "wrapt",
+      "version": "1.17.3",
+      "filename": "wrapt-1.17.3-cp39-cp39-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl",
+      "url": "https://files.pythonhosted.org/packages/43/46/dd0791943613885f62619f18ee6107e6133237a6b6ed8a9ecfac339d0b4f/wrapt-1.17.3-cp39-cp39-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl",
+      "sha256": "7e18f01b0c3e4a07fe6dfdb00e29049ba17eadbc5e7609a2a3a4af83ab7d710a",
+      "bytes": 81745,
+      "source": "official PyPI JSON and files.pythonhosted.org; verified HTTPS"
+    }
+  ],
+  "C_free_bytes": 5382471680
+}

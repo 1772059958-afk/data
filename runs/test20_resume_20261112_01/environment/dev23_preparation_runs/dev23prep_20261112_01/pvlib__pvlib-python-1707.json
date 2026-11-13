@@ -1,0 +1,82 @@
+{
+  "instance_id": "pvlib__pvlib-python-1707",
+  "base_commit": "40e9e978c170bdde4eeee1547729417665dbc34c",
+  "repo": "pvlib/pvlib-python",
+  "dependency_profile": "pvlib_initial",
+  "status": "public_smoke_ready",
+  "patch_applied": false,
+  "model_calls": 0,
+  "smoke_scope_only": true,
+  "source_or_tests_modified": false,
+  "reuse_validation": {
+    "actual_image_id": "sha256:6bddca9c6360684b088cba4a502969e84c3a2f125550983e48e38e2e252b660c",
+    "identity_before": {
+      "head": "40e9e978c170bdde4eeee1547729417665dbc34c",
+      "clean": true,
+      "selected_git_blob_bytes_verified": true,
+      "python": "3.9.21"
+    },
+    "imports": {
+      "head": "40e9e978c170bdde4eeee1547729417665dbc34c",
+      "clean": true,
+      "selected_git_blob_bytes_verified": true,
+      "python": "3.9.21",
+      "module_file": "/testbed/pvlib/__init__.py",
+      "module_version": "0.9.6.dev21+g40e9e97",
+      "distributions": {
+        "pytest": "8.3.5",
+        "numpy": "1.26.4",
+        "pandas": "2.2.3",
+        "scipy": "1.13.1",
+        "wrapt": null,
+        "lazy-object-proxy": null,
+        "simplejson": null,
+        "sqlfluff": null,
+        "Jinja2": "3.1.6",
+        "click": null,
+        "nose": null
+      }
+    },
+    "public_smoke": {
+      "label": "public_smoke",
+      "arguments": [
+        "docker",
+        "--context",
+        "desktop-linux",
+        "exec",
+        "dev23prep-dev23prep_20261112_01-36164a894cc7",
+        "bash",
+        "-lc",
+        "cd /testbed && python -m pytest pvlib/tests/test_pvsystem.py -q --no-header -p no:cacheprovider"
+      ],
+      "exit_code": 0,
+      "log": "0142_public_smoke.log",
+      "log_sha256": "c514b854864a6a7ac545fd2914ece96ea2dac2e154ab870e2e63bcaa096ed1ea",
+      "seconds": 2.421
+    },
+    "identity_after": {
+      "head": "40e9e978c170bdde4eeee1547729417665dbc34c",
+      "clean": true,
+      "selected_git_blob_bytes_verified": true,
+      "python": "3.9.21",
+      "module_file": "/testbed/pvlib/__init__.py",
+      "module_version": "0.9.6.dev21+g40e9e97",
+      "distributions": {
+        "pytest": "8.3.5",
+        "numpy": "1.26.4",
+        "pandas": "2.2.3",
+        "scipy": "1.13.1",
+        "wrapt": null,
+        "lazy-object-proxy": null,
+        "simplejson": null,
+        "sqlfluff": null,
+        "Jinja2": "3.1.6",
+        "click": null,
+        "nose": null
+      }
+    },
+    "passed": true
+  },
+  "image_id": "sha256:6bddca9c6360684b088cba4a502969e84c3a2f125550983e48e38e2e252b660c",
+  "reused": true
+}

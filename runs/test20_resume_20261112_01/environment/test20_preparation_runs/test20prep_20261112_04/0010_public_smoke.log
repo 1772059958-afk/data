@@ -1,0 +1,17 @@
+Traceback (most recent call last):
+  File "<frozen runpy>", line 189, in _run_module_as_main
+  File "<frozen runpy>", line 148, in _get_module_details
+  File "<frozen runpy>", line 112, in _get_module_details
+  File "/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/pytest/__init__.py", line 5, in <module>
+    from _pytest._code import ExceptionInfo
+  File "/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/_code/__init__.py", line 2, in <module>
+    from .code import Code
+  File "/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/_code/code.py", line 43, in <module>
+    from _pytest._io import TerminalWriter
+  File "/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/_io/__init__.py", line 1, in <module>
+    from .terminalwriter import get_terminal_width
+  File "/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/_io/terminalwriter.py", line 10, in <module>
+    from _pytest.compat import final
+  File "/opt/miniconda3/envs/testbed/lib/python3.11/site-packages/_pytest/compat.py", line 20, in <module>
+    import py
+ModuleNotFoundError: No module named 'py'

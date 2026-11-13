@@ -1,0 +1,106 @@
+Running 18 instances...
+  0%|          | 0/18 [00:00<?, ?it/s]  6%|▌         | 1/18 [00:00<00:10,  1.56it/s]1 ran successfully, 0 failed:   6%|▌         | 1/18 [00:00<00:10,  1.56it/s]1 ran successfully, 0 failed:  11%|█         | 2/18 [00:01<00:09,  1.72it/s]2 ran successfully, 0 failed:  11%|█         | 2/18 [00:01<00:09,  1.72it/s]2 ran successfully, 0 failed:  17%|█▋        | 3/18 [00:01<00:08,  1.78it/s]3 ran successfully, 0 failed:  17%|█▋        | 3/18 [00:01<00:08,  1.78it/s]3 ran successfully, 0 failed:  22%|██▏       | 4/18 [00:02<00:07,  1.80it/s]4 ran successfully, 0 failed:  22%|██▏       | 4/18 [00:02<00:07,  1.80it/s]4 ran successfully, 0 failed:  28%|██▊       | 5/18 [00:02<00:07,  1.82it/s]5 ran successfully, 0 failed:  28%|██▊       | 5/18 [00:02<00:07,  1.82it/s]5 ran successfully, 0 failed:  33%|███▎      | 6/18 [00:41<01:23,  6.92s/it]6 ran successfully, 0 failed:  33%|███▎      | 6/18 [00:41<01:23,  6.92s/it]6 ran successfully, 0 failed:  39%|███▉      | 7/18 [00:42<01:06,  6.00s/it]7 ran successfully, 0 failed:  39%|███▉      | 7/18 [00:42<01:06,  6.00s/it]7 ran successfully, 0 failed:  44%|████▍     | 8/18 [01:00<01:15,  7.52s/it]8 ran successfully, 0 failed:  44%|████▍     | 8/18 [01:00<01:15,  7.52s/it]8 ran successfully, 0 failed:  50%|█████     | 9/18 [01:18<01:18,  8.69s/it]9 ran successfully, 0 failed:  50%|█████     | 9/18 [01:18<01:18,  8.69s/it]9 ran successfully, 0 failed:  56%|█████▌    | 10/18 [01:18<01:03,  7.88s/it]10 ran successfully, 0 failed:  56%|█████▌    | 10/18 [01:18<01:03,  7.88s/it]10 ran successfully, 0 failed:  61%|██████    | 11/18 [01:19<00:50,  7.20s/it]11 ran successfully, 0 failed:  61%|██████    | 11/18 [01:19<00:50,  7.20s/it]11 ran successfully, 0 failed:  67%|██████▋   | 12/18 [01:19<00:39,  6.64s/it]12 ran successfully, 0 failed:  67%|██████▋   | 12/18 [01:19<00:39,  6.64s/it]12 ran successfully, 0 failed:  72%|███████▏  | 13/18 [01:54<00:44,  8.82s/it]13 ran successfully, 0 failed:  72%|███████▏  | 13/18 [01:54<00:44,  8.82s/it]13 ran successfully, 0 failed:  78%|███████▊  | 14/18 [01:55<00:32,  8.23s/it]14 ran successfully, 0 failed:  78%|███████▊  | 14/18 [01:55<00:32,  8.23s/it]14 ran successfully, 0 failed:  83%|████████▎ | 15/18 [01:55<00:23,  7.71s/it]15 ran successfully, 0 failed:  83%|████████▎ | 15/18 [01:55<00:23,  7.71s/it]15 ran successfully, 0 failed:  89%|████████▉ | 16/18 [01:56<00:14,  7.26s/it]16 ran successfully, 0 failed:  89%|████████▉ | 16/18 [01:56<00:14,  7.26s/it]16 ran successfully, 0 failed:  94%|█████████▍| 17/18 [01:56<00:06,  6.86s/it]17 ran successfully, 0 failed:  94%|█████████▍| 17/18 [01:56<00:06,  6.86s/it]17 ran successfully, 0 failed: 100%|██████████| 18/18 [01:57<00:00,  6.51s/it]18 ran successfully, 0 failed: 100%|██████████| 18/18 [01:57<00:00,  6.51s/it]18 ran successfully, 0 failed: 100%|██████████| 18/18 [01:57<00:00,  6.51s/it]
+All instances run.
+Total instances: 23
+Instances submitted: 23
+Instances completed: 4
+Instances incomplete: 0
+Instances resolved: 2
+Instances unresolved: 2
+Instances with likely infrastructure failures: 0
+Instances with ambiguous failures: 0
+Instances with empty patches: 5
+Instances with errors: 14
+Unstopped containers: 0
+Unremoved images: 0
+Report written to /workspace/runs/dev23_calibration_20261112_01/scoring/A/dev23_calibration_20261112_01-A.dev23_calibration_20261112_01.json
+Running 18 instances...
+  0%|          | 0/18 [00:00<?, ?it/s]  6%|▌         | 1/18 [00:00<00:08,  2.08it/s]1 ran successfully, 0 failed:   6%|▌         | 1/18 [00:00<00:08,  2.07it/s]1 ran successfully, 0 failed:  11%|█         | 2/18 [00:01<00:08,  1.93it/s]2 ran successfully, 0 failed:  11%|█         | 2/18 [00:01<00:08,  1.93it/s]2 ran successfully, 0 failed:  17%|█▋        | 3/18 [00:01<00:08,  1.87it/s]3 ran successfully, 0 failed:  17%|█▋        | 3/18 [00:01<00:08,  1.87it/s]3 ran successfully, 0 failed:  22%|██▏       | 4/18 [00:02<00:07,  1.89it/s]4 ran successfully, 0 failed:  22%|██▏       | 4/18 [00:02<00:07,  1.89it/s]4 ran successfully, 0 failed:  28%|██▊       | 5/18 [00:02<00:06,  1.92it/s]5 ran successfully, 0 failed:  28%|██▊       | 5/18 [00:02<00:06,  1.92it/s]5 ran successfully, 0 failed:  33%|███▎      | 6/18 [00:27<00:54,  4.57s/it]6 ran successfully, 0 failed:  33%|███▎      | 6/18 [00:27<00:54,  4.57s/it]6 ran successfully, 0 failed:  39%|███▉      | 7/18 [00:27<00:43,  3.99s/it]7 ran successfully, 0 failed:  39%|███▉      | 7/18 [00:27<00:43,  3.99s/it]7 ran successfully, 0 failed:  44%|████▍     | 8/18 [00:46<00:57,  5.77s/it]8 ran successfully, 0 failed:  44%|████▍     | 8/18 [00:46<00:57,  5.77s/it]8 ran successfully, 0 failed:  50%|█████     | 9/18 [01:04<01:04,  7.14s/it]9 ran successfully, 0 failed:  50%|█████     | 9/18 [01:04<01:04,  7.14s/it]9 ran successfully, 0 failed:  56%|█████▌    | 10/18 [01:04<00:51,  6.48s/it]10 ran successfully, 0 failed:  56%|█████▌    | 10/18 [01:04<00:51,  6.48s/it]10 ran successfully, 0 failed:  61%|██████    | 11/18 [01:05<00:41,  5.94s/it]11 ran successfully, 0 failed:  61%|██████    | 11/18 [01:05<00:41,  5.94s/it]11 ran successfully, 0 failed:  67%|██████▋   | 12/18 [01:05<00:32,  5.49s/it]12 ran successfully, 0 failed:  67%|██████▋   | 12/18 [01:05<00:32,  5.49s/it]12 ran successfully, 0 failed:  72%|███████▏  | 13/18 [01:06<00:25,  5.10s/it]13 ran successfully, 0 failed:  72%|███████▏  | 13/18 [01:06<00:25,  5.10s/it]13 ran successfully, 0 failed:  78%|███████▊  | 14/18 [01:39<00:28,  7.12s/it]14 ran successfully, 0 failed:  78%|███████▊  | 14/18 [01:39<00:28,  7.12s/it]14 ran successfully, 0 failed:  83%|████████▎ | 15/18 [01:40<00:20,  6.68s/it]15 ran successfully, 0 failed:  83%|████████▎ | 15/18 [01:40<00:20,  6.68s/it]15 ran successfully, 0 failed:  89%|████████▉ | 16/18 [01:40<00:12,  6.30s/it]16 ran successfully, 0 failed:  89%|████████▉ | 16/18 [01:40<00:12,  6.30s/it]16 ran successfully, 0 failed:  94%|█████████▍| 17/18 [01:41<00:05,  5.96s/it]17 ran successfully, 0 failed:  94%|█████████▍| 17/18 [01:41<00:05,  5.96s/it]17 ran successfully, 0 failed: 100%|██████████| 18/18 [01:41<00:00,  5.65s/it]18 ran successfully, 0 failed: 100%|██████████| 18/18 [01:41<00:00,  5.65s/it]18 ran successfully, 0 failed: 100%|██████████| 18/18 [01:41<00:00,  5.65s/it]
+All instances run.
+Total instances: 23
+Instances submitted: 23
+Instances completed: 4
+Instances incomplete: 0
+Instances resolved: 2
+Instances unresolved: 2
+Instances with likely infrastructure failures: 0
+Instances with ambiguous failures: 0
+Instances with empty patches: 5
+Instances with errors: 14
+Unstopped containers: 0
+Unremoved images: 0
+Report written to /workspace/runs/dev23_calibration_20261112_01/scoring/B/dev23_calibration_20261112_01-B.dev23_calibration_20261112_01.json
+  0%|          | 0/20 [00:00<?, ?it/s]Running 20 instances...
+  5%|▌         | 1/20 [00:00<00:09,  1.92it/s]1 ran successfully, 0 failed:   5%|▌         | 1/20 [00:00<00:09,  1.92it/s]1 ran successfully, 0 failed:  10%|█         | 2/20 [00:01<00:09,  1.96it/s]2 ran successfully, 0 failed:  10%|█         | 2/20 [00:01<00:09,  1.96it/s]2 ran successfully, 0 failed:  15%|█▌        | 3/20 [00:01<00:08,  1.93it/s]3 ran successfully, 0 failed:  15%|█▌        | 3/20 [00:01<00:08,  1.93it/s]3 ran successfully, 0 failed:  20%|██        | 4/20 [00:02<00:08,  1.96it/s]4 ran successfully, 0 failed:  20%|██        | 4/20 [00:02<00:08,  1.96it/s]4 ran successfully, 0 failed:  25%|██▌       | 5/20 [00:02<00:07,  1.95it/s]5 ran successfully, 0 failed:  25%|██▌       | 5/20 [00:02<00:07,  1.95it/s]5 ran successfully, 0 failed:  30%|███       | 6/20 [00:30<01:11,  5.09s/it]6 ran successfully, 0 failed:  30%|███       | 6/20 [00:30<01:11,  5.09s/it]6 ran successfully, 0 failed:  35%|███▌      | 7/20 [00:31<00:57,  4.43s/it]7 ran successfully, 0 failed:  35%|███▌      | 7/20 [00:31<00:57,  4.43s/it]7 ran successfully, 0 failed:  40%|████      | 8/20 [00:49<01:13,  6.15s/it]8 ran successfully, 0 failed:  40%|████      | 8/20 [00:49<01:13,  6.15s/it]8 ran successfully, 0 failed:  45%|████▌     | 9/20 [01:07<01:22,  7.49s/it]9 ran successfully, 0 failed:  45%|████▌     | 9/20 [01:07<01:22,  7.49s/it]9 ran successfully, 0 failed:  50%|█████     | 10/20 [01:07<01:07,  6.80s/it]10 ran successfully, 0 failed:  50%|█████     | 10/20 [01:07<01:07,  6.80s/it]10 ran successfully, 0 failed:  55%|█████▌    | 11/20 [01:08<00:56,  6.23s/it]11 ran successfully, 0 failed:  55%|█████▌    | 11/20 [01:08<00:56,  6.23s/it]11 ran successfully, 0 failed:  60%|██████    | 12/20 [01:09<00:46,  5.76s/it]12 ran successfully, 0 failed:  60%|██████    | 12/20 [01:09<00:46,  5.76s/it]12 ran successfully, 0 failed:  65%|██████▌   | 13/20 [01:09<00:37,  5.35s/it]13 ran successfully, 0 failed:  65%|██████▌   | 13/20 [01:09<00:37,  5.35s/it]13 ran successfully, 0 failed:  70%|███████   | 14/20 [01:10<00:30,  5.01s/it]14 ran successfully, 0 failed:  70%|███████   | 14/20 [01:10<00:30,  5.01s/it]14 ran successfully, 0 failed:  75%|███████▌  | 15/20 [01:44<00:34,  6.97s/it]15 ran successfully, 0 failed:  75%|███████▌  | 15/20 [01:44<00:34,  6.97s/it]15 ran successfully, 0 failed:  80%|████████  | 16/20 [01:45<00:26,  6.57s/it]16 ran successfully, 0 failed:  80%|████████  | 16/20 [01:45<00:26,  6.57s/it]16 ran successfully, 0 failed:  85%|████████▌ | 17/20 [01:45<00:18,  6.22s/it]17 ran successfully, 0 failed:  85%|████████▌ | 17/20 [01:45<00:18,  6.22s/it]17 ran successfully, 0 failed:  90%|█████████ | 18/20 [01:46<00:11,  5.90s/it]18 ran successfully, 0 failed:  90%|█████████ | 18/20 [01:46<00:11,  5.90s/it]18 ran successfully, 0 failed:  95%|█████████▌| 19/20 [01:46<00:05,  5.61s/it]19 ran successfully, 0 failed:  95%|█████████▌| 19/20 [01:46<00:05,  5.61s/it]19 ran successfully, 0 failed: 100%|██████████| 20/20 [01:47<00:00,  5.36s/it]20 ran successfully, 0 failed: 100%|██████████| 20/20 [01:47<00:00,  5.36s/it]20 ran successfully, 0 failed: 100%|██████████| 20/20 [01:47<00:00,  5.36s/it]
+All instances run.
+Total instances: 23
+Instances submitted: 23
+Instances completed: 4
+Instances incomplete: 0
+Instances resolved: 2
+Instances unresolved: 2
+Instances with likely infrastructure failures: 0
+Instances with ambiguous failures: 0
+Instances with empty patches: 3
+Instances with errors: 16
+Unstopped containers: 0
+Unremoved images: 0
+Report written to /workspace/runs/dev23_calibration_20261112_01/scoring/C/dev23_calibration_20261112_01-C.dev23_calibration_20261112_01.json
+Running 18 instances...
+  0%|          | 0/18 [00:00<?, ?it/s]  6%|▌         | 1/18 [00:00<00:08,  2.04it/s]1 ran successfully, 0 failed:   6%|▌         | 1/18 [00:00<00:08,  2.04it/s]1 ran successfully, 0 failed:  11%|█         | 2/18 [00:01<00:08,  1.98it/s]2 ran successfully, 0 failed:  11%|█         | 2/18 [00:01<00:08,  1.98it/s]2 ran successfully, 0 failed:  17%|█▋        | 3/18 [00:01<00:07,  1.96it/s]3 ran successfully, 0 failed:  17%|█▋        | 3/18 [00:01<00:07,  1.96it/s]3 ran successfully, 0 failed:  22%|██▏       | 4/18 [00:02<00:07,  1.97it/s]4 ran successfully, 0 failed:  22%|██▏       | 4/18 [00:02<00:07,  1.97it/s]4 ran successfully, 0 failed:  28%|██▊       | 5/18 [00:02<00:06,  1.97it/s]5 ran successfully, 0 failed:  28%|██▊       | 5/18 [00:02<00:06,  1.97it/s]5 ran successfully, 0 failed:  33%|███▎      | 6/18 [00:29<00:59,  4.93s/it]6 ran successfully, 0 failed:  33%|███▎      | 6/18 [00:29<00:59,  4.93s/it]6 ran successfully, 0 failed:  39%|███▉      | 7/18 [00:30<00:47,  4.30s/it]7 ran successfully, 0 failed:  39%|███▉      | 7/18 [00:30<00:47,  4.30s/it]7 ran successfully, 0 failed:  44%|████▍     | 8/18 [00:48<01:00,  6.02s/it]8 ran successfully, 0 failed:  44%|████▍     | 8/18 [00:48<01:00,  6.02s/it]8 ran successfully, 0 failed:  50%|█████     | 9/18 [01:06<01:06,  7.37s/it]9 ran successfully, 0 failed:  50%|█████     | 9/18 [01:06<01:06,  7.37s/it]9 ran successfully, 0 failed:  56%|█████▌    | 10/18 [01:06<00:53,  6.68s/it]10 ran successfully, 0 failed:  56%|█████▌    | 10/18 [01:06<00:53,  6.68s/it]10 ran successfully, 0 failed:  61%|██████    | 11/18 [01:07<00:42,  6.12s/it]11 ran successfully, 0 failed:  61%|██████    | 11/18 [01:07<00:42,  6.12s/it]11 ran successfully, 0 failed:  67%|██████▋   | 12/18 [01:07<00:33,  5.65s/it]12 ran successfully, 0 failed:  67%|██████▋   | 12/18 [01:07<00:33,  5.65s/it]12 ran successfully, 0 failed:  72%|███████▏  | 13/18 [01:30<00:34,  6.98s/it]13 ran successfully, 0 failed:  72%|███████▏  | 13/18 [01:30<00:34,  6.98s/it]13 ran successfully, 0 failed:  78%|███████▊  | 14/18 [01:31<00:26,  6.52s/it]14 ran successfully, 0 failed:  78%|███████▊  | 14/18 [01:31<00:26,  6.52s/it]14 ran successfully, 0 failed:  83%|████████▎ | 15/18 [01:31<00:18,  6.12s/it]15 ran successfully, 0 failed:  83%|████████▎ | 15/18 [01:31<00:18,  6.12s/it]15 ran successfully, 0 failed:  89%|████████▉ | 16/18 [01:32<00:11,  5.77s/it]16 ran successfully, 0 failed:  89%|████████▉ | 16/18 [01:32<00:11,  5.77s/it]16 ran successfully, 0 failed:  94%|█████████▍| 17/18 [01:32<00:05,  5.46s/it]17 ran successfully, 0 failed:  94%|█████████▍| 17/18 [01:32<00:05,  5.46s/it]17 ran successfully, 0 failed: 100%|██████████| 18/18 [01:33<00:00,  5.18s/it]18 ran successfully, 0 failed: 100%|██████████| 18/18 [01:33<00:00,  5.18s/it]18 ran successfully, 0 failed: 100%|██████████| 18/18 [01:33<00:00,  5.18s/it]
+All instances run.
+Total instances: 23
+Instances submitted: 23
+Instances completed: 4
+Instances incomplete: 0
+Instances resolved: 2
+Instances unresolved: 2
+Instances with likely infrastructure failures: 0
+Instances with ambiguous failures: 0
+Instances with empty patches: 5
+Instances with errors: 14
+Unstopped containers: 0
+Unremoved images: 0
+Report written to /workspace/runs/dev23_calibration_20261112_01/scoring/D/dev23_calibration_20261112_01-D.dev23_calibration_20261112_01.json
+  0%|          | 0/14 [00:00<?, ?it/s]Warning: Missing predictions for 6 instance IDs.
+Running 14 instances...
+  7%|▋         | 1/14 [00:00<00:06,  1.91it/s]1 ran successfully, 0 failed:   7%|▋         | 1/14 [00:00<00:06,  1.91it/s]1 ran successfully, 0 failed:  14%|█▍        | 2/14 [00:00<00:05,  2.04it/s]2 ran successfully, 0 failed:  14%|█▍        | 2/14 [00:00<00:05,  2.04it/s]2 ran successfully, 0 failed:  21%|██▏       | 3/14 [00:26<01:37,  8.88s/it]3 ran successfully, 0 failed:  21%|██▏       | 3/14 [00:26<01:37,  8.88s/it]3 ran successfully, 0 failed:  29%|██▊       | 4/14 [00:27<01:07,  6.79s/it]4 ran successfully, 0 failed:  29%|██▊       | 4/14 [00:27<01:07,  6.79s/it]4 ran successfully, 0 failed:  36%|███▌      | 5/14 [00:45<01:21,  9.08s/it]5 ran successfully, 0 failed:  36%|███▌      | 5/14 [00:45<01:21,  9.08s/it]5 ran successfully, 0 failed:  43%|████▎     | 6/14 [00:45<01:01,  7.65s/it]6 ran successfully, 0 failed:  43%|████▎     | 6/14 [00:45<01:01,  7.65s/it]6 ran successfully, 0 failed:  50%|█████     | 7/14 [00:46<00:46,  6.63s/it]7 ran successfully, 0 failed:  50%|█████     | 7/14 [00:46<00:46,  6.63s/it]7 ran successfully, 0 failed:  57%|█████▋    | 8/14 [00:46<00:35,  5.86s/it]8 ran successfully, 0 failed:  57%|█████▋    | 8/14 [00:46<00:35,  5.86s/it]8 ran successfully, 0 failed:  64%|██████▍   | 9/14 [00:47<00:26,  5.27s/it]9 ran successfully, 0 failed:  64%|██████▍   | 9/14 [00:47<00:26,  5.27s/it]9 ran successfully, 0 failed:  71%|███████▏  | 10/14 [01:20<00:32,  8.03s/it]10 ran successfully, 0 failed:  71%|███████▏  | 10/14 [01:20<00:32,  8.03s/it]10 ran successfully, 0 failed:  79%|███████▊  | 11/14 [01:20<00:22,  7.34s/it]11 ran successfully, 0 failed:  79%|███████▊  | 11/14 [01:20<00:22,  7.34s/it]11 ran successfully, 0 failed:  86%|████████▌ | 12/14 [01:21<00:13,  6.78s/it]12 ran successfully, 0 failed:  86%|████████▌ | 12/14 [01:21<00:13,  6.78s/it]12 ran successfully, 0 failed:  93%|█████████▎| 13/14 [01:21<00:06,  6.30s/it]13 ran successfully, 0 failed:  93%|█████████▎| 13/14 [01:21<00:06,  6.30s/it]13 ran successfully, 0 failed: 100%|██████████| 14/14 [01:22<00:00,  5.88s/it]14 ran successfully, 0 failed: 100%|██████████| 14/14 [01:22<00:00,  5.88s/it]14 ran successfully, 0 failed: 100%|██████████| 14/14 [01:22<00:00,  5.88s/it]
+All instances run.
+Total instances: 23
+Instances submitted: 17
+Instances completed: 3
+Instances incomplete: 6
+Instances resolved: 2
+Instances unresolved: 1
+Instances with likely infrastructure failures: 0
+Instances with ambiguous failures: 0
+Instances with empty patches: 3
+Instances with errors: 11
+Unstopped containers: 0
+Unremoved images: 0
+Report written to /workspace/runs/dev23_calibration_20261112_01/scoring/ESC/dev23_calibration_20261112_01-ESC.dev23_calibration_20261112_01.json
+Warning: Missing predictions for 6 instance IDs.
+Running 12 instances...
+  0%|          | 0/12 [00:00<?, ?it/s]  8%|▊         | 1/12 [00:00<00:05,  1.92it/s]1 ran successfully, 0 failed:   8%|▊         | 1/12 [00:00<00:05,  1.92it/s]1 ran successfully, 0 failed:  17%|█▋        | 2/12 [00:01<00:05,  1.98it/s]2 ran successfully, 0 failed:  17%|█▋        | 2/12 [00:01<00:05,  1.98it/s]2 ran successfully, 0 failed:  25%|██▌       | 3/12 [00:26<01:19,  8.79s/it]3 ran successfully, 0 failed:  25%|██▌       | 3/12 [00:26<01:19,  8.79s/it]3 ran successfully, 0 failed:  33%|███▎      | 4/12 [00:26<00:53,  6.72s/it]4 ran successfully, 0 failed:  33%|███▎      | 4/12 [00:26<00:53,  6.72s/it]4 ran successfully, 0 failed:  42%|████▏     | 5/12 [00:44<01:02,  8.98s/it]5 ran successfully, 0 failed:  42%|████▏     | 5/12 [00:44<01:02,  8.98s/it]5 ran successfully, 0 failed:  50%|█████     | 6/12 [00:45<00:45,  7.56s/it]6 ran successfully, 0 failed:  50%|█████     | 6/12 [00:45<00:45,  7.56s/it]6 ran successfully, 0 failed:  58%|█████▊    | 7/12 [00:45<00:32,  6.55s/it]7 ran successfully, 0 failed:  58%|█████▊    | 7/12 [00:45<00:32,  6.55s/it]7 ran successfully, 0 failed:  67%|██████▋   | 8/12 [01:09<00:34,  8.63s/it]8 ran successfully, 0 failed:  67%|██████▋   | 8/12 [01:09<00:34,  8.63s/it]8 ran successfully, 0 failed:  75%|███████▌  | 9/12 [01:09<00:23,  7.72s/it]9 ran successfully, 0 failed:  75%|███████▌  | 9/12 [01:09<00:23,  7.72s/it]9 ran successfully, 0 failed:  83%|████████▎ | 10/12 [01:10<00:14,  7.00s/it]10 ran successfully, 0 failed:  83%|████████▎ | 10/12 [01:10<00:14,  7.00s/it]10 ran successfully, 0 failed:  92%|█████████▏| 11/12 [01:10<00:06,  6.41s/it]11 ran successfully, 0 failed:  92%|█████████▏| 11/12 [01:10<00:06,  6.41s/it]11 ran successfully, 0 failed: 100%|██████████| 12/12 [01:11<00:00,  5.92s/it]12 ran successfully, 0 failed: 100%|██████████| 12/12 [01:11<00:00,  5.92s/it]12 ran successfully, 0 failed: 100%|██████████| 12/12 [01:11<00:00,  5.92s/it]
+All instances run.
+Total instances: 23
+Instances submitted: 17
+Instances completed: 3
+Instances incomplete: 6
+Instances resolved: 2
+Instances unresolved: 1
+Instances with likely infrastructure failures: 0
+Instances with ambiguous failures: 0
+Instances with empty patches: 5
+Instances with errors: 9
+Unstopped containers: 0
+Unremoved images: 0
+Report written to /workspace/runs/dev23_calibration_20261112_01/scoring/FIXED/dev23_calibration_20261112_01-FIXED.dev23_calibration_20261112_01.json
+[
+  "/workspace/runs/dev23_calibration_20261112_01/scoring/A/dev23_calibration_20261112_01-A.dev23_calibration_20261112_01.json",
+  "/workspace/runs/dev23_calibration_20261112_01/scoring/B/dev23_calibration_20261112_01-B.dev23_calibration_20261112_01.json",
+  "/workspace/runs/dev23_calibration_20261112_01/scoring/C/dev23_calibration_20261112_01-C.dev23_calibration_20261112_01.json",
+  "/workspace/runs/dev23_calibration_20261112_01/scoring/D/dev23_calibration_20261112_01-D.dev23_calibration_20261112_01.json",
+  "/workspace/runs/dev23_calibration_20261112_01/scoring/ESC/dev23_calibration_20261112_01-ESC.dev23_calibration_20261112_01.json",
+  "/workspace/runs/dev23_calibration_20261112_01/scoring/FIXED/dev23_calibration_20261112_01-FIXED.dev23_calibration_20261112_01.json"
+]

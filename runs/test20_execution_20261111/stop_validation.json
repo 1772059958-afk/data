@@ -1,0 +1,22 @@
+{
+  "kind": "stop_checkpoint_read_only_validation",
+  "active_source_unchanged_since_full_suite": true,
+  "active_source_files_verified": 22,
+  "last_full_suite_passed": 383,
+  "last_full_suite_total": 383,
+  "last_full_suite_log": "offline_before_generation_01.log",
+  "full_suite_rerun_at_stop": false,
+  "original_assets": {
+    "verified": 93,
+    "total": 93,
+    "ok": true
+  },
+  "archive_assets": {
+    "verified": 131,
+    "total": 131,
+    "ok": true
+  },
+  "draft_environment_runner_selfcheck_complete": false,
+  "dev23_manifest_exists": false,
+  "new_experiment_started_during_save": false
+}

@@ -1,0 +1,17 @@
+{
+  "phase": "correct_public_environment_and_prepare_full_dev23",
+  "model_requests_active": false,
+  "ledger": "runs/test20_execution_20261111/batch_ledger.json",
+  "recorded_estimate_cny": 0.55175828,
+  "pending": null,
+  "first_resource_screen": "runs/dev_screen_baseline_20261111_01",
+  "first_screen_preserved": true,
+  "pyvista_baseline_issue": "missing tqdm/meshio; corrected image pending",
+  "docker_migration": "verified_complete",
+  "migration_audit": "migration/after_ui_relocation.json",
+  "model_identity_amendment": "approved_fingerprint_monitoring_immutable_false",
+  "full_dev23_calibration_complete": false,
+  "configuration_frozen": false,
+  "stop_checkpoint": "freeze honestly then clean shutdown and handoff",
+  "formal_generation_this_session": false
+}

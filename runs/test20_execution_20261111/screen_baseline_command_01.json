@@ -1,0 +1,25 @@
+{
+  "command": [
+    "C:\\Users\\remil\\Desktop\\3yr\\\u79d1\u7814\\proj\\.venv\\Scripts\\python.exe",
+    "scripts/run_cf.py",
+    "--config",
+    "configs/dev_screen_baseline_20261111.json",
+    "--mode",
+    "diagnostic",
+    "--split",
+    "dev",
+    "--calibration",
+    "--instances-file",
+    "runs/test20_preparation_20261111/resource_screen_instances.json",
+    "--seed",
+    "20261111",
+    "--repeat-index",
+    "0",
+    "--tag",
+    "dev_screen_baseline_20261111_01",
+    "--execute",
+    "--allow-paid"
+  ],
+  "shared_ledger": "runs/test20_execution_20261111/batch_ledger.json",
+  "approved_ceiling_cny": 100.0
+}

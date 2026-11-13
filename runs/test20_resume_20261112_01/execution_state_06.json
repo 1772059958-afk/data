@@ -1,0 +1,13 @@
+{
+  "phase": "formal_B_generation",
+  "A_complete": 20,
+  "B_started": true,
+  "C_D_E_not_started": true,
+  "formal_scoring_not_started": true,
+  "formal_pipeline_session": 82593,
+  "disk_guard_session": 13915,
+  "heartbeat_session": 81971,
+  "config": "configs/test20_frozen_20261112_01.json",
+  "config_hash": "facc7c3aba17b36481828a6109a9a3ccd54deabe0ef3e7b33759b2964e3024dc",
+  "A_audit": "formal_A_generation_audit.json"
+}

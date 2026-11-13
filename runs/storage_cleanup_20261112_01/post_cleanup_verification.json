@@ -1,0 +1,20 @@
+{
+  "all11_authorized_targets_absent": true,
+  "formal100_predictions_and_seals_unchanged": true,
+  "original93_unchanged": true,
+  "archive131_unchanged": true,
+  "both_project_zip_archives_sha256_unchanged": true,
+  "final_ppt_sha256_unchanged": true,
+  "ledger_sha256_unchanged": true,
+  "pending": null,
+  "public_source_cache_preserved": true,
+  "checkpoint_preserved": true,
+  "actual_net_free_increase_gib": {
+    "E": 31.34375,
+    "D": 85.23441314697266
+  },
+  "after_free_gib": {
+    "E": 81.75456237792969,
+    "D": 129.28408813476562
+  }
+}

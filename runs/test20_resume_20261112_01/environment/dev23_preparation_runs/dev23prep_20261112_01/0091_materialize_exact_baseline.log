@@ -1,0 +1,1 @@
+HEAD is now at 0b8f24c refactor ModelChain inverter methods to use PVSystem.get_ac (#1150)

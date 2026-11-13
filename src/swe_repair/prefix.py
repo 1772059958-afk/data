@@ -474,10 +474,10 @@ def run_public_tests(
         return PublicTestResult("not_applicable", "no repository test file next to the touched modules", "",
                                 None, 'missing_tests', '')
     quoted = " ".join(shlex.quote(safe_repo_path(f)) for f in files)
-    command = f'python -m pytest {quoted} -q --no-header -p no:cacheprovider'
+    command = f'python -m pytest {quoted} -q -p no:cacheprovider'
     code, out = container.bash(
         f"cd /testbed && timeout {PYTEST_TIMEOUT} python -m pytest {quoted} -q "
-        "--no-header -p no:cacheprovider 2>&1; echo \"__rc=$?\"",
+        "-p no:cacheprovider 2>&1; echo \"__rc=$?\"",
         timeout=PYTEST_TIMEOUT + 60,
     )
     rc = command_exit_code(code, out)

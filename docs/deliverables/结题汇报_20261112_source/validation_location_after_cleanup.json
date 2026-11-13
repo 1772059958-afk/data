@@ -1,0 +1,6 @@
+{
+  "historical_validation_path": "work/ppt_closeout_20261112/validation.json",
+  "current_validation_path": "docs\\deliverables\\结题汇报_20261112_source\\validation_receipt.json",
+  "sha256": "3beebfb891689f06c5ae70810c948ae9d972ee9d49e727f97f1952524d2058ee",
+  "reason": "Build/previews cleaned at user request; final deck and all source code remain."
+}

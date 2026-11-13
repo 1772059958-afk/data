@@ -1,0 +1,306 @@
+{
+  "kind": "reviewed_formal_configuration_freeze",
+  "reviewed_at": "2026-11-11T20:40:38.155120+00:00",
+  "decision": "Proceed with the preregistered descriptive heuristic comparison; routing efficacy is not established. No grid/objective/budget/sample changes based on outcomes.",
+  "dev_designated": 23,
+  "eligible": 17,
+  "complete_pairs": 13,
+  "missing_pairs": [
+    "pvlib__pvlib-python-1854",
+    "pydicom__pydicom-1413",
+    "sqlfluff__sqlfluff-1517",
+    "sqlfluff__sqlfluff-1625"
+  ],
+  "chosen": {
+    "localization_threshold": 0.75,
+    "duplicate_threshold": 0.75,
+    "regrets": 1,
+    "agreements": 12,
+    "ties": 11,
+    "compared": 13,
+    "interactive_share": 0.46153846153846156,
+    "resolved": 5,
+    "excluded_stops": 0
+  },
+  "E_matching": {
+    "probability": 0.47058823529411764,
+    "denominator": 17,
+    "interactive": 8,
+    "complete_pair_count": 13,
+    "missing_pair_ids": [
+      "pvlib__pvlib-python-1854",
+      "pydicom__pydicom-1413",
+      "sqlfluff__sqlfluff-1517",
+      "sqlfluff__sqlfluff-1625"
+    ],
+    "source": "all_eligible_dev_prefixes"
+  },
+  "full_nine_rule_replay": true,
+  "grid": [
+    {
+      "localization_threshold": 0.25,
+      "duplicate_threshold": 0.25,
+      "regrets": 1,
+      "agreements": 12,
+      "ties": 11,
+      "compared": 13,
+      "interactive_share": 0.7692307692307693,
+      "resolved": 5,
+      "excluded_stops": 0
+    },
+    {
+      "localization_threshold": 0.25,
+      "duplicate_threshold": 0.5,
+      "regrets": 1,
+      "agreements": 12,
+      "ties": 11,
+      "compared": 13,
+      "interactive_share": 0.6153846153846154,
+      "resolved": 5,
+      "excluded_stops": 0
+    },
+    {
+      "localization_threshold": 0.25,
+      "duplicate_threshold": 0.75,
+      "regrets": 1,
+      "agreements": 12,
+      "ties": 11,
+      "compared": 13,
+      "interactive_share": 0.6153846153846154,
+      "resolved": 5,
+      "excluded_stops": 0
+    },
+    {
+      "localization_threshold": 0.5,
+      "duplicate_threshold": 0.25,
+      "regrets": 1,
+      "agreements": 12,
+      "ties": 11,
+      "compared": 13,
+      "interactive_share": 0.6153846153846154,
+      "resolved": 5,
+      "excluded_stops": 0
+    },
+    {
+      "localization_threshold": 0.5,
+      "duplicate_threshold": 0.5,
+      "regrets": 1,
+      "agreements": 12,
+      "ties": 11,
+      "compared": 13,
+      "interactive_share": 0.46153846153846156,
+      "resolved": 5,
+      "excluded_stops": 0
+    },
+    {
+      "localization_threshold": 0.5,
+      "duplicate_threshold": 0.75,
+      "regrets": 1,
+      "agreements": 12,
+      "ties": 11,
+      "compared": 13,
+      "interactive_share": 0.46153846153846156,
+      "resolved": 5,
+      "excluded_stops": 0
+    },
+    {
+      "localization_threshold": 0.75,
+      "duplicate_threshold": 0.25,
+      "regrets": 1,
+      "agreements": 12,
+      "ties": 11,
+      "compared": 13,
+      "interactive_share": 0.6153846153846154,
+      "resolved": 5,
+      "excluded_stops": 0
+    },
+    {
+      "localization_threshold": 0.75,
+      "duplicate_threshold": 0.5,
+      "regrets": 1,
+      "agreements": 12,
+      "ties": 11,
+      "compared": 13,
+      "interactive_share": 0.46153846153846156,
+      "resolved": 5,
+      "excluded_stops": 0
+    },
+    {
+      "localization_threshold": 0.75,
+      "duplicate_threshold": 0.75,
+      "regrets": 1,
+      "agreements": 12,
+      "ties": 11,
+      "compared": 13,
+      "interactive_share": 0.46153846153846156,
+      "resolved": 5,
+      "excluded_stops": 0
+    }
+  ],
+  "sensitivity": {
+    "regret_range": [
+      1,
+      1
+    ],
+    "regret_spread": 0,
+    "interactive_share_range": [
+      0.46153846153846156,
+      0.7692307692307693
+    ],
+    "stable": true
+  },
+  "evidence_limit": "All9 points have regret1/resolved5 on13 complete pairs;11 ties, one fixed-only and one interactive-only. Lower interaction then higher threshold is the existing tie rule, not proof of an optimal effective router.",
+  "duplicate_rule": {
+    "n_candidates": 2,
+    "maximum_repeat_rate": 0.5,
+    "strict_comparison": ">",
+    "selected_threshold": 0.75,
+    "closed": true,
+    "active_threshold_optimized": false,
+    "documentation_note": "D3 configuration fixed two candidates and the existing grid before execution. The separate D2 review did not explicitly restate reachability. This omission and the closed interval are disclosed here; earlier records are not rewritten."
+  },
+  "sources": {
+    "candidate": {
+      "path": "runs\\dev23_scoring_replay_20261112_02\\calibration_candidate.json",
+      "sha256": "a463069ae59b07747de2e3d2f6f461bb9c017f9532ea8d5bcecc1e9f423ce498"
+    },
+    "analysis": {
+      "path": "runs\\dev23_scoring_replay_20261112_02\\analysis.json",
+      "sha256": "d973cecb048aed5ed17022ce2acdd05d0b291c2404ac9c44b2ae5f49527d0912"
+    },
+    "effective_dev_config": {
+      "path": "runs\\dev23_scoring_replay_20261112_02\\effective_config_for_calibration.json",
+      "sha256": "dc1da5c2f0ce9d567a96fcd88be608e7408d87c818e3622fd4c1465e5950138b"
+    },
+    "formal_source": {
+      "path": "runs\\test20_resume_20261112_01\\formal_source_snapshot\\manifest.json",
+      "sha256": "9ca0a3c5ad5d3958c090582037c6d9bcfb5e7266d1e6a34223e6d6086e3fea0b"
+    },
+    "router_portability": {
+      "path": "runs\\test20_resume_20261112_01\\router_portability_review_01.json",
+      "sha256": "4df04fc27394440d6a400e6ca2d2e8f7ea452206644775e59c8065e7a10b8cf0"
+    },
+    "environment": {
+      "path": "runs\\test20_resume_20261112_01\\test20_public_environment_review_03.json",
+      "sha256": "92567a285bc76c39c9c574ac678817ba42d33226f71b271323e6c80ca76afc77"
+    },
+    "resource_screen": {
+      "path": "runs\\test20_resume_20261112_01\\resource_setting_review_01.json",
+      "sha256": "15f6b31419dbc9671fc9758cb18c22fc36bf6c92f58d72f2b6af81435f0ec572"
+    },
+    "prefix_screen": {
+      "path": "runs\\test20_resume_20261112_01\\prefix_setting_review_01.json",
+      "sha256": "126e9530b423daae98e6ddf3d3a5c37c6ef24c891f3e21abcc352763593bd015"
+    },
+    "model_probe": {
+      "path": "runs\\test20_resume_20261112_01\\model_probe_01\\result.json",
+      "sha256": "b34d9f912df5d6321e59a863670fa6a5656f9b3bfa12355d5131357f390a20c9"
+    },
+    "identity_approval": {
+      "path": "runs\\test20_execution_20261111\\model_identity_amendment_approved.json",
+      "sha256": "6964448992ec408a02683a5cbd8f930e47410d13dee2060d0fac6a34f654a89e"
+    },
+    "sample": {
+      "path": "runs\\test20_preparation_20261111\\instances.json",
+      "sha256": "c3261e16b12a1cc206eb4dc8a97c3397cb8e4ecb7fc8b712de6e9a88e8979ecb"
+    },
+    "registration": {
+      "path": "runs\\test20_preparation_20261111\\preregistration.json",
+      "sha256": "9af590a74055b0c6c0cd8911d634029a4dfb7edac15933f8dfdaabdf445502d9"
+    },
+    "protocol": {
+      "path": "docs\\实验协议_开题对齐.md",
+      "sha256": "e72b76637595d41cbdbb99f7997e9114c364456c29e3090e385d24e140ec30b5"
+    },
+    "offline": {
+      "path": "runs\\test20_resume_20261112_01\\offline_formal_safety_03.log",
+      "sha256": "132620848b6745b96ef6d2b04bb2fc6a9692bca764c6e91dece7fb484606b479"
+    },
+    "preservation": {
+      "path": "runs\\test20_resume_20261112_01\\preservation_after_adapters_01.log",
+      "sha256": "afbced2f537cf1a070591472b695a1eadb99db2f9edfe68bee3d5529467474a3"
+    }
+  },
+  "independent_reports": [
+    {
+      "arm": "A",
+      "report": {
+        "path": "runs\\dev23_scoring_replay_20261112_02\\scoring\\A\\dev23_calibration_20261112_01-A.dev23_calibration_20261112_01.json",
+        "sha256": "cd50ddf64564db48aa81bec4f82c4d9582ff9cb994b120e61f22a02960555cca"
+      },
+      "provenance": {
+        "path": "runs\\dev23_scoring_replay_20261112_02\\scoring\\A\\dev23_calibration_20261112_01-A.dev23_calibration_20261112_01.json.provenance.json",
+        "sha256": "0b8ec726a59c83c8f0b8438e6c598d37e07c24fd50ff220241c724669d8321e1"
+      }
+    },
+    {
+      "arm": "B",
+      "report": {
+        "path": "runs\\dev23_scoring_replay_20261112_02\\scoring\\B\\dev23_calibration_20261112_01-B.dev23_calibration_20261112_01.json",
+        "sha256": "6ee103dae325fe338decc03f1f888ef666ab1608e55a57ed8535e0c09f5559c7"
+      },
+      "provenance": {
+        "path": "runs\\dev23_scoring_replay_20261112_02\\scoring\\B\\dev23_calibration_20261112_01-B.dev23_calibration_20261112_01.json.provenance.json",
+        "sha256": "0553b3343714a818178117dd6ef9ff64edfe904eb517f3e9b9175d35292d3707"
+      }
+    },
+    {
+      "arm": "C",
+      "report": {
+        "path": "runs\\dev23_scoring_replay_20261112_02\\scoring\\C\\dev23_calibration_20261112_01-C.dev23_calibration_20261112_01.json",
+        "sha256": "7f3e69d9cb2d10682c0dd48b1e4acc4a5328e63b841ccd9412d417dac1613655"
+      },
+      "provenance": {
+        "path": "runs\\dev23_scoring_replay_20261112_02\\scoring\\C\\dev23_calibration_20261112_01-C.dev23_calibration_20261112_01.json.provenance.json",
+        "sha256": "e811ab26ae4e08dd32feeebc550d879277ba805a1ba1916aa4a62811eacaac0d"
+      }
+    },
+    {
+      "arm": "D",
+      "report": {
+        "path": "runs\\dev23_scoring_replay_20261112_02\\scoring\\D\\dev23_calibration_20261112_01-D.dev23_calibration_20261112_01.json",
+        "sha256": "cd50ddf64564db48aa81bec4f82c4d9582ff9cb994b120e61f22a02960555cca"
+      },
+      "provenance": {
+        "path": "runs\\dev23_scoring_replay_20261112_02\\scoring\\D\\dev23_calibration_20261112_01-D.dev23_calibration_20261112_01.json.provenance.json",
+        "sha256": "7411cbd54aa34e6ec70d91dd29209b410aac2ce3258362baa5d28e8e864332a9"
+      }
+    },
+    {
+      "arm": "ESC",
+      "report": {
+        "path": "runs\\dev23_scoring_replay_20261112_02\\scoring\\ESC\\dev23_calibration_20261112_01-ESC.dev23_calibration_20261112_01.json",
+        "sha256": "ff9272d629a2eb6dc462fe350033107063aa54a89f0b96ee9e284f3fa171b922"
+      },
+      "provenance": {
+        "path": "runs\\dev23_scoring_replay_20261112_02\\scoring\\ESC\\dev23_calibration_20261112_01-ESC.dev23_calibration_20261112_01.json.provenance.json",
+        "sha256": "560cd60da82f49866e90426e359519b6862de290a227ec90800ede4e5ce27d8a"
+      }
+    },
+    {
+      "arm": "FIXED",
+      "report": {
+        "path": "runs\\dev23_scoring_replay_20261112_02\\scoring\\FIXED\\dev23_calibration_20261112_01-FIXED.dev23_calibration_20261112_01.json",
+        "sha256": "6cc65140b1795ebcfe5ca96d9ad330532e28a842ab3f7348e50993f928d74e2e"
+      },
+      "provenance": {
+        "path": "runs\\dev23_scoring_replay_20261112_02\\scoring\\FIXED\\dev23_calibration_20261112_01-FIXED.dev23_calibration_20261112_01.json.provenance.json",
+        "sha256": "d8814aa5cd15c0bb2de9660f39e2db41bec92cc5f02af4e9daa8ec8dc755cc4b"
+      }
+    }
+  ],
+  "dev_and_formal_source_difference_disclosed": true,
+  "immutable_model_version": false,
+  "actual_alias": "deepseek-flash",
+  "backend_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "matching_full_dev_requests": 370,
+  "environment_limit": "All20 fixed public smoke commands pass. Requests whole original public file still requires unavailable HTTPS in the fixed isolated fixture; preserve its designated denominator and distinguish infra/ambiguous verdicts from unresolved.",
+  "budget": {
+    "ceiling_cny": 100,
+    "per_strategy_instance_cny": 2,
+    "booked_estimate_before_formal": 7.6417208599999995,
+    "not_invoice": true
+  },
+  "scope": "Exact registered20 x A-E x repeat0, seed20261111; freeze all five generation outputs before formal scoring.",
+  "remaining_research": "No repeated-run inference/test300 generalization/complete ablation/human semantic audit; no demonstrated duplicate-signal value."
+}

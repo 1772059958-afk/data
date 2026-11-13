@@ -1,0 +1,964 @@
+{
+  "kind": "additional_descriptive_analysis_of_completed_formal_experiment_for_presentation",
+  "new_experiments": 0,
+  "cancelled_supplement_settings_used": false,
+  "original_primary_results_unchanged": true,
+  "designated_n": 20,
+  "arms": {
+    "A": {
+      "status_counts": {
+        "resolved": 7,
+        "empty_patch": 4,
+        "ambiguous_error": 5,
+        "unresolved": 4
+      },
+      "resolved": 7,
+      "full_cost": 4.39227512,
+      "prefix_cost": 1.61996412,
+      "continuation_cost": 2.772311,
+      "new_actual_off_peak_cost": 4.39227512,
+      "cost_per_observed_resolved": 0.6274678742857143,
+      "routes": {
+        "stop": 8,
+        "fixed": 12
+      },
+      "full_strategy_requests": 128,
+      "output_tokens": 1006523,
+      "average_output_per_request": 7863.4609375,
+      "length_responses_full_strategy": 38,
+      "termination_reasons": {
+        "early_stop_public_pass": 3,
+        "fixed_step_limit": 11,
+        "stop_env_failure": 5,
+        "environment_error": 1
+      },
+      "generation_env_error_but_official_resolved": 4,
+      "route_status_counts": {
+        "fixed": {
+          "empty_patch": 4,
+          "resolved": 1,
+          "ambiguous_error": 5,
+          "unresolved": 2
+        },
+        "stop": {
+          "resolved": 6,
+          "unresolved": 2
+        }
+      }
+    },
+    "B": {
+      "status_counts": {
+        "resolved": 7,
+        "empty_patch": 5,
+        "ambiguous_error": 4,
+        "unresolved": 4
+      },
+      "resolved": 7,
+      "full_cost": 0.43171952,
+      "prefix_cost": 0,
+      "continuation_cost": 0.43171952,
+      "new_actual_off_peak_cost": 0.43171952,
+      "cost_per_observed_resolved": 0.061674217142857146,
+      "routes": {
+        "standalone": 20
+      },
+      "full_strategy_requests": 116,
+      "output_tokens": 76585,
+      "average_output_per_request": 660.2155172413793,
+      "length_responses_full_strategy": 0,
+      "termination_reasons": {
+        "model_call_budget": 14,
+        "EnvironmentFailure: public validation remains unrunnable after its deterministic retry": 5,
+        "finish_tool": 1
+      },
+      "generation_env_error_but_official_resolved": 4,
+      "route_status_counts": {
+        "standalone": {
+          "resolved": 7,
+          "empty_patch": 5,
+          "ambiguous_error": 4,
+          "unresolved": 4
+        }
+      }
+    },
+    "C": {
+      "status_counts": {
+        "resolved": 10,
+        "ambiguous_error": 4,
+        "unresolved": 4,
+        "infra_error": 1,
+        "empty_patch": 1
+      },
+      "resolved": 10,
+      "full_cost": 2.05192828,
+      "prefix_cost": 1.61996412,
+      "continuation_cost": 0.43196415999999993,
+      "new_actual_off_peak_cost": 0.43196416,
+      "cost_per_observed_resolved": 0.205192828,
+      "routes": {
+        "stop": 8,
+        "interactive": 12
+      },
+      "full_strategy_requests": 113,
+      "output_tokens": 412998,
+      "average_output_per_request": 3654.849557522124,
+      "length_responses_full_strategy": 12,
+      "termination_reasons": {
+        "early_stop_public_pass": 3,
+        "EnvironmentFailure: public validation remains unrunnable after its deterministic retry": 1,
+        "stop_env_failure": 5,
+        "model_call_budget": 5,
+        "public_pass": 1,
+        "finish_tool": 5
+      },
+      "generation_env_error_but_official_resolved": 5,
+      "route_status_counts": {
+        "interactive": {
+          "resolved": 4,
+          "ambiguous_error": 4,
+          "unresolved": 2,
+          "infra_error": 1,
+          "empty_patch": 1
+        },
+        "stop": {
+          "resolved": 6,
+          "unresolved": 2
+        }
+      }
+    },
+    "D": {
+      "status_counts": {
+        "resolved": 7,
+        "empty_patch": 2,
+        "ambiguous_error": 6,
+        "unresolved": 5
+      },
+      "resolved": 7,
+      "full_cost": 2.87039734,
+      "prefix_cost": 1.61996412,
+      "continuation_cost": 1.25043322,
+      "new_actual_off_peak_cost": 1.2504332200000001,
+      "cost_per_observed_resolved": 0.4100567628571428,
+      "routes": {
+        "stop": 8,
+        "fixed": 4,
+        "interactive": 8
+      },
+      "full_strategy_requests": 122,
+      "output_tokens": 651594,
+      "average_output_per_request": 5340.934426229508,
+      "length_responses_full_strategy": 18,
+      "termination_reasons": {
+        "early_stop_public_pass": 3,
+        "fixed_step_limit": 4,
+        "stop_env_failure": 5,
+        "model_call_budget": 5,
+        "finish_tool": 2,
+        "EnvironmentFailure: public validation remains unrunnable after its deterministic retry": 1
+      },
+      "generation_env_error_but_official_resolved": 4,
+      "route_status_counts": {
+        "fixed": {
+          "empty_patch": 2,
+          "resolved": 1,
+          "ambiguous_error": 1
+        },
+        "interactive": {
+          "ambiguous_error": 5,
+          "unresolved": 3
+        },
+        "stop": {
+          "resolved": 6,
+          "unresolved": 2
+        }
+      }
+    },
+    "E": {
+      "status_counts": {
+        "resolved": 8,
+        "ambiguous_error": 6,
+        "empty_patch": 3,
+        "unresolved": 3
+      },
+      "resolved": 8,
+      "full_cost": 3.5668699,
+      "prefix_cost": 1.61996412,
+      "continuation_cost": 1.94690578,
+      "new_actual_off_peak_cost": 1.94690578,
+      "cost_per_observed_resolved": 0.4458587375,
+      "routes": {
+        "stop": 8,
+        "interactive": 4,
+        "fixed": 8
+      },
+      "full_strategy_requests": 123,
+      "output_tokens": 827903,
+      "average_output_per_request": 6730.918699186992,
+      "length_responses_full_strategy": 32,
+      "termination_reasons": {
+        "early_stop_public_pass": 3,
+        "EnvironmentFailure: public validation remains unrunnable after its deterministic retry": 1,
+        "stop_env_failure": 5,
+        "model_call_budget": 1,
+        "fixed_step_limit": 8,
+        "finish_tool": 2
+      },
+      "generation_env_error_but_official_resolved": 5,
+      "route_status_counts": {
+        "fixed": {
+          "resolved": 1,
+          "empty_patch": 3,
+          "ambiguous_error": 3,
+          "unresolved": 1
+        },
+        "interactive": {
+          "resolved": 1,
+          "ambiguous_error": 3
+        },
+        "stop": {
+          "resolved": 6,
+          "unresolved": 2
+        }
+      }
+    }
+  },
+  "prefix_cost": 1.61996412,
+  "C_extra_observed_resolved_vs_D": [
+    {
+      "instance_id": "django__django-11910",
+      "C_status": "resolved",
+      "D_status": "empty_patch",
+      "C_route": "interactive",
+      "D_route": "fixed",
+      "D_rule": "fixed_on_local_application_or_syntax_error",
+      "D_features": {
+        "n_candidates": 2,
+        "n_applicable": 0,
+        "n_public_pass": 0,
+        "u_loc": null,
+        "u_dup": 0.0,
+        "behavioural_signal": "none",
+        "lacks_behavioural_signal": 1,
+        "localization_missing": true,
+        "context_files": [],
+        "remaining_token": 464470
+      }
+    },
+    {
+      "instance_id": "mwaskom__seaborn-2848",
+      "C_status": "resolved",
+      "D_status": "empty_patch",
+      "C_route": "interactive",
+      "D_route": "fixed",
+      "D_rule": "fixed_when_evidence_insufficient",
+      "D_features": {
+        "n_candidates": 2,
+        "n_applicable": 0,
+        "n_public_pass": 0,
+        "u_loc": null,
+        "u_dup": 0.5,
+        "behavioural_signal": "none",
+        "lacks_behavioural_signal": 1,
+        "localization_missing": true,
+        "context_files": [],
+        "remaining_token": 461449
+      }
+    },
+    {
+      "instance_id": "pytest-dev__pytest-6116",
+      "C_status": "resolved",
+      "D_status": "ambiguous_error",
+      "C_route": "interactive",
+      "D_route": "fixed",
+      "D_rule": "fixed_on_local_application_or_syntax_error",
+      "D_features": {
+        "n_candidates": 2,
+        "n_applicable": 1,
+        "n_public_pass": 0,
+        "u_loc": 1.0,
+        "u_dup": 0.0,
+        "behavioural_signal": "none",
+        "lacks_behavioural_signal": 1,
+        "localization_missing": false,
+        "context_files": [
+          "src/_pytest/main.py"
+        ],
+        "remaining_token": 498132
+      }
+    }
+  ],
+  "C_D_all_status_differences": [
+    {
+      "instance_id": "django__django-11910",
+      "C_status": "resolved",
+      "D_status": "empty_patch",
+      "C_route": "interactive",
+      "D_route": "fixed",
+      "D_rule": "fixed_on_local_application_or_syntax_error",
+      "D_features": {
+        "n_candidates": 2,
+        "n_applicable": 0,
+        "n_public_pass": 0,
+        "u_loc": null,
+        "u_dup": 0.0,
+        "behavioural_signal": "none",
+        "lacks_behavioural_signal": 1,
+        "localization_missing": true,
+        "context_files": [],
+        "remaining_token": 464470
+      }
+    },
+    {
+      "instance_id": "mwaskom__seaborn-2848",
+      "C_status": "resolved",
+      "D_status": "empty_patch",
+      "C_route": "interactive",
+      "D_route": "fixed",
+      "D_rule": "fixed_when_evidence_insufficient",
+      "D_features": {
+        "n_candidates": 2,
+        "n_applicable": 0,
+        "n_public_pass": 0,
+        "u_loc": null,
+        "u_dup": 0.5,
+        "behavioural_signal": "none",
+        "lacks_behavioural_signal": 1,
+        "localization_missing": true,
+        "context_files": [],
+        "remaining_token": 461449
+      }
+    },
+    {
+      "instance_id": "pylint-dev__pylint-7114",
+      "C_status": "infra_error",
+      "D_status": "ambiguous_error",
+      "C_route": "interactive",
+      "D_route": "interactive",
+      "D_rule": "interactive_on_wide_localization_disagreement",
+      "D_features": {
+        "n_candidates": 2,
+        "n_applicable": 1,
+        "n_public_pass": 0,
+        "u_loc": 1.0,
+        "u_dup": 0.0,
+        "behavioural_signal": "none",
+        "lacks_behavioural_signal": 1,
+        "localization_missing": false,
+        "context_files": [
+          "pylint/lint/expand_modules.py",
+          "pylint/lint/utils.py",
+          "tests/functional/a/__init__.py",
+          "tests/input/func_noerror_cycle/b.py"
+        ],
+        "remaining_token": 463773
+      }
+    },
+    {
+      "instance_id": "pytest-dev__pytest-6116",
+      "C_status": "resolved",
+      "D_status": "ambiguous_error",
+      "C_route": "interactive",
+      "D_route": "fixed",
+      "D_rule": "fixed_on_local_application_or_syntax_error",
+      "D_features": {
+        "n_candidates": 2,
+        "n_applicable": 1,
+        "n_public_pass": 0,
+        "u_loc": 1.0,
+        "u_dup": 0.0,
+        "behavioural_signal": "none",
+        "lacks_behavioural_signal": 1,
+        "localization_missing": false,
+        "context_files": [
+          "src/_pytest/main.py"
+        ],
+        "remaining_token": 498132
+      }
+    },
+    {
+      "instance_id": "sympy__sympy-16503",
+      "C_status": "empty_patch",
+      "D_status": "unresolved",
+      "C_route": "interactive",
+      "D_route": "interactive",
+      "D_rule": "interactive_on_wide_localization_disagreement",
+      "D_features": {
+        "n_candidates": 1,
+        "n_applicable": 0,
+        "n_public_pass": 0,
+        "u_loc": 1.0,
+        "u_dup": 0.0,
+        "behavioural_signal": "none",
+        "lacks_behavioural_signal": 1,
+        "localization_missing": false,
+        "context_files": [
+          "sympy/printing/pretty/pretty.py"
+        ],
+        "remaining_token": 475544
+      }
+    }
+  ],
+  "per_repository": {
+    "astropy__astropy": {
+      "n": 1,
+      "A": 1,
+      "B": 1,
+      "C": 1,
+      "D": 1,
+      "E": 1
+    },
+    "django__django": {
+      "n": 4,
+      "A": 3,
+      "B": 4,
+      "C": 4,
+      "D": 3,
+      "E": 4
+    },
+    "matplotlib__matplotlib": {
+      "n": 2,
+      "A": 1,
+      "B": 1,
+      "C": 1,
+      "D": 1,
+      "E": 1
+    },
+    "mwaskom__seaborn": {
+      "n": 1,
+      "A": 0,
+      "B": 1,
+      "C": 1,
+      "D": 0,
+      "E": 0
+    },
+    "pallets__flask": {
+      "n": 1,
+      "A": 0,
+      "B": 0,
+      "C": 0,
+      "D": 0,
+      "E": 0
+    },
+    "psf__requests": {
+      "n": 1,
+      "A": 0,
+      "B": 0,
+      "C": 0,
+      "D": 0,
+      "E": 0
+    },
+    "pydata__xarray": {
+      "n": 1,
+      "A": 0,
+      "B": 0,
+      "C": 0,
+      "D": 0,
+      "E": 0
+    },
+    "pylint-dev__pylint": {
+      "n": 1,
+      "A": 0,
+      "B": 0,
+      "C": 0,
+      "D": 0,
+      "E": 0
+    },
+    "pytest-dev__pytest": {
+      "n": 2,
+      "A": 0,
+      "B": 0,
+      "C": 1,
+      "D": 0,
+      "E": 0
+    },
+    "scikit-learn__scikit-learn": {
+      "n": 2,
+      "A": 1,
+      "B": 0,
+      "C": 1,
+      "D": 1,
+      "E": 1
+    },
+    "sphinx-doc__sphinx": {
+      "n": 1,
+      "A": 0,
+      "B": 0,
+      "C": 0,
+      "D": 0,
+      "E": 0
+    },
+    "sympy__sympy": {
+      "n": 3,
+      "A": 1,
+      "B": 0,
+      "C": 1,
+      "D": 1,
+      "E": 1
+    }
+  },
+  "per_case": [
+    {
+      "instance_id": "astropy__astropy-14995",
+      "status": {
+        "A": "resolved",
+        "B": "resolved",
+        "C": "resolved",
+        "D": "resolved",
+        "E": "resolved"
+      },
+      "route": {
+        "A": "stop",
+        "B": "standalone",
+        "C": "stop",
+        "D": "stop",
+        "E": "stop"
+      }
+    },
+    {
+      "instance_id": "django__django-11910",
+      "status": {
+        "A": "empty_patch",
+        "B": "resolved",
+        "C": "resolved",
+        "D": "empty_patch",
+        "E": "resolved"
+      },
+      "route": {
+        "A": "fixed",
+        "B": "standalone",
+        "C": "interactive",
+        "D": "fixed",
+        "E": "interactive"
+      }
+    },
+    {
+      "instance_id": "django__django-12708",
+      "status": {
+        "A": "resolved",
+        "B": "resolved",
+        "C": "resolved",
+        "D": "resolved",
+        "E": "resolved"
+      },
+      "route": {
+        "A": "stop",
+        "B": "standalone",
+        "C": "stop",
+        "D": "stop",
+        "E": "stop"
+      }
+    },
+    {
+      "instance_id": "django__django-13230",
+      "status": {
+        "A": "resolved",
+        "B": "resolved",
+        "C": "resolved",
+        "D": "resolved",
+        "E": "resolved"
+      },
+      "route": {
+        "A": "stop",
+        "B": "standalone",
+        "C": "stop",
+        "D": "stop",
+        "E": "stop"
+      }
+    },
+    {
+      "instance_id": "django__django-17087",
+      "status": {
+        "A": "resolved",
+        "B": "resolved",
+        "C": "resolved",
+        "D": "resolved",
+        "E": "resolved"
+      },
+      "route": {
+        "A": "stop",
+        "B": "standalone",
+        "C": "stop",
+        "D": "stop",
+        "E": "stop"
+      }
+    },
+    {
+      "instance_id": "matplotlib__matplotlib-23987",
+      "status": {
+        "A": "empty_patch",
+        "B": "empty_patch",
+        "C": "ambiguous_error",
+        "D": "ambiguous_error",
+        "E": "ambiguous_error"
+      },
+      "route": {
+        "A": "fixed",
+        "B": "standalone",
+        "C": "interactive",
+        "D": "interactive",
+        "E": "interactive"
+      }
+    },
+    {
+      "instance_id": "matplotlib__matplotlib-24970",
+      "status": {
+        "A": "resolved",
+        "B": "resolved",
+        "C": "resolved",
+        "D": "resolved",
+        "E": "resolved"
+      },
+      "route": {
+        "A": "fixed",
+        "B": "standalone",
+        "C": "interactive",
+        "D": "fixed",
+        "E": "fixed"
+      }
+    },
+    {
+      "instance_id": "mwaskom__seaborn-2848",
+      "status": {
+        "A": "empty_patch",
+        "B": "resolved",
+        "C": "resolved",
+        "D": "empty_patch",
+        "E": "empty_patch"
+      },
+      "route": {
+        "A": "fixed",
+        "B": "standalone",
+        "C": "interactive",
+        "D": "fixed",
+        "E": "fixed"
+      }
+    },
+    {
+      "instance_id": "pallets__flask-4045",
+      "status": {
+        "A": "ambiguous_error",
+        "B": "ambiguous_error",
+        "C": "ambiguous_error",
+        "D": "ambiguous_error",
+        "E": "ambiguous_error"
+      },
+      "route": {
+        "A": "fixed",
+        "B": "standalone",
+        "C": "interactive",
+        "D": "interactive",
+        "E": "interactive"
+      }
+    },
+    {
+      "instance_id": "psf__requests-1963",
+      "status": {
+        "A": "ambiguous_error",
+        "B": "ambiguous_error",
+        "C": "ambiguous_error",
+        "D": "ambiguous_error",
+        "E": "ambiguous_error"
+      },
+      "route": {
+        "A": "fixed",
+        "B": "standalone",
+        "C": "interactive",
+        "D": "interactive",
+        "E": "interactive"
+      }
+    },
+    {
+      "instance_id": "pydata__xarray-3364",
+      "status": {
+        "A": "empty_patch",
+        "B": "unresolved",
+        "C": "unresolved",
+        "D": "unresolved",
+        "E": "empty_patch"
+      },
+      "route": {
+        "A": "fixed",
+        "B": "standalone",
+        "C": "interactive",
+        "D": "interactive",
+        "E": "fixed"
+      }
+    },
+    {
+      "instance_id": "pylint-dev__pylint-7114",
+      "status": {
+        "A": "ambiguous_error",
+        "B": "empty_patch",
+        "C": "infra_error",
+        "D": "ambiguous_error",
+        "E": "ambiguous_error"
+      },
+      "route": {
+        "A": "fixed",
+        "B": "standalone",
+        "C": "interactive",
+        "D": "interactive",
+        "E": "fixed"
+      }
+    },
+    {
+      "instance_id": "pytest-dev__pytest-6116",
+      "status": {
+        "A": "ambiguous_error",
+        "B": "ambiguous_error",
+        "C": "resolved",
+        "D": "ambiguous_error",
+        "E": "ambiguous_error"
+      },
+      "route": {
+        "A": "fixed",
+        "B": "standalone",
+        "C": "interactive",
+        "D": "fixed",
+        "E": "fixed"
+      }
+    },
+    {
+      "instance_id": "pytest-dev__pytest-8906",
+      "status": {
+        "A": "ambiguous_error",
+        "B": "ambiguous_error",
+        "C": "ambiguous_error",
+        "D": "ambiguous_error",
+        "E": "ambiguous_error"
+      },
+      "route": {
+        "A": "fixed",
+        "B": "standalone",
+        "C": "interactive",
+        "D": "interactive",
+        "E": "fixed"
+      }
+    },
+    {
+      "instance_id": "scikit-learn__scikit-learn-11281",
+      "status": {
+        "A": "unresolved",
+        "B": "unresolved",
+        "C": "unresolved",
+        "D": "unresolved",
+        "E": "unresolved"
+      },
+      "route": {
+        "A": "stop",
+        "B": "standalone",
+        "C": "stop",
+        "D": "stop",
+        "E": "stop"
+      }
+    },
+    {
+      "instance_id": "scikit-learn__scikit-learn-13496",
+      "status": {
+        "A": "resolved",
+        "B": "empty_patch",
+        "C": "resolved",
+        "D": "resolved",
+        "E": "resolved"
+      },
+      "route": {
+        "A": "stop",
+        "B": "standalone",
+        "C": "stop",
+        "D": "stop",
+        "E": "stop"
+      }
+    },
+    {
+      "instance_id": "sphinx-doc__sphinx-8595",
+      "status": {
+        "A": "unresolved",
+        "B": "unresolved",
+        "C": "unresolved",
+        "D": "unresolved",
+        "E": "unresolved"
+      },
+      "route": {
+        "A": "fixed",
+        "B": "standalone",
+        "C": "interactive",
+        "D": "interactive",
+        "E": "fixed"
+      }
+    },
+    {
+      "instance_id": "sympy__sympy-13480",
+      "status": {
+        "A": "resolved",
+        "B": "empty_patch",
+        "C": "resolved",
+        "D": "resolved",
+        "E": "resolved"
+      },
+      "route": {
+        "A": "stop",
+        "B": "standalone",
+        "C": "stop",
+        "D": "stop",
+        "E": "stop"
+      }
+    },
+    {
+      "instance_id": "sympy__sympy-16503",
+      "status": {
+        "A": "unresolved",
+        "B": "unresolved",
+        "C": "empty_patch",
+        "D": "unresolved",
+        "E": "empty_patch"
+      },
+      "route": {
+        "A": "fixed",
+        "B": "standalone",
+        "C": "interactive",
+        "D": "interactive",
+        "E": "fixed"
+      }
+    },
+    {
+      "instance_id": "sympy__sympy-23262",
+      "status": {
+        "A": "unresolved",
+        "B": "empty_patch",
+        "C": "unresolved",
+        "D": "unresolved",
+        "E": "unresolved"
+      },
+      "route": {
+        "A": "stop",
+        "B": "standalone",
+        "C": "stop",
+        "D": "stop",
+        "E": "stop"
+      }
+    }
+  ],
+  "dev_quadrants": {
+    "Q1_double_success": 4,
+    "Q2_fixed_only": 1,
+    "Q3_interactive_only": 1,
+    "Q4_double_failure": 7
+  },
+  "dev_designated": 23,
+  "dev_eligible": 17,
+  "dev_complete_pairs": 13,
+  "frozen_router": {
+    "localization_threshold": 0.75,
+    "duplicate_threshold": 0.75,
+    "regrets": 1,
+    "agreements": 12,
+    "ties": 11,
+    "compared": 13,
+    "interactive_share": 0.46153846153846156,
+    "resolved": 5,
+    "excluded_stops": 0
+  },
+  "E_probability": 0.47058823529411764,
+  "global_budget": {
+    "tier": "development",
+    "token": 512000,
+    "model_call": 12,
+    "tool_call": 80,
+    "wallclock_seconds": 1200
+  },
+  "interaction_limits": {
+    "tools": [
+      "search_symbol",
+      "read_region",
+      "find_references",
+      "apply_patch",
+      "run_test",
+      "finish"
+    ],
+    "states": [
+      "analyse",
+      "edit",
+      "validate",
+      "finish"
+    ],
+    "stagnation_patience": 3,
+    "model_calls": 6,
+    "tool_calls": 10,
+    "wallclock_seconds": 420,
+    "final_call": "reserved_inside_limit"
+  },
+  "common_runnable_ids": [
+    "astropy__astropy-14995",
+    "matplotlib__matplotlib-24970",
+    "mwaskom__seaborn-2848",
+    "pydata__xarray-3364",
+    "scikit-learn__scikit-learn-11281",
+    "scikit-learn__scikit-learn-13496",
+    "sphinx-doc__sphinx-8595"
+  ],
+  "common_runnable_resolved": {
+    "A": 3,
+    "B": 3,
+    "C": 4,
+    "D": 3,
+    "E": 3
+  },
+  "repository_macro_observed_share": {
+    "A": 0.2569444444444445,
+    "B": 0.2916666666666667,
+    "C": 0.40277777777777773,
+    "D": 0.2569444444444445,
+    "E": 0.2777777777777778
+  },
+  "scoped_log_audit_counts": {
+    "resolved": 39,
+    "no_log": 15,
+    "unresolved": 22,
+    "incomplete_or_ambiguous_test_window": 5,
+    "incomplete_expected_test_coverage": 9,
+    "no_named_test_results": 10
+  },
+  "sources": [
+    {
+      "path": "runs\\test20_A_20261112_01\\matrix.json",
+      "sha256": "dae72f7f6bd16236e6e5f949b1a2f68d7724eac928a2c63fa8ee15b185297bdc"
+    },
+    {
+      "path": "runs\\test20_A_20261112_01\\evaluated_records.jsonl",
+      "sha256": "37195992f9b9ccced247076dab1ffc21dafeac379daa911a6943effd53a3b136"
+    },
+    {
+      "path": "runs\\test20_B_20261112_02\\matrix.json",
+      "sha256": "6329c129c112da058ac39c20f20381e97159cada28d42f7eb4adf918550db96b"
+    },
+    {
+      "path": "runs\\test20_B_20261112_02\\evaluated_records.jsonl",
+      "sha256": "ceffb80abf362859523c5ab2223bf6e5723243eefafd964fb7e354308e908b87"
+    },
+    {
+      "path": "runs\\test20_C_20261112_01\\matrix.json",
+      "sha256": "71aeeffe263e4973fb2a1e853dd17c1e1c6e74addeef7c7495aeadb2e982afcd"
+    },
+    {
+      "path": "runs\\test20_C_20261112_01\\evaluated_records.jsonl",
+      "sha256": "4b42f40a5bcf8c0c66751a17ae37886d60d8dd16814e8266d479da71b0cf5d69"
+    },
+    {
+      "path": "runs\\test20_D_20261112_01\\matrix.json",
+      "sha256": "97de14a601ea6e13fe1658b79f01befb47d7c5e4b5c013b718aa52de658afaf9"
+    },
+    {
+      "path": "runs\\test20_D_20261112_01\\evaluated_records.jsonl",
+      "sha256": "75c3409eaeb3920f2d038f211b4f5a15e2b060b153b20cd16cf2ac42a965a995"
+    },
+    {
+      "path": "runs\\test20_E_20261112_01\\matrix.json",
+      "sha256": "b9af88d7f08139d18e22b8428ec0b89252401a3b8407c64cd8d757b43f0659be"
+    },
+    {
+      "path": "runs\\test20_E_20261112_01\\evaluated_records.jsonl",
+      "sha256": "9ac5e76099063f8486467744289c9b29d6d86487964dd695082a9a79ec4d7131"
+    }
+  ],
+  "formal_scope_note": "20 cases, one run. Empty patches and evaluation errors remain separate. No new calibration, intervention or repeated inference."
+}

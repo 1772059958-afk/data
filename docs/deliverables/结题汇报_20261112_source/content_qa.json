@@ -1,0 +1,45 @@
+{
+  "final_presentation_sha256": "1cca57db829394390902f297d8cc96b3272fea889f44433b2057b8563bd1e826",
+  "slide_count": 10,
+  "result_table_matches_original_official_records": true,
+  "original_status_counts": {
+    "A": {
+      "resolved": 7,
+      "empty_patch": 4,
+      "ambiguous_error": 5,
+      "unresolved": 4
+    },
+    "B": {
+      "resolved": 7,
+      "empty_patch": 5,
+      "ambiguous_error": 4,
+      "unresolved": 4
+    },
+    "C": {
+      "resolved": 10,
+      "ambiguous_error": 4,
+      "unresolved": 4,
+      "infra_error": 1,
+      "empty_patch": 1
+    },
+    "D": {
+      "resolved": 7,
+      "empty_patch": 2,
+      "ambiguous_error": 6,
+      "unresolved": 5
+    },
+    "E": {
+      "resolved": 8,
+      "ambiguous_error": 6,
+      "empty_patch": 3,
+      "unresolved": 3
+    }
+  },
+  "package_integrity_pass": true,
+  "geometry_findings": 0,
+  "all_final_slides_visually_reviewed": true,
+  "original_reference_unmodified": true,
+  "original93_and_archive131_preserved": true,
+  "ledger_unchanged": true,
+  "no_experiments_or_deletions": true
+}

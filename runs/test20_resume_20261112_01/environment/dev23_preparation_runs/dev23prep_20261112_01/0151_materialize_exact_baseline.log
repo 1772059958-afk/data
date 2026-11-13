@@ -1,0 +1,1 @@
+HEAD is now at 27a3a07 `pvsystem.singlediode` with `method='newton'` can be passed `pd.Series` of length one. (#1822)

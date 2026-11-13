@@ -1,0 +1,31 @@
+{
+  "authorization": "清理完成后把源码、ppt、数据等commit并push远端，最后执行关机",
+  "remote": "origin",
+  "remote_ref": "refs/heads/develop",
+  "current_branch": "develop",
+  "do_not_force_push": true,
+  "data_and_source_preserved": {
+    "protected_original_files_verified": 4546,
+    "preserved_work_source_record_files_verified": 1833,
+    "all_hashes_unchanged": true,
+    "work_directory_absent": true,
+    "final_ppt_preserved": true,
+    "experiment_source_and_data_preserved": true
+  },
+  "work_cleanup": {
+    "status": "authorized_work_build_and_preview_cleanup_complete",
+    "net_free_increase_bytes": 972009472,
+    "free_C_after_bytes": 11011125248,
+    "free_C_before_bytes": 10039115776,
+    "no_experiment_or_model_execution": true,
+    "source_and_records_preserved_bytes": 133456857,
+    "preserved_file_count": 1833,
+    "deleted_tree_logical_bytes": 1295556280,
+    "deleted_absolute_path": "C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\work",
+    "at": "2026-11-13T02:58:52.1942103+08:00"
+  },
+  "offline_suite": "399/399",
+  "no_model_or_docker_calls": true,
+  "final_ppt": "docs/deliverables/结题汇报_自适应混合架构程序修复_20261112.pptx",
+  "shutdown_after_verified_push_only": true
+}

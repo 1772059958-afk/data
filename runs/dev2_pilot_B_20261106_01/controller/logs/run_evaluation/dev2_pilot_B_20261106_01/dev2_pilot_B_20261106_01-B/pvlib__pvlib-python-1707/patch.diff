@@ -1,0 +1,23 @@
+--- a/pvlib/iam.py
++++ b/pvlib/iam.py
+@@ -168,10 +168,18 @@
+     n1costheta2 = n1 * costheta
+     n2costheta2 = n2 * costheta
+ 
+     # reflectance of s-, p-polarized, and normal light by the first interface
+-    rho12_s = ((n1costheta1 - n2costheta2) / (n1costheta1 + n2costheta2)) ** 2
+-    rho12_p = ((n1costheta2 - n2costheta1) / (n1costheta2 + n2costheta1)) ** 2
++    # when n1 == n2 and incidence is grazing, both products are zero; use a
++    # safe denominator so the reflectance is 0 (no reflection) instead of nan
++    denom_s = n1costheta1 + n2costheta2
++    denom_p = n1costheta2 + n2costheta1
++    rho12_s = (
++        (n1costheta1 - n2costheta2) / np.where(denom_s == 0, 1, denom_s)
++    ) ** 2
++    rho12_p = (
++        (n1costheta2 - n2costheta1) / np.where(denom_p == 0, 1, denom_p)
++    ) ** 2
+     rho12_0 = ((n1 - n2) / (n1 + n2)) ** 2
+ 
+     # transmittance through the first interface
+     tau_s = 1 - rho12_s

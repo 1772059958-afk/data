@@ -1,0 +1,20 @@
+{
+  "user_instruction": "继续进行实验",
+  "at": "2026-11-12T00:12:28.660797+00:00",
+  "prior_stop_preserved": true,
+  "same_cumulative_ceiling_cny": 100,
+  "ledger_sha256": "70eec55ff6689d9010855ce1a926a3ec6e63bc2252d14aa16b65432f82055c21",
+  "ledger_estimate_cny": 12.20895842,
+  "ledger_records": 747,
+  "pending": null,
+  "formal_progress": {
+    "A_committed": 20,
+    "B_committed": 7,
+    "B8_already_billed_responses": 6,
+    "C": 0,
+    "D": 0,
+    "E": 0
+  },
+  "hidden_formal_results_read": false,
+  "plan": "Exact replay of recorded B8 interaction without HTTP, finish public validation. Keep frozen source/config and registered 20 IDs; reuse completed B cases in a new audited tag, run only untouched units through original full-plan paid entry. Then CDE and independent scoring after all100 frozen."
+}

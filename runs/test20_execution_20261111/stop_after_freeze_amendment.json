@@ -1,0 +1,31 @@
+{
+  "kind": "user_scope_amendment_stop_after_configuration_freeze",
+  "date": "2026-11-11",
+  "user_instruction": "冻结完配置后可以停止，安全关闭容器等进程，维护文档以便下次接着实验",
+  "stop_checkpoint": "complete DEV calibration and honest configuration freeze, then safe shutdown and handoff",
+  "formal_generation_this_session": false,
+  "formal_scoring_this_session": false,
+  "formal_design_retained": {
+    "instances": 20,
+    "arms": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E"
+    ],
+    "repeats": 1,
+    "seed": 20261111
+  },
+  "budget_ceiling_cny": 100.0,
+  "ledger": "runs/test20_execution_20261111/batch_ledger.json",
+  "required_handoff": [
+    "actual dev evidence and independent verdicts",
+    "freeze review and remaining blockers",
+    "frozen configuration and hashes",
+    "booked/unknown/pending accounting",
+    "owned process and container cleanup",
+    "next-run commands and explicit resume authorization requirement"
+  ],
+  "rule": "Never relabel pending calibration, missing environment evidence or alias monitoring as an immutable snapshot."
+}

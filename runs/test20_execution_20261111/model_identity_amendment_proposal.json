@@ -1,0 +1,29 @@
+{
+  "kind": "model_identity_protocol_amendment_proposal",
+  "status": "requires_user_review_before_formal_freeze",
+  "date": "2026-11-11",
+  "original_requirement": "Immutable model snapshot/version pinned before formal test",
+  "observed_model_catalog": "runs/test20_execution_20261111/model_catalog_01.json",
+  "available_model_ids": [
+    "deepseek-flash",
+    "deepseek-v4-pro"
+  ],
+  "official_current_mapping": "DeepSeek-V4.1-Flash-1017",
+  "official_sources": [
+    "https://api-docs.deepseek.com/zh-cn/quick_start/pricing/",
+    "https://api-docs.deepseek.com/api/create-chat-completion/"
+  ],
+  "limitation": "The provider does not document a requestable immutable snapshot. Alias/fingerprint monitoring does not guarantee unchanged model weights or recoverability.",
+  "proposed_mode": "provider_alias_with_backend_fingerprint_monitoring",
+  "immutable_version": false,
+  "requested_model": "deepseek-flash",
+  "controls": [
+    "Record actual served alias, system_fingerprint, provider created, request ID, usage and timestamp on every request",
+    "Bind non-empty observed backend fingerprint in the reviewed config; missing or changed fingerprint or alias trips shared-client circuit breaker",
+    "After a trip stop the batch, retain charged usage and predictions; do not silently continue the next tag",
+    "Record official mapping and execution window; keep full dev calibration, resource and candidate freeze gates",
+    "Report single-run descriptive results and this reproducibility limitation explicitly"
+  ],
+  "not_authorized_by_budget_alone": true,
+  "fallback": "If the user keeps immutable-snapshot requirement, formal test remains blocked; do not relabel an alias as immutable."
+}

@@ -1,0 +1,16 @@
+============================= test session starts ==============================
+collected 33 items
+
+tests/test_fields.py .................................                   [100%]
+
+=============================== warnings summary ===============================
+src/marshmallow/__init__.py:19
+  /testbed/src/marshmallow/__init__.py:19: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+    __version_info__ = tuple(LooseVersion(__version__).version)
+
+tests/test_fields.py::TestField::test_custom_field_receives_attr_and_obj
+  /testbed/src/marshmallow/marshalling.py:253: DeprecationWarning: Using or importing the ABCs from 'collections' instead of from 'collections.abc' is deprecated since Python 3.3, and in 3.10 it will stop working
+    if not isinstance(data, collections.Mapping):
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+======================== 33 passed, 2 warnings in 0.04s ========================

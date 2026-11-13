@@ -1,0 +1,49 @@
+{
+  "kind": "public_baseline_failure_classification",
+  "date": "2026-11-11",
+  "baseline_report": "runs/test20_execution_20261111/environment/pyvista_public_baseline_extended_01.json",
+  "baseline_report_sha256": "e7aae665d140be24993d85ef3dbeeb75aef1197e87066e3f621dcd0388040f1c",
+  "instance_id": "pyvista__pyvista-4315",
+  "image_id": "sha256:c3d02ef66da989070d532ea6993104f9d4b76e3d5f86fea85d7e4da1fba2e230",
+  "base_commit": "db6ee8dd4a747b8864caae36c5d05883976a3ae5",
+  "test_command": "python -m pytest tests/test_grid.py tests/test_demos.py tests/test_cells.py -q --no-header -p no:cacheprovider",
+  "exit_code": 1,
+  "summary": {
+    "failed": 3,
+    "passed": 243,
+    "skipped": 8,
+    "pytest_seconds": 2.22
+  },
+  "failures": [
+    {
+      "nodeid": "tests/test_grid.py::test_extract_feature_edges",
+      "classification": "environment_dependency_missing",
+      "dependency": "tqdm",
+      "observed_exception": "ModuleNotFoundError followed by ImportError: Please install `tqdm` to monitor algorithms.",
+      "baseline_present": true
+    },
+    {
+      "nodeid": "tests/test_grid.py::test_init_bad_filename",
+      "classification": "environment_dependency_missing",
+      "dependency": "meshio",
+      "observed_exception": "ModuleNotFoundError: No module named 'meshio'",
+      "baseline_present": true
+    },
+    {
+      "nodeid": "tests/test_grid.py::test_load_structured_bad_filename",
+      "classification": "environment_dependency_missing",
+      "dependency": "meshio",
+      "observed_exception": "ModuleNotFoundError: No module named 'meshio'",
+      "baseline_present": true
+    }
+  ],
+  "candidate_association": "Baseline failure nodes are now known. Compare each candidate public output node IDs before claiming all candidate failures were pre-existing; equal failure count alone is insufficient.",
+  "method_interpretation": "These untouched-baseline failures are missing optional public-test dependencies, not evidence of a generated patch regression. Do not silently relabel existing run records or mix any future repaired-image run with this setting.",
+  "checkout_unchanged": true,
+  "container_absence_verified": true,
+  "active_container_names_after": [],
+  "patch_applied": false,
+  "hidden_evaluation": false,
+  "packages_installed": false,
+  "model_calls": 0
+}

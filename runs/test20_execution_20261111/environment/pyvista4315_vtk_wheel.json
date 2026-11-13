@@ -1,0 +1,11 @@
+{
+  "package": "vtk",
+  "version": "9.2.6",
+  "filename": "vtk-9.2.6-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+  "url": "https://files.pythonhosted.org/packages/21/76/eacc7eb83a83b95a357acbca3dfdf24d1b8bedc1ccd7f044af9a984d0115/vtk-9.2.6-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+  "sha256": "79991dccbc483a8e5d23e5d3ae1e358fee0526fe8f710d07868ecae58c6b9535",
+  "bytes": 79292027,
+  "elapsed_seconds": 7.567,
+  "source": "official PyPI version JSON and files.pythonhosted.org; verified HTTPS",
+  "C_free_bytes": 5696299008
+}

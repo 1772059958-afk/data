@@ -1,0 +1,35 @@
+{
+  "logical_bytes_deleted": 125174335049,
+  "status": "authorized_deletions_complete",
+  "docker_desktop_running": false,
+  "free_before_bytes": {
+    "E": 54128197632,
+    "D": 47297978368
+  },
+  "docker_wsl_unregistered": true,
+  "deleted_targets": [
+    "D:\\DockerData\\swe-repair-20261111\\DockerDesktopWSL",
+    "E:\\DockerBackups\\swe-repair-20261111-pre-move",
+    "E:\\DockerBackups\\swe-repair-20261111-stopped",
+    "D:\\CodexExperimentCache\\test20_20261111\\official_oci_20261112",
+    "D:\\CodexExperimentCache\\test20_20261111\\dependency_wheels",
+    "D:\\CodexExperimentCache\\test20_20261111\\formal_compat_wheels_20261112",
+    "D:\\CodexExperimentCache\\test20_20261111\\mpl_compat_wheels_20261112_04",
+    "D:\\CodexExperimentCache\\test20_20261111\\mpl_compat_wheels_20261112_05",
+    "D:\\CodexExperimentCache\\test20_20261111\\requests_fixture_wheels_20261112",
+    "D:\\CodexExperimentCache\\test20_20261111\\requests_pytest_transitives_20261112_06",
+    "D:\\CodexExperimentCache\\test20_20261111\\requests_pytest_transitives_20261112_07"
+  ],
+  "free_after_bytes": {
+    "E": 87783292928,
+    "D": 138817732608
+  },
+  "new_model_calls": 0,
+  "net_free_increase_bytes": {
+    "E": 33655095296,
+    "D": 91519754240
+  },
+  "project_zip_archives_preserved": true,
+  "at": "2026-11-12T21:53:27.2509613+08:00",
+  "cache_source_and_checkpoint_preserved": true
+}

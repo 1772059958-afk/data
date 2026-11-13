@@ -1,0 +1,12 @@
+--- a/pylint/lint/expand_modules.py
++++ b/pylint/lint/expand_modules.py
+@@ -30,8 +30,7 @@ def get_python_path(filepath: str) -> str:
+     This is not true since python 3.3 and is causing problem.
+     """
+     dirname = os.path.realpath(os.path.expanduser(filepath))
+-    if not os.path.isdir(dirname):
+-        dirname = os.path.dirname(dirname)
++    dirname = os.path.dirname(dirname)
+     while True:
+         if not os.path.exists(os.path.join(dirname, "__init__.py")):
+             return dirname

@@ -1,0 +1,99 @@
+{
+  "kind": "public_test20_exact_baseline_preparation",
+  "designated": 20,
+  "instances": [
+    {
+      "instance_id": "astropy__astropy-14995",
+      "base_commit": "b16c7d12ccbc7b2d20364b89fb44285bcbfede54",
+      "status": "preparation_error",
+      "error_type": "RuntimeError",
+      "error": "public source/metadata/import identity rejected; preserved log 0004_identity_before.log",
+      "model_calls": 0
+    },
+    {
+      "instance_id": "django__django-11910",
+      "status": "not_prepared"
+    },
+    {
+      "instance_id": "django__django-12708",
+      "status": "not_prepared"
+    },
+    {
+      "instance_id": "django__django-13230",
+      "status": "not_prepared"
+    },
+    {
+      "instance_id": "django__django-17087",
+      "status": "not_prepared"
+    },
+    {
+      "instance_id": "matplotlib__matplotlib-23987",
+      "status": "not_prepared"
+    },
+    {
+      "instance_id": "matplotlib__matplotlib-24970",
+      "status": "not_prepared"
+    },
+    {
+      "instance_id": "mwaskom__seaborn-2848",
+      "status": "not_prepared"
+    },
+    {
+      "instance_id": "pallets__flask-4045",
+      "status": "not_prepared"
+    },
+    {
+      "instance_id": "psf__requests-1963",
+      "status": "not_prepared"
+    },
+    {
+      "instance_id": "pydata__xarray-3364",
+      "status": "not_prepared"
+    },
+    {
+      "instance_id": "pylint-dev__pylint-7114",
+      "status": "not_prepared"
+    },
+    {
+      "instance_id": "pytest-dev__pytest-6116",
+      "status": "not_prepared"
+    },
+    {
+      "instance_id": "pytest-dev__pytest-8906",
+      "status": "not_prepared"
+    },
+    {
+      "instance_id": "scikit-learn__scikit-learn-11281",
+      "status": "not_prepared"
+    },
+    {
+      "instance_id": "scikit-learn__scikit-learn-13496",
+      "status": "not_prepared"
+    },
+    {
+      "instance_id": "sphinx-doc__sphinx-8595",
+      "status": "not_prepared"
+    },
+    {
+      "instance_id": "sympy__sympy-13480",
+      "status": "not_prepared"
+    },
+    {
+      "instance_id": "sympy__sympy-16503",
+      "status": "not_prepared"
+    },
+    {
+      "instance_id": "sympy__sympy-23262",
+      "status": "not_prepared"
+    }
+  ],
+  "accepted_public_smoke_images": {},
+  "all20_ready": false,
+  "manifest_sha256": "28089aa06e1703193555e65f7f40a946673e62c01694927b4c3e9e3175dd7321",
+  "script_sha256": "c8660298d57075d188b136d4e159fd392f335225878e52265ef48e55522fa9e8",
+  "model_calls": 0,
+  "hidden_patch_contents_read": false,
+  "cleanup_errors": [],
+  "owned_containers_remaining": {},
+  "selection": "all preregistered20 retained"
+}

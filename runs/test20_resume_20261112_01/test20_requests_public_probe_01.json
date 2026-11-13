@@ -1,0 +1,10 @@
+{
+  "instance_id": "psf__requests-1963",
+  "image_id": "sha256:c41164e9b1b160a5f4a170457a4e7b3a666e55d84ea85283416d36ce9700452c",
+  "container": "test20-publicprobe-requests-a1b73ce2cf",
+  "public_probe_exit_code": 0,
+  "container_removed": true,
+  "model_calls": 0,
+  "project_credentials_mounted": false,
+  "script": "cd /testbed && command -v python && python --version && git rev-parse HEAD && python -c 'import requests,pytest; print(requests.__file__); print(pytest.__version__)' && timeout 120s python -m pytest test_requests.py -q -p no:cacheprovider -k cannot_send_unprepared_requests"
+}

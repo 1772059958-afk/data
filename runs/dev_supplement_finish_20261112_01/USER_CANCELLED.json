@@ -1,0 +1,11 @@
+{
+  "instruction": "取消所有补充设置，已有的不处理，直接进行后面的内容",
+  "at": "2026-11-12T10:13:10.953936+00:00",
+  "all_supplement_settings_cancelled": true,
+  "no_further_scoring_or_analysis_of_supplement_settings": true,
+  "incomplete_scoring_outputs_retained_not_accepted_as_results": true,
+  "generic_api_breakpoint_string_is_not_evidence_of_actual_quota_exhaustion": true,
+  "cooperative_stop_preceded_generic_breakpoint": "runs/dev_supplement_20261112_02/WORKFLOW_STOP.json",
+  "new_model_calls_after_cancellation": 0,
+  "remaining_scope": "Main formal report, existing review artifacts, cost reconciliation, documentation and safe close only"
+}

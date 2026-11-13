@@ -1,0 +1,2 @@
+[artifact-tool] embedded_font_name_mismatch: EOT family "微软雅黑" does not match decoded SFNT name "Microsoft YaHei".
+[artifact-tool] embedded_font_subset_missing_glyph: Embedded font is subsetted; glyph coverage checks are not available yet.

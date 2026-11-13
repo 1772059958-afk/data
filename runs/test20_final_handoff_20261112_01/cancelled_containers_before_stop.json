@@ -1,0 +1,565 @@
+[
+    {
+        "Id": "2a32cd456bc3f853d48afd34f8697375962df08fadaf4504f60eb5bd57378dce",
+        "Created": "2026-11-12T10:09:21.133338422Z",
+        "Path": "/opt/scoring/bin/python",
+        "Args": [
+            "/workspace/scripts/score_run.py",
+            "/workspace/runs/devsupp_baseline_20261112_02_eval",
+            "--max-workers",
+            "1",
+            "--execute"
+        ],
+        "State": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 24418,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-11-12T10:09:21.272225787Z",
+            "FinishedAt": "0001-01-01T00:00:00Z"
+        },
+        "Image": "sha256:1f43c83b3d3c631d37af54a19828df269accd045a22c62c0aab5b2bfa713726f",
+        "ResolvConfPath": "/var/lib/docker/containers/2a32cd456bc3f853d48afd34f8697375962df08fadaf4504f60eb5bd57378dce/resolv.conf",
+        "HostnamePath": "/var/lib/docker/containers/2a32cd456bc3f853d48afd34f8697375962df08fadaf4504f60eb5bd57378dce/hostname",
+        "HostsPath": "/var/lib/docker/containers/2a32cd456bc3f853d48afd34f8697375962df08fadaf4504f60eb5bd57378dce/hosts",
+        "LogPath": "",
+        "Name": "/laughing_golick",
+        "RestartCount": 0,
+        "Driver": "overlayfs",
+        "Platform": "linux",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "",
+        "ExecIDs": null,
+        "HostConfig": {
+            "Binds": null,
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "local",
+                "Config": {}
+            },
+            "NetworkMode": "none",
+            "PortBindings": {},
+            "RestartPolicy": {
+                "Name": "no",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": true,
+            "VolumeDriver": "",
+            "VolumesFrom": null,
+            "ConsoleSize": [
+                0,
+                0
+            ],
+            "CapAdd": null,
+            "CapDrop": null,
+            "CgroupnsMode": "private",
+            "Dns": null,
+            "DnsOptions": [],
+            "DnsSearch": [],
+            "ExtraHosts": null,
+            "GroupAdd": null,
+            "IpcMode": "private",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": false,
+            "SecurityOpt": null,
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 67108864,
+            "Runtime": "runc",
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 0,
+            "NanoCpus": 0,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": [],
+            "BlkioDeviceReadBps": [],
+            "BlkioDeviceWriteBps": [],
+            "BlkioDeviceReadIOps": [],
+            "BlkioDeviceWriteIOps": [],
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": [],
+            "DeviceCgroupRules": null,
+            "DeviceRequests": null,
+            "MemoryReservation": 0,
+            "MemorySwap": 0,
+            "MemorySwappiness": null,
+            "OomKillDisable": null,
+            "PidsLimit": null,
+            "Ulimits": null,
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0,
+            "Mounts": [
+                {
+                    "Type": "bind",
+                    "Source": "C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\src",
+                    "Target": "/workspace/src",
+                    "ReadOnly": true
+                },
+                {
+                    "Type": "bind",
+                    "Source": "C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\scripts",
+                    "Target": "/workspace/scripts",
+                    "ReadOnly": true
+                },
+                {
+                    "Type": "bind",
+                    "Source": "C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\data\\harness",
+                    "Target": "/workspace/data/harness",
+                    "ReadOnly": true
+                },
+                {
+                    "Type": "bind",
+                    "Source": "/var/run/docker.sock",
+                    "Target": "/var/run/docker.sock"
+                },
+                {
+                    "Type": "bind",
+                    "Source": "C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\runs\\devsupp_baseline_20261112_02_eval",
+                    "Target": "/workspace/runs/devsupp_baseline_20261112_02_eval"
+                },
+                {
+                    "Type": "bind",
+                    "Source": "C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\runs\\devsupp_baseline_20261112_02_eval\\controller\\logs",
+                    "Target": "/workspace/logs"
+                },
+                {
+                    "Type": "bind",
+                    "Source": "C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\runs\\devsupp_baseline_20261112_02_eval\\matrix.json",
+                    "Target": "/workspace/runs/devsupp_baseline_20261112_02_eval/matrix.json",
+                    "ReadOnly": true
+                },
+                {
+                    "Type": "bind",
+                    "Source": "C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\runs\\devsupp_baseline_20261112_02_eval\\predictions_B.jsonl",
+                    "Target": "/workspace/runs/devsupp_baseline_20261112_02_eval/predictions_B.jsonl",
+                    "ReadOnly": true
+                },
+                {
+                    "Type": "bind",
+                    "Source": "C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\runs\\devsupp_baseline_20261112_02_eval\\predictions_ESC.jsonl",
+                    "Target": "/workspace/runs/devsupp_baseline_20261112_02_eval/predictions_ESC.jsonl",
+                    "ReadOnly": true
+                },
+                {
+                    "Type": "bind",
+                    "Source": "C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\runs\\devsupp_baseline_20261112_02_eval\\predictions_FIXED.jsonl",
+                    "Target": "/workspace/runs/devsupp_baseline_20261112_02_eval/predictions_FIXED.jsonl",
+                    "ReadOnly": true
+                },
+                {
+                    "Type": "bind",
+                    "Source": "C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\runs\\devsupp_baseline_20261112_02_eval\\predictions_PREFIX.jsonl",
+                    "Target": "/workspace/runs/devsupp_baseline_20261112_02_eval/predictions_PREFIX.jsonl",
+                    "ReadOnly": true
+                }
+            ],
+            "MaskedPaths": [
+                "/proc/acpi",
+                "/proc/asound",
+                "/proc/interrupts",
+                "/proc/kcore",
+                "/proc/keys",
+                "/proc/latency_stats",
+                "/proc/sched_debug",
+                "/proc/scsi",
+                "/proc/timer_list",
+                "/proc/timer_stats",
+                "/sys/devices/virtual/powercap",
+                "/sys/firmware"
+            ],
+            "ReadonlyPaths": [
+                "/proc/bus",
+                "/proc/fs",
+                "/proc/irq",
+                "/proc/sys",
+                "/proc/sysrq-trigger"
+            ]
+        },
+        "Storage": {
+            "RootFS": {
+                "Snapshot": {
+                    "Name": "overlayfs"
+                }
+            }
+        },
+        "Mounts": [
+            {
+                "Type": "bind",
+                "Source": "C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\runs\\devsupp_baseline_20261112_02_eval\\controller\\logs",
+                "Destination": "/workspace/logs",
+                "Mode": "",
+                "RW": true,
+                "Propagation": "rprivate"
+            },
+            {
+                "Type": "bind",
+                "Source": "C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\scripts",
+                "Destination": "/workspace/scripts",
+                "Mode": "",
+                "RW": false,
+                "Propagation": "rprivate"
+            },
+            {
+                "Type": "bind",
+                "Source": "C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\src",
+                "Destination": "/workspace/src",
+                "Mode": "",
+                "RW": false,
+                "Propagation": "rprivate"
+            },
+            {
+                "Type": "bind",
+                "Source": "/var/run/docker.sock",
+                "Destination": "/var/run/docker.sock",
+                "Mode": "",
+                "RW": true,
+                "Propagation": "rprivate"
+            },
+            {
+                "Type": "bind",
+                "Source": "C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\data\\harness",
+                "Destination": "/workspace/data/harness",
+                "Mode": "",
+                "RW": false,
+                "Propagation": "rprivate"
+            },
+            {
+                "Type": "bind",
+                "Source": "C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\runs\\devsupp_baseline_20261112_02_eval",
+                "Destination": "/workspace/runs/devsupp_baseline_20261112_02_eval",
+                "Mode": "",
+                "RW": true,
+                "Propagation": "rprivate"
+            },
+            {
+                "Type": "bind",
+                "Source": "C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\runs\\devsupp_baseline_20261112_02_eval\\matrix.json",
+                "Destination": "/workspace/runs/devsupp_baseline_20261112_02_eval/matrix.json",
+                "Mode": "",
+                "RW": false,
+                "Propagation": "rprivate"
+            },
+            {
+                "Type": "bind",
+                "Source": "C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\runs\\devsupp_baseline_20261112_02_eval\\predictions_B.jsonl",
+                "Destination": "/workspace/runs/devsupp_baseline_20261112_02_eval/predictions_B.jsonl",
+                "Mode": "",
+                "RW": false,
+                "Propagation": "rprivate"
+            },
+            {
+                "Type": "bind",
+                "Source": "C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\runs\\devsupp_baseline_20261112_02_eval\\predictions_ESC.jsonl",
+                "Destination": "/workspace/runs/devsupp_baseline_20261112_02_eval/predictions_ESC.jsonl",
+                "Mode": "",
+                "RW": false,
+                "Propagation": "rprivate"
+            },
+            {
+                "Type": "bind",
+                "Source": "C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\runs\\devsupp_baseline_20261112_02_eval\\predictions_FIXED.jsonl",
+                "Destination": "/workspace/runs/devsupp_baseline_20261112_02_eval/predictions_FIXED.jsonl",
+                "Mode": "",
+                "RW": false,
+                "Propagation": "rprivate"
+            },
+            {
+                "Type": "bind",
+                "Source": "C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\runs\\devsupp_baseline_20261112_02_eval\\predictions_PREFIX.jsonl",
+                "Destination": "/workspace/runs/devsupp_baseline_20261112_02_eval/predictions_PREFIX.jsonl",
+                "Mode": "",
+                "RW": false,
+                "Propagation": "rprivate"
+            }
+        ],
+        "Config": {
+            "Hostname": "2a32cd456bc3",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": true,
+            "AttachStderr": true,
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "DOCKER_HOST=unix:///var/run/docker.sock",
+                "HF_HUB_OFFLINE=1",
+                "HF_DATASETS_OFFLINE=1",
+                "PATH=/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "TZ=Asia/Shanghai"
+            ],
+            "Cmd": [
+                "/workspace/scripts/score_run.py",
+                "/workspace/runs/devsupp_baseline_20261112_02_eval",
+                "--max-workers",
+                "1",
+                "--execute"
+            ],
+            "Image": "sha256:1f43c83b3d3c631d37af54a19828df269accd045a22c62c0aab5b2bfa713726f",
+            "Volumes": null,
+            "WorkingDir": "/workspace",
+            "Entrypoint": [
+                "/opt/scoring/bin/python"
+            ],
+            "Labels": {
+                "org.opencontainers.image.ref.name": "ubuntu",
+                "org.opencontainers.image.version": "22.04"
+            }
+        },
+        "NetworkSettings": {
+            "SandboxID": "787e471f1d6fe443fd0e52d08a11601a97e72aabb33d68970b45421464bc4ab3",
+            "SandboxKey": "/var/run/docker/netns/787e471f1d6f",
+            "Ports": {},
+            "Networks": {
+                "none": {
+                    "IPAMConfig": null,
+                    "Links": null,
+                    "Aliases": null,
+                    "DriverOpts": null,
+                    "GwPriority": 0,
+                    "NetworkID": "204e7093b5afa07c2ac8d7d22a00c337760f696ebf6d1bb5f36f83fea2c49743",
+                    "EndpointID": "e9815facf282381aeebf313e272425f5b3f2bf351d07f95708ee6a75acd9ea1d",
+                    "Gateway": "",
+                    "IPAddress": "",
+                    "MacAddress": "",
+                    "IPPrefixLen": 0,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "DNSNames": null
+                }
+            }
+        },
+        "ImageManifestDescriptor": {
+            "mediaType": "application/vnd.oci.image.manifest.v1+json",
+            "digest": "sha256:cc5cfbc87dbbdd3cb105e36d3de88ac595e70de4dbd8738cbbcd9d8b53820a92",
+            "size": 4280,
+            "platform": {
+                "architecture": "amd64",
+                "os": "linux"
+            }
+        }
+    },
+    {
+        "Id": "52b60b9959bc37381753ab5ac73b3d42a28f319b082620a05004f62632cc2342",
+        "Created": "2026-11-12T10:10:12.453189127Z",
+        "Path": "tail",
+        "Args": [
+            "-f",
+            "/dev/null"
+        ],
+        "State": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 24777,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-11-12T10:10:12.509161815Z",
+            "FinishedAt": "0001-01-01T00:00:00Z"
+        },
+        "Image": "sha256:4e75ccae6883ef93a25ab20645a3edbe7058c7ab7bd332f2814b7f703270b748",
+        "ResolvConfPath": "/var/lib/docker/containers/52b60b9959bc37381753ab5ac73b3d42a28f319b082620a05004f62632cc2342/resolv.conf",
+        "HostnamePath": "/var/lib/docker/containers/52b60b9959bc37381753ab5ac73b3d42a28f319b082620a05004f62632cc2342/hostname",
+        "HostsPath": "/var/lib/docker/containers/52b60b9959bc37381753ab5ac73b3d42a28f319b082620a05004f62632cc2342/hosts",
+        "LogPath": "",
+        "Name": "/sweb.eval.pvlib__pvlib-python-1854.devsupp_baseline_20261112_02_eval",
+        "RestartCount": 0,
+        "Driver": "overlayfs",
+        "Platform": "linux",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "",
+        "ExecIDs": [
+            "b8dd9f47a113d26b709cc768150e16ef92b6c3b813dae93f6f9feea9aef487ba"
+        ],
+        "HostConfig": {
+            "Binds": null,
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "local",
+                "Config": {}
+            },
+            "NetworkMode": "bridge",
+            "PortBindings": {},
+            "RestartPolicy": {
+                "Name": "no",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": false,
+            "VolumeDriver": "",
+            "VolumesFrom": null,
+            "ConsoleSize": [
+                0,
+                0
+            ],
+            "CapAdd": [
+                "SYS_ADMIN"
+            ],
+            "CapDrop": null,
+            "CgroupnsMode": "private",
+            "Dns": null,
+            "DnsOptions": null,
+            "DnsSearch": null,
+            "ExtraHosts": null,
+            "GroupAdd": null,
+            "IpcMode": "private",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": false,
+            "SecurityOpt": null,
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 67108864,
+            "Runtime": "runc",
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 0,
+            "NanoCpus": 0,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": null,
+            "BlkioDeviceReadBps": null,
+            "BlkioDeviceWriteBps": null,
+            "BlkioDeviceReadIOps": null,
+            "BlkioDeviceWriteIOps": null,
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": null,
+            "DeviceCgroupRules": null,
+            "DeviceRequests": null,
+            "MemoryReservation": 0,
+            "MemorySwap": 0,
+            "MemorySwappiness": null,
+            "OomKillDisable": null,
+            "PidsLimit": null,
+            "Ulimits": null,
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0,
+            "MaskedPaths": [
+                "/proc/acpi",
+                "/proc/asound",
+                "/proc/interrupts",
+                "/proc/kcore",
+                "/proc/keys",
+                "/proc/latency_stats",
+                "/proc/sched_debug",
+                "/proc/scsi",
+                "/proc/timer_list",
+                "/proc/timer_stats",
+                "/sys/devices/virtual/powercap",
+                "/sys/firmware"
+            ],
+            "ReadonlyPaths": [
+                "/proc/bus",
+                "/proc/fs",
+                "/proc/irq",
+                "/proc/sys",
+                "/proc/sysrq-trigger"
+            ]
+        },
+        "Storage": {
+            "RootFS": {
+                "Snapshot": {
+                    "Name": "overlayfs"
+                }
+            }
+        },
+        "Mounts": [],
+        "Config": {
+            "Hostname": "52b60b9959bc",
+            "Domainname": "",
+            "User": "root",
+            "AttachStdin": false,
+            "AttachStdout": false,
+            "AttachStderr": false,
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "PATH=/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "TZ=Etc/UTC"
+            ],
+            "Cmd": [
+                "tail",
+                "-f",
+                "/dev/null"
+            ],
+            "Image": "sha256:4e75ccae6883ef93a25ab20645a3edbe7058c7ab7bd332f2814b7f703270b748",
+            "Volumes": null,
+            "WorkingDir": "/testbed",
+            "Entrypoint": [],
+            "Labels": {
+                "codex.dev23.preparation": "dev23prep_20261112_01",
+                "org.opencontainers.image.ref.name": "ubuntu",
+                "org.opencontainers.image.version": "22.04"
+            }
+        },
+        "NetworkSettings": {
+            "SandboxID": "5631eb96c10283403e4623b296a3e29188364190e9602725ba11fab41539c29e",
+            "SandboxKey": "/var/run/docker/netns/5631eb96c102",
+            "Ports": {},
+            "Networks": {
+                "bridge": {
+                    "IPAMConfig": null,
+                    "Links": null,
+                    "Aliases": null,
+                    "DriverOpts": null,
+                    "GwPriority": 0,
+                    "NetworkID": "cad6259d52ddd9a2e63ebb6c332619cd94e9509b4269ef0bd3312b54745da6e7",
+                    "EndpointID": "5e455212b3463cf88dbb70295545340716145f6f26c08eaaa3471afdc54339d0",
+                    "Gateway": "172.17.0.1",
+                    "IPAddress": "172.17.0.2",
+                    "MacAddress": "62:75:51:66:55:ba",
+                    "IPPrefixLen": 16,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "DNSNames": null
+                }
+            }
+        },
+        "ImageManifestDescriptor": {
+            "mediaType": "application/vnd.oci.image.manifest.v1+json",
+            "digest": "sha256:4e75ccae6883ef93a25ab20645a3edbe7058c7ab7bd332f2814b7f703270b748",
+            "size": 4425,
+            "platform": {
+                "architecture": "amd64",
+                "os": "linux"
+            }
+        }
+    }
+]

@@ -1,0 +1,12 @@
+--- a/lib/matplotlib/figure.py
++++ b/lib/matplotlib/figure.py
+@@ -2564,6 +2564,8 @@ class Figure(FigureBase):
+                                                         **kwargs)
+         elif layout == 'none':
+-            if self._layout_engine is not None:
++            if isinstance(self._layout_engine, ConstrainedLayoutEngine):
++                new_layout_engine = None
++            elif self._layout_engine is not None:
+                 new_layout_engine = PlaceHolderLayoutEngine(
+                     self._layout_engine.adjust_compatible,
+                     self._layout_engine.colorbar_gridspec

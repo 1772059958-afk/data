@@ -1,0 +1,16 @@
+--- a/astroid/modutils.py
++++ b/astroid/modutils.py
+@@ -271,7 +271,13 @@ def _get_relative_base_path(filename, path_to_check):
+     Examples:
+         _get_relative_base_path("/a/b/c/d.py", "/a/b") ->  ["c","d"]
+         _get_relative_base_path("/a/b/c/d.py", "/dev") ->  None
+     """
++    if os.path.isdir(filename):
++        filename = os.path.join(filename, "__init__.py")
++
++    if not os.path.isfile(filename):
++        return None
++
+     importable_path = None
+     path_to_check = os.path.normcase(path_to_check)
+     abs_filename = os.path.abspath(filename)

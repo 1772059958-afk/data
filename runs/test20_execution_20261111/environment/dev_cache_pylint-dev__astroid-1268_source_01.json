@@ -1,0 +1,69 @@
+{
+  "public_repo": "https://github.com/pylint-dev/astroid.git",
+  "base_commit": "ce5cbce5ba11cdc2f8139ade66feea1e181a7944",
+  "directory": "D:\\CodexExperimentCache\\test20_20261111\\source\\pylint-dev__astroid-1268\\testbed",
+  "verified_https": true,
+  "tls_verify_disabled": false,
+  "ca_bundle": "C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\.venv\\Lib\\site-packages\\certifi\\cacert.pem",
+  "requests": [
+    {
+      "method": "GET",
+      "path": "/info/refs?service=git-upload-pack",
+      "status": 200,
+      "received_bytes": 191,
+      "elapsed_seconds": 0.699
+    },
+    {
+      "method": "POST",
+      "path": "/git-upload-pack",
+      "status": 200,
+      "received_bytes": 193501,
+      "elapsed_seconds": 1.087
+    },
+    {
+      "method": "POST",
+      "path": "/git-upload-pack",
+      "status": 200,
+      "received_bytes": 456871,
+      "elapsed_seconds": 1.428
+    }
+  ],
+  "commands": [
+    {
+      "command": "git init",
+      "exit_code": 0,
+      "stdout": "Initialized empty Git repository in D:/CodexExperimentCache/test20_20261111/source/pylint-dev__astroid-1268/testbed/.git/\n",
+      "stderr": ""
+    },
+    {
+      "command": "git fetch public baseline over verified HTTPS bridge",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "From http://127.0.0.1:59064\n * branch            ce5cbce5ba11cdc2f8139ade66feea1e181a7944 -> FETCH_HEAD\n",
+      "elapsed_seconds": 4.063
+    },
+    {
+      "command": "git checkout baseline",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "HEAD is now at ce5cbce Always treat __class_getitem__ as a classmethod (#1266)\n",
+      "elapsed_seconds": 0.488
+    },
+    {
+      "command": "git rev-parse HEAD",
+      "exit_code": 0,
+      "stdout": "ce5cbce5ba11cdc2f8139ade66feea1e181a7944\n",
+      "stderr": "",
+      "elapsed_seconds": 0.322
+    },
+    {
+      "command": "git status --porcelain",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "",
+      "elapsed_seconds": 0.332
+    }
+  ],
+  "source_identity_verified": true,
+  "C_free_bytes": 5447143424
+}

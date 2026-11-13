@@ -1,0 +1,7 @@
+--- a/pydicom/dataset.py
++++ b/pydicom/dataset.py
+@@ -2495,3 +2495,3 @@
+-            data_element = self[key]
+             try:
++                data_element = self[key]
+                 json_dataset[json_key] = data_element.to_json_dict(

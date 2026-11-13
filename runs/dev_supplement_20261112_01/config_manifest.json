@@ -1,0 +1,59 @@
+{
+  "protocol_sha256": "7d46a4b91146e64cc1a7139d0d4bdf7214662eecb0438d18f75b5647627fd070",
+  "configs": [
+    {
+      "variant": "baseline",
+      "path": "configs/devsupp_baseline_20261112_01.json",
+      "sha256": "e4ce45cc91146705454de028e9bb9478d39ae66709e1ba6830f3e3350bc3aa81",
+      "tag": "devsupp_baseline_20261112_01"
+    },
+    {
+      "variant": "no_failure_ledger",
+      "path": "configs/devsupp_no_failure_ledger_20261112_01.json",
+      "sha256": "b9ad5a81605edab92409c39865328a0565641aaadb20fdea7ffc820c85470754",
+      "tag": "devsupp_no_failure_ledger_20261112_01"
+    },
+    {
+      "variant": "no_stagnation",
+      "path": "configs/devsupp_no_stagnation_20261112_01.json",
+      "sha256": "5c9fa46d9f9350682a17a024603ea1a5c20a3e0ed8f9edcdf691a2079c7b4118",
+      "tag": "devsupp_no_stagnation_20261112_01"
+    },
+    {
+      "variant": "interaction4",
+      "path": "configs/devsupp_interaction4_20261112_01.json",
+      "sha256": "063dd10f52bf88446b146b4e042f41cdec1eb3213e622cabe683916443526e4b",
+      "tag": "devsupp_interaction4_20261112_01"
+    },
+    {
+      "variant": "interaction8",
+      "path": "configs/devsupp_interaction8_20261112_01.json",
+      "sha256": "22f79433aa41ba11dc9df4957d849b676bfaa85a3512646f9b19d0cdc176c54e",
+      "tag": "devsupp_interaction8_20261112_01"
+    },
+    {
+      "variant": "prefix30",
+      "path": "configs/devsupp_prefix30_20261112_01.json",
+      "sha256": "6b71d0514000709919ce41954eb235619a67427ffbef5aa23a7c1bb9481f706a",
+      "tag": "devsupp_prefix30_20261112_01"
+    },
+    {
+      "variant": "prefix40",
+      "path": "configs/devsupp_prefix40_20261112_01.json",
+      "sha256": "fa5fd68ffa41395c29b5a0285d96eb4e5933bf4c514348147b3fb7304ed49e83",
+      "tag": "devsupp_prefix40_20261112_01"
+    },
+    {
+      "variant": "budget_half",
+      "path": "configs/devsupp_budget_half_20261112_01.json",
+      "sha256": "29c5c7898495e0d25f63cf3e87568ade85be700575db08a1533af3c879e29f2f",
+      "tag": "devsupp_budget_half_20261112_01"
+    },
+    {
+      "variant": "budget_onehalf",
+      "path": "configs/devsupp_budget_onehalf_20261112_01.json",
+      "sha256": "51859eb98d5b3a1f6d11a9dd7f50795956e75b9d61770798905db8e2bc8ea598",
+      "tag": "devsupp_budget_onehalf_20261112_01"
+    }
+  ]
+}

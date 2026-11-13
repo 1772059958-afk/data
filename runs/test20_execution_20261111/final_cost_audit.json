@@ -1,0 +1,18 @@
+{
+  "kind": "read_only_final_cost_audit",
+  "ledger_sha256": "57f142980e58adbcdebbeeb655b5557053dd368799a065302de224d0c97b4a3a",
+  "approved_new_ceiling_cny": 100.0,
+  "booked_estimate_cny": 0.55175828,
+  "remaining_guard_cny": 99.44824172,
+  "request_records": 63,
+  "unknown_usage_records": 0,
+  "pending": null,
+  "exclusive_ledger_lock_verified": true,
+  "all_attempts_one": true,
+  "reported_fingerprints": [
+    "bc19ba97cbe016479903222bb1578db6"
+  ],
+  "cost_interpretation": "usage-derived estimate/conservative accounting, not invoice payment",
+  "new_formal_requests": 0,
+  "new_full_dev23_requests": 0
+}

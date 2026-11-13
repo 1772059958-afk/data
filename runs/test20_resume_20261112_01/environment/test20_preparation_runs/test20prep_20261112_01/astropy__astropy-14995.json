@@ -1,0 +1,8 @@
+{
+  "instance_id": "astropy__astropy-14995",
+  "base_commit": "b16c7d12ccbc7b2d20364b89fb44285bcbfede54",
+  "status": "preparation_error",
+  "error_type": "RuntimeError",
+  "error": "public source/metadata/import identity rejected; preserved log 0004_identity_before.log",
+  "model_calls": 0
+}

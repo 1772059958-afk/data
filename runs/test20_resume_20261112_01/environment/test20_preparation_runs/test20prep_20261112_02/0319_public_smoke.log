@@ -1,0 +1,269 @@
+............FFFFFFFFFF..................                                 [100%]
+=================================== FAILURES ===================================
+_ test_check_array_force_all_finiteinvalid[asarray-inf-True-Input contains NaN, infinity] _
+
+value = inf, force_all_finite = True, match_msg = 'Input contains NaN, infinity'
+retype = <function asarray at 0x76d384573bf8>
+
+    @pytest.mark.parametrize(
+        "value, force_all_finite, match_msg",
+        [(np.inf, True, 'Input contains NaN, infinity'),
+         (np.inf, 'allow-nan', 'Input contains infinity'),
+         (np.nan, True, 'Input contains NaN, infinity'),
+         (np.nan, 'allow-inf', 'force_all_finite should be a bool or "allow-nan"'),
+         (np.nan, 1, 'force_all_finite should be a bool or "allow-nan"')]
+    )
+    @pytest.mark.parametrize(
+        "retype",
+        [np.asarray, sp.csr_matrix]
+    )
+    def test_check_array_force_all_finiteinvalid(value, force_all_finite,
+                                                 match_msg, retype):
+        X = retype(np.arange(4).reshape(2, 2).astype(np.float))
+        X[0, 0] = value
+>       with pytest.raises(ValueError, message=match_msg):
+E       TypeError: Unexpected keyword arguments passed to pytest.raises: message
+E       Use context-manager form instead?
+
+sklearn/utils/tests/test_validation.py:181: TypeError
+_ test_check_array_force_all_finiteinvalid[asarray-inf-allow-nan-Input contains infinity] _
+
+value = inf, force_all_finite = 'allow-nan'
+match_msg = 'Input contains infinity'
+retype = <function asarray at 0x76d384573bf8>
+
+    @pytest.mark.parametrize(
+        "value, force_all_finite, match_msg",
+        [(np.inf, True, 'Input contains NaN, infinity'),
+         (np.inf, 'allow-nan', 'Input contains infinity'),
+         (np.nan, True, 'Input contains NaN, infinity'),
+         (np.nan, 'allow-inf', 'force_all_finite should be a bool or "allow-nan"'),
+         (np.nan, 1, 'force_all_finite should be a bool or "allow-nan"')]
+    )
+    @pytest.mark.parametrize(
+        "retype",
+        [np.asarray, sp.csr_matrix]
+    )
+    def test_check_array_force_all_finiteinvalid(value, force_all_finite,
+                                                 match_msg, retype):
+        X = retype(np.arange(4).reshape(2, 2).astype(np.float))
+        X[0, 0] = value
+>       with pytest.raises(ValueError, message=match_msg):
+E       TypeError: Unexpected keyword arguments passed to pytest.raises: message
+E       Use context-manager form instead?
+
+sklearn/utils/tests/test_validation.py:181: TypeError
+_ test_check_array_force_all_finiteinvalid[asarray-nan-True-Input contains NaN, infinity] _
+
+value = nan, force_all_finite = True, match_msg = 'Input contains NaN, infinity'
+retype = <function asarray at 0x76d384573bf8>
+
+    @pytest.mark.parametrize(
+        "value, force_all_finite, match_msg",
+        [(np.inf, True, 'Input contains NaN, infinity'),
+         (np.inf, 'allow-nan', 'Input contains infinity'),
+         (np.nan, True, 'Input contains NaN, infinity'),
+         (np.nan, 'allow-inf', 'force_all_finite should be a bool or "allow-nan"'),
+         (np.nan, 1, 'force_all_finite should be a bool or "allow-nan"')]
+    )
+    @pytest.mark.parametrize(
+        "retype",
+        [np.asarray, sp.csr_matrix]
+    )
+    def test_check_array_force_all_finiteinvalid(value, force_all_finite,
+                                                 match_msg, retype):
+        X = retype(np.arange(4).reshape(2, 2).astype(np.float))
+        X[0, 0] = value
+>       with pytest.raises(ValueError, message=match_msg):
+E       TypeError: Unexpected keyword arguments passed to pytest.raises: message
+E       Use context-manager form instead?
+
+sklearn/utils/tests/test_validation.py:181: TypeError
+_ test_check_array_force_all_finiteinvalid[asarray-nan-allow-inf-force_all_finite should be a bool or "allow-nan"] _
+
+value = nan, force_all_finite = 'allow-inf'
+match_msg = 'force_all_finite should be a bool or "allow-nan"'
+retype = <function asarray at 0x76d384573bf8>
+
+    @pytest.mark.parametrize(
+        "value, force_all_finite, match_msg",
+        [(np.inf, True, 'Input contains NaN, infinity'),
+         (np.inf, 'allow-nan', 'Input contains infinity'),
+         (np.nan, True, 'Input contains NaN, infinity'),
+         (np.nan, 'allow-inf', 'force_all_finite should be a bool or "allow-nan"'),
+         (np.nan, 1, 'force_all_finite should be a bool or "allow-nan"')]
+    )
+    @pytest.mark.parametrize(
+        "retype",
+        [np.asarray, sp.csr_matrix]
+    )
+    def test_check_array_force_all_finiteinvalid(value, force_all_finite,
+                                                 match_msg, retype):
+        X = retype(np.arange(4).reshape(2, 2).astype(np.float))
+        X[0, 0] = value
+>       with pytest.raises(ValueError, message=match_msg):
+E       TypeError: Unexpected keyword arguments passed to pytest.raises: message
+E       Use context-manager form instead?
+
+sklearn/utils/tests/test_validation.py:181: TypeError
+_ test_check_array_force_all_finiteinvalid[asarray-nan-1-force_all_finite should be a bool or "allow-nan"] _
+
+value = nan, force_all_finite = 1
+match_msg = 'force_all_finite should be a bool or "allow-nan"'
+retype = <function asarray at 0x76d384573bf8>
+
+    @pytest.mark.parametrize(
+        "value, force_all_finite, match_msg",
+        [(np.inf, True, 'Input contains NaN, infinity'),
+         (np.inf, 'allow-nan', 'Input contains infinity'),
+         (np.nan, True, 'Input contains NaN, infinity'),
+         (np.nan, 'allow-inf', 'force_all_finite should be a bool or "allow-nan"'),
+         (np.nan, 1, 'force_all_finite should be a bool or "allow-nan"')]
+    )
+    @pytest.mark.parametrize(
+        "retype",
+        [np.asarray, sp.csr_matrix]
+    )
+    def test_check_array_force_all_finiteinvalid(value, force_all_finite,
+                                                 match_msg, retype):
+        X = retype(np.arange(4).reshape(2, 2).astype(np.float))
+        X[0, 0] = value
+>       with pytest.raises(ValueError, message=match_msg):
+E       TypeError: Unexpected keyword arguments passed to pytest.raises: message
+E       Use context-manager form instead?
+
+sklearn/utils/tests/test_validation.py:181: TypeError
+_ test_check_array_force_all_finiteinvalid[csr_matrix-inf-True-Input contains NaN, infinity] _
+
+value = inf, force_all_finite = True, match_msg = 'Input contains NaN, infinity'
+retype = <class 'scipy.sparse.csr.csr_matrix'>
+
+    @pytest.mark.parametrize(
+        "value, force_all_finite, match_msg",
+        [(np.inf, True, 'Input contains NaN, infinity'),
+         (np.inf, 'allow-nan', 'Input contains infinity'),
+         (np.nan, True, 'Input contains NaN, infinity'),
+         (np.nan, 'allow-inf', 'force_all_finite should be a bool or "allow-nan"'),
+         (np.nan, 1, 'force_all_finite should be a bool or "allow-nan"')]
+    )
+    @pytest.mark.parametrize(
+        "retype",
+        [np.asarray, sp.csr_matrix]
+    )
+    def test_check_array_force_all_finiteinvalid(value, force_all_finite,
+                                                 match_msg, retype):
+        X = retype(np.arange(4).reshape(2, 2).astype(np.float))
+        X[0, 0] = value
+>       with pytest.raises(ValueError, message=match_msg):
+E       TypeError: Unexpected keyword arguments passed to pytest.raises: message
+E       Use context-manager form instead?
+
+sklearn/utils/tests/test_validation.py:181: TypeError
+_ test_check_array_force_all_finiteinvalid[csr_matrix-inf-allow-nan-Input contains infinity] _
+
+value = inf, force_all_finite = 'allow-nan'
+match_msg = 'Input contains infinity'
+retype = <class 'scipy.sparse.csr.csr_matrix'>
+
+    @pytest.mark.parametrize(
+        "value, force_all_finite, match_msg",
+        [(np.inf, True, 'Input contains NaN, infinity'),
+         (np.inf, 'allow-nan', 'Input contains infinity'),
+         (np.nan, True, 'Input contains NaN, infinity'),
+         (np.nan, 'allow-inf', 'force_all_finite should be a bool or "allow-nan"'),
+         (np.nan, 1, 'force_all_finite should be a bool or "allow-nan"')]
+    )
+    @pytest.mark.parametrize(
+        "retype",
+        [np.asarray, sp.csr_matrix]
+    )
+    def test_check_array_force_all_finiteinvalid(value, force_all_finite,
+                                                 match_msg, retype):
+        X = retype(np.arange(4).reshape(2, 2).astype(np.float))
+        X[0, 0] = value
+>       with pytest.raises(ValueError, message=match_msg):
+E       TypeError: Unexpected keyword arguments passed to pytest.raises: message
+E       Use context-manager form instead?
+
+sklearn/utils/tests/test_validation.py:181: TypeError
+_ test_check_array_force_all_finiteinvalid[csr_matrix-nan-True-Input contains NaN, infinity] _
+
+value = nan, force_all_finite = True, match_msg = 'Input contains NaN, infinity'
+retype = <class 'scipy.sparse.csr.csr_matrix'>
+
+    @pytest.mark.parametrize(
+        "value, force_all_finite, match_msg",
+        [(np.inf, True, 'Input contains NaN, infinity'),
+         (np.inf, 'allow-nan', 'Input contains infinity'),
+         (np.nan, True, 'Input contains NaN, infinity'),
+         (np.nan, 'allow-inf', 'force_all_finite should be a bool or "allow-nan"'),
+         (np.nan, 1, 'force_all_finite should be a bool or "allow-nan"')]
+    )
+    @pytest.mark.parametrize(
+        "retype",
+        [np.asarray, sp.csr_matrix]
+    )
+    def test_check_array_force_all_finiteinvalid(value, force_all_finite,
+                                                 match_msg, retype):
+        X = retype(np.arange(4).reshape(2, 2).astype(np.float))
+        X[0, 0] = value
+>       with pytest.raises(ValueError, message=match_msg):
+E       TypeError: Unexpected keyword arguments passed to pytest.raises: message
+E       Use context-manager form instead?
+
+sklearn/utils/tests/test_validation.py:181: TypeError
+_ test_check_array_force_all_finiteinvalid[csr_matrix-nan-allow-inf-force_all_finite should be a bool or "allow-nan"] _
+
+value = nan, force_all_finite = 'allow-inf'
+match_msg = 'force_all_finite should be a bool or "allow-nan"'
+retype = <class 'scipy.sparse.csr.csr_matrix'>
+
+    @pytest.mark.parametrize(
+        "value, force_all_finite, match_msg",
+        [(np.inf, True, 'Input contains NaN, infinity'),
+         (np.inf, 'allow-nan', 'Input contains infinity'),
+         (np.nan, True, 'Input contains NaN, infinity'),
+         (np.nan, 'allow-inf', 'force_all_finite should be a bool or "allow-nan"'),
+         (np.nan, 1, 'force_all_finite should be a bool or "allow-nan"')]
+    )
+    @pytest.mark.parametrize(
+        "retype",
+        [np.asarray, sp.csr_matrix]
+    )
+    def test_check_array_force_all_finiteinvalid(value, force_all_finite,
+                                                 match_msg, retype):
+        X = retype(np.arange(4).reshape(2, 2).astype(np.float))
+        X[0, 0] = value
+>       with pytest.raises(ValueError, message=match_msg):
+E       TypeError: Unexpected keyword arguments passed to pytest.raises: message
+E       Use context-manager form instead?
+
+sklearn/utils/tests/test_validation.py:181: TypeError
+_ test_check_array_force_all_finiteinvalid[csr_matrix-nan-1-force_all_finite should be a bool or "allow-nan"] _
+
+value = nan, force_all_finite = 1
+match_msg = 'force_all_finite should be a bool or "allow-nan"'
+retype = <class 'scipy.sparse.csr.csr_matrix'>
+
+    @pytest.mark.parametrize(
+        "value, force_all_finite, match_msg",
+        [(np.inf, True, 'Input contains NaN, infinity'),
+         (np.inf, 'allow-nan', 'Input contains infinity'),
+         (np.nan, True, 'Input contains NaN, infinity'),
+         (np.nan, 'allow-inf', 'force_all_finite should be a bool or "allow-nan"'),
+         (np.nan, 1, 'force_all_finite should be a bool or "allow-nan"')]
+    )
+    @pytest.mark.parametrize(
+        "retype",
+        [np.asarray, sp.csr_matrix]
+    )
+    def test_check_array_force_all_finiteinvalid(value, force_all_finite,
+                                                 match_msg, retype):
+        X = retype(np.arange(4).reshape(2, 2).astype(np.float))
+        X[0, 0] = value
+>       with pytest.raises(ValueError, message=match_msg):
+E       TypeError: Unexpected keyword arguments passed to pytest.raises: message
+E       Use context-manager form instead?
+
+sklearn/utils/tests/test_validation.py:181: TypeError
+10 failed, 30 passed, 14 warnings in 1.10s

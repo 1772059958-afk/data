@@ -1,0 +1,68 @@
+{
+  "at_local": "2026-11-13T15:40:09",
+  "candidate_count": 6477,
+  "logical_bytes": 3754233246,
+  "credential_findings": [],
+  "verified_upstream_public_fixtures": [
+    {
+      "path": "runs/test20_A_20261112_01/controller/logs/run_evaluation/test20_A_20261112_01/test20_A_20261112_01-A/sphinx-doc__sphinx-8595/test_output.txt",
+      "kind": "private_key"
+    },
+    {
+      "path": "runs/test20_B_20261112_02/controller/logs/run_evaluation/test20_B_20261112_02/test20_B_20261112_02-B/sphinx-doc__sphinx-8595/test_output.txt",
+      "kind": "private_key"
+    },
+    {
+      "path": "runs/test20_C_20261112_01/controller/logs/run_evaluation/test20_C_20261112_01/test20_C_20261112_01-C/sphinx-doc__sphinx-8595/test_output.txt",
+      "kind": "private_key"
+    },
+    {
+      "path": "runs/test20_D_20261112_01/controller/logs/run_evaluation/test20_D_20261112_01/test20_D_20261112_01-D/sphinx-doc__sphinx-8595/test_output.txt",
+      "kind": "private_key"
+    },
+    {
+      "path": "runs/test20_E_20261112_01/controller/logs/run_evaluation/test20_E_20261112_01/test20_E_20261112_01-E/sphinx-doc__sphinx-8595/test_output.txt",
+      "kind": "private_key"
+    }
+  ],
+  "largest_files": [
+    {
+      "path": "runs/dev23_calibration_20261112_01/events.jsonl",
+      "bytes": 81350790
+    },
+    {
+      "path": "runs/test20_A_20261112_01/events.jsonl",
+      "bytes": 48220395
+    },
+    {
+      "path": "runs/dev23_scoring_replay_20261112_02/controller/logs/run_evaluation/dev23_calibration_20261112_01/dev23_calibration_20261112_01-FIXED/pvlib__pvlib-python-1854/test_output.txt",
+      "bytes": 47851940
+    },
+    {
+      "path": "runs/dev23_scoring_replay_20261112_02/controller/logs/run_evaluation/dev23_calibration_20261112_01/dev23_calibration_20261112_01-D/pvlib__pvlib-python-1854/test_output.txt",
+      "bytes": 47851940
+    },
+    {
+      "path": "runs/dev23_scoring_replay_20261112_02/controller/logs/run_evaluation/dev23_calibration_20261112_01/dev23_calibration_20261112_01-A/pvlib__pvlib-python-1854/test_output.txt",
+      "bytes": 47851940
+    },
+    {
+      "path": "runs/devsupp_baseline_20261112_02_eval/controller/logs/run_evaluation/devsupp_baseline_20261112_02_eval/devsupp_baseline_20261112_02_eval-B/pvlib__pvlib-python-1854/test_output.txt",
+      "bytes": 47851437
+    },
+    {
+      "path": "runs/dev23_scoring_replay_20261112_02/controller/logs/run_evaluation/dev23_calibration_20261112_01/dev23_calibration_20261112_01-ESC/pvlib__pvlib-python-1854/test_output.txt",
+      "bytes": 47849017
+    },
+    {
+      "path": "runs/dev23_scoring_replay_20261112_02/controller/logs/run_evaluation/dev23_calibration_20261112_01/dev23_calibration_20261112_01-C/pvlib__pvlib-python-1854/test_output.txt",
+      "bytes": 47849017
+    }
+  ],
+  "file_over_100MiB": false,
+  "env_excluded": true,
+  "raw_events_and_harness_logs_included": true,
+  "remote_ref": "refs/heads/develop",
+  "head_before": "9f1f90c5aee7aa492f4f137793f0feadcf9e2460",
+  "shutdown_authorized": false
+}

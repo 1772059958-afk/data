@@ -1,0 +1,674 @@
+{
+  "kind": "preregistered_test_public_source_cache",
+  "date": "2026-11-11",
+  "cache": "D:\\CodexExperimentCache\\test20_20261111\\source",
+  "split": "test",
+  "designated_cases": 20,
+  "concurrency": 1,
+  "fetched_cases": 20,
+  "verified_cases": 20,
+  "sampling_manifest": "C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\runs\\test20_preparation_20261111\\instances.json",
+  "sampling_manifest_sha256": "c3261e16b12a1cc206eb4dc8a97c3397cb8e4ecb7fc8b712de6e9a88e8979ecb",
+  "instance_ids": [
+    "astropy__astropy-14995",
+    "django__django-11910",
+    "django__django-12708",
+    "django__django-13230",
+    "django__django-17087",
+    "matplotlib__matplotlib-23987",
+    "matplotlib__matplotlib-24970",
+    "mwaskom__seaborn-2848",
+    "pallets__flask-4045",
+    "psf__requests-1963",
+    "pydata__xarray-3364",
+    "pylint-dev__pylint-7114",
+    "pytest-dev__pytest-6116",
+    "pytest-dev__pytest-8906",
+    "scikit-learn__scikit-learn-11281",
+    "scikit-learn__scikit-learn-13496",
+    "sphinx-doc__sphinx-8595",
+    "sympy__sympy-13480",
+    "sympy__sympy-16503",
+    "sympy__sympy-23262"
+  ],
+  "instances": [
+    {
+      "instance_id": "astropy__astropy-14995",
+      "repo": "astropy/astropy",
+      "base_commit": "b16c7d12ccbc7b2d20364b89fb44285bcbfede54",
+      "directory": "D:\\CodexExperimentCache\\test20_20261111\\source\\astropy__astropy-14995\\testbed",
+      "exit_code": 0,
+      "stdout": "{\"repo\": \"astropy/astropy\", \"commit\": \"b16c7d12ccbc7b2d20364b89fb44285bcbfede54\", \"source_identity_verified\": true, \"downloaded_bytes\": 9086786, \"C_free_bytes\": 5396819968}\n",
+      "stderr": "",
+      "seconds": 9.203,
+      "container_validation": "not_performed",
+      "audit": "dev_cache_astropy__astropy-14995_source_01.json",
+      "audit_sha256": "3968f60fe7b3f3b2d91d21927bc675f33ffd4b1902cb560f5ba82417f7739419",
+      "source_identity_verified": true,
+      "git_object_files": [
+        {
+          "path": ".git/objects/pack/pack-96c5e0ecf6e5ed033458303464f78b4772556a3c.idx",
+          "bytes": 54944,
+          "sha256": "89a38bb3329287b1b7b04462827c430974002300ad6ea0e07d02a384080b8577"
+        },
+        {
+          "path": ".git/objects/pack/pack-96c5e0ecf6e5ed033458303464f78b4772556a3c.pack",
+          "bytes": 8031621,
+          "sha256": "8736ca3a2e1237af298f62d5570d57aabe8f11c53c2f021a74e0c03872744f75"
+        },
+        {
+          "path": ".git/objects/pack/pack-96c5e0ecf6e5ed033458303464f78b4772556a3c.rev",
+          "bytes": 7748,
+          "sha256": "e1c20d16cb3050319ccad631a19b4ba6a29b989386daf3da26bb6b27bf5e899d"
+        }
+      ]
+    },
+    {
+      "instance_id": "django__django-11910",
+      "repo": "django/django",
+      "base_commit": "d232fd76a85870daf345fd8f8d617fe7802ae194",
+      "directory": "D:\\CodexExperimentCache\\test20_20261111\\source\\django__django-11910\\testbed",
+      "exit_code": 0,
+      "stdout": "{\"repo\": \"django/django\", \"commit\": \"d232fd76a85870daf345fd8f8d617fe7802ae194\", \"source_identity_verified\": true, \"downloaded_bytes\": 12330665, \"C_free_bytes\": 5396729856}\n",
+      "stderr": "",
+      "seconds": 15.541,
+      "container_validation": "not_performed",
+      "audit": "dev_cache_django__django-11910_source_01.json",
+      "audit_sha256": "ac3e80e47c03844a2a108108f6dd0f979c261018d000c1129623db81585e8636",
+      "source_identity_verified": true,
+      "git_object_files": [
+        {
+          "path": ".git/objects/pack/pack-fb669ddd33b24765f8ac43813edaf40077a3f23b.idx",
+          "bytes": 236748,
+          "sha256": "3cc63efa93b048e21660f697b8f0da3f4cd9629597faa887c38660598647da1c"
+        },
+        {
+          "path": ".git/objects/pack/pack-fb669ddd33b24765f8ac43813edaf40077a3f23b.pack",
+          "bytes": 10334690,
+          "sha256": "7a7c17bd3a9553136a66552d27edd8111f5be1c82e0888e398a5b3e53dbb1434"
+        },
+        {
+          "path": ".git/objects/pack/pack-fb669ddd33b24765f8ac43813edaf40077a3f23b.rev",
+          "bytes": 33720,
+          "sha256": "4766f821efb0da4382fe87f5e2e0f33ecf8e0a4f0674c5a1e53387cd402fc878"
+        }
+      ]
+    },
+    {
+      "instance_id": "django__django-12708",
+      "repo": "django/django",
+      "base_commit": "447980e72ac01da1594dd3373a03ba40b7ee6f80",
+      "directory": "D:\\CodexExperimentCache\\test20_20261111\\source\\django__django-12708\\testbed",
+      "exit_code": 0,
+      "stdout": "{\"repo\": \"django/django\", \"commit\": \"447980e72ac01da1594dd3373a03ba40b7ee6f80\", \"source_identity_verified\": true, \"downloaded_bytes\": 12430932, \"C_free_bytes\": 5396193280}\n",
+      "stderr": "",
+      "seconds": 15.286,
+      "container_validation": "not_performed",
+      "audit": "dev_cache_django__django-12708_source_01.json",
+      "audit_sha256": "bed8dde67de51bc4179da96b8e2779b7724181dff16b5d0f72b242677896c10a",
+      "source_identity_verified": true,
+      "git_object_files": [
+        {
+          "path": ".git/objects/pack/pack-374090c06d124bdd8fdfe9688398e66edde3d7ab.idx",
+          "bytes": 238764,
+          "sha256": "ad2f22efe015145dfe7502db84ed219aa3ad2f9dfd4926a52702de703d17df60"
+        },
+        {
+          "path": ".git/objects/pack/pack-374090c06d124bdd8fdfe9688398e66edde3d7ab.pack",
+          "bytes": 10434792,
+          "sha256": "073e51f72bd4669235b683ecccd9a9f4de4c93d187f58940067d50be19bebd45"
+        },
+        {
+          "path": ".git/objects/pack/pack-374090c06d124bdd8fdfe9688398e66edde3d7ab.rev",
+          "bytes": 34008,
+          "sha256": "41a8fd35797735bc5566ef185433d425fd444cee25e38c5834feff8503c41b21"
+        }
+      ]
+    },
+    {
+      "instance_id": "django__django-13230",
+      "repo": "django/django",
+      "base_commit": "184a6eebb0ef56d5f1b1315a8e666830e37f3f81",
+      "directory": "D:\\CodexExperimentCache\\test20_20261111\\source\\django__django-13230\\testbed",
+      "exit_code": 0,
+      "stdout": "{\"repo\": \"django/django\", \"commit\": \"184a6eebb0ef56d5f1b1315a8e666830e37f3f81\", \"source_identity_verified\": true, \"downloaded_bytes\": 12503784, \"C_free_bytes\": 5396119552}\n",
+      "stderr": "",
+      "seconds": 13.828,
+      "container_validation": "not_performed",
+      "audit": "dev_cache_django__django-13230_source_01.json",
+      "audit_sha256": "5e82e0dc8eed5de79416d607875c5cfbcbe1e9fa65b0f8f370f045057727449e",
+      "source_identity_verified": true,
+      "git_object_files": [
+        {
+          "path": ".git/objects/pack/pack-3d38d9aba8e7bcf5acae44166c8acd6ee4046131.idx",
+          "bytes": 240388,
+          "sha256": "a5a36474f41f964dcf33c84a8cda30102554f840f66f2d3473d63fedec77c5e6"
+        },
+        {
+          "path": ".git/objects/pack/pack-3d38d9aba8e7bcf5acae44166c8acd6ee4046131.pack",
+          "bytes": 10508019,
+          "sha256": "1b010fa400186b5337cbe9071b7da6b5a752afe6a92fa51fc044f226003a4c5f"
+        },
+        {
+          "path": ".git/objects/pack/pack-3d38d9aba8e7bcf5acae44166c8acd6ee4046131.rev",
+          "bytes": 34240,
+          "sha256": "0a6a86983814c9f80a65a1f2070de1af363d99a1973622bf4258ac75e42ff03a"
+        }
+      ]
+    },
+    {
+      "instance_id": "django__django-17087",
+      "repo": "django/django",
+      "base_commit": "4a72da71001f154ea60906a2f74898d32b7322a7",
+      "directory": "D:\\CodexExperimentCache\\test20_20261111\\source\\django__django-17087\\testbed",
+      "exit_code": 0,
+      "stdout": "{\"repo\": \"django/django\", \"commit\": \"4a72da71001f154ea60906a2f74898d32b7322a7\", \"source_identity_verified\": true, \"downloaded_bytes\": 13608062, \"C_free_bytes\": 5395849216}\n",
+      "stderr": "",
+      "seconds": 14.16,
+      "container_validation": "not_performed",
+      "audit": "dev_cache_django__django-17087_source_01.json",
+      "audit_sha256": "74fefa9e4e30af28bbee0696a4ec688d99b81b124931f4ec4291195de4604ef1",
+      "source_identity_verified": true,
+      "git_object_files": [
+        {
+          "path": ".git/objects/pack/pack-25a907fc021445232d7e472df6b16ab61f90a302.idx",
+          "bytes": 256796,
+          "sha256": "c33ababaf68eaff6978d746125e238915c0543bcbda0eb83b83c49e9562158b6"
+        },
+        {
+          "path": ".git/objects/pack/pack-25a907fc021445232d7e472df6b16ab61f90a302.pack",
+          "bytes": 11613182,
+          "sha256": "7068c10ca494115e7fae71e83fed12c9e472b0dc72781d87c5f963b10ee33a4b"
+        },
+        {
+          "path": ".git/objects/pack/pack-25a907fc021445232d7e472df6b16ab61f90a302.rev",
+          "bytes": 36584,
+          "sha256": "b0b43e1e977ab9371dfded0ce92c88af46aec49921c5953a772014e0cf51c75d"
+        }
+      ]
+    },
+    {
+      "instance_id": "matplotlib__matplotlib-23987",
+      "repo": "matplotlib/matplotlib",
+      "base_commit": "e98d8d085e8f53ec0467422b326f7738a2dd695e",
+      "directory": "D:\\CodexExperimentCache\\test20_20261111\\source\\matplotlib__matplotlib-23987\\testbed",
+      "exit_code": 0,
+      "stdout": "{\"repo\": \"matplotlib/matplotlib\", \"commit\": \"e98d8d085e8f53ec0467422b326f7738a2dd695e\", \"source_identity_verified\": true, \"downloaded_bytes\": 36673974, \"C_free_bytes\": 5395415040}\n",
+      "stderr": "",
+      "seconds": 13.608,
+      "container_validation": "not_performed",
+      "audit": "dev_cache_matplotlib__matplotlib-23987_source_01.json",
+      "audit_sha256": "6eff39a80e84a49129e12d5d517101567a997890e48dc3a2195b13be28f670d4",
+      "source_identity_verified": true,
+      "git_object_files": [
+        {
+          "path": ".git/objects/pack/pack-239629eb866b05cbd76609c8b62e8180fd3a9f36.idx",
+          "bytes": 124608,
+          "sha256": "b0217e362bf933e5e6c71f620fa0ef439e296a250ee565596c6395b0aa42f829"
+        },
+        {
+          "path": ".git/objects/pack/pack-239629eb866b05cbd76609c8b62e8180fd3a9f36.pack",
+          "bytes": 35082324,
+          "sha256": "bfece7b66bd279e1f40afb4cb2b7290b067e792f140a8b5ac9199ac75bcb4771"
+        },
+        {
+          "path": ".git/objects/pack/pack-239629eb866b05cbd76609c8b62e8180fd3a9f36.rev",
+          "bytes": 17700,
+          "sha256": "61f3cf7a066bbe834dd284fb3845a6941542beefd482879d085c0f7a154cc371"
+        }
+      ]
+    },
+    {
+      "instance_id": "matplotlib__matplotlib-24970",
+      "repo": "matplotlib/matplotlib",
+      "base_commit": "a3011dfd1aaa2487cce8aa7369475533133ef777",
+      "directory": "D:\\CodexExperimentCache\\test20_20261111\\source\\matplotlib__matplotlib-24970\\testbed",
+      "exit_code": 0,
+      "stdout": "{\"repo\": \"matplotlib/matplotlib\", \"commit\": \"a3011dfd1aaa2487cce8aa7369475533133ef777\", \"source_identity_verified\": true, \"downloaded_bytes\": 37145040, \"C_free_bytes\": 5394505728}\n",
+      "stderr": "",
+      "seconds": 14.011,
+      "container_validation": "not_performed",
+      "audit": "dev_cache_matplotlib__matplotlib-24970_source_01.json",
+      "audit_sha256": "5532033f79be6c46e0b83c21aaeed78381ed4091245d6f6205475ad685447165",
+      "source_identity_verified": true,
+      "git_object_files": [
+        {
+          "path": ".git/objects/pack/pack-73cb45516d49d054c68be603c9610fd7560d0791.idx",
+          "bytes": 127604,
+          "sha256": "db122487a527daa6422c540bcc6c95c7a526f6a6e8faadb9a433db843dcfcfca"
+        },
+        {
+          "path": ".git/objects/pack/pack-73cb45516d49d054c68be603c9610fd7560d0791.pack",
+          "bytes": 35553950,
+          "sha256": "1ec4697dbd069399921f210d90714e4655ebf115da7903d1cd99d0a53a6afb2b"
+        },
+        {
+          "path": ".git/objects/pack/pack-73cb45516d49d054c68be603c9610fd7560d0791.rev",
+          "bytes": 18128,
+          "sha256": "739b57b7f339fda6139fb838e5551c07776120cb5ca2734a26f813b40d54858c"
+        }
+      ]
+    },
+    {
+      "instance_id": "mwaskom__seaborn-2848",
+      "repo": "mwaskom/seaborn",
+      "base_commit": "94621cef29f80282436d73e8d2c0aa76dab81273",
+      "directory": "D:\\CodexExperimentCache\\test20_20261111\\source\\mwaskom__seaborn-2848\\testbed",
+      "exit_code": 0,
+      "stdout": "{\"repo\": \"mwaskom/seaborn\", \"commit\": \"94621cef29f80282436d73e8d2c0aa76dab81273\", \"source_identity_verified\": true, \"downloaded_bytes\": 1679916, \"C_free_bytes\": 5394456576}\n",
+      "stderr": "",
+      "seconds": 5.006,
+      "container_validation": "not_performed",
+      "audit": "dev_cache_mwaskom__seaborn-2848_source_01.json",
+      "audit_sha256": "0e8a0722f441b0a1960dfc8dd796b4d215d24b3e1ba2cb6738db690a41c2633c",
+      "source_identity_verified": true,
+      "git_object_files": [
+        {
+          "path": ".git/objects/pack/pack-3e00131c7a8d7ac4db0cb85c4732e49094785b86.idx",
+          "bytes": 8912,
+          "sha256": "8b5b6b003ea89f69cecb3dbad2d3680efef22ffb34e00fc640eab62a5b682018"
+        },
+        {
+          "path": ".git/objects/pack/pack-3e00131c7a8d7ac4db0cb85c4732e49094785b86.pack",
+          "bytes": 1578057,
+          "sha256": "12a533c0f398100f80f4a45b60420f2002e6f0cd5c29709f3f216bf83372e907"
+        },
+        {
+          "path": ".git/objects/pack/pack-3e00131c7a8d7ac4db0cb85c4732e49094785b86.rev",
+          "bytes": 1172,
+          "sha256": "d327223e924b64e624ccaf4896be213cdff667ca40436cd08c81f2de7026bc5c"
+        }
+      ]
+    },
+    {
+      "instance_id": "pallets__flask-4045",
+      "repo": "pallets/flask",
+      "base_commit": "d8c37f43724cd9fb0870f77877b7c4c7e38a19e0",
+      "directory": "D:\\CodexExperimentCache\\test20_20261111\\source\\pallets__flask-4045\\testbed",
+      "exit_code": 0,
+      "stdout": "{\"repo\": \"pallets/flask\", \"commit\": \"d8c37f43724cd9fb0870f77877b7c4c7e38a19e0\", \"source_identity_verified\": true, \"downloaded_bytes\": 915809, \"C_free_bytes\": 5394370560}\n",
+      "stderr": "",
+      "seconds": 8.677,
+      "container_validation": "not_performed",
+      "audit": "dev_cache_pallets__flask-4045_source_01.json",
+      "audit_sha256": "c22f8a7636c24b25c8063432f4d0ca600835bb67cf0265ae1a1a93e821681d8a",
+      "source_identity_verified": true,
+      "git_object_files": [
+        {
+          "path": ".git/objects/pack/pack-653290688b3d621b802f854dd78a8d7c6e8c3c78.idx",
+          "bytes": 8800,
+          "sha256": "39f508c6c1617addae4a80eac0ce572ed160511843a4a91e0fb1b33361ef164f"
+        },
+        {
+          "path": ".git/objects/pack/pack-653290688b3d621b802f854dd78a8d7c6e8c3c78.pack",
+          "bytes": 667548,
+          "sha256": "65fd8527f404cc17ad39af4aaa94da66646cca70ba27b63145fd0ac66e6b5d3b"
+        },
+        {
+          "path": ".git/objects/pack/pack-653290688b3d621b802f854dd78a8d7c6e8c3c78.rev",
+          "bytes": 1156,
+          "sha256": "3671476fa99738d1e64fc8f6e095dc37707723bf0301c339c0112f87e37286c6"
+        }
+      ]
+    },
+    {
+      "instance_id": "psf__requests-1963",
+      "repo": "psf/requests",
+      "base_commit": "110048f9837f8441ea536804115e80b69f400277",
+      "directory": "D:\\CodexExperimentCache\\test20_20261111\\source\\psf__requests-1963\\testbed",
+      "exit_code": 0,
+      "stdout": "{\"repo\": \"psf/requests\", \"commit\": \"110048f9837f8441ea536804115e80b69f400277\", \"source_identity_verified\": true, \"downloaded_bytes\": 928391, \"C_free_bytes\": 5394296832}\n",
+      "stderr": "",
+      "seconds": 5.24,
+      "container_validation": "not_performed",
+      "audit": "dev_cache_psf__requests-1963_source_01.json",
+      "audit_sha256": "31a55a1be29a5a130ff9f60cbbc13b861aa2da5045bff6047072b31a862737ab",
+      "source_identity_verified": true,
+      "git_object_files": [
+        {
+          "path": ".git/objects/pack/pack-50e685827b00dea0dc8edcad32c13b7ef412f440.idx",
+          "bytes": 5020,
+          "sha256": "a10f97dd23e76396e242e9b48b617179af7126fbae8b423a63e4a7559bd0a666"
+        },
+        {
+          "path": ".git/objects/pack/pack-50e685827b00dea0dc8edcad32c13b7ef412f440.pack",
+          "bytes": 631909,
+          "sha256": "570500ad177ff670996f9a9af3aa0de9210f312712bc9dd9aa342ff7f651f7f2"
+        },
+        {
+          "path": ".git/objects/pack/pack-50e685827b00dea0dc8edcad32c13b7ef412f440.rev",
+          "bytes": 616,
+          "sha256": "de5a92f3a8c1dc44cb8b16855a8c3689920c01959cd6f3e09dd46823500d2a62"
+        }
+      ]
+    },
+    {
+      "instance_id": "pydata__xarray-3364",
+      "repo": "pydata/xarray",
+      "base_commit": "863e49066ca4d61c9adfe62aca3bf21b90e1af8c",
+      "directory": "D:\\CodexExperimentCache\\test20_20261111\\source\\pydata__xarray-3364\\testbed",
+      "exit_code": 0,
+      "stdout": "{\"repo\": \"pydata/xarray\", \"commit\": \"863e49066ca4d61c9adfe62aca3bf21b90e1af8c\", \"source_identity_verified\": true, \"downloaded_bytes\": 3029008, \"C_free_bytes\": 5393698816}\n",
+      "stderr": "",
+      "seconds": 5.576,
+      "container_validation": "not_performed",
+      "audit": "dev_cache_pydata__xarray-3364_source_01.json",
+      "audit_sha256": "149933b3cf3133c21a3e9220d83bee138997d38e34e84d8817cc6273227d49b0",
+      "source_identity_verified": true,
+      "git_object_files": [
+        {
+          "path": ".git/objects/pack/pack-b49a5ecc202895bf96a5a36cf25a1c8f62908807.idx",
+          "bytes": 8268,
+          "sha256": "8f5700670dc4230bc9605c42d1ee3c7f31e0d25d990ef4b680e022ebf0e59d20"
+        },
+        {
+          "path": ".git/objects/pack/pack-b49a5ecc202895bf96a5a36cf25a1c8f62908807.pack",
+          "bytes": 2614988,
+          "sha256": "5db5cfb5c0486b7a6188b593de0967ac8dfab744f33853f61a36430bb9a48a2c"
+        },
+        {
+          "path": ".git/objects/pack/pack-b49a5ecc202895bf96a5a36cf25a1c8f62908807.rev",
+          "bytes": 1080,
+          "sha256": "5753975adc797f53fd62e22291aec23a6166d6d4f369bbf013bb6938ecac2571"
+        }
+      ]
+    },
+    {
+      "instance_id": "pylint-dev__pylint-7114",
+      "repo": "pylint-dev/pylint",
+      "base_commit": "397c1703e8ae6349d33f7b99f45b2ccaf581e666",
+      "directory": "D:\\CodexExperimentCache\\test20_20261111\\source\\pylint-dev__pylint-7114\\testbed",
+      "exit_code": 0,
+      "stdout": "{\"repo\": \"pylint-dev/pylint\", \"commit\": \"397c1703e8ae6349d33f7b99f45b2ccaf581e666\", \"source_identity_verified\": true, \"downloaded_bytes\": 2151053, \"C_free_bytes\": 5393522688}\n",
+      "stderr": "",
+      "seconds": 7.773,
+      "container_validation": "not_performed",
+      "audit": "dev_cache_pylint-dev__pylint-7114_source_01.json",
+      "audit_sha256": "e688f96cbcab2d1c8747ae69f3ddc2c4bc3cd733f77dbecd0ddaa8b52c158b8b",
+      "source_identity_verified": true,
+      "git_object_files": [
+        {
+          "path": ".git/objects/pack/pack-339ec0443d17f1df3ad5cbbf0c0632e0ed1b4601.idx",
+          "bytes": 96132,
+          "sha256": "ccbb7f961640a6de469133308869b5d1725724bf1f0724b7e49ca2cccf6dfa46"
+        },
+        {
+          "path": ".git/objects/pack/pack-339ec0443d17f1df3ad5cbbf0c0632e0ed1b4601.pack",
+          "bytes": 1737727,
+          "sha256": "310283c2840b5ac007231c85ffb41ce3344c48841b559980e41a230bc16a57fc"
+        },
+        {
+          "path": ".git/objects/pack/pack-339ec0443d17f1df3ad5cbbf0c0632e0ed1b4601.rev",
+          "bytes": 13632,
+          "sha256": "71483b7547d95f7d1c9d635b04aad25c503c6765c60d48105642b5aafe249019"
+        }
+      ]
+    },
+    {
+      "instance_id": "pytest-dev__pytest-6116",
+      "repo": "pytest-dev/pytest",
+      "base_commit": "e670ff76cbad80108bde9bab616b66771b8653cf",
+      "directory": "D:\\CodexExperimentCache\\test20_20261111\\source\\pytest-dev__pytest-6116\\testbed",
+      "exit_code": 0,
+      "stdout": "{\"repo\": \"pytest-dev/pytest\", \"commit\": \"e670ff76cbad80108bde9bab616b66771b8653cf\", \"source_identity_verified\": true, \"downloaded_bytes\": 1636304, \"C_free_bytes\": 5393453056}\n",
+      "stderr": "",
+      "seconds": 5.689,
+      "container_validation": "not_performed",
+      "audit": "dev_cache_pytest-dev__pytest-6116_source_01.json",
+      "audit_sha256": "f14b7111011fc155b10dbbe4c5ecfc0a34f5b4c6662eee41c1977b04bee52dd1",
+      "source_identity_verified": true,
+      "git_object_files": [
+        {
+          "path": ".git/objects/pack/pack-c6cff3ea4d6298f9655c63e6802b1f3592e912a3.idx",
+          "bytes": 15744,
+          "sha256": "2edf63e55cfc9f0e690929b6df39188d4ac9b3cf421c10e85c3c7a2c94308fd4"
+        },
+        {
+          "path": ".git/objects/pack/pack-c6cff3ea4d6298f9655c63e6802b1f3592e912a3.pack",
+          "bytes": 1078681,
+          "sha256": "05944bb8c52060ed367628a911d96cfad33c2688f17d13f8f67155851c9552d2"
+        },
+        {
+          "path": ".git/objects/pack/pack-c6cff3ea4d6298f9655c63e6802b1f3592e912a3.rev",
+          "bytes": 2148,
+          "sha256": "6a482591c018d626c4cdf0de39ca079880abc6123b7f49c95ead82f3cf5ee0e3"
+        }
+      ]
+    },
+    {
+      "instance_id": "pytest-dev__pytest-8906",
+      "repo": "pytest-dev/pytest",
+      "base_commit": "69356d20cfee9a81972dcbf93d8caf9eabe113e8",
+      "directory": "D:\\CodexExperimentCache\\test20_20261111\\source\\pytest-dev__pytest-8906\\testbed",
+      "exit_code": 0,
+      "stdout": "{\"repo\": \"pytest-dev/pytest\", \"commit\": \"69356d20cfee9a81972dcbf93d8caf9eabe113e8\", \"source_identity_verified\": true, \"downloaded_bytes\": 1886430, \"C_free_bytes\": 5395296256}\n",
+      "stderr": "",
+      "seconds": 5.678,
+      "container_validation": "not_performed",
+      "audit": "dev_cache_pytest-dev__pytest-8906_source_01.json",
+      "audit_sha256": "812156c0499b79e943630c81edfb598837572177f722ea7a95516428bbfeb454",
+      "source_identity_verified": true,
+      "git_object_files": [
+        {
+          "path": ".git/objects/pack/pack-b1d51b310a2432db35f6a6e63bb939e37c2c3ec9.idx",
+          "bytes": 18544,
+          "sha256": "47660032101b2acc82cb23de3f0ba240ca1d740e39cb0af791d05eac62d972c0"
+        },
+        {
+          "path": ".git/objects/pack/pack-b1d51b310a2432db35f6a6e63bb939e37c2c3ec9.pack",
+          "bytes": 1328597,
+          "sha256": "87ae489da6789cec6c0de00c76255f842dea820ae610ee4c9f7d9c70e5552780"
+        },
+        {
+          "path": ".git/objects/pack/pack-b1d51b310a2432db35f6a6e63bb939e37c2c3ec9.rev",
+          "bytes": 2548,
+          "sha256": "8f0ecc5f9621d219edba044426ed7a3525b874cb1f7bf86b4ba96e5d3d58cdea"
+        }
+      ]
+    },
+    {
+      "instance_id": "scikit-learn__scikit-learn-11281",
+      "repo": "scikit-learn/scikit-learn",
+      "base_commit": "4143356c3c51831300789e4fdf795d83716dbab6",
+      "directory": "D:\\CodexExperimentCache\\test20_20261111\\source\\scikit-learn__scikit-learn-11281\\testbed",
+      "exit_code": 0,
+      "stdout": "{\"repo\": \"scikit-learn/scikit-learn\", \"commit\": \"4143356c3c51831300789e4fdf795d83716dbab6\", \"source_identity_verified\": true, \"downloaded_bytes\": 8016467, \"C_free_bytes\": 5394644992}\n",
+      "stderr": "",
+      "seconds": 9.082,
+      "container_validation": "not_performed",
+      "audit": "dev_cache_scikit-learn__scikit-learn-11281_source_01.json",
+      "audit_sha256": "df50d527217f68a78d7ebf3162990e154ad58f33a7525d4859057352fe69d630",
+      "source_identity_verified": true,
+      "git_object_files": [
+        {
+          "path": ".git/objects/pack/pack-097b9438b954eb4a6b280f343347a9b4789da195.idx",
+          "bytes": 35204,
+          "sha256": "3a5cfba1cbec037470ce285bf5263b6f7db1e5d3aa6f9637eacba835aa851561"
+        },
+        {
+          "path": ".git/objects/pack/pack-097b9438b954eb4a6b280f343347a9b4789da195.pack",
+          "bytes": 6325178,
+          "sha256": "f297d048199e2ec5803a7e2d9d44cc231545770c8470ef85d69c829fce833c24"
+        },
+        {
+          "path": ".git/objects/pack/pack-097b9438b954eb4a6b280f343347a9b4789da195.rev",
+          "bytes": 4928,
+          "sha256": "f4c7efa4cb1e4bbb9b065afe39e422587332be3c481e3b1ab41362eea8e848a2"
+        }
+      ]
+    },
+    {
+      "instance_id": "scikit-learn__scikit-learn-13496",
+      "repo": "scikit-learn/scikit-learn",
+      "base_commit": "3aefc834dce72e850bff48689bea3c7dff5f3fad",
+      "directory": "D:\\CodexExperimentCache\\test20_20261111\\source\\scikit-learn__scikit-learn-13496\\testbed",
+      "exit_code": 0,
+      "stdout": "{\"repo\": \"scikit-learn/scikit-learn\", \"commit\": \"3aefc834dce72e850bff48689bea3c7dff5f3fad\", \"source_identity_verified\": true, \"downloaded_bytes\": 8486155, \"C_free_bytes\": 5394632704}\n",
+      "stderr": "",
+      "seconds": 8.957,
+      "container_validation": "not_performed",
+      "audit": "dev_cache_scikit-learn__scikit-learn-13496_source_01.json",
+      "audit_sha256": "8ac95a9786d5033ec9fbacd39ef207fb40197d0cca9102741f333a24b9172974",
+      "source_identity_verified": true,
+      "git_object_files": [
+        {
+          "path": ".git/objects/pack/pack-6569860318860d740750c6696413d8145ee6f5f7.idx",
+          "bytes": 37864,
+          "sha256": "9dbc627eb489fcc3440f28ce2df3b5142516fefa35d9c263562108121f98e25a"
+        },
+        {
+          "path": ".git/objects/pack/pack-6569860318860d740750c6696413d8145ee6f5f7.pack",
+          "bytes": 6794596,
+          "sha256": "348595938722ad99ebc65e6f2210c66ac79912ef6070c1b305c16b79ae62878e"
+        },
+        {
+          "path": ".git/objects/pack/pack-6569860318860d740750c6696413d8145ee6f5f7.rev",
+          "bytes": 5308,
+          "sha256": "386f65c1e47b183a7bb5304a8a0c50b03e0346a237ca6a5e8190f4e1c0894d65"
+        }
+      ]
+    },
+    {
+      "instance_id": "sphinx-doc__sphinx-8595",
+      "repo": "sphinx-doc/sphinx",
+      "base_commit": "b19bce971e82f2497d67fdacdeca8db08ae0ba56",
+      "directory": "D:\\CodexExperimentCache\\test20_20261111\\source\\sphinx-doc__sphinx-8595\\testbed",
+      "exit_code": 0,
+      "stdout": "{\"repo\": \"sphinx-doc/sphinx\", \"commit\": \"b19bce971e82f2497d67fdacdeca8db08ae0ba56\", \"source_identity_verified\": true, \"downloaded_bytes\": 4618535, \"C_free_bytes\": 5394550784}\n",
+      "stderr": "",
+      "seconds": 7.857,
+      "container_validation": "not_performed",
+      "audit": "dev_cache_sphinx-doc__sphinx-8595_source_01.json",
+      "audit_sha256": "fd3b720e3f263623dbaae32bfc5f41535e072145e3f97fc40468c6fb0ba37171",
+      "source_identity_verified": true,
+      "git_object_files": [
+        {
+          "path": ".git/objects/pack/pack-d50d1cb641fdf9dab75f4e37d916891ea7be6131.idx",
+          "bytes": 49736,
+          "sha256": "e31b2c9fffa34a3fbb59dc2d428b2b42db5199c5675e1295dfa86f7500629c46"
+        },
+        {
+          "path": ".git/objects/pack/pack-d50d1cb641fdf9dab75f4e37d916891ea7be6131.pack",
+          "bytes": 4103507,
+          "sha256": "dcda36721fe04458a59e466fc96a207c8fd412996304ddced15a4d0ad5cae403"
+        },
+        {
+          "path": ".git/objects/pack/pack-d50d1cb641fdf9dab75f4e37d916891ea7be6131.rev",
+          "bytes": 7004,
+          "sha256": "f4c1221861eebf13598133d0d1f90ed75704bfd90d3b60b23e289a32395719fc"
+        }
+      ]
+    },
+    {
+      "instance_id": "sympy__sympy-13480",
+      "repo": "sympy/sympy",
+      "base_commit": "f57fe3f4b3f2cab225749e1b3b38ae1bf80b62f0",
+      "directory": "D:\\CodexExperimentCache\\test20_20261111\\source\\sympy__sympy-13480\\testbed",
+      "exit_code": 0,
+      "stdout": "{\"repo\": \"sympy/sympy\", \"commit\": \"f57fe3f4b3f2cab225749e1b3b38ae1bf80b62f0\", \"source_identity_verified\": true, \"downloaded_bytes\": 7268782, \"C_free_bytes\": 5393944576}\n",
+      "stderr": "",
+      "seconds": 9.076,
+      "container_validation": "not_performed",
+      "audit": "dev_cache_sympy__sympy-13480_source_01.json",
+      "audit_sha256": "1b90813c207ad3bb10399622756f543a3057b9748a8b4df658f152471598030d",
+      "source_identity_verified": true,
+      "git_object_files": [
+        {
+          "path": ".git/objects/pack/pack-c1254e1d5485b85b129849be95649f363e2d51b5.idx",
+          "bytes": 46432,
+          "sha256": "9db830db9b82fe08743583cbff8b7667f72576fe8b56cc1633ccf420a0a274f4"
+        },
+        {
+          "path": ".git/objects/pack/pack-c1254e1d5485b85b129849be95649f363e2d51b5.pack",
+          "bytes": 5908551,
+          "sha256": "4f12137f4a3bfefacb2b277eee0ad3120e7f78625b6e93344570332eca6a9094"
+        },
+        {
+          "path": ".git/objects/pack/pack-c1254e1d5485b85b129849be95649f363e2d51b5.rev",
+          "bytes": 6532,
+          "sha256": "206893abbf0690b1599c3b0e27ea7aa449a11718123bc9e586f7debae930bc79"
+        }
+      ]
+    },
+    {
+      "instance_id": "sympy__sympy-16503",
+      "repo": "sympy/sympy",
+      "base_commit": "a7e6f093c98a3c4783848a19fce646e32b6e0161",
+      "directory": "D:\\CodexExperimentCache\\test20_20261111\\source\\sympy__sympy-16503\\testbed",
+      "exit_code": 0,
+      "stdout": "{\"repo\": \"sympy/sympy\", \"commit\": \"a7e6f093c98a3c4783848a19fce646e32b6e0161\", \"source_identity_verified\": true, \"downloaded_bytes\": 8245009, \"C_free_bytes\": 5393866752}\n",
+      "stderr": "",
+      "seconds": 9.434,
+      "container_validation": "not_performed",
+      "audit": "dev_cache_sympy__sympy-16503_source_01.json",
+      "audit_sha256": "4cc4501b13904ca06214650dc04c3294ec3571f42f99289d3485d89a18dffba7",
+      "source_identity_verified": true,
+      "git_object_files": [
+        {
+          "path": ".git/objects/pack/pack-059dc3548b43af253944efe1a9b320ba70a1816b.idx",
+          "bytes": 51024,
+          "sha256": "609d1c64fce05f1b72d946c5f17b150d50ae255c6308c7d8e284fffcb546c4fe"
+        },
+        {
+          "path": ".git/objects/pack/pack-059dc3548b43af253944efe1a9b320ba70a1816b.pack",
+          "bytes": 6883878,
+          "sha256": "38bf45390634963b8973b2308796bd51cdc316992ea915e0f3f0f8dd56af8cf2"
+        },
+        {
+          "path": ".git/objects/pack/pack-059dc3548b43af253944efe1a9b320ba70a1816b.rev",
+          "bytes": 7188,
+          "sha256": "cd18ae220a62ba2ed6ed7df3745de1b52478fe5651f64ab783cee28bb5d3d569"
+        }
+      ]
+    },
+    {
+      "instance_id": "sympy__sympy-23262",
+      "repo": "sympy/sympy",
+      "base_commit": "fdc707f73a65a429935c01532cd3970d3355eab6",
+      "directory": "D:\\CodexExperimentCache\\test20_20261111\\source\\sympy__sympy-23262\\testbed",
+      "exit_code": 0,
+      "stdout": "{\"repo\": \"sympy/sympy\", \"commit\": \"fdc707f73a65a429935c01532cd3970d3355eab6\", \"source_identity_verified\": true, \"downloaded_bytes\": 9485908, \"C_free_bytes\": 5393653760}\n",
+      "stderr": "",
+      "seconds": 9.069,
+      "container_validation": "not_performed",
+      "audit": "dev_cache_sympy__sympy-23262_source_01.json",
+      "audit_sha256": "3ae6cd2d8ba3f10a6c5e7b30e8c0f6bb6af40a681b4d2342618ffedd516ea710",
+      "source_identity_verified": true,
+      "git_object_files": [
+        {
+          "path": ".git/objects/pack/pack-e3ffa938734037220a0dfb626ddeb1c2e7c042f1.idx",
+          "bytes": 60488,
+          "sha256": "8ffb56649e7ef2873e1266315d33552c21c4ceaa8d77a568b4a26e08587ae015"
+        },
+        {
+          "path": ".git/objects/pack/pack-e3ffa938734037220a0dfb626ddeb1c2e7c042f1.pack",
+          "bytes": 8124737,
+          "sha256": "3c503557de92ee7eeefd4aa424e1a9dbef8efeb15bb5052f75fa2acad252ecc7"
+        },
+        {
+          "path": ".git/objects/pack/pack-e3ffa938734037220a0dfb626ddeb1c2e7c042f1.rev",
+          "bytes": 8540,
+          "sha256": "a9a6cae1de70a8d18f6f5edfa6858e7bed9b36b1403771ffac8f4d17f01e12c8"
+        }
+      ]
+    }
+  ],
+  "source_instance_separation": "independent shallow repositories; one specified public base commit each",
+  "source_or_test_assertions_modified": false,
+  "model_calls": 0,
+  "project_dotenv_read": false,
+  "hidden_fields_read": false,
+  "docker_containers_started": 0,
+  "docker_images_built": 0,
+  "docker_data_moved": false,
+  "script_sha256": "1f200d55f61265b5d34d5777246bfd1fe3a31c13aca5be4cf637cbd261eb648f",
+  "fetch_helper_sha256": "03d69627b784a8622bbaff13729476f48af93ab1f3961211707107204dc348ec",
+  "git_bridge_sha256": "d938bb79de1ff382801f77e0750d1b5c3760e25089d34bc4b9fd632ea7599196",
+  "C_free_bytes": 5393649664,
+  "D_free_bytes": 104726523904,
+  "limitations": [
+    "Git cache identity is not environment/container acceptance.",
+    "No test outcome or evaluation field was used to prepare or replace an instance.",
+    "All formal downloading/building must finish before formal generation starts."
+  ]
+}

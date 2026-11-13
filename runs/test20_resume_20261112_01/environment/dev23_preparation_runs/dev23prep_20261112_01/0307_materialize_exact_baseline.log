@@ -1,0 +1,1 @@
+HEAD is now at ce5cbce Always treat __class_getitem__ as a classmethod (#1266)

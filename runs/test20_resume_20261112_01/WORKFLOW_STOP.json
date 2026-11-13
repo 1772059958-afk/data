@@ -1,0 +1,9 @@
+{
+  "reason": "authorized_single_run_completed_no_automatic_reexecution",
+  "is_interruption_or_api_failure": false,
+  "all100_predictions_and_five_independent_reports_completed": true,
+  "new_requests_require_new_explicit_authorization": true,
+  "inactive_config": "configs/test20_inactive_20261112_02.json",
+  "final_outcome": "runs/test20_resume_20261112_02/final_outcome.json",
+  "at": "2026-11-12T05:31:23.706019+00:00"
+}

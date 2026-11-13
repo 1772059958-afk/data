@@ -1,0 +1,979 @@
+{
+  "kind": "offline_preparation_plan",
+  "execute": false,
+  "designated_dev_total": 23,
+  "selected": [
+    "marshmallow-code__marshmallow-1343",
+    "marshmallow-code__marshmallow-1359",
+    "pvlib__pvlib-python-1072",
+    "pvlib__pvlib-python-1154",
+    "pvlib__pvlib-python-1606",
+    "pvlib__pvlib-python-1707",
+    "pvlib__pvlib-python-1854",
+    "pydicom__pydicom-1139",
+    "pydicom__pydicom-1256",
+    "pydicom__pydicom-1413",
+    "pydicom__pydicom-1694",
+    "pydicom__pydicom-901",
+    "pylint-dev__astroid-1196",
+    "pylint-dev__astroid-1268",
+    "pylint-dev__astroid-1333",
+    "pylint-dev__astroid-1866",
+    "pylint-dev__astroid-1978",
+    "pyvista__pyvista-4315",
+    "sqlfluff__sqlfluff-1517",
+    "sqlfluff__sqlfluff-1625",
+    "sqlfluff__sqlfluff-1733",
+    "sqlfluff__sqlfluff-1763",
+    "sqlfluff__sqlfluff-2419"
+  ],
+  "profiles": {
+    "pydicom": {
+      "parent_image": "sha256:bd5edf8694cde12aaf99beb18b3935b15e076e81ac7e52aef46b1ca3d9071428"
+    },
+    "pvlib_initial": {
+      "parent_image": "sha256:6bddca9c6360684b088cba4a502969e84c3a2f125550983e48e38e2e252b660c"
+    },
+    "astroid_new": {
+      "parent_image": "sha256:d12c436e7986e6e244c897643c9c7f3eaf26d0ee3b363cfea46a0cba03322895"
+    },
+    "pyvista_corrected": {
+      "parent_image": "sha256:e731651d0a515514b18d73156752957fc4ca63bffd0957c14a3e9fcb0af3dd71"
+    },
+    "astroid_legacy": {
+      "parent_image": "sha256:bd5edf8694cde12aaf99beb18b3935b15e076e81ac7e52aef46b1ca3d9071428",
+      "lock": {
+        "path": "D:\\CodexExperimentCache\\test20_20261111\\dependency_wheels\\astroid_legacy.additions.lock.txt",
+        "sha256": "60dbdea7164b83ea9bae044c539e9e744a5d1545405447e01d7cf06212a75e2d"
+      },
+      "wheels": [
+        {
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\dependency_wheels\\wrapt-1.13.3-cp39-cp39-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_12_x86_64.manylinux2010_x86_64.whl",
+          "sha256": "25b1b1d5df495d82be1c9d2fad408f7ce5ca8a38085e2da41bb63c914baadff7"
+        },
+        {
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\dependency_wheels\\lazy_object_proxy-1.10.0-cp39-cp39-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+          "sha256": "18dd842b49456aaa9a7cf535b04ca4571a302ff72ed8740d06b5adcd41fe0757"
+        }
+      ]
+    },
+    "marshmallow_tests": {
+      "parent_image": "sha256:bd5edf8694cde12aaf99beb18b3935b15e076e81ac7e52aef46b1ca3d9071428",
+      "lock": {
+        "path": "D:\\CodexExperimentCache\\test20_20261111\\dependency_wheels\\marshmallow_tests.additions.lock.txt",
+        "sha256": "aa040650bac0bbd7ad897526f34f875a0c79dfeee32336354845d7d0bfb53bfe"
+      },
+      "wheels": [
+        {
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\dependency_wheels\\simplejson-3.19.3-cp39-cp39-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+          "sha256": "eed8cd98a7b24861da9d3d937f5fbfb6657350c547528a117297fe49e3960667"
+        }
+      ]
+    },
+    "sqlfluff": {
+      "parent_image": "sha256:bd5edf8694cde12aaf99beb18b3935b15e076e81ac7e52aef46b1ca3d9071428",
+      "lock": {
+        "path": "D:\\CodexExperimentCache\\test20_20261111\\dependency_wheels\\sqlfluff_06_08_candidate_complete_additions.lock.txt",
+        "sha256": "31c647909aac9f61995c8fcd8f3ae8881e6d653fb37af834b5d0b5ffadd4349c"
+      },
+      "wheels": [
+        {
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\dependency_wheels\\appdirs-1.4.4-py2.py3-none-any.whl",
+          "sha256": "a841dacd6b99318a741b166adb07e19ee71a274450e68237b4650ca1055ab128"
+        },
+        {
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\dependency_wheels\\cached_property-1.5.2-py2.py3-none-any.whl",
+          "sha256": "df4f613cf7ad9a588cc381aaf4a512d26265ecebd5eb9e1ba12f1319eb85a6a0"
+        },
+        {
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\dependency_wheels\\chardet-4.0.0-py2.py3-none-any.whl",
+          "sha256": "f864054d66fd9118f2e67044ac8981a54775ec5b67aed0441892edb553d21da5"
+        },
+        {
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\dependency_wheels\\click-8.0.4-py3-none-any.whl",
+          "sha256": "6a7a62563bbfabfda3a38f3023a1db4a35978c0abd76f6c9605ecd6554d6d9b1"
+        },
+        {
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\dependency_wheels\\colorama-0.4.6-py2.py3-none-any.whl",
+          "sha256": "4f1d9991f5acc0ca119f9d443620b77f9d6b33703e51011c16baf57afb285fc6"
+        },
+        {
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\dependency_wheels\\configparser-5.3.0-py3-none-any.whl",
+          "sha256": "b065779fd93c6bf4cee42202fa4351b4bb842e96a3fb469440e484517a49b9fa"
+        },
+        {
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\dependency_wheels\\diff_cover-5.2.0-py3-none-any.whl",
+          "sha256": "c080a6364602f2a4531742ae20169ccc2ee5ceacf37e5ac312a7ecc5445df0ec"
+        },
+        {
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\dependency_wheels\\Jinja2-3.0.3-py3-none-any.whl",
+          "sha256": "077ce6014f7b40d03b47d1f1ca4b0fc8328a692bd284016f806ed0eaca390ad8"
+        },
+        {
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\dependency_wheels\\jinja2_pluralize-0.3.0-py2.py3-none-any.whl",
+          "sha256": "4fec874a591014774d4c66cb7f65314390731bfc57db4c27119db61aa93b2bc4"
+        },
+        {
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\dependency_wheels\\MarkupSafe-2.1.5-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+          "sha256": "17b950fccb810b3293638215058e432159d2b71005c74371d784862b7e4683f3"
+        },
+        {
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\dependency_wheels\\oyaml-1.0-py2.py3-none-any.whl",
+          "sha256": "3a378747b7fb2425533d1ce41962d6921cda075d46bb480a158d45242d156323"
+        },
+        {
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\dependency_wheels\\pathspec-0.9.0-py2.py3-none-any.whl",
+          "sha256": "7d15c4ddb0b5c802d161efc417ec1a2558ea2653c2e8ad9c19098201dc1c993a"
+        },
+        {
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\dependency_wheels\\toml-0.10.2-py2.py3-none-any.whl",
+          "sha256": "806143ae5bfb6a3c6e736a764057db0e6a0e05e338b5630894a5f779cabb4f9b"
+        },
+        {
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\dependency_wheels\\tblib-1.7.0-py2.py3-none-any.whl",
+          "sha256": "289fa7359e580950e7d9743eab36b0691f0310fce64dee7d9c31065b8f723e23"
+        },
+        {
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\dependency_wheels\\regex-2022.10.31-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+          "sha256": "e4f781ffedd17b0b834c8731b75cce2639d5a8afe961c1e58ee7f1f20b3af185"
+        },
+        {
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\dependency_wheels\\tqdm-4.64.1-py2.py3-none-any.whl",
+          "sha256": "6fee160d6ffcd1b1c68c65f14c829c22832bc401726335ce92c52d395944a6a1"
+        },
+        {
+          "path": "D:\\CodexExperimentCache\\test20_20261111\\dependency_wheels\\inflect-5.6.2-py3-none-any.whl",
+          "sha256": "b45d91a4a28a4e617ff1821117439b06eaa86e2a4573154af0149e9be6687238"
+        }
+      ]
+    }
+  },
+  "instances": [
+    {
+      "instance_id": "marshmallow-code__marshmallow-1343",
+      "base_commit": "2be2d83a1a9a6d3d9b85804f3ab545cecc409bb0",
+      "repo": "marshmallow-code/marshmallow",
+      "module": "marshmallow",
+      "source_directory": "D:\\CodexExperimentCache\\test20_20261111\\source\\marshmallow-code__marshmallow-1343\\testbed",
+      "dependency_profile": "marshmallow_tests",
+      "expected_files": [
+        {
+          "relative_path": "src/marshmallow/__init__.py",
+          "git_blob_sha1": "5c0b031c2962aba1137e38d566326a057e212226"
+        },
+        {
+          "relative_path": "tests/test_fields.py",
+          "git_blob_sha1": "6d253e7ef16a94be7391d87aecbabe5e92060150"
+        },
+        {
+          "relative_path": "tests/conftest.py",
+          "git_blob_sha1": "4732874fd702dc45e2f11a5bfc1532ef8d80895f"
+        },
+        {
+          "relative_path": "tests/base.py",
+          "git_blob_sha1": "d57ad310b47bf7d8b97b5f725be458b2927ad2b2"
+        }
+      ],
+      "public_smoke_command": "python -m pytest tests/test_fields.py -q --no-header -p no:cacheprovider",
+      "record_distribution_versions": [
+        "pytest",
+        "numpy",
+        "pandas",
+        "scipy",
+        "wrapt",
+        "lazy-object-proxy",
+        "simplejson",
+        "sqlfluff",
+        "Jinja2",
+        "click",
+        "nose"
+      ],
+      "selection_basis": "两个公开版本共有的字段行为测试；仅按仓库固定选择，未运行也未读取模型成绩。"
+    },
+    {
+      "instance_id": "marshmallow-code__marshmallow-1359",
+      "base_commit": "b40a0f4e33823e6d0f341f7e8684e359a99060d1",
+      "repo": "marshmallow-code/marshmallow",
+      "module": "marshmallow",
+      "source_directory": "D:\\CodexExperimentCache\\test20_20261111\\source\\marshmallow-code__marshmallow-1359\\testbed",
+      "dependency_profile": "marshmallow_tests",
+      "expected_files": [
+        {
+          "relative_path": "src/marshmallow/__init__.py",
+          "git_blob_sha1": "87af32351ffdf0bf3035e4a9084fb53add01d44a"
+        },
+        {
+          "relative_path": "tests/test_fields.py",
+          "git_blob_sha1": "b0a5a7777d6529105e4772762b48ff441d227e11"
+        },
+        {
+          "relative_path": "tests/conftest.py",
+          "git_blob_sha1": "5c3045c327f1cd97e3eec222c28fd7df1869f713"
+        },
+        {
+          "relative_path": "tests/base.py",
+          "git_blob_sha1": "b1661f3d50b2ced64ad1121a4b819dbfec4310c8"
+        }
+      ],
+      "public_smoke_command": "python -m pytest tests/test_fields.py -q --no-header -p no:cacheprovider",
+      "record_distribution_versions": [
+        "pytest",
+        "numpy",
+        "pandas",
+        "scipy",
+        "wrapt",
+        "lazy-object-proxy",
+        "simplejson",
+        "sqlfluff",
+        "Jinja2",
+        "click",
+        "nose"
+      ],
+      "selection_basis": "两个公开版本共有的字段行为测试；仅按仓库固定选择，未运行也未读取模型成绩。"
+    },
+    {
+      "instance_id": "pvlib__pvlib-python-1072",
+      "base_commit": "04a523fafbd61bc2e49420963b84ed8e2bd1b3cf",
+      "repo": "pvlib/pvlib-python",
+      "module": "pvlib",
+      "source_directory": "D:\\CodexExperimentCache\\test20_20261111\\source\\pvlib__pvlib-python-1072\\testbed",
+      "dependency_profile": "pvlib_initial",
+      "expected_files": [
+        {
+          "relative_path": "pvlib/__init__.py",
+          "git_blob_sha1": "c2d645d169951f763d5b60f69efc01efd8260d43"
+        },
+        {
+          "relative_path": "pvlib/tests/test_pvsystem.py",
+          "git_blob_sha1": "b9edf54fffd5febf484260c6fbf6d582876cfb3e"
+        },
+        {
+          "relative_path": "pvlib/tests/conftest.py",
+          "git_blob_sha1": "aa04af406df5c8d12295da9ce549b37d4ad40128"
+        }
+      ],
+      "public_smoke_command": "python -m pytest pvlib/tests/test_pvsystem.py -q --no-header -p no:cacheprovider",
+      "record_distribution_versions": [
+        "pytest",
+        "numpy",
+        "pandas",
+        "scipy",
+        "wrapt",
+        "lazy-object-proxy",
+        "simplejson",
+        "sqlfluff",
+        "Jinja2",
+        "click",
+        "nose"
+      ],
+      "selection_basis": "五个基线共有的公开 PVSystem 测试文件；1707已有同文件历史公开环境证据，但不外推到其他基线。"
+    },
+    {
+      "instance_id": "pvlib__pvlib-python-1154",
+      "base_commit": "0b8f24c265d76320067a5ee908a57d475cd1bb24",
+      "repo": "pvlib/pvlib-python",
+      "module": "pvlib",
+      "source_directory": "D:\\CodexExperimentCache\\test20_20261111\\source\\pvlib__pvlib-python-1154\\testbed",
+      "dependency_profile": "pvlib_initial",
+      "expected_files": [
+        {
+          "relative_path": "pvlib/__init__.py",
+          "git_blob_sha1": "ff6b375017a8add9c9a9b68593a8c22a60f2cecc"
+        },
+        {
+          "relative_path": "pvlib/tests/test_pvsystem.py",
+          "git_blob_sha1": "c1b2cd76d962ebd71b9e467f4a8a13c12ba07594"
+        },
+        {
+          "relative_path": "pvlib/tests/conftest.py",
+          "git_blob_sha1": "aa04af406df5c8d12295da9ce549b37d4ad40128"
+        }
+      ],
+      "public_smoke_command": "python -m pytest pvlib/tests/test_pvsystem.py -q --no-header -p no:cacheprovider",
+      "record_distribution_versions": [
+        "pytest",
+        "numpy",
+        "pandas",
+        "scipy",
+        "wrapt",
+        "lazy-object-proxy",
+        "simplejson",
+        "sqlfluff",
+        "Jinja2",
+        "click",
+        "nose"
+      ],
+      "selection_basis": "五个基线共有的公开 PVSystem 测试文件；1707已有同文件历史公开环境证据，但不外推到其他基线。"
+    },
+    {
+      "instance_id": "pvlib__pvlib-python-1606",
+      "base_commit": "c78b50f4337ecbe536a961336ca91a1176efc0e8",
+      "repo": "pvlib/pvlib-python",
+      "module": "pvlib",
+      "source_directory": "D:\\CodexExperimentCache\\test20_20261111\\source\\pvlib__pvlib-python-1606\\testbed",
+      "dependency_profile": "pvlib_initial",
+      "expected_files": [
+        {
+          "relative_path": "pvlib/__init__.py",
+          "git_blob_sha1": "ff6b375017a8add9c9a9b68593a8c22a60f2cecc"
+        },
+        {
+          "relative_path": "pvlib/tests/test_pvsystem.py",
+          "git_blob_sha1": "7fa013d0dc1f2befd3a659b9ad698d3cd8ad7c29"
+        },
+        {
+          "relative_path": "pvlib/tests/conftest.py",
+          "git_blob_sha1": "b3e9fcd5a1b6d86c08aaa47252f9e1b8cea0ea4f"
+        }
+      ],
+      "public_smoke_command": "python -m pytest pvlib/tests/test_pvsystem.py -q --no-header -p no:cacheprovider",
+      "record_distribution_versions": [
+        "pytest",
+        "numpy",
+        "pandas",
+        "scipy",
+        "wrapt",
+        "lazy-object-proxy",
+        "simplejson",
+        "sqlfluff",
+        "Jinja2",
+        "click",
+        "nose"
+      ],
+      "selection_basis": "五个基线共有的公开 PVSystem 测试文件；1707已有同文件历史公开环境证据，但不外推到其他基线。"
+    },
+    {
+      "instance_id": "pvlib__pvlib-python-1707",
+      "base_commit": "40e9e978c170bdde4eeee1547729417665dbc34c",
+      "repo": "pvlib/pvlib-python",
+      "module": "pvlib",
+      "source_directory": "D:\\CodexExperimentCache\\test20_20261111\\source\\pvlib__pvlib-python-1707\\testbed",
+      "dependency_profile": "pvlib_initial",
+      "expected_files": [
+        {
+          "relative_path": "pvlib/__init__.py",
+          "git_blob_sha1": "dfd5f1dc2ab42c2191460ee06764db6b1e58c204"
+        },
+        {
+          "relative_path": "pvlib/tests/test_pvsystem.py",
+          "git_blob_sha1": "d5dcfc1420ac2b0d406d5e3b9b7b2ff880deb460"
+        },
+        {
+          "relative_path": "pvlib/tests/conftest.py",
+          "git_blob_sha1": "b3e9fcd5a1b6d86c08aaa47252f9e1b8cea0ea4f"
+        }
+      ],
+      "public_smoke_command": "python -m pytest pvlib/tests/test_pvsystem.py -q --no-header -p no:cacheprovider",
+      "record_distribution_versions": [
+        "pytest",
+        "numpy",
+        "pandas",
+        "scipy",
+        "wrapt",
+        "lazy-object-proxy",
+        "simplejson",
+        "sqlfluff",
+        "Jinja2",
+        "click",
+        "nose"
+      ],
+      "selection_basis": "五个基线共有的公开 PVSystem 测试文件；1707已有同文件历史公开环境证据，但不外推到其他基线。",
+      "reusable_candidate_image": "sha256:6bddca9c6360684b088cba4a502969e84c3a2f125550983e48e38e2e252b660c"
+    },
+    {
+      "instance_id": "pvlib__pvlib-python-1854",
+      "base_commit": "27a3a07ebc84b11014d3753e4923902adf9a38c0",
+      "repo": "pvlib/pvlib-python",
+      "module": "pvlib",
+      "source_directory": "D:\\CodexExperimentCache\\test20_20261111\\source\\pvlib__pvlib-python-1854\\testbed",
+      "dependency_profile": "pvlib_initial",
+      "expected_files": [
+        {
+          "relative_path": "pvlib/__init__.py",
+          "git_blob_sha1": "54009506d24d780574de2f4e82d9431bf043fa94"
+        },
+        {
+          "relative_path": "pvlib/tests/test_pvsystem.py",
+          "git_blob_sha1": "b379dd41bce094953414a1d840d75a1a3debd8a7"
+        },
+        {
+          "relative_path": "pvlib/tests/conftest.py",
+          "git_blob_sha1": "3e1a22d03199b8aebbd938b21f1da6283b83a833"
+        }
+      ],
+      "public_smoke_command": "python -m pytest pvlib/tests/test_pvsystem.py -q --no-header -p no:cacheprovider",
+      "record_distribution_versions": [
+        "pytest",
+        "numpy",
+        "pandas",
+        "scipy",
+        "wrapt",
+        "lazy-object-proxy",
+        "simplejson",
+        "sqlfluff",
+        "Jinja2",
+        "click",
+        "nose"
+      ],
+      "selection_basis": "五个基线共有的公开 PVSystem 测试文件；1707已有同文件历史公开环境证据，但不外推到其他基线。"
+    },
+    {
+      "instance_id": "pydicom__pydicom-1139",
+      "base_commit": "b9fb05c177b685bf683f7f57b2d57374eb7d882d",
+      "repo": "pydicom/pydicom",
+      "module": "pydicom",
+      "source_directory": "D:\\CodexExperimentCache\\test20_20261111\\source\\pydicom__pydicom-1139\\testbed",
+      "dependency_profile": "pydicom",
+      "expected_files": [
+        {
+          "relative_path": "pydicom/__init__.py",
+          "git_blob_sha1": "d19f127dd917ea3d4e53cb8836e94eb1352c7c26"
+        },
+        {
+          "relative_path": "pydicom/tests/test_dataset.py",
+          "git_blob_sha1": "fc186273e8d7ecc2c482b71bea2391bd52cac4d0"
+        }
+      ],
+      "public_smoke_command": "python -m pytest pydicom/tests/test_dataset.py -q --no-header -p no:cacheprovider",
+      "record_distribution_versions": [
+        "pytest",
+        "numpy",
+        "pandas",
+        "scipy",
+        "wrapt",
+        "lazy-object-proxy",
+        "simplejson",
+        "sqlfluff",
+        "Jinja2",
+        "click",
+        "nose"
+      ],
+      "selection_basis": "五个基线均实际存在的 Dataset 公开测试；1.3也使用pydicom/tests路径。",
+      "reusable_candidate_image": "sha256:bd5edf8694cde12aaf99beb18b3935b15e076e81ac7e52aef46b1ca3d9071428"
+    },
+    {
+      "instance_id": "pydicom__pydicom-1256",
+      "base_commit": "49a3da4a3d9c24d7e8427a25048a1c7d5c4f7724",
+      "repo": "pydicom/pydicom",
+      "module": "pydicom",
+      "source_directory": "C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\work\\test20_environment_20261111\\pydicom__pydicom-1256\\testbed",
+      "dependency_profile": "pydicom",
+      "expected_files": [
+        {
+          "relative_path": "pydicom/__init__.py",
+          "git_blob_sha1": "a1066724497910279911a1787e418f7151f51488"
+        },
+        {
+          "relative_path": "pydicom/tests/test_dataset.py",
+          "git_blob_sha1": "5b2ffbd985a07ad157a6e078e937ab5248a88bc1"
+        }
+      ],
+      "public_smoke_command": "python -m pytest pydicom/tests/test_dataset.py -q --no-header -p no:cacheprovider",
+      "record_distribution_versions": [
+        "pytest",
+        "numpy",
+        "pandas",
+        "scipy",
+        "wrapt",
+        "lazy-object-proxy",
+        "simplejson",
+        "sqlfluff",
+        "Jinja2",
+        "click",
+        "nose"
+      ],
+      "selection_basis": "五个基线均实际存在的 Dataset 公开测试；1.3也使用pydicom/tests路径。",
+      "reusable_candidate_image": "sha256:2cc79f41af0bbff063e6a1372897b1e2620292a74d8781733b1ea21c9add9687"
+    },
+    {
+      "instance_id": "pydicom__pydicom-1413",
+      "base_commit": "f909c76e31f759246cec3708dadd173c5d6e84b1",
+      "repo": "pydicom/pydicom",
+      "module": "pydicom",
+      "source_directory": "D:\\CodexExperimentCache\\test20_20261111\\source\\pydicom__pydicom-1413\\testbed",
+      "dependency_profile": "pydicom",
+      "expected_files": [
+        {
+          "relative_path": "pydicom/__init__.py",
+          "git_blob_sha1": "f87f34ba5b024758ec82b72651a73b8cec2b50ec"
+        },
+        {
+          "relative_path": "pydicom/tests/test_dataset.py",
+          "git_blob_sha1": "b616e514f39f3c9706c89007f7cc3510be9bfefa"
+        }
+      ],
+      "public_smoke_command": "python -m pytest pydicom/tests/test_dataset.py -q --no-header -p no:cacheprovider",
+      "record_distribution_versions": [
+        "pytest",
+        "numpy",
+        "pandas",
+        "scipy",
+        "wrapt",
+        "lazy-object-proxy",
+        "simplejson",
+        "sqlfluff",
+        "Jinja2",
+        "click",
+        "nose"
+      ],
+      "selection_basis": "五个基线均实际存在的 Dataset 公开测试；1.3也使用pydicom/tests路径。"
+    },
+    {
+      "instance_id": "pydicom__pydicom-1694",
+      "base_commit": "f8cf45b6c121e5a4bf4a43f71aba3bc64af3db9c",
+      "repo": "pydicom/pydicom",
+      "module": "pydicom",
+      "source_directory": "D:\\CodexExperimentCache\\test20_20261111\\source\\pydicom__pydicom-1694\\testbed",
+      "dependency_profile": "pydicom",
+      "expected_files": [
+        {
+          "relative_path": "pydicom/__init__.py",
+          "git_blob_sha1": "f87f34ba5b024758ec82b72651a73b8cec2b50ec"
+        },
+        {
+          "relative_path": "pydicom/tests/test_dataset.py",
+          "git_blob_sha1": "c54341020f37b94b24777bd94d9c065bb5bf3116"
+        }
+      ],
+      "public_smoke_command": "python -m pytest pydicom/tests/test_dataset.py -q --no-header -p no:cacheprovider",
+      "record_distribution_versions": [
+        "pytest",
+        "numpy",
+        "pandas",
+        "scipy",
+        "wrapt",
+        "lazy-object-proxy",
+        "simplejson",
+        "sqlfluff",
+        "Jinja2",
+        "click",
+        "nose"
+      ],
+      "selection_basis": "五个基线均实际存在的 Dataset 公开测试；1.3也使用pydicom/tests路径。"
+    },
+    {
+      "instance_id": "pydicom__pydicom-901",
+      "base_commit": "3746878d8edf1cbda6fbcf35eec69f9ba79301ca",
+      "repo": "pydicom/pydicom",
+      "module": "pydicom",
+      "source_directory": "D:\\CodexExperimentCache\\test20_20261111\\source\\pydicom__pydicom-901\\testbed",
+      "dependency_profile": "pydicom",
+      "expected_files": [
+        {
+          "relative_path": "pydicom/__init__.py",
+          "git_blob_sha1": "e00e000d7812043cb3e2a99d1e59dee1f384bbc0"
+        },
+        {
+          "relative_path": "pydicom/tests/test_dataset.py",
+          "git_blob_sha1": "d01596639342b750ee6ac7dbef4cac4c390bdbbb"
+        }
+      ],
+      "public_smoke_command": "python -m pytest pydicom/tests/test_dataset.py -q --no-header -p no:cacheprovider",
+      "record_distribution_versions": [
+        "pytest",
+        "numpy",
+        "pandas",
+        "scipy",
+        "wrapt",
+        "lazy-object-proxy",
+        "simplejson",
+        "sqlfluff",
+        "Jinja2",
+        "click",
+        "nose"
+      ],
+      "selection_basis": "五个基线均实际存在的 Dataset 公开测试；1.3也使用pydicom/tests路径。"
+    },
+    {
+      "instance_id": "pylint-dev__astroid-1196",
+      "base_commit": "39c2a9805970ca57093d32bbaf0e6a63e05041d8",
+      "repo": "pylint-dev/astroid",
+      "module": "astroid",
+      "source_directory": "D:\\CodexExperimentCache\\test20_20261111\\source\\pylint-dev__astroid-1196\\testbed",
+      "dependency_profile": "astroid_new",
+      "expected_files": [
+        {
+          "relative_path": "astroid/__init__.py",
+          "git_blob_sha1": "41b8fffd1e8df311092ad4fbd6274f134b48ebd3"
+        },
+        {
+          "relative_path": "tests/unittest_builder.py",
+          "git_blob_sha1": "61ef1bba3a0465736d3b4cb603c6da4abb9aeb72"
+        }
+      ],
+      "public_smoke_command": "python -m pytest tests/unittest_builder.py -q --no-header -p no:cacheprovider",
+      "record_distribution_versions": [
+        "pytest",
+        "numpy",
+        "pandas",
+        "scipy",
+        "wrapt",
+        "lazy-object-proxy",
+        "simplejson",
+        "sqlfluff",
+        "Jinja2",
+        "click",
+        "nose"
+      ],
+      "selection_basis": "五个基线均实际存在的 builder 公开测试；测试文件名不是test_前缀，须显式传文件路径。"
+    },
+    {
+      "instance_id": "pylint-dev__astroid-1268",
+      "base_commit": "ce5cbce5ba11cdc2f8139ade66feea1e181a7944",
+      "repo": "pylint-dev/astroid",
+      "module": "astroid",
+      "source_directory": "D:\\CodexExperimentCache\\test20_20261111\\source\\pylint-dev__astroid-1268\\testbed",
+      "dependency_profile": "astroid_legacy",
+      "expected_files": [
+        {
+          "relative_path": "astroid/__init__.py",
+          "git_blob_sha1": "a16a281512389205719005d2482458069682aed9"
+        },
+        {
+          "relative_path": "tests/unittest_builder.py",
+          "git_blob_sha1": "11019e1ba08fe64af3314c68f14fb0d10b4923c6"
+        }
+      ],
+      "public_smoke_command": "python -m pytest tests/unittest_builder.py -q --no-header -p no:cacheprovider",
+      "record_distribution_versions": [
+        "pytest",
+        "numpy",
+        "pandas",
+        "scipy",
+        "wrapt",
+        "lazy-object-proxy",
+        "simplejson",
+        "sqlfluff",
+        "Jinja2",
+        "click",
+        "nose"
+      ],
+      "selection_basis": "五个基线均实际存在的 builder 公开测试；测试文件名不是test_前缀，须显式传文件路径。"
+    },
+    {
+      "instance_id": "pylint-dev__astroid-1333",
+      "base_commit": "d2a5b3c7b1e203fec3c7ca73c30eb1785d3d4d0a",
+      "repo": "pylint-dev/astroid",
+      "module": "astroid",
+      "source_directory": "D:\\CodexExperimentCache\\test20_20261111\\source\\pylint-dev__astroid-1333\\testbed",
+      "dependency_profile": "astroid_legacy",
+      "expected_files": [
+        {
+          "relative_path": "astroid/__init__.py",
+          "git_blob_sha1": "a16a281512389205719005d2482458069682aed9"
+        },
+        {
+          "relative_path": "tests/unittest_builder.py",
+          "git_blob_sha1": "eb7fbdc77fbbd48704e0d2e1e342ec73c66bb354"
+        }
+      ],
+      "public_smoke_command": "python -m pytest tests/unittest_builder.py -q --no-header -p no:cacheprovider",
+      "record_distribution_versions": [
+        "pytest",
+        "numpy",
+        "pandas",
+        "scipy",
+        "wrapt",
+        "lazy-object-proxy",
+        "simplejson",
+        "sqlfluff",
+        "Jinja2",
+        "click",
+        "nose"
+      ],
+      "selection_basis": "五个基线均实际存在的 builder 公开测试；测试文件名不是test_前缀，须显式传文件路径。"
+    },
+    {
+      "instance_id": "pylint-dev__astroid-1866",
+      "base_commit": "6cf238d089cf4b6753c94cfc089b4a47487711e5",
+      "repo": "pylint-dev/astroid",
+      "module": "astroid",
+      "source_directory": "C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\work\\test20_environment_20261111\\pylint-dev__astroid-1866\\testbed",
+      "dependency_profile": "astroid_new",
+      "expected_files": [
+        {
+          "relative_path": "astroid/__init__.py",
+          "git_blob_sha1": "41b8fffd1e8df311092ad4fbd6274f134b48ebd3"
+        },
+        {
+          "relative_path": "tests/unittest_builder.py",
+          "git_blob_sha1": "cc1cb28bfd1540f84bc984ed34f68686163847bc"
+        }
+      ],
+      "public_smoke_command": "python -m pytest tests/unittest_builder.py -q --no-header -p no:cacheprovider",
+      "record_distribution_versions": [
+        "pytest",
+        "numpy",
+        "pandas",
+        "scipy",
+        "wrapt",
+        "lazy-object-proxy",
+        "simplejson",
+        "sqlfluff",
+        "Jinja2",
+        "click",
+        "nose"
+      ],
+      "selection_basis": "五个基线均实际存在的 builder 公开测试；测试文件名不是test_前缀，须显式传文件路径。",
+      "reusable_candidate_image": "sha256:d12c436e7986e6e244c897643c9c7f3eaf26d0ee3b363cfea46a0cba03322895"
+    },
+    {
+      "instance_id": "pylint-dev__astroid-1978",
+      "base_commit": "0c9ab0fe56703fa83c73e514a1020d398d23fa7f",
+      "repo": "pylint-dev/astroid",
+      "module": "astroid",
+      "source_directory": "D:\\CodexExperimentCache\\test20_20261111\\source\\pylint-dev__astroid-1978\\testbed",
+      "dependency_profile": "astroid_new",
+      "expected_files": [
+        {
+          "relative_path": "astroid/__init__.py",
+          "git_blob_sha1": "605a8b48b2313c640dc325552558777faef525c4"
+        },
+        {
+          "relative_path": "tests/unittest_builder.py",
+          "git_blob_sha1": "cd1659668ad00cd4f005e67e87021a09a88e05a9"
+        }
+      ],
+      "public_smoke_command": "python -m pytest tests/unittest_builder.py -q --no-header -p no:cacheprovider",
+      "record_distribution_versions": [
+        "pytest",
+        "numpy",
+        "pandas",
+        "scipy",
+        "wrapt",
+        "lazy-object-proxy",
+        "simplejson",
+        "sqlfluff",
+        "Jinja2",
+        "click",
+        "nose"
+      ],
+      "selection_basis": "五个基线均实际存在的 builder 公开测试；测试文件名不是test_前缀，须显式传文件路径。"
+    },
+    {
+      "instance_id": "pyvista__pyvista-4315",
+      "base_commit": "db6ee8dd4a747b8864caae36c5d05883976a3ae5",
+      "repo": "pyvista/pyvista",
+      "module": "pyvista",
+      "source_directory": "C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\work\\test20_environment_20261111\\pyvista__pyvista-4315\\testbed",
+      "dependency_profile": "pyvista_corrected",
+      "expected_files": [
+        {
+          "relative_path": "pyvista/__init__.py",
+          "git_blob_sha1": "44a632601f1d37e1101794e67cde7032ad965538"
+        },
+        {
+          "relative_path": "tests/test_pyvista_ndarray.py",
+          "git_blob_sha1": "c11d95a9aeffa676eb70ae953a5ad2b4409a0ad6"
+        },
+        {
+          "relative_path": "tests/conftest.py",
+          "git_blob_sha1": "2eae0b99ffa426291c31e9429992bf057be3711a"
+        }
+      ],
+      "public_smoke_command": "PYVISTA_OFF_SCREEN=true MPLBACKEND=Agg python -m pytest tests/test_pyvista_ndarray.py tests/test_grid.py tests/test_demos.py tests/test_cells.py -q --no-header -p no:cacheprovider",
+      "record_distribution_versions": [
+        "pytest",
+        "numpy",
+        "pandas",
+        "scipy",
+        "wrapt",
+        "lazy-object-proxy",
+        "simplejson",
+        "sqlfluff",
+        "Jinja2",
+        "click",
+        "nose"
+      ],
+      "selection_basis": "已核对为公开非渲染数组测试；不能据此声称绘图或完整VTK环境通过。",
+      "reusable_candidate_image": "sha256:e731651d0a515514b18d73156752957fc4ca63bffd0957c14a3e9fcb0af3dd71"
+    },
+    {
+      "instance_id": "sqlfluff__sqlfluff-1517",
+      "base_commit": "304a197829f98e7425a46d872ada73176137e5ae",
+      "repo": "sqlfluff/sqlfluff",
+      "module": "sqlfluff",
+      "source_directory": "D:\\CodexExperimentCache\\test20_20261111\\source\\sqlfluff__sqlfluff-1517\\testbed",
+      "dependency_profile": "sqlfluff",
+      "expected_files": [
+        {
+          "relative_path": "src/sqlfluff/__init__.py",
+          "git_blob_sha1": "677a56fcc398927c71821796fe72059da350f2ad"
+        },
+        {
+          "relative_path": "test/core/config_test.py",
+          "git_blob_sha1": "087bfda469dd680de60ba362da0b58c4d7af0ad2"
+        },
+        {
+          "relative_path": "test/conftest.py",
+          "git_blob_sha1": "59be1b2bed4f5d35aee70f8ff5001868cb7cc181"
+        }
+      ],
+      "public_smoke_command": "python -m pytest test/core/config_test.py -q --no-header -p no:cacheprovider",
+      "record_distribution_versions": [
+        "pytest",
+        "numpy",
+        "pandas",
+        "scipy",
+        "wrapt",
+        "lazy-object-proxy",
+        "simplejson",
+        "sqlfluff",
+        "Jinja2",
+        "click",
+        "nose"
+      ],
+      "selection_basis": "0.6与0.8基线共有的配置公开测试；测试根为单数test，收集时仍需要完整公开fixtures。"
+    },
+    {
+      "instance_id": "sqlfluff__sqlfluff-1625",
+      "base_commit": "14e1a23a3166b9a645a16de96f694c77a5d4abb7",
+      "repo": "sqlfluff/sqlfluff",
+      "module": "sqlfluff",
+      "source_directory": "D:\\CodexExperimentCache\\test20_20261111\\source\\sqlfluff__sqlfluff-1625\\testbed",
+      "dependency_profile": "sqlfluff",
+      "expected_files": [
+        {
+          "relative_path": "src/sqlfluff/__init__.py",
+          "git_blob_sha1": "677a56fcc398927c71821796fe72059da350f2ad"
+        },
+        {
+          "relative_path": "test/core/config_test.py",
+          "git_blob_sha1": "369bdeaf323bb694e29ad0a20b80ca24f638fa39"
+        },
+        {
+          "relative_path": "test/conftest.py",
+          "git_blob_sha1": "080eaf3cebedfcf0ca6f60d9738cfaadd14dadf7"
+        }
+      ],
+      "public_smoke_command": "python -m pytest test/core/config_test.py -q --no-header -p no:cacheprovider",
+      "record_distribution_versions": [
+        "pytest",
+        "numpy",
+        "pandas",
+        "scipy",
+        "wrapt",
+        "lazy-object-proxy",
+        "simplejson",
+        "sqlfluff",
+        "Jinja2",
+        "click",
+        "nose"
+      ],
+      "selection_basis": "0.6与0.8基线共有的配置公开测试；测试根为单数test，收集时仍需要完整公开fixtures。"
+    },
+    {
+      "instance_id": "sqlfluff__sqlfluff-1733",
+      "base_commit": "a1579a16b1d8913d9d7c7d12add374a290bcc78c",
+      "repo": "sqlfluff/sqlfluff",
+      "module": "sqlfluff",
+      "source_directory": "D:\\CodexExperimentCache\\test20_20261111\\source\\sqlfluff__sqlfluff-1733\\testbed",
+      "dependency_profile": "sqlfluff",
+      "expected_files": [
+        {
+          "relative_path": "src/sqlfluff/__init__.py",
+          "git_blob_sha1": "677a56fcc398927c71821796fe72059da350f2ad"
+        },
+        {
+          "relative_path": "test/core/config_test.py",
+          "git_blob_sha1": "369bdeaf323bb694e29ad0a20b80ca24f638fa39"
+        },
+        {
+          "relative_path": "test/conftest.py",
+          "git_blob_sha1": "080eaf3cebedfcf0ca6f60d9738cfaadd14dadf7"
+        }
+      ],
+      "public_smoke_command": "python -m pytest test/core/config_test.py -q --no-header -p no:cacheprovider",
+      "record_distribution_versions": [
+        "pytest",
+        "numpy",
+        "pandas",
+        "scipy",
+        "wrapt",
+        "lazy-object-proxy",
+        "simplejson",
+        "sqlfluff",
+        "Jinja2",
+        "click",
+        "nose"
+      ],
+      "selection_basis": "0.6与0.8基线共有的配置公开测试；测试根为单数test，收集时仍需要完整公开fixtures。"
+    },
+    {
+      "instance_id": "sqlfluff__sqlfluff-1763",
+      "base_commit": "a10057635e5b2559293a676486f0b730981f037a",
+      "repo": "sqlfluff/sqlfluff",
+      "module": "sqlfluff",
+      "source_directory": "D:\\CodexExperimentCache\\test20_20261111\\source\\sqlfluff__sqlfluff-1763\\testbed",
+      "dependency_profile": "sqlfluff",
+      "expected_files": [
+        {
+          "relative_path": "src/sqlfluff/__init__.py",
+          "git_blob_sha1": "677a56fcc398927c71821796fe72059da350f2ad"
+        },
+        {
+          "relative_path": "test/core/config_test.py",
+          "git_blob_sha1": "369bdeaf323bb694e29ad0a20b80ca24f638fa39"
+        },
+        {
+          "relative_path": "test/conftest.py",
+          "git_blob_sha1": "080eaf3cebedfcf0ca6f60d9738cfaadd14dadf7"
+        }
+      ],
+      "public_smoke_command": "python -m pytest test/core/config_test.py -q --no-header -p no:cacheprovider",
+      "record_distribution_versions": [
+        "pytest",
+        "numpy",
+        "pandas",
+        "scipy",
+        "wrapt",
+        "lazy-object-proxy",
+        "simplejson",
+        "sqlfluff",
+        "Jinja2",
+        "click",
+        "nose"
+      ],
+      "selection_basis": "0.6与0.8基线共有的配置公开测试；测试根为单数test，收集时仍需要完整公开fixtures。"
+    },
+    {
+      "instance_id": "sqlfluff__sqlfluff-2419",
+      "base_commit": "f1dba0e1dd764ae72d67c3d5e1471cf14d3db030",
+      "repo": "sqlfluff/sqlfluff",
+      "module": "sqlfluff",
+      "source_directory": "D:\\CodexExperimentCache\\test20_20261111\\source\\sqlfluff__sqlfluff-2419\\testbed",
+      "dependency_profile": "sqlfluff",
+      "expected_files": [
+        {
+          "relative_path": "src/sqlfluff/__init__.py",
+          "git_blob_sha1": "970e9d73210e34e1c4b628598951363452ea44d4"
+        },
+        {
+          "relative_path": "test/core/config_test.py",
+          "git_blob_sha1": "e1a72343fa2442ab9446a9e7401f46ce258501ae"
+        },
+        {
+          "relative_path": "test/conftest.py",
+          "git_blob_sha1": "46e6d2d1e6dd99ea19faa2023b853e940898d35f"
+        }
+      ],
+      "public_smoke_command": "python -m pytest test/core/config_test.py -q --no-header -p no:cacheprovider",
+      "record_distribution_versions": [
+        "pytest",
+        "numpy",
+        "pandas",
+        "scipy",
+        "wrapt",
+        "lazy-object-proxy",
+        "simplejson",
+        "sqlfluff",
+        "Jinja2",
+        "click",
+        "nose"
+      ],
+      "selection_basis": "0.6与0.8基线共有的配置公开测试；测试根为单数test，收集时仍需要完整公开fixtures。"
+    }
+  ],
+  "docker_operations": 0,
+  "model_calls": 0
+}

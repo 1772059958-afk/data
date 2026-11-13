@@ -1,0 +1,13 @@
+============================= test session starts ==============================
+collected 76 items
+
+tests/test_fields.py ................................................... [ 67%]
+.........................                                                [100%]
+
+=============================== warnings summary ===============================
+src/marshmallow/__init__.py:17
+  /testbed/src/marshmallow/__init__.py:17: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+    __version_info__ = tuple(LooseVersion(__version__).version)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+======================== 76 passed, 1 warning in 0.15s =========================

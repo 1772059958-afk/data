@@ -1,0 +1,13 @@
+--- a/sympy/printing/pretty/pretty.py
++++ b/sympy/printing/pretty/pretty.py
+@@ -597,8 +597,8 @@ class PrettyPrinter(Printer):
+ 
+             if first:
+                 # change F baseline so it centers on the sign
+-                prettyF.baseline -= d - (prettyF.height()//2 -
+-                                         prettyF.baseline) - adjustment
++                prettyF.baseline = (prettySign.baseline -
++                                    (max_upper + sign_height//2))
+                 first = False
+ 
+             # put padding to the right

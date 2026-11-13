@@ -1,0 +1,14 @@
+{
+  "python": "3.6.13",
+  "packages": {
+    "pytest": "6.2.4",
+    "pluggy": "0.13.1",
+    "py": "1.11.0",
+    "attrs": "21.4.0",
+    "more-itertools": "8.12.0",
+    "atomicwrites": null,
+    "setuptools": "58.0.4",
+    "numpy": "1.19.2",
+    "scipy": "1.5.2"
+  }
+}

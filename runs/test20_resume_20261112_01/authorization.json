@@ -1,0 +1,13 @@
+{
+  "kind": "explicit_user_resume",
+  "date": "2026-11-12",
+  "user_instruction": "继续把dev和正式实验一起做完。遇到需要询问用户或者api token耗尽或者usage额度耗尽等断点不询问用户，而是保存现场更新文档，确认无误后关机",
+  "scope": "complete dev calibration and preregistered test20 A-E once plus independent scoring",
+  "new_model_ceiling_cny": 100,
+  "shared_ledger": "runs/test20_execution_20261111/batch_ledger.json",
+  "starting_estimated_cny": 0.55175828,
+  "fingerprint_protocol_unchanged": true,
+  "no_questions_on_blocker": true,
+  "on_blocker": "stop, preserve/account, update handoff, verify, shut down",
+  "old_evidence_unchanged": true
+}

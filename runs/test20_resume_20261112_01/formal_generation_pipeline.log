@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "C:\Users\remil\Desktop\3yr\����\proj\runs\test20_resume_20261112_01\run_frozen_formal.py", line 88, in <module>
+    try:main()
+        ~~~~^^
+  File "C:\Users\remil\Desktop\3yr\����\proj\runs\test20_resume_20261112_01\run_frozen_formal.py", line 62, in main
+    raise RuntimeError('formal arm stopped; inspect preserved matrix: '+tag)
+RuntimeError: formal arm stopped; inspect preserved matrix: test20_B_20261112_01

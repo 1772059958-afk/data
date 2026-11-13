@@ -1,0 +1,59 @@
+{
+  "at_local": "2026-11-13T14:47:01",
+  "status": "completed",
+  "final_path": "docs\\deliverables\\结题汇报_深入分析版_20261113_定稿.pptx",
+  "sha256": "4e78fdb55408554d17e84619f45fc19fdbb3cfca66253123b0d3d53ff5846155",
+  "slides": 21,
+  "visual_review": "All 21 exported slides inspected individually; final revision slide 10 reinspected and other 20 PNG hashes unchanged.",
+  "source_inputs_unchanged": true,
+  "formal_prediction_seal_verified": true,
+  "ledger_sha256": "339bf28d4e5ee0153083d983003db05ef0ab7f77569cc78ac6731816949b6105",
+  "original_assets": {
+    "experiments": {
+      "baseline_commit": "3759265",
+      "protected_total": 93,
+      "verified": 93,
+      "missing": [],
+      "changed": [],
+      "invalid": [],
+      "ok": true
+    },
+    "archive": {
+      "archived_total": 131,
+      "missing": [],
+      "changed": [],
+      "invalid": [],
+      "ok": true
+    }
+  },
+  "native_tables_and_charts": "validated by validation_receipt_final.json",
+  "user_deferred_followups": [
+    "cleanup",
+    "commit",
+    "push",
+    "shutdown"
+  ],
+  "new_model_requests": 0,
+  "source_files": [
+    {
+      "path": "docs\\deliverables\\结题汇报_20261113_source\\build_deck.mjs",
+      "sha256": "4e836a10471c7944732e9213c1cd295fe42240ca1fc5d2f3e5064df69ef5d87f"
+    },
+    {
+      "path": "docs\\deliverables\\结题汇报_20261113_source\\README.md",
+      "sha256": "0d062077a599f8f971b7bd60cd462fe54c37778bbbada8cd5d3bc25609feef81"
+    },
+    {
+      "path": "docs\\deliverables\\结题汇报_20261113_source\\render_final.mjs",
+      "sha256": "e1011cfbad26fa1c737766c1099d6896986fb9e6f4aaa4817e5efdb68c174a23"
+    },
+    {
+      "path": "docs\\deliverables\\结题汇报_20261113_source\\verify_delivery.py",
+      "sha256": "c5526f4a810b7b3d7be02f46351dd89ea5892225b9c3addf48dfd4d159e2302e"
+    },
+    {
+      "path": "docs\\deliverables\\结题汇报_20261113_source\\讲稿与来源.md",
+      "sha256": "5dfab05fd66a82b1aa31718268b773599b87369f26340089c093690be426dd4c"
+    }
+  ]
+}

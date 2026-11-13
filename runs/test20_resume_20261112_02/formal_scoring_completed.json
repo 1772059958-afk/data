@@ -1,0 +1,49 @@
+{
+  "reports": [
+    {
+      "path": "runs\\test20_A_20261112_01\\scoring\\A\\test20_A_20261112_01-A.test20_A_20261112_01.json",
+      "sha256": "f35b3c6970ebd15f6a7f4c38605c7b443724cc9b91c27de73727c144b6ab9def"
+    },
+    {
+      "path": "runs\\test20_B_20261112_02\\scoring\\B\\test20_B_20261112_02-B.test20_B_20261112_02.json",
+      "sha256": "ec09e2287358895afdcc786cbe4e6bc8626df94f108b9db083844ef10f7cc4b1"
+    },
+    {
+      "path": "runs\\test20_C_20261112_01\\scoring\\C\\test20_C_20261112_01-C.test20_C_20261112_01.json",
+      "sha256": "f0cd47be40ef26f1432b9043fb335ca5350445c621eac77098321b1d4c5ff6e9"
+    },
+    {
+      "path": "runs\\test20_D_20261112_01\\scoring\\D\\test20_D_20261112_01-D.test20_D_20261112_01.json",
+      "sha256": "125b7861e956509daefc1f6e1e1d99495f961ac1ecf8d39b58943f4519327a5c"
+    },
+    {
+      "path": "runs\\test20_E_20261112_01\\scoring\\E\\test20_E_20261112_01-E.test20_E_20261112_01.json",
+      "sha256": "42178bfe185fa8886210ac9ae4d65ee8658d5ca4f9a9b8d5b93b7745326651eb"
+    }
+  ],
+  "evaluated_records": [
+    {
+      "path": "runs\\test20_A_20261112_01\\evaluated_records.jsonl",
+      "sha256": "37195992f9b9ccced247076dab1ffc21dafeac379daa911a6943effd53a3b136"
+    },
+    {
+      "path": "runs\\test20_B_20261112_02\\evaluated_records.jsonl",
+      "sha256": "ceffb80abf362859523c5ab2223bf6e5723243eefafd964fb7e354308e908b87"
+    },
+    {
+      "path": "runs\\test20_C_20261112_01\\evaluated_records.jsonl",
+      "sha256": "4b42f40a5bcf8c0c66751a17ae37886d60d8dd16814e8266d479da71b0cf5d69"
+    },
+    {
+      "path": "runs\\test20_D_20261112_01\\evaluated_records.jsonl",
+      "sha256": "75c3409eaeb3920f2d038f211b4f5a15e2b060b153b20cd16cf2ac42a965a995"
+    },
+    {
+      "path": "runs\\test20_E_20261112_01\\evaluated_records.jsonl",
+      "sha256": "9ac5e76099063f8486467744289c9b29d6d86487964dd695082a9a79ec4d7131"
+    }
+  ],
+  "summary_sha256": "c5f34c1cf767af34d6a4a5d0367203b15a553bd282c3d435a02c78a278e25d42",
+  "model_calls": 0,
+  "ended_at": "2026-11-12T05:23:01.660726+00:00"
+}

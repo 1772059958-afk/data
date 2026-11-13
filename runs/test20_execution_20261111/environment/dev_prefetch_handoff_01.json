@@ -1,0 +1,60 @@
+{
+  "kind": "dev_public_cache_handoff",
+  "date": "2026-11-11",
+  "source_cache": "D:/CodexExperimentCache/test20_20261111/source",
+  "remaining_dev_sources_verified": 20,
+  "screen_sources_previously_verified": 3,
+  "dependency_cache": "D:/CodexExperimentCache/test20_20261111/dependency_wheels",
+  "dependency_wheels_verified": 22,
+  "dependency_wheel_bytes": 14103128,
+  "inputs": [
+    {
+      "path": "dev_source_cache_01.json",
+      "sha256": "edf32ad0cb3e73efbb0162f2f1f1d9ebe90333b17b9a8f86faeca548c4a89a27"
+    },
+    {
+      "path": "dev_dependency_prefetch_01.json",
+      "sha256": "7150275fa2917f6546bc0926516adddf9280033d69ef59f8a37f9e42153fa313"
+    },
+    {
+      "path": "dev_dependency_prefetch_02.json",
+      "sha256": "d67364c4bce84b4b25b8a8005c85081087a480f49024b1c0180daeed63dad9f6"
+    },
+    {
+      "path": "screen_images.json",
+      "sha256": "c732fc9f0ff691d6856630cd64764943dbfc1e9582ae7e8e37ef747d5d466f88"
+    },
+    {
+      "path": "screen_validation_summary.json",
+      "sha256": "f1981cf7f7c665946bf6f3e2e76004aa01c9e441c56510b10c4d29b34ca85c8b"
+    },
+    {
+      "path": "full_dev_preparation_plan.json",
+      "sha256": "1cb091ea3057983c90697acafbd3144bc2e4422118f9613c12afa5dc2e1554eb"
+    }
+  ],
+  "candidate_locks": {
+    "astroid_legacy": "astroid_legacy.additions.lock.txt",
+    "marshmallow_tests": "marshmallow_tests.additions.lock.txt",
+    "pvlib_legacy": "pvlib_legacy_candidate.additions.lock.txt",
+    "sqlfluff_06_08": "sqlfluff_06_08_candidate_complete_additions.lock.txt"
+  },
+  "do_not_use_incomplete_lock": "sqlfluff_06_08_candidate.additions.lock.txt",
+  "notes": [
+    "These additions locks depend on the recorded parent image; not a standalone environment lock.",
+    "The SQLFluff exact public baseline identifies 0.6.8, not the stale 0.4.0 reference.",
+    "Astroid 2.9/2.10 need wrapt<1.14; the 1866 environment wrapt1.17.3 cannot be reused indiscriminately.",
+    "pandas1.5.3 is a cached compatibility candidate for legacy pvlib, not a validated setting.",
+    "Container acceptance exists only for the three prespecified screen cases.",
+    "Materialize .git in Linux with explicit line-ending/filemode/symlink settings and verify actual base/clean status before generation."
+  ],
+  "this_prefetch_stage": {
+    "model_calls": 0,
+    "project_dotenv_read": false,
+    "hidden_fields_read": false,
+    "docker_images_built": 0,
+    "docker_data_moved": false
+  },
+  "C_free_bytes": 5403439104,
+  "D_free_bytes": 105559400448
+}

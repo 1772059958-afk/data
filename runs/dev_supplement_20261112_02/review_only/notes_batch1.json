@@ -1,0 +1,44 @@
+{
+  "reviewer": "current coding agent; qualitative code review, not external human sign-off",
+  "cases": [
+    {
+      "instance_id": "astropy__astropy-14995",
+      "requirement": "Arithmetic must copy the existing mask when exactly one operand lacks a mask, without calling bitwise_or on None.",
+      "groups": [
+        {"arms": ["A", "C", "D", "E"], "assessment": "supports_requested_behavior", "reason": "The additional operand.mask-is-None branch returns a deep copy of self.mask before invoking handle_mask. Keeping operand-is-None preserves the old defensive path; masks on both sides still use the supplied operator.", "residual_risk": "Broadcasting and custom mask subclasses are covered only to the extent of existing independent tests."},
+        {"arms": ["B"], "assessment": "supports_requested_behavior_with_redundancy", "reason": "The inserted branch implements the same missing-mask copy behavior. The following old operand-is-None branch becomes unreachable, a maintenance redundancy rather than a demonstrated semantic defect.", "residual_risk": "Redundant elif should be cleaned in a future patch, not by altering the frozen submission."}
+      ]
+    },
+    {
+      "instance_id": "django__django-11910",
+      "requirement": "Renaming a primary-key field must preserve the correct relation identity when migration autodetection deconstructs to_field.",
+      "groups": [
+        {"arms": ["A", "D"], "assessment": "no_submission", "reason": "Empty output has no patch semantics to validate; retain the generation and empty-patch outcome."},
+        {"arms": ["B", "C", "E"], "assessment": "supports_requested_behavior", "reason": "All three nonempty variants reset remote_field.model as well as field_name within the existing renamed-field branch. This repairs the model/field pair used by ForeignKey.deconstruct rather than merely replacing a displayed name.", "residual_risk": "Cross-app and multi-column relations rely on the surrounding original autodetector logic; independent tests passed but are not exhaustive."}
+      ]
+    },
+    {
+      "instance_id": "django__django-12708",
+      "requirement": "Deleting index_together must distinguish its nonunique index from a unique_together constraint on the same columns.",
+      "groups": [
+        {"arms": ["A", "C", "D", "E"], "assessment": "supports_requested_behavior", "reason": "Adding unique=False to the index deletion filter selects the ordinary index and leaves the unique constraint intact. It matches the required distinction without changing index creation.", "residual_risk": "Backend-specific constraint introspection beyond the independently evaluated cases remains unproven."},
+        {"arms": ["B"], "assessment": "supports_requested_behavior_with_extra_change", "reason": "The index deletion fix is present. B additionally excludes primary keys when deleting unique_together constraints, touching an adjacent path not required by the reported index collision.", "residual_risk": "The additional primary-key filter is plausible but expands regression exposure; it should not be called validated for every database backend."}
+      ]
+    },
+    {
+      "instance_id": "django__django-13230",
+      "requirement": "Feed.get_feed must pass the dynamic item_comments value into feed.add_item.",
+      "groups": [
+        {"arms": ["A", "C", "D", "E"], "assessment": "supports_requested_behavior", "reason": "The patch forwards _get_dynamic_attr('item_comments', item) through the comments keyword at the existing add_item call; neighboring metadata is preserved.", "residual_risk": "Legacy callers returning comments again through item_extra_kwargs may encounter a duplicate keyword, a compatibility boundary also present in the reference design."},
+        {"arms": ["B"], "assessment": "supports_requested_behavior_with_extra_default", "reason": "B forwards the same dynamic value and adds a default item_comments method returning None. The default is consistent with an absent comments value, though it adds public surface beyond the minimal fix.", "residual_risk": "Subclass attribute dispatch and duplicate item_extra_kwargs comments deserve broader compatibility coverage."}
+      ]
+    },
+    {
+      "instance_id": "django__django-17087",
+      "requirement": "A nested class method used as a migration default must serialize with its enclosing class qualification.",
+      "groups": [
+        {"arms": ["A", "B", "C", "D", "E"], "assessment": "supports_requested_behavior", "reason": "Every variant replaces klass.__name__ with klass.__qualname__. Nested importable classes retain their parent chain, while top-level classes retain the same path. Function name and module import logic are unchanged.", "residual_risk": "Locally defined classes with <locals> remain outside the demonstrated importable-class use case."}
+      ]
+    }
+  ]
+}

@@ -1,0 +1,135 @@
+{
+  "kind": "verified_docker_desktop_ui_relocation",
+  "target": "D:\\DockerData\\swe-repair-20261111\\DockerDesktopWSL",
+  "ui_observed_path": "D:\\DockerData\\swe-repair-20261111\\DockerDesktopWSL",
+  "ui_unsaved_changes": 0,
+  "images_preserved": true,
+  "image_tag_rows": 9,
+  "images": [
+    {
+      "Containers": "0",
+      "CreatedAt": "2026-11-11 21:13:19 +0800 CST",
+      "CreatedSince": "57 minutes ago",
+      "Digest": "sha256:c3d02ef66da989070d532ea6993104f9d4b76e3d5f86fea85d7e4da1fba2e230",
+      "ID": "sha256:c3d02ef66da989070d532ea6993104f9d4b76e3d5f86fea85d7e4da1fba2e230",
+      "Repository": "prefix-env/pyvista-4315",
+      "SharedSize": "N/A",
+      "Size": "7.62GB",
+      "Tag": "base-db6ee8dd-20261111",
+      "UniqueSize": "N/A"
+    },
+    {
+      "Containers": "0",
+      "CreatedAt": "2026-11-11 20:25:35 +0800 CST",
+      "CreatedSince": "2 hours ago",
+      "Digest": "sha256:d12c436e7986e6e244c897643c9c7f3eaf26d0ee3b363cfea46a0cba03322895",
+      "ID": "sha256:d12c436e7986e6e244c897643c9c7f3eaf26d0ee3b363cfea46a0cba03322895",
+      "Repository": "prefix-env/astroid-1866",
+      "SharedSize": "N/A",
+      "Size": "6.37GB",
+      "Tag": "base-6cf238d0-20261111",
+      "UniqueSize": "N/A"
+    },
+    {
+      "Containers": "0",
+      "CreatedAt": "2026-11-11 20:22:14 +0800 CST",
+      "CreatedSince": "2 hours ago",
+      "Digest": "sha256:2cc79f41af0bbff063e6a1372897b1e2620292a74d8781733b1ea21c9add9687",
+      "ID": "sha256:2cc79f41af0bbff063e6a1372897b1e2620292a74d8781733b1ea21c9add9687",
+      "Repository": "prefix-env/pydicom-1256",
+      "SharedSize": "N/A",
+      "Size": "6.38GB",
+      "Tag": "base-49a3da4a-20261111",
+      "UniqueSize": "N/A"
+    },
+    {
+      "Containers": "0",
+      "CreatedAt": "2026-11-06 11:34:13 +0800 CST",
+      "CreatedSince": "5 days ago",
+      "Digest": "sha256:1f43c83b3d3c631d37af54a19828df269accd045a22c62c0aab5b2bfa713726f",
+      "ID": "sha256:1f43c83b3d3c631d37af54a19828df269accd045a22c62c0aab5b2bfa713726f",
+      "Repository": "swe-repair/scoring-controller",
+      "SharedSize": "N/A",
+      "Size": "6.47GB",
+      "Tag": "20261106-cli",
+      "UniqueSize": "N/A"
+    },
+    {
+      "Containers": "0",
+      "CreatedAt": "2026-11-06 11:13:01 +0800 CST",
+      "CreatedSince": "5 days ago",
+      "Digest": "sha256:bd5edf8694cde12aaf99beb18b3935b15e076e81ac7e52aef46b1ca3d9071428",
+      "ID": "sha256:bd5edf8694cde12aaf99beb18b3935b15e076e81ac7e52aef46b1ca3d9071428",
+      "Repository": "prefix-env/pydicom-1139",
+      "SharedSize": "N/A",
+      "Size": "6.36GB",
+      "Tag": "base-b9fb05c1-pytest7-20261106",
+      "UniqueSize": "N/A"
+    },
+    {
+      "Containers": "0",
+      "CreatedAt": "2026-11-06 11:02:32 +0800 CST",
+      "CreatedSince": "5 days ago",
+      "Digest": "sha256:123849a78746d803a2b646170562856056621673f02d9f4ab11c6f150b732aef",
+      "ID": "sha256:123849a78746d803a2b646170562856056621673f02d9f4ab11c6f150b732aef",
+      "Repository": "swe-repair/scoring-controller",
+      "SharedSize": "N/A",
+      "Size": "6.4GB",
+      "Tag": "20261106",
+      "UniqueSize": "N/A"
+    },
+    {
+      "Containers": "0",
+      "CreatedAt": "2026-11-06 10:50:05 +0800 CST",
+      "CreatedSince": "5 days ago",
+      "Digest": "sha256:ccf2918b7408c41e80c71bad3f9ee49138a971543dde0c59b0a33c5ce8396daa",
+      "ID": "sha256:ccf2918b7408c41e80c71bad3f9ee49138a971543dde0c59b0a33c5ce8396daa",
+      "Repository": "prefix-env/pydicom-1139",
+      "SharedSize": "N/A",
+      "Size": "6.36GB",
+      "Tag": "base-b9fb05c1-20261106",
+      "UniqueSize": "N/A"
+    },
+    {
+      "Containers": "0",
+      "CreatedAt": "2026-11-06 09:38:13 +0800 CST",
+      "CreatedSince": "5 days ago",
+      "Digest": "sha256:6bddca9c6360684b088cba4a502969e84c3a2f125550983e48e38e2e252b660c",
+      "ID": "sha256:6bddca9c6360684b088cba4a502969e84c3a2f125550983e48e38e2e252b660c",
+      "Repository": "prefix-env/pvlib-1707",
+      "SharedSize": "N/A",
+      "Size": "5.99GB",
+      "Tag": "base-40e9e978-20261106",
+      "UniqueSize": "N/A"
+    },
+    {
+      "Containers": "0",
+      "CreatedAt": "2025-05-07 07:11:45 +0800 CST",
+      "CreatedSince": "18 months ago",
+      "Digest": "sha256:3c103594eb39c0564cfd71f12ecca0d75a9a4a821f33c6e43b036d2271e75de7",
+      "ID": "sha256:3c103594eb39c0564cfd71f12ecca0d75a9a4a821f33c6e43b036d2271e75de7",
+      "Repository": "swebench/sweb.eval.x86_64.pvlib_1776_pvlib-python-1707",
+      "SharedSize": "N/A",
+      "Size": "5.89GB",
+      "Tag": "latest",
+      "UniqueSize": "N/A"
+    }
+  ],
+  "volumes_preserved": true,
+  "active_containers": [],
+  "relocated_vhdx": [
+    {
+      "path": "D:\\DockerData\\swe-repair-20261111\\DockerDesktopWSL\\disk\\docker_data.vhdx",
+      "bytes": 16726884352
+    },
+    {
+      "path": "D:\\DockerData\\swe-repair-20261111\\DockerDesktopWSL\\main\\ext4.vhdx",
+      "bytes": 100663296
+    }
+  ],
+  "original_data_vhdx_exists": false,
+  "backup_manifest": "offline_backup_verified.json",
+  "backup_preserved": true,
+  "C_free_bytes": 5967896576,
+  "D_free_bytes": 87898456064
+}

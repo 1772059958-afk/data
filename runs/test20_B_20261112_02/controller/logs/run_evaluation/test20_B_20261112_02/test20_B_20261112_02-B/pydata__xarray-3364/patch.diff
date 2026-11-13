@@ -1,0 +1,56 @@
+--- a/xarray/core/concat.py
++++ b/xarray/core/concat.py
+@@ -1,3 +1,4 @@
++import numpy as np
+ import pandas as pd
+ 
+ from . import dtypes, utils
+@@ -303,16 +304,17 @@ def _dataset_concat(
+     if variables_to_merge:
+         to_merge = {var: [] for var in variables_to_merge}
+ 
+-        for ds in datasets:
+-            absent_merge_vars = variables_to_merge - set(ds.variables)
+-            if absent_merge_vars:
+-                raise ValueError(
+-                    "variables %r are present in some datasets but not others. "
+-                    % absent_merge_vars
+-                )
+-
+-            for var in variables_to_merge:
+-                to_merge[var].append(ds.variables[var])
++        for var in variables_to_merge:
++            for ds in datasets:
++                if var in ds.variables:
++                    to_merge[var].append(ds.variables[var])
++                else:
++                    # fill in missing variables
++                    dims = tuple(d for d in ds.dims if d in dim_names)
++                    shape = tuple(ds.dims[d] for d in dims)
++                    to_merge[var].append(
++                        Variable(dims, np.full(shape, fill_value))
++                    )
+ 
+         for var in variables_to_merge:
+             result_vars[var] = unique_variable(
+@@ -321,6 +325,20 @@ def _dataset_concat(
+     else:
+         result_vars = {}
+     result_vars.update(dim_coords)
++
++    # fill in missing variables that need to be concatenated
++    for k in concat_over:
++        template = None
++        for ds in datasets:
++            if k in ds.variables:
++                template = ds.variables[k]
++                break
++        if template is None:
++            continue
++        for ds in datasets:
++            if k not in ds.variables:
++                shape = tuple(ds.dims.get(d, 1) for d in template.dims)
++                ds[k] = (template.dims, np.full(shape, fill_value))
+ 
+     # assign attrs and encoding from first dataset
+     result_attrs = datasets[0].attrs

@@ -1,0 +1,104 @@
+{
+  "kind": "sealed_generation_cost_audit_with_user_off_peak_amendment",
+  "arms": {
+    "A": {
+      "actual_new_requests": 128,
+      "actual_request_price_tiers": {
+        "off_peak": 128
+      },
+      "actual_new_generation_time_tier_estimate_cny": 4.39227512,
+      "actual_new_generation_uniform_off_peak_cny": 4.392275120000003,
+      "full_strategy_time_tier_estimate_cny": 4.39227512,
+      "full_strategy_uniform_off_peak_cny": 4.392275120000003,
+      "full_strategy_price_tiers": {
+        "off_peak": 128
+      },
+      "actual_finish_reasons": {
+        "stop": 90,
+        "length": 38
+      }
+    },
+    "B": {
+      "actual_new_requests": 116,
+      "actual_request_price_tiers": {
+        "off_peak": 116
+      },
+      "actual_new_generation_time_tier_estimate_cny": 0.43171951999999997,
+      "actual_new_generation_uniform_off_peak_cny": 0.4317195200000001,
+      "full_strategy_time_tier_estimate_cny": 0.43171951999999997,
+      "full_strategy_uniform_off_peak_cny": 0.4317195200000001,
+      "full_strategy_price_tiers": {
+        "off_peak": 116
+      },
+      "actual_finish_reasons": {
+        "tool_calls": 98,
+        "stop": 18
+      }
+    },
+    "C": {
+      "actual_new_requests": 57,
+      "actual_request_price_tiers": {
+        "off_peak": 57
+      },
+      "actual_new_generation_time_tier_estimate_cny": 0.43196416,
+      "actual_new_generation_uniform_off_peak_cny": 0.4319641600000001,
+      "full_strategy_time_tier_estimate_cny": 2.05192828,
+      "full_strategy_uniform_off_peak_cny": 2.05192828,
+      "full_strategy_price_tiers": {
+        "off_peak": 113
+      },
+      "actual_finish_reasons": {
+        "tool_calls": 52,
+        "stop": 4,
+        "length": 1
+      }
+    },
+    "D": {
+      "actual_new_requests": 66,
+      "actual_request_price_tiers": {
+        "off_peak": 66
+      },
+      "actual_new_generation_time_tier_estimate_cny": 1.25043322,
+      "actual_new_generation_uniform_off_peak_cny": 1.2504332200000001,
+      "full_strategy_time_tier_estimate_cny": 2.87039734,
+      "full_strategy_uniform_off_peak_cny": 2.870397340000001,
+      "full_strategy_price_tiers": {
+        "off_peak": 122
+      },
+      "actual_finish_reasons": {
+        "length": 7,
+        "stop": 23,
+        "tool_calls": 36
+      }
+    },
+    "E": {
+      "actual_new_requests": 67,
+      "actual_request_price_tiers": {
+        "off_peak": 13,
+        "peak": 54
+      },
+      "actual_new_generation_time_tier_estimate_cny": 3.71834734,
+      "actual_new_generation_uniform_off_peak_cny": 1.9469057800000003,
+      "full_strategy_time_tier_estimate_cny": 5.33831146,
+      "full_strategy_uniform_off_peak_cny": 3.5668699000000017,
+      "full_strategy_price_tiers": {
+        "off_peak": 69,
+        "peak": 54
+      },
+      "actual_finish_reasons": {
+        "tool_calls": 17,
+        "stop": 29,
+        "length": 21
+      }
+    }
+  },
+  "ledger_sha256": "02405b919d5907e08b19ebedd9fd18601fa4749c16d6c2212744bd74ccdd4669",
+  "cumulative_time_tier_estimate_cny": 17.86646022,
+  "ledger_records": 1008,
+  "pending": null,
+  "price_table_date": "2026-10-15",
+  "amendment_sha256": "cda1f29694eca5973399efc654574566f5b43b479a3da7b17af3821c8b89692b",
+  "all_recorded_request_costs_match_frozen_price_table": true,
+  "is_invoice_or_refund": false,
+  "at": "2026-11-12T01:43:44.229830+00:00"
+}

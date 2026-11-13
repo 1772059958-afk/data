@@ -1,0 +1,39 @@
+Processing /public-wheels/Pillow-9.5.0-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
+Processing /public-wheels/imageio-2.27.0-py3-none-any.whl
+Processing /public-wheels/matplotlib-3.7.1-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
+Processing /public-wheels/numpy-1.24.4-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
+Processing /public-wheels/pooch-1.7.0-py3-none-any.whl
+Processing /public-wheels/pytest-7.3.2-py3-none-any.whl
+Processing /public-wheels/pytest_cov-4.0.0-py3-none-any.whl
+Processing /public-wheels/pytest_pyvista-0.1.8-py2.py3-none-any.whl
+Processing /public-wheels/pytest_rerunfailures-12.0-py3-none-any.whl
+Processing /public-wheels/scooby-0.7.2-py3-none-any.whl
+Processing /public-wheels/vtk-9.2.6-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
+Installing collected packages: vtk, pytest-pyvista, scooby, pytest-rerunfailures, pytest-cov, pytest, pooch, pillow, numpy, matplotlib, imageio
+  Attempting uninstall: pytest-rerunfailures
+    Found existing installation: pytest-rerunfailures 15.0
+    Uninstalling pytest-rerunfailures-15.0:
+      Successfully uninstalled pytest-rerunfailures-15.0
+  Attempting uninstall: pytest-cov
+    Found existing installation: pytest-cov 6.1.1
+    Uninstalling pytest-cov-6.1.1:
+      Successfully uninstalled pytest-cov-6.1.1
+  Attempting uninstall: pytest
+    Found existing installation: pytest 7.4.4
+    Uninstalling pytest-7.4.4:
+      Successfully uninstalled pytest-7.4.4
+  Attempting uninstall: pillow
+    Found existing installation: pillow 11.2.1
+    Uninstalling pillow-11.2.1:
+      Successfully uninstalled pillow-11.2.1
+  Attempting uninstall: numpy
+    Found existing installation: numpy 1.26.4
+    Uninstalling numpy-1.26.4:
+      Successfully uninstalled numpy-1.26.4
+  Attempting uninstall: matplotlib
+    Found existing installation: matplotlib 3.9.4
+    Uninstalling matplotlib-3.9.4:
+      Successfully uninstalled matplotlib-3.9.4
+
+Successfully installed imageio-2.27.0 matplotlib-3.7.1 numpy-1.24.4 pillow-9.5.0 pooch-1.7.0 pytest-7.3.2 pytest-cov-4.0.0 pytest-pyvista-0.1.8 pytest-rerunfailures-12.0 scooby-0.7.2 vtk-9.2.6
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.

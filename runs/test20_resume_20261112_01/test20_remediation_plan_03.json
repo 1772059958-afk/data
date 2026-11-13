@@ -1,0 +1,19 @@
+{
+  "kind": "observed_public_baseline_remediation_plan",
+  "selected": [
+    "matplotlib__matplotlib-23987",
+    "mwaskom__seaborn-2848",
+    "pallets__flask-4045",
+    "psf__requests-1963",
+    "pytest-dev__pytest-6116",
+    "scikit-learn__scikit-learn-11281",
+    "sphinx-doc__sphinx-8595"
+  ],
+  "fixtures_or_assertions_changed": false,
+  "all20_designated_retained": true,
+  "profiles": "formal_compat_dependencies_01.json",
+  "source_restoration": "Exact original public Git HEAD/tree/modes. Sphinx only setup.py/tox.ini differences may be restored; no SUT C extensions exist. Every runtime/test/source byte must match after restoration.",
+  "requests_and_sphinx": "Offline editable install ensures correct subject import from any working directory; retain strict /tmp identity probe rather than relaxing import check.",
+  "official_scores_read": false,
+  "model_calls": 0
+}

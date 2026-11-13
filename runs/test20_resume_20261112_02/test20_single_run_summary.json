@@ -1,0 +1,4796 @@
+{
+  "kind": "test20_single_run_descriptive",
+  "design": "preregistered_single_run_descriptive",
+  "mode": "formal",
+  "split": "test",
+  "instances": [
+    "astropy__astropy-14995",
+    "django__django-11910",
+    "django__django-12708",
+    "django__django-13230",
+    "django__django-17087",
+    "matplotlib__matplotlib-23987",
+    "matplotlib__matplotlib-24970",
+    "mwaskom__seaborn-2848",
+    "pallets__flask-4045",
+    "psf__requests-1963",
+    "pydata__xarray-3364",
+    "pylint-dev__pylint-7114",
+    "pytest-dev__pytest-6116",
+    "pytest-dev__pytest-8906",
+    "scikit-learn__scikit-learn-11281",
+    "scikit-learn__scikit-learn-13496",
+    "sphinx-doc__sphinx-8595",
+    "sympy__sympy-13480",
+    "sympy__sympy-16503",
+    "sympy__sympy-23262"
+  ],
+  "arms": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E"
+  ],
+  "repeats": 1,
+  "designated_units": 100,
+  "config_hash": "facc7c3aba17b36481828a6109a9a3ccd54deabe0ef3e7b33759b2964e3024dc",
+  "evaluation_complete": true,
+  "primary": {
+    "A": {
+      "designated_instances": 20,
+      "repeats": 1,
+      "total": 20,
+      "resolved": 7,
+      "complete": true,
+      "status_counts": {
+        "resolved": 7,
+        "empty_patch": 4,
+        "ambiguous_error": 5,
+        "unresolved": 4
+      },
+      "resolved_rate": 0.35,
+      "resolved_rate_lower_bound": 0.35,
+      "cost_cny_recorded": 4.392275119999999,
+      "cost_complete": true,
+      "cost_per_resolved_cny": 0.6274678742857142,
+      "resources": {
+        "token": {
+          "recorded_total": 2577181.0,
+          "complete": true,
+          "mean_per_task": 128859.05,
+          "per_resolved": 368168.71428571426
+        },
+        "model_call": {
+          "recorded_total": 128.0,
+          "complete": true,
+          "mean_per_task": 6.4,
+          "per_resolved": 18.285714285714285
+        },
+        "tool_call": {
+          "recorded_total": 439.0,
+          "complete": true,
+          "mean_per_task": 21.95,
+          "per_resolved": 62.714285714285715
+        },
+        "wallclock_seconds": {
+          "recorded_total": 5280.938144900065,
+          "complete": true,
+          "mean_per_task": 264.04690724500324,
+          "per_resolved": 754.4197349857235
+        }
+      },
+      "per_repo": {
+        "astropy__astropy": {
+          "total": 1,
+          "resolved": 1,
+          "status_counts": {
+            "resolved": 1
+          },
+          "resolved_rate": 1.0
+        },
+        "django__django": {
+          "total": 4,
+          "resolved": 3,
+          "status_counts": {
+            "empty_patch": 1,
+            "resolved": 3
+          },
+          "resolved_rate": 0.75
+        },
+        "matplotlib__matplotlib": {
+          "total": 2,
+          "resolved": 1,
+          "status_counts": {
+            "empty_patch": 1,
+            "resolved": 1
+          },
+          "resolved_rate": 0.5
+        },
+        "mwaskom__seaborn": {
+          "total": 1,
+          "resolved": 0,
+          "status_counts": {
+            "empty_patch": 1
+          },
+          "resolved_rate": 0.0
+        },
+        "pallets__flask": {
+          "total": 1,
+          "resolved": 0,
+          "status_counts": {
+            "ambiguous_error": 1
+          },
+          "resolved_rate": 0.0
+        },
+        "psf__requests": {
+          "total": 1,
+          "resolved": 0,
+          "status_counts": {
+            "ambiguous_error": 1
+          },
+          "resolved_rate": 0.0
+        },
+        "pydata__xarray": {
+          "total": 1,
+          "resolved": 0,
+          "status_counts": {
+            "empty_patch": 1
+          },
+          "resolved_rate": 0.0
+        },
+        "pylint-dev__pylint": {
+          "total": 1,
+          "resolved": 0,
+          "status_counts": {
+            "ambiguous_error": 1
+          },
+          "resolved_rate": 0.0
+        },
+        "pytest-dev__pytest": {
+          "total": 2,
+          "resolved": 0,
+          "status_counts": {
+            "ambiguous_error": 2
+          },
+          "resolved_rate": 0.0
+        },
+        "scikit-learn__scikit-learn": {
+          "total": 2,
+          "resolved": 1,
+          "status_counts": {
+            "unresolved": 1,
+            "resolved": 1
+          },
+          "resolved_rate": 0.5
+        },
+        "sphinx-doc__sphinx": {
+          "total": 1,
+          "resolved": 0,
+          "status_counts": {
+            "unresolved": 1
+          },
+          "resolved_rate": 0.0
+        },
+        "sympy__sympy": {
+          "total": 3,
+          "resolved": 1,
+          "status_counts": {
+            "resolved": 1,
+            "unresolved": 2
+          },
+          "resolved_rate": 0.3333333333333333
+        }
+      },
+      "repository_macro_average": 0.2569444444444445
+    },
+    "B": {
+      "designated_instances": 20,
+      "repeats": 1,
+      "total": 20,
+      "resolved": 7,
+      "complete": true,
+      "status_counts": {
+        "resolved": 7,
+        "empty_patch": 5,
+        "ambiguous_error": 4,
+        "unresolved": 4
+      },
+      "resolved_rate": 0.35,
+      "resolved_rate_lower_bound": 0.35,
+      "cost_cny_recorded": 0.43171951999999997,
+      "cost_complete": true,
+      "cost_per_resolved_cny": 0.06167421714285714,
+      "resources": {
+        "token": {
+          "recorded_total": 411073.0,
+          "complete": true,
+          "mean_per_task": 20553.65,
+          "per_resolved": 58724.71428571428
+        },
+        "model_call": {
+          "recorded_total": 116.0,
+          "complete": true,
+          "mean_per_task": 5.8,
+          "per_resolved": 16.571428571428573
+        },
+        "tool_call": {
+          "recorded_total": 213.0,
+          "complete": true,
+          "mean_per_task": 10.65,
+          "per_resolved": 30.428571428571427
+        },
+        "wallclock_seconds": {
+          "recorded_total": 594.4158885999932,
+          "complete": true,
+          "mean_per_task": 29.72079442999966,
+          "per_resolved": 84.91655551428474
+        }
+      },
+      "per_repo": {
+        "astropy__astropy": {
+          "total": 1,
+          "resolved": 1,
+          "status_counts": {
+            "resolved": 1
+          },
+          "resolved_rate": 1.0
+        },
+        "django__django": {
+          "total": 4,
+          "resolved": 4,
+          "status_counts": {
+            "resolved": 4
+          },
+          "resolved_rate": 1.0
+        },
+        "matplotlib__matplotlib": {
+          "total": 2,
+          "resolved": 1,
+          "status_counts": {
+            "empty_patch": 1,
+            "resolved": 1
+          },
+          "resolved_rate": 0.5
+        },
+        "mwaskom__seaborn": {
+          "total": 1,
+          "resolved": 1,
+          "status_counts": {
+            "resolved": 1
+          },
+          "resolved_rate": 1.0
+        },
+        "pallets__flask": {
+          "total": 1,
+          "resolved": 0,
+          "status_counts": {
+            "ambiguous_error": 1
+          },
+          "resolved_rate": 0.0
+        },
+        "psf__requests": {
+          "total": 1,
+          "resolved": 0,
+          "status_counts": {
+            "ambiguous_error": 1
+          },
+          "resolved_rate": 0.0
+        },
+        "pydata__xarray": {
+          "total": 1,
+          "resolved": 0,
+          "status_counts": {
+            "unresolved": 1
+          },
+          "resolved_rate": 0.0
+        },
+        "pylint-dev__pylint": {
+          "total": 1,
+          "resolved": 0,
+          "status_counts": {
+            "empty_patch": 1
+          },
+          "resolved_rate": 0.0
+        },
+        "pytest-dev__pytest": {
+          "total": 2,
+          "resolved": 0,
+          "status_counts": {
+            "ambiguous_error": 2
+          },
+          "resolved_rate": 0.0
+        },
+        "scikit-learn__scikit-learn": {
+          "total": 2,
+          "resolved": 0,
+          "status_counts": {
+            "unresolved": 1,
+            "empty_patch": 1
+          },
+          "resolved_rate": 0.0
+        },
+        "sphinx-doc__sphinx": {
+          "total": 1,
+          "resolved": 0,
+          "status_counts": {
+            "unresolved": 1
+          },
+          "resolved_rate": 0.0
+        },
+        "sympy__sympy": {
+          "total": 3,
+          "resolved": 0,
+          "status_counts": {
+            "empty_patch": 2,
+            "unresolved": 1
+          },
+          "resolved_rate": 0.0
+        }
+      },
+      "repository_macro_average": 0.2916666666666667
+    },
+    "C": {
+      "designated_instances": 20,
+      "repeats": 1,
+      "total": 20,
+      "resolved": 10,
+      "complete": true,
+      "status_counts": {
+        "resolved": 10,
+        "ambiguous_error": 4,
+        "unresolved": 4,
+        "infra_error": 1,
+        "empty_patch": 1
+      },
+      "resolved_rate": 0.5,
+      "resolved_rate_lower_bound": 0.5,
+      "cost_cny_recorded": 2.05192828,
+      "cost_complete": true,
+      "cost_per_resolved_cny": 0.205192828,
+      "resources": {
+        "token": {
+          "recorded_total": 1388453.0,
+          "complete": true,
+          "mean_per_task": 69422.65,
+          "per_resolved": 138845.3
+        },
+        "model_call": {
+          "recorded_total": 113.0,
+          "complete": true,
+          "mean_per_task": 5.65,
+          "per_resolved": 11.3
+        },
+        "tool_call": {
+          "recorded_total": 364.0,
+          "complete": true,
+          "mean_per_task": 18.2,
+          "per_resolved": 36.4
+        },
+        "wallclock_seconds": {
+          "recorded_total": 2325.7347407000307,
+          "complete": true,
+          "mean_per_task": 116.28673703500154,
+          "per_resolved": 232.57347407000307
+        }
+      },
+      "per_repo": {
+        "astropy__astropy": {
+          "total": 1,
+          "resolved": 1,
+          "status_counts": {
+            "resolved": 1
+          },
+          "resolved_rate": 1.0
+        },
+        "django__django": {
+          "total": 4,
+          "resolved": 4,
+          "status_counts": {
+            "resolved": 4
+          },
+          "resolved_rate": 1.0
+        },
+        "matplotlib__matplotlib": {
+          "total": 2,
+          "resolved": 1,
+          "status_counts": {
+            "ambiguous_error": 1,
+            "resolved": 1
+          },
+          "resolved_rate": 0.5
+        },
+        "mwaskom__seaborn": {
+          "total": 1,
+          "resolved": 1,
+          "status_counts": {
+            "resolved": 1
+          },
+          "resolved_rate": 1.0
+        },
+        "pallets__flask": {
+          "total": 1,
+          "resolved": 0,
+          "status_counts": {
+            "ambiguous_error": 1
+          },
+          "resolved_rate": 0.0
+        },
+        "psf__requests": {
+          "total": 1,
+          "resolved": 0,
+          "status_counts": {
+            "ambiguous_error": 1
+          },
+          "resolved_rate": 0.0
+        },
+        "pydata__xarray": {
+          "total": 1,
+          "resolved": 0,
+          "status_counts": {
+            "unresolved": 1
+          },
+          "resolved_rate": 0.0
+        },
+        "pylint-dev__pylint": {
+          "total": 1,
+          "resolved": 0,
+          "status_counts": {
+            "infra_error": 1
+          },
+          "resolved_rate": 0.0
+        },
+        "pytest-dev__pytest": {
+          "total": 2,
+          "resolved": 1,
+          "status_counts": {
+            "resolved": 1,
+            "ambiguous_error": 1
+          },
+          "resolved_rate": 0.5
+        },
+        "scikit-learn__scikit-learn": {
+          "total": 2,
+          "resolved": 1,
+          "status_counts": {
+            "unresolved": 1,
+            "resolved": 1
+          },
+          "resolved_rate": 0.5
+        },
+        "sphinx-doc__sphinx": {
+          "total": 1,
+          "resolved": 0,
+          "status_counts": {
+            "unresolved": 1
+          },
+          "resolved_rate": 0.0
+        },
+        "sympy__sympy": {
+          "total": 3,
+          "resolved": 1,
+          "status_counts": {
+            "resolved": 1,
+            "empty_patch": 1,
+            "unresolved": 1
+          },
+          "resolved_rate": 0.3333333333333333
+        }
+      },
+      "repository_macro_average": 0.40277777777777773
+    },
+    "D": {
+      "designated_instances": 20,
+      "repeats": 1,
+      "total": 20,
+      "resolved": 7,
+      "complete": true,
+      "status_counts": {
+        "resolved": 7,
+        "empty_patch": 2,
+        "ambiguous_error": 6,
+        "unresolved": 5
+      },
+      "resolved_rate": 0.35,
+      "resolved_rate_lower_bound": 0.35,
+      "cost_cny_recorded": 2.87039734,
+      "cost_complete": true,
+      "cost_per_resolved_cny": 0.4100567628571428,
+      "resources": {
+        "token": {
+          "recorded_total": 1793565.0,
+          "complete": true,
+          "mean_per_task": 89678.25,
+          "per_resolved": 256223.57142857142
+        },
+        "model_call": {
+          "recorded_total": 122.0,
+          "complete": true,
+          "mean_per_task": 6.1,
+          "per_resolved": 17.428571428571427
+        },
+        "tool_call": {
+          "recorded_total": 394.0,
+          "complete": true,
+          "mean_per_task": 19.7,
+          "per_resolved": 56.285714285714285
+        },
+        "wallclock_seconds": {
+          "recorded_total": 3505.5283877000284,
+          "complete": true,
+          "mean_per_task": 175.27641938500142,
+          "per_resolved": 500.7897696714326
+        }
+      },
+      "per_repo": {
+        "astropy__astropy": {
+          "total": 1,
+          "resolved": 1,
+          "status_counts": {
+            "resolved": 1
+          },
+          "resolved_rate": 1.0
+        },
+        "django__django": {
+          "total": 4,
+          "resolved": 3,
+          "status_counts": {
+            "empty_patch": 1,
+            "resolved": 3
+          },
+          "resolved_rate": 0.75
+        },
+        "matplotlib__matplotlib": {
+          "total": 2,
+          "resolved": 1,
+          "status_counts": {
+            "ambiguous_error": 1,
+            "resolved": 1
+          },
+          "resolved_rate": 0.5
+        },
+        "mwaskom__seaborn": {
+          "total": 1,
+          "resolved": 0,
+          "status_counts": {
+            "empty_patch": 1
+          },
+          "resolved_rate": 0.0
+        },
+        "pallets__flask": {
+          "total": 1,
+          "resolved": 0,
+          "status_counts": {
+            "ambiguous_error": 1
+          },
+          "resolved_rate": 0.0
+        },
+        "psf__requests": {
+          "total": 1,
+          "resolved": 0,
+          "status_counts": {
+            "ambiguous_error": 1
+          },
+          "resolved_rate": 0.0
+        },
+        "pydata__xarray": {
+          "total": 1,
+          "resolved": 0,
+          "status_counts": {
+            "unresolved": 1
+          },
+          "resolved_rate": 0.0
+        },
+        "pylint-dev__pylint": {
+          "total": 1,
+          "resolved": 0,
+          "status_counts": {
+            "ambiguous_error": 1
+          },
+          "resolved_rate": 0.0
+        },
+        "pytest-dev__pytest": {
+          "total": 2,
+          "resolved": 0,
+          "status_counts": {
+            "ambiguous_error": 2
+          },
+          "resolved_rate": 0.0
+        },
+        "scikit-learn__scikit-learn": {
+          "total": 2,
+          "resolved": 1,
+          "status_counts": {
+            "unresolved": 1,
+            "resolved": 1
+          },
+          "resolved_rate": 0.5
+        },
+        "sphinx-doc__sphinx": {
+          "total": 1,
+          "resolved": 0,
+          "status_counts": {
+            "unresolved": 1
+          },
+          "resolved_rate": 0.0
+        },
+        "sympy__sympy": {
+          "total": 3,
+          "resolved": 1,
+          "status_counts": {
+            "resolved": 1,
+            "unresolved": 2
+          },
+          "resolved_rate": 0.3333333333333333
+        }
+      },
+      "repository_macro_average": 0.2569444444444445
+    },
+    "E": {
+      "designated_instances": 20,
+      "repeats": 1,
+      "total": 20,
+      "resolved": 8,
+      "complete": true,
+      "status_counts": {
+        "resolved": 8,
+        "ambiguous_error": 6,
+        "empty_patch": 3,
+        "unresolved": 3
+      },
+      "resolved_rate": 0.4,
+      "resolved_rate_lower_bound": 0.4,
+      "cost_cny_recorded": 5.33831146,
+      "cost_complete": true,
+      "cost_per_resolved_cny": 0.6672889325,
+      "resources": {
+        "token": {
+          "recorded_total": 2254011.0,
+          "complete": true,
+          "mean_per_task": 112700.55,
+          "per_resolved": 281751.375
+        },
+        "model_call": {
+          "recorded_total": 123.0,
+          "complete": true,
+          "mean_per_task": 6.15,
+          "per_resolved": 15.375
+        },
+        "tool_call": {
+          "recorded_total": 414.0,
+          "complete": true,
+          "mean_per_task": 20.7,
+          "per_resolved": 51.75
+        },
+        "wallclock_seconds": {
+          "recorded_total": 4584.8077053000325,
+          "complete": true,
+          "mean_per_task": 229.24038526500163,
+          "per_resolved": 573.1009631625041
+        }
+      },
+      "per_repo": {
+        "astropy__astropy": {
+          "total": 1,
+          "resolved": 1,
+          "status_counts": {
+            "resolved": 1
+          },
+          "resolved_rate": 1.0
+        },
+        "django__django": {
+          "total": 4,
+          "resolved": 4,
+          "status_counts": {
+            "resolved": 4
+          },
+          "resolved_rate": 1.0
+        },
+        "matplotlib__matplotlib": {
+          "total": 2,
+          "resolved": 1,
+          "status_counts": {
+            "ambiguous_error": 1,
+            "resolved": 1
+          },
+          "resolved_rate": 0.5
+        },
+        "mwaskom__seaborn": {
+          "total": 1,
+          "resolved": 0,
+          "status_counts": {
+            "empty_patch": 1
+          },
+          "resolved_rate": 0.0
+        },
+        "pallets__flask": {
+          "total": 1,
+          "resolved": 0,
+          "status_counts": {
+            "ambiguous_error": 1
+          },
+          "resolved_rate": 0.0
+        },
+        "psf__requests": {
+          "total": 1,
+          "resolved": 0,
+          "status_counts": {
+            "ambiguous_error": 1
+          },
+          "resolved_rate": 0.0
+        },
+        "pydata__xarray": {
+          "total": 1,
+          "resolved": 0,
+          "status_counts": {
+            "empty_patch": 1
+          },
+          "resolved_rate": 0.0
+        },
+        "pylint-dev__pylint": {
+          "total": 1,
+          "resolved": 0,
+          "status_counts": {
+            "ambiguous_error": 1
+          },
+          "resolved_rate": 0.0
+        },
+        "pytest-dev__pytest": {
+          "total": 2,
+          "resolved": 0,
+          "status_counts": {
+            "ambiguous_error": 2
+          },
+          "resolved_rate": 0.0
+        },
+        "scikit-learn__scikit-learn": {
+          "total": 2,
+          "resolved": 1,
+          "status_counts": {
+            "unresolved": 1,
+            "resolved": 1
+          },
+          "resolved_rate": 0.5
+        },
+        "sphinx-doc__sphinx": {
+          "total": 1,
+          "resolved": 0,
+          "status_counts": {
+            "unresolved": 1
+          },
+          "resolved_rate": 0.0
+        },
+        "sympy__sympy": {
+          "total": 3,
+          "resolved": 1,
+          "status_counts": {
+            "resolved": 1,
+            "empty_patch": 1,
+            "unresolved": 1
+          },
+          "resolved_rate": 0.3333333333333333
+        }
+      },
+      "repository_macro_average": 0.2777777777777778
+    }
+  },
+  "paired_differences": {
+    "primary": {
+      "D_minus_C": {
+        "left": "C",
+        "right": "D",
+        "direction": "D minus C",
+        "designated_pairs": 20,
+        "known_pair_count": 20,
+        "evaluation_complete": true,
+        "resolved_rate_difference": -0.15,
+        "difference_percentage_points": -15.0,
+        "paired_resolved_quadrants": {
+          "both_resolved": 7,
+          "left_only_resolved": 3,
+          "right_only_resolved": 0,
+          "neither_resolved": 10
+        },
+        "discordant_pair_count": 3,
+        "unknown_pair_instance_ids": [],
+        "known_pairs_with_infrastructure_status": [
+          "pylint-dev__pylint-7114"
+        ],
+        "quadrant_population": "known-status pairs only; designated-sample difference withheld if any pair is not_scored"
+      },
+      "D_minus_E": {
+        "left": "E",
+        "right": "D",
+        "direction": "D minus E",
+        "designated_pairs": 20,
+        "known_pair_count": 20,
+        "evaluation_complete": true,
+        "resolved_rate_difference": -0.05,
+        "difference_percentage_points": -5.0,
+        "paired_resolved_quadrants": {
+          "both_resolved": 7,
+          "left_only_resolved": 1,
+          "right_only_resolved": 0,
+          "neither_resolved": 12
+        },
+        "discordant_pair_count": 1,
+        "unknown_pair_instance_ids": [],
+        "known_pairs_with_infrastructure_status": [],
+        "quadrant_population": "known-status pairs only; designated-sample difference withheld if any pair is not_scored"
+      }
+    },
+    "secondary": {
+      "D_minus_A": {
+        "left": "A",
+        "right": "D",
+        "direction": "D minus A",
+        "designated_pairs": 20,
+        "known_pair_count": 20,
+        "evaluation_complete": true,
+        "resolved_rate_difference": 0.0,
+        "difference_percentage_points": 0.0,
+        "paired_resolved_quadrants": {
+          "both_resolved": 7,
+          "left_only_resolved": 0,
+          "right_only_resolved": 0,
+          "neither_resolved": 13
+        },
+        "discordant_pair_count": 0,
+        "unknown_pair_instance_ids": [],
+        "known_pairs_with_infrastructure_status": [],
+        "quadrant_population": "known-status pairs only; designated-sample difference withheld if any pair is not_scored"
+      },
+      "D_minus_B": {
+        "left": "B",
+        "right": "D",
+        "direction": "D minus B",
+        "designated_pairs": 20,
+        "known_pair_count": 20,
+        "evaluation_complete": true,
+        "resolved_rate_difference": 0.0,
+        "difference_percentage_points": 0.0,
+        "paired_resolved_quadrants": {
+          "both_resolved": 5,
+          "left_only_resolved": 2,
+          "right_only_resolved": 2,
+          "neither_resolved": 11
+        },
+        "discordant_pair_count": 4,
+        "unknown_pair_instance_ids": [],
+        "known_pairs_with_infrastructure_status": [],
+        "quadrant_population": "known-status pairs only; designated-sample difference withheld if any pair is not_scored"
+      }
+    }
+  },
+  "common_runnable": {
+    "kind": "secondary_common_runnable_subset",
+    "designated_instances": 20,
+    "arms": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E"
+    ],
+    "repeats": 1,
+    "instance_ids": [
+      "astropy__astropy-14995",
+      "matplotlib__matplotlib-24970",
+      "mwaskom__seaborn-2848",
+      "pydata__xarray-3364",
+      "scikit-learn__scikit-learn-11281",
+      "scikit-learn__scikit-learn-13496",
+      "sphinx-doc__sphinx-8595"
+    ],
+    "excluded": {
+      "django__django-11910": [
+        {
+          "arm": "B",
+          "repeat_index": 0,
+          "status": "resolved",
+          "generation_status": "environment_error",
+          "termination_reason": "EnvironmentFailure: public validation remains unrunnable after its deterministic retry"
+        },
+        {
+          "arm": "C",
+          "repeat_index": 0,
+          "status": "resolved",
+          "generation_status": "environment_error",
+          "termination_reason": "EnvironmentFailure: public validation remains unrunnable after its deterministic retry"
+        },
+        {
+          "arm": "E",
+          "repeat_index": 0,
+          "status": "resolved",
+          "generation_status": "environment_error",
+          "termination_reason": "EnvironmentFailure: public validation remains unrunnable after its deterministic retry"
+        }
+      ],
+      "django__django-12708": [
+        {
+          "arm": "A",
+          "repeat_index": 0,
+          "status": "resolved",
+          "generation_status": "environment_error",
+          "termination_reason": "stop_env_failure"
+        },
+        {
+          "arm": "B",
+          "repeat_index": 0,
+          "status": "resolved",
+          "generation_status": "environment_error",
+          "termination_reason": "EnvironmentFailure: public validation remains unrunnable after its deterministic retry"
+        },
+        {
+          "arm": "C",
+          "repeat_index": 0,
+          "status": "resolved",
+          "generation_status": "environment_error",
+          "termination_reason": "stop_env_failure"
+        },
+        {
+          "arm": "D",
+          "repeat_index": 0,
+          "status": "resolved",
+          "generation_status": "environment_error",
+          "termination_reason": "stop_env_failure"
+        },
+        {
+          "arm": "E",
+          "repeat_index": 0,
+          "status": "resolved",
+          "generation_status": "environment_error",
+          "termination_reason": "stop_env_failure"
+        }
+      ],
+      "django__django-13230": [
+        {
+          "arm": "A",
+          "repeat_index": 0,
+          "status": "resolved",
+          "generation_status": "environment_error",
+          "termination_reason": "stop_env_failure"
+        },
+        {
+          "arm": "B",
+          "repeat_index": 0,
+          "status": "resolved",
+          "generation_status": "environment_error",
+          "termination_reason": "EnvironmentFailure: public validation remains unrunnable after its deterministic retry"
+        },
+        {
+          "arm": "C",
+          "repeat_index": 0,
+          "status": "resolved",
+          "generation_status": "environment_error",
+          "termination_reason": "stop_env_failure"
+        },
+        {
+          "arm": "D",
+          "repeat_index": 0,
+          "status": "resolved",
+          "generation_status": "environment_error",
+          "termination_reason": "stop_env_failure"
+        },
+        {
+          "arm": "E",
+          "repeat_index": 0,
+          "status": "resolved",
+          "generation_status": "environment_error",
+          "termination_reason": "stop_env_failure"
+        }
+      ],
+      "django__django-17087": [
+        {
+          "arm": "A",
+          "repeat_index": 0,
+          "status": "resolved",
+          "generation_status": "environment_error",
+          "termination_reason": "stop_env_failure"
+        },
+        {
+          "arm": "B",
+          "repeat_index": 0,
+          "status": "resolved",
+          "generation_status": "environment_error",
+          "termination_reason": "EnvironmentFailure: public validation remains unrunnable after its deterministic retry"
+        },
+        {
+          "arm": "C",
+          "repeat_index": 0,
+          "status": "resolved",
+          "generation_status": "environment_error",
+          "termination_reason": "stop_env_failure"
+        },
+        {
+          "arm": "D",
+          "repeat_index": 0,
+          "status": "resolved",
+          "generation_status": "environment_error",
+          "termination_reason": "stop_env_failure"
+        },
+        {
+          "arm": "E",
+          "repeat_index": 0,
+          "status": "resolved",
+          "generation_status": "environment_error",
+          "termination_reason": "stop_env_failure"
+        }
+      ],
+      "matplotlib__matplotlib-23987": [
+        {
+          "arm": "C",
+          "repeat_index": 0,
+          "status": "ambiguous_error",
+          "generation_status": "budget_exhausted",
+          "termination_reason": "model_call_budget"
+        },
+        {
+          "arm": "D",
+          "repeat_index": 0,
+          "status": "ambiguous_error",
+          "generation_status": "budget_exhausted",
+          "termination_reason": "model_call_budget"
+        },
+        {
+          "arm": "E",
+          "repeat_index": 0,
+          "status": "ambiguous_error",
+          "generation_status": "budget_exhausted",
+          "termination_reason": "model_call_budget"
+        }
+      ],
+      "pallets__flask-4045": [
+        {
+          "arm": "A",
+          "repeat_index": 0,
+          "status": "ambiguous_error",
+          "generation_status": "completed",
+          "termination_reason": "fixed_step_limit"
+        },
+        {
+          "arm": "B",
+          "repeat_index": 0,
+          "status": "ambiguous_error",
+          "generation_status": "budget_exhausted",
+          "termination_reason": "model_call_budget"
+        },
+        {
+          "arm": "C",
+          "repeat_index": 0,
+          "status": "ambiguous_error",
+          "generation_status": "completed",
+          "termination_reason": "finish_tool"
+        },
+        {
+          "arm": "D",
+          "repeat_index": 0,
+          "status": "ambiguous_error",
+          "generation_status": "budget_exhausted",
+          "termination_reason": "model_call_budget"
+        },
+        {
+          "arm": "E",
+          "repeat_index": 0,
+          "status": "ambiguous_error",
+          "generation_status": "completed",
+          "termination_reason": "finish_tool"
+        }
+      ],
+      "psf__requests-1963": [
+        {
+          "arm": "A",
+          "repeat_index": 0,
+          "status": "ambiguous_error",
+          "generation_status": "completed",
+          "termination_reason": "fixed_step_limit"
+        },
+        {
+          "arm": "B",
+          "repeat_index": 0,
+          "status": "ambiguous_error",
+          "generation_status": "budget_exhausted",
+          "termination_reason": "model_call_budget"
+        },
+        {
+          "arm": "C",
+          "repeat_index": 0,
+          "status": "ambiguous_error",
+          "generation_status": "completed",
+          "termination_reason": "finish_tool"
+        },
+        {
+          "arm": "D",
+          "repeat_index": 0,
+          "status": "ambiguous_error",
+          "generation_status": "completed",
+          "termination_reason": "finish_tool"
+        },
+        {
+          "arm": "E",
+          "repeat_index": 0,
+          "status": "ambiguous_error",
+          "generation_status": "completed",
+          "termination_reason": "finish_tool"
+        }
+      ],
+      "pylint-dev__pylint-7114": [
+        {
+          "arm": "A",
+          "repeat_index": 0,
+          "status": "ambiguous_error",
+          "generation_status": "completed",
+          "termination_reason": "fixed_step_limit"
+        },
+        {
+          "arm": "C",
+          "repeat_index": 0,
+          "status": "infra_error",
+          "generation_status": "completed",
+          "termination_reason": "finish_tool"
+        },
+        {
+          "arm": "D",
+          "repeat_index": 0,
+          "status": "ambiguous_error",
+          "generation_status": "budget_exhausted",
+          "termination_reason": "model_call_budget"
+        },
+        {
+          "arm": "E",
+          "repeat_index": 0,
+          "status": "ambiguous_error",
+          "generation_status": "completed",
+          "termination_reason": "fixed_step_limit"
+        }
+      ],
+      "pytest-dev__pytest-6116": [
+        {
+          "arm": "A",
+          "repeat_index": 0,
+          "status": "ambiguous_error",
+          "generation_status": "completed",
+          "termination_reason": "fixed_step_limit"
+        },
+        {
+          "arm": "B",
+          "repeat_index": 0,
+          "status": "ambiguous_error",
+          "generation_status": "completed",
+          "termination_reason": "finish_tool"
+        },
+        {
+          "arm": "D",
+          "repeat_index": 0,
+          "status": "ambiguous_error",
+          "generation_status": "completed",
+          "termination_reason": "fixed_step_limit"
+        },
+        {
+          "arm": "E",
+          "repeat_index": 0,
+          "status": "ambiguous_error",
+          "generation_status": "completed",
+          "termination_reason": "fixed_step_limit"
+        }
+      ],
+      "pytest-dev__pytest-8906": [
+        {
+          "arm": "A",
+          "repeat_index": 0,
+          "status": "ambiguous_error",
+          "generation_status": "completed",
+          "termination_reason": "fixed_step_limit"
+        },
+        {
+          "arm": "B",
+          "repeat_index": 0,
+          "status": "ambiguous_error",
+          "generation_status": "budget_exhausted",
+          "termination_reason": "model_call_budget"
+        },
+        {
+          "arm": "C",
+          "repeat_index": 0,
+          "status": "ambiguous_error",
+          "generation_status": "completed",
+          "termination_reason": "finish_tool"
+        },
+        {
+          "arm": "D",
+          "repeat_index": 0,
+          "status": "ambiguous_error",
+          "generation_status": "completed",
+          "termination_reason": "finish_tool"
+        },
+        {
+          "arm": "E",
+          "repeat_index": 0,
+          "status": "ambiguous_error",
+          "generation_status": "completed",
+          "termination_reason": "fixed_step_limit"
+        }
+      ],
+      "sympy__sympy-13480": [
+        {
+          "arm": "A",
+          "repeat_index": 0,
+          "status": "resolved",
+          "generation_status": "environment_error",
+          "termination_reason": "stop_env_failure"
+        },
+        {
+          "arm": "C",
+          "repeat_index": 0,
+          "status": "resolved",
+          "generation_status": "environment_error",
+          "termination_reason": "stop_env_failure"
+        },
+        {
+          "arm": "D",
+          "repeat_index": 0,
+          "status": "resolved",
+          "generation_status": "environment_error",
+          "termination_reason": "stop_env_failure"
+        },
+        {
+          "arm": "E",
+          "repeat_index": 0,
+          "status": "resolved",
+          "generation_status": "environment_error",
+          "termination_reason": "stop_env_failure"
+        }
+      ],
+      "sympy__sympy-16503": [
+        {
+          "arm": "A",
+          "repeat_index": 0,
+          "status": "unresolved",
+          "generation_status": "environment_error",
+          "termination_reason": "environment_error"
+        },
+        {
+          "arm": "B",
+          "repeat_index": 0,
+          "status": "unresolved",
+          "generation_status": "environment_error",
+          "termination_reason": "EnvironmentFailure: public validation remains unrunnable after its deterministic retry"
+        },
+        {
+          "arm": "D",
+          "repeat_index": 0,
+          "status": "unresolved",
+          "generation_status": "environment_error",
+          "termination_reason": "EnvironmentFailure: public validation remains unrunnable after its deterministic retry"
+        }
+      ],
+      "sympy__sympy-23262": [
+        {
+          "arm": "A",
+          "repeat_index": 0,
+          "status": "unresolved",
+          "generation_status": "environment_error",
+          "termination_reason": "stop_env_failure"
+        },
+        {
+          "arm": "C",
+          "repeat_index": 0,
+          "status": "unresolved",
+          "generation_status": "environment_error",
+          "termination_reason": "stop_env_failure"
+        },
+        {
+          "arm": "D",
+          "repeat_index": 0,
+          "status": "unresolved",
+          "generation_status": "environment_error",
+          "termination_reason": "stop_env_failure"
+        },
+        {
+          "arm": "E",
+          "repeat_index": 0,
+          "status": "unresolved",
+          "generation_status": "environment_error",
+          "termination_reason": "stop_env_failure"
+        }
+      ]
+    },
+    "rule": "all arms and repeats have resolved/unresolved/empty_patch with no explicit environment error; model failures are retained",
+    "primary": {
+      "A": {
+        "designated_instances": 7,
+        "repeats": 1,
+        "total": 7,
+        "resolved": 3,
+        "complete": true,
+        "status_counts": {
+          "resolved": 3,
+          "empty_patch": 2,
+          "unresolved": 2
+        },
+        "resolved_rate": 0.42857142857142855,
+        "resolved_rate_lower_bound": 0.42857142857142855,
+        "cost_cny_recorded": 1.7278087599999998,
+        "cost_complete": true,
+        "cost_per_resolved_cny": 0.5759362533333333,
+        "resources": {
+          "token": {
+            "recorded_total": 965206.0,
+            "complete": true,
+            "mean_per_task": 137886.57142857142,
+            "per_resolved": 321735.3333333333
+          },
+          "model_call": {
+            "recorded_total": 44.0,
+            "complete": true,
+            "mean_per_task": 6.285714285714286,
+            "per_resolved": 14.666666666666666
+          },
+          "tool_call": {
+            "recorded_total": 131.0,
+            "complete": true,
+            "mean_per_task": 18.714285714285715,
+            "per_resolved": 43.666666666666664
+          },
+          "wallclock_seconds": {
+            "recorded_total": 2082.4702108000347,
+            "complete": true,
+            "mean_per_task": 297.495744400005,
+            "per_resolved": 694.1567369333449
+          }
+        },
+        "per_repo": {
+          "astropy__astropy": {
+            "total": 1,
+            "resolved": 1,
+            "status_counts": {
+              "resolved": 1
+            },
+            "resolved_rate": 1.0
+          },
+          "matplotlib__matplotlib": {
+            "total": 1,
+            "resolved": 1,
+            "status_counts": {
+              "resolved": 1
+            },
+            "resolved_rate": 1.0
+          },
+          "mwaskom__seaborn": {
+            "total": 1,
+            "resolved": 0,
+            "status_counts": {
+              "empty_patch": 1
+            },
+            "resolved_rate": 0.0
+          },
+          "pydata__xarray": {
+            "total": 1,
+            "resolved": 0,
+            "status_counts": {
+              "empty_patch": 1
+            },
+            "resolved_rate": 0.0
+          },
+          "scikit-learn__scikit-learn": {
+            "total": 2,
+            "resolved": 1,
+            "status_counts": {
+              "unresolved": 1,
+              "resolved": 1
+            },
+            "resolved_rate": 0.5
+          },
+          "sphinx-doc__sphinx": {
+            "total": 1,
+            "resolved": 0,
+            "status_counts": {
+              "unresolved": 1
+            },
+            "resolved_rate": 0.0
+          }
+        },
+        "repository_macro_average": 0.4166666666666667
+      },
+      "B": {
+        "designated_instances": 7,
+        "repeats": 1,
+        "total": 7,
+        "resolved": 3,
+        "complete": true,
+        "status_counts": {
+          "resolved": 3,
+          "unresolved": 3,
+          "empty_patch": 1
+        },
+        "resolved_rate": 0.42857142857142855,
+        "resolved_rate_lower_bound": 0.42857142857142855,
+        "cost_cny_recorded": 0.15694992000000002,
+        "cost_complete": true,
+        "cost_per_resolved_cny": 0.052316640000000005,
+        "resources": {
+          "token": {
+            "recorded_total": 162807.0,
+            "complete": true,
+            "mean_per_task": 23258.14285714286,
+            "per_resolved": 54269.0
+          },
+          "model_call": {
+            "recorded_total": 42.0,
+            "complete": true,
+            "mean_per_task": 6.0,
+            "per_resolved": 14.0
+          },
+          "tool_call": {
+            "recorded_total": 78.0,
+            "complete": true,
+            "mean_per_task": 11.142857142857142,
+            "per_resolved": 26.0
+          },
+          "wallclock_seconds": {
+            "recorded_total": 247.95580120000068,
+            "complete": true,
+            "mean_per_task": 35.42225731428581,
+            "per_resolved": 82.65193373333356
+          }
+        },
+        "per_repo": {
+          "astropy__astropy": {
+            "total": 1,
+            "resolved": 1,
+            "status_counts": {
+              "resolved": 1
+            },
+            "resolved_rate": 1.0
+          },
+          "matplotlib__matplotlib": {
+            "total": 1,
+            "resolved": 1,
+            "status_counts": {
+              "resolved": 1
+            },
+            "resolved_rate": 1.0
+          },
+          "mwaskom__seaborn": {
+            "total": 1,
+            "resolved": 1,
+            "status_counts": {
+              "resolved": 1
+            },
+            "resolved_rate": 1.0
+          },
+          "pydata__xarray": {
+            "total": 1,
+            "resolved": 0,
+            "status_counts": {
+              "unresolved": 1
+            },
+            "resolved_rate": 0.0
+          },
+          "scikit-learn__scikit-learn": {
+            "total": 2,
+            "resolved": 0,
+            "status_counts": {
+              "unresolved": 1,
+              "empty_patch": 1
+            },
+            "resolved_rate": 0.0
+          },
+          "sphinx-doc__sphinx": {
+            "total": 1,
+            "resolved": 0,
+            "status_counts": {
+              "unresolved": 1
+            },
+            "resolved_rate": 0.0
+          }
+        },
+        "repository_macro_average": 0.5
+      },
+      "C": {
+        "designated_instances": 7,
+        "repeats": 1,
+        "total": 7,
+        "resolved": 4,
+        "complete": true,
+        "status_counts": {
+          "resolved": 4,
+          "unresolved": 3
+        },
+        "resolved_rate": 0.5714285714285714,
+        "resolved_rate_lower_bound": 0.5714285714285714,
+        "cost_cny_recorded": 0.80241824,
+        "cost_complete": true,
+        "cost_per_resolved_cny": 0.20060456,
+        "resources": {
+          "token": {
+            "recorded_total": 553256.0,
+            "complete": true,
+            "mean_per_task": 79036.57142857143,
+            "per_resolved": 138314.0
+          },
+          "model_call": {
+            "recorded_total": 42.0,
+            "complete": true,
+            "mean_per_task": 6.0,
+            "per_resolved": 10.5
+          },
+          "tool_call": {
+            "recorded_total": 114.0,
+            "complete": true,
+            "mean_per_task": 16.285714285714285,
+            "per_resolved": 28.5
+          },
+          "wallclock_seconds": {
+            "recorded_total": 937.7961100000184,
+            "complete": true,
+            "mean_per_task": 133.97087285714548,
+            "per_resolved": 234.4490275000046
+          }
+        },
+        "per_repo": {
+          "astropy__astropy": {
+            "total": 1,
+            "resolved": 1,
+            "status_counts": {
+              "resolved": 1
+            },
+            "resolved_rate": 1.0
+          },
+          "matplotlib__matplotlib": {
+            "total": 1,
+            "resolved": 1,
+            "status_counts": {
+              "resolved": 1
+            },
+            "resolved_rate": 1.0
+          },
+          "mwaskom__seaborn": {
+            "total": 1,
+            "resolved": 1,
+            "status_counts": {
+              "resolved": 1
+            },
+            "resolved_rate": 1.0
+          },
+          "pydata__xarray": {
+            "total": 1,
+            "resolved": 0,
+            "status_counts": {
+              "unresolved": 1
+            },
+            "resolved_rate": 0.0
+          },
+          "scikit-learn__scikit-learn": {
+            "total": 2,
+            "resolved": 1,
+            "status_counts": {
+              "unresolved": 1,
+              "resolved": 1
+            },
+            "resolved_rate": 0.5
+          },
+          "sphinx-doc__sphinx": {
+            "total": 1,
+            "resolved": 0,
+            "status_counts": {
+              "unresolved": 1
+            },
+            "resolved_rate": 0.0
+          }
+        },
+        "repository_macro_average": 0.5833333333333334
+      },
+      "D": {
+        "designated_instances": 7,
+        "repeats": 1,
+        "total": 7,
+        "resolved": 3,
+        "complete": true,
+        "status_counts": {
+          "resolved": 3,
+          "empty_patch": 1,
+          "unresolved": 3
+        },
+        "resolved_rate": 0.42857142857142855,
+        "resolved_rate_lower_bound": 0.42857142857142855,
+        "cost_cny_recorded": 1.27811044,
+        "cost_complete": true,
+        "cost_per_resolved_cny": 0.4260368133333334,
+        "resources": {
+          "token": {
+            "recorded_total": 777161.0,
+            "complete": true,
+            "mean_per_task": 111023.0,
+            "per_resolved": 259053.66666666666
+          },
+          "model_call": {
+            "recorded_total": 44.0,
+            "complete": true,
+            "mean_per_task": 6.285714285714286,
+            "per_resolved": 14.666666666666666
+          },
+          "tool_call": {
+            "recorded_total": 133.0,
+            "complete": true,
+            "mean_per_task": 19.0,
+            "per_resolved": 44.333333333333336
+          },
+          "wallclock_seconds": {
+            "recorded_total": 1579.3292449000182,
+            "complete": true,
+            "mean_per_task": 225.61846355714547,
+            "per_resolved": 526.4430816333394
+          }
+        },
+        "per_repo": {
+          "astropy__astropy": {
+            "total": 1,
+            "resolved": 1,
+            "status_counts": {
+              "resolved": 1
+            },
+            "resolved_rate": 1.0
+          },
+          "matplotlib__matplotlib": {
+            "total": 1,
+            "resolved": 1,
+            "status_counts": {
+              "resolved": 1
+            },
+            "resolved_rate": 1.0
+          },
+          "mwaskom__seaborn": {
+            "total": 1,
+            "resolved": 0,
+            "status_counts": {
+              "empty_patch": 1
+            },
+            "resolved_rate": 0.0
+          },
+          "pydata__xarray": {
+            "total": 1,
+            "resolved": 0,
+            "status_counts": {
+              "unresolved": 1
+            },
+            "resolved_rate": 0.0
+          },
+          "scikit-learn__scikit-learn": {
+            "total": 2,
+            "resolved": 1,
+            "status_counts": {
+              "unresolved": 1,
+              "resolved": 1
+            },
+            "resolved_rate": 0.5
+          },
+          "sphinx-doc__sphinx": {
+            "total": 1,
+            "resolved": 0,
+            "status_counts": {
+              "unresolved": 1
+            },
+            "resolved_rate": 0.0
+          }
+        },
+        "repository_macro_average": 0.4166666666666667
+      },
+      "E": {
+        "designated_instances": 7,
+        "repeats": 1,
+        "total": 7,
+        "resolved": 3,
+        "complete": true,
+        "status_counts": {
+          "resolved": 3,
+          "empty_patch": 2,
+          "unresolved": 2
+        },
+        "resolved_rate": 0.42857142857142855,
+        "resolved_rate_lower_bound": 0.42857142857142855,
+        "cost_cny_recorded": 2.73464728,
+        "cost_complete": true,
+        "cost_per_resolved_cny": 0.9115490933333333,
+        "resources": {
+          "token": {
+            "recorded_total": 969062.0,
+            "complete": true,
+            "mean_per_task": 138437.42857142858,
+            "per_resolved": 323020.6666666667
+          },
+          "model_call": {
+            "recorded_total": 44.0,
+            "complete": true,
+            "mean_per_task": 6.285714285714286,
+            "per_resolved": 14.666666666666666
+          },
+          "tool_call": {
+            "recorded_total": 131.0,
+            "complete": true,
+            "mean_per_task": 18.714285714285715,
+            "per_resolved": 43.666666666666664
+          },
+          "wallclock_seconds": {
+            "recorded_total": 2182.3079875000203,
+            "complete": true,
+            "mean_per_task": 311.7582839285743,
+            "per_resolved": 727.4359958333401
+          }
+        },
+        "per_repo": {
+          "astropy__astropy": {
+            "total": 1,
+            "resolved": 1,
+            "status_counts": {
+              "resolved": 1
+            },
+            "resolved_rate": 1.0
+          },
+          "matplotlib__matplotlib": {
+            "total": 1,
+            "resolved": 1,
+            "status_counts": {
+              "resolved": 1
+            },
+            "resolved_rate": 1.0
+          },
+          "mwaskom__seaborn": {
+            "total": 1,
+            "resolved": 0,
+            "status_counts": {
+              "empty_patch": 1
+            },
+            "resolved_rate": 0.0
+          },
+          "pydata__xarray": {
+            "total": 1,
+            "resolved": 0,
+            "status_counts": {
+              "empty_patch": 1
+            },
+            "resolved_rate": 0.0
+          },
+          "scikit-learn__scikit-learn": {
+            "total": 2,
+            "resolved": 1,
+            "status_counts": {
+              "unresolved": 1,
+              "resolved": 1
+            },
+            "resolved_rate": 0.5
+          },
+          "sphinx-doc__sphinx": {
+            "total": 1,
+            "resolved": 0,
+            "status_counts": {
+              "unresolved": 1
+            },
+            "resolved_rate": 0.0
+          }
+        },
+        "repository_macro_average": 0.4166666666666667
+      }
+    }
+  },
+  "quality_cost_points": [
+    {
+      "arm": "A",
+      "resolved_rate": 0.35,
+      "resolved_rate_lower_bound": 0.35,
+      "cost_cny_recorded": 4.392275119999999,
+      "cost_complete": true,
+      "cost_per_resolved_cny": 0.6274678742857142,
+      "resources": {
+        "token": {
+          "recorded_total": 2577181.0,
+          "complete": true,
+          "mean_per_task": 128859.05,
+          "per_resolved": 368168.71428571426
+        },
+        "model_call": {
+          "recorded_total": 128.0,
+          "complete": true,
+          "mean_per_task": 6.4,
+          "per_resolved": 18.285714285714285
+        },
+        "tool_call": {
+          "recorded_total": 439.0,
+          "complete": true,
+          "mean_per_task": 21.95,
+          "per_resolved": 62.714285714285715
+        },
+        "wallclock_seconds": {
+          "recorded_total": 5280.938144900065,
+          "complete": true,
+          "mean_per_task": 264.04690724500324,
+          "per_resolved": 754.4197349857235
+        }
+      }
+    },
+    {
+      "arm": "B",
+      "resolved_rate": 0.35,
+      "resolved_rate_lower_bound": 0.35,
+      "cost_cny_recorded": 0.43171951999999997,
+      "cost_complete": true,
+      "cost_per_resolved_cny": 0.06167421714285714,
+      "resources": {
+        "token": {
+          "recorded_total": 411073.0,
+          "complete": true,
+          "mean_per_task": 20553.65,
+          "per_resolved": 58724.71428571428
+        },
+        "model_call": {
+          "recorded_total": 116.0,
+          "complete": true,
+          "mean_per_task": 5.8,
+          "per_resolved": 16.571428571428573
+        },
+        "tool_call": {
+          "recorded_total": 213.0,
+          "complete": true,
+          "mean_per_task": 10.65,
+          "per_resolved": 30.428571428571427
+        },
+        "wallclock_seconds": {
+          "recorded_total": 594.4158885999932,
+          "complete": true,
+          "mean_per_task": 29.72079442999966,
+          "per_resolved": 84.91655551428474
+        }
+      }
+    },
+    {
+      "arm": "C",
+      "resolved_rate": 0.5,
+      "resolved_rate_lower_bound": 0.5,
+      "cost_cny_recorded": 2.05192828,
+      "cost_complete": true,
+      "cost_per_resolved_cny": 0.205192828,
+      "resources": {
+        "token": {
+          "recorded_total": 1388453.0,
+          "complete": true,
+          "mean_per_task": 69422.65,
+          "per_resolved": 138845.3
+        },
+        "model_call": {
+          "recorded_total": 113.0,
+          "complete": true,
+          "mean_per_task": 5.65,
+          "per_resolved": 11.3
+        },
+        "tool_call": {
+          "recorded_total": 364.0,
+          "complete": true,
+          "mean_per_task": 18.2,
+          "per_resolved": 36.4
+        },
+        "wallclock_seconds": {
+          "recorded_total": 2325.7347407000307,
+          "complete": true,
+          "mean_per_task": 116.28673703500154,
+          "per_resolved": 232.57347407000307
+        }
+      }
+    },
+    {
+      "arm": "D",
+      "resolved_rate": 0.35,
+      "resolved_rate_lower_bound": 0.35,
+      "cost_cny_recorded": 2.87039734,
+      "cost_complete": true,
+      "cost_per_resolved_cny": 0.4100567628571428,
+      "resources": {
+        "token": {
+          "recorded_total": 1793565.0,
+          "complete": true,
+          "mean_per_task": 89678.25,
+          "per_resolved": 256223.57142857142
+        },
+        "model_call": {
+          "recorded_total": 122.0,
+          "complete": true,
+          "mean_per_task": 6.1,
+          "per_resolved": 17.428571428571427
+        },
+        "tool_call": {
+          "recorded_total": 394.0,
+          "complete": true,
+          "mean_per_task": 19.7,
+          "per_resolved": 56.285714285714285
+        },
+        "wallclock_seconds": {
+          "recorded_total": 3505.5283877000284,
+          "complete": true,
+          "mean_per_task": 175.27641938500142,
+          "per_resolved": 500.7897696714326
+        }
+      }
+    },
+    {
+      "arm": "E",
+      "resolved_rate": 0.4,
+      "resolved_rate_lower_bound": 0.4,
+      "cost_cny_recorded": 5.33831146,
+      "cost_complete": true,
+      "cost_per_resolved_cny": 0.6672889325,
+      "resources": {
+        "token": {
+          "recorded_total": 2254011.0,
+          "complete": true,
+          "mean_per_task": 112700.55,
+          "per_resolved": 281751.375
+        },
+        "model_call": {
+          "recorded_total": 123.0,
+          "complete": true,
+          "mean_per_task": 6.15,
+          "per_resolved": 15.375
+        },
+        "tool_call": {
+          "recorded_total": 414.0,
+          "complete": true,
+          "mean_per_task": 20.7,
+          "per_resolved": 51.75
+        },
+        "wallclock_seconds": {
+          "recorded_total": 4584.8077053000325,
+          "complete": true,
+          "mean_per_task": 229.24038526500163,
+          "per_resolved": 573.1009631625041
+        }
+      }
+    }
+  ],
+  "rows": [
+    {
+      "instance_id": "astropy__astropy-14995",
+      "repeat_index": 0,
+      "seed": 20261111,
+      "run_id": "test20_A_20261112_01",
+      "mode": "formal",
+      "config_hash": "facc7c3aba17b36481828a6109a9a3ccd54deabe0ef3e7b33759b2964e3024dc",
+      "arm": "A",
+      "status": "resolved",
+      "cost_cny": 0.06960303999999999,
+      "prediction_sha256": "b94bf4a0bdbdd5d7dfc435ad4035d1b7c4e785bc997b4d0f32400766d65c6126",
+      "patch_sha256": "2ad3660405ebe9207f82ec6195d592d96caa9fc668dffdc195ad6ad81efcf5c2",
+      "resources": {
+        "token": 31629,
+        "model_call": 3,
+        "tool_call": 15,
+        "wallclock_seconds": 74.26218130000052
+      },
+      "resources_complete": {
+        "token": true,
+        "model_call": true,
+        "tool_call": true,
+        "wallclock_seconds": true
+      },
+      "termination_reason": "early_stop_public_pass",
+      "generation_status": "completed",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "astropy__astropy-14995",
+      "repeat_index": 0,
+      "seed": 20261111,
+      "run_id": "test20_B_20261112_02",
+      "mode": "formal",
+      "config_hash": "facc7c3aba17b36481828a6109a9a3ccd54deabe0ef3e7b33759b2964e3024dc",
+      "arm": "B",
+      "status": "resolved",
+      "cost_cny": 0.01628092,
+      "prediction_sha256": "3bc30e942c59b24cbb446b03832509537d08fa9e37caaa6758b04b449afa423c",
+      "patch_sha256": "558bb0a566c08bd4be759d8749176b3ba330a7572ed6016dd12372834cee9afa",
+      "resources": {
+        "token": 24489,
+        "model_call": 6,
+        "tool_call": 10,
+        "wallclock_seconds": 16.346277399992687
+      },
+      "resources_complete": {
+        "token": true,
+        "model_call": true,
+        "tool_call": true,
+        "wallclock_seconds": true
+      },
+      "termination_reason": "model_call_budget",
+      "generation_status": "budget_exhausted",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "astropy__astropy-14995",
+      "repeat_index": 0,
+      "seed": 20261111,
+      "run_id": "test20_C_20261112_01",
+      "mode": "formal",
+      "config_hash": "facc7c3aba17b36481828a6109a9a3ccd54deabe0ef3e7b33759b2964e3024dc",
+      "arm": "C",
+      "status": "resolved",
+      "cost_cny": 0.06960303999999999,
+      "prediction_sha256": "fb553b2c484e30bbb7986cd55ea3e7bcbce33c907c7b29b629161cb5a41523af",
+      "patch_sha256": "2ad3660405ebe9207f82ec6195d592d96caa9fc668dffdc195ad6ad81efcf5c2",
+      "resources": {
+        "token": 31629,
+        "model_call": 3,
+        "tool_call": 15,
+        "wallclock_seconds": 74.26218130000052
+      },
+      "resources_complete": {
+        "token": true,
+        "model_call": true,
+        "tool_call": true,
+        "wallclock_seconds": true
+      },
+      "termination_reason": "early_stop_public_pass",
+      "generation_status": "completed",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "astropy__astropy-14995",
+      "repeat_index": 0,
+      "seed": 20261111,
+      "run_id": "test20_D_20261112_01",
+      "mode": "formal",
+      "config_hash": "facc7c3aba17b36481828a6109a9a3ccd54deabe0ef3e7b33759b2964e3024dc",
+      "arm": "D",
+      "status": "resolved",
+      "cost_cny": 0.06960303999999999,
+      "prediction_sha256": "c00c0d7b6fca249e4924522d76e42d5d8d03553ad22a4118d09004c17fd522b7",
+      "patch_sha256": "2ad3660405ebe9207f82ec6195d592d96caa9fc668dffdc195ad6ad81efcf5c2",
+      "resources": {
+        "token": 31629,
+        "model_call": 3,
+        "tool_call": 15,
+        "wallclock_seconds": 74.26218130000052
+      },
+      "resources_complete": {
+        "token": true,
+        "model_call": true,
+        "tool_call": true,
+        "wallclock_seconds": true
+      },
+      "termination_reason": "early_stop_public_pass",
+      "generation_status": "completed",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "astropy__astropy-14995",
+      "repeat_index": 0,
+      "seed": 20261111,
+      "run_id": "test20_E_20261112_01",
+      "mode": "formal",
+      "config_hash": "facc7c3aba17b36481828a6109a9a3ccd54deabe0ef3e7b33759b2964e3024dc",
+      "arm": "E",
+      "status": "resolved",
+      "cost_cny": 0.06960303999999999,
+      "prediction_sha256": "13554d7b8aaa6eed04b55591a7275e453ed67364ae55b117e3251baf33f8bf13",
+      "patch_sha256": "2ad3660405ebe9207f82ec6195d592d96caa9fc668dffdc195ad6ad81efcf5c2",
+      "resources": {
+        "token": 31629,
+        "model_call": 3,
+        "tool_call": 15,
+        "wallclock_seconds": 74.26218130000052
+      },
+      "resources_complete": {
+        "token": true,
+        "model_call": true,
+        "tool_call": true,
+        "wallclock_seconds": true
+      },
+      "termination_reason": "early_stop_public_pass",
+      "generation_status": "completed",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "django__django-11910",
+      "repeat_index": 0,
+      "seed": 20261111,
+      "run_id": "test20_A_20261112_01",
+      "mode": "formal",
+      "config_hash": "facc7c3aba17b36481828a6109a9a3ccd54deabe0ef3e7b33759b2964e3024dc",
+      "arm": "A",
+      "status": "empty_patch",
+      "cost_cny": 0.50397916,
+      "prediction_sha256": "b94bf4a0bdbdd5d7dfc435ad4035d1b7c4e785bc997b4d0f32400766d65c6126",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "resources": {
+        "token": 139145,
+        "model_call": 9,
+        "tool_call": 12,
+        "wallclock_seconds": 624.6918877000135
+      },
+      "resources_complete": {
+        "token": true,
+        "model_call": true,
+        "tool_call": true,
+        "wallclock_seconds": true
+      },
+      "termination_reason": "fixed_step_limit",
+      "generation_status": "completed",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "django__django-11910",
+      "repeat_index": 0,
+      "seed": 20261111,
+      "run_id": "test20_B_20261112_02",
+      "mode": "formal",
+      "config_hash": "facc7c3aba17b36481828a6109a9a3ccd54deabe0ef3e7b33759b2964e3024dc",
+      "arm": "B",
+      "status": "resolved",
+      "cost_cny": 0.03428812,
+      "prediction_sha256": "3bc30e942c59b24cbb446b03832509537d08fa9e37caaa6758b04b449afa423c",
+      "patch_sha256": "6b1ad2f84f7f675460d8cf7ef13ebc5cd88c9c978764ac4b270b5994378ef88d",
+      "resources": {
+        "token": 23094,
+        "model_call": 6,
+        "tool_call": 15,
+        "wallclock_seconds": 45.58314679999603
+      },
+      "resources_complete": {
+        "token": true,
+        "model_call": true,
+        "tool_call": true,
+        "wallclock_seconds": true
+      },
+      "termination_reason": "EnvironmentFailure: public validation remains unrunnable after its deterministic retry",
+      "generation_status": "environment_error",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "django__django-11910",
+      "repeat_index": 0,
+      "seed": 20261111,
+      "run_id": "test20_C_20261112_01",
+      "mode": "formal",
+      "config_hash": "facc7c3aba17b36481828a6109a9a3ccd54deabe0ef3e7b33759b2964e3024dc",
+      "arm": "C",
+      "status": "resolved",
+      "cost_cny": 0.19555699999999998,
+      "prediction_sha256": "fb553b2c484e30bbb7986cd55ea3e7bcbce33c907c7b29b629161cb5a41523af",
+      "patch_sha256": "7438737490a3752b81c495ad70af945bf5180f89b4e97916f360e137797b16e3",
+      "resources": {
+        "token": 65121,
+        "model_call": 8,
+        "tool_call": 18,
+        "wallclock_seconds": 248.76149830001032
+      },
+      "resources_complete": {
+        "token": true,
+        "model_call": true,
+        "tool_call": true,
+        "wallclock_seconds": true
+      },
+      "termination_reason": "EnvironmentFailure: public validation remains unrunnable after its deterministic retry",
+      "generation_status": "environment_error",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "django__django-11910",
+      "repeat_index": 0,
+      "seed": 20261111,
+      "run_id": "test20_D_20261112_01",
+      "mode": "formal",
+      "config_hash": "facc7c3aba17b36481828a6109a9a3ccd54deabe0ef3e7b33759b2964e3024dc",
+      "arm": "D",
+      "status": "empty_patch",
+      "cost_cny": 0.56297508,
+      "prediction_sha256": "c00c0d7b6fca249e4924522d76e42d5d8d03553ad22a4118d09004c17fd522b7",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "resources": {
+        "token": 152747,
+        "model_call": 9,
+        "tool_call": 8,
+        "wallclock_seconds": 707.593455700011
+      },
+      "resources_complete": {
+        "token": true,
+        "model_call": true,
+        "tool_call": true,
+        "wallclock_seconds": true
+      },
+      "termination_reason": "fixed_step_limit",
+      "generation_status": "completed",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "django__django-11910",
+      "repeat_index": 0,
+      "seed": 20261111,
+      "run_id": "test20_E_20261112_01",
+      "mode": "formal",
+      "config_hash": "facc7c3aba17b36481828a6109a9a3ccd54deabe0ef3e7b33759b2964e3024dc",
+      "arm": "E",
+      "status": "resolved",
+      "cost_cny": 0.21970772,
+      "prediction_sha256": "13554d7b8aaa6eed04b55591a7275e453ed67364ae55b117e3251baf33f8bf13",
+      "patch_sha256": "bb829784eb0845da7c4092dc9e1deb69c3db50d62b48cf968c0f7ea391141746",
+      "resources": {
+        "token": 75894,
+        "model_call": 9,
+        "tool_call": 19,
+        "wallclock_seconds": 274.7430716000108
+      },
+      "resources_complete": {
+        "token": true,
+        "model_call": true,
+        "tool_call": true,
+        "wallclock_seconds": true
+      },
+      "termination_reason": "EnvironmentFailure: public validation remains unrunnable after its deterministic retry",
+      "generation_status": "environment_error",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "django__django-12708",
+      "repeat_index": 0,
+      "seed": 20261111,
+      "run_id": "test20_A_20261112_01",
+      "mode": "formal",
+      "config_hash": "facc7c3aba17b36481828a6109a9a3ccd54deabe0ef3e7b33759b2964e3024dc",
+      "arm": "A",
+      "status": "resolved",
+      "cost_cny": 0.07755188,
+      "prediction_sha256": "b94bf4a0bdbdd5d7dfc435ad4035d1b7c4e785bc997b4d0f32400766d65c6126",
+      "patch_sha256": "035ae261574ca2c4481e1d7fa99c9f2ba25bba65228c27c98a60fb3b2867cfb0",
+      "resources": {
+        "token": 41956,
+        "model_call": 3,
+        "tool_call": 21,
+        "wallclock_seconds": 77.4980571000051
+      },
+      "resources_complete": {
+        "token": true,
+        "model_call": true,
+        "tool_call": true,
+        "wallclock_seconds": true
+      },
+      "termination_reason": "stop_env_failure",
+      "generation_status": "environment_error",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "django__django-12708",
+      "repeat_index": 0,
+      "seed": 20261111,
+      "run_id": "test20_B_20261112_02",
+      "mode": "formal",
+      "config_hash": "facc7c3aba17b36481828a6109a9a3ccd54deabe0ef3e7b33759b2964e3024dc",
+      "arm": "B",
+      "status": "resolved",
+      "cost_cny": 0.0323052,
+      "prediction_sha256": "3bc30e942c59b24cbb446b03832509537d08fa9e37caaa6758b04b449afa423c",
+      "patch_sha256": "0b37d9bb9df66d9c7d8518b37f48dc75d5557a0c82f8f5adfe41b2c3a6525ec5",
+      "resources": {
+        "token": 25532,
+        "model_call": 6,
+        "tool_call": 15,
+        "wallclock_seconds": 37.57071189999988
+      },
+      "resources_complete": {
+        "token": true,
+        "model_call": true,
+        "tool_call": true,
+        "wallclock_seconds": true
+      },
+      "termination_reason": "EnvironmentFailure: public validation remains unrunnable after its deterministic retry",
+      "generation_status": "environment_error",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "django__django-12708",
+      "repeat_index": 0,
+      "seed": 20261111,
+      "run_id": "test20_C_20261112_01",
+      "mode": "formal",
+      "config_hash": "facc7c3aba17b36481828a6109a9a3ccd54deabe0ef3e7b33759b2964e3024dc",
+      "arm": "C",
+      "status": "resolved",
+      "cost_cny": 0.07755188,
+      "prediction_sha256": "fb553b2c484e30bbb7986cd55ea3e7bcbce33c907c7b29b629161cb5a41523af",
+      "patch_sha256": "035ae261574ca2c4481e1d7fa99c9f2ba25bba65228c27c98a60fb3b2867cfb0",
+      "resources": {
+        "token": 41956,
+        "model_call": 3,
+        "tool_call": 21,
+        "wallclock_seconds": 77.4980571000051
+      },
+      "resources_complete": {
+        "token": true,
+        "model_call": true,
+        "tool_call": true,
+        "wallclock_seconds": true
+      },
+      "termination_reason": "stop_env_failure",
+      "generation_status": "environment_error",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "django__django-12708",
+      "repeat_index": 0,
+      "seed": 20261111,
+      "run_id": "test20_D_20261112_01",
+      "mode": "formal",
+      "config_hash": "facc7c3aba17b36481828a6109a9a3ccd54deabe0ef3e7b33759b2964e3024dc",
+      "arm": "D",
+      "status": "resolved",
+      "cost_cny": 0.07755188,
+      "prediction_sha256": "c00c0d7b6fca249e4924522d76e42d5d8d03553ad22a4118d09004c17fd522b7",
+      "patch_sha256": "035ae261574ca2c4481e1d7fa99c9f2ba25bba65228c27c98a60fb3b2867cfb0",
+      "resources": {
+        "token": 41956,
+        "model_call": 3,
+        "tool_call": 21,
+        "wallclock_seconds": 77.4980571000051
+      },
+      "resources_complete": {
+        "token": true,
+        "model_call": true,
+        "tool_call": true,
+        "wallclock_seconds": true
+      },
+      "termination_reason": "stop_env_failure",
+      "generation_status": "environment_error",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "django__django-12708",
+      "repeat_index": 0,
+      "seed": 20261111,
+      "run_id": "test20_E_20261112_01",
+      "mode": "formal",
+      "config_hash": "facc7c3aba17b36481828a6109a9a3ccd54deabe0ef3e7b33759b2964e3024dc",
+      "arm": "E",
+      "status": "resolved",
+      "cost_cny": 0.07755188,
+      "prediction_sha256": "13554d7b8aaa6eed04b55591a7275e453ed67364ae55b117e3251baf33f8bf13",
+      "patch_sha256": "035ae261574ca2c4481e1d7fa99c9f2ba25bba65228c27c98a60fb3b2867cfb0",
+      "resources": {
+        "token": 41956,
+        "model_call": 3,
+        "tool_call": 21,
+        "wallclock_seconds": 77.4980571000051
+      },
+      "resources_complete": {
+        "token": true,
+        "model_call": true,
+        "tool_call": true,
+        "wallclock_seconds": true
+      },
+      "termination_reason": "stop_env_failure",
+      "generation_status": "environment_error",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "django__django-13230",
+      "repeat_index": 0,
+      "seed": 20261111,
+      "run_id": "test20_A_20261112_01",
+      "mode": "formal",
+      "config_hash": "facc7c3aba17b36481828a6109a9a3ccd54deabe0ef3e7b33759b2964e3024dc",
+      "arm": "A",
+      "status": "resolved",
+      "cost_cny": 0.033444959999999996,
+      "prediction_sha256": "b94bf4a0bdbdd5d7dfc435ad4035d1b7c4e785bc997b4d0f32400766d65c6126",
+      "patch_sha256": "e20ecb807fc98b83407f6919b3dd0b46b39430e1b3205d3fc47bcd410e573076",
+      "resources": {
+        "token": 12403,
+        "model_call": 3,
+        "tool_call": 20,
+        "wallclock_seconds": 41.69957889999205
+      },
+      "resources_complete": {
+        "token": true,
+        "model_call": true,
+        "tool_call": true,
+        "wallclock_seconds": true
+      },
+      "termination_reason": "stop_env_failure",
+      "generation_status": "environment_error",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "django__django-13230",
+      "repeat_index": 0,
+      "seed": 20261111,
+      "run_id": "test20_B_20261112_02",
+      "mode": "formal",
+      "config_hash": "facc7c3aba17b36481828a6109a9a3ccd54deabe0ef3e7b33759b2964e3024dc",
+      "arm": "B",
+      "status": "resolved",
+      "cost_cny": 0.01187128,
+      "prediction_sha256": "3bc30e942c59b24cbb446b03832509537d08fa9e37caaa6758b04b449afa423c",
+      "patch_sha256": "24247576c7c3224da884351c1447b57747e41aabe9d89d0a19784cc084273acd",
+      "resources": {
+        "token": 19619,
+        "model_call": 6,
+        "tool_call": 15,
+        "wallclock_seconds": 16.077218100006576
+      },
+      "resources_complete": {
+        "token": true,
+        "model_call": true,
+        "tool_call": true,
+        "wallclock_seconds": true
+      },
+      "termination_reason": "EnvironmentFailure: public validation remains unrunnable after its deterministic retry",
+      "generation_status": "environment_error",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "django__django-13230",
+      "repeat_index": 0,
+      "seed": 20261111,
+      "run_id": "test20_C_20261112_01",
+      "mode": "formal",
+      "config_hash": "facc7c3aba17b36481828a6109a9a3ccd54deabe0ef3e7b33759b2964e3024dc",
+      "arm": "C",
+      "status": "resolved",
+      "cost_cny": 0.033444959999999996,
+      "prediction_sha256": "fb553b2c484e30bbb7986cd55ea3e7bcbce33c907c7b29b629161cb5a41523af",
+      "patch_sha256": "e20ecb807fc98b83407f6919b3dd0b46b39430e1b3205d3fc47bcd410e573076",
+      "resources": {
+        "token": 12403,
+        "model_call": 3,
+        "tool_call": 20,
+        "wallclock_seconds": 41.69957889999205
+      },
+      "resources_complete": {
+        "token": true,
+        "model_call": true,
+        "tool_call": true,
+        "wallclock_seconds": true
+      },
+      "termination_reason": "stop_env_failure",
+      "generation_status": "environment_error",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "django__django-13230",
+      "repeat_index": 0,
+      "seed": 20261111,
+      "run_id": "test20_D_20261112_01",
+      "mode": "formal",
+      "config_hash": "facc7c3aba17b36481828a6109a9a3ccd54deabe0ef3e7b33759b2964e3024dc",
+      "arm": "D",
+      "status": "resolved",
+      "cost_cny": 0.033444959999999996,
+      "prediction_sha256": "c00c0d7b6fca249e4924522d76e42d5d8d03553ad22a4118d09004c17fd522b7",
+      "patch_sha256": "e20ecb807fc98b83407f6919b3dd0b46b39430e1b3205d3fc47bcd410e573076",
+      "resources": {
+        "token": 12403,
+        "model_call": 3,
+        "tool_call": 20,
+        "wallclock_seconds": 41.69957889999205
+      },
+      "resources_complete": {
+        "token": true,
+        "model_call": true,
+        "tool_call": true,
+        "wallclock_seconds": true
+      },
+      "termination_reason": "stop_env_failure",
+      "generation_status": "environment_error",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "django__django-13230",
+      "repeat_index": 0,
+      "seed": 20261111,
+      "run_id": "test20_E_20261112_01",
+      "mode": "formal",
+      "config_hash": "facc7c3aba17b36481828a6109a9a3ccd54deabe0ef3e7b33759b2964e3024dc",
+      "arm": "E",
+      "status": "resolved",
+      "cost_cny": 0.033444959999999996,
+      "prediction_sha256": "13554d7b8aaa6eed04b55591a7275e453ed67364ae55b117e3251baf33f8bf13",
+      "patch_sha256": "e20ecb807fc98b83407f6919b3dd0b46b39430e1b3205d3fc47bcd410e573076",
+      "resources": {
+        "token": 12403,
+        "model_call": 3,
+        "tool_call": 20,
+        "wallclock_seconds": 41.69957889999205
+      },
+      "resources_complete": {
+        "token": true,
+        "model_call": true,
+        "tool_call": true,
+        "wallclock_seconds": true
+      },
+      "termination_reason": "stop_env_failure",
+      "generation_status": "environment_error",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "django__django-17087",
+      "repeat_index": 0,
+      "seed": 20261111,
+      "run_id": "test20_A_20261112_01",
+      "mode": "formal",
+      "config_hash": "facc7c3aba17b36481828a6109a9a3ccd54deabe0ef3e7b33759b2964e3024dc",
+      "arm": "A",
+      "status": "resolved",
+      "cost_cny": 0.01958656,
+      "prediction_sha256": "b94bf4a0bdbdd5d7dfc435ad4035d1b7c4e785bc997b4d0f32400766d65c6126",
+      "patch_sha256": "b9716f9da8ab103b54f304d1bc71ed523b1f354b3dd57448459d2e6cee31a85e",
+      "resources": {
+        "token": 11382,
+        "model_call": 3,
+        "tool_call": 20,
+        "wallclock_seconds": 29.666758799998206
+      },
+      "resources_complete": {
+        "token": true,
+        "model_call": true,
+        "tool_call": true,
+        "wallclock_seconds": true
+      },
+      "termination_reason": "stop_env_failure",
+      "generation_status": "environment_error",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "django__django-17087",
+      "repeat_index": 0,
+      "seed": 20261111,
+      "run_id": "test20_B_20261112_02",
+      "mode": "formal",
+      "config_hash": "facc7c3aba17b36481828a6109a9a3ccd54deabe0ef3e7b33759b2964e3024dc",
+      "arm": "B",
+      "status": "resolved",
+      "cost_cny": 0.00419236,
+      "prediction_sha256": "3bc30e942c59b24cbb446b03832509537d08fa9e37caaa6758b04b449afa423c",
+      "patch_sha256": "6203206aaf27c23b681928657f6fce8bbcf931971e71926df9318cbb03a90ee9",
+      "resources": {
+        "token": 6050,
+        "model_call": 3,
+        "tool_call": 12,
+        "wallclock_seconds": 10.511137199995574
+      },
+      "resources_complete": {
+        "token": true,
+        "model_call": true,
+        "tool_call": true,
+        "wallclock_seconds": true
+      },
+      "termination_reason": "EnvironmentFailure: public validation remains unrunnable after its deterministic retry",
+      "generation_status": "environment_error",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "django__django-17087",
+      "repeat_index": 0,
+      "seed": 20261111,
+      "run_id": "test20_C_20261112_01",
+      "mode": "formal",
+      "config_hash": "facc7c3aba17b36481828a6109a9a3ccd54deabe0ef3e7b33759b2964e3024dc",
+      "arm": "C",
+      "status": "resolved",
+      "cost_cny": 0.01958656,
+      "prediction_sha256": "fb553b2c484e30bbb7986cd55ea3e7bcbce33c907c7b29b629161cb5a41523af",
+      "patch_sha256": "b9716f9da8ab103b54f304d1bc71ed523b1f354b3dd57448459d2e6cee31a85e",
+      "resources": {
+        "token": 11382,
+        "model_call": 3,
+        "tool_call": 20,
+        "wallclock_seconds": 29.666758799998206
+      },
+      "resources_complete": {
+        "token": true,
+        "model_call": true,
+        "tool_call": true,
+        "wallclock_seconds": true
+      },
+      "termination_reason": "stop_env_failure",
+      "generation_status": "environment_error",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "django__django-17087",
+      "repeat_index": 0,
+      "seed": 20261111,
+      "run_id": "test20_D_20261112_01",
+      "mode": "formal",
+      "config_hash": "facc7c3aba17b36481828a6109a9a3ccd54deabe0ef3e7b33759b2964e3024dc",
+      "arm": "D",
+      "status": "resolved",
+      "cost_cny": 0.01958656,
+      "prediction_sha256": "c00c0d7b6fca249e4924522d76e42d5d8d03553ad22a4118d09004c17fd522b7",
+      "patch_sha256": "b9716f9da8ab103b54f304d1bc71ed523b1f354b3dd57448459d2e6cee31a85e",
+      "resources": {
+        "token": 11382,
+        "model_call": 3,
+        "tool_call": 20,
+        "wallclock_seconds": 29.666758799998206
+      },
+      "resources_complete": {
+        "token": true,
+        "model_call": true,
+        "tool_call": true,
+        "wallclock_seconds": true
+      },
+      "termination_reason": "stop_env_failure",
+      "generation_status": "environment_error",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "django__django-17087",
+      "repeat_index": 0,
+      "seed": 20261111,
+      "run_id": "test20_E_20261112_01",
+      "mode": "formal",
+      "config_hash": "facc7c3aba17b36481828a6109a9a3ccd54deabe0ef3e7b33759b2964e3024dc",
+      "arm": "E",
+      "status": "resolved",
+      "cost_cny": 0.01958656,
+      "prediction_sha256": "13554d7b8aaa6eed04b55591a7275e453ed67364ae55b117e3251baf33f8bf13",
+      "patch_sha256": "b9716f9da8ab103b54f304d1bc71ed523b1f354b3dd57448459d2e6cee31a85e",
+      "resources": {
+        "token": 11382,
+        "model_call": 3,
+        "tool_call": 20,
+        "wallclock_seconds": 29.666758799998206
+      },
+      "resources_complete": {
+        "token": true,
+        "model_call": true,
+        "tool_call": true,
+        "wallclock_seconds": true
+      },
+      "termination_reason": "stop_env_failure",
+      "generation_status": "environment_error",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "matplotlib__matplotlib-23987",
+      "repeat_index": 0,
+      "seed": 20261111,
+      "run_id": "test20_A_20261112_01",
+      "mode": "formal",
+      "config_hash": "facc7c3aba17b36481828a6109a9a3ccd54deabe0ef3e7b33759b2964e3024dc",
+      "arm": "A",
+      "status": "empty_patch",
+      "cost_cny": 0.46161127999999996,
+      "prediction_sha256": "b94bf4a0bdbdd5d7dfc435ad4035d1b7c4e785bc997b4d0f32400766d65c6126",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "resources": {
+        "token": 303807,
+        "model_call": 8,
+        "tool_call": 10,
+        "wallclock_seconds": 510.88679210000555
+      },
+      "resources_complete": {
+        "token": true,
+        "model_call": true,
+        "tool_call": true,
+        "wallclock_seconds": true
+      },
+      "termination_reason": "fixed_step_limit",
+      "generation_status": "completed",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "matplotlib__matplotlib-23987",
+      "repeat_index": 0,
+      "seed": 20261111,
+      "run_id": "test20_B_20261112_02",
+      "mode": "formal",
+      "config_hash": "facc7c3aba17b36481828a6109a9a3ccd54deabe0ef3e7b33759b2964e3024dc",
+      "arm": "B",
+      "status": "empty_patch",
+      "cost_cny": 0.0194808,
+      "prediction_sha256": "3bc30e942c59b24cbb446b03832509537d08fa9e37caaa6758b04b449afa423c",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "resources": {
+        "token": 18965,
+        "model_call": 6,
+        "tool_call": 5,
+        "wallclock_seconds": 21.900422399994568
+      },
+      "resources_complete": {
+        "token": true,
+        "model_call": true,
+        "tool_call": true,
+        "wallclock_seconds": true
+      },
+      "termination_reason": "model_call_budget",
+      "generation_status": "budget_exhausted",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "matplotlib__matplotlib-23987",
+      "repeat_index": 0,
+      "seed": 20261111,
+      "run_id": "test20_C_20261112_01",
+      "mode": "formal",
+      "config_hash": "facc7c3aba17b36481828a6109a9a3ccd54deabe0ef3e7b33759b2964e3024dc",
+      "arm": "C",
+      "status": "ambiguous_error",
+      "cost_cny": 0.14120899999999997,
+      "prediction_sha256": "fb553b2c484e30bbb7986cd55ea3e7bcbce33c907c7b29b629161cb5a41523af",
+      "patch_sha256": "c4b9affaf8b5002042aff9899074d854d10cf16dee2fa16e9423688bc451d7e0",
+      "resources": {
+        "token": 144723,
+        "model_call": 8,
+        "tool_call": 16,
+        "wallclock_seconds": 125.78523700000005
+      },
+      "resources_complete": {
+        "token": true,
+        "model_call": true,
+        "tool_call": true,
+        "wallclock_seconds": true
+      },
+      "termination_reason": "model_call_budget",
+      "generation_status": "budget_exhausted",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "matplotlib__matplotlib-23987",
+      "repeat_index": 0,
+      "seed": 20261111,
+      "run_id": "test20_D_20261112_01",
+      "mode": "formal",
+      "config_hash": "facc7c3aba17b36481828a6109a9a3ccd54deabe0ef3e7b33759b2964e3024dc",
+      "arm": "D",
+      "status": "ambiguous_error",
+      "cost_cny": 0.13452389999999997,
+      "prediction_sha256": "c00c0d7b6fca249e4924522d76e42d5d8d03553ad22a4118d09004c17fd522b7",
+      "patch_sha256": "2e29337ec9784b2482eec7a5108017467f175a4a2d9fd7edc73a2ca55fe0e47a",
+      "resources": {
+        "token": 149577,
+        "model_call": 8,
+        "tool_call": 16,
+        "wallclock_seconds": 154.45790749999924
+      },
+      "resources_complete": {
+        "token": true,
+        "model_call": true,
+        "tool_call": true,
+        "wallclock_seconds": true
+      },
+      "termination_reason": "model_call_budget",
+      "generation_status": "budget_exhausted",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "matplotlib__matplotlib-23987",
+      "repeat_index": 0,
+      "seed": 20261111,
+      "run_id": "test20_E_20261112_01",
+      "mode": "formal",
+      "config_hash": "facc7c3aba17b36481828a6109a9a3ccd54deabe0ef3e7b33759b2964e3024dc",
+      "arm": "E",
+      "status": "ambiguous_error",
+      "cost_cny": 0.1735659,
+      "prediction_sha256": "13554d7b8aaa6eed04b55591a7275e453ed67364ae55b117e3251baf33f8bf13",
+      "patch_sha256": "af92b3c226ffd1f184e698f83c534466a0f37fba61052e8a806a4bcf33e5dd99",
+      "resources": {
+        "token": 159699,
+        "model_call": 8,
+        "tool_call": 16,
+        "wallclock_seconds": 200.05300689999967
+      },
+      "resources_complete": {
+        "token": true,
+        "model_call": true,
+        "tool_call": true,
+        "wallclock_seconds": true
+      },
+      "termination_reason": "model_call_budget",
+      "generation_status": "budget_exhausted",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "matplotlib__matplotlib-24970",
+      "repeat_index": 0,
+      "seed": 20261111,
+      "run_id": "test20_A_20261112_01",
+      "mode": "formal",
+      "config_hash": "facc7c3aba17b36481828a6109a9a3ccd54deabe0ef3e7b33759b2964e3024dc",
+      "arm": "A",
+      "status": "resolved",
+      "cost_cny": 0.23587844,
+      "prediction_sha256": "b94bf4a0bdbdd5d7dfc435ad4035d1b7c4e785bc997b4d0f32400766d65c6126",
+      "patch_sha256": "114725bbe3ec073c27c83c9f2d10455acf0d65026a2b7c7a6998078a291d5c3e",
+      "resources": {
+        "token": 274388,
+        "model_call": 8,
+        "tool_call": 36,
+        "wallclock_seconds": 269.47291450000193
+      },
+      "resources_complete": {
+        "token": true,
+        "model_call": true,
+        "tool_call": true,
+        "wallclock_seconds": true
+      },
+      "termination_reason": "fixed_step_limit",
+      "generation_status": "completed",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "matplotlib__matplotlib-24970",
+      "repeat_index": 0,
+      "seed": 20261111,
+      "run_id": "test20_B_20261112_02",
+      "mode": "formal",
+      "config_hash": "facc7c3aba17b36481828a6109a9a3ccd54deabe0ef3e7b33759b2964e3024dc",
+      "arm": "B",
+      "status": "resolved",
+      "cost_cny": 0.02699044,
+      "prediction_sha256": "3bc30e942c59b24cbb446b03832509537d08fa9e37caaa6758b04b449afa423c",
+      "patch_sha256": "e97f610ee53d6e18b4bd17cfbcba507b901adb3cae0c9608062f6bbc6c4e424e",
+      "resources": {
+        "token": 27584,
+        "model_call": 6,
+        "tool_call": 16,
+        "wallclock_seconds": 37.35366090000025
+      },
+      "resources_complete": {
+        "token": true,
+        "model_call": true,
+        "tool_call": true,
+        "wallclock_seconds": true
+      },
+      "termination_reason": "model_call_budget",
+      "generation_status": "budget_exhausted",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "matplotlib__matplotlib-24970",
+      "repeat_index": 0,
+      "seed": 20261111,
+      "run_id": "test20_C_20261112_01",
+      "mode": "formal",
+      "config_hash": "facc7c3aba17b36481828a6109a9a3ccd54deabe0ef3e7b33759b2964e3024dc",
+      "arm": "C",
+      "status": "resolved",
+      "cost_cny": 0.0974496,
+      "prediction_sha256": "fb553b2c484e30bbb7986cd55ea3e7bcbce33c907c7b29b629161cb5a41523af",
+      "patch_sha256": "114725bbe3ec073c27c83c9f2d10455acf0d65026a2b7c7a6998078a291d5c3e",
+      "resources": {
+        "token": 143122,
+        "model_call": 8,
+        "tool_call": 20,
+        "wallclock_seconds": 71.28116480000244
+      },
+      "resources_complete": {
+        "token": true,
+        "model_call": true,
+        "tool_call": true,
+        "wallclock_seconds": true
+      },
+      "termination_reason": "model_call_budget",
+      "generation_status": "budget_exhausted",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "matplotlib__matplotlib-24970",
+      "repeat_index": 0,
+      "seed": 20261111,
+      "run_id": "test20_D_20261112_01",
+      "mode": "formal",
+      "config_hash": "facc7c3aba17b36481828a6109a9a3ccd54deabe0ef3e7b33759b2964e3024dc",
+      "arm": "D",
+      "status": "resolved",
+      "cost_cny": 0.29446732,
+      "prediction_sha256": "c00c0d7b6fca249e4924522d76e42d5d8d03553ad22a4118d09004c17fd522b7",
+      "patch_sha256": "114725bbe3ec073c27c83c9f2d10455acf0d65026a2b7c7a6998078a291d5c3e",
+      "resources": {
+        "token": 293590,
+        "model_call": 8,
+        "tool_call": 36,
+        "wallclock_seconds": 354.376261600004
+      },
+      "resources_complete": {
+        "token": true,
+        "model_call": true,
+        "tool_call": true,
+        "wallclock_seconds": true
+      },
+      "termination_reason": "fixed_step_limit",
+      "generation_status": "completed",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "matplotlib__matplotlib-24970",
+      "repeat_index": 0,
+      "seed": 20261111,
+      "run_id": "test20_E_20261112_01",
+      "mode": "formal",
+      "config_hash": "facc7c3aba17b36481828a6109a9a3ccd54deabe0ef3e7b33759b2964e3024dc",
+      "arm": "E",
+      "status": "resolved",
+      "cost_cny": 0.3473796,
+      "prediction_sha256": "13554d7b8aaa6eed04b55591a7275e453ed67364ae55b117e3251baf33f8bf13",
+      "patch_sha256": "114725bbe3ec073c27c83c9f2d10455acf0d65026a2b7c7a6998078a291d5c3e",
+      "resources": {
+        "token": 275680,
+        "model_call": 8,
+        "tool_call": 36,
+        "wallclock_seconds": 261.77240330000313
+      },
+      "resources_complete": {
+        "token": true,
+        "model_call": true,
+        "tool_call": true,
+        "wallclock_seconds": true
+      },
+      "termination_reason": "fixed_step_limit",
+      "generation_status": "completed",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "mwaskom__seaborn-2848",
+      "repeat_index": 0,
+      "seed": 20261111,
+      "run_id": "test20_A_20261112_01",
+      "mode": "formal",
+      "config_hash": "facc7c3aba17b36481828a6109a9a3ccd54deabe0ef3e7b33759b2964e3024dc",
+      "arm": "A",
+      "status": "empty_patch",
+      "cost_cny": 0.5926612,
+      "prediction_sha256": "b94bf4a0bdbdd5d7dfc435ad4035d1b7c4e785bc997b4d0f32400766d65c6126",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "resources": {
+        "token": 155938,
+        "model_call": 9,
+        "tool_call": 3,
+        "wallclock_seconds": 737.3005261000071
+      },
+      "resources_complete": {
+        "token": true,
+        "model_call": true,
+        "tool_call": true,
+        "wallclock_seconds": true
+      },
+      "termination_reason": "fixed_step_limit",
+      "generation_status": "completed",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "mwaskom__seaborn-2848",
+      "repeat_index": 0,
+      "seed": 20261111,
+      "run_id": "test20_B_20261112_02",
+      "mode": "formal",
+      "config_hash": "facc7c3aba17b36481828a6109a9a3ccd54deabe0ef3e7b33759b2964e3024dc",
+      "arm": "B",
+      "status": "resolved",
+      "cost_cny": 0.02955332,
+      "prediction_sha256": "3bc30e942c59b24cbb446b03832509537d08fa9e37caaa6758b04b449afa423c",
+      "patch_sha256": "d8ffe65e4c43a3161ad2b568e9f4f8e521d3407a8ca58ea24451240496dc78b2",
+      "resources": {
+        "token": 25680,
+        "model_call": 6,
+        "tool_call": 10,
+        "wallclock_seconds": 91.60390830000779
+      },
+      "resources_complete": {
+        "token": true,
+        "model_call": true,
+        "tool_call": true,
+        "wallclock_seconds": true
+      },
+      "termination_reason": "model_call_budget",
+      "generation_status": "budget_exhausted",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "mwaskom__seaborn-2848",
+      "repeat_index": 0,
+      "seed": 20261111,
+      "run_id": "test20_C_20261112_01",
+      "mode": "formal",
+      "config_hash": "facc7c3aba17b36481828a6109a9a3ccd54deabe0ef3e7b33759b2964e3024dc",
+      "arm": "C",
+      "status": "resolved",
+      "cost_cny": 0.20738183999999998,
+      "prediction_sha256": "fb553b2c484e30bbb7986cd55ea3e7bcbce33c907c7b29b629161cb5a41523af",
+      "patch_sha256": "93e7ae4641320e2c29e5c6f7b0ad4a52dfeac0db20eb1598a44c8a1f3b9c16ba",
+      "resources": {
+        "token": 62284,
+        "model_call": 7,
+        "tool_call": 12,
+        "wallclock_seconds": 321.34029270000065
+      },
+      "resources_complete": {
+        "token": true,
+        "model_call": true,
+        "tool_call": true,
+        "wallclock_seconds": true
+      },
+      "termination_reason": "public_pass",
+      "generation_status": "completed",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "mwaskom__seaborn-2848",
+      "repeat_index": 0,
+      "seed": 20261111,
+      "run_id": "test20_D_20261112_01",
+      "mode": "formal",
+      "config_hash": "facc7c3aba17b36481828a6109a9a3ccd54deabe0ef3e7b33759b2964e3024dc",
+      "arm": "D",
+      "status": "empty_patch",
+      "cost_cny": 0.52036532,
+      "prediction_sha256": "c00c0d7b6fca249e4924522d76e42d5d8d03553ad22a4118d09004c17fd522b7",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "resources": {
+        "token": 139090,
+        "model_call": 9,
+        "tool_call": 11,
+        "wallclock_seconds": 658.8286327999995
+      },
+      "resources_complete": {
+        "token": true,
+        "model_call": true,
+        "tool_call": true,
+        "wallclock_seconds": true
+      },
+      "termination_reason": "fixed_step_limit",
+      "generation_status": "completed",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "mwaskom__seaborn-2848",
+      "repeat_index": 0,
+      "seed": 20261111,
+      "run_id": "test20_E_20261112_01",
+      "mode": "formal",
+      "config_hash": "facc7c3aba17b36481828a6109a9a3ccd54deabe0ef3e7b33759b2964e3024dc",
+      "arm": "E",
+      "status": "empty_patch",
+      "cost_cny": 0.9870645199999999,
+      "prediction_sha256": "13554d7b8aaa6eed04b55591a7275e453ed67364ae55b117e3251baf33f8bf13",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "resources": {
+        "token": 155938,
+        "model_call": 9,
+        "tool_call": 3,
+        "wallclock_seconds": 765.7809663000007
+      },
+      "resources_complete": {
+        "token": true,
+        "model_call": true,
+        "tool_call": true,
+        "wallclock_seconds": true
+      },
+      "termination_reason": "fixed_step_limit",
+      "generation_status": "completed",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "pallets__flask-4045",
+      "repeat_index": 0,
+      "seed": 20261111,
+      "run_id": "test20_A_20261112_01",
+      "mode": "formal",
+      "config_hash": "facc7c3aba17b36481828a6109a9a3ccd54deabe0ef3e7b33759b2964e3024dc",
+      "arm": "A",
+      "status": "ambiguous_error",
+      "cost_cny": 0.3539366,
+      "prediction_sha256": "b94bf4a0bdbdd5d7dfc435ad4035d1b7c4e785bc997b4d0f32400766d65c6126",
+      "patch_sha256": "4dfb8198fef2ddcb160e30deacb78efd551c5c05ca16e39e138addada6fcb474",
+      "resources": {
+        "token": 171626,
+        "model_call": 9,
+        "tool_call": 30,
+        "wallclock_seconds": 410.87185569999565
+      },
+      "resources_complete": {
+        "token": true,
+        "model_call": true,
+        "tool_call": true,
+        "wallclock_seconds": true
+      },
+      "termination_reason": "fixed_step_limit",
+      "generation_status": "completed",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "pallets__flask-4045",
+      "repeat_index": 0,
+      "seed": 20261111,
+      "run_id": "test20_B_20261112_02",
+      "mode": "formal",
+      "config_hash": "facc7c3aba17b36481828a6109a9a3ccd54deabe0ef3e7b33759b2964e3024dc",
+      "arm": "B",
+      "status": "ambiguous_error",
+      "cost_cny": 0.00785196,
+      "prediction_sha256": "3bc30e942c59b24cbb446b03832509537d08fa9e37caaa6758b04b449afa423c",
+      "patch_sha256": "aa61b5076966adf86b273e503f90241cc913e6a3682eaf4e12a8f8e853a3254f",
+      "resources": {
+        "token": 14367,
+        "model_call": 6,
+        "tool_call": 10,
+        "wallclock_seconds": 10.999403300000267
+      },
+      "resources_complete": {
+        "token": true,
+        "model_call": true,
+        "tool_call": true,
+        "wallclock_seconds": true
+      },
+      "termination_reason": "model_call_budget",
+      "generation_status": "budget_exhausted",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "pallets__flask-4045",
+      "repeat_index": 0,
+      "seed": 20261111,
+      "run_id": "test20_C_20261112_01",
+      "mode": "formal",
+      "config_hash": "facc7c3aba17b36481828a6109a9a3ccd54deabe0ef3e7b33759b2964e3024dc",
+      "arm": "C",
+      "status": "ambiguous_error",
+      "cost_cny": 0.04296912,
+      "prediction_sha256": "fb553b2c484e30bbb7986cd55ea3e7bcbce33c907c7b29b629161cb5a41523af",
+      "patch_sha256": "4dfb8198fef2ddcb160e30deacb78efd551c5c05ca16e39e138addada6fcb474",
+      "resources": {
+        "token": 52839,
+        "model_call": 7,
+        "tool_call": 23,
+        "wallclock_seconds": 54.689032600002065
+      },
+      "resources_complete": {
+        "token": true,
+        "model_call": true,
+        "tool_call": true,
+        "wallclock_seconds": true
+      },
+      "termination_reason": "finish_tool",
+      "generation_status": "completed",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "pallets__flask-4045",
+      "repeat_index": 0,
+      "seed": 20261111,
+      "run_id": "test20_D_20261112_01",
+      "mode": "formal",
+      "config_hash": "facc7c3aba17b36481828a6109a9a3ccd54deabe0ef3e7b33759b2964e3024dc",
+      "arm": "D",
+      "status": "ambiguous_error",
+      "cost_cny": 0.05135652,
+      "prediction_sha256": "c00c0d7b6fca249e4924522d76e42d5d8d03553ad22a4118d09004c17fd522b7",
+      "patch_sha256": "4dfb8198fef2ddcb160e30deacb78efd551c5c05ca16e39e138addada6fcb474",
+      "resources": {
+        "token": 78603,
+        "model_call": 9,
+        "tool_call": 25,
+        "wallclock_seconds": 62.85257720000118
+      },
+      "resources_complete": {
+        "token": true,
+        "model_call": true,
+        "tool_call": true,
+        "wallclock_seconds": true
+      },
+      "termination_reason": "model_call_budget",
+      "generation_status": "budget_exhausted",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "pallets__flask-4045",
+      "repeat_index": 0,
+      "seed": 20261111,
+      "run_id": "test20_E_20261112_01",
+      "mode": "formal",
+      "config_hash": "facc7c3aba17b36481828a6109a9a3ccd54deabe0ef3e7b33759b2964e3024dc",
+      "arm": "E",
+      "status": "ambiguous_error",
+      "cost_cny": 0.06473144,
+      "prediction_sha256": "13554d7b8aaa6eed04b55591a7275e453ed67364ae55b117e3251baf33f8bf13",
+      "patch_sha256": "4dfb8198fef2ddcb160e30deacb78efd551c5c05ca16e39e138addada6fcb474",
+      "resources": {
+        "token": 71263,
+        "model_call": 8,
+        "tool_call": 24,
+        "wallclock_seconds": 68.31743990000177
+      },
+      "resources_complete": {
+        "token": true,
+        "model_call": true,
+        "tool_call": true,
+        "wallclock_seconds": true
+      },
+      "termination_reason": "finish_tool",
+      "generation_status": "completed",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "psf__requests-1963",
+      "repeat_index": 0,
+      "seed": 20261111,
+      "run_id": "test20_A_20261112_01",
+      "mode": "formal",
+      "config_hash": "facc7c3aba17b36481828a6109a9a3ccd54deabe0ef3e7b33759b2964e3024dc",
+      "arm": "A",
+      "status": "ambiguous_error",
+      "cost_cny": 0.08727399999999999,
+      "prediction_sha256": "b94bf4a0bdbdd5d7dfc435ad4035d1b7c4e785bc997b4d0f32400766d65c6126",
+      "patch_sha256": "e53f29b024da4a9a41c0f734c5fdba30b33867fd7ebd21408115bdde1f64adf6",
+      "resources": {
+        "token": 90974,
+        "model_call": 9,
+        "tool_call": 37,
+        "wallclock_seconds": 112.52684049999516
+      },
+      "resources_complete": {
+        "token": true,
+        "model_call": true,
+        "tool_call": true,
+        "wallclock_seconds": true
+      },
+      "termination_reason": "fixed_step_limit",
+      "generation_status": "completed",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "psf__requests-1963",
+      "repeat_index": 0,
+      "seed": 20261111,
+      "run_id": "test20_B_20261112_02",
+      "mode": "formal",
+      "config_hash": "facc7c3aba17b36481828a6109a9a3ccd54deabe0ef3e7b33759b2964e3024dc",
+      "arm": "B",
+      "status": "ambiguous_error",
+      "cost_cny": 0.00941432,
+      "prediction_sha256": "3bc30e942c59b24cbb446b03832509537d08fa9e37caaa6758b04b449afa423c",
+      "patch_sha256": "7d4a6c0e0b78d3a08aa1bb309279f1f06e954060314b41ffe76cbb2aeba079a1",
+      "resources": {
+        "token": 15206,
+        "model_call": 6,
+        "tool_call": 10,
+        "wallclock_seconds": 12.40273200000047
+      },
+      "resources_complete": {
+        "token": true,
+        "model_call": true,
+        "tool_call": true,
+        "wallclock_seconds": true
+      },
+      "termination_reason": "model_call_budget",
+      "generation_status": "budget_exhausted",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "psf__requests-1963",
+      "repeat_index": 0,
+      "seed": 20261111,
+      "run_id": "test20_C_20261112_01",
+      "mode": "formal",
+      "config_hash": "facc7c3aba17b36481828a6109a9a3ccd54deabe0ef3e7b33759b2964e3024dc",
+      "arm": "C",
+      "status": "ambiguous_error",
+      "cost_cny": 0.06243032,
+      "prediction_sha256": "fb553b2c484e30bbb7986cd55ea3e7bcbce33c907c7b29b629161cb5a41523af",
+      "patch_sha256": "e53f29b024da4a9a41c0f734c5fdba30b33867fd7ebd21408115bdde1f64adf6",
+      "resources": {
+        "token": 36225,
+        "model_call": 5,
+        "tool_call": 19,
+        "wallclock_seconds": 73.89733979999983
+      },
+      "resources_complete": {
+        "token": true,
+        "model_call": true,
+        "tool_call": true,
+        "wallclock_seconds": true
+      },
+      "termination_reason": "finish_tool",
+      "generation_status": "completed",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "psf__requests-1963",
+      "repeat_index": 0,
+      "seed": 20261111,
+      "run_id": "test20_D_20261112_01",
+      "mode": "formal",
+      "config_hash": "facc7c3aba17b36481828a6109a9a3ccd54deabe0ef3e7b33759b2964e3024dc",
+      "arm": "D",
+      "status": "ambiguous_error",
+      "cost_cny": 0.055130479999999996,
+      "prediction_sha256": "c00c0d7b6fca249e4924522d76e42d5d8d03553ad22a4118d09004c17fd522b7",
+      "patch_sha256": "e53f29b024da4a9a41c0f734c5fdba30b33867fd7ebd21408115bdde1f64adf6",
+      "resources": {
+        "token": 35133,
+        "model_call": 5,
+        "tool_call": 19,
+        "wallclock_seconds": 70.3226741999988
+      },
+      "resources_complete": {
+        "token": true,
+        "model_call": true,
+        "tool_call": true,
+        "wallclock_seconds": true
+      },
+      "termination_reason": "finish_tool",
+      "generation_status": "completed",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "psf__requests-1963",
+      "repeat_index": 0,
+      "seed": 20261111,
+      "run_id": "test20_E_20261112_01",
+      "mode": "formal",
+      "config_hash": "facc7c3aba17b36481828a6109a9a3ccd54deabe0ef3e7b33759b2964e3024dc",
+      "arm": "E",
+      "status": "ambiguous_error",
+      "cost_cny": 0.06309872,
+      "prediction_sha256": "13554d7b8aaa6eed04b55591a7275e453ed67364ae55b117e3251baf33f8bf13",
+      "patch_sha256": "e53f29b024da4a9a41c0f734c5fdba30b33867fd7ebd21408115bdde1f64adf6",
+      "resources": {
+        "token": 36478,
+        "model_call": 5,
+        "tool_call": 23,
+        "wallclock_seconds": 77.49723609999819
+      },
+      "resources_complete": {
+        "token": true,
+        "model_call": true,
+        "tool_call": true,
+        "wallclock_seconds": true
+      },
+      "termination_reason": "finish_tool",
+      "generation_status": "completed",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "pydata__xarray-3364",
+      "repeat_index": 0,
+      "seed": 20261111,
+      "run_id": "test20_A_20261112_01",
+      "mode": "formal",
+      "config_hash": "facc7c3aba17b36481828a6109a9a3ccd54deabe0ef3e7b33759b2964e3024dc",
+      "arm": "A",
+      "status": "empty_patch",
+      "cost_cny": 0.5524853599999999,
+      "prediction_sha256": "b94bf4a0bdbdd5d7dfc435ad4035d1b7c4e785bc997b4d0f32400766d65c6126",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "resources": {
+        "token": 193973,
+        "model_call": 9,
+        "tool_call": 5,
+        "wallclock_seconds": 707.0300069000077
+      },
+      "resources_complete": {
+        "token": true,
+        "model_call": true,
+        "tool_call": true,
+        "wallclock_seconds": true
+      },
+      "termination_reason": "fixed_step_limit",
+      "generation_status": "completed",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "pydata__xarray-3364",
+      "repeat_index": 0,
+      "seed": 20261111,
+      "run_id": "test20_B_20261112_02",
+      "mode": "formal",
+      "config_hash": "facc7c3aba17b36481828a6109a9a3ccd54deabe0ef3e7b33759b2964e3024dc",
+      "arm": "B",
+      "status": "unresolved",
+      "cost_cny": 0.04580644,
+      "prediction_sha256": "3bc30e942c59b24cbb446b03832509537d08fa9e37caaa6758b04b449afa423c",
+      "patch_sha256": "bd05c24c6915abee096ccb064f2d319ba7702fe5b9207cb1b5f33ab1e8bdea6d",
+      "resources": {
+        "token": 25887,
+        "model_call": 6,
+        "tool_call": 10,
+        "wallclock_seconds": 60.10122239999964
+      },
+      "resources_complete": {
+        "token": true,
+        "model_call": true,
+        "tool_call": true,
+        "wallclock_seconds": true
+      },
+      "termination_reason": "model_call_budget",
+      "generation_status": "budget_exhausted",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "pydata__xarray-3364",
+      "repeat_index": 0,
+      "seed": 20261111,
+      "run_id": "test20_C_20261112_01",
+      "mode": "formal",
+      "config_hash": "facc7c3aba17b36481828a6109a9a3ccd54deabe0ef3e7b33759b2964e3024dc",
+      "arm": "C",
+      "status": "unresolved",
+      "cost_cny": 0.21918764,
+      "prediction_sha256": "fb553b2c484e30bbb7986cd55ea3e7bcbce33c907c7b29b629161cb5a41523af",
+      "patch_sha256": "936b88aace2bb484c830ee7b4e6509b2ee29f0f7fec113357bc89498c1fa3260",
+      "resources": {
+        "token": 102322,
+        "model_call": 9,
+        "tool_call": 15,
+        "wallclock_seconds": 263.69885040000736
+      },
+      "resources_complete": {
+        "token": true,
+        "model_call": true,
+        "tool_call": true,
+        "wallclock_seconds": true
+      },
+      "termination_reason": "model_call_budget",
+      "generation_status": "budget_exhausted",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "pydata__xarray-3364",
+      "repeat_index": 0,
+      "seed": 20261111,
+      "run_id": "test20_D_20261112_01",
+      "mode": "formal",
+      "config_hash": "facc7c3aba17b36481828a6109a9a3ccd54deabe0ef3e7b33759b2964e3024dc",
+      "arm": "D",
+      "status": "unresolved",
+      "cost_cny": 0.21642452,
+      "prediction_sha256": "c00c0d7b6fca249e4924522d76e42d5d8d03553ad22a4118d09004c17fd522b7",
+      "patch_sha256": "97c75adbfb69b45c3f7dc8058f77890af005be11a9e41e004ea8f94009778f13",
+      "resources": {
+        "token": 99837,
+        "model_call": 9,
+        "tool_call": 14,
+        "wallclock_seconds": 280.75648270000784
+      },
+      "resources_complete": {
+        "token": true,
+        "model_call": true,
+        "tool_call": true,
+        "wallclock_seconds": true
+      },
+      "termination_reason": "model_call_budget",
+      "generation_status": "budget_exhausted",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "pydata__xarray-3364",
+      "repeat_index": 0,
+      "seed": 20261111,
+      "run_id": "test20_E_20261112_01",
+      "mode": "formal",
+      "config_hash": "facc7c3aba17b36481828a6109a9a3ccd54deabe0ef3e7b33759b2964e3024dc",
+      "arm": "E",
+      "status": "empty_patch",
+      "cost_cny": 0.94418852,
+      "prediction_sha256": "13554d7b8aaa6eed04b55591a7275e453ed67364ae55b117e3251baf33f8bf13",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "resources": {
+        "token": 193973,
+        "model_call": 9,
+        "tool_call": 5,
+        "wallclock_seconds": 742.5061783000074
+      },
+      "resources_complete": {
+        "token": true,
+        "model_call": true,
+        "tool_call": true,
+        "wallclock_seconds": true
+      },
+      "termination_reason": "fixed_step_limit",
+      "generation_status": "completed",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "pylint-dev__pylint-7114",
+      "repeat_index": 0,
+      "seed": 20261111,
+      "run_id": "test20_A_20261112_01",
+      "mode": "formal",
+      "config_hash": "facc7c3aba17b36481828a6109a9a3ccd54deabe0ef3e7b33759b2964e3024dc",
+      "arm": "A",
+      "status": "ambiguous_error",
+      "cost_cny": 0.3250494,
+      "prediction_sha256": "b94bf4a0bdbdd5d7dfc435ad4035d1b7c4e785bc997b4d0f32400766d65c6126",
+      "patch_sha256": "9fabd9dc629bef2e80c6b597cbebd7c62eca4d22af8ef4668c2486a5c532fab2",
+      "resources": {
+        "token": 128097,
+        "model_call": 9,
+        "tool_call": 37,
+        "wallclock_seconds": 422.9584165000124
+      },
+      "resources_complete": {
+        "token": true,
+        "model_call": true,
+        "tool_call": true,
+        "wallclock_seconds": true
+      },
+      "termination_reason": "fixed_step_limit",
+      "generation_status": "completed",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "pylint-dev__pylint-7114",
+      "repeat_index": 0,
+      "seed": 20261111,
+      "run_id": "test20_B_20261112_02",
+      "mode": "formal",
+      "config_hash": "facc7c3aba17b36481828a6109a9a3ccd54deabe0ef3e7b33759b2964e3024dc",
+      "arm": "B",
+      "status": "empty_patch",
+      "cost_cny": 0.04515295999999999,
+      "prediction_sha256": "3bc30e942c59b24cbb446b03832509537d08fa9e37caaa6758b04b449afa423c",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "resources": {
+        "token": 27534,
+        "model_call": 6,
+        "tool_call": 7,
+        "wallclock_seconds": 50.71013309999944
+      },
+      "resources_complete": {
+        "token": true,
+        "model_call": true,
+        "tool_call": true,
+        "wallclock_seconds": true
+      },
+      "termination_reason": "model_call_budget",
+      "generation_status": "budget_exhausted",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "pylint-dev__pylint-7114",
+      "repeat_index": 0,
+      "seed": 20261111,
+      "run_id": "test20_C_20261112_01",
+      "mode": "formal",
+      "config_hash": "facc7c3aba17b36481828a6109a9a3ccd54deabe0ef3e7b33759b2964e3024dc",
+      "arm": "C",
+      "status": "infra_error",
+      "cost_cny": 0.18680143999999999,
+      "prediction_sha256": "fb553b2c484e30bbb7986cd55ea3e7bcbce33c907c7b29b629161cb5a41523af",
+      "patch_sha256": "9fabd9dc629bef2e80c6b597cbebd7c62eca4d22af8ef4668c2486a5c532fab2",
+      "resources": {
+        "token": 78435,
+        "model_call": 7,
+        "tool_call": 21,
+        "wallclock_seconds": 240.95036220000384
+      },
+      "resources_complete": {
+        "token": true,
+        "model_call": true,
+        "tool_call": true,
+        "wallclock_seconds": true
+      },
+      "termination_reason": "finish_tool",
+      "generation_status": "completed",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "pylint-dev__pylint-7114",
+      "repeat_index": 0,
+      "seed": 20261111,
+      "run_id": "test20_D_20261112_01",
+      "mode": "formal",
+      "config_hash": "facc7c3aba17b36481828a6109a9a3ccd54deabe0ef3e7b33759b2964e3024dc",
+      "arm": "D",
+      "status": "ambiguous_error",
+      "cost_cny": 0.20118327999999996,
+      "prediction_sha256": "c00c0d7b6fca249e4924522d76e42d5d8d03553ad22a4118d09004c17fd522b7",
+      "patch_sha256": "9fabd9dc629bef2e80c6b597cbebd7c62eca4d22af8ef4668c2486a5c532fab2",
+      "resources": {
+        "token": 93120,
+        "model_call": 9,
+        "tool_call": 22,
+        "wallclock_seconds": 252.45099660000415
+      },
+      "resources_complete": {
+        "token": true,
+        "model_call": true,
+        "tool_call": true,
+        "wallclock_seconds": true
+      },
+      "termination_reason": "model_call_budget",
+      "generation_status": "budget_exhausted",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "pylint-dev__pylint-7114",
+      "repeat_index": 0,
+      "seed": 20261111,
+      "run_id": "test20_E_20261112_01",
+      "mode": "formal",
+      "config_hash": "facc7c3aba17b36481828a6109a9a3ccd54deabe0ef3e7b33759b2964e3024dc",
+      "arm": "E",
+      "status": "ambiguous_error",
+      "cost_cny": 0.69999952,
+      "prediction_sha256": "13554d7b8aaa6eed04b55591a7275e453ed67364ae55b117e3251baf33f8bf13",
+      "patch_sha256": "9fabd9dc629bef2e80c6b597cbebd7c62eca4d22af8ef4668c2486a5c532fab2",
+      "resources": {
+        "token": 155550,
+        "model_call": 9,
+        "tool_call": 29,
+        "wallclock_seconds": 592.1414282000042
+      },
+      "resources_complete": {
+        "token": true,
+        "model_call": true,
+        "tool_call": true,
+        "wallclock_seconds": true
+      },
+      "termination_reason": "fixed_step_limit",
+      "generation_status": "completed",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "pytest-dev__pytest-6116",
+      "repeat_index": 0,
+      "seed": 20261111,
+      "run_id": "test20_A_20261112_01",
+      "mode": "formal",
+      "config_hash": "facc7c3aba17b36481828a6109a9a3ccd54deabe0ef3e7b33759b2964e3024dc",
+      "arm": "A",
+      "status": "ambiguous_error",
+      "cost_cny": 0.0337786,
+      "prediction_sha256": "b94bf4a0bdbdd5d7dfc435ad4035d1b7c4e785bc997b4d0f32400766d65c6126",
+      "patch_sha256": "8172bbb04ce0dc7634fb2b48b93c6edfe6cfac1b299b46560dc8f4cd872e1723",
+      "resources": {
+        "token": 94855,
+        "model_call": 9,
+        "tool_call": 35,
+        "wallclock_seconds": 41.29703000001609
+      },
+      "resources_complete": {
+        "token": true,
+        "model_call": true,
+        "tool_call": true,
+        "wallclock_seconds": true
+      },
+      "termination_reason": "fixed_step_limit",
+      "generation_status": "completed",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "pytest-dev__pytest-6116",
+      "repeat_index": 0,
+      "seed": 20261111,
+      "run_id": "test20_B_20261112_02",
+      "mode": "formal",
+      "config_hash": "facc7c3aba17b36481828a6109a9a3ccd54deabe0ef3e7b33759b2964e3024dc",
+      "arm": "B",
+      "status": "ambiguous_error",
+      "cost_cny": 0.00429588,
+      "prediction_sha256": "3bc30e942c59b24cbb446b03832509537d08fa9e37caaa6758b04b449afa423c",
+      "patch_sha256": "1824020044dd44ca1693be3e91e008cec9901089c08f18817e274044eab9c0ff",
+      "resources": {
+        "token": 11635,
+        "model_call": 5,
+        "tool_call": 10,
+        "wallclock_seconds": 9.170815700000276
+      },
+      "resources_complete": {
+        "token": true,
+        "model_call": true,
+        "tool_call": true,
+        "wallclock_seconds": true
+      },
+      "termination_reason": "finish_tool",
+      "generation_status": "completed",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "pytest-dev__pytest-6116",
+      "repeat_index": 0,
+      "seed": 20261111,
+      "run_id": "test20_C_20261112_01",
+      "mode": "formal",
+      "config_hash": "facc7c3aba17b36481828a6109a9a3ccd54deabe0ef3e7b33759b2964e3024dc",
+      "arm": "C",
+      "status": "resolved",
+      "cost_cny": 0.021579519999999998,
+      "prediction_sha256": "fb553b2c484e30bbb7986cd55ea3e7bcbce33c907c7b29b629161cb5a41523af",
+      "patch_sha256": "8172bbb04ce0dc7634fb2b48b93c6edfe6cfac1b299b46560dc8f4cd872e1723",
+      "resources": {
+        "token": 47172,
+        "model_call": 7,
+        "tool_call": 23,
+        "wallclock_seconds": 20.76009700001123
+      },
+      "resources_complete": {
+        "token": true,
+        "model_call": true,
+        "tool_call": true,
+        "wallclock_seconds": true
+      },
+      "termination_reason": "finish_tool",
+      "generation_status": "completed",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "pytest-dev__pytest-6116",
+      "repeat_index": 0,
+      "seed": 20261111,
+      "run_id": "test20_D_20261112_01",
+      "mode": "formal",
+      "config_hash": "facc7c3aba17b36481828a6109a9a3ccd54deabe0ef3e7b33759b2964e3024dc",
+      "arm": "D",
+      "status": "ambiguous_error",
+      "cost_cny": 0.03981316,
+      "prediction_sha256": "c00c0d7b6fca249e4924522d76e42d5d8d03553ad22a4118d09004c17fd522b7",
+      "patch_sha256": "8172bbb04ce0dc7634fb2b48b93c6edfe6cfac1b299b46560dc8f4cd872e1723",
+      "resources": {
+        "token": 97942,
+        "model_call": 9,
+        "tool_call": 35,
+        "wallclock_seconds": 54.69054730001153
+      },
+      "resources_complete": {
+        "token": true,
+        "model_call": true,
+        "tool_call": true,
+        "wallclock_seconds": true
+      },
+      "termination_reason": "fixed_step_limit",
+      "generation_status": "completed",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "pytest-dev__pytest-6116",
+      "repeat_index": 0,
+      "seed": 20261111,
+      "run_id": "test20_E_20261112_01",
+      "mode": "formal",
+      "config_hash": "facc7c3aba17b36481828a6109a9a3ccd54deabe0ef3e7b33759b2964e3024dc",
+      "arm": "E",
+      "status": "ambiguous_error",
+      "cost_cny": 0.07825148,
+      "prediction_sha256": "13554d7b8aaa6eed04b55591a7275e453ed67364ae55b117e3251baf33f8bf13",
+      "patch_sha256": "8172bbb04ce0dc7634fb2b48b93c6edfe6cfac1b299b46560dc8f4cd872e1723",
+      "resources": {
+        "token": 99257,
+        "model_call": 9,
+        "tool_call": 35,
+        "wallclock_seconds": 64.66581860001133
+      },
+      "resources_complete": {
+        "token": true,
+        "model_call": true,
+        "tool_call": true,
+        "wallclock_seconds": true
+      },
+      "termination_reason": "fixed_step_limit",
+      "generation_status": "completed",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "pytest-dev__pytest-8906",
+      "repeat_index": 0,
+      "seed": 20261111,
+      "run_id": "test20_A_20261112_01",
+      "mode": "formal",
+      "config_hash": "facc7c3aba17b36481828a6109a9a3ccd54deabe0ef3e7b33759b2964e3024dc",
+      "arm": "A",
+      "status": "ambiguous_error",
+      "cost_cny": 0.10017216000000001,
+      "prediction_sha256": "b94bf4a0bdbdd5d7dfc435ad4035d1b7c4e785bc997b4d0f32400766d65c6126",
+      "patch_sha256": "50ce39ac8f699ffb4e6e8d4adbcbd8801cb55718b1d4ea8a9c7b6a5b9b24779d",
+      "resources": {
+        "token": 216699,
+        "model_call": 8,
+        "tool_call": 35,
+        "wallclock_seconds": 85.89453220000723
+      },
+      "resources_complete": {
+        "token": true,
+        "model_call": true,
+        "tool_call": true,
+        "wallclock_seconds": true
+      },
+      "termination_reason": "fixed_step_limit",
+      "generation_status": "completed",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "pytest-dev__pytest-8906",
+      "repeat_index": 0,
+      "seed": 20261111,
+      "run_id": "test20_B_20261112_02",
+      "mode": "formal",
+      "config_hash": "facc7c3aba17b36481828a6109a9a3ccd54deabe0ef3e7b33759b2964e3024dc",
+      "arm": "B",
+      "status": "ambiguous_error",
+      "cost_cny": 0.0238312,
+      "prediction_sha256": "3bc30e942c59b24cbb446b03832509537d08fa9e37caaa6758b04b449afa423c",
+      "patch_sha256": "e4345591f663365339ebf5f14c0a48e8e8ef7d62ced9c8ca76920989dc396677",
+      "resources": {
+        "token": 22260,
+        "model_call": 6,
+        "tool_call": 9,
+        "wallclock_seconds": 27.169872899999973
+      },
+      "resources_complete": {
+        "token": true,
+        "model_call": true,
+        "tool_call": true,
+        "wallclock_seconds": true
+      },
+      "termination_reason": "model_call_budget",
+      "generation_status": "budget_exhausted",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "pytest-dev__pytest-8906",
+      "repeat_index": 0,
+      "seed": 20261111,
+      "run_id": "test20_C_20261112_01",
+      "mode": "formal",
+      "config_hash": "facc7c3aba17b36481828a6109a9a3ccd54deabe0ef3e7b33759b2964e3024dc",
+      "arm": "C",
+      "status": "ambiguous_error",
+      "cost_cny": 0.08963415999999999,
+      "prediction_sha256": "fb553b2c484e30bbb7986cd55ea3e7bcbce33c907c7b29b629161cb5a41523af",
+      "patch_sha256": "50ce39ac8f699ffb4e6e8d4adbcbd8801cb55718b1d4ea8a9c7b6a5b9b24779d",
+      "resources": {
+        "token": 98671,
+        "model_call": 6,
+        "tool_call": 23,
+        "wallclock_seconds": 70.58167180000328
+      },
+      "resources_complete": {
+        "token": true,
+        "model_call": true,
+        "tool_call": true,
+        "wallclock_seconds": true
+      },
+      "termination_reason": "finish_tool",
+      "generation_status": "completed",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "pytest-dev__pytest-8906",
+      "repeat_index": 0,
+      "seed": 20261111,
+      "run_id": "test20_D_20261112_01",
+      "mode": "formal",
+      "config_hash": "facc7c3aba17b36481828a6109a9a3ccd54deabe0ef3e7b33759b2964e3024dc",
+      "arm": "D",
+      "status": "ambiguous_error",
+      "cost_cny": 0.071926,
+      "prediction_sha256": "c00c0d7b6fca249e4924522d76e42d5d8d03553ad22a4118d09004c17fd522b7",
+      "patch_sha256": "50ce39ac8f699ffb4e6e8d4adbcbd8801cb55718b1d4ea8a9c7b6a5b9b24779d",
+      "resources": {
+        "token": 97675,
+        "model_call": 6,
+        "tool_call": 19,
+        "wallclock_seconds": 65.57251060000272
+      },
+      "resources_complete": {
+        "token": true,
+        "model_call": true,
+        "tool_call": true,
+        "wallclock_seconds": true
+      },
+      "termination_reason": "finish_tool",
+      "generation_status": "completed",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "pytest-dev__pytest-8906",
+      "repeat_index": 0,
+      "seed": 20261111,
+      "run_id": "test20_E_20261112_01",
+      "mode": "formal",
+      "config_hash": "facc7c3aba17b36481828a6109a9a3ccd54deabe0ef3e7b33759b2964e3024dc",
+      "arm": "E",
+      "status": "ambiguous_error",
+      "cost_cny": 0.11150324,
+      "prediction_sha256": "13554d7b8aaa6eed04b55591a7275e453ed67364ae55b117e3251baf33f8bf13",
+      "patch_sha256": "50ce39ac8f699ffb4e6e8d4adbcbd8801cb55718b1d4ea8a9c7b6a5b9b24779d",
+      "resources": {
+        "token": 217162,
+        "model_call": 8,
+        "tool_call": 35,
+        "wallclock_seconds": 91.69559510000363
+      },
+      "resources_complete": {
+        "token": true,
+        "model_call": true,
+        "tool_call": true,
+        "wallclock_seconds": true
+      },
+      "termination_reason": "fixed_step_limit",
+      "generation_status": "completed",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "scikit-learn__scikit-learn-11281",
+      "repeat_index": 0,
+      "seed": 20261111,
+      "run_id": "test20_A_20261112_01",
+      "mode": "formal",
+      "config_hash": "facc7c3aba17b36481828a6109a9a3ccd54deabe0ef3e7b33759b2964e3024dc",
+      "arm": "A",
+      "status": "unresolved",
+      "cost_cny": 0.0649526,
+      "prediction_sha256": "b94bf4a0bdbdd5d7dfc435ad4035d1b7c4e785bc997b4d0f32400766d65c6126",
+      "patch_sha256": "ec16451eda82469e622ed985001885f6a4f1a4882e89dac4d1b01a551c66fd88",
+      "resources": {
+        "token": 41518,
+        "model_call": 3,
+        "tool_call": 14,
+        "wallclock_seconds": 69.14194990000397
+      },
+      "resources_complete": {
+        "token": true,
+        "model_call": true,
+        "tool_call": true,
+        "wallclock_seconds": true
+      },
+      "termination_reason": "early_stop_public_pass",
+      "generation_status": "completed",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "scikit-learn__scikit-learn-11281",
+      "repeat_index": 0,
+      "seed": 20261111,
+      "run_id": "test20_B_20261112_02",
+      "mode": "formal",
+      "config_hash": "facc7c3aba17b36481828a6109a9a3ccd54deabe0ef3e7b33759b2964e3024dc",
+      "arm": "B",
+      "status": "unresolved",
+      "cost_cny": 0.01234856,
+      "prediction_sha256": "3bc30e942c59b24cbb446b03832509537d08fa9e37caaa6758b04b449afa423c",
+      "patch_sha256": "aebfe2f47b9ae1a7d3236eec46d23eec5427076059c770eeeb9e12306731c323",
+      "resources": {
+        "token": 18147,
+        "model_call": 6,
+        "tool_call": 10,
+        "wallclock_seconds": 13.339888700000301
+      },
+      "resources_complete": {
+        "token": true,
+        "model_call": true,
+        "tool_call": true,
+        "wallclock_seconds": true
+      },
+      "termination_reason": "model_call_budget",
+      "generation_status": "budget_exhausted",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "scikit-learn__scikit-learn-11281",
+      "repeat_index": 0,
+      "seed": 20261111,
+      "run_id": "test20_C_20261112_01",
+      "mode": "formal",
+      "config_hash": "facc7c3aba17b36481828a6109a9a3ccd54deabe0ef3e7b33759b2964e3024dc",
+      "arm": "C",
+      "status": "unresolved",
+      "cost_cny": 0.0649526,
+      "prediction_sha256": "fb553b2c484e30bbb7986cd55ea3e7bcbce33c907c7b29b629161cb5a41523af",
+      "patch_sha256": "ec16451eda82469e622ed985001885f6a4f1a4882e89dac4d1b01a551c66fd88",
+      "resources": {
+        "token": 41518,
+        "model_call": 3,
+        "tool_call": 14,
+        "wallclock_seconds": 69.14194990000397
+      },
+      "resources_complete": {
+        "token": true,
+        "model_call": true,
+        "tool_call": true,
+        "wallclock_seconds": true
+      },
+      "termination_reason": "early_stop_public_pass",
+      "generation_status": "completed",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "scikit-learn__scikit-learn-11281",
+      "repeat_index": 0,
+      "seed": 20261111,
+      "run_id": "test20_D_20261112_01",
+      "mode": "formal",
+      "config_hash": "facc7c3aba17b36481828a6109a9a3ccd54deabe0ef3e7b33759b2964e3024dc",
+      "arm": "D",
+      "status": "unresolved",
+      "cost_cny": 0.0649526,
+      "prediction_sha256": "c00c0d7b6fca249e4924522d76e42d5d8d03553ad22a4118d09004c17fd522b7",
+      "patch_sha256": "ec16451eda82469e622ed985001885f6a4f1a4882e89dac4d1b01a551c66fd88",
+      "resources": {
+        "token": 41518,
+        "model_call": 3,
+        "tool_call": 14,
+        "wallclock_seconds": 69.14194990000397
+      },
+      "resources_complete": {
+        "token": true,
+        "model_call": true,
+        "tool_call": true,
+        "wallclock_seconds": true
+      },
+      "termination_reason": "early_stop_public_pass",
+      "generation_status": "completed",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "scikit-learn__scikit-learn-11281",
+      "repeat_index": 0,
+      "seed": 20261111,
+      "run_id": "test20_E_20261112_01",
+      "mode": "formal",
+      "config_hash": "facc7c3aba17b36481828a6109a9a3ccd54deabe0ef3e7b33759b2964e3024dc",
+      "arm": "E",
+      "status": "unresolved",
+      "cost_cny": 0.0649526,
+      "prediction_sha256": "13554d7b8aaa6eed04b55591a7275e453ed67364ae55b117e3251baf33f8bf13",
+      "patch_sha256": "ec16451eda82469e622ed985001885f6a4f1a4882e89dac4d1b01a551c66fd88",
+      "resources": {
+        "token": 41518,
+        "model_call": 3,
+        "tool_call": 14,
+        "wallclock_seconds": 69.14194990000397
+      },
+      "resources_complete": {
+        "token": true,
+        "model_call": true,
+        "tool_call": true,
+        "wallclock_seconds": true
+      },
+      "termination_reason": "early_stop_public_pass",
+      "generation_status": "completed",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "scikit-learn__scikit-learn-13496",
+      "repeat_index": 0,
+      "seed": 20261111,
+      "run_id": "test20_A_20261112_01",
+      "mode": "formal",
+      "config_hash": "facc7c3aba17b36481828a6109a9a3ccd54deabe0ef3e7b33759b2964e3024dc",
+      "arm": "A",
+      "status": "resolved",
+      "cost_cny": 0.04679772,
+      "prediction_sha256": "b94bf4a0bdbdd5d7dfc435ad4035d1b7c4e785bc997b4d0f32400766d65c6126",
+      "patch_sha256": "f12498381ee5ae22ac48ea2fe94920d9a1177122a312f71b5bb32820fab87c7f",
+      "resources": {
+        "token": 20803,
+        "model_call": 3,
+        "tool_call": 12,
+        "wallclock_seconds": 58.789300000004005
+      },
+      "resources_complete": {
+        "token": true,
+        "model_call": true,
+        "tool_call": true,
+        "wallclock_seconds": true
+      },
+      "termination_reason": "early_stop_public_pass",
+      "generation_status": "completed",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "scikit-learn__scikit-learn-13496",
+      "repeat_index": 0,
+      "seed": 20261111,
+      "run_id": "test20_B_20261112_02",
+      "mode": "formal",
+      "config_hash": "facc7c3aba17b36481828a6109a9a3ccd54deabe0ef3e7b33759b2964e3024dc",
+      "arm": "B",
+      "status": "empty_patch",
+      "cost_cny": 0.01216524,
+      "prediction_sha256": "3bc30e942c59b24cbb446b03832509537d08fa9e37caaa6758b04b449afa423c",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "resources": {
+        "token": 18484,
+        "model_call": 6,
+        "tool_call": 7,
+        "wallclock_seconds": 10.1618840000001
+      },
+      "resources_complete": {
+        "token": true,
+        "model_call": true,
+        "tool_call": true,
+        "wallclock_seconds": true
+      },
+      "termination_reason": "model_call_budget",
+      "generation_status": "budget_exhausted",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "scikit-learn__scikit-learn-13496",
+      "repeat_index": 0,
+      "seed": 20261111,
+      "run_id": "test20_C_20261112_01",
+      "mode": "formal",
+      "config_hash": "facc7c3aba17b36481828a6109a9a3ccd54deabe0ef3e7b33759b2964e3024dc",
+      "arm": "C",
+      "status": "resolved",
+      "cost_cny": 0.04679772,
+      "prediction_sha256": "fb553b2c484e30bbb7986cd55ea3e7bcbce33c907c7b29b629161cb5a41523af",
+      "patch_sha256": "f12498381ee5ae22ac48ea2fe94920d9a1177122a312f71b5bb32820fab87c7f",
+      "resources": {
+        "token": 20803,
+        "model_call": 3,
+        "tool_call": 12,
+        "wallclock_seconds": 58.789300000004005
+      },
+      "resources_complete": {
+        "token": true,
+        "model_call": true,
+        "tool_call": true,
+        "wallclock_seconds": true
+      },
+      "termination_reason": "early_stop_public_pass",
+      "generation_status": "completed",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "scikit-learn__scikit-learn-13496",
+      "repeat_index": 0,
+      "seed": 20261111,
+      "run_id": "test20_D_20261112_01",
+      "mode": "formal",
+      "config_hash": "facc7c3aba17b36481828a6109a9a3ccd54deabe0ef3e7b33759b2964e3024dc",
+      "arm": "D",
+      "status": "resolved",
+      "cost_cny": 0.04679772,
+      "prediction_sha256": "c00c0d7b6fca249e4924522d76e42d5d8d03553ad22a4118d09004c17fd522b7",
+      "patch_sha256": "f12498381ee5ae22ac48ea2fe94920d9a1177122a312f71b5bb32820fab87c7f",
+      "resources": {
+        "token": 20803,
+        "model_call": 3,
+        "tool_call": 12,
+        "wallclock_seconds": 58.789300000004005
+      },
+      "resources_complete": {
+        "token": true,
+        "model_call": true,
+        "tool_call": true,
+        "wallclock_seconds": true
+      },
+      "termination_reason": "early_stop_public_pass",
+      "generation_status": "completed",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "scikit-learn__scikit-learn-13496",
+      "repeat_index": 0,
+      "seed": 20261111,
+      "run_id": "test20_E_20261112_01",
+      "mode": "formal",
+      "config_hash": "facc7c3aba17b36481828a6109a9a3ccd54deabe0ef3e7b33759b2964e3024dc",
+      "arm": "E",
+      "status": "resolved",
+      "cost_cny": 0.04679772,
+      "prediction_sha256": "13554d7b8aaa6eed04b55591a7275e453ed67364ae55b117e3251baf33f8bf13",
+      "patch_sha256": "f12498381ee5ae22ac48ea2fe94920d9a1177122a312f71b5bb32820fab87c7f",
+      "resources": {
+        "token": 20803,
+        "model_call": 3,
+        "tool_call": 12,
+        "wallclock_seconds": 58.789300000004005
+      },
+      "resources_complete": {
+        "token": true,
+        "model_call": true,
+        "tool_call": true,
+        "wallclock_seconds": true
+      },
+      "termination_reason": "early_stop_public_pass",
+      "generation_status": "completed",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "sphinx-doc__sphinx-8595",
+      "repeat_index": 0,
+      "seed": 20261111,
+      "run_id": "test20_A_20261112_01",
+      "mode": "formal",
+      "config_hash": "facc7c3aba17b36481828a6109a9a3ccd54deabe0ef3e7b33759b2964e3024dc",
+      "arm": "A",
+      "status": "unresolved",
+      "cost_cny": 0.1654304,
+      "prediction_sha256": "b94bf4a0bdbdd5d7dfc435ad4035d1b7c4e785bc997b4d0f32400766d65c6126",
+      "patch_sha256": "61ddb436a05aaa2ecd5b5fd8964c6938a1faf9a900dcd4d857c3ca2eb3d406d8",
+      "resources": {
+        "token": 246957,
+        "model_call": 9,
+        "tool_call": 46,
+        "wallclock_seconds": 166.47333210000943
+      },
+      "resources_complete": {
+        "token": true,
+        "model_call": true,
+        "tool_call": true,
+        "wallclock_seconds": true
+      },
+      "termination_reason": "fixed_step_limit",
+      "generation_status": "completed",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "sphinx-doc__sphinx-8595",
+      "repeat_index": 0,
+      "seed": 20261111,
+      "run_id": "test20_B_20261112_02",
+      "mode": "formal",
+      "config_hash": "facc7c3aba17b36481828a6109a9a3ccd54deabe0ef3e7b33759b2964e3024dc",
+      "arm": "B",
+      "status": "unresolved",
+      "cost_cny": 0.013805000000000001,
+      "prediction_sha256": "3bc30e942c59b24cbb446b03832509537d08fa9e37caaa6758b04b449afa423c",
+      "patch_sha256": "a543aaece43d588e87bb4e0afe5af74d0a7fc27f832fe8b82b4e8f611e3494ca",
+      "resources": {
+        "token": 22536,
+        "model_call": 6,
+        "tool_call": 15,
+        "wallclock_seconds": 19.04895949999991
+      },
+      "resources_complete": {
+        "token": true,
+        "model_call": true,
+        "tool_call": true,
+        "wallclock_seconds": true
+      },
+      "termination_reason": "model_call_budget",
+      "generation_status": "budget_exhausted",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "sphinx-doc__sphinx-8595",
+      "repeat_index": 0,
+      "seed": 20261111,
+      "run_id": "test20_C_20261112_01",
+      "mode": "formal",
+      "config_hash": "facc7c3aba17b36481828a6109a9a3ccd54deabe0ef3e7b33759b2964e3024dc",
+      "arm": "C",
+      "status": "unresolved",
+      "cost_cny": 0.0970458,
+      "prediction_sha256": "fb553b2c484e30bbb7986cd55ea3e7bcbce33c907c7b29b629161cb5a41523af",
+      "patch_sha256": "61ddb436a05aaa2ecd5b5fd8964c6938a1faf9a900dcd4d857c3ca2eb3d406d8",
+      "resources": {
+        "token": 151578,
+        "model_call": 9,
+        "tool_call": 26,
+        "wallclock_seconds": 79.28237089999948
+      },
+      "resources_complete": {
+        "token": true,
+        "model_call": true,
+        "tool_call": true,
+        "wallclock_seconds": true
+      },
+      "termination_reason": "model_call_budget",
+      "generation_status": "budget_exhausted",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "sphinx-doc__sphinx-8595",
+      "repeat_index": 0,
+      "seed": 20261111,
+      "run_id": "test20_D_20261112_01",
+      "mode": "formal",
+      "config_hash": "facc7c3aba17b36481828a6109a9a3ccd54deabe0ef3e7b33759b2964e3024dc",
+      "arm": "D",
+      "status": "unresolved",
+      "cost_cny": 0.06549992,
+      "prediction_sha256": "c00c0d7b6fca249e4924522d76e42d5d8d03553ad22a4118d09004c17fd522b7",
+      "patch_sha256": "61ddb436a05aaa2ecd5b5fd8964c6938a1faf9a900dcd4d857c3ca2eb3d406d8",
+      "resources": {
+        "token": 150694,
+        "model_call": 9,
+        "tool_call": 31,
+        "wallclock_seconds": 83.17443659999844
+      },
+      "resources_complete": {
+        "token": true,
+        "model_call": true,
+        "tool_call": true,
+        "wallclock_seconds": true
+      },
+      "termination_reason": "model_call_budget",
+      "generation_status": "budget_exhausted",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "sphinx-doc__sphinx-8595",
+      "repeat_index": 0,
+      "seed": 20261111,
+      "run_id": "test20_E_20261112_01",
+      "mode": "formal",
+      "config_hash": "facc7c3aba17b36481828a6109a9a3ccd54deabe0ef3e7b33759b2964e3024dc",
+      "arm": "E",
+      "status": "unresolved",
+      "cost_cny": 0.27466128,
+      "prediction_sha256": "13554d7b8aaa6eed04b55591a7275e453ed67364ae55b117e3251baf33f8bf13",
+      "patch_sha256": "61ddb436a05aaa2ecd5b5fd8964c6938a1faf9a900dcd4d857c3ca2eb3d406d8",
+      "resources": {
+        "token": 249521,
+        "model_call": 9,
+        "tool_call": 46,
+        "wallclock_seconds": 210.0550084000006
+      },
+      "resources_complete": {
+        "token": true,
+        "model_call": true,
+        "tool_call": true,
+        "wallclock_seconds": true
+      },
+      "termination_reason": "fixed_step_limit",
+      "generation_status": "completed",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "sympy__sympy-13480",
+      "repeat_index": 0,
+      "seed": 20261111,
+      "run_id": "test20_A_20261112_01",
+      "mode": "formal",
+      "config_hash": "facc7c3aba17b36481828a6109a9a3ccd54deabe0ef3e7b33759b2964e3024dc",
+      "arm": "A",
+      "status": "resolved",
+      "cost_cny": 0.04707296,
+      "prediction_sha256": "b94bf4a0bdbdd5d7dfc435ad4035d1b7c4e785bc997b4d0f32400766d65c6126",
+      "patch_sha256": "496cb7b73ff05e480a0648d3635f6993b2e828b7a1be283c831b5beaa9fddcd7",
+      "resources": {
+        "token": 32742,
+        "model_call": 3,
+        "tool_call": 21,
+        "wallclock_seconds": 54.234656300002825
+      },
+      "resources_complete": {
+        "token": true,
+        "model_call": true,
+        "tool_call": true,
+        "wallclock_seconds": true
+      },
+      "termination_reason": "stop_env_failure",
+      "generation_status": "environment_error",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "sympy__sympy-13480",
+      "repeat_index": 0,
+      "seed": 20261111,
+      "run_id": "test20_B_20261112_02",
+      "mode": "formal",
+      "config_hash": "facc7c3aba17b36481828a6109a9a3ccd54deabe0ef3e7b33759b2964e3024dc",
+      "arm": "B",
+      "status": "empty_patch",
+      "cost_cny": 0.00844572,
+      "prediction_sha256": "3bc30e942c59b24cbb446b03832509537d08fa9e37caaa6758b04b449afa423c",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "resources": {
+        "token": 16971,
+        "model_call": 6,
+        "tool_call": 5,
+        "wallclock_seconds": 8.236782199999652
+      },
+      "resources_complete": {
+        "token": true,
+        "model_call": true,
+        "tool_call": true,
+        "wallclock_seconds": true
+      },
+      "termination_reason": "model_call_budget",
+      "generation_status": "budget_exhausted",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "sympy__sympy-13480",
+      "repeat_index": 0,
+      "seed": 20261111,
+      "run_id": "test20_C_20261112_01",
+      "mode": "formal",
+      "config_hash": "facc7c3aba17b36481828a6109a9a3ccd54deabe0ef3e7b33759b2964e3024dc",
+      "arm": "C",
+      "status": "resolved",
+      "cost_cny": 0.04707296,
+      "prediction_sha256": "fb553b2c484e30bbb7986cd55ea3e7bcbce33c907c7b29b629161cb5a41523af",
+      "patch_sha256": "496cb7b73ff05e480a0648d3635f6993b2e828b7a1be283c831b5beaa9fddcd7",
+      "resources": {
+        "token": 32742,
+        "model_call": 3,
+        "tool_call": 21,
+        "wallclock_seconds": 54.234656300002825
+      },
+      "resources_complete": {
+        "token": true,
+        "model_call": true,
+        "tool_call": true,
+        "wallclock_seconds": true
+      },
+      "termination_reason": "stop_env_failure",
+      "generation_status": "environment_error",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "sympy__sympy-13480",
+      "repeat_index": 0,
+      "seed": 20261111,
+      "run_id": "test20_D_20261112_01",
+      "mode": "formal",
+      "config_hash": "facc7c3aba17b36481828a6109a9a3ccd54deabe0ef3e7b33759b2964e3024dc",
+      "arm": "D",
+      "status": "resolved",
+      "cost_cny": 0.04707296,
+      "prediction_sha256": "c00c0d7b6fca249e4924522d76e42d5d8d03553ad22a4118d09004c17fd522b7",
+      "patch_sha256": "496cb7b73ff05e480a0648d3635f6993b2e828b7a1be283c831b5beaa9fddcd7",
+      "resources": {
+        "token": 32742,
+        "model_call": 3,
+        "tool_call": 21,
+        "wallclock_seconds": 54.234656300002825
+      },
+      "resources_complete": {
+        "token": true,
+        "model_call": true,
+        "tool_call": true,
+        "wallclock_seconds": true
+      },
+      "termination_reason": "stop_env_failure",
+      "generation_status": "environment_error",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "sympy__sympy-13480",
+      "repeat_index": 0,
+      "seed": 20261111,
+      "run_id": "test20_E_20261112_01",
+      "mode": "formal",
+      "config_hash": "facc7c3aba17b36481828a6109a9a3ccd54deabe0ef3e7b33759b2964e3024dc",
+      "arm": "E",
+      "status": "resolved",
+      "cost_cny": 0.04707296,
+      "prediction_sha256": "13554d7b8aaa6eed04b55591a7275e453ed67364ae55b117e3251baf33f8bf13",
+      "patch_sha256": "496cb7b73ff05e480a0648d3635f6993b2e828b7a1be283c831b5beaa9fddcd7",
+      "resources": {
+        "token": 32742,
+        "model_call": 3,
+        "tool_call": 21,
+        "wallclock_seconds": 54.234656300002825
+      },
+      "resources_complete": {
+        "token": true,
+        "model_call": true,
+        "tool_call": true,
+        "wallclock_seconds": true
+      },
+      "termination_reason": "stop_env_failure",
+      "generation_status": "environment_error",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "sympy__sympy-16503",
+      "repeat_index": 0,
+      "seed": 20261111,
+      "run_id": "test20_A_20261112_01",
+      "mode": "formal",
+      "config_hash": "facc7c3aba17b36481828a6109a9a3ccd54deabe0ef3e7b33759b2964e3024dc",
+      "arm": "A",
+      "status": "unresolved",
+      "cost_cny": 0.49893012,
+      "prediction_sha256": "b94bf4a0bdbdd5d7dfc435ad4035d1b7c4e785bc997b4d0f32400766d65c6126",
+      "patch_sha256": "9aaa22668fe0d903294240cbd4dbd9c25bb7040a8f6974d93886c592fd633592",
+      "resources": {
+        "token": 325155,
+        "model_call": 8,
+        "tool_call": 15,
+        "wallclock_seconds": 645.5774737999891
+      },
+      "resources_complete": {
+        "token": true,
+        "model_call": true,
+        "tool_call": true,
+        "wallclock_seconds": true
+      },
+      "termination_reason": "environment_error",
+      "generation_status": "environment_error",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "sympy__sympy-16503",
+      "repeat_index": 0,
+      "seed": 20261111,
+      "run_id": "test20_B_20261112_02",
+      "mode": "formal",
+      "config_hash": "facc7c3aba17b36481828a6109a9a3ccd54deabe0ef3e7b33759b2964e3024dc",
+      "arm": "B",
+      "status": "unresolved",
+      "cost_cny": 0.06448724,
+      "prediction_sha256": "3bc30e942c59b24cbb446b03832509537d08fa9e37caaa6758b04b449afa423c",
+      "patch_sha256": "49dbcc4f483663b3380e9fe04163a4ba2915038e15663d7df46c47ab32b3cb9d",
+      "resources": {
+        "token": 31209,
+        "model_call": 6,
+        "tool_call": 15,
+        "wallclock_seconds": 85.66528029999972
+      },
+      "resources_complete": {
+        "token": true,
+        "model_call": true,
+        "tool_call": true,
+        "wallclock_seconds": true
+      },
+      "termination_reason": "EnvironmentFailure: public validation remains unrunnable after its deterministic retry",
+      "generation_status": "environment_error",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "sympy__sympy-16503",
+      "repeat_index": 0,
+      "seed": 20261111,
+      "run_id": "test20_C_20261112_01",
+      "mode": "formal",
+      "config_hash": "facc7c3aba17b36481828a6109a9a3ccd54deabe0ef3e7b33759b2964e3024dc",
+      "arm": "C",
+      "status": "empty_patch",
+      "cost_cny": 0.20959444,
+      "prediction_sha256": "fb553b2c484e30bbb7986cd55ea3e7bcbce33c907c7b29b629161cb5a41523af",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "resources": {
+        "token": 170394,
+        "model_call": 8,
+        "tool_call": 10,
+        "wallclock_seconds": 208.75028639998618
+      },
+      "resources_complete": {
+        "token": true,
+        "model_call": true,
+        "tool_call": true,
+        "wallclock_seconds": true
+      },
+      "termination_reason": "model_call_budget",
+      "generation_status": "budget_exhausted",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "sympy__sympy-16503",
+      "repeat_index": 0,
+      "seed": 20261111,
+      "run_id": "test20_D_20261112_01",
+      "mode": "formal",
+      "config_hash": "facc7c3aba17b36481828a6109a9a3ccd54deabe0ef3e7b33759b2964e3024dc",
+      "arm": "D",
+      "status": "unresolved",
+      "cost_cny": 0.17564343999999998,
+      "prediction_sha256": "c00c0d7b6fca249e4924522d76e42d5d8d03553ad22a4118d09004c17fd522b7",
+      "patch_sha256": "22fa0e19d9380967d768097173aa8c6c54970f1969ec8f28a27c37f6666e1589",
+      "resources": {
+        "token": 169990,
+        "model_call": 8,
+        "tool_call": 20,
+        "wallclock_seconds": 214.49536809998608
+      },
+      "resources_complete": {
+        "token": true,
+        "model_call": true,
+        "tool_call": true,
+        "wallclock_seconds": true
+      },
+      "termination_reason": "EnvironmentFailure: public validation remains unrunnable after its deterministic retry",
+      "generation_status": "environment_error",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "sympy__sympy-16503",
+      "repeat_index": 0,
+      "seed": 20261111,
+      "run_id": "test20_E_20261112_01",
+      "mode": "formal",
+      "config_hash": "facc7c3aba17b36481828a6109a9a3ccd54deabe0ef3e7b33759b2964e3024dc",
+      "arm": "E",
+      "status": "empty_patch",
+      "cost_cny": 0.89307112,
+      "prediction_sha256": "13554d7b8aaa6eed04b55591a7275e453ed67364ae55b117e3251baf33f8bf13",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "resources": {
+        "token": 328029,
+        "model_call": 8,
+        "tool_call": 5,
+        "wallclock_seconds": 689.6230157999871
+      },
+      "resources_complete": {
+        "token": true,
+        "model_call": true,
+        "tool_call": true,
+        "wallclock_seconds": true
+      },
+      "termination_reason": "fixed_step_limit",
+      "generation_status": "completed",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "sympy__sympy-23262",
+      "repeat_index": 0,
+      "seed": 20261111,
+      "run_id": "test20_A_20261112_01",
+      "mode": "formal",
+      "config_hash": "facc7c3aba17b36481828a6109a9a3ccd54deabe0ef3e7b33759b2964e3024dc",
+      "arm": "A",
+      "status": "unresolved",
+      "cost_cny": 0.12207868,
+      "prediction_sha256": "b94bf4a0bdbdd5d7dfc435ad4035d1b7c4e785bc997b4d0f32400766d65c6126",
+      "patch_sha256": "57f04b653645bf5fbd2dac3426585b93dbab6502769727625a47493afaa224f5",
+      "resources": {
+        "token": 43134,
+        "model_call": 3,
+        "tool_call": 15,
+        "wallclock_seconds": 140.6640544999973
+      },
+      "resources_complete": {
+        "token": true,
+        "model_call": true,
+        "tool_call": true,
+        "wallclock_seconds": true
+      },
+      "termination_reason": "stop_env_failure",
+      "generation_status": "environment_error",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "sympy__sympy-23262",
+      "repeat_index": 0,
+      "seed": 20261111,
+      "run_id": "test20_B_20261112_02",
+      "mode": "formal",
+      "config_hash": "facc7c3aba17b36481828a6109a9a3ccd54deabe0ef3e7b33759b2964e3024dc",
+      "arm": "B",
+      "status": "empty_patch",
+      "cost_cny": 0.00915256,
+      "prediction_sha256": "3bc30e942c59b24cbb446b03832509537d08fa9e37caaa6758b04b449afa423c",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "resources": {
+        "token": 15824,
+        "model_call": 6,
+        "tool_call": 7,
+        "wallclock_seconds": 10.462431500000093
+      },
+      "resources_complete": {
+        "token": true,
+        "model_call": true,
+        "tool_call": true,
+        "wallclock_seconds": true
+      },
+      "termination_reason": "model_call_budget",
+      "generation_status": "budget_exhausted",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "sympy__sympy-23262",
+      "repeat_index": 0,
+      "seed": 20261111,
+      "run_id": "test20_C_20261112_01",
+      "mode": "formal",
+      "config_hash": "facc7c3aba17b36481828a6109a9a3ccd54deabe0ef3e7b33759b2964e3024dc",
+      "arm": "C",
+      "status": "unresolved",
+      "cost_cny": 0.12207868,
+      "prediction_sha256": "fb553b2c484e30bbb7986cd55ea3e7bcbce33c907c7b29b629161cb5a41523af",
+      "patch_sha256": "57f04b653645bf5fbd2dac3426585b93dbab6502769727625a47493afaa224f5",
+      "resources": {
+        "token": 43134,
+        "model_call": 3,
+        "tool_call": 15,
+        "wallclock_seconds": 140.6640544999973
+      },
+      "resources_complete": {
+        "token": true,
+        "model_call": true,
+        "tool_call": true,
+        "wallclock_seconds": true
+      },
+      "termination_reason": "stop_env_failure",
+      "generation_status": "environment_error",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "sympy__sympy-23262",
+      "repeat_index": 0,
+      "seed": 20261111,
+      "run_id": "test20_D_20261112_01",
+      "mode": "formal",
+      "config_hash": "facc7c3aba17b36481828a6109a9a3ccd54deabe0ef3e7b33759b2964e3024dc",
+      "arm": "D",
+      "status": "unresolved",
+      "cost_cny": 0.12207868,
+      "prediction_sha256": "c00c0d7b6fca249e4924522d76e42d5d8d03553ad22a4118d09004c17fd522b7",
+      "patch_sha256": "57f04b653645bf5fbd2dac3426585b93dbab6502769727625a47493afaa224f5",
+      "resources": {
+        "token": 43134,
+        "model_call": 3,
+        "tool_call": 15,
+        "wallclock_seconds": 140.6640544999973
+      },
+      "resources_complete": {
+        "token": true,
+        "model_call": true,
+        "tool_call": true,
+        "wallclock_seconds": true
+      },
+      "termination_reason": "stop_env_failure",
+      "generation_status": "environment_error",
+      "cost_complete": true
+    },
+    {
+      "instance_id": "sympy__sympy-23262",
+      "repeat_index": 0,
+      "seed": 20261111,
+      "run_id": "test20_E_20261112_01",
+      "mode": "formal",
+      "config_hash": "facc7c3aba17b36481828a6109a9a3ccd54deabe0ef3e7b33759b2964e3024dc",
+      "arm": "E",
+      "status": "unresolved",
+      "cost_cny": 0.12207868,
+      "prediction_sha256": "13554d7b8aaa6eed04b55591a7275e453ed67364ae55b117e3251baf33f8bf13",
+      "patch_sha256": "57f04b653645bf5fbd2dac3426585b93dbab6502769727625a47493afaa224f5",
+      "resources": {
+        "token": 43134,
+        "model_call": 3,
+        "tool_call": 15,
+        "wallclock_seconds": 140.6640544999973
+      },
+      "resources_complete": {
+        "token": true,
+        "model_call": true,
+        "tool_call": true,
+        "wallclock_seconds": true
+      },
+      "termination_reason": "stop_env_failure",
+      "generation_status": "environment_error",
+      "cost_complete": true
+    }
+  ],
+  "inference_performed": false,
+  "confidence_interval": null,
+  "statistical_significance": null,
+  "interpretation": "Descriptive results for this preregistered 20-instance TEST sample and one repeat. This does not complete the original >=3-repeat inferential protocol or establish method superiority or robustness to generation randomness.",
+  "notes": [
+    "The primary denominator is all 20 designated instances in each arm, including infrastructure errors.",
+    "Unweighted micro rates describe this 20-instance sample; repository-stratified minimum-one sampling does not make them estimates of the full 300-instance rate.",
+    "A not_scored verdict is unknown, not an unresolved label; only a lower bound is reported when labels are missing.",
+    "Common runnable results are secondary and do not replace the designated population.",
+    "Recorded strategy costs include inherited prefix costs; they are estimates/reservations, not an invoice or new-generation spend.",
+    "Unknown costs/resources remain incomplete; cost per resolved is undefined when no instance is resolved.",
+    "One budget setting supplies quality-cost points, not a multi-budget curve.",
+    "The preregistered 5-percentage-point quality tolerance is one of 20 cases and is operational descriptive guidance; it is not an equivalence or noninferiority conclusion."
+  ],
+  "inputs": {
+    "preregistration": {
+      "path": "C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\runs\\test20_preparation_20261111\\preregistration.json",
+      "sha256": "9af590a74055b0c6c0cd8911d634029a4dfb7edac15933f8dfdaabdf445502d9"
+    },
+    "instance_manifest": {
+      "path": "C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\runs\\test20_preparation_20261111\\instances.json",
+      "sha256": "c3261e16b12a1cc206eb4dc8a97c3397cb8e4ecb7fc8b712de6e9a88e8979ecb"
+    },
+    "evaluated_records": [
+      {
+        "path": "C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\runs\\test20_A_20261112_01\\evaluated_records.jsonl",
+        "sha256": "37195992f9b9ccced247076dab1ffc21dafeac379daa911a6943effd53a3b136"
+      },
+      {
+        "path": "C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\runs\\test20_B_20261112_02\\evaluated_records.jsonl",
+        "sha256": "ceffb80abf362859523c5ab2223bf6e5723243eefafd964fb7e354308e908b87"
+      },
+      {
+        "path": "C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\runs\\test20_C_20261112_01\\evaluated_records.jsonl",
+        "sha256": "4b42f40a5bcf8c0c66751a17ae37886d60d8dd16814e8266d479da71b0cf5d69"
+      },
+      {
+        "path": "C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\runs\\test20_D_20261112_01\\evaluated_records.jsonl",
+        "sha256": "75c3409eaeb3920f2d038f211b4f5a15e2b060b153b20cd16cf2ac42a965a995"
+      },
+      {
+        "path": "C:\\Users\\remil\\Desktop\\3yr\\科研\\proj\\runs\\test20_E_20261112_01\\evaluated_records.jsonl",
+        "sha256": "9ac5e76099063f8486467744289c9b29d6d86487964dd695082a9a79ec4d7131"
+      }
+    ]
+  }
+}

@@ -1,0 +1,436 @@
+{
+  "kind": "predeclared_test20_public_environment_checks",
+  "date": "2026-11-12",
+  "model_calls": 0,
+  "official_verdicts_read": false,
+  "source_test_assertions_modified": false,
+  "sample_sha256": "c3261e16b12a1cc206eb4dc8a97c3397cb8e4ecb7fc8b712de6e9a88e8979ecb",
+  "instances": [
+    {
+      "instance_id": "astropy__astropy-14995",
+      "repo": "astropy/astropy",
+      "base_commit": "b16c7d12ccbc7b2d20364b89fb44285bcbfede54",
+      "version": "5.2",
+      "module": "astropy",
+      "public_smoke_command": "python -m pytest astropy/utils/tests/test_misc.py -q -p no:cacheprovider",
+      "expected_public_files": [
+        {
+          "path": "astropy/__init__.py",
+          "git_blob_sha1": "269aa780d11816666abdec846e366c4cb0ff6b25"
+        },
+        {
+          "path": "astropy/utils/tests/test_misc.py",
+          "git_blob_sha1": "bda18a8a73857b0e824750a4a5bb8841cf48ea92"
+        }
+      ],
+      "selection_basis": "One public repository unit-test file fixed before container execution, independent of model/gold outcomes."
+    },
+    {
+      "instance_id": "django__django-11910",
+      "repo": "django/django",
+      "base_commit": "d232fd76a85870daf345fd8f8d617fe7802ae194",
+      "version": "3.1",
+      "module": "django",
+      "public_smoke_command": "python tests/runtests.py --settings=test_sqlite --parallel=1 utils_tests.test_text",
+      "expected_public_files": [
+        {
+          "path": "django/__init__.py",
+          "git_blob_sha1": "2da16633d84f29faf8792f991673e0b59fa0531e"
+        },
+        {
+          "path": "tests/utils_tests/test_text.py",
+          "git_blob_sha1": "77d7e73259b547722536bfb6eb91810f7fb5113f"
+        },
+        {
+          "path": "tests/runtests.py",
+          "git_blob_sha1": "293396f96ceee188284323b0572ea43aab218285"
+        },
+        {
+          "path": "tests/test_sqlite.py",
+          "git_blob_sha1": "f1b65f7d018a81bd611f60d5430a03320c91faa0"
+        }
+      ],
+      "selection_basis": "One public repository unit-test file fixed before container execution, independent of model/gold outcomes."
+    },
+    {
+      "instance_id": "django__django-12708",
+      "repo": "django/django",
+      "base_commit": "447980e72ac01da1594dd3373a03ba40b7ee6f80",
+      "version": "3.1",
+      "module": "django",
+      "public_smoke_command": "python tests/runtests.py --settings=test_sqlite --parallel=1 utils_tests.test_text",
+      "expected_public_files": [
+        {
+          "path": "django/__init__.py",
+          "git_blob_sha1": "2da16633d84f29faf8792f991673e0b59fa0531e"
+        },
+        {
+          "path": "tests/utils_tests/test_text.py",
+          "git_blob_sha1": "9dbf9367c3212146adcf4a2ec5c9c0b455587c16"
+        },
+        {
+          "path": "tests/runtests.py",
+          "git_blob_sha1": "a05779010c841392154ef4339b288e82da32a3df"
+        },
+        {
+          "path": "tests/test_sqlite.py",
+          "git_blob_sha1": "f1b65f7d018a81bd611f60d5430a03320c91faa0"
+        }
+      ],
+      "selection_basis": "One public repository unit-test file fixed before container execution, independent of model/gold outcomes."
+    },
+    {
+      "instance_id": "django__django-13230",
+      "repo": "django/django",
+      "base_commit": "184a6eebb0ef56d5f1b1315a8e666830e37f3f81",
+      "version": "3.2",
+      "module": "django",
+      "public_smoke_command": "python tests/runtests.py --settings=test_sqlite --parallel=1 utils_tests.test_text",
+      "expected_public_files": [
+        {
+          "path": "django/__init__.py",
+          "git_blob_sha1": "c6bda275109aa5c63488c553e0999e48742ee6cc"
+        },
+        {
+          "path": "tests/utils_tests/test_text.py",
+          "git_blob_sha1": "1b6bfc0b8e444de4c7f6cf1d5333ea8bfe567187"
+        },
+        {
+          "path": "tests/runtests.py",
+          "git_blob_sha1": "d79b4b393e48fe158d153ba4a37ee0474adeddfe"
+        },
+        {
+          "path": "tests/test_sqlite.py",
+          "git_blob_sha1": "f1b65f7d018a81bd611f60d5430a03320c91faa0"
+        }
+      ],
+      "selection_basis": "One public repository unit-test file fixed before container execution, independent of model/gold outcomes."
+    },
+    {
+      "instance_id": "django__django-17087",
+      "repo": "django/django",
+      "base_commit": "4a72da71001f154ea60906a2f74898d32b7322a7",
+      "version": "5.0",
+      "module": "django",
+      "public_smoke_command": "python tests/runtests.py --settings=test_sqlite --parallel=1 utils_tests.test_text",
+      "expected_public_files": [
+        {
+          "path": "django/__init__.py",
+          "git_blob_sha1": "42317d407ad7dd26736687fb83e733583e21ede5"
+        },
+        {
+          "path": "tests/utils_tests/test_text.py",
+          "git_blob_sha1": "cb2959fe157246aea94d62e4ae07008acc16c0e4"
+        },
+        {
+          "path": "tests/runtests.py",
+          "git_blob_sha1": "a3550c553c83a377834b6ee3e39e6ee202ed1a19"
+        },
+        {
+          "path": "tests/test_sqlite.py",
+          "git_blob_sha1": "f3ccf2c021770c7d1d5138da26fed2a91c0bed3a"
+        }
+      ],
+      "selection_basis": "One public repository unit-test file fixed before container execution, independent of model/gold outcomes."
+    },
+    {
+      "instance_id": "matplotlib__matplotlib-23987",
+      "repo": "matplotlib/matplotlib",
+      "base_commit": "e98d8d085e8f53ec0467422b326f7738a2dd695e",
+      "version": "3.6",
+      "module": "matplotlib",
+      "public_smoke_command": "python -m pytest lib/matplotlib/tests/test_cbook.py -q -p no:cacheprovider",
+      "expected_public_files": [
+        {
+          "path": "lib/matplotlib/__init__.py",
+          "git_blob_sha1": "77d25bbe3358a116305f27f51b9d1afa5dacc392"
+        },
+        {
+          "path": "lib/matplotlib/tests/test_cbook.py",
+          "git_blob_sha1": "eda0c3b7eb1bfcd4600f73f2b65b893a464c1cc3"
+        }
+      ],
+      "selection_basis": "One public repository unit-test file fixed before container execution, independent of model/gold outcomes."
+    },
+    {
+      "instance_id": "matplotlib__matplotlib-24970",
+      "repo": "matplotlib/matplotlib",
+      "base_commit": "a3011dfd1aaa2487cce8aa7369475533133ef777",
+      "version": "3.6",
+      "module": "matplotlib",
+      "public_smoke_command": "python -m pytest lib/matplotlib/tests/test_cbook.py -q -p no:cacheprovider",
+      "expected_public_files": [
+        {
+          "path": "lib/matplotlib/__init__.py",
+          "git_blob_sha1": "b279c465163ef50ae72ff1ae01c47a53b56e73cc"
+        },
+        {
+          "path": "lib/matplotlib/tests/test_cbook.py",
+          "git_blob_sha1": "aa5c999b7079c299eba926985934fbf978432281"
+        }
+      ],
+      "selection_basis": "One public repository unit-test file fixed before container execution, independent of model/gold outcomes."
+    },
+    {
+      "instance_id": "mwaskom__seaborn-2848",
+      "repo": "mwaskom/seaborn",
+      "base_commit": "94621cef29f80282436d73e8d2c0aa76dab81273",
+      "version": "0.12",
+      "module": "seaborn",
+      "public_smoke_command": "python -m pytest tests/test_utils.py -q -p no:cacheprovider",
+      "expected_public_files": [
+        {
+          "path": "seaborn/__init__.py",
+          "git_blob_sha1": "a2a60bb316aa33b4a7df6a64dabd91652173ce67"
+        },
+        {
+          "path": "tests/test_utils.py",
+          "git_blob_sha1": "672e205c044fe21434803b77ce93cd2690e56706"
+        }
+      ],
+      "selection_basis": "One public repository unit-test file fixed before container execution, independent of model/gold outcomes."
+    },
+    {
+      "instance_id": "pallets__flask-4045",
+      "repo": "pallets/flask",
+      "base_commit": "d8c37f43724cd9fb0870f77877b7c4c7e38a19e0",
+      "version": "2.0",
+      "module": "flask",
+      "public_smoke_command": "python -m pytest tests/test_basic.py -q -p no:cacheprovider",
+      "expected_public_files": [
+        {
+          "path": "src/flask/__init__.py",
+          "git_blob_sha1": "008e1a81609e5aab8c1271c8efb85643ffce24db"
+        },
+        {
+          "path": "tests/test_basic.py",
+          "git_blob_sha1": "d6ec3fe43f1e49ccefd3ac4c41bc4abf13ceaeda"
+        }
+      ],
+      "selection_basis": "One public repository unit-test file fixed before container execution, independent of model/gold outcomes."
+    },
+    {
+      "instance_id": "psf__requests-1963",
+      "repo": "psf/requests",
+      "base_commit": "110048f9837f8441ea536804115e80b69f400277",
+      "version": "2.3",
+      "module": "requests",
+      "public_smoke_command": "python -m pytest test_requests.py -q -p no:cacheprovider -k cannot_send_unprepared_requests",
+      "expected_public_files": [
+        {
+          "path": "requests/__init__.py",
+          "git_blob_sha1": "bba190029e71b1f143e7de71e849051cb2ff37a7"
+        },
+        {
+          "path": "test_requests.py",
+          "git_blob_sha1": "17de84911bb32db1df00aef1224f3bc917864e92"
+        }
+      ],
+      "selection_basis": "Exact public function statically checked: Request construction and pre-send ValueError only; HTTPBIN constant is not contacted."
+    },
+    {
+      "instance_id": "pydata__xarray-3364",
+      "repo": "pydata/xarray",
+      "base_commit": "863e49066ca4d61c9adfe62aca3bf21b90e1af8c",
+      "version": "0.12",
+      "module": "xarray",
+      "public_smoke_command": "python -m pytest xarray/tests/test_utils.py -q -p no:cacheprovider",
+      "expected_public_files": [
+        {
+          "path": "xarray/__init__.py",
+          "git_blob_sha1": "394dd0f80bc9244f5ae3ea1896c439f6cd1f30fc"
+        },
+        {
+          "path": "xarray/tests/test_utils.py",
+          "git_blob_sha1": "c36e8a1775de94be077c52448095fbd01cd191a7"
+        }
+      ],
+      "selection_basis": "One public repository unit-test file fixed before container execution, independent of model/gold outcomes."
+    },
+    {
+      "instance_id": "pylint-dev__pylint-7114",
+      "repo": "pylint-dev/pylint",
+      "base_commit": "397c1703e8ae6349d33f7b99f45b2ccaf581e666",
+      "version": "2.15",
+      "module": "pylint",
+      "public_smoke_command": "python -m pytest tests/checkers/unittest_utils.py -q -p no:cacheprovider",
+      "expected_public_files": [
+        {
+          "path": "pylint/__init__.py",
+          "git_blob_sha1": "9f3dd74e671bd192faa3e0c2533eed699b399c90"
+        },
+        {
+          "path": "tests/checkers/unittest_utils.py",
+          "git_blob_sha1": "8b9189892087294dba53df97a11c2d7339c0f8f9"
+        }
+      ],
+      "selection_basis": "One public repository unit-test file fixed before container execution, independent of model/gold outcomes."
+    },
+    {
+      "instance_id": "pytest-dev__pytest-6116",
+      "repo": "pytest-dev/pytest",
+      "base_commit": "e670ff76cbad80108bde9bab616b66771b8653cf",
+      "version": "5.2",
+      "module": "pytest",
+      "public_smoke_command": "python -m pytest testing/test_parseopt.py -q -p no:cacheprovider",
+      "expected_public_files": [
+        {
+          "path": "src/pytest.py",
+          "git_blob_sha1": "b934e65cb8ca8868a1513b1f40652a785f8ea1ea"
+        },
+        {
+          "path": "testing/test_parseopt.py",
+          "git_blob_sha1": "915747378f58879732be6d785a0f57885c9ba203"
+        }
+      ],
+      "selection_basis": "One public repository unit-test file fixed before container execution, independent of model/gold outcomes."
+    },
+    {
+      "instance_id": "pytest-dev__pytest-8906",
+      "repo": "pytest-dev/pytest",
+      "base_commit": "69356d20cfee9a81972dcbf93d8caf9eabe113e8",
+      "version": "7.0",
+      "module": "pytest",
+      "public_smoke_command": "python -m pytest testing/test_parseopt.py -q -p no:cacheprovider",
+      "expected_public_files": [
+        {
+          "path": "src/pytest/__init__.py",
+          "git_blob_sha1": "3694f0fc471e2ca1dad7856152f82cea9ed63177"
+        },
+        {
+          "path": "testing/test_parseopt.py",
+          "git_blob_sha1": "28529d04378324be9097dd274a66a244b178fb6d"
+        }
+      ],
+      "selection_basis": "One public repository unit-test file fixed before container execution, independent of model/gold outcomes."
+    },
+    {
+      "instance_id": "scikit-learn__scikit-learn-11281",
+      "repo": "scikit-learn/scikit-learn",
+      "base_commit": "4143356c3c51831300789e4fdf795d83716dbab6",
+      "version": "0.20",
+      "module": "sklearn",
+      "public_smoke_command": "python -m pytest sklearn/utils/tests/test_validation.py -q -p no:cacheprovider",
+      "expected_public_files": [
+        {
+          "path": "sklearn/__init__.py",
+          "git_blob_sha1": "dbb7862d8839ed0a3adc8bc6a6bd16fe3993cadd"
+        },
+        {
+          "path": "sklearn/utils/tests/test_validation.py",
+          "git_blob_sha1": "076e6d88440f198ef405102cdd34e6a7421e0462"
+        }
+      ],
+      "selection_basis": "One public repository unit-test file fixed before container execution, independent of model/gold outcomes."
+    },
+    {
+      "instance_id": "scikit-learn__scikit-learn-13496",
+      "repo": "scikit-learn/scikit-learn",
+      "base_commit": "3aefc834dce72e850bff48689bea3c7dff5f3fad",
+      "version": "0.21",
+      "module": "sklearn",
+      "public_smoke_command": "python -m pytest sklearn/utils/tests/test_validation.py -q -p no:cacheprovider",
+      "expected_public_files": [
+        {
+          "path": "sklearn/__init__.py",
+          "git_blob_sha1": "6529137471ed4fbe79de032f7cfb7dbe873f365a"
+        },
+        {
+          "path": "sklearn/utils/tests/test_validation.py",
+          "git_blob_sha1": "67fc9b33d404b3c4a9562e5f0494a2d357f4f069"
+        }
+      ],
+      "selection_basis": "One public repository unit-test file fixed before container execution, independent of model/gold outcomes."
+    },
+    {
+      "instance_id": "sphinx-doc__sphinx-8595",
+      "repo": "sphinx-doc/sphinx",
+      "base_commit": "b19bce971e82f2497d67fdacdeca8db08ae0ba56",
+      "version": "3.5",
+      "module": "sphinx",
+      "public_smoke_command": "python -m pytest tests/test_util.py -q -p no:cacheprovider",
+      "expected_public_files": [
+        {
+          "path": "sphinx/__init__.py",
+          "git_blob_sha1": "700dd22a3253c29893342c646c21c0fe1d7ce6f5"
+        },
+        {
+          "path": "tests/test_util.py",
+          "git_blob_sha1": "2d03ed89ab874dab31d73d146adae3d0f63f4503"
+        }
+      ],
+      "selection_basis": "One public repository unit-test file fixed before container execution, independent of model/gold outcomes."
+    },
+    {
+      "instance_id": "sympy__sympy-13480",
+      "repo": "sympy/sympy",
+      "base_commit": "f57fe3f4b3f2cab225749e1b3b38ae1bf80b62f0",
+      "version": "1.1",
+      "module": "sympy",
+      "public_smoke_command": "python bin/test sympy/core/tests/test_basic.py",
+      "expected_public_files": [
+        {
+          "path": "sympy/__init__.py",
+          "git_blob_sha1": "b5246e252e13cca66ae0bd12f62377ac75711f9f"
+        },
+        {
+          "path": "sympy/core/tests/test_basic.py",
+          "git_blob_sha1": "0980e311dfb57af175c8a57ff3abd1b2e82a6e79"
+        },
+        {
+          "path": "bin/test",
+          "git_blob_sha1": "671227c8e3fe73e96dffad4caeb4271ec340ab3b"
+        }
+      ],
+      "selection_basis": "One public repository unit-test file fixed before container execution, independent of model/gold outcomes."
+    },
+    {
+      "instance_id": "sympy__sympy-16503",
+      "repo": "sympy/sympy",
+      "base_commit": "a7e6f093c98a3c4783848a19fce646e32b6e0161",
+      "version": "1.5",
+      "module": "sympy",
+      "public_smoke_command": "python bin/test sympy/core/tests/test_basic.py",
+      "expected_public_files": [
+        {
+          "path": "sympy/__init__.py",
+          "git_blob_sha1": "d5c78b7689e0d6fe54cc59f49efd3915e90302ed"
+        },
+        {
+          "path": "sympy/core/tests/test_basic.py",
+          "git_blob_sha1": "04bf2b17bec962ce7ce6e39b67b77d3e42f302b7"
+        },
+        {
+          "path": "bin/test",
+          "git_blob_sha1": "671227c8e3fe73e96dffad4caeb4271ec340ab3b"
+        }
+      ],
+      "selection_basis": "One public repository unit-test file fixed before container execution, independent of model/gold outcomes."
+    },
+    {
+      "instance_id": "sympy__sympy-23262",
+      "repo": "sympy/sympy",
+      "base_commit": "fdc707f73a65a429935c01532cd3970d3355eab6",
+      "version": "1.11",
+      "module": "sympy",
+      "public_smoke_command": "python bin/test sympy/core/tests/test_basic.py",
+      "expected_public_files": [
+        {
+          "path": "sympy/__init__.py",
+          "git_blob_sha1": "a00fa5c7055855c8c9192c81007a108c3a7ff618"
+        },
+        {
+          "path": "sympy/core/tests/test_basic.py",
+          "git_blob_sha1": "c7fdbb72f292a3c3d624ff504a65cae987dd2e9b"
+        },
+        {
+          "path": "bin/test",
+          "git_blob_sha1": "3a4713e38f94f1e0ae280d5a8119f86181560303"
+        }
+      ],
+      "selection_basis": "One public repository unit-test file fixed before container execution, independent of model/gold outcomes."
+    }
+  ],
+  "test_cli_policy": "quiet mode; omit cosmetic --no-header because the exact pytest5.2 subject does not implement it; no header policy does not alter test selection or verdicts",
+  "status": "predeclared_before_image_validation_not_yet_executed"
+}

@@ -1,0 +1,1 @@
+{"python": "3.11.5", "swebench": "5.0.2", "pyarrow": "26.0.1", "docker_sdk": "7.2.0", "docker_server": "29.9.2", "protected_schema_columns": 17, "required_schema_fields_present": true, "test_spec_import": "swebench.harness.utils", "docker_socket_ping": true, "network": "none", "model_calls": 0, "evaluator_rows_read": 0}

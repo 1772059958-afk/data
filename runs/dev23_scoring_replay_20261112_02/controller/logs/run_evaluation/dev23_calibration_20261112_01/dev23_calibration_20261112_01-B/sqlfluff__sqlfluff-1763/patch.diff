@@ -1,0 +1,22 @@
+--- a/src/sqlfluff/core/linter/linted_file.py
++++ b/src/sqlfluff/core/linter/linted_file.py
+@@ -493,6 +493,18 @@ class LintedFile:
+                 root, ext = os.path.splitext(fname)
+                 fname = root + suffix + ext
+             # Actually write the file.
+-            with open(fname, "w", encoding=self.encoding) as f:
++            # Check that the string can be encoded *before* opening the file.
++            # Otherwise ``open(..., "w")`` truncates the file and the
++            # subsequent write can fail (e.g. UnicodeEncodeError), leaving
++            # the file wiped.
++            write_encoding = self.encoding
++            try:
++                write_buff.encode(write_encoding)
++            except (UnicodeEncodeError, LookupError):
++                # The detected/specified encoding cannot represent the fixed
++                # file contents. Fall back to utf-8 rather than crashing and
++                # truncating the file.
++                write_encoding = "utf-8"
++            with open(fname, "w", encoding=write_encoding) as f:
+                 f.write(write_buff)
+         return success

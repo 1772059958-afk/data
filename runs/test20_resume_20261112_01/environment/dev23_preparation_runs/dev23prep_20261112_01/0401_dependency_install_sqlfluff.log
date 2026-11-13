@@ -1,0 +1,30 @@
+Looking in links: /public-wheels
+Processing /public-wheels/appdirs-1.4.4-py2.py3-none-any.whl (from -r /public-profile.lock (line 5))
+Processing /public-wheels/cached_property-1.5.2-py2.py3-none-any.whl (from -r /public-profile.lock (line 6))
+Processing /public-wheels/chardet-4.0.0-py2.py3-none-any.whl (from -r /public-profile.lock (line 7))
+Processing /public-wheels/click-8.0.4-py3-none-any.whl (from -r /public-profile.lock (line 8))
+Processing /public-wheels/colorama-0.4.6-py2.py3-none-any.whl (from -r /public-profile.lock (line 9))
+Processing /public-wheels/configparser-5.3.0-py3-none-any.whl (from -r /public-profile.lock (line 10))
+Processing /public-wheels/diff_cover-5.2.0-py3-none-any.whl (from -r /public-profile.lock (line 11))
+Processing /public-wheels/Jinja2-3.0.3-py3-none-any.whl (from -r /public-profile.lock (line 12))
+Processing /public-wheels/jinja2_pluralize-0.3.0-py2.py3-none-any.whl (from -r /public-profile.lock (line 13))
+Processing /public-wheels/MarkupSafe-2.1.5-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (from -r /public-profile.lock (line 14))
+Processing /public-wheels/oyaml-1.0-py2.py3-none-any.whl (from -r /public-profile.lock (line 15))
+Processing /public-wheels/pathspec-0.9.0-py2.py3-none-any.whl (from -r /public-profile.lock (line 16))
+Processing /public-wheels/toml-0.10.2-py2.py3-none-any.whl (from -r /public-profile.lock (line 17))
+Processing /public-wheels/tblib-1.7.0-py2.py3-none-any.whl (from -r /public-profile.lock (line 18))
+Processing /public-wheels/regex-2022.10.31-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (from -r /public-profile.lock (line 19))
+Processing /public-wheels/tqdm-4.64.1-py2.py3-none-any.whl (from -r /public-profile.lock (line 20))
+Processing /public-wheels/inflect-5.6.2-py3-none-any.whl (from -r /public-profile.lock (line 21))
+Installing collected packages: oyaml, jinja2-pluralize, cached-property, appdirs, tqdm, toml, tblib, regex, pathspec, MarkupSafe, Jinja2, inflect, diff-cover, configparser, colorama, click, chardet
+  Attempting uninstall: MarkupSafe
+    Found existing installation: MarkupSafe 3.0.2
+    Uninstalling MarkupSafe-3.0.2:
+      Successfully uninstalled MarkupSafe-3.0.2
+  Attempting uninstall: Jinja2
+    Found existing installation: Jinja2 3.1.6
+    Uninstalling Jinja2-3.1.6:
+      Successfully uninstalled Jinja2-3.1.6
+
+Successfully installed Jinja2-3.0.3 MarkupSafe-2.1.5 appdirs-1.4.4 cached-property-1.5.2 chardet-4.0.0 click-8.0.4 colorama-0.4.6 configparser-5.3.0 diff-cover-5.2.0 inflect-5.6.2 jinja2-pluralize-0.3.0 oyaml-1.0 pathspec-0.9.0 regex-2022.10.31 tblib-1.7.0 toml-0.10.2 tqdm-4.64.1
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.

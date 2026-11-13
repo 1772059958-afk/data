@@ -1,0 +1,42 @@
+2026-11-12 03:33:43,240 - INFO - Creating container for pydicom__pydicom-901...
+2026-11-12 03:33:43,291 - INFO - Container for pydicom__pydicom-901 created: a63bf16649f77337cfff561e4cf446542c7f5f3c3879cdaa9a269fd4f6cad648
+2026-11-12 03:33:43,457 - INFO - Container for pydicom__pydicom-901 started: a63bf16649f77337cfff561e4cf446542c7f5f3c3879cdaa9a269fd4f6cad648
+2026-11-12 03:33:43,460 - INFO - Intermediate patch for pydicom__pydicom-901 written to logs/run_evaluation/dev23_calibration_20261112_01/dev23_calibration_20261112_01-C/pydicom__pydicom-901/patch.diff, now applying to container...
+2026-11-12 03:33:43,646 - ERROR - Error in evaluating model for pydicom__pydicom-901: 409 Client Error for http+docker://localhost/v1.56/containers/a63bf16649f77337cfff561e4cf446542c7f5f3c3879cdaa9a269fd4f6cad648/exec: Conflict ("container a63bf16649f77337cfff561e4cf446542c7f5f3c3879cdaa9a269fd4f6cad648 is not running")
+Traceback (most recent call last):
+  File "/opt/scoring/lib/python3.11/site-packages/docker/api/client.py", line 275, in _raise_for_status
+    response.raise_for_status()
+  File "/opt/scoring/lib/python3.11/site-packages/requests/models.py", line 1167, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 409 Client Error: Conflict for url: http+docker://localhost/v1.56/containers/a63bf16649f77337cfff561e4cf446542c7f5f3c3879cdaa9a269fd4f6cad648/exec
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/opt/scoring/lib/python3.11/site-packages/swebench/harness/run_evaluation.py", line 295, in run_instance
+    copy_to_container(
+  File "/opt/scoring/lib/python3.11/site-packages/swebench/harness/docker_utils.py", line 34, in copy_to_container
+    container.exec_run(f"mkdir -p {dst.parent}")
+  File "/opt/scoring/lib/python3.11/site-packages/docker/models/containers.py", line 209, in exec_run
+    resp = self.client.api.exec_create(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/scoring/lib/python3.11/site-packages/docker/utils/decorators.py", line 19, in wrapped
+    return f(self, resource_id, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/scoring/lib/python3.11/site-packages/docker/api/exec_api.py", line 78, in exec_create
+    return self._result(res, True)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/scoring/lib/python3.11/site-packages/docker/api/client.py", line 281, in _result
+    self._raise_for_status(response)
+  File "/opt/scoring/lib/python3.11/site-packages/docker/api/client.py", line 277, in _raise_for_status
+    raise create_api_error_from_http_exception(e) from e
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/scoring/lib/python3.11/site-packages/docker/errors.py", line 39, in create_api_error_from_http_exception
+    raise cls(e, response=response, explanation=explanation) from e
+docker.errors.APIError: 409 Client Error for http+docker://localhost/v1.56/containers/a63bf16649f77337cfff561e4cf446542c7f5f3c3879cdaa9a269fd4f6cad648/exec: Conflict ("container a63bf16649f77337cfff561e4cf446542c7f5f3c3879cdaa9a269fd4f6cad648 is not running")
+
+Check (logs/run_evaluation/dev23_calibration_20261112_01/dev23_calibration_20261112_01-C/pydicom__pydicom-901/run_instance.log) for more information.
+2026-11-12 03:33:43,646 - INFO - Attempting to stop container sweb.eval.pydicom__pydicom-901.dev23_calibration_20261112_01...
+2026-11-12 03:33:43,675 - INFO - Container sweb.eval.pydicom__pydicom-901.dev23_calibration_20261112_01 stopped successfully.
+2026-11-12 03:33:43,677 - INFO - Attempting to remove container sweb.eval.pydicom__pydicom-901.dev23_calibration_20261112_01...
+2026-11-12 03:33:43,718 - INFO - Container sweb.eval.pydicom__pydicom-901.dev23_calibration_20261112_01 removed successfully.

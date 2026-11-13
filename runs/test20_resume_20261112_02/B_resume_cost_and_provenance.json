@@ -1,0 +1,14 @@
+{
+  "registered_units": 20,
+  "reused_units": 8,
+  "newly_scheduled_units": 12,
+  "actual_new_model_cost_cny_by_ledger_tag": {
+    "test20_B_20261112_01": 0.17496244,
+    "test20_B_20261112_02": 0.25675707999999997
+  },
+  "full_B_actual_generation_cost_cny": 0.43171951999999997,
+  "matrix_process_delta_cny": 0.25675707999999986,
+  "historical_incomplete_B8_cost_already_in_old_tag": 0.02955332,
+  "model_usage_rebooked": false,
+  "frozen_generator_source_changed": false
+}

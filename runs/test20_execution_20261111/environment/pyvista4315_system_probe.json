@@ -1,0 +1,66 @@
+{
+  "kind": "readonly_public_system_dependency_probe",
+  "date": "2026-11-11",
+  "purpose": "assess OSMesa/VTK public environment dependencies without installing",
+  "image_id": "sha256:bd5edf8694cde12aaf99beb18b3935b15e076e81ac7e52aef46b1ca3d9071428",
+  "runtime_flags": [
+    "--rm",
+    "--pull=never",
+    "--network none",
+    "--read-only"
+  ],
+  "mounts": [],
+  "container_returncode": 0,
+  "os": {
+    "name": "Ubuntu",
+    "version": "22.04.5 LTS",
+    "codename": "jammy"
+  },
+  "ldconfig_returncode": 0,
+  "matching_libraries": [],
+  "library_names_queried": [
+    "libOSMesa",
+    "libGL.so",
+    "libglapi",
+    "libLLVM",
+    "libEGL",
+    "libGLX",
+    "libOpenGL"
+  ],
+  "apt_cache": {
+    "package": "libosmesa6",
+    "show_returncode": 100,
+    "show_stderr": "E: No packages found",
+    "show_fields": [],
+    "policy_stdout": ""
+  },
+  "installed_packages": [
+    {
+      "name": "libc6",
+      "version": "2.35-0ubuntu3.9",
+      "installed_size_kib": 13597
+    },
+    {
+      "name": "libstdc++6",
+      "version": "12.3.0-1ubuntu1~22.04",
+      "installed_size_kib": 2755
+    }
+  ],
+  "not_installed": [
+    "libosmesa6",
+    "libglapi-mesa",
+    "libgl1",
+    "libllvm14",
+    "libllvm15",
+    "libllvm12"
+  ],
+  "assessment": "OSMesa and GL/LLVM dependencies are absent. Local apt metadata has no package entry, so exact Depends/Installed-Size cannot be determined from this no-update probe. No claim that VTK preparation fits remaining disk.",
+  "apt_update_performed": false,
+  "packages_downloaded": false,
+  "packages_installed": false,
+  "image_built": false,
+  "credentials_read": false,
+  "hidden_data_read": false,
+  "container_rm_requested": true,
+  "container_absence_separately_inspected": false
+}

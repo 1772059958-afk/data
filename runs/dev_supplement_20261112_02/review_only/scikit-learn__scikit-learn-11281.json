@@ -1,0 +1,66 @@
+{
+  "kind": "review_only_after_all_formal_predictions_sealed",
+  "instance_id": "scikit-learn__scikit-learn-11281",
+  "repo": "scikit-learn/scikit-learn",
+  "base_commit": "4143356c3c51831300789e4fdf795d83716dbab6",
+  "issue": "Should mixture models have a clusterer-compatible interface\nMixture models are currently a bit different. They are basically clusterers, except they are probabilistic, and are applied to inductive problems unlike many clusterers. But they are unlike clusterers in API:\r\n* they have an `n_components` parameter, with identical purpose to `n_clusters`\r\n* they do not store the `labels_` of the training data\r\n* they do not have a `fit_predict` method\r\n\r\nAnd they are almost entirely documented separately.\r\n\r\nShould we make the MMs more like clusterers?\n",
+  "developer_reference_patch": "diff --git a/sklearn/mixture/base.py b/sklearn/mixture/base.py\n--- a/sklearn/mixture/base.py\n+++ b/sklearn/mixture/base.py\n@@ -172,7 +172,7 @@ def _initialize(self, X, resp):\n     def fit(self, X, y=None):\n         \"\"\"Estimate model parameters with the EM algorithm.\n \n-        The method fit the model `n_init` times and set the parameters with\n+        The method fits the model `n_init` times and set the parameters with\n         which the model has the largest likelihood or lower bound. Within each\n         trial, the method iterates between E-step and M-step for `max_iter`\n         times until the change of likelihood or lower bound is less than\n@@ -188,6 +188,32 @@ def fit(self, X, y=None):\n         -------\n         self\n         \"\"\"\n+        self.fit_predict(X, y)\n+        return self\n+\n+    def fit_predict(self, X, y=None):\n+        \"\"\"Estimate model parameters using X and predict the labels for X.\n+\n+        The method fits the model n_init times and sets the parameters with\n+        which the model has the largest likelihood or lower bound. Within each\n+        trial, the method iterates between E-step and M-step for `max_iter`\n+        times until the change of likelihood or lower bound is less than\n+        `tol`, otherwise, a `ConvergenceWarning` is raised. After fitting, it\n+        predicts the most probable label for the input data points.\n+\n+        .. versionadded:: 0.20\n+\n+        Parameters\n+        ----------\n+        X : array-like, shape (n_samples, n_features)\n+            List of n_features-dimensional data points. Each row\n+            corresponds to a single data point.\n+\n+        Returns\n+        -------\n+        labels : array, shape (n_samples,)\n+            Component labels.\n+        \"\"\"\n         X = _check_X(X, self.n_components, ensure_min_samples=2)\n         self._check_initial_parameters(X)\n \n@@ -240,7 +266,7 @@ def fit(self, X, y=None):\n         self._set_parameters(best_params)\n         self.n_iter_ = best_n_iter\n \n-        return self\n+        return log_resp.argmax(axis=1)\n \n     def _e_step(self, X):\n         \"\"\"E step.\n",
+  "unique_submitted_patches": [
+    {
+      "sha256": "ec16451eda82469e622ed985001885f6a4f1a4882e89dac4d1b01a551c66fd88",
+      "patch": "--- a/sklearn/mixture/base.py\n+++ b/sklearn/mixture/base.py\n@@ -211,5 +211,22 @@ class BaseMixture(six.with_metaclass(ABCMeta, DensityMixin, BaseEstimator)):\n \n         return self\n \n+    def fit_predict(self, X, y=None):\n+        \"\"\"Estimate model parameters with the EM algorithm and return\n+        the labels of the training data.\n+\n+        Parameters\n+        ----------\n+        X : array-like, shape (n_samples, n_features)\n+            List of n_features-dimensional data points. Each row\n+            corresponds to a single data point.\n+\n+        Returns\n+        -------\n+        labels : array, shape (n_samples,)\n+            Component labels.\n+        \"\"\"\n+        return self.fit(X, y).predict(X)\n+\n     def _e_step(self, X):\n         \"\"\"E step.\n",
+      "arms": [
+        "A",
+        "C",
+        "D",
+        "E"
+      ]
+    },
+    {
+      "sha256": "aebfe2f47b9ae1a7d3236eec46d23eec5427076059c770eeeb9e12306731c323",
+      "patch": "--- a/sklearn/mixture/base.py\n+++ b/sklearn/mixture/base.py\n@@ -14,6 +14,7 @@\n \n from .. import cluster\n from ..base import BaseEstimator\n+from ..base import ClusterMixin\n from ..base import DensityMixin\n from ..externals import six\n from ..exceptions import ConvergenceWarning\n@@ -55,7 +56,8 @@\n     return X\n \n \n-class BaseMixture(six.with_metaclass(ABCMeta, DensityMixin, BaseEstimator)):\n+class BaseMixture(six.with_metaclass(ABCMeta, DensityMixin, ClusterMixin,\n+                                     BaseEstimator)):\n     \"\"\"Base class for mixture models.\n \n     This abstract class specifies an interface for all mixture classes and\n@@ -239,7 +241,31 @@\n         self._set_parameters(best_params)\n         self.n_iter_ = best_n_iter\n \n         return self\n+\n+    def fit_predict(self, X, y=None):\n+        \"\"\"Estimate model parameters using X and predict the labels for X.\n+\n+        The method fits the model n_init times and sets the parameters with\n+        which the model has the largest likelihood or lower bound. Within each\n+        trial, the method iterates between E-step and M-step for `max_iter`\n+        times until the change of likelihood or lower bound is less than\n+        `tol`, otherwise, a `ConvergenceWarning` is raised. After fitting, it\n+        predicts the most probable label for the input data points.\n+\n+        Parameters\n+        ----------\n+        X : array-like, shape (n_samples, n_features)\n+            List of n_features-dimensional data points. Each row\n+            corresponds to a single data point.\n+\n+        Returns\n+        -------\n+        labels : array, shape (n_samples,)\n+            Component labels.\n+        \"\"\"\n+        self.fit(X)\n+        return self.predict(X)\n \n     def _e_step(self, X):\n         \"\"\"E step.\n@@ -370,6 +396,7 @@\n         self._check_is_fitted()\n         X = _check_X(X, None, self.means_.shape[1])\n         _, log_resp = self._estimate_log_prob_resp(X)\n+        self.labels_ = log_resp.argmax(axis=1)\n         return np.exp(log_resp)\n \n     def sample(self, n_samples=1):\n",
+      "arms": [
+        "B"
+      ]
+    }
+  ],
+  "submissions": {
+    "A": {
+      "patch_sha256": "ec16451eda82469e622ed985001885f6a4f1a4882e89dac4d1b01a551c66fd88",
+      "official_status": "unresolved",
+      "generation_status": "completed",
+      "route": "stop",
+      "source_matrix": "runs\\test20_A_20261112_01\\matrix.json"
+    },
+    "B": {
+      "patch_sha256": "aebfe2f47b9ae1a7d3236eec46d23eec5427076059c770eeeb9e12306731c323",
+      "official_status": "unresolved",
+      "generation_status": "budget_exhausted",
+      "route": "standalone",
+      "source_matrix": "runs\\test20_B_20261112_02\\matrix.json"
+    },
+    "C": {
+      "patch_sha256": "ec16451eda82469e622ed985001885f6a4f1a4882e89dac4d1b01a551c66fd88",
+      "official_status": "unresolved",
+      "generation_status": "completed",
+      "route": "stop",
+      "source_matrix": "runs\\test20_C_20261112_01\\matrix.json"
+    },
+    "D": {
+      "patch_sha256": "ec16451eda82469e622ed985001885f6a4f1a4882e89dac4d1b01a551c66fd88",
+      "official_status": "unresolved",
+      "generation_status": "completed",
+      "route": "stop",
+      "source_matrix": "runs\\test20_D_20261112_01\\matrix.json"
+    },
+    "E": {
+      "patch_sha256": "ec16451eda82469e622ed985001885f6a4f1a4882e89dac4d1b01a551c66fd88",
+      "official_status": "unresolved",
+      "generation_status": "completed",
+      "route": "stop",
+      "source_matrix": "runs\\test20_E_20261112_01\\matrix.json"
+    }
+  },
+  "generation_import_prohibited": true,
+  "reference_is_not_a_textual_equality_oracle": true
+}

@@ -1,0 +1,6 @@
+{
+  "inventory_is_pre_cleanup_snapshot": true,
+  "current_authoritative_audit": "runs/storage_cleanup_20261112_01/COMPLETED_VERIFIED.json",
+  "latest_report": "docs\\实验环境与缓存清理_20261112.md",
+  "authorized_targets_now_deleted": true
+}

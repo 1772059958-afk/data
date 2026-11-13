@@ -1,0 +1,6 @@
+{
+  "dataset": "/workspace/runs/test20_A_20261112_01/scoring/evaluation_dataset.json",
+  "split": "test",
+  "task_repo": null,
+  "created_at": "2026-11-12T01:42:24+00:00"
+}

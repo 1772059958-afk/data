@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/opt/miniconda3/envs/testbed/lib/python3.9/runpy.py", line 197, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/opt/miniconda3/envs/testbed/lib/python3.9/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "/opt/miniconda3/envs/testbed/lib/python3.9/site-packages/pytest.py", line 7, in <module>
+    from _pytest.assertion import register_assert_rewrite
+  File "/opt/miniconda3/envs/testbed/lib/python3.9/site-packages/_pytest/assertion/__init__.py", line 10, in <module>
+    import six
+ModuleNotFoundError: No module named 'six'

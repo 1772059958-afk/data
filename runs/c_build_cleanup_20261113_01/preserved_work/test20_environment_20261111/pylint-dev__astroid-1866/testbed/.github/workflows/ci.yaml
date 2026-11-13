@@ -1,0 +1,269 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+      - 2.*
+  pull_request: ~
+
+env:
+  CACHE_VERSION: 1
+  KEY_PREFIX: venv
+  DEFAULT_PYTHON: "3.10"
+  PRE_COMMIT_CACHE: ~/.cache/pre-commit
+
+jobs:
+  base-checks:
+    name: Checks
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Check out code from GitHub
+        uses: actions/checkout@v3.1.0
+      - name: Set up Python ${{ env.DEFAULT_PYTHON }}
+        id: python
+        uses: actions/setup-python@v4.3.0
+        with:
+          python-version: ${{ env.DEFAULT_PYTHON }}
+          check-latest: true
+      - name: Generate partial Python venv restore key
+        id: generate-python-key
+        run: >-
+          echo "key=base-venv-${{ env.CACHE_VERSION }}-${{
+            hashFiles('pyproject.toml', 'requirements_test.txt',
+          'requirements_test_min.txt', 'requirements_test_brain.txt',
+          'requirements_test_pre_commit.txt') }}" >> $GITHUB_OUTPUT
+      - name: Restore Python virtual environment
+        id: cache-venv
+        uses: actions/cache@v3.0.11
+        with:
+          path: venv
+          key: >-
+            ${{ runner.os }}-${{ steps.python.outputs.python-version }}-${{
+            steps.generate-python-key.outputs.key }}
+      - name: Create Python virtual environment
+        if: steps.cache-venv.outputs.cache-hit != 'true'
+        run: |
+          python -m venv venv
+          . venv/bin/activate
+          python -m pip install -U pip setuptools wheel
+          pip install -U -r requirements_test.txt -r requirements_test_brain.txt
+          pip install -e .
+      - name: Generate pre-commit restore key
+        id: generate-pre-commit-key
+        run: >-
+          echo "key=pre-commit-${{ env.CACHE_VERSION }}-${{
+            hashFiles('.pre-commit-config.yaml') }}" >> $GITHUB_OUTPUT
+      - name: Restore pre-commit environment
+        id: cache-precommit
+        uses: actions/cache@v3.0.11
+        with:
+          path: ${{ env.PRE_COMMIT_CACHE }}
+          key: >-
+            ${{ runner.os }}-${{ steps.generate-pre-commit-key.outputs.key }}
+      - name: Install pre-commit dependencies
+        if: steps.cache-precommit.outputs.cache-hit != 'true'
+        run: |
+          . venv/bin/activate
+          pre-commit install --install-hooks
+      - name: Run pre-commit checks
+        run: |
+          . venv/bin/activate
+          pip install -e .
+          pre-commit run pylint --all-files
+
+  tests-linux:
+    name: tests / run / ${{ matrix.python-version }} / Linux
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: [3.7, 3.8, 3.9, "3.10", "3.11"]
+    outputs:
+      python-key: ${{ steps.generate-python-key.outputs.key }}
+    steps:
+      - name: Check out code from GitHub
+        uses: actions/checkout@v3.1.0
+      - name: Set up Python ${{ matrix.python-version }}
+        id: python
+        uses: actions/setup-python@v4.3.0
+        with:
+          python-version: ${{ matrix.python-version }}
+          check-latest: true
+      - name: Install Qt
+        if: ${{ matrix.python-version == '3.10' }}
+        run: |
+          sudo apt-get install build-essential libgl1-mesa-dev
+      - name: Generate partial Python venv restore key
+        id: generate-python-key
+        run: >-
+          echo "key=${{ env.KEY_PREFIX }}-${{ env.CACHE_VERSION }}-${{
+            hashFiles('pyproject.toml', 'requirements_test.txt',
+          'requirements_test_min.txt', 'requirements_test_brain.txt') }}" >>
+          $GITHUB_OUTPUT
+      - name: Restore Python virtual environment
+        id: cache-venv
+        uses: actions/cache@v3.0.11
+        with:
+          path: venv
+          key: >-
+            ${{ runner.os }}-${{ steps.python.outputs.python-version }}-${{
+            steps.generate-python-key.outputs.key }}
+      - name: Create Python virtual environment
+        if: steps.cache-venv.outputs.cache-hit != 'true'
+        run: |
+          python -m venv venv
+          . venv/bin/activate
+          python -m pip install -U pip setuptools wheel
+          pip install -U -r requirements_test.txt -r requirements_test_brain.txt
+          pip install -e .
+      - name: Run pytest
+        run: |
+          . venv/bin/activate
+          pytest --cov --cov-report= tests/
+      - name: Upload coverage artifact
+        uses: actions/upload-artifact@v3.1.1
+        with:
+          name: coverage-${{ matrix.python-version }}
+          path: .coverage
+
+  coverage:
+    name: tests / process / coverage
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    needs: ["tests-linux"]
+    strategy:
+      matrix:
+        python-version: ["3.10"]
+    env:
+      COVERAGERC_FILE: .coveragerc
+    steps:
+      - name: Check out code from GitHub
+        uses: actions/checkout@v3.1.0
+      - name: Set up Python ${{ matrix.python-version }}
+        id: python
+        uses: actions/setup-python@v4.3.0
+        with:
+          python-version: ${{ matrix.python-version }}
+          check-latest: true
+      - name: Restore Python virtual environment
+        id: cache-venv
+        uses: actions/cache@v3.0.11
+        with:
+          path: venv
+          key:
+            ${{ runner.os }}-${{ steps.python.outputs.python-version }}-${{
+            needs.tests-linux.outputs.python-key }}
+      - name: Fail job if Python cache restore failed
+        if: steps.cache-venv.outputs.cache-hit != 'true'
+        run: |
+          echo "Failed to restore Python venv from cache"
+          exit 1
+      - name: Download all coverage artifacts
+        uses: actions/download-artifact@v3.0.1
+      - name: Combine coverage results
+        run: |
+          . venv/bin/activate
+          coverage combine coverage*/.coverage
+          coverage report --rcfile=${{ env.COVERAGERC_FILE }}
+      - name: Upload coverage to Coveralls
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          . venv/bin/activate
+          coveralls --rcfile=${{ env.COVERAGERC_FILE }} --service=github
+
+  tests-windows:
+    name: tests / run / ${{ matrix.python-version }} / Windows
+    runs-on: windows-latest
+    timeout-minutes: 20
+    needs: tests-linux
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: [3.7, 3.8, 3.9, "3.10", "3.11"]
+    steps:
+      - name: Set temp directory
+        run: echo "TEMP=$env:USERPROFILE\AppData\Local\Temp" >> $env:GITHUB_ENV
+        # Workaround to set correct temp directory on Windows
+        # https://github.com/actions/virtual-environments/issues/712
+      - name: Check out code from GitHub
+        uses: actions/checkout@v3.1.0
+      - name: Set up Python ${{ matrix.python-version }}
+        id: python
+        uses: actions/setup-python@v4.3.0
+        with:
+          python-version: ${{ matrix.python-version }}
+          check-latest: true
+      - name: Generate partial Python venv restore key
+        id: generate-python-key
+        run: >-
+          echo "key=${{ env.KEY_PREFIX }}-${{ env.CACHE_VERSION }}-${{
+            hashFiles('pyproject.toml', 'requirements_test_min.txt',
+          'requirements_test_brain.txt') }}" >> $env:GITHUB_OUTPUT
+      - name: Restore Python virtual environment
+        id: cache-venv
+        uses: actions/cache@v3.0.11
+        with:
+          path: venv
+          key: >-
+            ${{ runner.os }}-${{ steps.python.outputs.python-version }}-${{
+            steps.generate-python-key.outputs.key }}
+      - name: Create Python virtual environment
+        if: steps.cache-venv.outputs.cache-hit != 'true'
+        run: |
+          python -m venv venv
+          . venv\\Scripts\\activate
+          python -m pip install -U pip setuptools wheel
+          pip install -U -r requirements_test_min.txt -r requirements_test_brain.txt
+          pip install -e .
+      - name: Run pytest
+        run: |
+          . venv\\Scripts\\activate
+          pytest tests/
+
+  tests-pypy:
+    name: tests / run / ${{ matrix.python-version }} / Linux
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["pypy3.7", "pypy3.8", "pypy3.9"]
+    steps:
+      - name: Check out code from GitHub
+        uses: actions/checkout@v3.1.0
+      - name: Set up Python ${{ matrix.python-version }}
+        id: python
+        uses: actions/setup-python@v4.3.0
+        with:
+          python-version: ${{ matrix.python-version }}
+          check-latest: true
+      - name: Generate partial Python venv restore key
+        id: generate-python-key
+        run: >-
+          echo "key=${{ env.KEY_PREFIX }}-${{ env.CACHE_VERSION }}-${{
+            hashFiles('pyproject.toml', 'requirements_test_min.txt')
+          }}" >> $GITHUB_OUTPUT
+      - name: Restore Python virtual environment
+        id: cache-venv
+        uses: actions/cache@v3.0.11
+        with:
+          path: venv
+          key: >-
+            ${{ runner.os }}-${{ matrix.python-version }}-${{
+            steps.generate-python-key.outputs.key }}
+      - name: Create Python virtual environment
+        if: steps.cache-venv.outputs.cache-hit != 'true'
+        run: |
+          python -m venv venv
+          . venv/bin/activate
+          python -m pip install -U pip setuptools wheel
+          pip install -U -r requirements_test_min.txt
+          pip install -e .
+      - name: Run pytest
+        run: |
+          . venv/bin/activate
+          pytest tests/

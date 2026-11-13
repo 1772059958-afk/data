@@ -1,0 +1,18 @@
+Obtaining file:///testbed
+  Checking if build backend supports build_editable: started
+  Checking if build backend supports build_editable: finished with status 'done'
+  Preparing editable metadata (pyproject.toml): started
+  Preparing editable metadata (pyproject.toml): finished with status 'done'
+Building wheels for collected packages: pvlib
+  Building editable for pvlib (pyproject.toml): started
+  Building editable for pvlib (pyproject.toml): finished with status 'done'
+  Created wheel for pvlib: filename=pvlib-0.0.0-0.editable-py3-none-any.whl size=5446 sha256=80d70acfef95ceb61b5b1b70c29946a89fb8a9ca2693b3702150153b8678e5a7
+  Stored in directory: /tmp/pip-ephem-wheel-cache-p4sriurf/wheels/7d/66/67/70d1ee2124ccf21d601c352e25cdca10f611f7c8b3f9ffb9e4
+Successfully built pvlib
+Installing collected packages: pvlib
+  Attempting uninstall: pvlib
+    Found existing installation: pvlib 0.9.6.dev21+g40e9e97
+    Uninstalling pvlib-0.9.6.dev21+g40e9e97:
+      Successfully uninstalled pvlib-0.9.6.dev21+g40e9e97
+Successfully installed pvlib-0.0.0
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.

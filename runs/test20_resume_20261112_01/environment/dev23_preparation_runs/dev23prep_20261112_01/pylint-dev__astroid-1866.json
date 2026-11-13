@@ -1,0 +1,82 @@
+{
+  "instance_id": "pylint-dev__astroid-1866",
+  "base_commit": "6cf238d089cf4b6753c94cfc089b4a47487711e5",
+  "repo": "pylint-dev/astroid",
+  "dependency_profile": "astroid_new",
+  "status": "public_smoke_ready",
+  "patch_applied": false,
+  "model_calls": 0,
+  "smoke_scope_only": true,
+  "source_or_tests_modified": false,
+  "reuse_validation": {
+    "actual_image_id": "sha256:d12c436e7986e6e244c897643c9c7f3eaf26d0ee3b363cfea46a0cba03322895",
+    "identity_before": {
+      "head": "6cf238d089cf4b6753c94cfc089b4a47487711e5",
+      "clean": true,
+      "selected_git_blob_bytes_verified": true,
+      "python": "3.9.21"
+    },
+    "imports": {
+      "head": "6cf238d089cf4b6753c94cfc089b4a47487711e5",
+      "clean": true,
+      "selected_git_blob_bytes_verified": true,
+      "python": "3.9.21",
+      "module_file": "/testbed/astroid/__init__.py",
+      "module_version": "2.13.0-dev0",
+      "distributions": {
+        "pytest": "7.4.4",
+        "numpy": "1.26.4",
+        "pandas": "2.2.3",
+        "scipy": "1.13.1",
+        "wrapt": "1.17.3",
+        "lazy-object-proxy": "1.10.0",
+        "simplejson": null,
+        "sqlfluff": null,
+        "Jinja2": "3.1.6",
+        "click": null,
+        "nose": null
+      }
+    },
+    "public_smoke": {
+      "label": "public_smoke",
+      "arguments": [
+        "docker",
+        "--context",
+        "desktop-linux",
+        "exec",
+        "dev23prep-dev23prep_20261112_01-deaf5200dbd5",
+        "bash",
+        "-lc",
+        "cd /testbed && python -m pytest tests/unittest_builder.py -q --no-header -p no:cacheprovider"
+      ],
+      "exit_code": 0,
+      "log": "0358_public_smoke.log",
+      "log_sha256": "207152ff7a1d82e34035a1f1489d166eccb3c1dc3d256be1a4f358ba6cd45875",
+      "seconds": 3.226
+    },
+    "identity_after": {
+      "head": "6cf238d089cf4b6753c94cfc089b4a47487711e5",
+      "clean": true,
+      "selected_git_blob_bytes_verified": true,
+      "python": "3.9.21",
+      "module_file": "/testbed/astroid/__init__.py",
+      "module_version": "2.13.0-dev0",
+      "distributions": {
+        "pytest": "7.4.4",
+        "numpy": "1.26.4",
+        "pandas": "2.2.3",
+        "scipy": "1.13.1",
+        "wrapt": "1.17.3",
+        "lazy-object-proxy": "1.10.0",
+        "simplejson": null,
+        "sqlfluff": null,
+        "Jinja2": "3.1.6",
+        "click": null,
+        "nose": null
+      }
+    },
+    "passed": true
+  },
+  "image_id": "sha256:d12c436e7986e6e244c897643c9c7f3eaf26d0ee3b363cfea46a0cba03322895",
+  "reused": true
+}

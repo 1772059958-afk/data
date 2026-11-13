@@ -1,0 +1,19 @@
+{
+  "kind": "user_approved_model_identity_protocol_amendment",
+  "date": "2026-11-11",
+  "user_reply": "允许指纹监测方案，继续全流程（推荐）",
+  "proposal_sha256": "402b3ae827ea6fde93c4a7d64edb8600381ef9c2438d49ff71bf4bdbcc197f7a",
+  "approved_mode": "provider_alias_with_backend_fingerprint_monitoring",
+  "immutable_version": false,
+  "official_current_mapping": "DeepSeek-V4.1-Flash-1017",
+  "expected_served_alias": "deepseek-flash",
+  "expected_system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "scope": "This round DEV calibration and registered TEST20 A-E single-run only",
+  "requirements": [
+    "missing/changed alias or fingerprint stops batch",
+    "full DEV calibration and final configuration freeze still required",
+    "all new model requests share100CNY ledger",
+    "independent official scoring",
+    "report immutable snapshot limitation explicitly"
+  ]
+}

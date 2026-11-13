@@ -1,0 +1,119 @@
+2026-11-12 03:48:44,714 - INFO - Creating container for pyvista__pyvista-4315...
+2026-11-12 03:48:44,759 - INFO - Container for pyvista__pyvista-4315 created: 35c0a16e010e972842ea9066d6bcc7fc771cac497c9ba38ea0f90f36e87b1670
+2026-11-12 03:48:44,949 - INFO - Container for pyvista__pyvista-4315 started: 35c0a16e010e972842ea9066d6bcc7fc771cac497c9ba38ea0f90f36e87b1670
+2026-11-12 03:48:44,952 - INFO - Intermediate patch for pyvista__pyvista-4315 written to logs/run_evaluation/dev23_calibration_20261112_01/dev23_calibration_20261112_01-A/pyvista__pyvista-4315/patch.diff, now applying to container...
+2026-11-12 03:48:45,067 - INFO - >>>>> Applied Patch:
+Checking patch pyvista/core/grid.py...
+Hunk #1 succeeded at 136 (offset 24 lines).
+Hunk #2 succeeded at 193 (offset 33 lines).
+Hunk #3 succeeded at 203 (offset 34 lines).
+Applied patch pyvista/core/grid.py cleanly.
+
+2026-11-12 03:48:45,140 - INFO - Git diff before:
+diff --git a/pyvista/core/grid.py b/pyvista/core/grid.py
+index 6ce2368..312b7ef 100644
+--- a/pyvista/core/grid.py
++++ b/pyvista/core/grid.py
+@@ -135,16 +135,16 @@ class RectilinearGrid(_vtk.vtkRectilinearGrid, Grid, RectilinearGridFilters):
+                     self.shallow_copy(args[0])
+             elif isinstance(args[0], (str, pathlib.Path)):
+                 self._from_file(args[0], **kwargs)
+-            elif isinstance(args[0], np.ndarray):
++            elif isinstance(args[0], (np.ndarray, Sequence)):
+                 self._from_arrays(args[0], None, None, check_duplicates)
+             else:
+                 raise TypeError(f'Type ({type(args[0])}) not understood by `RectilinearGrid`')
+ 
+         elif len(args) == 3 or len(args) == 2:
+-            arg0_is_arr = isinstance(args[0], np.ndarray)
+-            arg1_is_arr = isinstance(args[1], np.ndarray)
++            arg0_is_arr = isinstance(args[0], (np.ndarray, Sequence))
++            arg1_is_arr = isinstance(args[1], (np.ndarray, Sequence))
+             if len(args) == 3:
+-                arg2_is_arr = isinstance(args[2], np.ndarray)
++                arg2_is_arr = isinstance(args[2], (np.ndarray, Sequence))
+             else:
+                 arg2_is_arr = False
+ 
+@@ -193,6 +193,7 @@ class RectilinearGrid(_vtk.vtkRectilinearGrid, Grid, RectilinearGridFilters):
+         """
+         # Set the coordinates along each axial direction
+         # Must at least be an x array
++        x = np.asanyarray(x)
+         if check_duplicates:
+             raise_has_duplicates(x)
+ 
+@@ -201,12 +202,14 @@ class RectilinearGrid(_vtk.vtkRectilinearGrid, Grid, RectilinearGridFilters):
+             x = x.astype(float)
+         self.SetXCoordinates(helpers.convert_array(x.ravel()))
+         if y is not None:
++            y = np.asanyarray(y)
+             if check_duplicates:
+                 raise_has_duplicates(y)
+             if not np.issubdtype(y.dtype, np.floating):
+                 y = y.astype(float)
+             self.SetYCoordinates(helpers.convert_array(y.ravel()))
+         if z is not None:
++            z = np.asanyarray(z)
+             if check_duplicates:
+                 raise_has_duplicates(z)
+             if not np.issubdtype(z.dtype, np.floating):
+2026-11-12 03:48:45,144 - INFO - Eval script for pyvista__pyvista-4315 written to logs/run_evaluation/dev23_calibration_20261112_01/dev23_calibration_20261112_01-A/pyvista__pyvista-4315/eval.sh; copying to container...
+2026-11-12 03:48:52,278 - INFO - Test runtime: 7.07 seconds
+2026-11-12 03:48:52,309 - INFO - Test output for pyvista__pyvista-4315 written to logs/run_evaluation/dev23_calibration_20261112_01/dev23_calibration_20261112_01-A/pyvista__pyvista-4315/test_output.txt
+2026-11-12 03:48:52,355 - INFO - Git diff after:
+diff --git a/pyvista/core/grid.py b/pyvista/core/grid.py
+index 6ce2368..312b7ef 100644
+--- a/pyvista/core/grid.py
++++ b/pyvista/core/grid.py
+@@ -135,16 +135,16 @@ class RectilinearGrid(_vtk.vtkRectilinearGrid, Grid, RectilinearGridFilters):
+                     self.shallow_copy(args[0])
+             elif isinstance(args[0], (str, pathlib.Path)):
+                 self._from_file(args[0], **kwargs)
+-            elif isinstance(args[0], np.ndarray):
++            elif isinstance(args[0], (np.ndarray, Sequence)):
+                 self._from_arrays(args[0], None, None, check_duplicates)
+             else:
+                 raise TypeError(f'Type ({type(args[0])}) not understood by `RectilinearGrid`')
+ 
+         elif len(args) == 3 or len(args) == 2:
+-            arg0_is_arr = isinstance(args[0], np.ndarray)
+-            arg1_is_arr = isinstance(args[1], np.ndarray)
++            arg0_is_arr = isinstance(args[0], (np.ndarray, Sequence))
++            arg1_is_arr = isinstance(args[1], (np.ndarray, Sequence))
+             if len(args) == 3:
+-                arg2_is_arr = isinstance(args[2], np.ndarray)
++                arg2_is_arr = isinstance(args[2], (np.ndarray, Sequence))
+             else:
+                 arg2_is_arr = False
+ 
+@@ -193,6 +193,7 @@ class RectilinearGrid(_vtk.vtkRectilinearGrid, Grid, RectilinearGridFilters):
+         """
+         # Set the coordinates along each axial direction
+         # Must at least be an x array
++        x = np.asanyarray(x)
+         if check_duplicates:
+             raise_has_duplicates(x)
+ 
+@@ -201,12 +202,14 @@ class RectilinearGrid(_vtk.vtkRectilinearGrid, Grid, RectilinearGridFilters):
+             x = x.astype(float)
+         self.SetXCoordinates(helpers.convert_array(x.ravel()))
+         if y is not None:
++            y = np.asanyarray(y)
+             if check_duplicates:
+                 raise_has_duplicates(y)
+             if not np.issubdtype(y.dtype, np.floating):
+                 y = y.astype(float)
+             self.SetYCoordinates(helpers.convert_array(y.ravel()))
+         if z is not None:
++            z = np.asanyarray(z)
+             if check_duplicates:
+                 raise_has_duplicates(z)
+             if not np.issubdtype(z.dtype, np.floating):
+2026-11-12 03:48:52,356 - INFO - Grading answer for pyvista__pyvista-4315...
+2026-11-12 03:48:52,418 - INFO - report: {'pyvista__pyvista-4315': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': True, 'infra_failure': False, 'tests_status': {'FAIL_TO_PASS': {'success': ['tests/test_grid.py::test_create_rectilinear_grid_from_specs'], 'failure': []}, 'PASS_TO_PASS': {'success': ['tests/test_grid.py::test_volume', 'tests/test_grid.py::test_init_from_polydata', 'tests/test_grid.py::test_init_from_structured', 'tests/test_grid.py::test_init_from_unstructured', 'tests/test_grid.py::test_init_from_numpy_arrays', 'tests/test_grid.py::test_init_bad_input', 'tests/test_grid.py::test_init_from_arrays[False]', 'tests/test_grid.py::test_init_from_arrays[True]', 'tests/test_grid.py::test_init_from_dict[False-False]', 'tests/test_grid.py::test_init_from_dict[False-True]', 'tests/test_grid.py::test_init_from_dict[True-False]', 'tests/test_grid.py::test_init_from_dict[True-True]', 'tests/test_grid.py::test_init_polyhedron', 'tests/test_grid.py::test_cells_dict_hexbeam_file', 'tests/test_grid.py::test_cells_dict_variable_length', 'tests/test_grid.py::test_cells_dict_empty_grid', 'tests/test_grid.py::test_cells_dict_alternating_cells', 'tests/test_grid.py::test_destructor', 'tests/test_grid.py::test_surface_indices', 'tests/test_grid.py::test_extract_feature_edges', 'tests/test_grid.py::test_triangulate_inplace', 'tests/test_grid.py::test_save[.vtu-True]', 'tests/test_grid.py::test_save[.vtu-False]', 'tests/test_grid.py::test_save[.vtk-True]', 'tests/test_grid.py::test_save[.vtk-False]', 'tests/test_grid.py::test_pathlib_read_write', 'tests/test_grid.py::test_init_bad_filename', 'tests/test_grid.py::test_save_bad_extension', 'tests/test_grid.py::test_linear_copy', 'tests/test_grid.py::test_linear_copy_surf_elem', 'tests/test_grid.py::test_extract_cells[True]', 'tests/test_grid.py::test_extract_cells[False]', 'tests/test_grid.py::test_merge', 'tests/test_grid.py::test_merge_not_main', 'tests/test_grid.py::test_merge_list', 'tests/test_grid.py::test_merge_invalid', 'tests/test_grid.py::test_init_structured_raise', 'tests/test_grid.py::test_init_structured', 'tests/test_grid.py::test_no_copy_polydata_init', 'tests/test_grid.py::test_no_copy_polydata_points_setter', 'tests/test_grid.py::test_no_copy_structured_mesh_init', 'tests/test_grid.py::test_no_copy_structured_mesh_points_setter', 'tests/test_grid.py::test_no_copy_pointset_init', 'tests/test_grid.py::test_no_copy_pointset_points_setter', 'tests/test_grid.py::test_no_copy_unstructured_grid_points_setter', 'tests/test_grid.py::test_no_copy_rectilinear_grid', 'tests/test_grid.py::test_grid_repr', 'tests/test_grid.py::test_slice_structured', 'tests/test_grid.py::test_invalid_init_structured', 'tests/test_grid.py::test_save_structured[.vtk-True]', 'tests/test_grid.py::test_save_structured[.vtk-False]', 'tests/test_grid.py::test_save_structured[.vts-True]', 'tests/test_grid.py::test_save_structured[.vts-False]', 'tests/test_grid.py::test_load_structured_bad_filename', 'tests/test_grid.py::test_instantiate_by_filename', 'tests/test_grid.py::test_create_rectilinear_after_init', 'tests/test_grid.py::test_create_rectilinear_grid_from_file', 'tests/test_grid.py::test_read_rectilinear_grid_from_file', 'tests/test_grid.py::test_read_rectilinear_grid_from_pathlib', 'tests/test_grid.py::test_raise_rectilinear_grid_non_unique', 'tests/test_grid.py::test_cast_rectilinear_grid', 'tests/test_grid.py::test_create_uniform_grid_from_specs', 'tests/test_grid.py::test_uniform_grid_invald_args', 'tests/test_grid.py::test_uniform_setters', 'tests/test_grid.py::test_create_uniform_grid_from_file', 'tests/test_grid.py::test_read_uniform_grid_from_file', 'tests/test_grid.py::test_read_uniform_grid_from_pathlib', 'tests/test_grid.py::test_cast_uniform_to_structured', 'tests/test_grid.py::test_cast_uniform_to_rectilinear', 'tests/test_grid.py::test_uniform_grid_to_tetrahedra', 'tests/test_grid.py::test_fft_and_rfft', 'tests/test_grid.py::test_fft_low_pass', 'tests/test_grid.py::test_fft_high_pass', 'tests/test_grid.py::test_save_rectilinear[.vtk-True]', 'tests/test_grid.py::test_save_rectilinear[.vtk-False]', 'tests/test_grid.py::test_save_rectilinear[.vtr-True]', 'tests/test_grid.py::test_save_rectilinear[.vtr-False]', 'tests/test_grid.py::test_save_uniform[.vtk-True]', 'tests/test_grid.py::test_save_uniform[.vtk-False]', 'tests/test_grid.py::test_save_uniform[.vti-True]', 'tests/test_grid.py::test_save_uniform[.vti-False]', 'tests/test_grid.py::test_grid_points', 'tests/test_grid.py::test_grid_extract_selection_points', 'tests/test_grid.py::test_gaussian_smooth', 'tests/test_grid.py::test_remove_cells[ind0]', 'tests/test_grid.py::test_remove_cells[ind1]', 'tests/test_grid.py::test_remove_cells[ind2]', 'tests/test_grid.py::test_remove_cells_not_inplace[ind0]', 'tests/test_grid.py::test_remove_cells_not_inplace[ind1]', 'tests/test_grid.py::test_remove_cells_not_inplace[ind2]', 'tests/test_grid.py::test_remove_cells_invalid', 'tests/test_grid.py::test_hide_cells[ind0]', 'tests/test_grid.py::test_hide_cells[ind1]', 'tests/test_grid.py::test_hide_cells[ind2]', 'tests/test_grid.py::test_hide_points[ind0]', 'tests/test_grid.py::test_hide_points[ind1]', 'tests/test_grid.py::test_hide_points[ind2]', 'tests/test_grid.py::test_set_extent', 'tests/test_grid.py::test_UnstructuredGrid_cast_to_explicit_structured_grid', 'tests/test_grid.py::test_ExplicitStructuredGrid_init', 'tests/test_grid.py::test_ExplicitStructuredGrid_cast_to_unstructured_grid', 'tests/test_grid.py::test_ExplicitStructuredGrid_save', 'tests/test_grid.py::test_ExplicitStructuredGrid_hide_cells', 'tests/test_grid.py::test_ExplicitStructuredGrid_show_cells', 'tests/test_grid.py::test_ExplicitStructuredGrid_dimensions', 'tests/test_grid.py::test_ExplicitStructuredGrid_visible_bounds', 'tests/test_grid.py::test_ExplicitStructuredGrid_cell_id', 'tests/test_grid.py::test_ExplicitStructuredGrid_cell_coords', 'tests/test_grid.py::test_ExplicitStructuredGrid_neighbors', 'tests/test_grid.py::test_ExplicitStructuredGrid_compute_connectivity', 'tests/test_grid.py::test_ExplicitStructuredGrid_compute_connections', 'tests/test_grid.py::test_ExplicitStructuredGrid_raise_init', 'tests/test_grid.py::test_copy_no_copy_wrap_object', 'tests/test_grid.py::test_copy_no_copy_wrap_object_vtk9'], 'failure': []}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for pyvista__pyvista-4315: resolved: True
+2026-11-12 03:48:52,421 - INFO - Attempting to stop container sweb.eval.pyvista__pyvista-4315.dev23_calibration_20261112_01...
+2026-11-12 03:49:07,664 - INFO - Container sweb.eval.pyvista__pyvista-4315.dev23_calibration_20261112_01 stopped successfully.
+2026-11-12 03:49:07,664 - INFO - Attempting to remove container sweb.eval.pyvista__pyvista-4315.dev23_calibration_20261112_01...
+2026-11-12 03:49:07,706 - INFO - Container sweb.eval.pyvista__pyvista-4315.dev23_calibration_20261112_01 removed successfully.

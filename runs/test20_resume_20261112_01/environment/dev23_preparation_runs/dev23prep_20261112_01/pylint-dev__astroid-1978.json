@@ -1,0 +1,148 @@
+{
+  "instance_id": "pylint-dev__astroid-1978",
+  "base_commit": "0c9ab0fe56703fa83c73e514a1020d398d23fa7f",
+  "repo": "pylint-dev/astroid",
+  "dependency_profile": "astroid_new",
+  "status": "public_smoke_ready",
+  "patch_applied": false,
+  "model_calls": 0,
+  "smoke_scope_only": true,
+  "source_or_tests_modified": false,
+  "baseline_before_install": {
+    "head": "0c9ab0fe56703fa83c73e514a1020d398d23fa7f",
+    "clean": true,
+    "selected_git_blob_bytes_verified": true,
+    "python": "3.9.21"
+  },
+  "installed_imports": {
+    "head": "0c9ab0fe56703fa83c73e514a1020d398d23fa7f",
+    "clean": true,
+    "selected_git_blob_bytes_verified": true,
+    "python": "3.9.21",
+    "module_file": "/testbed/astroid/__init__.py",
+    "module_version": "2.14.0-dev0",
+    "distributions": {
+      "pytest": "7.4.4",
+      "numpy": "1.26.4",
+      "pandas": "2.2.3",
+      "scipy": "1.13.1",
+      "wrapt": "1.17.3",
+      "lazy-object-proxy": "1.10.0",
+      "simplejson": null,
+      "sqlfluff": null,
+      "Jinja2": "3.1.6",
+      "click": null,
+      "nose": null
+    }
+  },
+  "initial_public_smoke": {
+    "label": "public_smoke",
+    "arguments": [
+      "docker",
+      "--context",
+      "desktop-linux",
+      "exec",
+      "dev23prep-dev23prep_20261112_01-511a3131f02c",
+      "bash",
+      "-lc",
+      "cd /testbed && python -m pytest tests/unittest_builder.py -q --no-header -p no:cacheprovider"
+    ],
+    "exit_code": 0,
+    "log": "0371_public_smoke.log",
+    "log_sha256": "25f534b1f7648f24d05c81d948512dfb1fe525557a21cfaccf691adeea0ca8f8",
+    "seconds": 3.224
+  },
+  "baseline_after_smoke": {
+    "head": "0c9ab0fe56703fa83c73e514a1020d398d23fa7f",
+    "clean": true,
+    "selected_git_blob_bytes_verified": true,
+    "python": "3.9.21",
+    "module_file": "/testbed/astroid/__init__.py",
+    "module_version": "2.14.0-dev0",
+    "distributions": {
+      "pytest": "7.4.4",
+      "numpy": "1.26.4",
+      "pandas": "2.2.3",
+      "scipy": "1.13.1",
+      "wrapt": "1.17.3",
+      "lazy-object-proxy": "1.10.0",
+      "simplejson": null,
+      "sqlfluff": null,
+      "Jinja2": "3.1.6",
+      "click": null,
+      "nose": null
+    }
+  },
+  "prepared_candidate_image": "sha256:023d5f6b5e1e6c362335ec15077818404d24b5c7f36f2864016e6fe4921c6815",
+  "fresh_image_validation": {
+    "actual_image_id": "sha256:023d5f6b5e1e6c362335ec15077818404d24b5c7f36f2864016e6fe4921c6815",
+    "identity_before": {
+      "head": "0c9ab0fe56703fa83c73e514a1020d398d23fa7f",
+      "clean": true,
+      "selected_git_blob_bytes_verified": true,
+      "python": "3.9.21"
+    },
+    "imports": {
+      "head": "0c9ab0fe56703fa83c73e514a1020d398d23fa7f",
+      "clean": true,
+      "selected_git_blob_bytes_verified": true,
+      "python": "3.9.21",
+      "module_file": "/testbed/astroid/__init__.py",
+      "module_version": "2.14.0-dev0",
+      "distributions": {
+        "pytest": "7.4.4",
+        "numpy": "1.26.4",
+        "pandas": "2.2.3",
+        "scipy": "1.13.1",
+        "wrapt": "1.17.3",
+        "lazy-object-proxy": "1.10.0",
+        "simplejson": null,
+        "sqlfluff": null,
+        "Jinja2": "3.1.6",
+        "click": null,
+        "nose": null
+      }
+    },
+    "public_smoke": {
+      "label": "public_smoke",
+      "arguments": [
+        "docker",
+        "--context",
+        "desktop-linux",
+        "exec",
+        "dev23prep-dev23prep_20261112_01-d15c24454079",
+        "bash",
+        "-lc",
+        "cd /testbed && python -m pytest tests/unittest_builder.py -q --no-header -p no:cacheprovider"
+      ],
+      "exit_code": 0,
+      "log": "0383_public_smoke.log",
+      "log_sha256": "a3b8c42b4e0943e92610630fecf8d200dba4c7e094c02f4d2c19866fc1316f41",
+      "seconds": 3.224
+    },
+    "identity_after": {
+      "head": "0c9ab0fe56703fa83c73e514a1020d398d23fa7f",
+      "clean": true,
+      "selected_git_blob_bytes_verified": true,
+      "python": "3.9.21",
+      "module_file": "/testbed/astroid/__init__.py",
+      "module_version": "2.14.0-dev0",
+      "distributions": {
+        "pytest": "7.4.4",
+        "numpy": "1.26.4",
+        "pandas": "2.2.3",
+        "scipy": "1.13.1",
+        "wrapt": "1.17.3",
+        "lazy-object-proxy": "1.10.0",
+        "simplejson": null,
+        "sqlfluff": null,
+        "Jinja2": "3.1.6",
+        "click": null,
+        "nose": null
+      }
+    },
+    "passed": true
+  },
+  "image_id": "sha256:023d5f6b5e1e6c362335ec15077818404d24b5c7f36f2864016e6fe4921c6815",
+  "reused": false
+}

@@ -1,0 +1,155 @@
+2026-11-12 04:19:08,564 - INFO - Creating container for sqlfluff__sqlfluff-1517...
+2026-11-12 04:19:08,610 - INFO - Container for sqlfluff__sqlfluff-1517 created: b6d7139bc925f3cb76379bbb6187e210c16d5d66aab79dc2bfa85b93f2388e69
+2026-11-12 04:19:08,806 - INFO - Container for sqlfluff__sqlfluff-1517 started: b6d7139bc925f3cb76379bbb6187e210c16d5d66aab79dc2bfa85b93f2388e69
+2026-11-12 04:19:08,809 - INFO - Intermediate patch for sqlfluff__sqlfluff-1517 written to logs/run_evaluation/dev23_calibration_20261112_01/dev23_calibration_20261112_01-D/sqlfluff__sqlfluff-1517/patch.diff, now applying to container...
+2026-11-12 04:19:08,909 - INFO - >>>>> Applied Patch:
+Checking patch src/sqlfluff/core/parser/grammar/delimited.py...
+Hunk #1 succeeded at 127 (offset 1 line).
+Hunk #2 succeeded at 142 (offset 1 line).
+Hunk #3 succeeded at 169 (offset 2 lines).
+Hunk #4 succeeded at 186 (offset 1 line).
+Hunk #5 succeeded at 196 (offset 1 line).
+Hunk #6 succeeded at 210 (offset 3 lines).
+Hunk #7 succeeded at 248 (offset -1 lines).
+Applied patch src/sqlfluff/core/parser/grammar/delimited.py cleanly.
+
+2026-11-12 04:19:09,045 - INFO - Git diff before:
+diff --git a/src/sqlfluff/core/parser/grammar/delimited.py b/src/sqlfluff/core/parser/grammar/delimited.py
+index 39a3503..53baa95 100644
+--- a/src/sqlfluff/core/parser/grammar/delimited.py
++++ b/src/sqlfluff/core/parser/grammar/delimited.py
+@@ -128,7 +128,7 @@ class Delimited(OneOf):
+                         seg.is_whitespace for seg in pre_non_code + post_non_code
+                     ):
+                         return MatchResult.from_unmatched(
+-                            mutated_segments
++                            segments
+                         )  # pragma: no cover TODO?
+ 
+                     with parse_context.deeper_match() as ctx:
+@@ -141,7 +141,7 @@ class Delimited(OneOf):
+                         )
+                     # No match, or an incomplete match: Not allowed
+                     if not match or not match.is_complete():
+-                        return MatchResult.from_unmatched(mutated_segments)
++                        return MatchResult.from_unmatched(segments)
+ 
+                     # We have a complete match!
+ 
+@@ -170,7 +170,7 @@ class Delimited(OneOf):
+                             self.min_delimiters
+                             and len(delimiters) < self.min_delimiters
+                         ):
+-                            return MatchResult.from_unmatched(mutated_segments)
++                            return MatchResult.from_unmatched(segments)
+                         else:
+                             return MatchResult(
+                                 matched_segments.matched_segments,
+@@ -186,7 +186,7 @@ class Delimited(OneOf):
+                 else:
+                     # Zero length section between delimiters, or zero code
+                     # elements if appropriate. Return unmatched.
+-                    return MatchResult.from_unmatched(mutated_segments)
++                    return MatchResult.from_unmatched(segments)
+             else:
+                 # No match for a delimiter looking forward, this means we're
+                 # at the end. In this case we look for a potential partial match
+@@ -196,7 +196,7 @@ class Delimited(OneOf):
+                 # First check we're had enough delimiters, because if we haven't then
+                 # there's no sense to try matching
+                 if self.min_delimiters and len(delimiters) < self.min_delimiters:
+-                    return MatchResult.from_unmatched(mutated_segments)
++                    return MatchResult.from_unmatched(segments)
+ 
+                 # We use the whitespace padded match to hoover up whitespace if enabled,
+                 # and default to the longest matcher. We don't care which one matches.
+@@ -211,7 +211,7 @@ class Delimited(OneOf):
+                     seg.is_whitespace for seg in pre_non_code + post_non_code
+                 ):
+                     return MatchResult.from_unmatched(
+-                        mutated_segments
++                        segments
+                     )  # pragma: no cover TODO?
+ 
+                 with parse_context.deeper_match() as ctx:
+@@ -248,4 +248,4 @@ class Delimited(OneOf):
+                     if self.allow_trailing:
+                         return MatchResult(matched_segments.matched_segments, seg_buff)
+                     else:
+-                        return MatchResult.from_unmatched(mutated_segments)
++                        return MatchResult.from_unmatched(segments)
+2026-11-12 04:19:09,048 - INFO - Eval script for sqlfluff__sqlfluff-1517 written to logs/run_evaluation/dev23_calibration_20261112_01/dev23_calibration_20261112_01-D/sqlfluff__sqlfluff-1517/eval.sh; copying to container...
+2026-11-12 04:19:12,449 - INFO - Test runtime: 3.34 seconds
+2026-11-12 04:19:12,477 - INFO - Test output for sqlfluff__sqlfluff-1517 written to logs/run_evaluation/dev23_calibration_20261112_01/dev23_calibration_20261112_01-D/sqlfluff__sqlfluff-1517/test_output.txt
+2026-11-12 04:19:12,523 - INFO - Git diff after:
+diff --git a/src/sqlfluff/core/parser/grammar/delimited.py b/src/sqlfluff/core/parser/grammar/delimited.py
+index 39a3503..53baa95 100644
+--- a/src/sqlfluff/core/parser/grammar/delimited.py
++++ b/src/sqlfluff/core/parser/grammar/delimited.py
+@@ -128,7 +128,7 @@ class Delimited(OneOf):
+                         seg.is_whitespace for seg in pre_non_code + post_non_code
+                     ):
+                         return MatchResult.from_unmatched(
+-                            mutated_segments
++                            segments
+                         )  # pragma: no cover TODO?
+ 
+                     with parse_context.deeper_match() as ctx:
+@@ -141,7 +141,7 @@ class Delimited(OneOf):
+                         )
+                     # No match, or an incomplete match: Not allowed
+                     if not match or not match.is_complete():
+-                        return MatchResult.from_unmatched(mutated_segments)
++                        return MatchResult.from_unmatched(segments)
+ 
+                     # We have a complete match!
+ 
+@@ -170,7 +170,7 @@ class Delimited(OneOf):
+                             self.min_delimiters
+                             and len(delimiters) < self.min_delimiters
+                         ):
+-                            return MatchResult.from_unmatched(mutated_segments)
++                            return MatchResult.from_unmatched(segments)
+                         else:
+                             return MatchResult(
+                                 matched_segments.matched_segments,
+@@ -186,7 +186,7 @@ class Delimited(OneOf):
+                 else:
+                     # Zero length section between delimiters, or zero code
+                     # elements if appropriate. Return unmatched.
+-                    return MatchResult.from_unmatched(mutated_segments)
++                    return MatchResult.from_unmatched(segments)
+             else:
+                 # No match for a delimiter looking forward, this means we're
+                 # at the end. In this case we look for a potential partial match
+@@ -196,7 +196,7 @@ class Delimited(OneOf):
+                 # First check we're had enough delimiters, because if we haven't then
+                 # there's no sense to try matching
+                 if self.min_delimiters and len(delimiters) < self.min_delimiters:
+-                    return MatchResult.from_unmatched(mutated_segments)
++                    return MatchResult.from_unmatched(segments)
+ 
+                 # We use the whitespace padded match to hoover up whitespace if enabled,
+                 # and default to the longest matcher. We don't care which one matches.
+@@ -211,7 +211,7 @@ class Delimited(OneOf):
+                     seg.is_whitespace for seg in pre_non_code + post_non_code
+                 ):
+                     return MatchResult.from_unmatched(
+-                        mutated_segments
++                        segments
+                     )  # pragma: no cover TODO?
+ 
+                 with parse_context.deeper_match() as ctx:
+@@ -248,4 +248,4 @@ class Delimited(OneOf):
+                     if self.allow_trailing:
+                         return MatchResult(matched_segments.matched_segments, seg_buff)
+                     else:
+-                        return MatchResult.from_unmatched(mutated_segments)
++                        return MatchResult.from_unmatched(segments)
+2026-11-12 04:19:12,524 - INFO - Grading answer for sqlfluff__sqlfluff-1517...
+2026-11-12 04:19:12,573 - INFO - report: {'sqlfluff__sqlfluff-1517': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'infra_failure': False, 'tests_status': {'FAIL_TO_PASS': {'success': [], 'failure': ['test/dialects/ansi_test.py::test__dialect__ansi_multiple_semicolons[select']}, 'PASS_TO_PASS': {'success': ['test/dialects/ansi_test.py::test__dialect__ansi__file_lex[a', 'test/dialects/ansi_test.py::test__dialect__ansi__file_lex[b.c-res1]', 'test/dialects/ansi_test.py::test__dialect__ansi__file_lex[abc', 'test/dialects/ansi_test.py::test__dialect__ansi_specific_segment_parses[SelectKeywordSegment-select]', 'test/dialects/ansi_test.py::test__dialect__ansi_specific_segment_parses[NakedIdentifierSegment-online_sales]', 'test/dialects/ansi_test.py::test__dialect__ansi_specific_segment_parses[BareFunctionSegment-current_timestamp]', 'test/dialects/ansi_test.py::test__dialect__ansi_specific_segment_parses[FunctionSegment-current_timestamp()]', 'test/dialects/ansi_test.py::test__dialect__ansi_specific_segment_parses[NumericLiteralSegment-1000.0]', 'test/dialects/ansi_test.py::test__dialect__ansi_specific_segment_parses[ExpressionSegment-online_sales', 'test/dialects/ansi_test.py::test__dialect__ansi_specific_segment_parses[IntervalExpressionSegment-INTERVAL', 'test/dialects/ansi_test.py::test__dialect__ansi_specific_segment_parses[ExpressionSegment-CASE', 'test/dialects/ansi_test.py::test__dialect__ansi_specific_segment_parses[ExpressionSegment-CAST(ROUND(online_sales', 'test/dialects/ansi_test.py::test__dialect__ansi_specific_segment_parses[ExpressionSegment-name', 'test/dialects/ansi_test.py::test__dialect__ansi_specific_segment_parses[SelectClauseElementSegment-MIN', "test/dialects/ansi_test.py::test__dialect__ansi_specific_segment_parses[ExpressionSegment-DATE_ADD(CURRENT_DATE('America/New_York'),", 'test/dialects/ansi_test.py::test__dialect__ansi_specific_segment_parses[ExpressionSegment-my_array[1]]', 'test/dialects/ansi_test.py::test__dialect__ansi_specific_segment_parses[ExpressionSegment-my_array[OFFSET(1)]]', 'test/dialects/ansi_test.py::test__dialect__ansi_specific_segment_parses[ExpressionSegment-my_array[5:8]]', 'test/dialects/ansi_test.py::test__dialect__ansi_specific_segment_parses[ExpressionSegment-4', 'test/dialects/ansi_test.py::test__dialect__ansi_specific_segment_parses[ExpressionSegment-bits[OFFSET(0)]', 'test/dialects/ansi_test.py::test__dialect__ansi_specific_segment_parses[SelectClauseElementSegment-(count_18_24', 'test/dialects/ansi_test.py::test__dialect__ansi_specific_segment_parses[ExpressionSegment-count_18_24', 'test/dialects/ansi_test.py::test__dialect__ansi_specific_segment_parses[SelectStatementSegment-SELECT', 'test/dialects/ansi_test.py::test__dialect__ansi_specific_segment_parses[SelectClauseElementSegment-t.val/t.id]', 'test/dialects/ansi_test.py::test__dialect__ansi_specific_segment_parses[SelectClauseElementSegment-CAST(num', 'test/dialects/ansi_test.py::test__dialect__ansi_specific_segment_parses[SelectClauseElementSegment-a.*]', 'test/dialects/ansi_test.py::test__dialect__ansi_specific_segment_parses[SelectClauseElementSegment-a.b.*]', 'test/dialects/ansi_test.py::test__dialect__ansi_specific_segment_parses[SelectClauseElementSegment-a.b.c.*]', 'test/dialects/ansi_test.py::test__dialect__ansi_specific_segment_parses[ObjectReferenceSegment-a..c.*]', 'test/dialects/ansi_test.py::test__dialect__ansi_specific_segment_parses[SelectClauseElementSegment--some_variable]', 'test/dialects/ansi_test.py::test__dialect__ansi_specific_segment_parses[SelectClauseElementSegment--', 'test/dialects/ansi_test.py::test__dialect__ansi_specific_segment_parses[ExpressionSegment-concat(left(uaid,', 'test/dialects/ansi_test.py::test__dialect__ansi_specific_segment_parses[ExpressionSegment-c', 'test/dialects/ansi_test.py::test__dialect__ansi_specific_segment_parses[SelectClauseElementSegment-c', 'test/dialects/ansi_test.py::test__dialect__ansi_specific_segment_parses[ExpressionSegment-NULL::INT]', 'test/dialects/ansi_test.py::test__dialect__ansi_specific_segment_parses[SelectClauseElementSegment-NULL::INT', 'test/dialects/ansi_test.py::test__dialect__ansi_specific_segment_parses[TruncateStatementSegment-TRUNCATE', 'test/dialects/ansi_test.py::test__dialect__ansi_specific_segment_not_match[ObjectReferenceSegment-\\n', 'test/dialects/ansi_test.py::test__dialect__ansi_specific_segment_not_parse[SELECT', 'test/dialects/ansi_test.py::test__dialect__ansi_is_whitespace', 'test/dialects/ansi_test.py::test__dialect__ansi_parse_indented_joins[select', 'test/dialects/ansi_test.py::test__dialect__ansi_multiple_semicolons[;;-Line'], 'failure': []}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for sqlfluff__sqlfluff-1517: resolved: False
+2026-11-12 04:19:12,576 - INFO - Attempting to stop container sweb.eval.sqlfluff__sqlfluff-1517.dev23_calibration_20261112_01...
+2026-11-12 04:19:27,810 - INFO - Container sweb.eval.sqlfluff__sqlfluff-1517.dev23_calibration_20261112_01 stopped successfully.
+2026-11-12 04:19:27,810 - INFO - Attempting to remove container sweb.eval.sqlfluff__sqlfluff-1517.dev23_calibration_20261112_01...
+2026-11-12 04:19:27,853 - INFO - Container sweb.eval.sqlfluff__sqlfluff-1517.dev23_calibration_20261112_01 removed successfully.

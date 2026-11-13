@@ -1,0 +1,8 @@
+warning: in the working copy of '.gitattributes', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'AGENTS.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'README.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'docs/实验协议_开题对齐.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'docs/实验记录.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'scripts/probe_model.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'tests/test_experiment.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'tests/test_prefix_only.py', LF will be replaced by CRLF the next time Git touches it

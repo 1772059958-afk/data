@@ -1,0 +1,434 @@
+{
+  "kind": "public_pyvista_dependency_environment_correction",
+  "patch_applied": false,
+  "source_or_tests_modified": false,
+  "hidden_fields_read": false,
+  "model_calls": 0,
+  "project_dotenv_read": false,
+  "original_image_id": "sha256:c3d02ef66da989070d532ea6993104f9d4b76e3d5f86fea85d7e4da1fba2e230",
+  "base_commit": "db6ee8dd4a747b8864caae36c5d05883976a3ae5",
+  "test_command": "python -m pytest tests/test_grid.py tests/test_demos.py tests/test_cells.py -q --no-header -p no:cacheprovider",
+  "cache_audit_sha256": "71064a2b3cdbd3e234e918941ecf4ef0f7aa01a4c993cabddfe259b001a7d512",
+  "correction_plan_sha256": "65152c4834d6f9280429d54037f79ccabb73e372fd3c07d3a8e3f1c8dae15bcc",
+  "script_sha256": "d02d2dec56944b13f6b7900e09b35243b9822167f04cb257ae77e36b85d7c8e4",
+  "events": [
+    {
+      "label": "existing_new_tag_check",
+      "args": [
+        "image",
+        "inspect",
+        "prefix-env/pyvista-4315:base-db6ee8dd-public-tests-20261111"
+      ],
+      "exit_code": 1,
+      "log": "000_existing_new_tag_check.log",
+      "log_sha256": "8719fdad32ff94c2db3ea4c734584ce23aca5dbe8478034c95124e6ccdca7aaf",
+      "seconds": 11.523
+    },
+    {
+      "label": "existing_name_check",
+      "args": [
+        "inspect",
+        "--type",
+        "container",
+        "test20-pyvista-public-fix-20261111-01"
+      ],
+      "exit_code": 1,
+      "log": "001_existing_name_check.log",
+      "log_sha256": "10c686595772fff68f3596294b0f48dc4bd9d422edeafb11f6a50459ec04509a",
+      "seconds": 0.11
+    },
+    {
+      "label": "start",
+      "args": [
+        "run",
+        "-d",
+        "--pull=never",
+        "--network",
+        "none",
+        "--name",
+        "test20-pyvista-public-fix-20261111-01",
+        "--label",
+        "codex.public-environment=pyvista-fix-01",
+        "--mount",
+        "type=bind,source=D:\\CodexExperimentCache\\test20_20261111\\dependency_wheels,target=/public-wheels,readonly",
+        "--mount",
+        "type=bind,source=D:\\CodexExperimentCache\\test20_20261111\\dependency_wheels\\pyvista_public_tests_fix_candidate.additions.lock.txt,target=/public-fix.lock,readonly",
+        "--entrypoint",
+        "/bin/bash",
+        "sha256:c3d02ef66da989070d532ea6993104f9d4b76e3d5f86fea85d7e4da1fba2e230",
+        "-lc",
+        "sleep infinity"
+      ],
+      "exit_code": 0,
+      "log": "002_start.log",
+      "log_sha256": "cf4731528e56a858cefa9d8fc78668d3cf8871ac018610fa3c29a894ad2d08ec",
+      "seconds": 0.357
+    },
+    {
+      "label": "before_actual_image",
+      "args": [
+        "inspect",
+        "--format",
+        "{{.Image}}",
+        "test20-pyvista-public-fix-20261111-01"
+      ],
+      "exit_code": 0,
+      "log": "003_before_actual_image.log",
+      "log_sha256": "3ee417acc40487f66aa4492cc04f3af63a520e29ad670df74ecfe6c4b2feff3b",
+      "seconds": 0.098
+    },
+    {
+      "label": "before_head_clean",
+      "args": [
+        "exec",
+        "test20-pyvista-public-fix-20261111-01",
+        "bash",
+        "-lc",
+        "cd /testbed && test \"$(git rev-parse HEAD)\" = db6ee8dd4a747b8864caae36c5d05883976a3ae5 && test -z \"$(git status --porcelain)\" && git rev-parse HEAD"
+      ],
+      "exit_code": 0,
+      "log": "004_before_head_clean.log",
+      "log_sha256": "c97009666319de4e596e4a4f8ad88b275ed621841ef03d7e46d58475fe962f77",
+      "seconds": 0.707
+    },
+    {
+      "label": "install_fixed_additions",
+      "args": [
+        "exec",
+        "test20-pyvista-public-fix-20261111-01",
+        "bash",
+        "-lc",
+        "python -m pip install --no-index --no-deps --no-cache-dir --require-hashes --find-links /public-wheels -r /public-fix.lock"
+      ],
+      "exit_code": 0,
+      "log": "005_install_fixed_additions.log",
+      "log_sha256": "58cff4f890a669ca51321a4fdc6db1ff2c1c5b6fc3ad31f4991041e38931add1",
+      "seconds": 1.223
+    },
+    {
+      "label": "installed_versions",
+      "args": [
+        "exec",
+        "test20-pyvista-public-fix-20261111-01",
+        "bash",
+        "-lc",
+        "python -c \"import importlib.metadata,json; print(json.dumps({p:importlib.metadata.version(p) for p in ['meshio','tqdm','rich','markdown-it-py','mdurl','typing-extensions','Pygments','numpy']}))\""
+      ],
+      "exit_code": 0,
+      "log": "006_installed_versions.log",
+      "log_sha256": "8d277d9be1e7303623e82cf227381488de59ddb0e27e5cea2234248a779223a3",
+      "seconds": 0.275
+    },
+    {
+      "label": "original_three_file_public_baseline",
+      "args": [
+        "exec",
+        "test20-pyvista-public-fix-20261111-01",
+        "bash",
+        "-lc",
+        "cd /testbed && python -m pytest tests/test_grid.py tests/test_demos.py tests/test_cells.py -q --no-header -p no:cacheprovider"
+      ],
+      "exit_code": 0,
+      "log": "007_original_three_file_public_baseline.log",
+      "log_sha256": "080707385d9d9194d9f84fa081ab40a8b8ae1eab61ea0c8eea5170d23014e913",
+      "seconds": 3.751
+    },
+    {
+      "label": "after_actual_image",
+      "args": [
+        "inspect",
+        "--format",
+        "{{.Image}}",
+        "test20-pyvista-public-fix-20261111-01"
+      ],
+      "exit_code": 0,
+      "log": "008_after_actual_image.log",
+      "log_sha256": "3ee417acc40487f66aa4492cc04f3af63a520e29ad670df74ecfe6c4b2feff3b",
+      "seconds": 0.077
+    },
+    {
+      "label": "after_head_clean",
+      "args": [
+        "exec",
+        "test20-pyvista-public-fix-20261111-01",
+        "bash",
+        "-lc",
+        "cd /testbed && test \"$(git rev-parse HEAD)\" = db6ee8dd4a747b8864caae36c5d05883976a3ae5 && test -z \"$(git status --porcelain)\" && git rev-parse HEAD"
+      ],
+      "exit_code": 0,
+      "log": "009_after_head_clean.log",
+      "log_sha256": "c97009666319de4e596e4a4f8ad88b275ed621841ef03d7e46d58475fe962f77",
+      "seconds": 0.19
+    },
+    {
+      "label": "commit_new_image",
+      "args": [
+        "commit",
+        "test20-pyvista-public-fix-20261111-01",
+        "prefix-env/pyvista-4315:base-db6ee8dd-public-tests-20261111"
+      ],
+      "exit_code": 0,
+      "log": "010_commit_new_image.log",
+      "log_sha256": "10ad0280e8bc02856c08f2e7853abab16168c8154e6e088cf7ffad0b097c0e6f",
+      "seconds": 27.616
+    },
+    {
+      "label": "committed_actual_image",
+      "args": [
+        "image",
+        "inspect",
+        "--format",
+        "{{.Id}}",
+        "prefix-env/pyvista-4315:base-db6ee8dd-public-tests-20261111"
+      ],
+      "exit_code": 0,
+      "log": "011_committed_actual_image.log",
+      "log_sha256": "10ad0280e8bc02856c08f2e7853abab16168c8154e6e088cf7ffad0b097c0e6f",
+      "seconds": 0.132
+    },
+    {
+      "label": "cleanup_identity",
+      "args": [
+        "inspect",
+        "--format",
+        "{{.Id}}",
+        "test20-pyvista-public-fix-20261111-01"
+      ],
+      "exit_code": 0,
+      "log": "012_cleanup_identity.log",
+      "log_sha256": "cf4731528e56a858cefa9d8fc78668d3cf8871ac018610fa3c29a894ad2d08ec",
+      "seconds": 0.084
+    },
+    {
+      "label": "remove_owned_container",
+      "args": [
+        "rm",
+        "-f",
+        "test20-pyvista-public-fix-20261111-01"
+      ],
+      "exit_code": 0,
+      "log": "013_remove_owned_container.log",
+      "log_sha256": "b04c34577fde71f1473351e4c0d8d19fdb553e98f20a3126893a8709a92eff7d",
+      "seconds": 0.216
+    },
+    {
+      "label": "absence",
+      "args": [
+        "inspect",
+        "--type",
+        "container",
+        "test20-pyvista-public-fix-20261111-01"
+      ],
+      "exit_code": 1,
+      "log": "014_absence.log",
+      "log_sha256": "10c686595772fff68f3596294b0f48dc4bd9d422edeafb11f6a50459ec04509a",
+      "seconds": 0.082
+    },
+    {
+      "label": "existing_name_check",
+      "args": [
+        "inspect",
+        "--type",
+        "container",
+        "test20-pyvista-public-fix-verify-20261111-01"
+      ],
+      "exit_code": 1,
+      "log": "015_existing_name_check.log",
+      "log_sha256": "da97f7b94dcf5de9cd7944f67f9503c5af755667c30cccb2387b8eb1f00c3463",
+      "seconds": 0.084
+    },
+    {
+      "label": "start",
+      "args": [
+        "run",
+        "-d",
+        "--pull=never",
+        "--network",
+        "none",
+        "--name",
+        "test20-pyvista-public-fix-verify-20261111-01",
+        "--label",
+        "codex.public-environment=pyvista-fix-01",
+        "--entrypoint",
+        "/bin/bash",
+        "sha256:e731651d0a515514b18d73156752957fc4ca63bffd0957c14a3e9fcb0af3dd71",
+        "-lc",
+        "sleep infinity"
+      ],
+      "exit_code": 0,
+      "log": "016_start.log",
+      "log_sha256": "c48cec4f90da32919b791369ad0336c809d40d8f943e1ae7048a2c6ff5af2e2c",
+      "seconds": 0.245
+    },
+    {
+      "label": "fresh_before_actual_image",
+      "args": [
+        "inspect",
+        "--format",
+        "{{.Image}}",
+        "test20-pyvista-public-fix-verify-20261111-01"
+      ],
+      "exit_code": 0,
+      "log": "017_fresh_before_actual_image.log",
+      "log_sha256": "10ad0280e8bc02856c08f2e7853abab16168c8154e6e088cf7ffad0b097c0e6f",
+      "seconds": 0.082
+    },
+    {
+      "label": "fresh_before_head_clean",
+      "args": [
+        "exec",
+        "test20-pyvista-public-fix-verify-20261111-01",
+        "bash",
+        "-lc",
+        "cd /testbed && test \"$(git rev-parse HEAD)\" = db6ee8dd4a747b8864caae36c5d05883976a3ae5 && test -z \"$(git status --porcelain)\" && git rev-parse HEAD"
+      ],
+      "exit_code": 0,
+      "log": "018_fresh_before_head_clean.log",
+      "log_sha256": "c97009666319de4e596e4a4f8ad88b275ed621841ef03d7e46d58475fe962f77",
+      "seconds": 0.23
+    },
+    {
+      "label": "fresh_three_file_public_baseline",
+      "args": [
+        "exec",
+        "test20-pyvista-public-fix-verify-20261111-01",
+        "bash",
+        "-lc",
+        "cd /testbed && python -m pytest tests/test_grid.py tests/test_demos.py tests/test_cells.py -q --no-header -p no:cacheprovider"
+      ],
+      "exit_code": 0,
+      "log": "019_fresh_three_file_public_baseline.log",
+      "log_sha256": "e56a2ebfc7028ae50512ce8470e9e2e3b8dabe8330eccd6d7006ea257a7ff85a",
+      "seconds": 2.548
+    },
+    {
+      "label": "fresh_after_actual_image",
+      "args": [
+        "inspect",
+        "--format",
+        "{{.Image}}",
+        "test20-pyvista-public-fix-verify-20261111-01"
+      ],
+      "exit_code": 0,
+      "log": "020_fresh_after_actual_image.log",
+      "log_sha256": "10ad0280e8bc02856c08f2e7853abab16168c8154e6e088cf7ffad0b097c0e6f",
+      "seconds": 0.078
+    },
+    {
+      "label": "fresh_after_head_clean",
+      "args": [
+        "exec",
+        "test20-pyvista-public-fix-verify-20261111-01",
+        "bash",
+        "-lc",
+        "cd /testbed && test \"$(git rev-parse HEAD)\" = db6ee8dd4a747b8864caae36c5d05883976a3ae5 && test -z \"$(git status --porcelain)\" && git rev-parse HEAD"
+      ],
+      "exit_code": 0,
+      "log": "021_fresh_after_head_clean.log",
+      "log_sha256": "c97009666319de4e596e4a4f8ad88b275ed621841ef03d7e46d58475fe962f77",
+      "seconds": 0.204
+    },
+    {
+      "label": "cleanup_identity",
+      "args": [
+        "inspect",
+        "--format",
+        "{{.Id}}",
+        "test20-pyvista-public-fix-verify-20261111-01"
+      ],
+      "exit_code": 0,
+      "log": "022_cleanup_identity.log",
+      "log_sha256": "c48cec4f90da32919b791369ad0336c809d40d8f943e1ae7048a2c6ff5af2e2c",
+      "seconds": 0.082
+    },
+    {
+      "label": "remove_owned_container",
+      "args": [
+        "rm",
+        "-f",
+        "test20-pyvista-public-fix-verify-20261111-01"
+      ],
+      "exit_code": 0,
+      "log": "023_remove_owned_container.log",
+      "log_sha256": "383a376acd9ce88ca0e9704f1dd58ba7189f4a2448b014a8b7b2d3d84f38e3e8",
+      "seconds": 0.17
+    },
+    {
+      "label": "absence",
+      "args": [
+        "inspect",
+        "--type",
+        "container",
+        "test20-pyvista-public-fix-verify-20261111-01"
+      ],
+      "exit_code": 1,
+      "log": "024_absence.log",
+      "log_sha256": "da97f7b94dcf5de9cd7944f67f9503c5af755667c30cccb2387b8eb1f00c3463",
+      "seconds": 0.077
+    }
+  ],
+  "before": {
+    "image_id": "sha256:c3d02ef66da989070d532ea6993104f9d4b76e3d5f86fea85d7e4da1fba2e230",
+    "base_commit": "db6ee8dd4a747b8864caae36c5d05883976a3ae5",
+    "clean": true
+  },
+  "installed_versions": {
+    "meshio": "5.3.4",
+    "tqdm": "4.64.1",
+    "rich": "13.9.4",
+    "markdown-it-py": "3.0.0",
+    "mdurl": "0.1.2",
+    "typing-extensions": "4.13.2",
+    "Pygments": "2.19.1",
+    "numpy": "1.24.4"
+  },
+  "public_test": {
+    "label": "original_three_file_public_baseline",
+    "args": [
+      "exec",
+      "test20-pyvista-public-fix-20261111-01",
+      "bash",
+      "-lc",
+      "cd /testbed && python -m pytest tests/test_grid.py tests/test_demos.py tests/test_cells.py -q --no-header -p no:cacheprovider"
+    ],
+    "exit_code": 0,
+    "log": "007_original_three_file_public_baseline.log",
+    "log_sha256": "080707385d9d9194d9f84fa081ab40a8b8ae1eab61ea0c8eea5170d23014e913",
+    "seconds": 3.751
+  },
+  "after": {
+    "image_id": "sha256:c3d02ef66da989070d532ea6993104f9d4b76e3d5f86fea85d7e4da1fba2e230",
+    "base_commit": "db6ee8dd4a747b8864caae36c5d05883976a3ae5",
+    "clean": true
+  },
+  "image_id": "sha256:e731651d0a515514b18d73156752957fc4ca63bffd0957c14a3e9fcb0af3dd71",
+  "fresh_before": {
+    "image_id": "sha256:e731651d0a515514b18d73156752957fc4ca63bffd0957c14a3e9fcb0af3dd71",
+    "base_commit": "db6ee8dd4a747b8864caae36c5d05883976a3ae5",
+    "clean": true
+  },
+  "fresh_public_test": {
+    "label": "fresh_three_file_public_baseline",
+    "args": [
+      "exec",
+      "test20-pyvista-public-fix-verify-20261111-01",
+      "bash",
+      "-lc",
+      "cd /testbed && python -m pytest tests/test_grid.py tests/test_demos.py tests/test_cells.py -q --no-header -p no:cacheprovider"
+    ],
+    "exit_code": 0,
+    "log": "019_fresh_three_file_public_baseline.log",
+    "log_sha256": "e56a2ebfc7028ae50512ce8470e9e2e3b8dabe8330eccd6d7006ea257a7ff85a",
+    "seconds": 2.548
+  },
+  "fresh_after": {
+    "image_id": "sha256:e731651d0a515514b18d73156752957fc4ca63bffd0957c14a3e9fcb0af3dd71",
+    "base_commit": "db6ee8dd4a747b8864caae36c5d05883976a3ae5",
+    "clean": true
+  },
+  "success": true,
+  "cleanup_failures": [],
+  "remaining_owned_containers": {},
+  "C_free_bytes": 6080032768,
+  "D_free_bytes": 87898456064
+}

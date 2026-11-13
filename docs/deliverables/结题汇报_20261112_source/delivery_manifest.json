@@ -1,0 +1,19 @@
+{
+  "presentation": "docs\\deliverables\\结题汇报_自适应混合架构程序修复_20261112.pptx",
+  "sha256": "1cca57db829394390902f297d8cc96b3272fea889f44433b2057b8563bd1e826",
+  "reference": "docs\\deliverables\\组会汇报_两例五组实验_20261106.pptx",
+  "reference_sha256": "5499a84f6679046da1beef8fa5363379983e958b971fa17cb46990f871765bcd",
+  "builder_sha256": "95ec6ca9819bff833e65f59b4c370313bb67f060cbccfad05e24ef02f12a0e58",
+  "slide_count": 10,
+  "editable_tables": 4,
+  "visual_review": "Every reference slide, candidate slide and exported final slide inspected at full size. Not checked in native PowerPoint.",
+  "content_focus": [
+    "主要研究对象",
+    "要解决的现存问题",
+    "研究目标与预期价值",
+    "已实现的研究价值及结论边界"
+  ],
+  "experiment_scope": "No new experiment, model API, Docker start or scoring. Supplements remain cancelled.",
+  "validation": "work/ppt_closeout_20261112/validation.json",
+  "speaker_notes_sources_included": true
+}

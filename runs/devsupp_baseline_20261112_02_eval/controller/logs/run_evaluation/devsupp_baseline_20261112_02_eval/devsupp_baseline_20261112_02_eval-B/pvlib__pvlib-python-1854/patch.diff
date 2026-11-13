@@ -1,0 +1,16 @@
+--- a/pvlib/pvsystem.py
++++ b/pvlib/pvsystem.py
+@@ -200,6 +200,13 @@
+                  inverter=None, inverter_parameters=None,
+                  racking_model=None, losses_parameters=None, name=None):
+ 
++        if isinstance(arrays, Array):
++            raise TypeError(
++                "PVSystem expects `arrays` to be an iterable of Array "
++                "instances. To create a PVSystem with a single Array, pass "
++                "a list or tuple containing the Array, e.g. `arrays=[array]`."
++            )
++
+         if arrays is None:
+             if losses_parameters is None:
+                 array_losses_parameters = {}

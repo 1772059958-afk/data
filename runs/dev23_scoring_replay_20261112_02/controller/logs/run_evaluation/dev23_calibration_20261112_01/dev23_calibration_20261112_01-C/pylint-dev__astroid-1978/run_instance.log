@@ -1,0 +1,51 @@
+2026-11-12 04:08:33,695 - INFO - Creating container for pylint-dev__astroid-1978...
+2026-11-12 04:08:33,741 - INFO - Container for pylint-dev__astroid-1978 created: 862c3fb52173a3d15927b8fce558af1836734bfa0b30e32f1f84ebe364c2999d
+2026-11-12 04:08:33,897 - INFO - Container for pylint-dev__astroid-1978 started: 862c3fb52173a3d15927b8fce558af1836734bfa0b30e32f1f84ebe364c2999d
+2026-11-12 04:08:33,900 - INFO - Intermediate patch for pylint-dev__astroid-1978 written to logs/run_evaluation/dev23_calibration_20261112_01/dev23_calibration_20261112_01-C/pylint-dev__astroid-1978/patch.diff, now applying to container...
+2026-11-12 04:08:33,998 - INFO - >>>>> Applied Patch:
+Checking patch astroid/raw_building.py...
+Hunk #1 succeeded at 471 (offset 4 lines).
+Applied patch astroid/raw_building.py cleanly.
+
+2026-11-12 04:08:34,071 - INFO - Git diff before:
+diff --git a/astroid/raw_building.py b/astroid/raw_building.py
+index cc3aa01..cff6643 100644
+--- a/astroid/raw_building.py
++++ b/astroid/raw_building.py
+@@ -471,7 +471,9 @@ class InspectBuilder:
+             # check if it sounds valid and then add an import node, else use a
+             # dummy node
+             try:
+-                getattr(sys.modules[modname], name)
++                with warnings.catch_warnings():
++                    warnings.simplefilter("ignore")
++                    getattr(sys.modules[modname], name)
+             except (KeyError, AttributeError):
+                 attach_dummy_node(node, name, member)
+             else:
+2026-11-12 04:08:34,075 - INFO - Eval script for pylint-dev__astroid-1978 written to logs/run_evaluation/dev23_calibration_20261112_01/dev23_calibration_20261112_01-C/pylint-dev__astroid-1978/eval.sh; copying to container...
+2026-11-12 04:08:41,095 - INFO - Test runtime: 6.96 seconds
+2026-11-12 04:08:41,109 - INFO - Test output for pylint-dev__astroid-1978 written to logs/run_evaluation/dev23_calibration_20261112_01/dev23_calibration_20261112_01-C/pylint-dev__astroid-1978/test_output.txt
+2026-11-12 04:08:41,153 - INFO - Git diff after:
+diff --git a/astroid/raw_building.py b/astroid/raw_building.py
+index cc3aa01..cff6643 100644
+--- a/astroid/raw_building.py
++++ b/astroid/raw_building.py
+@@ -471,7 +471,9 @@ class InspectBuilder:
+             # check if it sounds valid and then add an import node, else use a
+             # dummy node
+             try:
+-                getattr(sys.modules[modname], name)
++                with warnings.catch_warnings():
++                    warnings.simplefilter("ignore")
++                    getattr(sys.modules[modname], name)
+             except (KeyError, AttributeError):
+                 attach_dummy_node(node, name, member)
+             else:
+2026-11-12 04:08:41,153 - INFO - Grading answer for pylint-dev__astroid-1978...
+2026-11-12 04:08:41,173 - INFO - report: {'pylint-dev__astroid-1978': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'infra_failure': False, 'tests_status': {'FAIL_TO_PASS': {'success': [], 'failure': ['tests/unittest_raw_building.py::test_build_module_getattr_catch_output']}, 'PASS_TO_PASS': {'success': ['tests/unittest_raw_building.py::RawBuildingTC::test_attach_dummy_node', 'tests/unittest_raw_building.py::RawBuildingTC::test_build_class', 'tests/unittest_raw_building.py::RawBuildingTC::test_build_from_import', 'tests/unittest_raw_building.py::RawBuildingTC::test_build_function', 'tests/unittest_raw_building.py::RawBuildingTC::test_build_function_args', 'tests/unittest_raw_building.py::RawBuildingTC::test_build_function_deepinspect_deprecation', 'tests/unittest_raw_building.py::RawBuildingTC::test_build_function_defaults', 'tests/unittest_raw_building.py::RawBuildingTC::test_build_function_kwonlyargs', 'tests/unittest_raw_building.py::RawBuildingTC::test_build_function_posonlyargs', 'tests/unittest_raw_building.py::RawBuildingTC::test_build_module', 'tests/unittest_raw_building.py::RawBuildingTC::test_io_is__io', 'tests/unittest_raw_building.py::RawBuildingTC::test_module_object_with_broken_getattr'], 'failure': []}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for pylint-dev__astroid-1978: resolved: False
+2026-11-12 04:08:41,176 - INFO - Attempting to stop container sweb.eval.pylint-dev__astroid-1978.dev23_calibration_20261112_01...
+2026-11-12 04:08:56,372 - INFO - Container sweb.eval.pylint-dev__astroid-1978.dev23_calibration_20261112_01 stopped successfully.
+2026-11-12 04:08:56,373 - INFO - Attempting to remove container sweb.eval.pylint-dev__astroid-1978.dev23_calibration_20261112_01...
+2026-11-12 04:08:56,415 - INFO - Container sweb.eval.pylint-dev__astroid-1978.dev23_calibration_20261112_01 removed successfully.

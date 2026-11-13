@@ -1,0 +1,9 @@
+Looking in links: /compat-wheels
+Processing /compat-wheels/setuptools-68.0.0-py3-none-any.whl (from -r /compat-wheels/pytest-dev__pytest-6116.lock.txt (line 1))
+Installing collected packages: setuptools
+  Attempting uninstall: setuptools
+    Found existing installation: setuptools 75.1.0
+    Uninstalling setuptools-75.1.0:
+      Successfully uninstalled setuptools-75.1.0
+Successfully installed setuptools-68.0.0
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable.It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.

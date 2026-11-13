@@ -1,0 +1,31 @@
+{
+  "completed_settings": [
+    {
+      "variant": "baseline",
+      "path": "configs/devsupp_baseline_20261112_02.json",
+      "sha256": "a02a164a6b8fe8ff691dc186cc561c880dc1cc86de6289f8c13842b1d223103b",
+      "tag": "devsupp_baseline_20261112_02"
+    },
+    {
+      "variant": "no_failure_ledger",
+      "path": "configs/devsupp_no_failure_ledger_20261112_02.json",
+      "sha256": "67b322b278451c1728ce61cb602e5e2761b318a387bbe89ef1998fc204ab235b",
+      "tag": "devsupp_no_failure_ledger_20261112_02"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "runs\\devsupp_baseline_20261112_02\\matrix.json",
+      "sha256": "7b8efa22ba954af4d4bed5dd6901511cb9ef0a82db33b52bbf110900ef5fa3e2",
+      "variant": "baseline"
+    },
+    {
+      "path": "runs\\devsupp_no_failure_ledger_20261112_02\\matrix.json",
+      "sha256": "473e20c6c512f19541ebe15939060f59044f6cc50b32785afc7e8a8e604620e9",
+      "variant": "no_failure_ledger"
+    }
+  ],
+  "model_calls_in_followup": 0,
+  "cancelled_settings": "no_stagnation and all later unexecuted settings; partial records retained and excluded from complete-setting comparisons",
+  "at": "2026-11-12T10:09:20.491136+00:00"
+}

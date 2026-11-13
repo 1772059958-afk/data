@@ -72,6 +72,13 @@ def test_public_result_preserves_legacy_display_unpacking():
     assert syntax == 'pass'
 
 
+def test_public_command_uses_flags_supported_by_legacy_pytest():
+    box = Box()
+    result = run_public_tests(box, ['tests/test_mod.py'])
+    assert '--no-header' not in result.command and '--no-header' not in box.commands[-1]
+    assert '-q -p no:cacheprovider' in result.command and result.status == 'pass'
+
+
 def test_recovery_retries_original_environment_candidate_not_latest_syntax_error():
     state = RepairState(TaskManifest('demo', 'demo/repo', 'base', 'v', 'h'))
     original = Candidate.build(0, DIFF, applies_cleanly=True, syntax='pass', validation='not_run')

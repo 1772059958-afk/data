@@ -1,0 +1,18 @@
+{
+  "state": "formal_complete_supplements_cancelled_by_user",
+  "formal_predictions": 100,
+  "resolved_counts": {
+    "A": 7,
+    "B": 7,
+    "C": 10,
+    "D": 7,
+    "E": 8
+  },
+  "evaluation_errors": 26,
+  "report": "docs\\正式实验最终交接_20261112.md",
+  "report_sha256": "712137b43174827005aa26d4565f465112fed417ef4f79925a7bc721e2b9efb6",
+  "inactive_config": "configs/test20_inactive_20261112_02.json",
+  "new_paid_authorization_required": true,
+  "system_shutdown_scheduled": false,
+  "supplement_settings_not_processed_after_cancellation": true
+}

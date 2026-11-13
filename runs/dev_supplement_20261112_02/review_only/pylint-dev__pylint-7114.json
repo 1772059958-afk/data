@@ -1,0 +1,66 @@
+{
+  "kind": "review_only_after_all_formal_predictions_sealed",
+  "instance_id": "pylint-dev__pylint-7114",
+  "repo": "pylint-dev/pylint",
+  "base_commit": "397c1703e8ae6349d33f7b99f45b2ccaf581e666",
+  "issue": "Linting fails if module contains module of the same name\n### Steps to reproduce\r\n\r\nGiven multiple files:\r\n```\r\n.\r\n`-- a/\r\n    |-- a.py\r\n    `-- b.py\r\n```\r\nWhich are all empty, running `pylint a` fails:\r\n\r\n```\r\n$ pylint a\r\n************* Module a\r\na/__init__.py:1:0: F0010: error while code parsing: Unable to load file a/__init__.py:\r\n[Errno 2] No such file or directory: 'a/__init__.py' (parse-error)\r\n$\r\n```\r\n\r\nHowever, if I rename `a.py`, `pylint a` succeeds:\r\n\r\n```\r\n$ mv a/a.py a/c.py\r\n$ pylint a\r\n$\r\n```\r\nAlternatively, I can also `touch a/__init__.py`, but that shouldn't be necessary anymore.\r\n\r\n### Current behavior\r\n\r\nRunning `pylint a` if `a/a.py` is present fails while searching for an `__init__.py` file.\r\n\r\n### Expected behavior\r\n\r\nRunning `pylint a` if `a/a.py` is present should succeed.\r\n\r\n### pylint --version output\r\n\r\nResult of `pylint --version` output:\r\n\r\n```\r\npylint 3.0.0a3\r\nastroid 2.5.6\r\nPython 3.8.5 (default, Jan 27 2021, 15:41:15) \r\n[GCC 9.3.0]\r\n```\r\n\r\n### Additional info\r\n\r\nThis also has some side-effects in module resolution. For example, if I create another file `r.py`:\r\n\r\n```\r\n.\r\n|-- a\r\n|   |-- a.py\r\n|   `-- b.py\r\n`-- r.py\r\n```\r\n\r\nWith the content:\r\n\r\n```\r\nfrom a import b\r\n```\r\n\r\nRunning `pylint -E r` will run fine, but `pylint -E r a` will fail. Not just for module a, but for module r as well.\r\n\r\n```\r\n************* Module r\r\nr.py:1:0: E0611: No name 'b' in module 'a' (no-name-in-module)\r\n************* Module a\r\na/__init__.py:1:0: F0010: error while code parsing: Unable to load file a/__init__.py:\r\n[Errno 2] No such file or directory: 'a/__init__.py' (parse-error)\r\n```\r\n\r\nAgain, if I rename `a.py` to `c.py`, `pylint -E r a` will work perfectly.\n",
+  "developer_reference_patch": "diff --git a/pylint/lint/expand_modules.py b/pylint/lint/expand_modules.py\n--- a/pylint/lint/expand_modules.py\n+++ b/pylint/lint/expand_modules.py\n@@ -82,8 +82,10 @@ def expand_modules(\n             continue\n         module_path = get_python_path(something)\n         additional_search_path = [\".\", module_path] + path\n-        if os.path.exists(something):\n-            # this is a file or a directory\n+        if os.path.isfile(something) or os.path.exists(\n+            os.path.join(something, \"__init__.py\")\n+        ):\n+            # this is a file or a directory with an explicit __init__.py\n             try:\n                 modname = \".\".join(\n                     modutils.modpath_from_file(something, path=additional_search_path)\n@@ -103,9 +105,7 @@ def expand_modules(\n                 )\n                 if filepath is None:\n                     continue\n-            except (ImportError, SyntaxError) as ex:\n-                # The SyntaxError is a Python bug and should be\n-                # removed once we move away from imp.find_module: https://bugs.python.org/issue10588\n+            except ImportError as ex:\n                 errors.append({\"key\": \"fatal\", \"mod\": modname, \"ex\": ex})\n                 continue\n         filepath = os.path.normpath(filepath)\n",
+  "unique_submitted_patches": [
+    {
+      "sha256": "9fabd9dc629bef2e80c6b597cbebd7c62eca4d22af8ef4668c2486a5c532fab2",
+      "patch": "--- a/pylint/lint/expand_modules.py\n+++ b/pylint/lint/expand_modules.py\n@@ -30,8 +30,7 @@ def get_python_path(filepath: str) -> str:\n     This is not true since python 3.3 and is causing problem.\n     \"\"\"\n     dirname = os.path.realpath(os.path.expanduser(filepath))\n-    if not os.path.isdir(dirname):\n-        dirname = os.path.dirname(dirname)\n+    dirname = os.path.dirname(dirname)\n     while True:\n         if not os.path.exists(os.path.join(dirname, \"__init__.py\")):\n             return dirname\n",
+      "arms": [
+        "A",
+        "C",
+        "D",
+        "E"
+      ]
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch": "",
+      "arms": [
+        "B"
+      ]
+    }
+  ],
+  "submissions": {
+    "A": {
+      "patch_sha256": "9fabd9dc629bef2e80c6b597cbebd7c62eca4d22af8ef4668c2486a5c532fab2",
+      "official_status": "ambiguous_error",
+      "generation_status": "completed",
+      "route": "fixed",
+      "source_matrix": "runs\\test20_A_20261112_01\\matrix.json"
+    },
+    "B": {
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "official_status": "empty_patch",
+      "generation_status": "budget_exhausted",
+      "route": "standalone",
+      "source_matrix": "runs\\test20_B_20261112_02\\matrix.json"
+    },
+    "C": {
+      "patch_sha256": "9fabd9dc629bef2e80c6b597cbebd7c62eca4d22af8ef4668c2486a5c532fab2",
+      "official_status": "infra_error",
+      "generation_status": "completed",
+      "route": "interactive",
+      "source_matrix": "runs\\test20_C_20261112_01\\matrix.json"
+    },
+    "D": {
+      "patch_sha256": "9fabd9dc629bef2e80c6b597cbebd7c62eca4d22af8ef4668c2486a5c532fab2",
+      "official_status": "ambiguous_error",
+      "generation_status": "budget_exhausted",
+      "route": "interactive",
+      "source_matrix": "runs\\test20_D_20261112_01\\matrix.json"
+    },
+    "E": {
+      "patch_sha256": "9fabd9dc629bef2e80c6b597cbebd7c62eca4d22af8ef4668c2486a5c532fab2",
+      "official_status": "ambiguous_error",
+      "generation_status": "completed",
+      "route": "fixed",
+      "source_matrix": "runs\\test20_E_20261112_01\\matrix.json"
+    }
+  },
+  "generation_import_prohibited": true,
+  "reference_is_not_a_textual_equality_oracle": true
+}

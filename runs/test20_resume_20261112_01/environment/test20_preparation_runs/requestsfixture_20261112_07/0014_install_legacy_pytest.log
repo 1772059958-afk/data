@@ -1,0 +1,19 @@
+Looking in links: /tmp/legacy-pytest-wheels
+Processing /tmp/legacy-pytest-wheels/pytest-3.10.1-py2.py3-none-any.whl (from -r /tmp/legacy-pytest.lock.txt (line 1))
+Processing /tmp/legacy-pytest-wheels/pluggy-0.13.1-py2.py3-none-any.whl (from -r /tmp/legacy-pytest.lock.txt (line 2))
+Processing /tmp/legacy-pytest-wheels/atomicwrites-1.4.0-py2.py3-none-any.whl (from -r /tmp/legacy-pytest.lock.txt (line 3))
+Processing /tmp/legacy-pytest-wheels/py-1.11.0-py2.py3-none-any.whl (from -r /tmp/legacy-pytest.lock.txt (line 4))
+Processing /tmp/legacy-pytest-wheels/six-1.16.0-py2.py3-none-any.whl (from -r /tmp/legacy-pytest.lock.txt (line 5))
+Processing /tmp/legacy-pytest-wheels/attrs-19.3.0-py2.py3-none-any.whl (from -r /tmp/legacy-pytest.lock.txt (line 6))
+Processing /tmp/legacy-pytest-wheels/more_itertools-4.3.0-py3-none-any.whl (from -r /tmp/legacy-pytest.lock.txt (line 7))
+Installing collected packages: more-itertools, six, pytest, py, pluggy, attrs, atomicwrites
+  Attempting uninstall: pytest
+    Found existing installation: pytest 7.4.4
+    Uninstalling pytest-7.4.4:
+      Successfully uninstalled pytest-7.4.4
+  Attempting uninstall: pluggy
+    Found existing installation: pluggy 1.0.0
+    Uninstalling pluggy-1.0.0:
+      Successfully uninstalled pluggy-1.0.0
+Successfully installed atomicwrites-1.4.0 attrs-19.3.0 more-itertools-4.3.0 pluggy-0.13.1 py-1.11.0 pytest-3.10.1 six-1.16.0
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable.It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.

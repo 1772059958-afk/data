@@ -1,0 +1,6 @@
+{
+  "dataset": "/workspace/runs/dev23_scoring_replay_20261112_02/scoring/evaluation_dataset.json",
+  "split": "dev",
+  "task_repo": null,
+  "created_at": "2026-11-11T20:28:03+00:00"
+}

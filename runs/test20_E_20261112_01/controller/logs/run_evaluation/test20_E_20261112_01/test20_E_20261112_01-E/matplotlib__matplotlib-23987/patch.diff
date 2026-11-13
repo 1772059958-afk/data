@@ -1,0 +1,18 @@
+--- a/lib/matplotlib/figure.py
++++ b/lib/matplotlib/figure.py
+@@ -1305,11 +1305,13 @@ class FigureBase(Artist):
+         hspace : float, optional
+             The height of the padding between subplots,
+             as a fraction of the average Axes height.
+         """
+-        if (self.get_layout_engine() is not None and
+-                not self.get_layout_engine().adjust_compatible):
++        layout_engine = self.get_layout_engine()
++        if (layout_engine is not None and
++                not layout_engine.adjust_compatible and
++                not isinstance(layout_engine, PlaceHolderLayoutEngine)):
+             _api.warn_external(
+                 "This figure was using a layout engine that is "
+                 "incompatible with subplots_adjust and/or tight_layout; "
+                 "not calling subplots_adjust.")
+             return

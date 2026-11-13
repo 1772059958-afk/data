@@ -1,0 +1,41 @@
+{
+  "instance_id": "mwaskom__seaborn-2848",
+  "original_event_count": 37,
+  "replayed_events": 37,
+  "every_recorded_prompt_message_exec_result_and_budget_equal": true,
+  "new_model_requests": 0,
+  "ledger_before_sha256": "70eec55ff6689d9010855ce1a926a3ec6e63bc2252d14aa16b65432f82055c21",
+  "ledger_after_sha256": "70eec55ff6689d9010855ce1a926a3ec6e63bc2252d14aa16b65432f82055c21",
+  "recovery_lifecycle_restorations": [
+    {
+      "command": "printf '%s' 'LS0tIGEvc2VhYm9ybi9fb2xkY29yZS5weQorKysgYi9zZWFib3JuL19vbGRjb3JlLnB5CkBAIC0xNTIsNyArMTUyLDEyIEBAIGNsYXNzIEh1ZU1hcHBpbmc6CiAgICAgICAgIHRyeToKICAgICAgICAgICAgICMgVXNlIGEgdmFsdWUgdGhhdCdzIGluIHRoZSBvcmlnaW5hbCBkYXRhIHZlY3RvcgogICAgICAgICAgICAgdmFsdWUgPSBzZWxmLmxvb2t1cF90YWJsZVtrZXldCiAgICAgICAgIGV4Y2VwdCBLZXlFcnJvcjoKKyAgICAgICAgICAgICMgSWYgdGhlIHZhbHVlIGlzIG5vdCBpbiB0aGUgbWFwcGluZyAoZS5nLiBiZWNhdXNlIGh1ZV9vcmRlcgorICAgICAgICAgICAgIyBzcGVjaWZpZWQgYSBzdWJzZXQgb2YgdGhlIGxldmVscyksIGRyYXcgaXQgdHJhbnNwYXJlbnRseS4KKyAgICAgICAgICAgIGlmIHNlbGYubm9ybSBpcyBOb25lOgorICAgICAgICAgICAgICAgIHJldHVybiAoMCwgMCwgMCwgMCkKKwogICAgICAgICAgICAgIyBVc2UgdGhlIGNvbG9ybWFwIHRvIGludGVycG9sYXRlIGJldHdlZW4gZXhpc3RpbmcgZGF0YXBvaW50cwogICAgICAgICAgICAgIyAoZS5nLiBpbiB0aGUgY29udGV4dCBvZiBtYWtpbmcgYSBjb250aW51b3VzIGxlZ2VuZCkKICAgICAgICAgICAgIHRyeToK' | base64 -d > /tmp/candidate.diff",
+      "exit_code": 0,
+      "output": "",
+      "elapsed_seconds": 0.30188540000017383
+    },
+    {
+      "command": "cd /testbed && git apply /tmp/candidate.diff 2>&1; echo \"__rc=$?\"",
+      "exit_code": 0,
+      "output": "__rc=0\n",
+      "elapsed_seconds": 0.29018160000032367
+    },
+    {
+      "command": "cd /testbed && python -m py_compile seaborn/_oldcore.py 2>&1; echo \"__rc=$?\"",
+      "exit_code": 0,
+      "output": "__rc=0\n",
+      "elapsed_seconds": 0.33528730000034557
+    }
+  ],
+  "new_public_validation_execs": [
+    {
+      "command": "cd /testbed && timeout 180 python -m pytest tests/test_core.py tests/test_axisgrid.py tests/test_categorical.py -q -p no:cacheprovider 2>&1; echo \"__rc=$?\"",
+      "timeout": 240.0,
+      "exit_code": 0,
+      "elapsed_seconds": 56.2804131999992
+    }
+  ],
+  "strategy_pause_excluded_from_wallclock": true,
+  "status": "budget_exhausted",
+  "case_sha256": "15d4ba972c762586f51427e965153841f3e502e4cafe8c28cdbc31c0a733d051",
+  "at": "2026-11-12T00:14:07.841383+00:00"
+}

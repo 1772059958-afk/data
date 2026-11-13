@@ -1,0 +1,12 @@
+--- a/django/db/migrations/serializer.py
++++ b/django/db/migrations/serializer.py
+@@ -166,8 +166,8 @@ class FunctionTypeSerializer(BaseSerializer):
+             self.value.__self__, type
+         ):
+             klass = self.value.__self__
+             module = klass.__module__
+-            return "%s.%s.%s" % (module, klass.__name__, self.value.__name__), {
++            return "%s.%s.%s" % (module, klass.__qualname__, self.value.__name__), {
+                 "import %s" % module
+             }
+         # Further error checking

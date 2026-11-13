@@ -1,0 +1,14 @@
+{
+  "path": "D:\\CodexExperimentCache\\test20_20261111\\checkpoint\\project-session-20261111-stopped.zip",
+  "size_bytes": 4756232,
+  "sha256": "b273bf0c65a264fdd3bff7630cc0548a0d5e2bf9fa8dd957f1a2c9bd82c069e4",
+  "included_files": 378,
+  "zip_crc_verified": true,
+  "exclusions": [
+    ".env and credential files",
+    ".venv",
+    ".git",
+    "bytecode",
+    "external Docker VHDX and public caches, separately preserved"
+  ]
+}

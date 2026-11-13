@@ -1,0 +1,10 @@
+--- a/pvlib/pvsystem.py
++++ b/pvlib/pvsystem.py
+@@ -249,5 +249,7 @@ class PVSystem:
+                 array_losses_parameters,
+             ),)
++        elif isinstance(arrays, Array):
++            self.arrays = (arrays,)
+         elif len(arrays) == 0:
+             raise ValueError("PVSystem must have at least one Array. "
+                              "If you want to create a PVSystem instance "

@@ -1,0 +1,13 @@
+{
+  "same_public_blob_count": 121,
+  "public_paths": 121,
+  "different_public_blob_paths": [],
+  "different_mode_count": 118,
+  "missing_public_path_count": 0,
+  "extra_tracked_path_count": 0,
+  "unknown_extra_path_names_exposed": false,
+  "instance_id": "psf__requests-1963",
+  "image_id": "sha256:c41164e9b1b160a5f4a170457a4e7b3a666e55d84ea85283416d36ce9700452c",
+  "model_calls": 0,
+  "hidden_patch_contents_read": false
+}

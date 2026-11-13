@@ -1,0 +1,1687 @@
+{
+  "kind": "test20_public_environment_preparation_plan",
+  "date": "2026-11-11",
+  "status": "public_text_review_only_no_execution",
+  "scope": "已预注册的 20 例全部保留，不按环境可运行性换样或新增实例。",
+  "metadata_source": {
+    "path": "runs\\test20_execution_20261111\\environment\\public_metadata.json",
+    "sha256": "69feea404fc8160e1ab92ac7dce39a87eb905dd6aa0a73d7ce240d18c13c1244",
+    "fields": [
+      "base_commit",
+      "environment_setup_commit",
+      "instance_id",
+      "repo",
+      "version"
+    ]
+  },
+  "sample_source": {
+    "path": "runs/test20_preparation_20261111/instances.json",
+    "sha256": "c3261e16b12a1cc206eb4dc8a97c3397cb8e4ecb7fc8b712de6e9a88e8979ecb"
+  },
+  "repo_counts": {
+    "astropy/astropy": 1,
+    "django/django": 4,
+    "matplotlib/matplotlib": 2,
+    "mwaskom/seaborn": 1,
+    "pallets/flask": 1,
+    "psf/requests": 1,
+    "pydata/xarray": 1,
+    "pylint-dev/pylint": 1,
+    "pytest-dev/pytest": 2,
+    "scikit-learn/scikit-learn": 2,
+    "sphinx-doc/sphinx": 1,
+    "sympy/sympy": 3
+  },
+  "existing_shared_base": {
+    "image_id": "sha256:bd5edf8694cde12aaf99beb18b3935b15e076e81ac7e52aef46b1ca3d9071428",
+    "python": "3.9",
+    "scientific_versions": {
+      "numpy": "1.26.4",
+      "pandas": "2.2.3",
+      "scipy": "1.13.1",
+      "matplotlib": "3.9.4",
+      "pytest": "7.4.4",
+      "pluggy": "1.5.0"
+    },
+    "interpretation": "Reuse OS and dependency layers where verified; never substitute the installed modern package for the exact subject baseline"
+  },
+  "confirmed_python39_exclusion": [
+    "django__django-17087"
+  ],
+  "legacy_binary_profiles_recommended": [
+    "scikit-learn__scikit-learn-11281",
+    "scikit-learn__scikit-learn-13496"
+  ],
+  "source_binary_build_needed": [
+    "astropy__astropy-14995",
+    "matplotlib__matplotlib-23987",
+    "matplotlib__matplotlib-24970",
+    "scikit-learn__scikit-learn-11281",
+    "scikit-learn__scikit-learn-13496"
+  ],
+  "repository_profiles": {
+    "astropy/astropy": {
+      "python39_status": "allowed_by_declared_minimum_but_requires_exact_source_extension_build",
+      "declared_python": ">=3.9",
+      "candidate_python": "3.9",
+      "candidate_parent": "sha256:bd5edf8694cde12aaf99beb18b3935b15e076e81ac7e52aef46b1ca3d9071428",
+      "public_runtime_dependencies": [
+        "numpy>=1.21",
+        "pyerfa>=2",
+        "PyYAML>=3.13",
+        "packaging>=19"
+      ],
+      "public_build_dependencies": [
+        "cython==0.29.34",
+        "oldest-supported-numpy",
+        "setuptools",
+        "setuptools_scm>=6.2",
+        "extension-helpers"
+      ],
+      "public_test_dependencies": [
+        "pytest>=7",
+        "pytest-doctestplus>=0.12",
+        "pytest-astropy-header>=0.2.1",
+        "pytest-astropy>=0.10",
+        "pytest-xdist"
+      ],
+      "minimal_actions": [
+        "从指定基线编译安装 Astropy 及其 C/Cython 扩展，记录 NumPy ABI 与构建工具身份。",
+        "构建产物与候选 diff 分开保存，Git HEAD 和源码保持指定基线。",
+        "核验 pyerfa 与公开 pytest 插件，不以其他发行版 Astropy wheel 替代待修复仓库。"
+      ],
+      "smoke_commands": [
+        "python -c \"import astropy,numpy,erfa; print(astropy.__file__,astropy.__version__,numpy.__version__)\"",
+        "python -m pytest --collect-only -q astropy/utils/tests/test_misc.py"
+      ],
+      "risks": [
+        "pyproject 明确要求 Cython 0.29.34，不能直接改用父镜像 Cython 3。",
+        "NumPy 2 的兼容性未获证明。",
+        "导入或单文件 smoke 不能证明远程数据、可选天文数据或完整公开套件健康。"
+      ],
+      "status": "planning_only_not_built_installed_or_tested",
+      "smoke_scope": "建议的公开基线命令；先核验目标路径存在于精确 checkout。本次未执行，不使用隐藏路径或官方补丁字段。"
+    },
+    "django/django": {
+      "python39_status": "three oldcases declaredcompatible;17087 requires anotherinterpreter",
+      "declared_python": {
+        "11910/12708/13230": ">=3.6",
+        "17087": ">=3.10"
+      },
+      "candidate_python": {
+        "11910/12708/13230": "3.9",
+        "17087": "Python 3.10 or 3.11 in an isolated environment"
+      },
+      "candidate_parent": {
+        "oldcases": "sha256:bd5edf8694cde12aaf99beb18b3935b15e076e81ac7e52aef46b1ca3d9071428",
+        "17087": "Only OS layers can be reused; the existing Python 3.9 testbed interpreter is insufficient"
+      },
+      "public_runtime_dependencies": {
+        "oldcases": [
+          "asgiref>=3.2 (13230>=3.2.10)",
+          "pytz",
+          "sqlparse>=0.2.2"
+        ],
+        "17087": [
+          "asgiref>=3.7",
+          "sqlparse>=0.3.1"
+        ]
+      },
+      "minimal_actions": [
+        "核验 django.__file__ 指向本例指定 checkout。",
+        "首先用 SQLite 与 test_sqlite 设置验证基础公开测试，避免把缺少外部数据库当作补丁失败。",
+        "17087 必须选择并记录 Python 3.10 或更新兼容解释器，不能忽略 python_requires 强装到 3.9。"
+      ],
+      "smoke_commands": [
+        "python -c \"import django,sqlite3; print(django.__file__,django.get_version(),sqlite3.sqlite_version)\"",
+        "python tests/runtests.py --settings=test_sqlite --parallel 1 basic"
+      ],
+      "risks": [
+        "17087 的 Python>=3.10 来自固定提交 setup.cfg，是已证实的 3.9 排除项。",
+        "新 asgiref/sqlparse 发行版可能提高 Python 下限，旧 Django 也需显式依赖版本。",
+        "GeoDjango、PostgreSQL/MySQL、空间库及浏览器测试不在 SQLite smoke 的覆盖内。"
+      ],
+      "status": "planning_only_not_built_installed_or_tested",
+      "smoke_scope": "建议的公开基线命令；先核验目标路径存在于精确 checkout。本次未执行，不使用隐藏路径或官方补丁字段。"
+    },
+    "matplotlib/matplotlib": {
+      "python39_status": "declaredcompatible_for_both;requires_exact_source_binary_build",
+      "declared_python": {
+        "23987": ">=3.8",
+        "24970": ">=3.9"
+      },
+      "candidate_python": "3.9",
+      "candidate_parent": "sha256:bd5edf8694cde12aaf99beb18b3935b15e076e81ac7e52aef46b1ca3d9071428",
+      "public_runtime_dependencies": [
+        "contourpy>=1.0.1",
+        "cycler>=0.10",
+        "fonttools",
+        "kiwisolver>=1.0.1",
+        "numpy>=1.19/1.20",
+        "packaging>=20",
+        "pillow>=6.2",
+        "pyparsing",
+        "python-dateutil"
+      ],
+      "public_build_dependencies": [
+        "setuptools_scm>=7",
+        "certifi>=2020.06.20",
+        "oldest-supported-numpy/NumPy buildbaseline",
+        "pybind11>=2.6 (24970 pyproject)",
+        "compiler and publicFreetype/Qhull buildinputs as fixedbysetupext"
+      ],
+      "minimal_actions": [
+        "从指定源码编译 _path、_image 等扩展，不能只安装另一个已发布 Matplotlib。",
+        "固定字体、Freetype/Qhull、编译器及公开构建输入；候选验证期间不下载构建依赖。",
+        "使用 Agg 做无显示公开验证，并保留字体数据及公开基准图片。"
+      ],
+      "smoke_commands": [
+        "MPLBACKEND=Agg python -c \"import matplotlib,matplotlib._path; print(matplotlib.__file__,matplotlib.__version__); from matplotlib.figure import Figure; f=Figure(); f.subplots().plot([0,1]); f.savefig('/tmp/public-mpl-smoke.png')\"",
+        "MPLBACKEND=Agg python -m pytest --collect-only -q lib/matplotlib/tests/test_cbook.py"
+      ],
+      "risks": [
+        "父镜像 Matplotlib 3.9.4 不能替代两个指定源码基线。",
+        "本地编译与字体下载需要额外空间和时间，当前 C 盘余量可能阻塞。",
+        "同属 dataset 3.6 桶的两例实际 Python 下限分别为 3.8 与 3.9，不能据桶名推定构建完全相同。"
+      ],
+      "status": "planning_only_not_built_installed_or_tested",
+      "smoke_scope": "建议的公开基线命令；先核验目标路径存在于精确 checkout。本次未执行，不使用隐藏路径或官方补丁字段。"
+    },
+    "mwaskom/seaborn": {
+      "python39_status": "declaredcompatible_but_scientific_dependencies_need_legacy_profile",
+      "declared_python": ">=3.7",
+      "candidate_python": "3.9",
+      "candidate_parent": "sha256:bd5edf8694cde12aaf99beb18b3935b15e076e81ac7e52aef46b1ca3d9071428",
+      "public_runtime_dependencies": [
+        "numpy>=1.17",
+        "pandas>=0.25",
+        "matplotlib>=3.1"
+      ],
+      "optional_dependencies": [
+        "scipy>=1.3",
+        "statsmodels>=0.10"
+      ],
+      "minimal_actions": [
+        "安装本例精确的纯 Python seaborn 源码。",
+        "先审阅历史 pandas/Matplotlib 依赖组合，不能假定父镜像 pandas 2.2/Matplotlib 3.9 兼容。",
+        "以 Agg 与本地合成数据开始公开验证，避免远程示例数据下载。"
+      ],
+      "smoke_commands": [
+        "MPLBACKEND=Agg python -c \"import seaborn,pandas,matplotlib; print(seaborn.__file__,pandas.__version__,matplotlib.__version__)\"",
+        "MPLBACKEND=Agg python -m pytest --collect-only -q seaborn/tests/test_utils.py"
+      ],
+      "risks": [
+        "历史依赖仅设下限，不证明对 pandas 2.2 或 Matplotlib 3.9 的兼容。",
+        "statsmodels、SciPy 可选功能和远程示例属于额外覆盖。",
+        "已缓存 pandas 1.5.3/Matplotlib 3.7.1 仅是候选，尚未验证此例 seaborn。"
+      ],
+      "status": "planning_only_not_built_installed_or_tested",
+      "smoke_scope": "建议的公开基线命令；先核验目标路径存在于精确 checkout。本次未执行，不使用隐藏路径或官方补丁字段。"
+    },
+    "pallets/flask": {
+      "python39_status": "declaredcompatible_with_isolated_historical_dependency_versions",
+      "declared_python": ">=3.6",
+      "candidate_python": "3.9",
+      "candidate_parent": "sha256:bd5edf8694cde12aaf99beb18b3935b15e076e81ac7e52aef46b1ca3d9071428",
+      "public_runtime_dependencies": [
+        "Werkzeug>=2",
+        "Jinja2>=3",
+        "itsdangerous>=2",
+        "click>=7.1.2"
+      ],
+      "optional_dependencies": [
+        "asgiref>=3.2 forasync",
+        "python-dotenv fordotenvextra"
+      ],
+      "minimal_actions": [
+        "安装固定提交 src/flask 源码并核验导入路径。",
+        "先固定兼容的 Werkzeug/Jinja2/itsdangerous，不能因元数据下限宽松就自动使用最新主版本。",
+        "Flask dotenv 相关测试只用仓库公开临时 fixture，不读取项目模型凭据 .env。"
+      ],
+      "smoke_commands": [
+        "python -c \"import flask; print(flask.__file__); a=flask.Flask('publicsmoke'); assert a.test_client().get('/').status_code==404\"",
+        "python -m pytest --collect-only -q tests/test_basic.py"
+      ],
+      "risks": [
+        "Werkzeug 3 与 Jinja2 3.1 的 API 移除可能影响 Flask 2.0；需要实测。",
+        "异步、session 和 CLI 公开测试需对应公开 extras。",
+        "不能把父镜像中的其他 Flask 版本当作被测源码。"
+      ],
+      "status": "planning_only_not_built_installed_or_tested",
+      "smoke_scope": "建议的公开基线命令；先核验目标路径存在于精确 checkout。本次未执行，不使用隐藏路径或官方补丁字段。"
+    },
+    "psf/requests": {
+      "python39_status": "runtime_metadata_has_no_hard_exclusion_but_original_teststack_is_much_older",
+      "declared_python": "consultedsetup listsPython2.6/2.7/3.3classifiers;no python_requires",
+      "candidate_python": "Start with Python 3.9 import smoke; an older historical Python/runner profile may be required",
+      "candidate_parent": "sha256:bd5edf8694cde12aaf99beb18b3935b15e076e81ac7e52aef46b1ca3d9071428",
+      "public_runtime_dependencies": [
+        "vendoredurllib3/chardet;install_requires isempty"
+      ],
+      "public_test_dependencies": [
+        "py==1.4.12",
+        "pytest==2.3.4",
+        "pytest-cov==1.6",
+        "invoke==0.2.0 (exactrequirements.txt)"
+      ],
+      "minimal_actions": [
+        "保留指定基线 Requests、随源码 vendored urllib3/chardet 与证书包。",
+        "只在实例容器准备旧 Requests，绝不能替换宿主模型客户端 .venv 的现代 Requests。",
+        "先验证 import 与无 HTTP 请求的 Request.prepare；正式冻结前明确原始或兼容的公开测试 runner。"
+      ],
+      "smoke_commands": [
+        "python -c \"import requests; print(requests.__file__,requests.__version__); r=requests.Request('GET','https://example.invalid').prepare(); print(r.url)\""
+      ],
+      "risks": [
+        "公开 requirements 固定 pytest 2.3.4/py 1.4.12 等，不能假定这套原始 runner 可运行于 Python 3.9。",
+        "改用现代 pytest 的兼容性需要公开收集与测试证据。",
+        "远程 HTTP/TLS 与旧证书故障属于基础设施问题，需与补丁逻辑区分。"
+      ],
+      "status": "planning_only_not_built_installed_or_tested",
+      "smoke_scope": "建议的公开基线命令；先核验目标路径存在于精确 checkout。本次未执行，不使用隐藏路径或官方补丁字段。"
+    },
+    "pydata/xarray": {
+      "python39_status": "declaredminimumpermits3.9_but_legacy_numpy_pandas_dask_compatibility_unverified",
+      "declared_python": ">=3.6",
+      "candidate_python": "Python 3.9 with a reviewed legacy dependency candidate; public CI Python 3.6 is a fallback reference if 3.9 fails",
+      "candidate_parent": "sha256:bd5edf8694cde12aaf99beb18b3935b15e076e81ac7e52aef46b1ca3d9071428",
+      "public_runtime_dependencies": [
+        "numpy>=1.14",
+        "pandas>=0.24"
+      ],
+      "public_ci_reference": "ci/requirements/py36.yml declares Python 3.6 with scientific and I/O extras",
+      "minimal_actions": [
+        "安装指定的纯 Python xarray checkout，不复用父镜像当前 xarray 的实现。",
+        "建立隔离的历史依赖候选，不假定 pandas 2.2、NumPy 1.26 与当前 dask 适用。",
+        "先验证本地 DataArray/Dataset，再评估 netCDF、zarr、dask 等可选测试。"
+      ],
+      "smoke_commands": [
+        "python -c \"import xarray,numpy,pandas; print(xarray.__file__,numpy.__version__,pandas.__version__); a=xarray.DataArray([1,2],dims='x'); assert a.sum().item()==3\"",
+        "python -m pytest --collect-only -q xarray/tests/test_dataarray.py"
+      ],
+      "risks": [
+        "旧 xarray 使用的 API 早于现代 pandas/dask/NumPy 的移除变更。",
+        "可选 I/O 二进制库需要兼容 wheel 和公开 fixture。",
+        "Python 3.6 CI 只能说明历史参照，不能据此断言 3.9 必然不可运行。"
+      ],
+      "status": "planning_only_not_built_installed_or_tested",
+      "smoke_scope": "建议的公开基线命令；先核验目标路径存在于精确 checkout。本次未执行，不使用隐藏路径或官方补丁字段。"
+    },
+    "pylint-dev/pylint": {
+      "python39_status": "declaredcompatible_with_astroid_dependency_reinstalled_outside_replacedcheckout",
+      "declared_python": ">=3.7.2",
+      "candidate_python": "3.9",
+      "candidate_parent": "sha256:bd5edf8694cde12aaf99beb18b3935b15e076e81ac7e52aef46b1ca3d9071428",
+      "public_runtime_dependencies": [
+        "astroid>=2.12.2,<=2.14.0-dev0",
+        "dill>=0.2",
+        "platformdirs>=2.2",
+        "isort>=4.2.5,<6",
+        "mccabe>=0.6,<0.8",
+        "tomli>=1.1 onPython<3.11",
+        "tomlkit>=0.10.1",
+        "typing-extensions>=3.10 onPython<3.10"
+      ],
+      "minimal_actions": [
+        "安装指定 Pylint 源码，明确其 astroid 依赖身份与范围。",
+        "不能直接把 /testbed 从 astroid 替换为 pylint 后宣称 editable astroid 仍可用；其安装元数据指向旧 /testbed。",
+        "使用范围内的 astroid 发行依赖 wheel，或将固定公共 astroid 源码保存在 /testbed 之外并核验导入。"
+      ],
+      "smoke_commands": [
+        "python -c \"import pylint,astroid; print(pylint.__file__,astroid.__file__,astroid.__version__)\"",
+        "python -m pytest --collect-only -q tests/lint"
+      ],
+      "risks": [
+        "最新版 astroid 3+ 违反此提交上界。",
+        "isort 与 mccabe 的父镜像版本可能不符合约束。",
+        "功能测试使用仓库相对 fixture，需保留公开目录；不读取金标准标签。"
+      ],
+      "status": "planning_only_not_built_installed_or_tested",
+      "smoke_scope": "建议的公开基线命令；先核验目标路径存在于精确 checkout。本次未执行，不使用隐藏路径或官方补丁字段。"
+    },
+    "pytest-dev/pytest": {
+      "python39_status": "bothmetadataallow3.9_but_each_subject_needs_old_pluggy_profile_and_ownrunner",
+      "declared_python": {
+        "6116": ">=3.5",
+        "8906": ">=3.6"
+      },
+      "candidate_python": "Start with Python 3.9 public collection; the 6116 historical Python 3.7 CI guides any fallback",
+      "candidate_parent": "sha256:bd5edf8694cde12aaf99beb18b3935b15e076e81ac7e52aef46b1ca3d9071428",
+      "public_runtime_dependencies": {
+        "6116": [
+          "py>=1.5",
+          "packaging",
+          "attrs>=17.4",
+          "more-itertools>=4",
+          "atomicwrites>=1",
+          "pluggy>=0.12,<1",
+          "wcwidth"
+        ],
+        "8906": [
+          "attrs>=19.2",
+          "iniconfig",
+          "packaging",
+          "pluggy>=0.12,<1.0.0a1",
+          "py>=1.8.2",
+          "tomli>=1"
+        ]
+      },
+      "minimal_actions": [
+        "被测 pytest 必须来自指定源码，核验 __file__ 与实际版本，不能继续运行父镜像 pytest 7.4。",
+        "父镜像 pluggy 1.5 违反两个提交的 <1 上界；先审阅 pluggy 0.13 系候选。",
+        "隔离无关的自动加载插件；禁用 autoload 只是明确的 runner 环境选择，不代表必需插件已安装。",
+        "先验证公开自测及内部 pytester fixture，再判断完整目标环境。"
+      ],
+      "smoke_commands": [
+        "python -c \"import pytest,pluggy; print(pytest.__file__,pytest.__version__,pluggy.__version__)\"",
+        "PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 python -m pytest --collect-only -q testing/test_config.py"
+      ],
+      "risks": [
+        "只在父 pytest 7.4 下运行仓库文件并不保证被测对象是指定 pytest 基线。",
+        "历史 AST 断言重写与新 Python 行为需要实际公开测试。",
+        "父镜像 pytest-cov/metadata/async 等插件可能要求新版 pytest API，使旧主体收集失败。"
+      ],
+      "status": "planning_only_not_built_installed_or_tested",
+      "smoke_scope": "建议的公开基线命令；先核验目标路径存在于精确 checkout。本次未执行，不使用隐藏路径或官方补丁字段。"
+    },
+    "scikit-learn/scikit-learn": {
+      "python39_status": "do_not_reuse_existing_modern_binary_stack_without_new_exact_source_build",
+      "declared_python": {
+        "11281": "historicalCI3.4/3.6.2 (also2.7)",
+        "13496": ">=3.5;publicCI3.7"
+      },
+      "candidate_python": {
+        "11281": "Prefer an isolated Python 3.6 historical build profile",
+        "13496": "Prefer an isolated Python 3.7 historical build profile"
+      },
+      "candidate_parent": "Use an existing historical interpreter/toolchain if available; the shared Python 3.9 OS layers alone are insufficient",
+      "public_runtime_dependencies": {
+        "11281": [
+          "numpy>=1.8.2",
+          "scipy>=0.13.3"
+        ],
+        "13496": [
+          "numpy>=1.11",
+          "scipy>=0.17 onCPython"
+        ]
+      },
+      "public_ci_reference": {
+        "11281": [
+          "Python3.6.2",
+          "NumPy1.14.2",
+          "SciPy1.0.0",
+          "Cython0.26.1 (onepublicCIjob)"
+        ],
+        "13496": [
+          "Python3.7 scipy-devCIjob; exactnormalbuildrequirementsneedfurtherpubliclockreview"
+        ]
+      },
+      "minimal_actions": [
+        "生成前选定历史兼容的 Python/NumPy/SciPy/Cython 与本地编译器组合。",
+        "必须从精确 Git 基线构建扩展并记录身份。",
+        "不能以最新版 sklearn wheel 替代基线，也不能把未经证实的其他发行版扩展复制进源码。",
+        "明确 BLAS/OpenMP、编译器、构建空间与耗时预算。"
+      ],
+      "smoke_commands": [
+        "python -c \"import sklearn,numpy,scipy; from sklearn.utils import murmurhash; print(sklearn.__file__,sklearn.__version__,numpy.__version__,scipy.__version__)\"",
+        "python -m pytest --collect-only -q sklearn/utils/tests/test_validation.py"
+      ],
+      "risks": [
+        "依赖仅设下限不证明 NumPy 1.26/SciPy 1.13/Cython 3/Python 3.9 兼容。",
+        "这些旧基线早于 CP39 wheel 时代，不能假定无需源码编译。",
+        "原生构建较重，当前 C 盘余量可能阻塞准备。",
+        "即使无法准备环境，两例仍留在指定 20 例主分母中。"
+      ],
+      "status": "planning_only_not_built_installed_or_tested",
+      "smoke_scope": "建议的公开基线命令；先核验目标路径存在于精确 checkout。本次未执行，不使用隐藏路径或官方补丁字段。"
+    },
+    "sphinx-doc/sphinx": {
+      "python39_status": "explicitlyincludedinpublictox_but_historical_dependency_pins_needed",
+      "declared_python": ">=3.5;toxhaspy35throughpy39",
+      "candidate_python": "3.9",
+      "candidate_parent": "sha256:bd5edf8694cde12aaf99beb18b3935b15e076e81ac7e52aef46b1ca3d9071428",
+      "public_runtime_dependencies": [
+        "Jinja2>=2.3",
+        "Pygments>=2",
+        "docutils>=0.12",
+        "snowballstemmer>=1.1",
+        "babel>=1.3",
+        "alabaster>=0.7,<0.8",
+        "imagesize",
+        "requests>=2.5",
+        "setuptools",
+        "packaging",
+        "sphinxcontrib-applehelp/devhelp/jsmath/htmlhelp/serializinghtml/qthelp"
+      ],
+      "public_test_dependencies": [
+        "pytest",
+        "pytest-cov",
+        "html5lib",
+        "cython",
+        "typed_ast onlyPython<3.8"
+      ],
+      "minimal_actions": [
+        "使用指定 Sphinx 主体源码及其公开 testing fixtures。",
+        "固定兼容的历史 Jinja/docutils/sphinxcontrib；父 docutils 0.15.2 仅是候选。",
+        "先验证 config 与纯文本构建，LaTeX/外部程序另立环境检查。"
+      ],
+      "smoke_commands": [
+        "python -c \"import sphinx,docutils,jinja2; from sphinx.application import Sphinx; print(sphinx.__file__,docutils.__version__,jinja2.__version__)\"",
+        "python -m pytest --collect-only -q tests/test_config.py"
+      ],
+      "risks": [
+        "现代 Jinja2 3.1 和新版 sphinxcontrib 可能要求新版 Sphinx API。",
+        "公开 tox 声明 docutils 0.12–0.16 变体，不能据此声称现代 docutils 0.21+ 兼容。",
+        "LaTeX、Graphviz 等属于额外系统依赖。"
+      ],
+      "status": "planning_only_not_built_installed_or_tested",
+      "smoke_scope": "建议的公开基线命令；先核验目标路径存在于精确 checkout。本次未执行，不使用隐藏路径或官方补丁字段。"
+    },
+    "sympy/sympy": {
+      "python39_status": "not_excluded_by_consulted_metadata;oldversions_need_import_tests_beforeclaimingcompatibility",
+      "declared_python": {
+        "13480": "Python>=2.7runtimecheck;historicalclassifiers",
+        "16503": "Python2.7or3.4+ runtimecheck",
+        "23262": ">=3.7"
+      },
+      "candidate_python": "Start with Python 3.9 import and symbolic smoke; choose an older isolated interpreter only after an evidenced public compatibility failure",
+      "candidate_parent": "sha256:bd5edf8694cde12aaf99beb18b3935b15e076e81ac7e52aef46b1ca3d9071428",
+      "public_runtime_dependencies": [
+        "mpmath>=0.19"
+      ],
+      "minimal_actions": [
+        "安装精确 SymPy 纯 Python 源码并记录 mpmath 版本。",
+        "在适用时用 SymPy 自带 runner 做首个公开检查，不假定 pytest 7 就是原始 runner。",
+        "旧标准库兼容问题与待修复任务逻辑分别记录。"
+      ],
+      "smoke_commands": [
+        "python -c \"import sympy,mpmath; from sympy import symbols,expand; x=symbols('x'); assert expand((x+1)**2)==x**2+2*x+1; print(sympy.__file__,sympy.__version__,mpmath.__version__)\"",
+        "python bin/test sympy/core/tests/test_basic.py"
+      ],
+      "risks": [
+        "旧 1.1/1.5 在 Python 3.9 上仍需实际导入与测试。",
+        "先前 fractions.gcd 的猜测已被检查否定：已读 numbers.py 头部使用 math.gcd 及回退实现。",
+        "不依据该已否定猜测宣称存在 Python 3.9 硬阻塞。",
+        "可选 gmpy/NumPy 后端与完整符号测试属于额外覆盖。"
+      ],
+      "status": "planning_only_not_built_installed_or_tested",
+      "smoke_scope": "建议的公开基线命令；先核验目标路径存在于精确 checkout。本次未执行，不使用隐藏路径或官方补丁字段。"
+    }
+  },
+  "instances": [
+    {
+      "instance_id": "astropy__astropy-14995",
+      "environment_setup_commit": "362f6df12abf9bd769d4915fabf955c993ea22cf",
+      "base_commit": "b16c7d12ccbc7b2d20364b89fb44285bcbfede54",
+      "version": "5.2",
+      "repo": "astropy/astropy",
+      "profile_repo": "astropy/astropy",
+      "environment_status": "not_verified_by_this_review",
+      "retain_even_if_environment_failure": true,
+      "prepared_image_id": null,
+      "python39_disposition": "candidate_only_requires_source_and_dependency_validation",
+      "candidate_python": "3.9",
+      "required_identity_checks": [
+        "实际容器 image ID",
+        "git HEAD 等于 base_commit",
+        "公开验证前后源码干净",
+        "Python 版本与目标模块 __file__",
+        "冻结依赖锁与编译产物身份",
+        "公开命令真实退出码及完整日志",
+        "不挂载 .env，公开基线验证断网"
+      ]
+    },
+    {
+      "instance_id": "django__django-11910",
+      "environment_setup_commit": "0668164b4ac93a5be79f5b87fae83c657124d9ab",
+      "base_commit": "d232fd76a85870daf345fd8f8d617fe7802ae194",
+      "version": "3.1",
+      "repo": "django/django",
+      "profile_repo": "django/django",
+      "environment_status": "not_verified_by_this_review",
+      "retain_even_if_environment_failure": true,
+      "prepared_image_id": null,
+      "python39_disposition": "candidate_only_requires_source_and_dependency_validation",
+      "candidate_python": "3.9",
+      "required_identity_checks": [
+        "实际容器 image ID",
+        "git HEAD 等于 base_commit",
+        "公开验证前后源码干净",
+        "Python 版本与目标模块 __file__",
+        "冻结依赖锁与编译产物身份",
+        "公开命令真实退出码及完整日志",
+        "不挂载 .env，公开基线验证断网"
+      ]
+    },
+    {
+      "instance_id": "django__django-12708",
+      "environment_setup_commit": "0668164b4ac93a5be79f5b87fae83c657124d9ab",
+      "base_commit": "447980e72ac01da1594dd3373a03ba40b7ee6f80",
+      "version": "3.1",
+      "repo": "django/django",
+      "profile_repo": "django/django",
+      "environment_status": "not_verified_by_this_review",
+      "retain_even_if_environment_failure": true,
+      "prepared_image_id": null,
+      "python39_disposition": "candidate_only_requires_source_and_dependency_validation",
+      "candidate_python": "3.9",
+      "required_identity_checks": [
+        "实际容器 image ID",
+        "git HEAD 等于 base_commit",
+        "公开验证前后源码干净",
+        "Python 版本与目标模块 __file__",
+        "冻结依赖锁与编译产物身份",
+        "公开命令真实退出码及完整日志",
+        "不挂载 .env，公开基线验证断网"
+      ]
+    },
+    {
+      "instance_id": "django__django-13230",
+      "environment_setup_commit": "65dfb06a1ab56c238cc80f5e1c31f61210c4577d",
+      "base_commit": "184a6eebb0ef56d5f1b1315a8e666830e37f3f81",
+      "version": "3.2",
+      "repo": "django/django",
+      "profile_repo": "django/django",
+      "environment_status": "not_verified_by_this_review",
+      "retain_even_if_environment_failure": true,
+      "prepared_image_id": null,
+      "python39_disposition": "candidate_only_requires_source_and_dependency_validation",
+      "candidate_python": "3.9",
+      "required_identity_checks": [
+        "实际容器 image ID",
+        "git HEAD 等于 base_commit",
+        "公开验证前后源码干净",
+        "Python 版本与目标模块 __file__",
+        "冻结依赖锁与编译产物身份",
+        "公开命令真实退出码及完整日志",
+        "不挂载 .env，公开基线验证断网"
+      ]
+    },
+    {
+      "instance_id": "django__django-17087",
+      "environment_setup_commit": "4a72da71001f154ea60906a2f74898d32b7322a7",
+      "base_commit": "4a72da71001f154ea60906a2f74898d32b7322a7",
+      "version": "5.0",
+      "repo": "django/django",
+      "profile_repo": "django/django",
+      "environment_status": "not_verified_by_this_review",
+      "retain_even_if_environment_failure": true,
+      "prepared_image_id": null,
+      "python39_disposition": "confirmed_incompatible_declared_python>=3.10",
+      "candidate_python": "3.10or3.11",
+      "required_identity_checks": [
+        "实际容器 image ID",
+        "git HEAD 等于 base_commit",
+        "公开验证前后源码干净",
+        "Python 版本与目标模块 __file__",
+        "冻结依赖锁与编译产物身份",
+        "公开命令真实退出码及完整日志",
+        "不挂载 .env，公开基线验证断网"
+      ]
+    },
+    {
+      "instance_id": "matplotlib__matplotlib-23987",
+      "environment_setup_commit": "73909bcb408886a22e2b84581d6b9e6d9907c813",
+      "base_commit": "e98d8d085e8f53ec0467422b326f7738a2dd695e",
+      "version": "3.6",
+      "repo": "matplotlib/matplotlib",
+      "profile_repo": "matplotlib/matplotlib",
+      "environment_status": "not_verified_by_this_review",
+      "retain_even_if_environment_failure": true,
+      "prepared_image_id": null,
+      "python39_disposition": "candidate_only_requires_source_and_dependency_validation",
+      "candidate_python": "3.9",
+      "required_identity_checks": [
+        "实际容器 image ID",
+        "git HEAD 等于 base_commit",
+        "公开验证前后源码干净",
+        "Python 版本与目标模块 __file__",
+        "冻结依赖锁与编译产物身份",
+        "公开命令真实退出码及完整日志",
+        "不挂载 .env，公开基线验证断网"
+      ]
+    },
+    {
+      "instance_id": "matplotlib__matplotlib-24970",
+      "environment_setup_commit": "73909bcb408886a22e2b84581d6b9e6d9907c813",
+      "base_commit": "a3011dfd1aaa2487cce8aa7369475533133ef777",
+      "version": "3.6",
+      "repo": "matplotlib/matplotlib",
+      "profile_repo": "matplotlib/matplotlib",
+      "environment_status": "not_verified_by_this_review",
+      "retain_even_if_environment_failure": true,
+      "prepared_image_id": null,
+      "python39_disposition": "candidate_only_requires_source_and_dependency_validation",
+      "candidate_python": "3.9",
+      "required_identity_checks": [
+        "实际容器 image ID",
+        "git HEAD 等于 base_commit",
+        "公开验证前后源码干净",
+        "Python 版本与目标模块 __file__",
+        "冻结依赖锁与编译产物身份",
+        "公开命令真实退出码及完整日志",
+        "不挂载 .env，公开基线验证断网"
+      ]
+    },
+    {
+      "instance_id": "mwaskom__seaborn-2848",
+      "environment_setup_commit": "d25872b0fc99dbf7e666a91f59bd4ed125186aa1",
+      "base_commit": "94621cef29f80282436d73e8d2c0aa76dab81273",
+      "version": "0.12",
+      "repo": "mwaskom/seaborn",
+      "profile_repo": "mwaskom/seaborn",
+      "environment_status": "not_verified_by_this_review",
+      "retain_even_if_environment_failure": true,
+      "prepared_image_id": null,
+      "python39_disposition": "candidate_only_requires_source_and_dependency_validation",
+      "candidate_python": "3.9",
+      "required_identity_checks": [
+        "实际容器 image ID",
+        "git HEAD 等于 base_commit",
+        "公开验证前后源码干净",
+        "Python 版本与目标模块 __file__",
+        "冻结依赖锁与编译产物身份",
+        "公开命令真实退出码及完整日志",
+        "不挂载 .env，公开基线验证断网"
+      ]
+    },
+    {
+      "instance_id": "pallets__flask-4045",
+      "environment_setup_commit": "4346498c85848c53843b810537b83a8f6124c9d3",
+      "base_commit": "d8c37f43724cd9fb0870f77877b7c4c7e38a19e0",
+      "version": "2.0",
+      "repo": "pallets/flask",
+      "profile_repo": "pallets/flask",
+      "environment_status": "not_verified_by_this_review",
+      "retain_even_if_environment_failure": true,
+      "prepared_image_id": null,
+      "python39_disposition": "candidate_only_requires_source_and_dependency_validation",
+      "candidate_python": "3.9",
+      "required_identity_checks": [
+        "实际容器 image ID",
+        "git HEAD 等于 base_commit",
+        "公开验证前后源码干净",
+        "Python 版本与目标模块 __file__",
+        "冻结依赖锁与编译产物身份",
+        "公开命令真实退出码及完整日志",
+        "不挂载 .env，公开基线验证断网"
+      ]
+    },
+    {
+      "instance_id": "psf__requests-1963",
+      "environment_setup_commit": "3eb69be879063de4803f7f0152b83738a1c95ca4",
+      "base_commit": "110048f9837f8441ea536804115e80b69f400277",
+      "version": "2.3",
+      "repo": "psf/requests",
+      "profile_repo": "psf/requests",
+      "environment_status": "not_verified_by_this_review",
+      "retain_even_if_environment_failure": true,
+      "prepared_image_id": null,
+      "python39_disposition": "candidate_only_requires_source_and_dependency_validation",
+      "candidate_python": "3.9",
+      "required_identity_checks": [
+        "实际容器 image ID",
+        "git HEAD 等于 base_commit",
+        "公开验证前后源码干净",
+        "Python 版本与目标模块 __file__",
+        "冻结依赖锁与编译产物身份",
+        "公开命令真实退出码及完整日志",
+        "不挂载 .env，公开基线验证断网"
+      ]
+    },
+    {
+      "instance_id": "pydata__xarray-3364",
+      "environment_setup_commit": "1c198a191127c601d091213c4b3292a8bb3054e1",
+      "base_commit": "863e49066ca4d61c9adfe62aca3bf21b90e1af8c",
+      "version": "0.12",
+      "repo": "pydata/xarray",
+      "profile_repo": "pydata/xarray",
+      "environment_status": "not_verified_by_this_review",
+      "retain_even_if_environment_failure": true,
+      "prepared_image_id": null,
+      "python39_disposition": "candidate_only_requires_source_and_dependency_validation",
+      "candidate_python": "3.9",
+      "required_identity_checks": [
+        "实际容器 image ID",
+        "git HEAD 等于 base_commit",
+        "公开验证前后源码干净",
+        "Python 版本与目标模块 __file__",
+        "冻结依赖锁与编译产物身份",
+        "公开命令真实退出码及完整日志",
+        "不挂载 .env，公开基线验证断网"
+      ]
+    },
+    {
+      "instance_id": "pylint-dev__pylint-7114",
+      "environment_setup_commit": "e90702074e68e20dc8e5df5013ee3ecf22139c3e",
+      "base_commit": "397c1703e8ae6349d33f7b99f45b2ccaf581e666",
+      "version": "2.15",
+      "repo": "pylint-dev/pylint",
+      "profile_repo": "pylint-dev/pylint",
+      "environment_status": "not_verified_by_this_review",
+      "retain_even_if_environment_failure": true,
+      "prepared_image_id": null,
+      "python39_disposition": "candidate_only_requires_source_and_dependency_validation",
+      "candidate_python": "3.9",
+      "required_identity_checks": [
+        "实际容器 image ID",
+        "git HEAD 等于 base_commit",
+        "公开验证前后源码干净",
+        "Python 版本与目标模块 __file__",
+        "冻结依赖锁与编译产物身份",
+        "公开命令真实退出码及完整日志",
+        "不挂载 .env，公开基线验证断网"
+      ]
+    },
+    {
+      "instance_id": "pytest-dev__pytest-6116",
+      "environment_setup_commit": "f36ea240fe3579f945bf5d6cc41b5e45a572249d",
+      "base_commit": "e670ff76cbad80108bde9bab616b66771b8653cf",
+      "version": "5.2",
+      "repo": "pytest-dev/pytest",
+      "profile_repo": "pytest-dev/pytest",
+      "environment_status": "not_verified_by_this_review",
+      "retain_even_if_environment_failure": true,
+      "prepared_image_id": null,
+      "python39_disposition": "candidate_only_requires_source_and_dependency_validation",
+      "candidate_python": "3.9",
+      "required_identity_checks": [
+        "实际容器 image ID",
+        "git HEAD 等于 base_commit",
+        "公开验证前后源码干净",
+        "Python 版本与目标模块 __file__",
+        "冻结依赖锁与编译产物身份",
+        "公开命令真实退出码及完整日志",
+        "不挂载 .env，公开基线验证断网"
+      ]
+    },
+    {
+      "instance_id": "pytest-dev__pytest-8906",
+      "environment_setup_commit": "e2ee3144ed6e241dea8d96215fcdca18b3892551",
+      "base_commit": "69356d20cfee9a81972dcbf93d8caf9eabe113e8",
+      "version": "7.0",
+      "repo": "pytest-dev/pytest",
+      "profile_repo": "pytest-dev/pytest",
+      "environment_status": "not_verified_by_this_review",
+      "retain_even_if_environment_failure": true,
+      "prepared_image_id": null,
+      "python39_disposition": "candidate_only_requires_source_and_dependency_validation",
+      "candidate_python": "3.9",
+      "required_identity_checks": [
+        "实际容器 image ID",
+        "git HEAD 等于 base_commit",
+        "公开验证前后源码干净",
+        "Python 版本与目标模块 __file__",
+        "冻结依赖锁与编译产物身份",
+        "公开命令真实退出码及完整日志",
+        "不挂载 .env，公开基线验证断网"
+      ]
+    },
+    {
+      "instance_id": "scikit-learn__scikit-learn-11281",
+      "environment_setup_commit": "55bf5d93e5674f13a1134d93a11fd0cd11aabcd1",
+      "base_commit": "4143356c3c51831300789e4fdf795d83716dbab6",
+      "version": "0.20",
+      "repo": "scikit-learn/scikit-learn",
+      "profile_repo": "scikit-learn/scikit-learn",
+      "environment_status": "not_verified_by_this_review",
+      "retain_even_if_environment_failure": true,
+      "prepared_image_id": null,
+      "python39_disposition": "historical_binary_build_profile_recommended_instead_of_current_stack",
+      "candidate_python": "3.6",
+      "required_identity_checks": [
+        "实际容器 image ID",
+        "git HEAD 等于 base_commit",
+        "公开验证前后源码干净",
+        "Python 版本与目标模块 __file__",
+        "冻结依赖锁与编译产物身份",
+        "公开命令真实退出码及完整日志",
+        "不挂载 .env，公开基线验证断网"
+      ]
+    },
+    {
+      "instance_id": "scikit-learn__scikit-learn-13496",
+      "environment_setup_commit": "7813f7efb5b2012412888b69e73d76f2df2b50b6",
+      "base_commit": "3aefc834dce72e850bff48689bea3c7dff5f3fad",
+      "version": "0.21",
+      "repo": "scikit-learn/scikit-learn",
+      "profile_repo": "scikit-learn/scikit-learn",
+      "environment_status": "not_verified_by_this_review",
+      "retain_even_if_environment_failure": true,
+      "prepared_image_id": null,
+      "python39_disposition": "historical_binary_build_profile_recommended_instead_of_current_stack",
+      "candidate_python": "3.7",
+      "required_identity_checks": [
+        "实际容器 image ID",
+        "git HEAD 等于 base_commit",
+        "公开验证前后源码干净",
+        "Python 版本与目标模块 __file__",
+        "冻结依赖锁与编译产物身份",
+        "公开命令真实退出码及完整日志",
+        "不挂载 .env，公开基线验证断网"
+      ]
+    },
+    {
+      "instance_id": "sphinx-doc__sphinx-8595",
+      "environment_setup_commit": "4f8cb861e3b29186b38248fe81e4944fd987fcce",
+      "base_commit": "b19bce971e82f2497d67fdacdeca8db08ae0ba56",
+      "version": "3.5",
+      "repo": "sphinx-doc/sphinx",
+      "profile_repo": "sphinx-doc/sphinx",
+      "environment_status": "not_verified_by_this_review",
+      "retain_even_if_environment_failure": true,
+      "prepared_image_id": null,
+      "python39_disposition": "candidate_only_requires_source_and_dependency_validation",
+      "candidate_python": "3.9",
+      "required_identity_checks": [
+        "实际容器 image ID",
+        "git HEAD 等于 base_commit",
+        "公开验证前后源码干净",
+        "Python 版本与目标模块 __file__",
+        "冻结依赖锁与编译产物身份",
+        "公开命令真实退出码及完整日志",
+        "不挂载 .env，公开基线验证断网"
+      ]
+    },
+    {
+      "instance_id": "sympy__sympy-13480",
+      "environment_setup_commit": "ec9e3c0436fbff934fa84e22bf07f1b3ef5bfac3",
+      "base_commit": "f57fe3f4b3f2cab225749e1b3b38ae1bf80b62f0",
+      "version": "1.1",
+      "repo": "sympy/sympy",
+      "profile_repo": "sympy/sympy",
+      "environment_status": "not_verified_by_this_review",
+      "retain_even_if_environment_failure": true,
+      "prepared_image_id": null,
+      "python39_disposition": "candidate_only_requires_source_and_dependency_validation",
+      "candidate_python": "3.9",
+      "required_identity_checks": [
+        "实际容器 image ID",
+        "git HEAD 等于 base_commit",
+        "公开验证前后源码干净",
+        "Python 版本与目标模块 __file__",
+        "冻结依赖锁与编译产物身份",
+        "公开命令真实退出码及完整日志",
+        "不挂载 .env，公开基线验证断网"
+      ]
+    },
+    {
+      "instance_id": "sympy__sympy-16503",
+      "environment_setup_commit": "70381f282f2d9d039da860e391fe51649df2779d",
+      "base_commit": "a7e6f093c98a3c4783848a19fce646e32b6e0161",
+      "version": "1.5",
+      "repo": "sympy/sympy",
+      "profile_repo": "sympy/sympy",
+      "environment_status": "not_verified_by_this_review",
+      "retain_even_if_environment_failure": true,
+      "prepared_image_id": null,
+      "python39_disposition": "candidate_only_requires_source_and_dependency_validation",
+      "candidate_python": "3.9",
+      "required_identity_checks": [
+        "实际容器 image ID",
+        "git HEAD 等于 base_commit",
+        "公开验证前后源码干净",
+        "Python 版本与目标模块 __file__",
+        "冻结依赖锁与编译产物身份",
+        "公开命令真实退出码及完整日志",
+        "不挂载 .env，公开基线验证断网"
+      ]
+    },
+    {
+      "instance_id": "sympy__sympy-23262",
+      "environment_setup_commit": "9a6104eab0ea7ac191a09c24f3e2d79dcd66bda5",
+      "base_commit": "fdc707f73a65a429935c01532cd3970d3355eab6",
+      "version": "1.11",
+      "repo": "sympy/sympy",
+      "profile_repo": "sympy/sympy",
+      "environment_status": "not_verified_by_this_review",
+      "retain_even_if_environment_failure": true,
+      "prepared_image_id": null,
+      "python39_disposition": "candidate_only_requires_source_and_dependency_validation",
+      "candidate_python": "3.9",
+      "required_identity_checks": [
+        "实际容器 image ID",
+        "git HEAD 等于 base_commit",
+        "公开验证前后源码干净",
+        "Python 版本与目标模块 __file__",
+        "冻结依赖锁与编译产物身份",
+        "公开命令真实退出码及完整日志",
+        "不挂载 .env，公开基线验证断网"
+      ]
+    }
+  ],
+  "public_text_provenance": [
+    {
+      "instance_id": "astropy__astropy-14995",
+      "repo": "astropy/astropy",
+      "base_commit": "b16c7d12ccbc7b2d20364b89fb44285bcbfede54",
+      "version": "5.2",
+      "path": "pyproject.toml",
+      "url": "https://raw.githubusercontent.com/astropy/astropy/b16c7d12ccbc7b2d20364b89fb44285bcbfede54/pyproject.toml",
+      "status_code": 200,
+      "bytes": 10636,
+      "sha256": "7364cc8c6e1bdda013833db4756370718df8e280f0dca774c4bfd7fd033047f2",
+      "retrieval_truncated": false,
+      "sha256_scope": "complete_public_file"
+    },
+    {
+      "instance_id": "astropy__astropy-14995",
+      "repo": "astropy/astropy",
+      "base_commit": "b16c7d12ccbc7b2d20364b89fb44285bcbfede54",
+      "version": "5.2",
+      "path": "setup.cfg",
+      "url": "https://raw.githubusercontent.com/astropy/astropy/b16c7d12ccbc7b2d20364b89fb44285bcbfede54/setup.cfg",
+      "status_code": 200,
+      "bytes": 5729,
+      "sha256": "ad8477334ad548a278c0c6af20e4290d8ca7c7b5c1051f60a193c3962a5a2c8a",
+      "retrieval_truncated": false,
+      "sha256_scope": "complete_public_file"
+    },
+    {
+      "instance_id": "django__django-11910",
+      "repo": "django/django",
+      "base_commit": "d232fd76a85870daf345fd8f8d617fe7802ae194",
+      "version": "3.1",
+      "path": "setup.py",
+      "url": "https://raw.githubusercontent.com/django/django/d232fd76a85870daf345fd8f8d617fe7802ae194/setup.py",
+      "status_code": 200,
+      "bytes": 4700,
+      "sha256": "2c2a5f9a3e556c6b3a48b79cd47a45fdda5688c7a0ed476e450f77673686b524",
+      "retrieval_truncated": false,
+      "sha256_scope": "complete_public_file"
+    },
+    {
+      "instance_id": "django__django-12708",
+      "repo": "django/django",
+      "base_commit": "447980e72ac01da1594dd3373a03ba40b7ee6f80",
+      "version": "3.1",
+      "path": "setup.py",
+      "url": "https://raw.githubusercontent.com/django/django/447980e72ac01da1594dd3373a03ba40b7ee6f80/setup.py",
+      "status_code": 200,
+      "bytes": 2368,
+      "sha256": "49699f5a203e401a898086664cda2c0f71783ac475ec599e8a680cfa6c540f94",
+      "retrieval_truncated": false,
+      "sha256_scope": "complete_public_file"
+    },
+    {
+      "instance_id": "django__django-13230",
+      "repo": "django/django",
+      "base_commit": "184a6eebb0ef56d5f1b1315a8e666830e37f3f81",
+      "version": "3.2",
+      "path": "setup.py",
+      "url": "https://raw.githubusercontent.com/django/django/184a6eebb0ef56d5f1b1315a8e666830e37f3f81/setup.py",
+      "status_code": 200,
+      "bytes": 2368,
+      "sha256": "49699f5a203e401a898086664cda2c0f71783ac475ec599e8a680cfa6c540f94",
+      "retrieval_truncated": false,
+      "sha256_scope": "complete_public_file"
+    },
+    {
+      "instance_id": "django__django-17087",
+      "repo": "django/django",
+      "base_commit": "4a72da71001f154ea60906a2f74898d32b7322a7",
+      "version": "5.0",
+      "path": "setup.py",
+      "url": "https://raw.githubusercontent.com/django/django/4a72da71001f154ea60906a2f74898d32b7322a7/setup.py",
+      "status_code": 200,
+      "bytes": 1633,
+      "sha256": "e4c1e42858ed8fb8ce2cd6028894ac7631747f940e32c886e8868ce6c031cf73",
+      "retrieval_truncated": false,
+      "sha256_scope": "complete_public_file"
+    },
+    {
+      "instance_id": "matplotlib__matplotlib-23987",
+      "repo": "matplotlib/matplotlib",
+      "base_commit": "e98d8d085e8f53ec0467422b326f7738a2dd695e",
+      "version": "3.6",
+      "path": "pyproject.toml",
+      "url": "https://raw.githubusercontent.com/matplotlib/matplotlib/e98d8d085e8f53ec0467422b326f7738a2dd695e/pyproject.toml",
+      "status_code": 404
+    },
+    {
+      "instance_id": "matplotlib__matplotlib-23987",
+      "repo": "matplotlib/matplotlib",
+      "base_commit": "e98d8d085e8f53ec0467422b326f7738a2dd695e",
+      "version": "3.6",
+      "path": "setup.py",
+      "url": "https://raw.githubusercontent.com/matplotlib/matplotlib/e98d8d085e8f53ec0467422b326f7738a2dd695e/setup.py",
+      "status_code": 200,
+      "bytes": 12906,
+      "sha256": "21a3b91e25ba36b2d7275603eb924711ce934753a869b3396be2e32a794249a3",
+      "retrieval_truncated": false,
+      "sha256_scope": "complete_public_file"
+    },
+    {
+      "instance_id": "matplotlib__matplotlib-23987",
+      "repo": "matplotlib/matplotlib",
+      "base_commit": "e98d8d085e8f53ec0467422b326f7738a2dd695e",
+      "version": "3.6",
+      "path": "setupext.py",
+      "url": "https://raw.githubusercontent.com/matplotlib/matplotlib/e98d8d085e8f53ec0467422b326f7738a2dd695e/setupext.py",
+      "status_code": 200,
+      "bytes": 28128,
+      "sha256": "dcde2eb15f7f229a2fc3eaf97a6348d2e8d4e0d7910f4ed710b21a746f40fe93",
+      "retrieval_truncated": false,
+      "sha256_scope": "complete_public_file"
+    },
+    {
+      "instance_id": "matplotlib__matplotlib-24970",
+      "repo": "matplotlib/matplotlib",
+      "base_commit": "a3011dfd1aaa2487cce8aa7369475533133ef777",
+      "version": "3.6",
+      "path": "pyproject.toml",
+      "url": "https://raw.githubusercontent.com/matplotlib/matplotlib/a3011dfd1aaa2487cce8aa7369475533133ef777/pyproject.toml",
+      "status_code": 200,
+      "bytes": 173,
+      "sha256": "e72807bbf2d3b788f1e73c6356ea94fcf330a0ebc2177d7d0b3086f273bd5cd6",
+      "retrieval_truncated": false,
+      "sha256_scope": "complete_public_file"
+    },
+    {
+      "instance_id": "matplotlib__matplotlib-24970",
+      "repo": "matplotlib/matplotlib",
+      "base_commit": "a3011dfd1aaa2487cce8aa7369475533133ef777",
+      "version": "3.6",
+      "path": "setup.py",
+      "url": "https://raw.githubusercontent.com/matplotlib/matplotlib/a3011dfd1aaa2487cce8aa7369475533133ef777/setup.py",
+      "status_code": 200,
+      "bytes": 13662,
+      "sha256": "aab0c8cb71b9977cdd760041874580aa0befd83180b600a33a6df7ea7b93ddcb",
+      "retrieval_truncated": false,
+      "sha256_scope": "complete_public_file"
+    },
+    {
+      "instance_id": "matplotlib__matplotlib-24970",
+      "repo": "matplotlib/matplotlib",
+      "base_commit": "a3011dfd1aaa2487cce8aa7369475533133ef777",
+      "version": "3.6",
+      "path": "setupext.py",
+      "url": "https://raw.githubusercontent.com/matplotlib/matplotlib/a3011dfd1aaa2487cce8aa7369475533133ef777/setupext.py",
+      "status_code": 200,
+      "bytes": 28707,
+      "sha256": "d56a7316582143908e86b14dd876e1b6d5e1bb7ac164e8413e518464249ff39e",
+      "retrieval_truncated": false,
+      "sha256_scope": "complete_public_file"
+    },
+    {
+      "instance_id": "mwaskom__seaborn-2848",
+      "repo": "mwaskom/seaborn",
+      "base_commit": "94621cef29f80282436d73e8d2c0aa76dab81273",
+      "version": "0.12",
+      "path": "setup.py",
+      "url": "https://raw.githubusercontent.com/mwaskom/seaborn/94621cef29f80282436d73e8d2c0aa76dab81273/setup.py",
+      "status_code": 200,
+      "bytes": 3268,
+      "sha256": "656a4080da517986ac8260c5606bcc24dcf21ee2e528b4da89d2956fb6de48be",
+      "retrieval_truncated": false,
+      "sha256_scope": "complete_public_file"
+    },
+    {
+      "instance_id": "mwaskom__seaborn-2848",
+      "repo": "mwaskom/seaborn",
+      "base_commit": "94621cef29f80282436d73e8d2c0aa76dab81273",
+      "version": "0.12",
+      "path": "requirements.txt",
+      "url": "https://raw.githubusercontent.com/mwaskom/seaborn/94621cef29f80282436d73e8d2c0aa76dab81273/requirements.txt",
+      "status_code": 404
+    },
+    {
+      "instance_id": "pallets__flask-4045",
+      "repo": "pallets/flask",
+      "base_commit": "d8c37f43724cd9fb0870f77877b7c4c7e38a19e0",
+      "version": "2.0",
+      "path": "setup.cfg",
+      "url": "https://raw.githubusercontent.com/pallets/flask/d8c37f43724cd9fb0870f77877b7c4c7e38a19e0/setup.cfg",
+      "status_code": 200,
+      "bytes": 2896,
+      "sha256": "e8d91d82eba2977432cf2cb878f1aae83c771f3f4bd3666622f8b9e1c65f53ed",
+      "retrieval_truncated": false,
+      "sha256_scope": "complete_public_file"
+    },
+    {
+      "instance_id": "pallets__flask-4045",
+      "repo": "pallets/flask",
+      "base_commit": "d8c37f43724cd9fb0870f77877b7c4c7e38a19e0",
+      "version": "2.0",
+      "path": "pyproject.toml",
+      "url": "https://raw.githubusercontent.com/pallets/flask/d8c37f43724cd9fb0870f77877b7c4c7e38a19e0/pyproject.toml",
+      "status_code": 404
+    },
+    {
+      "instance_id": "psf__requests-1963",
+      "repo": "psf/requests",
+      "base_commit": "110048f9837f8441ea536804115e80b69f400277",
+      "version": "2.3",
+      "path": "setup.py",
+      "url": "https://raw.githubusercontent.com/psf/requests/110048f9837f8441ea536804115e80b69f400277/setup.py",
+      "status_code": 200,
+      "bytes": 1602,
+      "sha256": "4264d70db4af18d3ac44519037a5855d300cd2d24318ecf838f6bb84de1546f4",
+      "retrieval_truncated": false,
+      "sha256_scope": "complete_public_file"
+    },
+    {
+      "instance_id": "psf__requests-1963",
+      "repo": "psf/requests",
+      "base_commit": "110048f9837f8441ea536804115e80b69f400277",
+      "version": "2.3",
+      "path": "requirements.txt",
+      "url": "https://raw.githubusercontent.com/psf/requests/110048f9837f8441ea536804115e80b69f400277/requirements.txt",
+      "status_code": 200,
+      "bytes": 61,
+      "sha256": "878c487bab1e59dc96e58d6268f03aeb70a644b1c549b11a087f7ae06e9ad57f",
+      "retrieval_truncated": false,
+      "sha256_scope": "complete_public_file"
+    },
+    {
+      "instance_id": "pydata__xarray-3364",
+      "repo": "pydata/xarray",
+      "base_commit": "863e49066ca4d61c9adfe62aca3bf21b90e1af8c",
+      "version": "0.12",
+      "path": "setup.py",
+      "url": "https://raw.githubusercontent.com/pydata/xarray/863e49066ca4d61c9adfe62aca3bf21b90e1af8c/setup.py",
+      "status_code": 200,
+      "bytes": 4067,
+      "sha256": "e61c819740ad5d5df988377b81b4d7a6abb14f6bb19bf05a3d4ad7b4abcef17b",
+      "retrieval_truncated": false,
+      "sha256_scope": "complete_public_file"
+    },
+    {
+      "instance_id": "pydata__xarray-3364",
+      "repo": "pydata/xarray",
+      "base_commit": "863e49066ca4d61c9adfe62aca3bf21b90e1af8c",
+      "version": "0.12",
+      "path": "setup.cfg",
+      "url": "https://raw.githubusercontent.com/pydata/xarray/863e49066ca4d61c9adfe62aca3bf21b90e1af8c/setup.cfg",
+      "status_code": 200,
+      "bytes": 2749,
+      "sha256": "746f4b9f4c32e0b5028b08850fb9267a9de5526219d9f2d0333118105d28e304",
+      "retrieval_truncated": false,
+      "sha256_scope": "complete_public_file"
+    },
+    {
+      "instance_id": "pylint-dev__pylint-7114",
+      "repo": "pylint-dev/pylint",
+      "base_commit": "397c1703e8ae6349d33f7b99f45b2ccaf581e666",
+      "version": "2.15",
+      "path": "pyproject.toml",
+      "url": "https://raw.githubusercontent.com/pylint-dev/pylint/397c1703e8ae6349d33f7b99f45b2ccaf581e666/pyproject.toml",
+      "status_code": 200,
+      "bytes": 2889,
+      "sha256": "a2c84fc0ffd68c619ce923496a0d6f9b4cafdb291be0f6a58a4ca90681d4a2d5",
+      "retrieval_truncated": false,
+      "sha256_scope": "complete_public_file"
+    },
+    {
+      "instance_id": "pylint-dev__pylint-7114",
+      "repo": "pylint-dev/pylint",
+      "base_commit": "397c1703e8ae6349d33f7b99f45b2ccaf581e666",
+      "version": "2.15",
+      "path": "setup.cfg",
+      "url": "https://raw.githubusercontent.com/pylint-dev/pylint/397c1703e8ae6349d33f7b99f45b2ccaf581e666/setup.cfg",
+      "status_code": 200,
+      "bytes": 2284,
+      "sha256": "9b3ea28ba5d4d57a0c1a316f626386b4e6ba15f9c88340fc19b043690af32fed",
+      "retrieval_truncated": false,
+      "sha256_scope": "complete_public_file"
+    },
+    {
+      "instance_id": "pytest-dev__pytest-6116",
+      "repo": "pytest-dev/pytest",
+      "base_commit": "e670ff76cbad80108bde9bab616b66771b8653cf",
+      "version": "5.2",
+      "path": "setup.cfg",
+      "url": "https://raw.githubusercontent.com/pytest-dev/pytest/e670ff76cbad80108bde9bab616b66771b8653cf/setup.cfg",
+      "status_code": 200,
+      "bytes": 1748,
+      "sha256": "b228109f05ed8498fee1573b81b8654787e9082268ff8253915873c65b05ead7",
+      "retrieval_truncated": false,
+      "sha256_scope": "complete_public_file"
+    },
+    {
+      "instance_id": "pytest-dev__pytest-6116",
+      "repo": "pytest-dev/pytest",
+      "base_commit": "e670ff76cbad80108bde9bab616b66771b8653cf",
+      "version": "5.2",
+      "path": "pyproject.toml",
+      "url": "https://raw.githubusercontent.com/pytest-dev/pytest/e670ff76cbad80108bde9bab616b66771b8653cf/pyproject.toml",
+      "status_code": 200,
+      "bytes": 1163,
+      "sha256": "264aa442132204320ce84be605c31f0aa6d910d94fac35ee2a85fcbca70b6727",
+      "retrieval_truncated": false,
+      "sha256_scope": "complete_public_file"
+    },
+    {
+      "instance_id": "pytest-dev__pytest-6116",
+      "repo": "pytest-dev/pytest",
+      "base_commit": "e670ff76cbad80108bde9bab616b66771b8653cf",
+      "version": "5.2",
+      "path": "tox.ini",
+      "url": "https://raw.githubusercontent.com/pytest-dev/pytest/e670ff76cbad80108bde9bab616b66771b8653cf/tox.ini",
+      "status_code": 200,
+      "bytes": 4964,
+      "sha256": "3f5fe51bac9615628199e2f5ca534c6aacf0f7dfc7da8d2baffe4ad064da03e7",
+      "retrieval_truncated": false,
+      "sha256_scope": "complete_public_file"
+    },
+    {
+      "instance_id": "pytest-dev__pytest-8906",
+      "repo": "pytest-dev/pytest",
+      "base_commit": "69356d20cfee9a81972dcbf93d8caf9eabe113e8",
+      "version": "7.0",
+      "path": "setup.cfg",
+      "url": "https://raw.githubusercontent.com/pytest-dev/pytest/69356d20cfee9a81972dcbf93d8caf9eabe113e8/setup.cfg",
+      "status_code": 200,
+      "bytes": 2624,
+      "sha256": "b4859f0e3af7ca7086a71c82d6711089c3f10ea9a1ac55e238d9eb6a4df0a124",
+      "retrieval_truncated": false,
+      "sha256_scope": "complete_public_file"
+    },
+    {
+      "instance_id": "pytest-dev__pytest-8906",
+      "repo": "pytest-dev/pytest",
+      "base_commit": "69356d20cfee9a81972dcbf93d8caf9eabe113e8",
+      "version": "7.0",
+      "path": "pyproject.toml",
+      "url": "https://raw.githubusercontent.com/pytest-dev/pytest/69356d20cfee9a81972dcbf93d8caf9eabe113e8/pyproject.toml",
+      "status_code": 200,
+      "bytes": 3936,
+      "sha256": "be739f73e3b59ff2aeb5679ac642d67ed5e9bb579ce5b72d633fc9d1edc3ee33",
+      "retrieval_truncated": false,
+      "sha256_scope": "complete_public_file"
+    },
+    {
+      "instance_id": "pytest-dev__pytest-8906",
+      "repo": "pytest-dev/pytest",
+      "base_commit": "69356d20cfee9a81972dcbf93d8caf9eabe113e8",
+      "version": "7.0",
+      "path": "tox.ini",
+      "url": "https://raw.githubusercontent.com/pytest-dev/pytest/69356d20cfee9a81972dcbf93d8caf9eabe113e8/tox.ini",
+      "status_code": 200,
+      "bytes": 5561,
+      "sha256": "5ce285401301d57f72a0e24a776e4bc23290e5816a58bf1ba433a17c751df282",
+      "retrieval_truncated": false,
+      "sha256_scope": "complete_public_file"
+    },
+    {
+      "instance_id": "scikit-learn__scikit-learn-11281",
+      "repo": "scikit-learn/scikit-learn",
+      "base_commit": "4143356c3c51831300789e4fdf795d83716dbab6",
+      "version": "0.20",
+      "path": "setup.py",
+      "url": "https://raw.githubusercontent.com/scikit-learn/scikit-learn/4143356c3c51831300789e4fdf795d83716dbab6/setup.py",
+      "status_code": 200,
+      "bytes": 9225,
+      "sha256": "7326936f4ee7557de8e8eda17b3086b9d7b1bf65d9924d88f4253075ae081bcc",
+      "retrieval_truncated": false,
+      "sha256_scope": "complete_public_file"
+    },
+    {
+      "instance_id": "scikit-learn__scikit-learn-11281",
+      "repo": "scikit-learn/scikit-learn",
+      "base_commit": "4143356c3c51831300789e4fdf795d83716dbab6",
+      "version": "0.20",
+      "path": ".travis.yml",
+      "url": "https://raw.githubusercontent.com/scikit-learn/scikit-learn/4143356c3c51831300789e4fdf795d83716dbab6/.travis.yml",
+      "status_code": 200,
+      "bytes": 2594,
+      "sha256": "c65383b8a4058bc98961aa21072b8f306bbd829f3a0ee80f8658034727999ff2",
+      "retrieval_truncated": false,
+      "sha256_scope": "complete_public_file"
+    },
+    {
+      "instance_id": "scikit-learn__scikit-learn-11281",
+      "repo": "scikit-learn/scikit-learn",
+      "base_commit": "4143356c3c51831300789e4fdf795d83716dbab6",
+      "version": "0.20",
+      "path": "pyproject.toml",
+      "url": "https://raw.githubusercontent.com/scikit-learn/scikit-learn/4143356c3c51831300789e4fdf795d83716dbab6/pyproject.toml",
+      "status_code": 404
+    },
+    {
+      "instance_id": "scikit-learn__scikit-learn-13496",
+      "repo": "scikit-learn/scikit-learn",
+      "base_commit": "3aefc834dce72e850bff48689bea3c7dff5f3fad",
+      "version": "0.21",
+      "path": "setup.py",
+      "url": "https://raw.githubusercontent.com/scikit-learn/scikit-learn/3aefc834dce72e850bff48689bea3c7dff5f3fad/setup.py",
+      "status_code": 200,
+      "bytes": 11442,
+      "sha256": "e71e0a09208750175c7d2f926967cbe99a79c587ba832e9ccd44a454a876537a",
+      "retrieval_truncated": false,
+      "sha256_scope": "complete_public_file"
+    },
+    {
+      "instance_id": "scikit-learn__scikit-learn-13496",
+      "repo": "scikit-learn/scikit-learn",
+      "base_commit": "3aefc834dce72e850bff48689bea3c7dff5f3fad",
+      "version": "0.21",
+      "path": ".travis.yml",
+      "url": "https://raw.githubusercontent.com/scikit-learn/scikit-learn/3aefc834dce72e850bff48689bea3c7dff5f3fad/.travis.yml",
+      "status_code": 200,
+      "bytes": 1234,
+      "sha256": "fb0640e499e2b42b920f91dbfbeb2c7bffcbef7df0d22a2185ac1797946bcaa5",
+      "retrieval_truncated": false,
+      "sha256_scope": "complete_public_file"
+    },
+    {
+      "instance_id": "scikit-learn__scikit-learn-13496",
+      "repo": "scikit-learn/scikit-learn",
+      "base_commit": "3aefc834dce72e850bff48689bea3c7dff5f3fad",
+      "version": "0.21",
+      "path": "pyproject.toml",
+      "url": "https://raw.githubusercontent.com/scikit-learn/scikit-learn/3aefc834dce72e850bff48689bea3c7dff5f3fad/pyproject.toml",
+      "status_code": 404
+    },
+    {
+      "instance_id": "sphinx-doc__sphinx-8595",
+      "repo": "sphinx-doc/sphinx",
+      "base_commit": "b19bce971e82f2497d67fdacdeca8db08ae0ba56",
+      "version": "3.5",
+      "path": "setup.py",
+      "url": "https://raw.githubusercontent.com/sphinx-doc/sphinx/b19bce971e82f2497d67fdacdeca8db08ae0ba56/setup.py",
+      "status_code": 200,
+      "bytes": 8475,
+      "sha256": "405f72902a7781362504cf53d6d34a266a232f046b5f95ba2f3e8d07cfc8656d",
+      "retrieval_truncated": false,
+      "sha256_scope": "complete_public_file"
+    },
+    {
+      "instance_id": "sphinx-doc__sphinx-8595",
+      "repo": "sphinx-doc/sphinx",
+      "base_commit": "b19bce971e82f2497d67fdacdeca8db08ae0ba56",
+      "version": "3.5",
+      "path": "tox.ini",
+      "url": "https://raw.githubusercontent.com/sphinx-doc/sphinx/b19bce971e82f2497d67fdacdeca8db08ae0ba56/tox.ini",
+      "status_code": 200,
+      "bytes": 2093,
+      "sha256": "f7b15f4e599bddbc6aada7fafd8e6bc218eea596c32744fd726a3534ddce41e2",
+      "retrieval_truncated": false,
+      "sha256_scope": "complete_public_file"
+    },
+    {
+      "instance_id": "sympy__sympy-13480",
+      "repo": "sympy/sympy",
+      "base_commit": "f57fe3f4b3f2cab225749e1b3b38ae1bf80b62f0",
+      "version": "1.1",
+      "path": "setup.py",
+      "url": "https://raw.githubusercontent.com/sympy/sympy/f57fe3f4b3f2cab225749e1b3b38ae1bf80b62f0/setup.py",
+      "status_code": 200,
+      "bytes": 11927,
+      "sha256": "39d56fef07beecb47eadb507b5f734ea756942c765bc3298a4675d0a38ebb332",
+      "retrieval_truncated": false,
+      "sha256_scope": "complete_public_file"
+    },
+    {
+      "instance_id": "sympy__sympy-13480",
+      "repo": "sympy/sympy",
+      "base_commit": "f57fe3f4b3f2cab225749e1b3b38ae1bf80b62f0",
+      "version": "1.1",
+      "path": "sympy/core/compatibility.py",
+      "url": "https://raw.githubusercontent.com/sympy/sympy/f57fe3f4b3f2cab225749e1b3b38ae1bf80b62f0/sympy/core/compatibility.py",
+      "status_code": 200,
+      "bytes": 28916,
+      "sha256": "5da2e58ef62eb82a60a92ff21f18f11bcbc64e85a9a0b9926b7fa9c6acae18b4",
+      "retrieval_truncated": false,
+      "sha256_scope": "complete_public_file"
+    },
+    {
+      "instance_id": "sympy__sympy-16503",
+      "repo": "sympy/sympy",
+      "base_commit": "a7e6f093c98a3c4783848a19fce646e32b6e0161",
+      "version": "1.5",
+      "path": "setup.py",
+      "url": "https://raw.githubusercontent.com/sympy/sympy/a7e6f093c98a3c4783848a19fce646e32b6e0161/setup.py",
+      "status_code": 200,
+      "bytes": 13581,
+      "sha256": "8b3a0cf656c7358acf78eff809d5affef52f766293791198894ae5694427c790",
+      "retrieval_truncated": false,
+      "sha256_scope": "complete_public_file"
+    },
+    {
+      "instance_id": "sympy__sympy-16503",
+      "repo": "sympy/sympy",
+      "base_commit": "a7e6f093c98a3c4783848a19fce646e32b6e0161",
+      "version": "1.5",
+      "path": "sympy/core/compatibility.py",
+      "url": "https://raw.githubusercontent.com/sympy/sympy/a7e6f093c98a3c4783848a19fce646e32b6e0161/sympy/core/compatibility.py",
+      "status_code": 200,
+      "bytes": 31789,
+      "sha256": "910a41b0a1318252a3c5d0efc52e52dae57f48848e1ce7944237101b454a0c0c",
+      "retrieval_truncated": false,
+      "sha256_scope": "complete_public_file"
+    },
+    {
+      "instance_id": "sympy__sympy-23262",
+      "repo": "sympy/sympy",
+      "base_commit": "fdc707f73a65a429935c01532cd3970d3355eab6",
+      "version": "1.11",
+      "path": "setup.py",
+      "url": "https://raw.githubusercontent.com/sympy/sympy/fdc707f73a65a429935c01532cd3970d3355eab6/setup.py",
+      "status_code": 200,
+      "bytes": 15002,
+      "sha256": "f15a2df14b1373a3176b125f88540b852ea0b91b459a988d04158dacbb62a58a",
+      "retrieval_truncated": false,
+      "sha256_scope": "complete_public_file"
+    },
+    {
+      "instance_id": "sympy__sympy-23262",
+      "repo": "sympy/sympy",
+      "base_commit": "fdc707f73a65a429935c01532cd3970d3355eab6",
+      "version": "1.11",
+      "path": "sympy/core/compatibility.py",
+      "url": "https://raw.githubusercontent.com/sympy/sympy/fdc707f73a65a429935c01532cd3970d3355eab6/sympy/core/compatibility.py",
+      "status_code": 200,
+      "bytes": 1145,
+      "sha256": "5d01fb7b39918ba977476dea307376c1f03e60c4566e1d986233d8ecb468de5a",
+      "retrieval_truncated": false,
+      "sha256_scope": "complete_public_file"
+    },
+    {
+      "instance_id": "django__django-11910",
+      "repo": "django/django",
+      "base_commit": "d232fd76a85870daf345fd8f8d617fe7802ae194",
+      "version": "3.1",
+      "path": "setup.cfg",
+      "url": "https://raw.githubusercontent.com/django/django/d232fd76a85870daf345fd8f8d617fe7802ae194/setup.cfg",
+      "status_code": 200,
+      "bytes": 390,
+      "sha256": "d0808389793da0af38f3082e0343ca937f897c5f566baea8eab70ce136be654a",
+      "retrieval_truncated": false,
+      "sha256_scope": "complete_public_file"
+    },
+    {
+      "instance_id": "django__django-11910",
+      "repo": "django/django",
+      "base_commit": "d232fd76a85870daf345fd8f8d617fe7802ae194",
+      "version": "3.1",
+      "path": "pyproject.toml",
+      "url": "https://raw.githubusercontent.com/django/django/d232fd76a85870daf345fd8f8d617fe7802ae194/pyproject.toml",
+      "status_code": 404
+    },
+    {
+      "instance_id": "django__django-12708",
+      "repo": "django/django",
+      "base_commit": "447980e72ac01da1594dd3373a03ba40b7ee6f80",
+      "version": "3.1",
+      "path": "setup.cfg",
+      "url": "https://raw.githubusercontent.com/django/django/447980e72ac01da1594dd3373a03ba40b7ee6f80/setup.cfg",
+      "status_code": 200,
+      "bytes": 2121,
+      "sha256": "db46562205f5eeff4814269371ab3b012937a1f3caca38406b27331232eb56e4",
+      "retrieval_truncated": false,
+      "sha256_scope": "complete_public_file"
+    },
+    {
+      "instance_id": "django__django-12708",
+      "repo": "django/django",
+      "base_commit": "447980e72ac01da1594dd3373a03ba40b7ee6f80",
+      "version": "3.1",
+      "path": "pyproject.toml",
+      "url": "https://raw.githubusercontent.com/django/django/447980e72ac01da1594dd3373a03ba40b7ee6f80/pyproject.toml",
+      "status_code": 404
+    },
+    {
+      "instance_id": "django__django-13230",
+      "repo": "django/django",
+      "base_commit": "184a6eebb0ef56d5f1b1315a8e666830e37f3f81",
+      "version": "3.2",
+      "path": "setup.cfg",
+      "url": "https://raw.githubusercontent.com/django/django/184a6eebb0ef56d5f1b1315a8e666830e37f3f81/setup.cfg",
+      "status_code": 200,
+      "bytes": 2195,
+      "sha256": "9276c049e2c03097eeeaae93c6c5821f1b9f9ccb99ee1745a0ccbb508ade2abe",
+      "retrieval_truncated": false,
+      "sha256_scope": "complete_public_file"
+    },
+    {
+      "instance_id": "django__django-13230",
+      "repo": "django/django",
+      "base_commit": "184a6eebb0ef56d5f1b1315a8e666830e37f3f81",
+      "version": "3.2",
+      "path": "pyproject.toml",
+      "url": "https://raw.githubusercontent.com/django/django/184a6eebb0ef56d5f1b1315a8e666830e37f3f81/pyproject.toml",
+      "status_code": 404
+    },
+    {
+      "instance_id": "django__django-17087",
+      "repo": "django/django",
+      "base_commit": "4a72da71001f154ea60906a2f74898d32b7322a7",
+      "version": "5.0",
+      "path": "setup.cfg",
+      "url": "https://raw.githubusercontent.com/django/django/4a72da71001f154ea60906a2f74898d32b7322a7/setup.cfg",
+      "status_code": 200,
+      "bytes": 2191,
+      "sha256": "f9a3a7d7298128800f530a25899ee34a867efb313e369bf104c73aad2be18dca",
+      "retrieval_truncated": false,
+      "sha256_scope": "complete_public_file"
+    },
+    {
+      "instance_id": "django__django-17087",
+      "repo": "django/django",
+      "base_commit": "4a72da71001f154ea60906a2f74898d32b7322a7",
+      "version": "5.0",
+      "path": "pyproject.toml",
+      "url": "https://raw.githubusercontent.com/django/django/4a72da71001f154ea60906a2f74898d32b7322a7/pyproject.toml",
+      "status_code": 200,
+      "bytes": 200,
+      "sha256": "37aebd8cf45a1bd0b1f4fd7d51aa040c40e95feffca6cfc65725d1505f7517dd",
+      "retrieval_truncated": false,
+      "sha256_scope": "complete_public_file"
+    },
+    {
+      "instance_id": "pallets__flask-4045",
+      "repo": "pallets/flask",
+      "base_commit": "d8c37f43724cd9fb0870f77877b7c4c7e38a19e0",
+      "version": "2.0",
+      "path": "setup.py",
+      "url": "https://raw.githubusercontent.com/pallets/flask/d8c37f43724cd9fb0870f77877b7c4c7e38a19e0/setup.py",
+      "status_code": 200,
+      "bytes": 364,
+      "sha256": "e45603776a89f88d476689f8635326b9bb15ac159c34d50c4a18bb70236632c0",
+      "retrieval_truncated": false,
+      "sha256_scope": "complete_public_file"
+    },
+    {
+      "instance_id": "pydata__xarray-3364",
+      "repo": "pydata/xarray",
+      "base_commit": "863e49066ca4d61c9adfe62aca3bf21b90e1af8c",
+      "version": "0.12",
+      "path": "ci/requirements/py36.yml",
+      "url": "https://raw.githubusercontent.com/pydata/xarray/863e49066ca4d61c9adfe62aca3bf21b90e1af8c/ci/requirements/py36.yml",
+      "status_code": 200,
+      "bytes": 596,
+      "sha256": "5a3489ace463c1139be9982dc771300b27f665a8da8a8d261c3445c47c6dd221",
+      "retrieval_truncated": false,
+      "sha256_scope": "complete_public_file"
+    },
+    {
+      "instance_id": "pytest-dev__pytest-6116",
+      "repo": "pytest-dev/pytest",
+      "base_commit": "e670ff76cbad80108bde9bab616b66771b8653cf",
+      "version": "5.2",
+      "path": "setup.py",
+      "url": "https://raw.githubusercontent.com/pytest-dev/pytest/e670ff76cbad80108bde9bab616b66771b8653cf/setup.py",
+      "status_code": 200,
+      "bytes": 983,
+      "sha256": "ac6a98bc234cee88c2b4e4188bfc57d5b325bd6e9983725e92aa728683c75788",
+      "retrieval_truncated": false,
+      "sha256_scope": "complete_public_file"
+    },
+    {
+      "instance_id": "pytest-dev__pytest-8906",
+      "repo": "pytest-dev/pytest",
+      "base_commit": "69356d20cfee9a81972dcbf93d8caf9eabe113e8",
+      "version": "7.0",
+      "path": "setup.py",
+      "url": "https://raw.githubusercontent.com/pytest-dev/pytest/69356d20cfee9a81972dcbf93d8caf9eabe113e8/setup.py",
+      "status_code": 200,
+      "bytes": 69,
+      "sha256": "ef7b23c3468c8130483cd7578c14e977b39b372fd088f0e163b47be196d1291e",
+      "retrieval_truncated": false,
+      "sha256_scope": "complete_public_file"
+    },
+    {
+      "instance_id": "sympy__sympy-13480",
+      "repo": "sympy/sympy",
+      "base_commit": "f57fe3f4b3f2cab225749e1b3b38ae1bf80b62f0",
+      "version": "1.1",
+      "path": "sympy/core/numbers.py",
+      "url": "https://raw.githubusercontent.com/sympy/sympy/f57fe3f4b3f2cab225749e1b3b38ae1bf80b62f0/sympy/core/numbers.py",
+      "status_code": 200,
+      "bytes": 20000,
+      "sha256": "7cf6897da11d9c363bc785eb6d1697ec139ee6109ddf3646bce44186b6ace9df",
+      "retrieval_truncated": true,
+      "sha256_scope": "retrieved_prefix_only"
+    },
+    {
+      "instance_id": "sympy__sympy-16503",
+      "repo": "sympy/sympy",
+      "base_commit": "a7e6f093c98a3c4783848a19fce646e32b6e0161",
+      "version": "1.5",
+      "path": "sympy/core/numbers.py",
+      "url": "https://raw.githubusercontent.com/sympy/sympy/a7e6f093c98a3c4783848a19fce646e32b6e0161/sympy/core/numbers.py",
+      "status_code": 200,
+      "bytes": 20000,
+      "sha256": "d04faae7ecd887b524f78e5af59f86d85d7a20d29e946f7e6de4cd32a5280428",
+      "retrieval_truncated": true,
+      "sha256_scope": "retrieved_prefix_only"
+    }
+  ],
+  "text_cache_files": [
+    {
+      "path": "runs\\test20_execution_20261111\\environment\\test_environment_dependency_texts_01.json",
+      "sha256": "a993a1a80f010da451c25ebf0eeb8e167bf45ddf454287f9ee4bcdf3a71896b5"
+    },
+    {
+      "path": "runs\\test20_execution_20261111\\environment\\test_environment_dependency_texts_02.json",
+      "sha256": "7a67e3150db1ed5a8544af160ad7455ee904471d747abdffd957abe4fec44138"
+    }
+  ],
+  "bytes_of_public_text_retrieved": 337354,
+  "preparation_rules": [
+    "同一实例的环境须在生成前固定，A–E 使用相同身份。",
+    "仅使用公开基线与白名单元数据，不读取官方 patch/test_patch/FT/PT/hints/gold。",
+    "保留全部 20 例及基础设施故障，不按镜像可用性筛选。",
+    "构建、安装及依赖二进制下载属于后续动作，本次未做。",
+    "后续大缓存与构建输入使用获准 D 缓存，不移动 Docker 数据或清理受保护资产。",
+    "编译型主体必须来自精确基线，不能用其他发行版二进制代替。",
+    "历史测试依赖偏离必须在冻结前记录与公开验证，不得在看到隐藏结果后引入。"
+  ],
+  "review_actions": {
+    "credentials_read": false,
+    "models_called": 0,
+    "docker_builds": 0,
+    "package_installs": 0,
+    "wheels_downloaded": 0,
+    "source_archives_downloaded": 0,
+    "official_hidden_data_read": false
+  },
+  "unknowns": [
+    "本次没有启动 test20 真实容器。",
+    "12 个仓库的实际运行/构建锁尚未完整求解。",
+    "旧 Python 解释器、编译器层的可用性及资源成本仍未核验。",
+    "声明的 Python 最低版本不证明与现代依赖兼容。",
+    "全部 smoke 命令都是建议，不是测试通过或 resolved 标签。"
+  ]
+}
